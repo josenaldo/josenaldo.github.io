@@ -9,7 +9,7 @@
 #
 
 require "pathname"
-ENV["BUNDLE_GEMFILE"] ||= File.expand_path("../../../../../srv/jekyll/josenaldo/Gemfile",
+ENV["BUNDLE_GEMFILE"] ||= File.expand_path("../../../../../srv/jekyll/Gemfile",
   Pathname.new(__FILE__).realpath)
 
 bundle_binstub = File.expand_path("../bundle", __FILE__)

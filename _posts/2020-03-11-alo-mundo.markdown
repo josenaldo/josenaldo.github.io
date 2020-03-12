@@ -5,4 +5,8 @@ date:   2020-03-11 22:08:52
 categories: jekyll update
 ---
 
-# Testando carai
+## Testando carai
+
+{{ page.title | | upcase }}
+
+{{page.title || | downcase }}
