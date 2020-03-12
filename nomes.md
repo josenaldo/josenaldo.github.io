@@ -9,4 +9,3 @@ title: "Nomes do Capeta"
 
 * {{item.name}}
 {% endfor %}
-  
