@@ -7,6 +7,6 @@ categories: jekyll update
 
 ## Testando carai
 
-{{ page.title | | upcase }}
+{{ page.title || upcase }}
 
-{{page.title || | downcase }}
+{{page.title || downcase }}
