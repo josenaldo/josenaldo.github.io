@@ -2,6 +2,6 @@
 layout: default
 title: About
 ---
-# About page
+# Sobre
 
 This page tells you a little bit about me.
