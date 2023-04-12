@@ -1,3 +1,5 @@
+import { Button } from '@mui/material'
+import Grid from '@mui/material/Unstable_Grid2/Grid2'
 import Head from 'next/head'
 
 export default function Home() {
@@ -11,6 +13,42 @@ export default function Home() {
       </Head>
       <div>
         <h1>Josenaldo Matos</h1>
+        <Grid container spacing={2}>
+          <Grid>
+            <Button variant="contained" color="primary">
+              Primário
+            </Button>
+          </Grid>
+          <Grid>
+            <Button variant="contained" color="secondary">
+              Secundário
+            </Button>
+          </Grid>
+
+          <Grid>
+            <Button variant="contained" color="success">
+              Sucesso
+            </Button>
+          </Grid>
+
+          <Grid>
+            <Button variant="contained" color="error">
+              Erro
+            </Button>
+          </Grid>
+
+          <Grid>
+            <Button variant="contained" color="warning">
+              Aviso
+            </Button>
+          </Grid>
+
+          <Grid>
+            <Button variant="contained" color="info">
+              Informação
+            </Button>
+          </Grid>
+        </Grid>
       </div>
     </>
   )

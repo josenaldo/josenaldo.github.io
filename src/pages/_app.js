@@ -3,7 +3,7 @@ import { ThemeProvider } from '@mui/material/styles'
 import CssBaseline from '@mui/material/CssBaseline'
 
 import theme from '@/styles/theme'
-import AppLayout from '@/components/layout/AppLayout'
+import AppLayout from '@/layouts/AppLayout'
 
 export default function App({ Component, pageProps }) {
   return (
