@@ -1,7 +1,0 @@
-@import url('./styles/root.css');
-@import url('./styles/links.css');
-@import url('./styles/buttons.css');
-
-main {
-  margin-top: 60px;
-}
