@@ -1,0 +1,51 @@
+a.success,
+[role='link'].success {
+  --color: var(--success);
+}
+a.success:is([aria-current], :hover, :active, :focus),
+[role='link'].success:is([aria-current], :hover, :active, :focus) {
+  --color: var(--success-hover);
+}
+a.success:focus,
+[role='link'].success:focus {
+  --background-color: var(--success-focus);
+}
+
+a.info,
+[role='link'].info {
+  --color: var(--info);
+}
+a.info:is([aria-current], :hover, :active, :focus),
+[role='link'].info:is([aria-current], :hover, :active, :focus) {
+  --color: var(--info-hover);
+}
+a.info:focus,
+[role='link'].info:focus {
+  --background-color: var(--info-focus);
+}
+
+a.warning,
+[role='link'].warning {
+  --color: var(--warning);
+}
+a.warning:is([aria-current], :hover, :active, :focus),
+[role='link'].warning:is([aria-current], :hover, :active, :focus) {
+  --color: var(--warning-hover);
+}
+a.warning:focus,
+[role='link'].warning:focus {
+  --background-color: var(--warning-focus);
+}
+
+a.danger,
+[role='link'].danger {
+  --color: var(--danger);
+}
+a.danger:is([aria-current], :hover, :active, :focus),
+[role='link'].danger:is([aria-current], :hover, :active, :focus) {
+  --color: var(--danger-hover);
+}
+a.danger:focus,
+[role='link'].danger:focus {
+  --background-color: var(--danger-focus);
+}

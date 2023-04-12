@@ -1,0 +1,133 @@
+button.small,
+[role='button'].small {
+  padding: 0.1em 0.5em;
+}
+
+button.inline,
+[role='button'].inline {
+  display: inline-block !important;
+  width: auto;
+}
+
+/* Success */
+:is(
+    button,
+    input[type='submit'],
+    input[type='button'],
+    [role='button']
+  ).success {
+  --background-color: var(--success);
+  --border-color: var(--success);
+  --color: var(--success-inverse);
+  cursor: pointer;
+}
+:is(
+    button,
+    input[type='submit'],
+    input[type='button'],
+    [role='button']
+  ).success:is([aria-current], :hover, :active, :focus) {
+  --background-color: var(--success-hover);
+  --border-color: var(--success-hover);
+  --color: var(--success-inverse);
+}
+:is(
+    button,
+    input[type='submit'],
+    input[type='button'],
+    [role='button']
+  ).success:focus {
+  --box-shadow: var(--button-hover-box-shadow, 0 0 0 rgba(0, 0, 0, 0)),
+    0 0 0 var(--outline-width) var(--success-focus);
+}
+
+/* Info */
+:is(button, input[type='submit'], input[type='button'], [role='button']).info {
+  --background-color: var(--info);
+  --border-color: var(--info);
+  --color: var(--info-inverse);
+  cursor: pointer;
+}
+:is(
+    button,
+    input[type='submit'],
+    input[type='button'],
+    [role='button']
+  ).info:is([aria-current], :hover, :active, :focus) {
+  --background-color: var(--info-hover);
+  --border-color: var(--info-hover);
+  --color: var(--info-inverse);
+}
+:is(
+    button,
+    input[type='submit'],
+    input[type='button'],
+    [role='button']
+  ).info:focus {
+  --box-shadow: var(--button-hover-box-shadow, 0 0 0 rgba(0, 0, 0, 0)),
+    0 0 0 var(--outline-width) var(--info-focus);
+}
+
+/* Warning */
+:is(
+    button,
+    input[type='submit'],
+    input[type='button'],
+    [role='button']
+  ).warning {
+  --background-color: var(--warning);
+  --border-color: var(--warning);
+  --color: var(--warning-inverse);
+  cursor: pointer;
+}
+:is(
+    button,
+    input[type='submit'],
+    input[type='button'],
+    [role='button']
+  ).warning:is([aria-current], :hover, :active, :focus) {
+  --background-color: var(--warning-hover);
+  --border-color: var(--warning-hover);
+  --color: var(--warning-inverse);
+}
+:is(
+    button,
+    input[type='submit'],
+    input[type='button'],
+    [role='button']
+  ).warning:focus {
+  --box-shadow: var(--button-hover-box-shadow, 0 0 0 rgba(0, 0, 0, 0)),
+    0 0 0 var(--outline-width) var(--warning-focus);
+}
+
+/* Danger */
+:is(
+    button,
+    input[type='submit'],
+    input[type='button'],
+    [role='button']
+  ).danger {
+  --background-color: var(--danger);
+  --border-color: var(--danger);
+  --color: var(--danger-inverse);
+  cursor: pointer;
+}
+:is(
+    button,
+    input[type='submit'],
+    input[type='button'],
+    [role='button']
+  ).danger:is([aria-current], :hover, :active, :focus) {
+  --background-color: var(--danger-hover);
+  --border-color: var(--danger-hover);
+  --color: var(--danger-inverse);
+}
+:is(
+    button,
+    input[type='submit'],
+    input[type='button'],
+    [role='button']
+  ).danger:focus {
+  --box-shadow: var(--button-hover-box-shadow, 0 0 0 rgba(0, 0, 0, 0)),
+    0 0 0 var(--outline-width) var(--danger-focus);
+}

@@ -1,0 +1,80 @@
+.alert {
+  padding: 1rem 1rem;
+  border-radius: 0.25rem;
+  margin-bottom: 1rem;
+}
+
+.close-button {
+  margin-left: 15px;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.close-button:hover {
+  color: rgba(0, 0, 0, 0.5) !important;
+  transform: scale(1.2) !important;
+  transition: 0.3s;
+}
+
+.close-button:focus {
+  outline: none;
+}
+
+.close-button:active {
+  transition: 0.3s;
+  transform: scale(0.9) !important;
+}
+
+.alert-title {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.alert p {
+  margin: 0;
+}
+
+.alert p.details {
+  font-size: 0.8rem;
+  margin-top: 0.5rem;
+}
+
+.alert-info {
+  background-color: var(--info-background);
+}
+.alert-info p,
+.alert-info span,
+.alert-info li {
+  color: var(--info-text) !important;
+}
+
+.alert-success {
+  background-color: var(--success-background);
+}
+.alert-success p,
+.alert-success span,
+.alert-success li {
+  color: var(--success-text) !important;
+}
+
+.alert-warning {
+  background-color: var(--warning-background);
+}
+.alert-warning p,
+.alert-warning span,
+.alert-warning li {
+  color: var(--warning-text) !important;
+}
+
+.alert-error {
+  background-color: var(--danger-background);
+}
+.alert-error p,
+.alert-error span,
+.alert-error li {
+  color: var(--danger-text) !important;
+}
