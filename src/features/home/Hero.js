@@ -23,11 +23,11 @@ const Hero = () => {
           }}
         >
           <Typography variant="h5">Hello, My name is </Typography>
-          <Typography variant="h2">Josenaldo Matos</Typography>
+          <Typography variant="h1">Josenaldo Matos</Typography>
           <Typography variant="subtitle">
-            Hello, I'm Josenaldo Matos! With 20+ years in tech, I specialize in
-            Java & JS (React, NextJS) web development. Explore my portfolio,
-            read my blog, and come talk about your project!
+            With 20+ years in tech, I specialize in Java & JS (React, NextJS)
+            web development. Explore my portfolio, read my blog, and come talk
+            about your project!
           </Typography>
           <Box mt={4}>
             <Button variant="contained" href="/about">

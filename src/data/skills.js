@@ -1,0 +1,27 @@
+const skills = [
+  'Java',
+  'Spring',
+  'Hibernate',
+  'JPA',
+  'JDBC',
+  'Spring Boot',
+  'HTML',
+  'CSS',
+  'Javascript',
+  'React',
+  'NextJS',
+  'NodeJS',
+  'Express',
+  'Python',
+  'Pandas',
+  'Django',
+  'Mysql',
+  'PostgreSQL',
+  'MongoDB',
+  'Oracle',
+  'Git',
+  'Github',
+  'Docker',
+]
+
+export default skills
