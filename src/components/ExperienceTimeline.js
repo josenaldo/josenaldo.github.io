@@ -28,8 +28,12 @@ const ExperienceTimeline = ({ experiences, showEllipsis = false }) => {
             {experience.date}
           </TimelineOppositeContent>
           <TimelineSeparator>
-            <TimelineDot />
-            <TimelineConnector />
+            <TimelineDot color="secondary" />
+            <TimelineConnector
+              sx={{
+                backgroundColor: 'secondary.main',
+              }}
+            />
           </TimelineSeparator>
           <TimelineContent>
             <Typography variant="h5" component="h3">
