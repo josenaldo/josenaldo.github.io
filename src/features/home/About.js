@@ -1,8 +1,7 @@
 import { Box, Chip, Button, Typography } from '@mui/material'
 import Section from '@/components/Section'
 import skills from '@/data/skills'
-
-const colors = ['secondary.light', 'secondary.main', 'secondary.dark']
+import CallToAction from '@/components/CallToAction'
 
 const About = () => {
   return (
@@ -32,6 +31,7 @@ const About = () => {
               display: 'flex',
               flexDirection: 'column',
               width: { xs: '100%', md: '50%' },
+              textAlign: { xs: 'center', md: 'left' },
             }}
           >
             <Typography variant="h5">Howdy!</Typography>
@@ -42,14 +42,7 @@ const About = () => {
               enjoy sharing my knowledge through my blog. Let's have a chat
               about technology and explore new opportunities together!
             </Typography>
-            <Box mt={4} gap={2} display="flex">
-              <Button variant="contained" href="/resume">
-                View my resume
-              </Button>
-              <Button variant="contained" color="secondary" href="/resume">
-                Download my resume
-              </Button>
-            </Box>
+            <CallToAction href="/about">Know more</CallToAction>
           </Box>
           <Box
             sx={{

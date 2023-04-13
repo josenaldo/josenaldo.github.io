@@ -1,5 +1,9 @@
-import { Box, Container, Paper, Typography } from '@mui/material'
+import { Box, Button, Container, Paper, Typography } from '@mui/material'
+
 import Section from '@/components/Section'
+import ExperienceTimeline from '@/components/ExperienceTimeline'
+import experiences from '@/data/experiences'
+import CallToAction from '@/components/CallToAction'
 
 const Experience = () => {
   return (
@@ -13,6 +17,10 @@ const Experience = () => {
         }}
       >
         <Typography variant="h2">My experience</Typography>
+        <Box>
+          <ExperienceTimeline experiences={experiences} showEllipsis />
+        </Box>
+        <CallToAction href="/resume">My Resumé</CallToAction>
       </Box>
     </Section>
   )

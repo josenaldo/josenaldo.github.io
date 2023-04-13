@@ -2,6 +2,7 @@ import { Box, Button, Container, Paper, Typography } from '@mui/material'
 
 import Image from 'next/image'
 import Section from '@/components/Section'
+import CallToAction from '@/components/CallToAction'
 import photo from '@/assets/images/josenaldo.png'
 
 const Hero = () => {
@@ -19,7 +20,8 @@ const Hero = () => {
           sx={{
             display: 'flex',
             flexDirection: 'column',
-            maxWidth: 'clamp(300px,50vw,50%)',
+            textAlign: { xs: 'center', sm: 'center', md: 'left' },
+            maxWidth: { sm: '100%', md: 'clamp(300px,50vw,50%)' },
           }}
         >
           <Typography variant="h5">Hello, My name is </Typography>
@@ -29,11 +31,7 @@ const Hero = () => {
             web development. Explore my portfolio, read my blog, and come talk
             about your project!
           </Typography>
-          <Box mt={4}>
-            <Button variant="contained" href="/about">
-              About Me
-            </Button>
-          </Box>
+          <CallToAction href="/contact">Get in Touch</CallToAction>
         </Box>
         <Box
           sx={{
@@ -41,7 +39,7 @@ const Hero = () => {
             aspectRatio: '1/1',
             position: 'relative',
             width: 'clamp(200px,50vw,400px)',
-            my: { xs: 4, md: 0 },
+            my: { xs: 4, sm: 4, md: 0 },
           }}
         >
           <Image src={photo} alt="Josenaldo Matos" fill />
