@@ -8,12 +8,19 @@ import Testimonial from '@/features/home/Testimonial'
 import Blog from '@/features/home/Blog'
 import GetInTouch from '@/features/home/GetInTouch'
 
-export default function Home() {
+import contentService from '@/services/content'
+
+export async function getStaticProps() {
+  const experiences = contentService.lastExperiences(4)
+  return { props: { experiences: experiences } }
+}
+
+export default function Home({ experiences }) {
   return (
     <Box>
       <Hero />
       <About />
-      <Experience />
+      <Experience experiences={experiences} />
       <Portfolio />
       <Services />
       <Testimonial />

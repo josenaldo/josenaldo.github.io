@@ -58,7 +58,6 @@ const ExperienceTimeline = ({ experiences, showEllipsis = false }) => {
         <TimelineItem>
           <TimelineOppositeContent
             color="text.secondary"
-            variant="h6"
             sx={{
               display: { xs: 'none', md: 'block' },
             }}

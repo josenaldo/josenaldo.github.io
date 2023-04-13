@@ -2,10 +2,9 @@ import { Box, Button, Container, Paper, Typography } from '@mui/material'
 
 import Section from '@/components/Section'
 import ExperienceTimeline from '@/components/ExperienceTimeline'
-import experiences from '@/data/experiences'
 import CallToAction from '@/components/CallToAction'
 
-const Experience = () => {
+const Experience = ({ experiences }) => {
   return (
     <Section elevation={1}>
       <Box
