@@ -2,6 +2,8 @@ import { Box, Chip, Button, Typography } from '@mui/material'
 import Section from '@/components/Section'
 import skills from '@/data/skills'
 
+const colors = ['secondary.light', 'secondary.main', 'secondary.dark']
+
 const About = () => {
   return (
     <Section elevation={2}>
@@ -11,6 +13,7 @@ const About = () => {
           flexDirection: 'column',
           justifyContent: 'space-evenly',
           alignItems: 'center',
+          gap: 5,
         }}
       >
         <Typography variant="h2">About Me</Typography>
@@ -19,6 +22,8 @@ const About = () => {
             display: 'flex',
             flexDirection: { xs: 'column', md: 'row' },
             justifyContent: 'space-evenly',
+            justifyItems: 'center',
+            alignItems: 'stretch',
             gap: 5,
           }}
         >
@@ -49,22 +54,21 @@ const About = () => {
           <Box
             sx={{
               display: 'flex',
+              flexDirection: 'row',
               flexWrap: 'wrap',
-              // aspectRatio: '1/1',
-              // position: 'relative',
+              justifyContent: 'center',
+              alignItems: 'stretch',
+              alignContent: 'space-between',
+              gap: 2,
               width: { xs: '100%', md: '50%' },
-              // my: { xs: 4, md: 0 },
             }}
           >
-            {skills.map((skill) => (
+            {skills.map((skill, index) => (
               <Chip
                 key={skill}
                 label={skill}
-                sx={{
-                  m: 1,
-                  bgcolor: 'primary.main',
-                  color: 'primary.contrastText',
-                }}
+                variant="outlined"
+                color="secondary"
               />
             ))}
           </Box>
