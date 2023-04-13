@@ -1,4 +1,4 @@
-import { Box, Chip, Button, Container, Paper, Typography } from '@mui/material'
+import { Box, Chip, Button, Typography } from '@mui/material'
 import Section from '@/components/Section'
 import skills from '@/data/skills'
 

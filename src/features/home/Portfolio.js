@@ -1,10 +1,20 @@
 import { Box, Container, Paper, Typography } from '@mui/material'
+import Section from '@/components/Section'
 
 const Portfolio = () => {
   return (
-    <div className="hero">
-      <h1>Portfolio</h1>
-    </div>
+    <Section elevation={2}>
+      <Box
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'space-evenly',
+          alignItems: 'center',
+        }}
+      >
+        <Typography variant="h2">Portfolio</Typography>
+      </Box>
+    </Section>
   )
 }
 
