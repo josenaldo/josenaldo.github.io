@@ -25,4 +25,11 @@ const theme = createTheme({
   },
 })
 
+theme.typography.h6 = { fontSize: 'var(--font-size-h6)' }
+theme.typography.h5 = { fontSize: 'var(--font-size-h5)' }
+theme.typography.h4 = { fontSize: 'var(--font-size-h4)' }
+theme.typography.h3 = { fontSize: 'var(--font-size-h3)' }
+theme.typography.h2 = { fontSize: 'var(--font-size-h2)' }
+theme.typography.h1 = { fontSize: 'var(--font-size-h1)' }
+
 export default theme

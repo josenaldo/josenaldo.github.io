@@ -3,11 +3,11 @@ import { Typography } from '@mui/material'
 const Logo = () => {
   return (
     <Typography
-      variant="h6"
       noWrap
       component="a"
       href="/"
       sx={{
+        fontSize: 'var(--font-size-h6)',
         mr: 2,
         fontWeight: 700,
         color: 'inherit',
