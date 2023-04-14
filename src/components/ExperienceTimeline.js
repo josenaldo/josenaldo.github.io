@@ -25,7 +25,7 @@ const ExperienceTimeline = ({ experiences, showEllipsis = false }) => {
               display: { xs: 'none', md: 'block' },
             }}
           >
-            {experience.date}
+            {experience.where}
           </TimelineOppositeContent>
           <TimelineSeparator>
             <TimelineDot color="secondary" />
@@ -47,7 +47,7 @@ const ExperienceTimeline = ({ experiences, showEllipsis = false }) => {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              {experience.date}
+              {experience.where}
             </Typography>
             <Typography>{experience.description}</Typography>
           </TimelineContent>

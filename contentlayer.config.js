@@ -42,6 +42,11 @@ const Project = defineDocumentType(() => ({
   name: 'Project',
   filePathPattern: `projects/**/*.md`,
   fields: {
+    id: {
+      type: 'number',
+      description: 'The id of the project',
+      required: true,
+    },
     title: {
       type: 'string',
       description: 'The title of the project',
@@ -54,7 +59,7 @@ const Project = defineDocumentType(() => ({
     },
     image: {
       type: 'string',
-      description: 'The image of the post',
+      description: 'The image of the project',
       required: true,
     },
   },
@@ -85,11 +90,17 @@ const Experience = defineDocumentType(() => ({
       description: 'The company of the experience',
       required: true,
     },
+    location: {
+      type: 'string',
+      description: 'The location of the experience',
+      required: true,
+    },
     where: {
       type: 'string',
       description: 'The period, in time, of the experience',
       required: true,
     },
+
     description: {
       type: 'string',
       description: 'The description of the experience',
