@@ -19,7 +19,7 @@ const Blog = ({ posts }) => {
           sx={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))',
-            gap: 4,
+            gap: 2,
             width: '100%',
           }}
         >
@@ -32,6 +32,7 @@ const Blog = ({ posts }) => {
               date={post.date}
               image={post.image}
               url={post.url}
+              date={post.date}
             />
           ))}
         </Box>

@@ -8,9 +8,18 @@ import {
 } from '@mui/material'
 
 import ContentCardImage from '@/components/content/ContentCardImage'
+import ContentMeta from '@/components/content/ContentMeta'
 import ShareLink from '@/components/share/ShareLink'
 
-const ContentCard = ({ title, text, url, image, moreLinkText = 'More' }) => {
+const ContentCard = ({
+  title,
+  text,
+  url,
+  image,
+  moreLinkText = 'More',
+  date,
+  author,
+}) => {
   return (
     <Card
       elevation={2}
@@ -36,9 +45,14 @@ const ContentCard = ({ title, text, url, image, moreLinkText = 'More' }) => {
           flexGrow: 1,
         }}
       >
-        <Typography component="h3" variant="h4" color="primary">
+        <Typography component="h3" variant="h5">
           {title}
         </Typography>
+        <ContentMeta
+          date={date}
+          author={author}
+          // backgroundColor="primary.main"
+        />
         <Typography component="p" variant="body2" color="text.primary">
           {text}
         </Typography>
