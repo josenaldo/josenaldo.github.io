@@ -2,6 +2,8 @@
 id: 1
 title: Programação Orientada a Gambiarra
 image: /images/projects/livro-pog.jpg
+projectUrl: https://livropog.com.br
+pin: true
 description:
-  "Worked as a fullstack developer on temporary projects focused on promoting an electoral campaign, with main activities being analysis and development of systems with Strapi backend, React, NextJS, and MUI frontend, creation and refactoring of components, problem resolution, and implementation of gamification elements. Also responsible for integrating new team members."
+  "'Programação Orientada a Gambiarra' is a book that teaches you not how to solve your problems, but how to embrace them. Divided into three parts, it covers the concepts, techniques, and design patterns of Gambiarra programming. By the end, you'll have a vast toolbox of skills to cause havoc and mayhem like a pro POGrammer."
 ---

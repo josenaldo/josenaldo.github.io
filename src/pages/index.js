@@ -12,18 +12,22 @@ import contentService from '@/services/content'
 
 export async function getStaticProps() {
   const experiences = contentService.lastExperiences(4)
-  return { props: { experiences: experiences } }
+  const projects = contentService.lastProjects(6)
+  const testimonials = contentService.getTestimonials()
+  console.log(testimonials)
+
+  return { props: { experiences, projects, testimonials } }
 }
 
-export default function Home({ experiences }) {
+export default function Home({ experiences, projects, testimonials }) {
   return (
     <Box>
       <Hero />
       <About />
       <Experience experiences={experiences} />
-      <Portfolio />
-      <Services />
-      <Testimonial />
+      <Portfolio projects={projects} />
+      {/* <Services /> */}
+      <Testimonial testimonials={testimonials} />
       <Blog />
       <GetInTouch />
     </Box>

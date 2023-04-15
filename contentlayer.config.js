@@ -57,6 +57,16 @@ const Project = defineDocumentType(() => ({
       description: 'The description of the project',
       required: true,
     },
+    projectUrl: {
+      type: 'string',
+      description: 'The project url',
+      required: true,
+    },
+    pin: {
+      type: 'boolean',
+      description: 'The project is pinned in the portfolio',
+      required: true,
+    },
     image: {
       type: 'string',
       description: 'The image of the project',
@@ -109,7 +119,34 @@ const Experience = defineDocumentType(() => ({
   },
 }))
 
+const Testimonial = defineDocumentType(() => ({
+  name: 'Testimonial',
+  filePathPattern: `testimonials/**/*.md`,
+  fields: {
+    name: {
+      type: 'string',
+      description: 'The name of the testimonial author',
+      required: true,
+    },
+    position: {
+      type: 'string',
+      description: 'The position of the testimonial author',
+      required: true,
+    },
+    testimonial: {
+      type: 'string',
+      description: 'The testimonial',
+      required: true,
+    },
+    image: {
+      type: 'string',
+      description: 'The image of the testimonial author',
+      required: true,
+    },
+  },
+}))
+
 export default makeSource({
   contentDirPath: 'content',
-  documentTypes: [Post, Project, Experience],
+  documentTypes: [Post, Project, Experience, Testimonial],
 })

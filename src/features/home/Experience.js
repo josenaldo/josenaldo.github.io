@@ -13,6 +13,7 @@ const Experience = ({ experiences }) => {
           flexDirection: 'column',
           justifyContent: 'space-evenly',
           alignItems: 'center',
+          gap: 5,
         }}
       >
         <Typography variant="h2">My experience</Typography>

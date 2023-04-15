@@ -1,4 +1,8 @@
-import { allExperiences, allProjects } from 'contentlayer/generated'
+import {
+  allExperiences,
+  allProjects,
+  allTestimonials,
+} from 'contentlayer/generated'
 
 const lastExperiences = (numberOfExperiences) => {
   return allExperiences
@@ -16,4 +20,8 @@ const lastProjects = (numberOfProjects) => {
     .slice(0, numberOfProjects)
 }
 
-export default { lastExperiences: lastExperiences }
+const getTestimonials = () => {
+  return allTestimonials
+}
+
+export default { lastExperiences, lastProjects, getTestimonials }

@@ -15,6 +15,7 @@ const skills = [
   'Python',
   'Pandas',
   'Django',
+  'Farofa',
   'Mysql',
   'PostgreSQL',
   'MongoDB',

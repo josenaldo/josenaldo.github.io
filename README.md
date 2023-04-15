@@ -40,3 +40,8 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 ## Resources
 
 - [Fluid Type Scale Calculator](https://www.fluid-type-scale.com/)
+
+## Follow
+
+- <https://github.com/contentlayerdev/contentlayer/pull/416>
+- <https://github.com/contentlayerdev/contentlayer/issues/415>

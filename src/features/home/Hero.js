@@ -14,6 +14,7 @@ const Hero = () => {
           flexDirection: { xs: 'column', md: 'row' },
           justifyContent: 'space-evenly',
           alignItems: 'center',
+          gap: 5,
         }}
       >
         <Box
