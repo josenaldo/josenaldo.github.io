@@ -40,6 +40,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 ## Resources
 
 - [Fluid Type Scale Calculator](https://www.fluid-type-scale.com/)
+- [React Material UI Carousel](https://github.com/Learus/react-material-ui-carousel)
 
 ## Follow
 

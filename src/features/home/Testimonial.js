@@ -17,7 +17,6 @@ import Image from 'next/image'
 import Section from '@/components/Section'
 
 const Testimonial = ({ testimonials }) => {
-  console.log('🔴', testimonials)
   return (
     <Section elevation={2}>
       <Box

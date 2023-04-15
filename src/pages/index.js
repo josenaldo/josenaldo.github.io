@@ -14,12 +14,12 @@ export async function getStaticProps() {
   const experiences = contentService.lastExperiences(4)
   const projects = contentService.lastProjects(6)
   const testimonials = contentService.getTestimonials()
-  console.log(testimonials)
+  const posts = contentService.getSortedPosts(6)
 
-  return { props: { experiences, projects, testimonials } }
+  return { props: { experiences, projects, testimonials, posts } }
 }
 
-export default function Home({ experiences, projects, testimonials }) {
+export default function Home({ experiences, projects, testimonials, posts }) {
   return (
     <Box>
       <Hero />
@@ -28,7 +28,7 @@ export default function Home({ experiences, projects, testimonials }) {
       <Portfolio projects={projects} />
       {/* <Services /> */}
       <Testimonial testimonials={testimonials} />
-      <Blog />
+      <Blog posts={posts} />
       <GetInTouch />
     </Box>
   )
