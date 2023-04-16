@@ -5,10 +5,12 @@ import {
   CardActions,
   Typography,
   Button,
+  Box,
 } from '@mui/material'
 
 import ContentCardImage from '@/components/content/ContentCardImage'
 import ContentMeta from '@/components/content/ContentMeta'
+import ContentCategory from '@/components/content/ContentCategory'
 import ShareLink from '@/components/share/ShareLink'
 
 const ContentCard = ({
@@ -16,9 +18,10 @@ const ContentCard = ({
   text,
   url,
   image,
-  moreLinkText = 'More',
+  moreLinkText = 'Read more',
   date,
   author,
+  category,
 }) => {
   return (
     <Card
@@ -36,26 +39,34 @@ const ContentCard = ({
         }}
       >
         <ContentCardImage image={image} alt={title} />
+        <Box
+          sx={{
+            position: 'absolute',
+            top: '1rem',
+            right: '1rem',
+          }}
+        >
+          <ContentCategory category={category} />
+        </Box>
       </CardMedia>
       <CardContent
         sx={{
           display: 'flex',
           flexDirection: 'column',
-          gap: 2,
           flexGrow: 1,
         }}
       >
-        <Typography component="h3" variant="h5">
-          {title}
-        </Typography>
-        <ContentMeta
-          date={date}
-          author={author}
-          // backgroundColor="primary.main"
-        />
-        <Typography component="p" variant="body2" color="text.primary">
-          {text}
-        </Typography>
+        <Box
+          sx={{
+            flexGrow: 1,
+          }}
+        >
+          <Typography component="h3" variant="h6">
+            {title}
+          </Typography>
+        </Box>
+
+        <ContentMeta date={date} author={author} category={category} />
       </CardContent>
 
       <CardActions
@@ -64,7 +75,6 @@ const ContentCard = ({
           width: '100%',
           justifyContent: 'space-between',
           alignSelf: 'flex-end',
-          p: 2,
         }}
       >
         <Button component="a" href={url}>

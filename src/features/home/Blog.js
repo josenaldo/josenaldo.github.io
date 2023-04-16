@@ -36,7 +36,7 @@ const Blog = ({ posts }) => {
               date={post.date}
               image={post.image}
               url={post.url}
-              date={post.date}
+              category={post.category}
             />
           ))}
         </Box>

@@ -8,6 +8,10 @@ const nextConfig = {
   reactStrictMode: true,
   images: {
     unoptimized: true,
+    domains: ['localhost', 'josenaldo.github.io'],
+  },
+  env: {
+    NEXT_PUBLIC_SITE_URL: process.env.NEXT_PUBLIC_SITE_URL,
   },
 }
 

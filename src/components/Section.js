@@ -1,15 +1,15 @@
 import { Box, Container, Paper, Typography } from '@mui/material'
 
-const Section = ({ elevation, children }) => {
+const Section = ({ elevation, children, py = 8 }) => {
   return (
     <Box>
       <Paper
         elevation={elevation}
         sx={{
-          py: 8,
+          py: py,
         }}
       >
-        <Container maxWidth="xl">{children}</Container>
+        <Container>{children}</Container>
       </Paper>
     </Box>
   )

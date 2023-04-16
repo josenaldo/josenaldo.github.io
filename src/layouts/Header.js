@@ -10,27 +10,25 @@ import pages from '@/data/pages'
 
 const Header = () => {
   return (
-    <header>
-      <AppBar position="static">
-        <Container maxWidth="xl">
-          <Toolbar
-            disableGutters
-            sx={{
-              display: 'flex',
-              flexDirection: 'row',
-              justifyContent: { xs: 'flex-end', md: 'space-between' },
-              width: '100%',
-            }}
-          >
-            <Logo />
+    <AppBar position="static">
+      <Container>
+        <Toolbar
+          disableGutters
+          sx={{
+            display: 'flex',
+            flexDirection: 'row',
+            justifyContent: { xs: 'flex-end', md: 'space-between' },
+            width: '100%',
+          }}
+        >
+          <Logo />
 
-            <DesktopMenu pages={pages} />
+          <DesktopMenu pages={pages} />
 
-            <MobileMenu pages={pages} />
-          </Toolbar>
-        </Container>
-      </AppBar>
-    </header>
+          <MobileMenu pages={pages} />
+        </Toolbar>
+      </Container>
+    </AppBar>
   )
 }
 

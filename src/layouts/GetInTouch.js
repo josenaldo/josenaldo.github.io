@@ -1,60 +1,54 @@
-import { Link, Box, Container, Paper, Typography } from '@mui/material'
+import { Link, Button, Box, Typography } from '@mui/material'
 import Section from '@/components/Section'
 import socialLinks from '@/data/socialLinks'
 
 const GetInTouch = () => {
   return (
-    <Section elevation={2}>
+    <Section elevation={2} py={4}>
       <Box
+        color="text.secondary"
         sx={{
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'space-evenly',
           alignItems: 'center',
-          gap: 5,
         }}
       >
         <Typography variant="h2">Get in touch</Typography>
-        <Typography variant="body1">
+        <Typography variant="body1" textAlign="center" fontStyle="italic">
           I'm always open to discussing new projects, creative ideas or
           opportunities to be part of your visions.
         </Typography>
         <Box
           sx={{
-            display: 'flex',
-            flexDirection: 'row',
-            justifyContent: 'space-evenly',
-            alignItems: 'center',
-            gap: 'clamp(1rem, 5vw, 2rem)',
-
-            color: 'text.secondary',
+            display: 'grid',
+            gridTemplateColumns: {
+              xs: '1fr 1fr',
+              md: '1fr 1fr 1fr 1fr',
+            },
+            gap: 5,
+            mt: 3,
           }}
         >
           {socialLinks.map((link) => (
-            <Link
+            <Button
+              size="small"
+              variant="outlined"
               key={link.name}
               href={link.url}
               target="_blank"
+              color="secondary"
               rel="noreferrer noopener"
               sx={{
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
-                color: 'text.secondary',
-                textDecoration: 'none',
-                fontSize: 'clamp(0.8rem, 5vw, 1.0rem)',
-                '&:hover': {
-                  color: 'primary.main',
-                },
+                p: 2,
               }}
             >
-              <link.icon
-                sx={{
-                  fontSize: 'clamp(2.5rem, 5vw, 3.5rem)',
-                }}
-              />
+              <link.icon />
               <span>{link.name}</span>
-            </Link>
+            </Button>
           ))}
         </Box>
       </Box>

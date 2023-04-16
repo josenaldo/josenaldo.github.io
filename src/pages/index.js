@@ -1,4 +1,7 @@
 import { Box, Button } from '@mui/material'
+
+import AppLayout from '@/layouts/AppLayout'
+
 import Hero from '@/features/home/Hero'
 import About from '@/features/home/About'
 import Experience from '@/features/home/Experience'
@@ -6,7 +9,7 @@ import Portfolio from '@/features/home/Portfolio'
 import Services from '@/features/home/Services'
 import Testimonial from '@/features/home/Testimonial'
 import Blog from '@/features/home/Blog'
-import GetInTouch from '@/features/home/GetInTouch'
+import Footer from '@/layouts/Footer'
 
 import contentService from '@/services/content'
 
@@ -21,7 +24,12 @@ export async function getStaticProps() {
 
 export default function Home({ experiences, projects, testimonials, posts }) {
   return (
-    <Box>
+    <AppLayout
+      title="Welcome to my virtual home!"
+      description="I'm a software engineer and I love to build things."
+      image="/images/default.jpg"
+      url="/"
+    >
       <Hero />
       <About />
       <Experience experiences={experiences} />
@@ -29,7 +37,6 @@ export default function Home({ experiences, projects, testimonials, posts }) {
       {/* <Services /> */}
       <Testimonial testimonials={testimonials} />
       <Blog posts={posts} />
-      <GetInTouch />
-    </Box>
+    </AppLayout>
   )
 }

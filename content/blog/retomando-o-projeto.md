@@ -3,6 +3,7 @@ title: Retomando o Projeto
 description: Nois trupica, mas num cai!
 date: 2022-10-12 20:10:00 -0300
 author: Josenaldo Matos
+category: gambiarra
 image: "/images/blog/retomando-o-projeto.jpg"
 ---
 **Colé, Bandicão!!! Bão?**
@@ -50,4 +51,3 @@ Mentira. O post termina aqui.
 
 **POGaê**
 (O POGramador que habita em mim saúda o POGramador que habita em você)
-
