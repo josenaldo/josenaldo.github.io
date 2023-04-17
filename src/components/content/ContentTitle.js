@@ -14,7 +14,8 @@ const ContentTitle = ({
       <Typography
         variant={subtitleVariant}
         textAlign="center"
-        color="text.secondary"
+        color="secondary.light"
+        fontStyle="italic"
       >
         {subtitle}
       </Typography>

@@ -1,6 +1,7 @@
 import { Box, Container, Paper, Typography } from '@mui/material'
 import Section from '@/components/Section'
 import ContentCard from '@/components/content/ContentCard'
+import CallToAction from '@/components/CallToAction'
 
 const Blog = ({ posts }) => {
   return (
@@ -40,6 +41,7 @@ const Blog = ({ posts }) => {
             />
           ))}
         </Box>
+        <CallToAction href="/blog">Read More</CallToAction>
       </Box>
     </Section>
   )
