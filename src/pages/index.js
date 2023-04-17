@@ -25,8 +25,8 @@ export async function getStaticProps() {
 export default function Home({ experiences, projects, testimonials, posts }) {
   return (
     <AppLayout
-      title="Welcome to my virtual home!"
-      description="I'm a software engineer and I love to build things."
+      title="Josenaldo Matos"
+      description="Software Developer & Kidney Waster"
       image="/images/default.jpg"
       url="/"
     >
