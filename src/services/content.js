@@ -4,6 +4,7 @@ import {
   allProjects,
   allTestimonials,
   allPosts,
+  allPages,
 } from 'contentlayer/generated'
 
 const lastExperiences = (numberOfExperiences) => {
@@ -86,6 +87,15 @@ const getPostData = (slug) => {
   return post
 }
 
+const getPageData = (url) => {
+  console.log('url', url)
+  console.log('allPages', allPages)
+
+  const page = allPages.find((page) => page.url === url)
+
+  return page
+}
+
 export default {
   lastExperiences,
   lastProjects,
@@ -94,4 +104,5 @@ export default {
   getSortedPosts,
   getAllPostsPaths,
   getPostData,
+  getPageData,
 }

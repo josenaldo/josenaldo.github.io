@@ -43,6 +43,34 @@ export const Post = defineDocumentType(() => ({
   },
 }))
 
+export const Page = defineDocumentType(() => ({
+  name: 'Page',
+  filePathPattern: `pages/**/*.md`,
+  fields: {
+    title: {
+      type: 'string',
+      description: 'The title of the page',
+      required: true,
+    },
+    description: {
+      type: 'string',
+      description: 'The description of the page',
+      required: true,
+    },
+    image: {
+      type: 'string',
+      description: 'The image of the page',
+      required: true,
+    },
+  },
+  computedFields: {
+    url: {
+      type: 'string',
+      resolve: (doc) => `/${doc._raw.flattenedPath.replace(/pages\/?/, '')}`,
+    },
+  },
+}))
+
 const Project = defineDocumentType(() => ({
   name: 'Project',
   filePathPattern: `projects/**/*.md`,
@@ -153,5 +181,5 @@ const Testimonial = defineDocumentType(() => ({
 
 export default makeSource({
   contentDirPath: 'content',
-  documentTypes: [Post, Project, Experience, Testimonial],
+  documentTypes: [Post, Page, Project, Experience, Testimonial],
 })

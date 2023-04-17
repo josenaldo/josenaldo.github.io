@@ -1,11 +1,7 @@
 import { Box, Container } from '@mui/material'
 
-// import { getAllPostsPaths, getPostData } from '@pog/data'
-
 import AppLayout from '@/layouts/AppLayout'
 import ContentView from '@/components/content/ContentView'
-import ContentMeta from '@/components/content/ContentMeta'
-import ContentCategory from '@/components/content/ContentCategory'
 
 import contentService from '@/services/content'
 
@@ -29,7 +25,6 @@ const getStaticProps = async ({ params }) => {
 }
 
 const PostPage = ({ post }) => {
-  console.log('post', post)
   return (
     <AppLayout
       title={post.title}
