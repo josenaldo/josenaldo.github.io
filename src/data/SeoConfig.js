@@ -1,7 +1,6 @@
 const APP_NAME = 'josenaldo.github.io'
 const APP_TITLE = 'Josenaldo Matos'
-const APP_DESCRIPTION =
-  'Meu nome é Josenaldo de Oliveira Matos Filho, sou desenvolvedor de software, apaixonado por tecnologia e programação.'
+const APP_DESCRIPTION = 'Software Developer & Kidney Waster'
 const APP_URL = process.env.NEXT_PUBLIC_SITE_URL
 const APP_IMAGE = `${APP_URL}/images/default.jpg`
 const APP_IMAGE_OBJECT = {
@@ -24,11 +23,11 @@ const SeoConfig = {
     site_name: APP_TITLE,
     images: [
       {
-        url: `${APP_URL}/images/pages/default.jpg`,
+        url: `${APP_URL}/images/default.jpg`,
         width: 1200,
         height: 630,
         alt: APP_TITLE,
-        type: 'image/png',
+        type: 'image/jpg',
       },
     ],
   },
