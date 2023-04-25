@@ -1,6 +1,4 @@
 import { Box, Container, Paper, Typography, Link } from '@mui/material'
-import GitHubIcon from '@mui/icons-material/GitHub'
-import socialLinks from '@/data/socialLinks'
 
 const Footer = () => {
   return (

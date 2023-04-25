@@ -41,6 +41,8 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 - [Fluid Type Scale Calculator](https://www.fluid-type-scale.com/)
 - [React Material UI Carousel](https://github.com/Learus/react-material-ui-carousel)
+- <https://www.remote-work.io/>
+- [Expanding Grid Cards with View Transitions - Chris Coyier](https://chriscoyier.net/2023/04/11/expanding-grid-cards-with-view-transitions/)
 
 ## Follow
 

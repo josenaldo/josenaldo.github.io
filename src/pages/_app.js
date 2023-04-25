@@ -8,7 +8,7 @@ import { DefaultSeo } from 'next-seo'
 import { SeoConfig } from '@/data/SeoConfig'
 
 import theme from '@/styles/theme'
-import AppLayout from '@/layouts/AppLayout'
+import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3'
 
 export default function App({ Component, pageProps }) {
   return (
@@ -21,7 +21,9 @@ export default function App({ Component, pageProps }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
 
-      <Component {...pageProps} />
+      <GoogleReCaptchaProvider reCaptchaKey="6Lejh7glAAAAADkJrpGCuGozGzXHWfvCCcU3vQho">
+        <Component {...pageProps} />
+      </GoogleReCaptchaProvider>
     </ThemeProvider>
   )
 }
