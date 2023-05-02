@@ -1,5 +1,5 @@
 const AppConfig = {
-  DEFAULT_CARD_IMAGE: '/images/default-card-image.jpg',
+  DEFAULT_CARD_IMAGE: '/images/default.jpg',
   SITE_NAME: 'Josenaldo Matos',
   SITE_DESCRIPTION: 'Software Developer & Kidney Waster',
 }

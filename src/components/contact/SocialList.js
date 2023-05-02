@@ -26,12 +26,19 @@ const SocialList = () => {
     >
       <List>
         {socialLinks.map((link) => (
-          <ListItem alignItems="flex-start" key={link.url} href={link.url}>
-            <ListItemAvatar>
-              <link.icon />
-            </ListItemAvatar>
-            <ListItemText primary={link.name} secondary={link.value} />
-          </ListItem>
+          <Link
+            key={link.url}
+            href={link.url}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <ListItem alignItems="flex-start">
+              <ListItemAvatar>
+                <link.icon />
+              </ListItemAvatar>
+              <ListItemText primary={link.name} secondary={link.value} />
+            </ListItem>
+          </Link>
         ))}
       </List>
     </Box>

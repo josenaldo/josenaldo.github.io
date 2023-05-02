@@ -10,7 +10,7 @@ const pages = [
   { name: 'About', url: '/about', icon: PersonIcon },
   { name: 'Contact', url: '/contact', icon: EmailIcon },
   { name: 'Blog', url: '/blog', icon: BookIcon },
-  { name: 'Portfolio', url: '/portfolio', icon: CodeIcon },
+  // { name: 'Portfolio', url: '/portfolio', icon: CodeIcon },
   { name: 'Resume', url: '/resume', icon: ArticleIcon },
 ]
 

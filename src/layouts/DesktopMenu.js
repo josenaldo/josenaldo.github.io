@@ -4,11 +4,7 @@ const DesktopMenu = ({ pages }) => {
   return (
     <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
       {pages.map((page) => (
-        <Button
-          key={page.name}
-          href={page.url}
-          sx={{ my: 2, color: 'white', display: 'block' }}
-        >
+        <Button key={page.name} href={page.url} sx={{ color: 'white' }}>
           {page.name}
         </Button>
       ))}

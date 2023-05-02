@@ -1,25 +1,15 @@
 import React from 'react'
 
-import { useRouter } from 'next/router'
-
-import {
-  Box,
-  Card,
-  CardMedia,
-  Divider,
-  Backdrop,
-  CircularProgress,
-  CardContent,
-} from '@mui/material'
+import { Box, Card, CardMedia, CardContent } from '@mui/material'
 
 import ContentMainImage from '@/components/content/ContentMainImage'
 import ContentTitle from '@/components/content/ContentTitle'
 import ContentMeta from '@/components/content/ContentMeta'
 import ContentCategory from '@/components/content/ContentCategory'
-
 import MDXContent from '@/components/content/MDXContent'
-
 import ShareLink from '@/components/share/ShareLink'
+
+import AppConfig from '@/data/AppConfig'
 
 const ContentView = ({
   content,
@@ -31,15 +21,19 @@ const ContentView = ({
   author,
   category,
 }) => {
+  const contentImage = image || AppConfig.DEFAULT_CARD_IMAGE
+
   return (
     <Card
       sx={{
         my: 5,
       }}
     >
-      <CardMedia>
-        <ContentMainImage image={image} alt={title} />
-      </CardMedia>
+      {image && (
+        <CardMedia>
+          <ContentMainImage image={image} alt={title} />
+        </CardMedia>
+      )}
       <CardContent>
         <Box
           sx={{
@@ -87,7 +81,7 @@ const ContentView = ({
               title={title}
               description={description}
               url={url}
-              image={`${process.env.NEXT_PUBLIC_SITE_URL}${image}`}
+              image={`${process.env.NEXT_PUBLIC_SITE_URL}${contentImage}`}
             />
           </Box>
         </Box>
