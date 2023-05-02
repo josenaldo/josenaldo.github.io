@@ -9,8 +9,8 @@ const pages = [
   { name: 'Home', url: '/', icon: HomeIcon },
   { name: 'About', url: '/about', icon: PersonIcon },
   { name: 'Blog', url: '/blog', icon: BookIcon },
-  // { name: 'Portfolio', url: '/portfolio', icon: CodeIcon },
   { name: 'Resume', url: '/resume', icon: ArticleIcon },
+  { name: 'Projects', url: '/projects', icon: CodeIcon },
   { name: 'Contact', url: '/contact', icon: EmailIcon },
 ]
 

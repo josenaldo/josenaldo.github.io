@@ -23,6 +23,29 @@ const lastProjects = (numberOfProjects) => {
     .slice(0, numberOfProjects)
 }
 
+const getAllProjects = () => {
+  return allProjects
+}
+
+const getAllProjectsPaths = () => {
+  const paths = allProjects.map((project) => project.url)
+  return paths
+}
+
+const getProjectData = (slug) => {
+  const url = `/projects/${slug}`
+  const projects = getAllProjects()
+
+  console.log(projects)
+  const project = projects.find((p) => {
+    if (p.url === url) {
+      return p
+    }
+  })
+
+  return project
+}
+
 const getTestimonials = () => {
   return allTestimonials
 }
@@ -99,6 +122,9 @@ const getPageData = (url) => {
 export default {
   lastExperiences,
   lastProjects,
+  getAllProjects,
+  getAllProjectsPaths,
+  getProjectData,
   getTestimonials,
   getAllPosts,
   getSortedPosts,
