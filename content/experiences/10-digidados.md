@@ -3,7 +3,8 @@ id: 10
 title: Software Architect
 company: Digidados
 location: Uberlândia, Brasil
-where: Feb 2015 - Sep 2016
-description:
-  "Worked as a software architect, with main responsibilities being the development of system architecture and modules, focusing on Java technologies and Spring ecosystem (Spring Boot, Framework, Data, Security), Angular, and MySQL database. In addition to technical work, I focused on coordinating and developing a team of 4 developers."
+where: February 2015 – November 2016
+show: true
 ---
+- Worked as Software Architect for the project (Condominium Management System), with responsibilities including gathering requirements from users and the Project Owner, developing the system architecture, and overseeing application construction.
+- Coordinated and mentored the team, focusing on technologies like Java and the Spring ecosystem (Spring Boot, Framework, Data, Security), JavaScript, AngularJS, MySQL, and AWS (EC2 and S3) while promoting good development practices.

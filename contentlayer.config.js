@@ -143,12 +143,11 @@ const Experience = defineDocumentType(() => ({
       description: 'The period, in time, of the experience',
       required: true,
     },
-
-    description: {
-      type: 'string',
-      description: 'The description of the experience',
+    show: {
+      type: 'boolean',
+      description: 'Show the experience in the resume',
       required: true,
-    },
+    }
   },
 }))
 
@@ -179,7 +178,67 @@ const Testimonial = defineDocumentType(() => ({
   },
 }))
 
+const Skill = defineDocumentType(() => ({
+  name: 'Skill',
+  filePathPattern: `skills/**/*.md`,
+  fields: {
+    name: {
+      type: 'string',
+      description: 'The name of the skill',
+      required: true,
+    },
+    level: {
+      type: 'string',
+      description: 'The level of the skill',
+      required: true,
+    },
+    firstContact: {
+      type: 'number',
+      description: 'The year of the first contact with the skill',
+      required: true,
+    },
+  },
+}))
+
+const Course = defineDocumentType(() => ({
+  name: 'Course',
+  filePathPattern: `courses/**/*.md`,
+  fields: {
+    name: {
+      type: 'string',
+      description: 'The name of the course',
+      required: true,
+    },
+    institution: {
+      type: 'string',
+      description: 'The institution of the course',
+      required: true,
+    },
+    completionDate: {
+      type: 'date',
+      description: 'The completion month and year of the course',
+      required: true,
+    },
+    workload: {
+      type: 'number',
+      description: 'The workload of the course, in hours',
+      required: true,
+    },
+    courseLink: {
+      type: 'string',
+      description: 'The link of the course',
+      required: true,
+    },
+    certificateLink: {
+      type: 'string',
+      description: 'The link of the certificate',
+      required: true,
+    },
+
+  },
+}))
+
 export default makeSource({
   contentDirPath: 'content',
-  documentTypes: [Post, Page, Project, Experience, Testimonial],
+  documentTypes: [Post, Page, Project, Experience, Testimonial, Skill, Course],
 })

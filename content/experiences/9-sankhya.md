@@ -3,7 +3,8 @@ id: 9
 title: Senior Java Developer
 company: Sankhya
 location: Uberlândia, Brasil
-where: Nov 2013 - Jan 2015
-description:
-  "I Worked with a focus on system architecture, allocated at the Buscapé client and internal TQI projects, using technologies such as Java (SE and EE), Spring ecosystem, PHP, HTML, MySQL, Oracle, and JQuery."
+where: November 2013 – January 2015
+show: true
 ---
+- Developed a printing management service for the Sankhya ERP, replacing the previous service based on Java Applets (a discontinued technology). The new service was implemented in Java 8, Guice, and JUnit (for testing), with the front-end developed in Adobe Flex and communication via REST.
+- Contributed to Sankhya ERP improvements using Java EE on the back-end and Adobe Flex on the front-end.

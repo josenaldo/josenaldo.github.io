@@ -1,11 +1,12 @@
-import { compareDesc } from 'date-fns'
 import {
   allExperiences,
-  allProjects,
-  allTestimonials,
-  allPosts,
   allPages,
+  allPosts,
+  allProjects,
+  allSkills,
+  allTestimonials
 } from 'contentlayer/generated'
+import { compareDesc } from 'date-fns'
 
 const lastExperiences = (numberOfExperiences) => {
   return allExperiences
@@ -119,6 +120,28 @@ const getPageData = (url) => {
   return page
 }
 
+const getAllSkills = () => {
+  const skillsByLevel = allSkills.reduce((acc, skill) => {
+    if (!acc[skill.level]) {
+      acc[skill.level] = []
+    }
+
+    acc[skill.level].push(skill)
+
+    return acc
+  }, {})
+
+  const skillByLevelKeys = Object.keys(skillsByLevel)
+
+  skillByLevelKeys.forEach((key) => {
+    skillsByLevel[key] = skillsByLevel[key].sort((a, b) => {
+      return a.firstContact - b.firstContact
+    })
+  })
+
+  return skillsByLevel
+}
+
 export default {
   lastExperiences,
   lastProjects,
@@ -131,4 +154,5 @@ export default {
   getAllPostsPaths,
   getPostData,
   getPageData,
+  getAllSkills,
 }
