@@ -104,41 +104,41 @@ Muitos profissionais no início de suas carreiras enfrentam um dilema comum: a f
 
 Para superar esse desafio, é crucial entender que sua reputação está intrinsecamente ligada aos seus resultados. Se os resultados tradicionais ainda não são uma opção, você precisa criar oportunidades para si mesmo.
 
-##### Se você escolheu o caminho acadêmico
+**Se você escolheu o caminho acadêmico**
 
 Você não vai pra faculdade pra fazer amigos, mas pra se tornar um profissional qualificado. Portanto, aproveite ao máximo sua experiência acadêmica.
 
-- Estágios: Busque ativamente por oportunidades de estágio, mesmo que não sejam remuneradas inicialmente. Estas são portas de entrada para a experiência prática.
-- Networking na faculdade: Engaje-se com colegas e professores. Ser ativo em projetos acadêmicos e grupos de estudo também pode aumentar sua visibilidade.
-- Atitude profissional: Mostre-se prestativo, colaborativo e confiável. A forma como você interage com outros e sua disposição para ajudar pode criar uma impressão duradoura.
+- **Estágios**: Busque ativamente por oportunidades de estágio, mesmo que não sejam remuneradas inicialmente. Estas são portas de entrada para a experiência prática.
+- **Networking na faculdade**: Engaje-se com colegas e professores. Ser ativo em projetos acadêmicos e grupos de estudo também pode aumentar sua visibilidade.
+- **Atitude profissional**: Mostre-se prestativo, colaborativo e confiável. A forma como você interage com outros e sua disposição para ajudar pode criar uma impressão duradoura.
 
-##### Para autodidatas
+**Para autodidatas**
 
 Se você foi pelo caminho do autodidatismo, comece rezando por sorte. E, enquanto ela não vem, aprenda, produza e participe.
 
-- Educação contínua: Invista em cursos online, workshops e bootcamps que ofereçam credenciais reconhecíveis. Priorize aqueles que proporcionam habilidades práticas e projetos de portfolio.
-- Projetos pessoais e de código aberto: Contribua para projetos de código aberto ou desenvolva seus próprios projetos. Isso não só mostra sua capacidade técnica, mas também sua iniciativa e paixão pela área.
-- Visibilidade em eventos: Participe ativamente de meetups, conferências e seminários de TI. Cada interação é uma oportunidade para construir seu network.
+- **Educação contínua**: Invista em cursos online, workshops e bootcamps que ofereçam credenciais reconhecíveis. Priorize aqueles que proporcionam habilidades práticas e projetos de portfolio.
+- **Projetos pessoais e de código aberto**: Contribua para projetos de código aberto ou desenvolva seus próprios projetos. Isso não só mostra sua capacidade técnica, mas também sua iniciativa e paixão pela área.
+- **Visibilidade em eventos**: Participe ativamente de meetups, conferências e seminários de TI. Cada interação é uma oportunidade para construir seu network.
 
-##### Para profissionais entre empregos
+**Para profissionais entre empregos**
 
-- Análise e reflexão: Revise suas experiências de trabalho anteriores. Identifique áreas para melhoria e busque recursos para desenvolver essas habilidades.
-- Mantenha-se ativo: Continue aplicando o que aprendeu e compartilhando seu conhecimento. Blogs, tutoriais em vídeo e participação em fóruns podem manter sua presença no mercado aquecida.
-- Networking: Mantenha contato com ex-colegas, professores e mentores. Eles podem ser fontes valiosas de referências e oportunidades futuras.
+- **Análise e reflexão**: Revise suas experiências de trabalho anteriores. Identifique áreas para melhoria e busque recursos para desenvolver essas habilidades.
+- **Mantenha-se ativo**: Continue aplicando o que aprendeu e compartilhando seu conhecimento. Blogs, tutoriais em vídeo e participação em fóruns podem manter sua presença no mercado aquecida.
+- **Networking**: Mantenha contato com ex-colegas, professores e mentores. Eles podem ser fontes valiosas de referências e oportunidades futuras.
 
-##### Para Profissionais Empregados
+**Para Profissionais Empregados**
 
 Lembre-se de que sua carreira é a prioridade, mesmo enquanto contribui para os objetivos da empresa. Cada tarefa e desafio não apenas avança a organização, mas também fortalece sua trajetória profissional. Assuma a responsabilidade de desenvolver sua carreira para assegurar sucesso a longo prazo.
 
-###### Cultive seu Ambiente de Trabalho
+Cultive seu Ambiente de Trabalho:
 
-- Construa Relacionamentos: Mantenha boas relações com colegas e gestores e demonstre liderança, independentemente de sua posição.
-- Ética de Trabalho: Seja conhecido por sua ética e espírito de equipe, o que pode abrir portas para futuras oportunidades.
+- **Construa Relacionamentos**: Mantenha boas relações com colegas e gestores e demonstre liderança, independentemente de sua posição.
+- **Ética de Trabalho**: Seja conhecido por sua ética e espírito de equipe, o que pode abrir portas para futuras oportunidades.
 
-###### Desenvolvimento Contínuo
+Adote o Desenvolvimento Contínuo:
 
-- Educação Constante: Invista em aprender novas tecnologias e tendências, participando de cursos e certificações relevantes.
-- Feedback e Autoavaliação: Solicite feedback regularmente e use-o para direcionar seu desenvolvimento pessoal.
+- **Educação Constante**: Invista em aprender novas tecnologias e tendências, participando de cursos e certificações relevantes.
+- **Feedback e Autoavaliação**: Solicite feedback regularmente e use-o para direcionar seu desenvolvimento pessoal.
 
 Implementando essas práticas, você não apenas avança em sua carreira, mas também contribui significativamente para o sucesso da equipe e da empresa.
 
