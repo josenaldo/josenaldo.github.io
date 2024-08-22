@@ -1,4 +1,3 @@
-import React from 'react'
 
 import { Box, Divider } from '@mui/material'
 
@@ -12,10 +11,10 @@ import externalLinks from 'rehype-external-links'
 import rehypePrism from 'rehype-prism-plus'
 import rehypeRaw from 'rehype-raw'
 
+import Blockquote from '@/components/ui/Blockquote'
+import Code from '@/components/ui/Code'
 import Link from '@/components/ui/Link'
 import ResponsiveImage from '@/components/ui/ResponsiveImage'
-import Code from '@/components/ui/Code'
-import Blockquote from '@/components/ui/Blockquote'
 
 import styles from './MDXContent.module.css'
 
@@ -38,8 +37,9 @@ const MDXContent = ({ content }) => {
     img: ResponsiveImage,
     a: Link,
     pre: Code,
-    hr: Divider,
+    hr: (props) => <Divider sx={{ my: 2 }} {...props} />,
     blockquote: Blockquote,
+    center: (props) => <Box sx={{ textAlign: 'center' }} {...props} />,
   }
 
   return (

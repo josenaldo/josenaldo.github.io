@@ -5,152 +5,173 @@ description:
 image: "/images/default.jpg"
 ---
 
-[Download](/files/resume-josenaldo-de-oliveira-matos-filho.pdf)
+Uberlândia - Minas Gerais - Brasil
 
-- **Location**: Uberlândia/MG, Brazil
-- **Phone**: [+55 (34) 99183-0215](https://wa.me/5534991830215)
-- **Email**: [josenaldo@gmail.com](mailto:josenaldo@gmail.com)
-- **Github**: [https://github.com/josenaldo](https://github.com/josenaldo)
-- **Linkedin**: [https://linkedin.com/in/josenaldo](https://linkedin.com/in/josenaldo)
+[+55 (34) 99183-0215](https://wa.me/5534991830215) | [josenaldo@gmail.com](mailto:josenaldo@gmail.com) | [https://github.com/josenaldo](https://github.com/josenaldo) | [https://linkedin.com/in/josenaldo](https://linkedin.com/in/josenaldo)
 
-## OBJECTIVE
+Download resume: [pt-br.pdf](/resume/pt/JosenaldoDeOliveiraMatosFilho.pdf) | [pt-br.docx](/resume/pt/JosenaldoDeOliveiraMatosFilho.docx) | [en-us.pdf](/resume/en/JosenaldoDeOliveiraMatosFilho.pdf) | [en-us.docx](/resume/en/JosenaldoDeOliveiraMatosFilho.docx)
 
-To work as a fullstack developer.
+---
 
 ## SUMMARY
 
-With over 20 years of experience in the technology field, I have extensive experience in web software development, with a focus on back-end development using Java and Spring and front-end development using Javascript, React and NextJS. I prefer positions with flexible hours.
+- Software development professional with over 20 years of experience specializing in full-stack development and system architecture. Noted expertise in technologies like Java, focusing on the Spring ecosystem and Apache Kafka, and JavaScript, particularly React, NextJS, and MUI.
+- Strong understanding of object-oriented programming, SOLID principles, Hexagonal Architecture, Clean Architecture, Design Patterns, and Domain Driven Design, with systematic application in projects.
+- Recognized for playing a pivotal role as a senior professional in modernizing legacy systems for microservices and web architectures, influencing architectural decisions, acting as a technical reference for the team, and assisting in developing necessary competencies to ensure high-quality deliveries.
+- Experienced in guiding and empowering junior and mid-level professionals, imparting essential knowledge in software design, best development practices, and adopting innovative technologies.
 
-## STACKS
-
-- HTML, CSS, Javascript, Java, and Python;
-- React, Angular, Next.js, Spring (Boot, Security), and Django;
-- MySQL, PostgreSQL, Oracle, and MongoDB;
-- Docker, Jupyter Labs, and Pandas.
-
-## LANGUAGES
-
-- **English** - Intermediate/Advanced reading (B2) , Intermediate writing (B1), and Intermediate speaking (B1).
+---
 
 ## PROFESSIONAL EXPERIENCE
 
-### Fullstack Developer
+### Senior Full Stack Developer | Muvz | October 2023 – Present
 
-Conddiz | Remote | Fortaleza, Brasil | Mar 2022 - Aug 2022 (Temporary)
+- Headed a project to modernize applications for a major newspaper client by migrating Java (EJB) legacy services to 5 microservices, utilizing Java 17, Spring Boot, Spring Security, Spring Data JPA, Spring Cloud Open Feign, and Apache Kafka.
+- Implemented advanced front-end interfaces using Typescript, React, Next JS, React Admin, React Hook Form, Tan Stack Query, and MUI to enhance performance and functionality.
+- Created a robust back-office system with Spring Boot and React Admin to manage essential settings across microservices.
+- Spearheaded Apache Kafka implementation, mastering the technology and creating proof-of-concepts with Spring while also deploying a Docker stack for local development.
+- Collaborated with DevOps to deploy the Kafka cluster on Kubernetes and documented learning paths for continuous team education.
+- Created multiple Kafka integrations, including a robust email delivery microservice with built-in logging and auditing functionalities for asynchronous communication.
+- Provided invaluable leadership by mentoring the team to adopt hexagonal architecture, SOLID principles, DDD, and best practices in Java and JavaScript development. This initiative aimed at boosting team agility, minimizing errors, and enhancing delivery quality, resulting in remarkable team growth in technology adoption and adherence to best practices.
+- Played a pivotal role in surpassing project milestones, contributing significantly to the elimination of project delays (initially estimated at 3 months).
 
-- Worked as a fullstack developer in temporary projects focused on promoting an election campaign, with the main activities being the analysis and development of systems with a back-end built in Strapi and a front-end built in React, NextJS, and MUI. Other responsibilities included creating and refactoring components, problem-solving, implementing gamification elements, and being responsible for integrating new team members.
+### Senior Full Stack Developer | Conddiz | March 2022 – August 2022
 
-### Software Architect
+- Acted as a Senior Full Stack Developer on projects supporting a presidential campaign, involving analyzing and implementing a back-end system with NodeJS and Strapi, and 3 front-end applications using JavaScript, React, NextJS, MUI, and React Hook Form.
+- Developed applications include the campaign website, a gamified video app, and a TV app with interactive programming, such as YouTube chat for live streams and Twitter timeline for campaign ads.
+- Mentored new team members, providing training, code reviews, pair programming, and promoting good development practices.
 
-Digidados | Uberlândia, Brasil | Feb 2015 - Sep 2016
+### Software Architect | Digidados | February 2015 – November 2016
 
-- Worked as a software architect, with main responsibilities including developing the architecture and modules of the system with a focus on Java technologies and the Spring ecosystem (Spring Boot, Framework, Data, Security), Angular, and MySQL database. In addition to technical work, I also focused on coordinating and developing a team of four developers.
+- Worked as Software Architect for the project (Condominium Management System), with responsibilities including gathering requirements from users and the Project Owner, developing the system architecture, and overseeing application construction.
+- Coordinated and mentored the team, focusing on technologies like Java and the Spring ecosystem (Spring Boot, Framework, Data, Security), JavaScript, AngularJS, MySQL, and AWS (EC2 and S3) while promoting good development practices.
 
-### Senior Java Developer
+### Senior Java Developer | Sankhya | November 2013 – January 2015
 
-Sankhya | Uberlândia, Brasil | Nov 2013 - Jan 2015
+- Developed a printing management service for the Sankhya ERP, replacing the previous service based on Java Applets (a discontinued technology). The new service was implemented in Java 8, Guice, and JUnit (for testing), with the front-end developed in Adobe Flex and communication via REST.
+- Contributed to Sankhya ERP improvements using Java EE on the back-end and Adobe Flex on the front-end.
 
-- I Worked as a developer with a focus on Java back-end development, working on system development and supporting test automation using technologies such as Java, Guice, and JUnit in projects conducted in the agile model.
+### Senior Back-end Developer | TQI | October 2011 – October 2012
 
-### Senior Backend Developer
+- Acted as an architect and developer in an internal project, developing the back-end in Java (Spring MVC, Spring Framework, and Spring Data) and the front-end in JavaScript (HTML, CSS, Bootstrap, and JQuery) with an Oracle database.
+- Assigned to the Buscapé client project, utilizing PHP, Zend Framework, HTML, CSS, Bootstrap, JQuery, and MySQL.
 
-TQI | Uberlândia, Brasil | Oct 2011 - Oct 2012
+---
 
-- I Worked with a focus on system architecture, assigned to the Buscapé client and internal TQI projects, using technologies such as Java (SE and EE), Spring ecosystem, PHP, HTML, MySQL, Oracle, and JQuery.
+## ADDITIONAL EXPERIENCES
 
-### Systems Analyst
+### Tech Community Leader | UAIJUG – July 2009 – October 2018
 
-Everis | Uberlândia, Brasil | Jul 2009 - Jul 2011
+- Led the Java Users Group of the Triângulo Mineiro region, participating in and organizing events, lectures, and courses aimed at promoting the Java ecosystem in the area.
 
-- I worked on various projects involving Java, PHP, HTML, and Javascript, as well as database technologies such as MySQL, Oracle, and PL/SQL. I also contributed to the implementation of software development processes based on CMMI 3 and mentored less experienced team members. Additionally, I worked on a proof of concept for integrating Flex and Java for Telefônica's back-office system.
+---
 
-### Java Developer
+## SKILLS
 
-SWB | Uberlândia, Brasil | May 2008 - Jun 2009
+### Fluent
 
-- I worked on several projects, including a SQL execution audit system for Oracle databases using Logminer, performance evaluation for Hewitt using Struts 2, Spring and Hibernate, and a billing system using JSP, Servlets, and Hibernate. Other activities included modeling requirements and use cases with Enterprise Architect, and giving talks and training on Java SE and EE using Netbeans. Technologies used included Java, Struts, Spring, Hibernate, JSP, Servlets, and Enterprise Architect.
+I'm entirely comfortable with these skills and can start working immediately without the need for review or reference. I am highly proficient and up-to-date with current practices.
 
-### Java Coordinator and Java Developer
+- Object-Oriented Programming, SOLID, Hexagonal Architecture, Design Patterns
+- Java, JPA, JDBC, Hibernate, Spring, Spring Boot, Spring Security, Spring Data, Kafka, Maven
+- HTML, CSS, JavaScript, React, NextJS, MUI (Material UI), React Admin, React Hook Form
+- Git, GitHub, MySQL
 
-CEPEDI | Ilhéus, Brasil | Sep 2006 - Apr 2008
+### Proficient
 
-- I coordinated and instructed training programs including a Programming Formation Course (CFP) with 40 participants, where 31 were approved, and a Logic Programming course with 13 approved out of 40. I also coordinated a Java Advanced and Java for WEB training for five students, who were all hired. Additionally, I implemented tools to improve the development processes and organized mini-courses to enhance knowledge in various Java-related topics.
+This category encompasses skills I have worked extensively in the past but may require time to review and update myself on the latest practices and techniques to work effectively with them again. Additionally, it includes technologies I am currently working with, but I still need to acquire the depth of knowledge to consider myself an expert. I am actively learning and improving in these areas to broaden my skill set.
 
-### Java Instructor
+- Software Architecture, Clean Architecture, Domain-Driven Design, Microservices, Progressive Web Apps, Mentoring Junior Developers, Software Testing, Database Modeling
+- Junit, Mockito, JSF, EJB, CDI, Python
+- Bootstrap, Typescript, Content Layer
+- Docker, SQL, PostgreSQL, Scrum, Kanban, Notion
 
-SENAI | Ilhéus, Brasil | May 2007 - July 2007
+### Familiar
 
-- I taught two courses: Introduction to Java Language and Applied Programming Logic in Java. Both courses lasted 40 hours and were successful, with 8 and 10 participants respectively. The Introduction to Java Language course covered the initial concepts of Java technology, and the Applied Programming Logic in Java course covered programming logic concepts using the Java language.
+I'm familiar with and have some degree of experience with these skills, but I would need some time to practice and deepen my proficiency before I could work effectively with them.
 
-### Mid-Level Java Developer
+- Clean Code,
+- Hamcrest, AssertJ, Jest, Node, Tan Stack Query, Redux, Express, React Router, Strapi, Django, Pandas, Thymeleaf
+- SQL Server, Oracle, CI/CD, Jenkins, Jira, Trello, Gitlab, AWS, Heroku
 
-State University of Santa Cruz | Ilhéus, Brasil | Aug 2004 - Sep 2006
+### Learner (Requires Learning)
 
-- As a developer at the State University of Santa Cruz, I created two systems: the Research and Graduate Pro-Rectorate Management System, using Linux, Apache, MySQL, and PHP to manage research projects, and the Curriculum Lattes Analysis System, using Java to extract data from professors' curricula vitae.
+These are the technologies I'm actively learning and working to add to my skill set.
 
-### Scientific Initiation Scholar
+- GraphQL, GRPC, Go, MongoDB
+- Event Sourcing, CQRS, Event Storming, Event Driven Architecture
 
-State University of Santa Cruz | Ilhéus, Brasil | Apr 2003 - Aug 2004
+### LANGUAGES
 
-- I developed a web interface for the Bioinformatics Laboratory, using Java SE and Java EE, Servlets, and JSP, along with Netbeans, XML, XSTL, and XPath. The interface integrated various laboratory systems and automated the processing of genetic sequencing data.
+- Portuguese - (Native).
+- English - (B1).
 
-### Junior Java Programmer
+### Other
 
-CEPEDI | Ilhéus, Brasil | Nov 2003 - Feb 2004
+Some additional skills that are not directly related to technology but are essential for a professional developer.
 
-- I worked in the development of an automated testing system for hardware and multimedia in the assembly line of Novadata computers using Java SE. My responsibilities included analyzing, designing, and coding components for the system.
+- Good communication, teamwork, collaboration, technical leadership, resilience, continuous learning, adaptability, problem-solving, attention to detail, and experience with agile methodologies.
 
-## ADDITIONAL EXPERIENCE
+---
 
-### Tech Community Leader
+## EDUCATION
 
-UAIJUG | Uberlândia - Brasil | Jul/09 - Oct/18
+### Arquitetura Hexagonal | FullCycle | 2024 | 18h
 
-- Worked as the leader of the Java Users Group of Triângulo Mineiro, participating in and organizing events, lectures, and courses focused on promoting the Java ecosystem in the region
+### Event Storming na Prática | Full Cycle | 2024 | 10h
 
-## ADDITIONAL COURSES
+### DDD: Modelagem Tática e Patterns | Full Cycle | 2024 | 34h
 
-### English
+### Comunicação entre sistemas: REST, GraphQL e gRPC | Full Cycle | 2024 | 18h
 
-- Intermediate English (B1)
-- Cambly - Alura Language - Duolingo (and other platforms)
-- In progress;
+### Docker | Full Cycle | 2024 | 21h
 
-### Full Stack Open
+### Kafka for Developers using Spring Boot | Udemy | 2024 | 17h
 
-- Course on React, Redux, Node.js, MongoDB, GraphQL and TypeScript
+### Domain Driven Design | Full Cycle | 2024 | 6h
+
+### SOLID Express | Full Cycle | 2024 | 3h
+
+### Kafka for Beginners | Udemy | 2024 | 5h
+
+### Fundamentos da arquitetura de software | Full Cycle | 2024
+
+- Learn the fundamentals of software architecture to design and build good applications, focusing on performance, scalability, and resilience.
+- Where: Full Cycle
+- Workload: 15 hours
+- Completion: 07/02/2024 - 11/02/2024
+
+### Full Stack Open - 1 to 7 - React, Redux, Node.js, MongoDB, GraphQL e TypeScript | University of Helsinki | 2023
+
+- Course on Fundamentals of Web Development, React, REST, Node.js, Express, Testing, Redux, React Query, React Router, Custom Hooks, MongoDB, GraphQL, TypeScript, and more
 - Where: University of Helsinki
-- Workload: 260 hours
-- In progress;
+- Workload: 225 hours
+- Completion: 01/2023 - 07/2023
 
-### Create your "next" app using Next.js and Strapi
-
-- Course on 20 hours
-- Where: [https://courses.jamstack.training/](https://courses.jamstack.training/)
-- Workload: 20 hours
-- Completion: Feb/2022
-
-### Data Science (Python and Pandas)
+### Formação Python para Data Science | Alura | 2022
 
 - Several courses on Data Science, Python, and Pandas
 - Where: [Alura](https://cursos.alura.com.br/user/Josenaldo/fullCertificate/3c841cee5b2497ea9617f7e630b8ead1)
 - Workload: 50 hours
 - Completion: Jan/22
 
-### Advanced Python
+### Create your next app using Next.js and Strapi | Jamstack Training | 2022
 
-- Several courses on advanced Python topics
+- Learn how to create a full-stack application using Next.js and Strapi, with authentication, authorization, and more
+- Where: [https://courses.jamstack.training/](https://courses.jamstack.training/)
+- Workload: 20 hours
+- Completion: Feb/2022
+
+### Python Avançado | Alura | 2021
+
+- Several courses on advanced Python topics, like testing, desaign patterns, I/O, PEP8, error handling, and more
 - Where: [Alura](https://cursos.alura.com.br/user/Josenaldo/fullCertificate/3c841cee5b2497ea9617f7e630b8ead1)
 - Workload: 76 hours
 - Completion: Oct/21
 
-### Python Formation
+### Formação Python | Alura | 2021
 
 - Learn Python programming with Object Orientation
 - Where: [Alura](https://cursos.alura.com.br/user/Josenaldo/fullCertificate/3c841cee5b2497ea9617f7e630b8ead1)
 - Workload: 85 hours
 - Completion: Sep/21
-
-## EDUCATION
-
-Bachelor of Computer Science - State University of Santa Cruz - 2000 - not completed.

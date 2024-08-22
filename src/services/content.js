@@ -112,9 +112,6 @@ const getPostData = (slug) => {
 }
 
 const getPageData = (url) => {
-  console.log('url', url)
-  console.log('allPages', allPages)
-
   const page = allPages.find((page) => page.url === url)
 
   return page
