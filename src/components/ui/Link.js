@@ -1,5 +1,5 @@
-import NextLink from 'next/link'
 import { Link as MuiLink } from '@mui/material'
+import NextLink from 'next/link'
 
 const Link = ({ href, children, color, sx, ...restProps }) => {
   const linkStyle = {
@@ -14,11 +14,9 @@ const Link = ({ href, children, color, sx, ...restProps }) => {
   }
 
   return (
-    <NextLink href={href} passHref>
-      <MuiLink {...restProps} sx={{ ...sx, ...linkStyle }}>
-        {children}
-      </MuiLink>
-    </NextLink>
+    <MuiLink component={NextLink} href="href" {...restProps} sx={{ ...sx, ...linkStyle }}>
+      {children}
+    </MuiLink>
   )
 }
 

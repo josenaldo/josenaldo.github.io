@@ -2,7 +2,9 @@
 import { Box, Divider } from '@mui/material'
 
 import { MDXProvider } from '@mdx-js/react'
-import { Remark } from 'react-remark'
+// import { Remark } from 'react-remark'
+import Markdown from 'react-markdown'
+
 
 import remarkGfm from 'remark-gfm'
 import remarkParse from 'remark-parse'
@@ -19,6 +21,7 @@ import ResponsiveImage from '@/components/ui/ResponsiveImage'
 import styles from './MDXContent.module.css'
 
 const MDXContent = ({ content }) => {
+
   const remarkPlugins = [
     remarkParse,
     remarkGfm,
@@ -45,7 +48,8 @@ const MDXContent = ({ content }) => {
   return (
     <Box className={styles.markdownBody}>
       <MDXProvider>
-        <Remark
+        <Markdown
+          components={components}
           remarkPlugins={remarkPlugins}
           rehypePlugins={rehypePlugins}
           remarkRehypeOptions={{
@@ -53,13 +57,12 @@ const MDXContent = ({ content }) => {
             footnoteLabel: 'Notas de rodapé',
             footnoteBackLabel: 'Voltar ao conteúdo',
           }}
-          rehypeReactOptions={{ components: components }}
           onError={(error) => {
-            console.error(error)
+            console.error("Erro ao processar o texto", error)
           }}
         >
           {content}
-        </Remark>
+        </Markdown>
       </MDXProvider>
     </Box>
   )

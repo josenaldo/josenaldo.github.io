@@ -1,7 +1,7 @@
-import { Box, Container } from '@mui/material'
+import { Container } from '@mui/material'
 
-import AppLayout from '@/layouts/AppLayout'
 import ContentView from '@/components/content/ContentView'
+import AppLayout from '@/layouts/AppLayout'
 
 import contentService from '@/services/content'
 
@@ -25,6 +25,7 @@ const getStaticProps = async ({ params }) => {
 }
 
 const PostPage = ({ post }) => {
+  console.log('🔴 POST', post)
   return (
     <AppLayout
       title={post.title}

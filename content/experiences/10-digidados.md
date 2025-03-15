@@ -3,7 +3,7 @@ id: 10
 title: Software Architect
 company: Digidados
 location: Uberlândia, Brasil
-where: February 2015 – November 2016
+period: February 2015 – November 2016
 show: true
 ---
 - Worked as Software Architect for the project (Condominium Management System), with responsibilities including gathering requirements from users and the Project Owner, developing the system architecture, and overseeing application construction.

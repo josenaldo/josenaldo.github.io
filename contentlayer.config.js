@@ -1,4 +1,4 @@
-import { defineDocumentType, makeSource } from 'contentlayer/source-files'
+import { defineDocumentType, makeSource } from 'contentlayer2/source-files';
 
 export const Post = defineDocumentType(() => ({
   name: 'Post',
@@ -138,7 +138,7 @@ const Experience = defineDocumentType(() => ({
       description: 'The location of the experience',
       required: true,
     },
-    where: {
+    period: {
       type: 'string',
       description: 'The period, in time, of the experience',
       required: true,

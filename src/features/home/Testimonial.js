@@ -1,18 +1,10 @@
 import {
-  Avatar,
   Box,
-  Card,
-  CardActions,
-  CardMedia,
-  CardContent,
-  Container,
-  Paper,
-  Typography,
+  Typography
 } from '@mui/material'
 
-import Carousel from 'react-material-ui-carousel'
+// import Carousel from 'react-material-ui-carousel'
 
-import Image from 'next/image'
 
 import Section from '@/components/Section'
 
@@ -33,7 +25,7 @@ const Testimonial = ({ testimonials }) => {
             width: '100%',
           }}
         >
-          <Carousel autoplay={false}>
+          {/* <Carousel autoplay={false}>
             {testimonials.map((testimonial, index) => (
               <Box
                 sx={{
@@ -104,7 +96,7 @@ const Testimonial = ({ testimonials }) => {
                 </Card>
               </Box>
             ))}
-          </Carousel>
+          </Carousel> */}
         </Box>
       </Box>
     </Section>
