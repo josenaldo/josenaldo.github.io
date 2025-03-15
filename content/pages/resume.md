@@ -11,16 +11,12 @@ Uberlândia - Minas Gerais - Brasil
 
 Download resume: [pt-br.pdf](/resume/pt/JosenaldoDeOliveiraMatosFilho.pdf) | [pt-br.docx](/resume/pt/JosenaldoDeOliveiraMatosFilho.docx) | [en-us.pdf](/resume/en/JosenaldoDeOliveiraMatosFilho.pdf) | [en-us.docx](/resume/en/JosenaldoDeOliveiraMatosFilho.docx)
 
----
-
 ## SUMMARY
 
 - Software development professional with over 20 years of experience specializing in full-stack development and system architecture. Noted expertise in technologies like Java, focusing on the Spring ecosystem and Apache Kafka, and JavaScript, particularly React, NextJS, and MUI.
 - Strong understanding of object-oriented programming, SOLID principles, Hexagonal Architecture, Clean Architecture, Design Patterns, and Domain Driven Design, with systematic application in projects.
 - Recognized for playing a pivotal role as a senior professional in modernizing legacy systems for microservices and web architectures, influencing architectural decisions, acting as a technical reference for the team, and assisting in developing necessary competencies to ensure high-quality deliveries.
 - Experienced in guiding and empowering junior and mid-level professionals, imparting essential knowledge in software design, best development practices, and adopting innovative technologies.
-
----
 
 ## PROFESSIONAL EXPERIENCE
 
@@ -56,15 +52,11 @@ Download resume: [pt-br.pdf](/resume/pt/JosenaldoDeOliveiraMatosFilho.pdf) | [pt
 - Acted as an architect and developer in an internal project, developing the back-end in Java (Spring MVC, Spring Framework, and Spring Data) and the front-end in JavaScript (HTML, CSS, Bootstrap, and JQuery) with an Oracle database.
 - Assigned to the Buscapé client project, utilizing PHP, Zend Framework, HTML, CSS, Bootstrap, JQuery, and MySQL.
 
----
-
 ## ADDITIONAL EXPERIENCES
 
 ### Tech Community Leader | UAIJUG – July 2009 – October 2018
 
 - Led the Java Users Group of the Triângulo Mineiro region, participating in and organizing events, lectures, and courses aimed at promoting the Java ecosystem in the area.
-
----
 
 ## SKILLS
 
@@ -174,4 +166,4 @@ Some additional skills that are not directly related to technology but are essen
 - Learn Python programming with Object Orientation
 - Where: [Alura](https://cursos.alura.com.br/user/Josenaldo/fullCertificate/3c841cee5b2497ea9617f7e630b8ead1)
 - Workload: 85 hours
-- Completion: Sep/21
+- Completion: Sep/21 -->

@@ -2,9 +2,8 @@ import { Box, Container } from '@mui/material'
 
 import ContentTitle from '@/components/content/ContentTitle'
 
-import AppLAyout from '@/layouts/AppLayout'
-import ContactForm from '@/components/contact/ContactForm'
 import SocialList from '@/components/contact/SocialList'
+import AppLAyout from '@/layouts/AppLayout'
 
 const ContactPage = () => {
   const title = 'Get in Touch'
@@ -39,7 +38,7 @@ const ContactPage = () => {
           >
             <SocialList />
 
-            <ContactForm />
+            {/* <ContactForm /> */}
           </Box>
         </Box>
       </Container>

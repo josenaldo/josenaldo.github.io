@@ -1,11 +1,10 @@
-import React from 'react'
 
-import { Box, Card, CardMedia, CardContent } from '@mui/material'
+import { Box, Card, CardContent, CardMedia } from '@mui/material'
 
-import ContentMainImage from '@/components/content/ContentMainImage'
-import ContentTitle from '@/components/content/ContentTitle'
-import ContentMeta from '@/components/content/ContentMeta'
 import ContentCategory from '@/components/content/ContentCategory'
+import ContentMainImage from '@/components/content/ContentMainImage'
+import ContentMeta from '@/components/content/ContentMeta'
+import ContentTitle from '@/components/content/ContentTitle'
 import MDXContent from '@/components/content/MDXContent'
 import ShareLink from '@/components/share/ShareLink'
 
