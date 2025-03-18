@@ -23,7 +23,7 @@ const ExperiencesPage = ({ experiences }) => {
       title={title}
       description={description}
       image={image}
-      url="/blog"
+      url="/experiences"
     >
       <Container>
         <Box >

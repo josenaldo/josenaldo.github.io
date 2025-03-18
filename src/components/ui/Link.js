@@ -14,7 +14,7 @@ const Link = ({ href, children, color, sx, ...restProps }) => {
   }
 
   return (
-    <MuiLink component={NextLink} href="href" {...restProps} sx={{ ...sx, ...linkStyle }}>
+    <MuiLink component={NextLink} href={href} {...restProps} sx={{ ...sx, ...linkStyle }}>
       {children}
     </MuiLink>
   )

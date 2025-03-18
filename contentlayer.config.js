@@ -1,5 +1,11 @@
 import { defineDocumentType, makeSource } from 'contentlayer2/source-files';
 
+function resolveSlug(doc, folder) {
+  const regex = new RegExp(`${folder}\/?`, 'g')
+  const slug = doc._raw.flattenedPath.replace(regex, '');
+  return slug
+}
+
 export const Post = defineDocumentType(() => ({
   name: 'Post',
   filePathPattern: `blog/**/*.md`,
@@ -234,7 +240,16 @@ const Course = defineDocumentType(() => ({
       description: 'The link of the certificate',
       required: true,
     },
-
+  },
+  computedFields: {
+    url: {
+      type: 'string',
+      resolve: (doc) => `/${doc._raw.flattenedPath}`,
+    },
+    slug: {
+      type: 'string',
+      resolve: (doc) => resolveSlug(doc, 'courses'),
+    }
   },
 }))
 
