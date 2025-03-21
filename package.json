@@ -30,7 +30,7 @@
     "eslint-config-next": "^15.2.2",
     "eslint-config-prettier": "^10.1.1",
     "eslint-plugin-react": "^7.37.4",
-    "next": "15.2.2",
+    "next": "15.2.3",
     "next-contentlayer2": "^0.5.4",
     "next-recaptcha-v3": "^1.5.2",
     "next-seo": "^6.6.0",
