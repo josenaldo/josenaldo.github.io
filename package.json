@@ -20,7 +20,7 @@
     "@mui/icons-material": "6.4.8",
     "@mui/lab": "^6.0.0-beta.30",
     "@mui/material": "^6.4.8",
-    "axios": "^1.8.3",
+    "axios": "^1.13.5",
     "concurrently": "^9.1.2",
     "contentlayer2": "^0.5.4",
     "date-fns": "4.1.0",
