@@ -32,12 +32,16 @@ function CourseItem({ course, expanded, onChange }) {
       <AccordionDetails>
 
         <Box display='flex' flexDirection='row' gap={2}>
-          <Link href={course.courseLink} target='_blank' rel='noopener noreferrer'>
-            <Chip label='Course Link' color='primary' clickable />
-          </Link>
-          <Link href={course.certificateLink} target='_blank' rel='noopener noreferrer'>
-            <Chip label='Certificate' color='primary' clickable />
-          </Link>
+          {course.courseLink && (
+            <Link href={course.courseLink} target='_blank' rel='noopener noreferrer'>
+              <Chip label='Course Link' color='primary' clickable />
+            </Link>
+          )}
+          {course.certificateLink && (
+            <Link href={course.certificateLink} target='_blank' rel='noopener noreferrer'>
+              <Chip label='Certificate' color='primary' clickable />
+            </Link>
+          )}
         </Box>
         <MDXContent content={course.body.raw} />
       </AccordionDetails>
