@@ -15,7 +15,7 @@ const getStaticProps = async () => {
 const BlogPage = ({ posts }) => {
   const title = 'Nephro Nerd Chronicles'
   const description =
-    "Explore Nephro Nerd Chronicles: Josenaldo's fusion of software development and kidney health insights. Be inspired, learn, and connect – one byte at a time!"
+    'Explore Nephro Nerd Chronicles: Josenaldo\'s fusion of software development and kidney health insights. Be inspired, learn, and connect – one byte at a time!'
   const image = '/images/pages/blog.jpg'
 
   return (

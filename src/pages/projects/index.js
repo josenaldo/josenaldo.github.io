@@ -15,7 +15,7 @@ const getStaticProps = async () => {
 const ProjectsPage = ({ projects }) => {
   const title = 'Projects'
   const description =
-    "My projects are a mix of personal projects and projects I've worked on professionally."
+    'My projects are a mix of personal projects and projects I\'ve worked on professionally.'
   const image = '/images/default.jpg'
 
   return (

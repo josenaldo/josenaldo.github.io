@@ -20,7 +20,7 @@ const getYearOfExperience = (year) => {
 const ProjectsPage = ({ skills }) => {
   const title = 'Skills'
   const description =
-    "I'm a software engineer with experience in a variety of technologies. Here are some of the skills I've developed."
+    'I\'m a software engineer with experience in a variety of technologies. Here are some of the skills I\'ve developed.'
   const image = '/images/default.jpg'
 
   return (
@@ -62,7 +62,7 @@ const ProjectsPage = ({ skills }) => {
   )
 }
 
-const SkillCard = ({ title, skill = [], text = "" }) => {
+const SkillCard = ({ title, skill = [], text = '' }) => {
   return (
     <Card>
       <CardContent>

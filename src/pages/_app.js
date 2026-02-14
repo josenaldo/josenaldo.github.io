@@ -9,7 +9,7 @@ import { DefaultSeo } from 'next-seo'
 
 import theme from '@/styles/theme'
 // import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3'
-import { ReCaptchaProvider } from "next-recaptcha-v3"
+import { ReCaptchaProvider } from 'next-recaptcha-v3'
 
 export default function App({ Component, pageProps }) {
   return (
