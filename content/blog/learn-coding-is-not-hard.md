@@ -4,7 +4,7 @@ description:
   "Spoiler: Learn how to code isn't hard. Its just a lot of work. And we usually confuse these two concepts."
 date: 2023-06-14 22:00:00 -0300
 author: Josenaldo Matos
-image: "/images/blog/return-of-the-jedi.png"
+image: "/images/blog/learn-coding-is-not-hard.png"
 category: personal
 ---
 
