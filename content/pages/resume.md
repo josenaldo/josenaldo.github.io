@@ -9,7 +9,7 @@ Uberlândia - Minas Gerais - Brasil
 
 [+55 (34) 99183-0215](https://wa.me/5534991830215) | [josenaldo@gmail.com](mailto:josenaldo@gmail.com) | [https://github.com/josenaldo](https://github.com/josenaldo) | [https://linkedin.com/in/josenaldo](https://linkedin.com/in/josenaldo)
 
-Download resume: [pt-br.pdf](/resume/pt/JosenaldoDeOliveiraMatosFilho.pdf) | [pt-br.docx](/resume/pt/JosenaldoDeOliveiraMatosFilho.docx) | [en-us.pdf](/resume/en/JosenaldoDeOliveiraMatosFilho.pdf) | [en-us.docx](/resume/en/JosenaldoDeOliveiraMatosFilho.docx)
+Download resume: [pt-br.pdf](/files/pt/JosenaldoDeOliveiraMatosFilho_pt.pdf) | [pt-br.docx](/files/pt/JosenaldoDeOliveiraMatosFilho_pt.docx) | [en-us.pdf](/files/en/JosenaldoDeOliveiraMatosFilho_en.pdf) | [en-us.docx](/files/en/JosenaldoDeOliveiraMatosFilho_en.docx)
 
 ## SUMMARY
 
