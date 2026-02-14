@@ -3,10 +3,8 @@ import {
   List,
   ListItem,
   ListItemText,
-  ListItemIcon,
   ListItemAvatar,
   Link,
-  Divider,
 } from '@mui/material'
 
 import socialLinks from '@/data/socialLinks'

@@ -1,11 +1,11 @@
-import { Accordion, AccordionDetails, AccordionSummary, Box, Container, Typography } from '@mui/material';
+import { Accordion, AccordionDetails, AccordionSummary, Box, Container, Typography } from '@mui/material'
 
-import ContentTitle from '@/components/content/ContentTitle';
+import ContentTitle from '@/components/content/ContentTitle'
 
-import MDXContent from '@/components/content/MDXContent';
-import AppLAyout from '@/layouts/AppLayout';
-import contentService from '@/services/content';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import MDXContent from '@/components/content/MDXContent'
+import AppLAyout from '@/layouts/AppLayout'
+import contentService from '@/services/content'
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 
 const getStaticProps = async () => {
   const experiences = contentService.lastExperiences()
@@ -15,7 +15,7 @@ const getStaticProps = async () => {
 const ExperiencesPage = ({ experiences }) => {
   const title = 'Professional Experiences'
   const description =
-    "A detailed list of my professional experiences, including my roles, responsibilities, and achievements."
+    '20+ years of software engineering across education, media, telecom, and e-commerce. Each experience showcases the challenge faced, actions taken, and measurable results delivered.'
   const image = '/images/default.jpg'
 
   return (
@@ -57,5 +57,5 @@ const ExperiencesPage = ({ experiences }) => {
   )
 }
 
-export { getStaticProps };
+export { getStaticProps }
 export default ExperiencesPage

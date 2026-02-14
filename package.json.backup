@@ -1,0 +1,48 @@
+{
+  "name": "josenaldo.github.io",
+  "author": {
+    "name": "Josenaldo",
+    "email": "josenaldo@gmail.com"
+  },
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently \"contentlayer2 dev\" \"next dev\"",
+    "build": "contentlayer2 build && next build",
+    "postbuild": "next-sitemap",
+    "start": "next start",
+    "lint": "next lint",
+    "info": "next info"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "@mdx-js/react": "^3.1.0",
+    "@mui/icons-material": "6.4.8",
+    "@mui/lab": "^6.0.0-beta.30",
+    "@mui/material": "^6.4.8",
+    "axios": "^1.8.3",
+    "concurrently": "^9.1.2",
+    "contentlayer2": "^0.5.4",
+    "date-fns": "4.1.0",
+    "date-fns-tz": "^3.2.0",
+    "eslint": "^9.22.0",
+    "eslint-config-next": "^15.2.2",
+    "eslint-config-prettier": "^10.1.1",
+    "eslint-plugin-react": "^7.37.4",
+    "next": "15.2.3",
+    "next-contentlayer2": "^0.5.4",
+    "next-recaptcha-v3": "^1.5.2",
+    "next-seo": "^6.6.0",
+    "next-sitemap": "^4.2.3",
+    "prop-types": "^15.8.1",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
+    "react-markdown": "^10.1.0",
+    "rehype-external-links": "^3.0.0",
+    "rehype-prism-plus": "^2.0.0",
+    "rehype-raw": "^7.0.0",
+    "remark-gfm": "^4.0.1",
+    "remark-parse": "^11.0.0"
+  }
+}

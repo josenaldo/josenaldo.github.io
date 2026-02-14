@@ -7,9 +7,25 @@ const nextConfig = {
   output: 'export',
   assetPrefix: isProd ? '' : '',
   reactStrictMode: true,
+  // Turbopack is now default in Next.js 16
+  turbopack: {},
   images: {
     unoptimized: true,
-    domains: ['localhost', 'josenaldo.github.io', 'josenaldo.com.br'],
+    // Updated to remotePatterns (images.domains deprecated)
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'josenaldo.github.io',
+      },
+      {
+        protocol: 'https',
+        hostname: 'josenaldo.com.br',
+      },
+      {
+        protocol: 'http',
+        hostname: 'localhost',
+      },
+    ],
   },
   env: {
     NEXT_PUBLIC_SITE_URL: process.env.NEXT_PUBLIC_SITE_URL,

@@ -8,8 +8,8 @@ const CallToAction = ({ children, href }) => {
         display: 'flex',
         flexDirection: 'row',
         justifyContent: { xs: 'center', md: 'flex-start' },
-        gap: 2,
-        mt: 4,
+        mt: 2,
+
       }}
     >
       <Button variant="contained" href={href}>

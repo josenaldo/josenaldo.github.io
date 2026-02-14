@@ -3,26 +3,28 @@ id: 10
 title: Software Architect
 company: Digidados
 location: Uberlândia, Brasil
-period: February 2015 – November 2016
+period: February 2015 - November 2016
 show: true
+description: "Led architecture and automation of condo system, reducing incidents and accelerating billing."
 ---
 
-### Situation
+### Software Architect | Digidados
 
-I joined Digidados as a Software Architect for a critical project: the development of a comprehensive Condominium Management System. This system aimed to serve three key user groups – the property management team (managing approximately 400 condominiums in Uberlândia, Brazil), condominium residents, and condominium syndics – each with unique needs and complexities.
+#### Challenge
 
-### Task
+Architect and lead the development of a condominium management system to serve property management companies (handling 400+ condominiums), residents, and condominium managers. The system needed to reconcile diverse requirements, handle high data volumes, and streamline operational workflows that were previously manual and time-consuming.
 
-My primary responsibility was to define and oversee the implementation of the system architecture, ensuring it met the diverse requirements of these user groups. This included gathering requirements, designing a scalable and customizable system, and mentoring the development team.
+#### Action
 
-### Action
+- **Architecture & Requirements**: Led requirements gathering and designed the system architecture using Java, Spring Boot, JHipster, and AngularJS, ensuring scalability and maintainability.
+- **Team Leadership**: Coordinated the development team using SCRUM methodology, pair programming, code reviews, and technical talks to maintain code quality and knowledge sharing.
+- **Mentorship & Training**: Mentored and trained developers through structured learning paths, practical projects, and technical presentations.
+- **Process Automation**: Implemented automation for critical processes including billing, incident management, and communication workflows.
 
-- Gathered and analyzed requirements from users and the Project Owner, understanding the specific needs of different condominium types and user roles.
-- Designed a monolithic architecture with a clear separation between backend (Java and Spring Boot, utilizing JHipster for code generation) and frontend (AngularJS) to simplify development and maintenance while ensuring seamless integration.
-- Coordinated the development team using SCRUM methodologies, conducting regular planning, review, and retrospective meetings to maintain alignment and track progress.
-- Mentored the team through pair programming, code reviews, and bi-weekly tech talks, fostering collaboration and knowledge sharing.
-- Provided targeted training and mentorship to developers struggling with the project, creating personalized learning path with study materials, practice projects, and regular presentations to build confidence and technical skills.
+#### Result
 
-### Result
-
-The implementation of the incident management system reduced the average response time from 5 days to 1 business day, significantly improving customer satisfaction. The automated invoice generation system reduced processing time from 2 days to 3 minutes, eliminating manual errors and improving communication. The successful delivery of the system architecture enabled the company to efficiently manage a large portfolio of condominiums and provide a valuable service to residents and syndics.
+- Reduced incident response time from 5 days to 1 business day through automated workflows.
+- Automated billing generation, reducing processing time from 2 days to 3 minutes.
+- Delivered scalable and efficient architecture enabling management of large condominium portfolios (400+ units).
+- Built a capable development team through effective mentorship and knowledge transfer.
+- Enabled property management companies to handle significantly larger client bases with improved service quality.
