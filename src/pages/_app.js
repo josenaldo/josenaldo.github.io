@@ -4,12 +4,14 @@ import '@/styles/globals.css'
 import CssBaseline from '@mui/material/CssBaseline'
 import { ThemeProvider } from '@mui/material/styles'
 
-import { SeoConfig } from '@/data/SeoConfig'
+import seoData from '@/data/SeoConfig'
 import { DefaultSeo } from 'next-seo'
 
 import theme from '@/styles/theme'
 // import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3'
 import { ReCaptchaProvider } from 'next-recaptcha-v3'
+
+const { SeoConfig } = seoData
 
 export default function App({ Component, pageProps }) {
   return (
