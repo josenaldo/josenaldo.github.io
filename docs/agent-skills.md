@@ -29,6 +29,25 @@ Criadas com `npx skills init` e preenchidas para o contexto do projeto:
 - `site-seo-and-sitemap`
   - Foco: `next-seo`, `NEXT_PUBLIC_SITE_URL`, `next-sitemap`.
 
+## Skills editoriais (custom, versionadas em .github/skills)
+
+Estas skills existem para ajudar no fluxo de escrita/revisão e na manutenção do conteúdo em `content/**`.
+
+- `article-research`
+  - Foco: pesquisa aplicada, tese/argumentos, Research Brief.
+- `article-structure`
+  - Foco: outline e estrutura (ensaio, decisão técnica, tutorial).
+- `article-review`
+  - Foco: revisão de argumento, clareza, estilo e “voz humana”.
+- `resume-experience-xyz`
+  - Foco: bullets de currículo no formato XYZ (Google).
+- `portfolio-project-description`
+  - Foco: narrativa e descrição de projetos do portfólio.
+- `site-content-refresh`
+  - Foco: revisão e atualização de conteúdo antigo sem quebrar build/export.
+- `site-frontmatter-qc`
+  - Foco: QA/padronização de frontmatter conforme Contentlayer.
+
 ## Proposta de adição (curta e objetiva)
 
 ### 1) Manter (já instaladas) as skills da Vercel
