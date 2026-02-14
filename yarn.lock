@@ -1801,7 +1801,7 @@ concurrently@^9.1.2:
     tree-kill "1.2.2"
     yargs "17.7.2"
 
-contentlayer2@^0.5.4, contentlayer2@0.5.8:
+contentlayer2@^0.5.8, contentlayer2@0.5.8:
   version "0.5.8"
   resolved "https://registry.npmjs.org/contentlayer2/-/contentlayer2-0.5.8.tgz"
   integrity sha512-GlyhZdJALMyTRuxquE2AQ47kELupZKz4BIEpZeN/NiNV+3MmE61LW1bF7gpCZ+cIrKkSaDNTKbeLvEtsefslqA==
@@ -4149,7 +4149,7 @@ natural-compare@^1.4.0:
   resolved "https://registry.npmjs.org/natural-compare/-/natural-compare-1.4.0.tgz"
   integrity sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==
 
-next-contentlayer2@^0.5.4:
+next-contentlayer2@^0.5.8:
   version "0.5.8"
   resolved "https://registry.npmjs.org/next-contentlayer2/-/next-contentlayer2-0.5.8.tgz"
   integrity sha512-3Xh8quPCFmg/QGa4qTnOwSsT3oNYCtmm+Ii0UlbOHxX59gHYVX9M5mTzkdUKiKC1aJfiGIPPGQXhKNfc6qvWZg==
