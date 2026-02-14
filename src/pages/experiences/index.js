@@ -15,7 +15,7 @@ const getStaticProps = async () => {
 const ExperiencesPage = ({ experiences }) => {
   const title = 'Professional Experiences'
   const description =
-    "A detailed list of my professional experiences, including my roles, responsibilities, and achievements."
+    "20+ years of software engineering across education, media, telecom, and e-commerce. Each experience showcases the challenge faced, actions taken, and measurable results delivered."
   const image = '/images/default.jpg'
 
   return (

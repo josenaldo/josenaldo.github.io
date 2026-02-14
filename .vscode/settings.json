@@ -21,5 +21,7 @@
     "titleBar.inactiveBackground": "#00800099",
     "titleBar.inactiveForeground": "#e7e7e799"
   },
-  "peacock.color": "#008000"
+  "peacock.color": "#008000",
+  "consoleNinja.featureSet": "Community",
+  "consoleNinja.toolsToEnableSupportAutomaticallyFor": {}
 }

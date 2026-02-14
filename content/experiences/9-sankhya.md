@@ -3,46 +3,26 @@ id: 9
 title: Senior Java Developer
 company: Sankhya
 location: Uberlândia, Brasil
-period: November 2013 – January 2015
+period: November 2013 - January 2015
 show: true
 ---
-### Project: Sankhya Printing Service (SPS)
 
-#### Situation
+### Senior Java Developer | Sankhya
 
-During my time at Sankhya, the existing printing management service relied on Java Applets, a technology becoming obsolete due to browser vendor support being discontinued. This posed a significant risk to the functionality and security of the Sankhya ERP.
+#### Challenge
 
-#### Task
-
-My primary responsibility was to design, develop, and deploy a new printing management service (SPS - Sankhya Printing Service) that would replace the Applet-based system, ensuring compatibility, security, and improved control over printing resources.
+Develop a printing management service for Sankhya ERP to replace the legacy Java Applets-based solution (obsolete and insecure technology) with a modern, secure, and centralized alternative. Additionally, implement the CTE (Electronic Transport Document) module to ensure fiscal compliance for transportation operations.
 
 #### Action
 
-- Designed and implemented the SPS, a server-based printing solution, utilizing Java 8, Guice, and JUnit for testing.
-Developed the front-end interface using Adobe Flex and implemented communication via RESTful APIs.
-- Managed the entire lifecycle of the project, from initial design to deployment and ongoing maintenance.
+- **Printing Service Development**: Designed and implemented the Sankhya Printing Service using Java 8, Guice, JUnit for testing, Adobe Flex for the frontend, and REST for communication, providing centralized control and traceability.
+- **Technical Leadership**: Led the complete development cycle including design, development, deployment, and maintenance of the printing service.
+- **CTE Module Implementation**: Developed the CTE (Electronic Transport Document) module using Java EE 5 and Adobe Flex, with full ERP integration and fiscal compliance rules.
+- **Team Mentorship**: Provided mentorship to developers and conducted code reviews to maintain quality standards.
 
 #### Result
 
-The successful deployment of the SPS eliminated the dependency on Java Applets, mitigating a critical security and compatibility risk. The new system provided centralized printing control and tracking, improving resource management and reducing potential downtime.
-
-### Project: CTE (Electronic Transport Knowledge Document) Implementation
-
-#### Situation
-
-Sankhya ERP required the implementation of the CTE (Electronic Transport Knowledge Document) functionality to comply with Brazilian tax regulations and streamline transportation document management. This involved a complex integration with existing ERP modules and adherence to specific legal requirements.
-
-#### Task
-
-I was responsible for leading the technical implementation of the CTE functionality within the Sankhya ERP, encompassing both backend and frontend development.
-
-#### Action
-
-- Developed the backend logic for CTE processing using Java EE 5, including validation rules and data integration with existing ERP modules.
-- Developed the frontend interface using Adobe Flex, providing a user-friendly experience for managing CTE documents.
-- Collaborated with stakeholders to ensure the implementation met all legal and business requirements.
-- Participated in code reviews and provided mentorship to junior developers on the project.
-
-#### Result
-
-The successful implementation of the CTE functionality streamlined transportation document management, enhancing compliance and operational efficiency. The system enabled accurate and timely generation of CTE documents, reducing the risk of penalties and improving the overall efficiency of the logistics process. The project was delivered on time and within budget, contributing to the overall success of the Sankhya ERP.
+- Eliminated security and obsolescence risks by replacing Java Applets with modern, centralized solution.
+- Achieved fiscal compliance and automated transport document generation through CTE module.
+- Delivered project on time and within budget with full traceability and centralized printing control.
+- Improved system reliability and reduced maintenance overhead through modern technology stack.

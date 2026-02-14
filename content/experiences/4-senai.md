@@ -6,4 +6,22 @@ location: Ilhéus, Brasil
 period: May 2007 - July 2007
 show: true
 ---
-- I taught two courses: Introduction to Java Language and Applied Programming Logic in Java. Both courses lasted 40 hours and were successful, with 8 and 10 participants respectively. The Introduction to Java Language course covered the initial concepts of Java technology, and the Applied Programming Logic in Java course covered programming logic concepts using the Java language.
+
+### Java Instructor | SENAI
+
+#### Challenge
+
+Deliver professional Java training courses for SENAI (Brazilian National Service for Industrial Training), ensuring students gained practical programming skills for the regional technology job market. The courses needed to balance theoretical foundations with hands-on application.
+
+#### Action
+
+- **Course Delivery**: Taught two intensive 40-hour courses: "Introduction to Java Language" and "Applied Programming Logic in Java".
+- **Curriculum Design**: Structured courses to cover Java technology fundamentals and programming logic using practical, hands-on approach.
+- **Student Engagement**: Maintained high engagement and completion rates through effective teaching methodology.
+
+#### Result
+
+- Successfully trained 18 students across two courses with strong participation (8 and 10 students respectively).
+- Delivered complete foundational Java education covering both language syntax and programming logic.
+- Achieved positive course outcomes with high student satisfaction and completion rates.
+- Contributed to regional workforce development by providing quality Java programming education.
