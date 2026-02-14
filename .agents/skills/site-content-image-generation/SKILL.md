@@ -54,11 +54,13 @@ workflow:
 Automatiza a criação de imagens de capa para posts, páginas e outros conteúdos do site, garantindo consistência visual e SEO. Gera imagens a partir do conteúdo e salva na pasta correta, pronta para uso em Open Graph, SEO e redes sociais.
 
 ## Exemplos de uso
+
 - Gerar imagem de capa para o post "Como aprender Python"
 - Criar imagem de capa para a página Sobre
 - Gerar imagem para o curso "Design Patterns em Python"
 
 ## Fluxo resumido
+
 1. Identifica tipo e slug do conteúdo
 2. Extrai título/resumo/categoria
 3. Gera imagem (1200x630px, PNG) com padrão visual do site
@@ -67,6 +69,7 @@ Automatiza a criação de imagens de capa para posts, páginas e outros conteúd
 6. Exibe caminho e instruções para revisão
 
 ## Dicas
+
 - Use sempre as cores/fontes do site
 - Layout limpo, legível, responsivo
 - Inclua título e elemento visual relacionado
@@ -74,16 +77,18 @@ Automatiza a criação de imagens de capa para posts, páginas e outros conteúd
 - Veja exemplos em public/images/blog/
 
 ## Cuidados
+
 - Não gere imagens sem contexto
 - Não salve fora de public/images/{tipo}/
 - Não altere frontmatter sem confirmação
 - Evite baixa resolução ou proporção errada
 
 ## Referências
+
 - src/styles/theme.js
 - public/images/blog/
 - content/blog/, content/pages/, content/courses/
 - site-seo-and-sitemap
-- https://vercel.com/docs/ai/skills/creating-skills
-- https://og-playground.vercel.app/
-- https://vercel.com/docs/og-image
+- <https://vercel.com/docs/ai/skills/creating-skills>
+- <https://og-playground.vercel.app/>
+- <https://vercel.com/docs/og-image>
