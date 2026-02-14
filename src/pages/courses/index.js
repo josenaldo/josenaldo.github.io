@@ -1,14 +1,14 @@
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { Accordion, AccordionDetails, AccordionSummary, Box, Chip, Container, Typography } from '@mui/material';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
+import { Accordion, AccordionDetails, AccordionSummary, Box, Chip, Container, Typography } from '@mui/material'
 
-import ContentTitle from '@/components/content/ContentTitle';
-import MDXContent from '@/components/content/MDXContent';
+import ContentTitle from '@/components/content/ContentTitle'
+import MDXContent from '@/components/content/MDXContent'
 
-import Link from '@/components/ui/Link';
-import { allCourses } from '@/features/courses/api/courses';
-import AppLAyout from '@/layouts/AppLayout';
-import { formatDate } from '@/shared/utils/date-format-utils';
-import { useState } from 'react';
+import Link from '@/components/ui/Link'
+import { allCourses } from '@/features/courses/api/courses'
+import AppLAyout from '@/layouts/AppLayout'
+import { formatDate } from '@/shared/utils/date-format-utils'
+import { useState } from 'react'
 
 function CourseItem({ course, expanded, onChange }) {
 
@@ -52,17 +52,17 @@ const getStaticProps = async () => {
 }
 
 const ExperiencesPage = ({ courses }) => {
-  const [expanded, setExpanded] = useState(false);
+  const [expanded, setExpanded] = useState(false)
 
   const onChange = (panel) => (event, newExpanded) => {
 
     console.log('new expanded', newExpanded)
-    setExpanded(newExpanded ? panel : false);
-  };
+    setExpanded(newExpanded ? panel : false)
+  }
 
   const title = 'Courses'
   const description =
-    "A detailed list of my courses, including the institution, completion date, workload, course link, and certificate link."
+    'A detailed list of my courses, including the institution, completion date, workload, course link, and certificate link.'
   const image = '/images/default.jpg'
 
 
@@ -89,5 +89,5 @@ const ExperiencesPage = ({ courses }) => {
   )
 }
 
-export { getStaticProps };
+export { getStaticProps }
 export default ExperiencesPage

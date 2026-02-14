@@ -1,4 +1,4 @@
-import { Box, Chip, Typography } from '@mui/material'
+import { Box, Typography } from '@mui/material'
 import { format, parseISO } from 'date-fns'
 
 import AuthorIcon from '@mui/icons-material/PersonOutlined'

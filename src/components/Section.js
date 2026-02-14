@@ -1,4 +1,4 @@
-import { Box, Container, Paper, Typography } from '@mui/material'
+import { Box, Container, Paper } from '@mui/material'
 
 const Section = ({ elevation, children, py = 8 }) => {
   return (

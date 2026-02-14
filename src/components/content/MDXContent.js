@@ -58,7 +58,7 @@ const MDXContent = ({ content }) => {
             footnoteBackLabel: 'Voltar ao conteúdo',
           }}
           onError={(error) => {
-            console.error("Erro ao processar o texto", error)
+            console.error('Erro ao processar o texto', error)
           }}
         >
           {content}
