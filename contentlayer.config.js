@@ -144,6 +144,11 @@ const Experience = defineDocumentType(() => ({
       description: 'The location of the experience',
       required: true,
     },
+    description: {
+      type: 'string',
+      description: 'The description of the post',
+      required: true,
+    },
     period: {
       type: 'string',
       description: 'The period, in time, of the experience',

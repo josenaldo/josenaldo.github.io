@@ -5,6 +5,7 @@ company: Everis
 location: Uberlândia, Brasil
 period: July 2009 - July 2011
 show: true
+description: "Delivered multi-stack projects, mentored teams, and ensured CMMI 3 standards for enterprise clients."
 ---
 
 ### Systems Analyst | Everis

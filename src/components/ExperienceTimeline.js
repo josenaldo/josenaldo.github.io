@@ -1,5 +1,5 @@
 import { PropTypes } from 'prop-types'
-import { Box, Container, Paper, Typography } from '@mui/material'
+import { Box, Chip, Container, Paper, Typography } from '@mui/material'
 import Timeline from '@mui/lab/Timeline'
 import TimelineItem from '@mui/lab/TimelineItem'
 import TimelineSeparator from '@mui/lab/TimelineSeparator'
@@ -13,19 +13,18 @@ import useMediaQuery from '@mui/material/useMediaQuery'
 const ExperienceTimeline = ({ experiences, showEllipsis = false }) => {
   const theme = useTheme()
   const matches = useMediaQuery(theme.breakpoints.down('md'))
+  console.log('experiences', experiences)
 
   return (
     <Timeline position={matches ? 'right' : 'alternate'}>
       {experiences.map((experience, index) => (
-        <TimelineItem key={index}>
+        <TimelineItem key={index} >
           <TimelineOppositeContent
             color="text.secondary"
             variant="h6"
-            sx={{
-              display: { xs: 'none', md: 'block' },
-            }}
+            sx={{ display: { xs: 'none', md: 'block' } }}
           >
-            {experience.where}
+            {experience.period}
           </TimelineOppositeContent>
           <TimelineSeparator>
             <TimelineDot color="secondary" />
@@ -35,21 +34,24 @@ const ExperienceTimeline = ({ experiences, showEllipsis = false }) => {
               }}
             />
           </TimelineSeparator>
-          <TimelineContent>
-            <Typography variant="h5" component="h3">
+          <TimelineContent sx={{
+            pb: 4,
+            gap: 1,
+            display: 'flex',
+            flexDirection: 'column',
+
+            justifyContent: 'flex-start',
+            alignItems: 'revert',
+            p: 2,
+          }}>
+            <Typography variant="h6" component="h3">
               {experience.company}: {experience.title}
             </Typography>
-            <Typography
-              color="text.secondary"
-              fontStyle="italic"
-              fontSize="0.8rem"
-              sx={{
-                display: { xs: 'block', md: 'none' },
-              }}
-            >
-              {experience.where}
+            <Typography variant='body1' color='text.secondary'>{experience.description}</Typography>
+            <Typography>
+
+              <Chip label={experience.location} size="small" variant="outlined" color='primary' />
             </Typography>
-            <Typography>{experience.description}</Typography>
           </TimelineContent>
         </TimelineItem>
       ))}

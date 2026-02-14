@@ -5,6 +5,7 @@ company: Digidados
 location: Uberlândia, Brasil
 period: February 2015 - November 2016
 show: true
+description: "Led architecture and automation of condo system, reducing incidents and accelerating billing."
 ---
 
 ### Software Architect | Digidados

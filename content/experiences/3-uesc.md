@@ -5,6 +5,7 @@ company: State University of Santa Cruz - UESC
 location: Ilhéus, Brasil
 period: August 2004 - September 2006
 show: true
+description: "Automated research management and curriculum analysis, optimizing academic processes and faculty evaluation."
 ---
 
 ### Java and PHP Developer | State University of Santa Cruz (UESC)

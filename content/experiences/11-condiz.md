@@ -5,6 +5,7 @@ company: Conddiz
 location: Remote
 period: March 2022 - August 2022
 show: true
+description: "Designed multi-app ecosystem for presidential campaign, supporting 200k users and mentoring the team."
 ---
 
 ### Senior Full Stack Developer | Conddiz

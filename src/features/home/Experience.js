@@ -13,14 +13,14 @@ const Experience = ({ experiences }) => {
           flexDirection: 'column',
           justifyContent: 'space-evenly',
           alignItems: 'center',
-          gap: 5,
+
         }}
       >
-        <Typography variant="h2">My experience</Typography>
+        <Typography variant="h2">Experience</Typography>
         <Box>
           <ExperienceTimeline experiences={experiences} showEllipsis />
         </Box>
-        <CallToAction href="/resume">My Resumé</CallToAction>
+        <CallToAction href="/experiences">More Experiences</CallToAction>
       </Box>
     </Section>
   )

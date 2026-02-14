@@ -5,6 +5,7 @@ company: MedEspecialista
 location: Remote
 period: June 2024 - Current
 show: true
+description: "Modernized medical platform, cut delivery time by 50%, and implemented CI/CD and modular architecture."
 ---
 
 ### Senior Full Stack Developer | MedEspecialista

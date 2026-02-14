@@ -5,6 +5,7 @@ company: Sankhya
 location: Uberlândia, Brasil
 period: November 2013 - January 2015
 show: true
+description: "Led migration from applets to centralized service, ensuring fiscal compliance and security in Sankhya ERP."
 ---
 
 ### Senior Java Developer | Sankhya
