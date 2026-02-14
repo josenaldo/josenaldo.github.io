@@ -9,6 +9,7 @@
   "scripts": {
     "dev": "concurrently \"contentlayer2 dev\" \"next dev\"",
     "build": "contentlayer2 build && next build",
+    "postbuild": "next-sitemap",
     "start": "next start",
     "lint": "next lint",
     "info": "next info"

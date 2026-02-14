@@ -1,7 +1,7 @@
 const APP_NAME = 'josenaldo.github.io'
 const APP_TITLE = 'Josenaldo Matos'
 const APP_DESCRIPTION = 'Software Developer & Kidney Waster'
-const APP_URL = process.env.NEXT_PUBLIC_SITE_URL
+const APP_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://josenaldo.github.io'
 const APP_IMAGE = `${APP_URL}/images/default.jpg`
 const APP_IMAGE_OBJECT = {
   url: APP_IMAGE,

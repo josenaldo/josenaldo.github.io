@@ -9,13 +9,15 @@ import Footer from '@/layouts/Footer'
 import GetInTouch from '@/layouts/GetInTouch'
 
 const AppLayout = ({ children, title, description, image, url }) => {
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://josenaldo.github.io'
+
   const og = React.useMemo(() => {
     const openGraph = {
       title: title,
       description: description,
       images: [
         {
-          url: `${process.env.NEXT_PUBLIC_SITE_URL}${image}`,
+          url: `${siteUrl}${image}`,
           width: '1200px',
           height: '630px',
           alt: title,
@@ -23,7 +25,7 @@ const AppLayout = ({ children, title, description, image, url }) => {
       ],
     }
     return openGraph
-  }, [title, description, image])
+  }, [title, description, image, siteUrl])
 
   return (
     <Box>
