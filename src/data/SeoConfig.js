@@ -52,47 +52,23 @@ const SeoConfig = {
   additionalLinkTags: [
     {
       rel: 'icon',
-      href: `${APP_URL}/icons/favicon.ico`,
+      href: `${APP_URL}/icons/manifest-icon-192.maskable.png`,
     },
     {
       rel: 'icon shortcut',
-      href: `${APP_URL}/icons/favicon.ico`,
+      href: `${APP_URL}/icons/manifest-icon-192.maskable.png`,
     },
     {
       rel: 'icon',
       type: 'image/png',
-      sizes: '32x32',
-      href: `${APP_URL}/icons/favicon-32x32.png`,
+      sizes: '512x512',
+      href: `${APP_URL}/icons/manifest-icon-512.maskable.png`,
     },
     {
       rel: 'icon',
       type: 'image/png',
-      sizes: '16x16',
-      href: `${APP_URL}/icons/favicon-16x16.png`,
-    },
-    {
-      rel: 'mask-icon',
-      href: `${APP_URL}/icons/icon.svg`,
-    },
-    {
-      rel: 'apple-touch-icon',
-      href: `${APP_URL}/icons/76x76-icon.png`,
-      sizes: '76x76',
-    },
-    {
-      rel: 'apple-touch-icon',
-      href: `${APP_URL}/icons/152x152-icon.png`,
-      sizes: '152x152',
-    },
-    {
-      rel: 'apple-touch-icon',
-      href: `${APP_URL}/icons/180x180-icon.png`,
-      sizes: '180x180',
-    },
-    {
-      rel: 'apple-touch-icon',
-      href: `${APP_URL}/icons/167x167-icon.png`,
-      sizes: '167x167',
+      sizes: '192x192',
+      href: `${APP_URL}/icons/manifest-icon-192.maskable.png`,
     },
     {
       rel: 'manifest',

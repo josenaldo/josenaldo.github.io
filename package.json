@@ -7,13 +7,14 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "concurrently \"contentlayer2 dev\" \"next dev\"",
+    "dev": "concurrently \"contentlayer2 dev\" \"next dev -p 3500\"",
     "build": "contentlayer2 build && next build",
     "postbuild": "next-sitemap",
     "start": "next start",
     "lint": "next lint",
     "info": "next info"
   },
+
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",

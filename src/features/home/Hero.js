@@ -43,7 +43,7 @@ const Hero = () => {
             my: { xs: 4, sm: 4, md: 0 },
           }}
         >
-          <Image src={photo} alt="Josenaldo Matos" fill />
+          <Image src={photo} alt="Josenaldo Matos" fill loading="eager" />
         </Box>
       </Box>
     </Section>
