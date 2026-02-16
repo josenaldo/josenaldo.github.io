@@ -4,16 +4,17 @@ import { Box, Typography } from '@mui/material'
 
 const ResponsiveImage = (props) => {
   const alt = props.alt?.replace(/ *\{[^)]*\} */g, '')
-  const metaWidth = props.alt.match(/{([^}]+)x/)
-  const metaHeight = props.alt.match(/x([^}]+)}/)
-  const width = metaWidth ? metaWidth[1] : '1000'
-  const height = metaHeight ? metaHeight[1] : '500'
+  const metaWidth = props.alt?.match(/{([^}]+)x/)
+  const metaHeight = props.alt?.match(/x([^}]+)}/)
+  const width = metaWidth ? Number(metaWidth[1]) : 1000
+  const height = metaHeight ? Number(metaHeight[1]) : 500
   const isPriority = props.alt?.toLowerCase().includes('{priority}')
   const hasCaption = props.alt?.toLowerCase().includes('{caption:')
   const caption = props.alt?.match(/{caption: (.*?)}/)?.pop()
 
   return (
     <Box
+      component="span"
       sx={{
         display: 'flex',
         justifyContent: 'center',
@@ -23,6 +24,7 @@ const ResponsiveImage = (props) => {
       }}
     >
       <Box
+        component="span"
         sx={{
           display: 'flex',
           flexDirection: 'column',
@@ -39,13 +41,15 @@ const ResponsiveImage = (props) => {
             className="postImg"
             alt={alt}
             priority={isPriority}
-            layout="responsive"
-            loading="lazy"
+            sizes="(max-width: 900px) 100vw, 90vw"
+            style={{ width: '100%', height: 'auto' }}
+            loading={isPriority ? 'eager' : 'lazy'}
           />
         </a>
       </Box>
       {hasCaption && (
         <Box
+          component="span"
           sx={{
             display: 'flex',
             justifyContent: 'center',
@@ -53,7 +57,7 @@ const ResponsiveImage = (props) => {
             my: '5px',
           }}
         >
-          <Typography variant="caption" textAlign="center">
+          <Typography component="span" variant="caption" textAlign="center">
             {caption}
           </Typography>
         </Box>
