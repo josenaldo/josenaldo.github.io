@@ -43,6 +43,16 @@ const MDXContent = ({ content }) => {
     hr: (props) => <Divider sx={{ my: 2 }} {...props} />,
     blockquote: Blockquote,
     center: (props) => <Box sx={{ textAlign: 'center' }} {...props} />,
+    table: (props) => (
+      <Box className={styles.tableWrapper}>
+        <Box component="table" className={styles.table} {...props} />
+      </Box>
+    ),
+    thead: (props) => <Box component="thead" className={styles.tableHead} {...props} />,
+    tbody: (props) => <Box component="tbody" className={styles.tableBody} {...props} />,
+    tr: (props) => <Box component="tr" className={styles.tableRow} {...props} />,
+    th: (props) => <Box component="th" className={styles.tableHeaderCell} {...props} />,
+    td: (props) => <Box component="td" className={styles.tableCell} {...props} />,
   }
 
   return (
