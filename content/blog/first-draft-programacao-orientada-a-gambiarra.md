@@ -7,7 +7,7 @@ image: "/images/blog/programacao-orientada-a-gambiarra-first-draft.png"
 category: personal
 ---
 
-I just finished the first complete draft of **Programação Orientada a Gambiarra**.
+I just finished the first complete draft of [**Programação Orientada a Gambiarra** - https://livropog.com.br/](https://livropog.com.br/).
 
 If you’re not Brazilian, the word *gambiarra* might sound mysterious. It’s the kind of improvised fix you do when reality doesn’t match the plan: a workaround, a hack, a duct-tape solution. It can be brilliant, dangerous, embarrassing, or all of the above.
 
