@@ -34,7 +34,7 @@ export default function Home({ experiences, projects, testimonials, posts }) {
       <About />
       <Experience experiences={experiences} />
       <Portfolio projects={projects} />
-      {/* <Services /> */}
+      <Services />
       <Testimonial testimonials={testimonials} />
       <Blog posts={posts} />
     </AppLayout>
