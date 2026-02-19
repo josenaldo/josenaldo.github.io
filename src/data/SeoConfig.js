@@ -5,8 +5,8 @@ const APP_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://josenaldo.github.io
 const APP_IMAGE = `${APP_URL}/images/default.jpg`
 const APP_IMAGE_OBJECT = {
   url: APP_IMAGE,
-  width: '1200px',
-  height: '630px',
+  width: 1200,
+  height: 630,
 }
 
 const SeoConfig = {
@@ -27,7 +27,7 @@ const SeoConfig = {
         width: 1200,
         height: 630,
         alt: APP_TITLE,
-        type: 'image/jpg',
+        type: 'image/jpeg',
       },
     ],
   },
@@ -41,7 +41,6 @@ const SeoConfig = {
     { name: 'apple-mobile-web-app-capable', content: 'yes' },
     { name: 'apple-mobile-web-app-status-bar-style', content: 'default' },
     { name: 'apple-mobile-web-app-title', content: APP_NAME },
-    { name: 'description', content: APP_DESCRIPTION },
     { name: 'format-detection', content: 'telephone=no' },
     { name: 'mobile-web-app-capable', content: 'yes' },
     { name: 'msapplication-config', content: '/icons/browserconfig.xml' },
@@ -52,27 +51,27 @@ const SeoConfig = {
   additionalLinkTags: [
     {
       rel: 'icon',
-      href: `${APP_URL}/icons/manifest-icon-192.maskable.png`,
+      href: '/icons/manifest-icon-192.maskable.png',
     },
     {
       rel: 'icon shortcut',
-      href: `${APP_URL}/icons/manifest-icon-192.maskable.png`,
+      href: '/icons/manifest-icon-192.maskable.png',
     },
     {
       rel: 'icon',
       type: 'image/png',
       sizes: '512x512',
-      href: `${APP_URL}/icons/manifest-icon-512.maskable.png`,
+      href: '/icons/manifest-icon-512.maskable.png',
     },
     {
       rel: 'icon',
       type: 'image/png',
       sizes: '192x192',
-      href: `${APP_URL}/icons/manifest-icon-192.maskable.png`,
+      href: '/icons/manifest-icon-192.maskable.png',
     },
     {
       rel: 'manifest',
-      href: `${APP_URL}/manifest.json`,
+      href: '/manifest.json',
     },
   ],
 }

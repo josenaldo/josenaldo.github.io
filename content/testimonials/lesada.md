@@ -1,4 +1,5 @@
 ---
+show: true
 name: Lesada
 image: /images/testimonials/lesada.jpg
 position: Gata

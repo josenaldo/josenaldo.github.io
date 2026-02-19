@@ -166,6 +166,11 @@ const Testimonial = defineDocumentType(() => ({
   name: 'Testimonial',
   filePathPattern: `testimonials/**/*.md`,
   fields: {
+    show: {
+      type: 'boolean',
+      description: 'Whether to show this testimonial publicly',
+      required: false,
+    },
     name: {
       type: 'string',
       description: 'The name of the testimonial author',
@@ -258,7 +263,44 @@ const Course = defineDocumentType(() => ({
   },
 }))
 
+const Service = defineDocumentType(() => ({
+  name: 'Service',
+  filePathPattern: `services/**/*.md`,
+  fields: {
+    show: {
+      type: 'boolean',
+      description: 'Whether to show this service publicly',
+      required: false,
+    },
+    order: {
+      type: 'number',
+      description: 'Ordering (lower comes first)',
+      required: true,
+    },
+    title: {
+      type: 'string',
+      description: 'The service title',
+      required: true,
+    },
+    description: {
+      type: 'string',
+      description: 'Short description shown on the home page',
+      required: true,
+    },
+    image: {
+      type: 'string',
+      description: 'Card image (used as OG-like preview image in UI cards)',
+      required: true,
+    },
+    icon: {
+      type: 'string',
+      description: 'Icon key used by the UI (e.g. code, api, architecture, mentoring)',
+      required: true,
+    },
+  },
+}))
+
 export default makeSource({
   contentDirPath: 'content',
-  documentTypes: [Post, Page, Project, Experience, Testimonial, Skill, Course],
+  documentTypes: [Post, Page, Project, Experience, Testimonial, Skill, Course, Service],
 })

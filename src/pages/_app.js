@@ -5,7 +5,7 @@ import CssBaseline from '@mui/material/CssBaseline'
 import { ThemeProvider } from '@mui/material/styles'
 
 import seoData from '@/data/SeoConfig'
-import { DefaultSeo } from 'next-seo'
+import { generateDefaultSeo } from 'next-seo/pages'
 
 import theme from '@/styles/theme'
 // import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3'
@@ -16,7 +16,7 @@ const { SeoConfig } = seoData
 export default function App({ Component, pageProps }) {
   return (
     <ThemeProvider theme={theme}>
-      <DefaultSeo {...SeoConfig} />
+      <Head>{generateDefaultSeo(SeoConfig)}</Head>
       <CssBaseline />
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />

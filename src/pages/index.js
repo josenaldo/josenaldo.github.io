@@ -14,15 +14,53 @@ import Footer from '@/layouts/Footer'
 import contentService from '@/services/content'
 
 export async function getStaticProps() {
-  const experiences = contentService.lastExperiences(4)
-  const projects = contentService.lastProjects(6)
-  const testimonials = contentService.getTestimonials()
-  const posts = contentService.getSortedPosts(6)
+  // Important: Contentlayer documents include large fields (e.g. body.html/body.raw/_raw)
+  // that should not be sent to the Home page. Only pass what the UI uses.
+  const experiences = contentService.lastExperiences(4).map((experience) => ({
+    period: experience.period,
+    company: experience.company,
+    title: experience.title,
+    description: experience.description,
+    location: experience.location,
+  }))
 
-  return { props: { experiences, projects, testimonials, posts } }
+  const projects = contentService.lastProjects(6).map((project) => ({
+    id: project.id,
+    title: project.title,
+    description: project.description,
+    projectUrl: project.projectUrl,
+    image: project.image,
+    url: project.url,
+  }))
+
+  const services = contentService.getServices().map((service) => ({
+    title: service.title,
+    description: service.description,
+    icon: service.icon,
+    image: service.image,
+  }))
+
+  const testimonials = contentService.getTestimonials().map((testimonial) => ({
+    name: testimonial.name,
+    position: testimonial.position,
+    testimonial: testimonial.testimonial,
+    image: testimonial.image,
+  }))
+
+  const posts = contentService.getSortedPosts(6).map((post) => ({
+    title: post.title,
+    description: post.description,
+    author: post.author,
+    date: post.date,
+    image: post.image,
+    url: post.url,
+    category: post.category,
+  }))
+
+  return { props: { experiences, projects, testimonials, services, posts } }
 }
 
-export default function Home({ experiences, projects, testimonials, posts }) {
+export default function Home({ experiences, projects, testimonials, services, posts }) {
   return (
     <AppLayout
       title="Josenaldo Matos"
@@ -32,11 +70,11 @@ export default function Home({ experiences, projects, testimonials, posts }) {
     >
       <Hero />
       <About />
+      <Blog posts={posts} />
       <Experience experiences={experiences} />
       <Portfolio projects={projects} />
-      {/* <Services /> */}
+      <Services services={services} />
       <Testimonial testimonials={testimonials} />
-      <Blog posts={posts} />
     </AppLayout>
   )
 }

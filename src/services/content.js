@@ -3,6 +3,7 @@ import {
   allPages,
   allPosts,
   allProjects,
+  allServices,
   allSkills,
   allTestimonials
 } from 'contentlayer/generated'
@@ -48,7 +49,13 @@ const getProjectData = (slug) => {
 }
 
 const getTestimonials = () => {
-  return allTestimonials
+  return allTestimonials.filter((t) => t.show !== false)
+}
+
+const getServices = () => {
+  return allServices
+    .filter((s) => s.show !== false)
+    .sort((a, b) => (a.order ?? 0) - (b.order ?? 0))
 }
 
 const getAllPosts = () => {
@@ -146,6 +153,7 @@ export default {
   getAllProjectsPaths,
   getProjectData,
   getTestimonials,
+  getServices,
   getAllPosts,
   getSortedPosts,
   getAllPostsPaths,
