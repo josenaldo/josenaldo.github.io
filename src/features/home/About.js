@@ -16,56 +16,52 @@ const About = () => {
         }}
       >
         <Typography variant="h2">About Me</Typography>
+
         <Box
           sx={{
             display: 'flex',
-            flexDirection: { xs: 'column', md: 'row' },
-            justifyContent: 'space-evenly',
-            justifyItems: 'center',
-            alignItems: 'stretch',
-            gap: 5,
+            flexDirection: 'column',
+            width: '100%',
+            textAlign: 'center',
+
+
+            alignItems: 'center',
+            gap: 2,
           }}
         >
-          <Box
-            sx={{
-              display: 'flex',
-              flexDirection: 'column',
-              width: { xs: '100%', md: '50%' },
-              textAlign: { xs: 'center', md: 'left' },
-            }}
-          >
-            <Typography variant="h5">Howdy!</Typography>
-            <Typography variant="subtitle">
-              Hello! I'm Josenaldo, a technology enthusiast with over 20 years
-              of experience. I love working with Java, JavaScript, React, and
-              NextJS. I always strive to stay up-to-date. In my free time, I
-              enjoy sharing my knowledge through my blog. Let's have a chat
-              about technology and explore new opportunities together!
-            </Typography>
-            <CallToAction href="/about">Know more</CallToAction>
-          </Box>
-          <Box
-            sx={{
-              display: 'flex',
-              flexDirection: 'row',
-              flexWrap: 'wrap',
-              justifyContent: 'center',
-              alignItems: 'stretch',
-              alignContent: 'space-between',
-              gap: 2,
-              width: { xs: '100%', md: '50%' },
-            }}
-          >
-            {skills.map((skill, index) => (
-              <Chip
-                key={skill}
-                label={skill}
-                variant="outlined"
-                color="secondary"
-              />
-            ))}
-          </Box>
+          <Typography variant="h5">Howdy!</Typography>
+          <Typography variant="subtitle">
+            Hello! I'm Josenaldo, a technology enthusiast with over 20 years
+            of experience. I love working with Java, JavaScript, React, and
+            NextJS. I always strive to stay up-to-date. In my free time, I
+            enjoy sharing my knowledge through my blog. Let's have a chat
+            about technology and explore new opportunities together!
+          </Typography>
+
         </Box>
+
+        <Box
+          sx={{
+            display: 'flex',
+            flexDirection: 'row',
+            flexWrap: 'wrap',
+            justifyContent: 'center',
+            alignItems: 'stretch',
+            alignContent: 'space-between',
+            gap: 2,
+            width: '100%',
+          }}
+        >
+          {skills.map((skill, index) => (
+            <Chip
+              key={skill}
+              label={skill}
+              variant="outlined"
+              color="secondary"
+            />
+          ))}
+        </Box>
+        <CallToAction href="/about">Know more</CallToAction>
       </Box>
     </Section>
   )

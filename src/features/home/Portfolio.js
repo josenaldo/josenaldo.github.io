@@ -9,6 +9,7 @@ import {
 } from '@mui/material'
 import Section from '@/components/Section'
 import Image from 'next/image'
+import CallToAction from '@/components/CallToAction'
 
 const Portfolio = ({ projects }) => {
   return (
@@ -75,6 +76,7 @@ const Portfolio = ({ projects }) => {
             </Card>
           ))}
         </Box>
+        <CallToAction href="/projects">Read More</CallToAction>
       </Box>
     </Section>
   )

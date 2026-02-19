@@ -70,11 +70,11 @@ export default function Home({ experiences, projects, testimonials, services, po
     >
       <Hero />
       <About />
+      <Blog posts={posts} />
       <Experience experiences={experiences} />
       <Portfolio projects={projects} />
       <Services services={services} />
       <Testimonial testimonials={testimonials} />
-      <Blog posts={posts} />
     </AppLayout>
   )
 }
