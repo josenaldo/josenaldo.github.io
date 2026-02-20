@@ -17,7 +17,9 @@ export default function Document() {
           rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
           media="print"
-          onLoad="this.media='all'"
+          onLoad={(event) => {
+            event.currentTarget.media = 'all'
+          }}
         />
         <noscript>
           <link
