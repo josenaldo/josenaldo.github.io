@@ -8,16 +8,13 @@ import contentService from '@/services/content'
 
 const getStaticProps = async () => {
   const skills = contentService.getAllSkills()
-  return { props: { skills } }
-}
-
-const getYearOfExperience = (year) => {
   const currentYear = new Date().getFullYear()
-  return currentYear - year
-
+  return { props: { skills, currentYear } }
 }
 
-const ProjectsPage = ({ skills }) => {
+const getYearsOfExperience = (year, currentYear) => currentYear - year
+
+const ProjectsPage = ({ skills, currentYear }) => {
   const title = 'Skills'
   const description =
     'I\'m a software engineer with experience in a variety of technologies. Here are some of the skills I\'ve developed.'
@@ -40,29 +37,33 @@ const ProjectsPage = ({ skills }) => {
           <SkillCard
             title="Fluent"
             text="I'm entirely comfortable with these skills and can start working immediately without the need for review or reference. I am highly proficient and up-to-date with current practices."
-            skill={skills['fluent']} />
+            skill={skills['fluent']}
+            currentYear={currentYear} />
 
           <SkillCard
             title="Proficient"
             text="This category encompasses skills I have worked extensively in the past but may require time to review and update myself on the latest practices and techniques to work effectively with them again. Additionally, it includes technologies I am currently working with, but I still need to acquire the depth of knowledge to consider myself an expert. I am actively learning and improving in these areas to broaden my skill set."
-            skill={skills['proficient']} />
+            skill={skills['proficient']}
+            currentYear={currentYear} />
 
           <SkillCard
             title="Familiar"
             text="I'm familiar with and have some degree of experience with these skills, but I would need some time to practice and deepen my proficiency before I could work effectively with them."
-            skill={skills['familiar']} />
+            skill={skills['familiar']}
+            currentYear={currentYear} />
 
           <SkillCard
             title="Learner"
             text="These are the technologies I'm actively learning and working to add to my skill set."
-            skill={skills['learner']} />
+            skill={skills['learner']}
+            currentYear={currentYear} />
         </Box>
       </Container>
     </AppLAyout >
   )
 }
 
-const SkillCard = ({ title, skill = [], text = '' }) => {
+const SkillCard = ({ title, skill = [], text = '', currentYear }) => {
   return (
     <Card>
       <CardContent>
@@ -85,7 +86,7 @@ const SkillCard = ({ title, skill = [], text = '' }) => {
       }}>
 
         {skill.map((s) => (
-          <Badge key={s.name} badgeContent={`${getYearOfExperience(s.firstContact)}+`} color="primary">
+          <Badge key={s.name} badgeContent={`${getYearsOfExperience(s.firstContact, currentYear)}+`} color="primary">
             <Chip label={s.name} variant="outlined" />
           </Badge>
 
