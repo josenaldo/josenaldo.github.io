@@ -1,19 +1,14 @@
-import { Box, Button } from '@mui/material'
-import dynamic from 'next/dynamic'
-
 import AppLayout from '@/layouts/AppLayout'
 
-import Footer from '@/layouts/Footer'
+import HeroSection from '@/features/home/Hero'
+import AboutSection from '@/features/home/About'
+import BlogSection from '@/features/home/Blog'
+import ExperienceSection from '@/features/home/Experience'
+import PortfolioSection from '@/features/home/Portfolio'
+import ServicesSection from '@/features/home/Services'
+import TestimonialSection from '@/features/home/Testimonial'
 
 import contentService from '@/services/content'
-
-const AboutSection = dynamic(() => import('@/features/home/About'), { ssr: false })
-const BlogSection = dynamic(() => import('@/features/home/Blog'), { ssr: false })
-const ExperienceSection = dynamic(() => import('@/features/home/Experience'), { ssr: false })
-const PortfolioSection = dynamic(() => import('@/features/home/Portfolio'))
-const ServicesSection = dynamic(() => import('@/features/home/Services'))
-const TestimonialSection = dynamic(() => import('@/features/home/Testimonial'))
-const HeroSection = dynamic(() => import('@/features/home/Hero'))
 
 const getProjectHomeImage = (imagePath) => {
   if (!imagePath) return imagePath

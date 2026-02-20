@@ -40,6 +40,7 @@ const BlogPage = ({ posts }) => {
                 sm: '1fr 1fr',
                 md: '1fr 1fr 1fr',
               },
+              alignItems: 'stretch',
               gap: 3,
               my: 5,
             }}
@@ -48,6 +49,7 @@ const BlogPage = ({ posts }) => {
               <ContentCard
                 title={post.title}
                 text={post.description}
+                showText
                 url={post.url}
                 image={post.image}
                 key={post.url}

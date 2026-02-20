@@ -4,7 +4,7 @@ description: "Why, despite being qualified, am I still invisible to the job mark
 date: 2024-07-31 22:00:00 -0300
 author: Josenaldo Matos
 image: "/images/blog/why-am-i-still-invisible.png"
-category: personal
+category: job-market
 ---
 
 I saw [this LinkedIn post by Pablo Jorge Maciel](https://www.linkedin.com/posts/pjmaciel_um-desabafo-sobre-a-ti-e-o-tech-recruiter-activity-7224531473201037313-_KIJ), where he vents and questions why, despite being qualified, he's still invisible to the job market. I related strongly to what he said. So I decided to write this post to share my thoughts on the subject with you.
