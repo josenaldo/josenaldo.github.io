@@ -29,7 +29,7 @@ const About = () => {
             gap: 2,
           }}
         >
-          <Typography variant="h5">Howdy!</Typography>
+          <Typography variant="h5" component="h3">Howdy!</Typography>
           <Typography variant="subtitle">
             Hello! I'm Josenaldo, a technology enthusiast with over 20 years
             of experience. I love working with Java, JavaScript, React, and

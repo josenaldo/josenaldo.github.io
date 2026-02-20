@@ -7,12 +7,14 @@ import ShareDialog from '@/components/share/ShareDialog'
 const ShareLink = ({ title, description, url, image, color = 'secondary' }) => {
   const [open, setOpen] = React.useState(false)
   const [isNativeShare, setNativeShare] = React.useState(false)
+  const [mounted, setMounted] = React.useState(false)
 
   const handleClose = () => {
     setOpen(false)
   }
 
   React.useEffect(() => {
+    setMounted(true)
     if (navigator.share) {
       setNativeShare(true)
     }
@@ -55,11 +57,11 @@ const ShareLink = ({ title, description, url, image, color = 'secondary' }) => {
 
   return (
     <Box>
-      <IconButton onClick={handleOnClick} color={color} variant="contained">
+      <IconButton onClick={handleOnClick} color={color} variant="contained" aria-label="Share">
         <ShareIcon />
       </IconButton>
 
-      {!isNativeShare && (
+      {mounted && !isNativeShare && (
         <ShareDialog
           title={title}
           url={url}

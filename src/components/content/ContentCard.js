@@ -101,7 +101,7 @@ const ContentCard = ({
           }}
         >
           {url ? (
-            <Button component="a" href={url}>
+            <Button component="a" href={url} aria-label={title ? `Read more about ${title}` : moreLinkText}>
               {moreLinkText}
             </Button>
           ) : (

@@ -25,7 +25,7 @@ const Hero = () => {
             maxWidth: { sm: '100%', md: 'clamp(300px,50vw,50%)' },
           }}
         >
-          <Typography variant="h5">Hello, My name is </Typography>
+          <Typography variant="h5" component="p">Hello, my name is </Typography>
           <Typography variant="h1">Josenaldo Matos</Typography>
           <Typography variant="subtitle">
             With 20+ years in tech, I specialize in Java & JS (React, NextJS)
@@ -43,7 +43,7 @@ const Hero = () => {
             my: { xs: 4, sm: 4, md: 0 },
           }}
         >
-          <Image src={photo} alt="Josenaldo Matos" fill loading="eager" />
+          <Image src={photo} alt="Josenaldo Matos" fill priority />
         </Box>
       </Box>
     </Section>

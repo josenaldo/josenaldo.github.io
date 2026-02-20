@@ -62,7 +62,7 @@ const Testimonial = ({ testimonials }) => {
                       sx={{ width: 56, height: 56 }}
                     />
                     <Box>
-                      <Typography variant="h6">{testimonial.name}</Typography>
+                      <Typography variant="h6" component="h3">{testimonial.name}</Typography>
                       <Typography variant="body2" color="text.secondary">
                         {testimonial.position}
                       </Typography>
