@@ -31,7 +31,7 @@ const AppLayout = ({ children, title, description, image, url }) => {
 
   return (
     <Box>
-      <Head>{generateNextSeo({ title, description, canonical: url, openGraph: og })}</Head>
+      <Head>{generateNextSeo({ title, description, canonical: `${siteUrl}${url}`, openGraph: og })}</Head>
 
       <Header />
 
