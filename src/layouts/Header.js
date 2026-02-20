@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { AppBar, Container, Toolbar } from '@mui/material'
+import { AppBar, Container, NoSsr, Toolbar } from '@mui/material'
 
 import Logo from '@/components/Logo'
 import DesktopMenu from '@/layouts/DesktopMenu'
@@ -25,7 +25,9 @@ const Header = () => {
 
           <DesktopMenu pages={pages} />
 
-          <MobileMenu pages={pages} />
+          <NoSsr>
+            <MobileMenu pages={pages} />
+          </NoSsr>
         </Toolbar>
       </Container>
     </AppBar>
