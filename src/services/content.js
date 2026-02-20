@@ -145,7 +145,7 @@ const getAllSkills = () => {
   return skillsByLevel
 }
 
-export default {
+const contentService = {
   lastExperiences,
   lastProjects,
   getAllProjects,
@@ -160,3 +160,5 @@ export default {
   getPageData,
   getAllSkills,
 }
+
+export default contentService

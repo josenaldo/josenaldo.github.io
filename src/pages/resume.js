@@ -1,11 +1,11 @@
-import { Box, Container } from '@mui/material'
+import { Container } from '@mui/material'
 
 import AppLayout from '@/layouts/AppLayout'
 import ContentView from '@/components/content/ContentView'
 
 import contentService from '@/services/content'
 
-const getStaticProps = async ({ params }) => {
+const getStaticProps = async () => {
   const page = contentService.getPageData('/resume')
 
   return {

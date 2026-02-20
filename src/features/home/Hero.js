@@ -1,4 +1,4 @@
-import { Box, Button, Container, Paper, Typography } from '@mui/material'
+import { Box, Typography } from '@mui/material'
 
 import Section from '@/components/Section'
 import CallToAction from '@/components/CallToAction'

@@ -1,4 +1,4 @@
-import { Box, Container } from '@mui/material'
+import { Container } from '@mui/material'
 
 import AppLayout from '@/layouts/AppLayout'
 import ContentView from '@/components/content/ContentView'

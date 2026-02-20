@@ -43,7 +43,7 @@ const Portfolio = ({ projects }) => {
             width: '100%',
           }}
         >
-          {projects.map((project, index) => (
+          {projects.map((project) => (
             <Card
               key={project.id}
               sx={{

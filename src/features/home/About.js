@@ -1,4 +1,4 @@
-import { Box, Chip, Button, Typography } from '@mui/material'
+import { Box, Chip, Typography } from '@mui/material'
 import Section from '@/components/Section'
 import skills from '@/data/skills'
 import CallToAction from '@/components/CallToAction'
@@ -31,10 +31,10 @@ const About = () => {
         >
           <Typography variant="h5" component="h3">Howdy!</Typography>
           <Typography variant="subtitle">
-            Hello! I'm Josenaldo, a technology enthusiast with over 20 years
+            Hello! I&apos;m Josenaldo, a technology enthusiast with over 20 years
             of experience. I love working with Java, JavaScript, React, and
             NextJS. I always strive to stay up-to-date. In my free time, I
-            enjoy sharing my knowledge through my blog. Let's have a chat
+            enjoy sharing my knowledge through my blog. Let&apos;s have a chat
             about technology and explore new opportunities together!
           </Typography>
 
@@ -52,7 +52,7 @@ const About = () => {
             width: '100%',
           }}
         >
-          {skills.map((skill, index) => (
+          {skills.map((skill) => (
             <Chip
               key={skill}
               label={skill}

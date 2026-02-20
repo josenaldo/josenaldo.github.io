@@ -112,7 +112,7 @@ const ShareDialog = ({ title, description, url, open, onClose }) => {
         <Typography variant="caption">{description}</Typography>
       </DialogContent>
       <DialogActions>
-        {networks.map(({ id, netUrl, target, text, rel, icon }) => (
+        {networks.map(({ id, netUrl, target, rel, icon }) => (
           <span key={id}>
             <Button
               href={netUrl + encodeURIComponent(url)}

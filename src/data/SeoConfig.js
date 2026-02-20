@@ -76,7 +76,7 @@ const SeoConfig = {
   ],
 }
 
-export default {
+const seoConfigModule = {
   SeoConfig,
   APP_NAME,
   APP_TITLE,
@@ -85,3 +85,5 @@ export default {
   APP_IMAGE,
   APP_IMAGE_OBJECT,
 }
+
+export default seoConfigModule

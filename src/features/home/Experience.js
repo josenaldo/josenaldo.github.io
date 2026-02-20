@@ -1,4 +1,4 @@
-import { Box, Button, Container, Paper, Typography } from '@mui/material'
+import { Box, Typography } from '@mui/material'
 import dynamic from 'next/dynamic'
 
 import Section from '@/components/Section'

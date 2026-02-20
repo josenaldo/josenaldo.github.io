@@ -47,7 +47,7 @@ const ShareLink = ({ title, description, url, image, color = 'secondary' }) => {
         .then(() => {
           console.log('Successfully shared')
         })
-        .catch((error) => {
+        .catch(() => {
           setOpen(true)
         })
     } else {

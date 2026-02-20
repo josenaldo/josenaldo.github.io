@@ -1,4 +1,4 @@
-import { Link, Button, Box, Typography } from '@mui/material'
+import { Button, Box, Typography } from '@mui/material'
 import Section from '@/components/Section'
 import socialLinks from '@/data/socialLinks'
 
@@ -16,7 +16,7 @@ const GetInTouch = () => {
       >
         <Typography variant="h2">Get in touch</Typography>
         <Typography variant="body1" textAlign="center" fontStyle="italic">
-          I'm always open to discussing new projects, creative ideas or
+          I&apos;m always open to discussing new projects, creative ideas or
           opportunities to be part of your visions.
         </Typography>
         <Box
