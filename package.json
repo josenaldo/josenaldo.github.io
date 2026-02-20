@@ -11,7 +11,7 @@
     "build": "contentlayer2 build && next build",
     "postbuild": "next-sitemap",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "eslint src",
     "info": "next info"
   },
   "dependencies": {
@@ -44,5 +44,8 @@
     "remark-gfm": "^4.0.1",
     "remark-parse": "^11.0.0"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^5.9.3"
+  }
 }
