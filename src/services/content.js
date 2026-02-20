@@ -38,7 +38,6 @@ const getProjectData = (slug) => {
   const url = `/projects/${slug}`
   const projects = getAllProjects()
 
-  console.log(projects)
   const project = projects.find((p) => {
     if (p.url === url) {
       return p

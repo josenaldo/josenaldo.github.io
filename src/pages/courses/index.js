@@ -60,7 +60,6 @@ const ExperiencesPage = ({ courses }) => {
 
   const onChange = (panel) => (event, newExpanded) => {
 
-    console.log('new expanded', newExpanded)
     setExpanded(newExpanded ? panel : false)
   }
 

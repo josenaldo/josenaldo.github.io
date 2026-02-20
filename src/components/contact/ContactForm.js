@@ -26,7 +26,6 @@ const ContactForm = () => {
     }
 
     const token = await executeRecaptcha('submit')
-    console.log('Token: ', token)
     setToken(token)
   }, [executeRecaptcha])
 
@@ -34,7 +33,6 @@ const ContactForm = () => {
     handleReCaptchaVerify()
   }, [handleReCaptchaVerify])
 
-  console.log('state', state)
 
   return (
     <>

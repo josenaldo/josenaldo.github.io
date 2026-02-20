@@ -25,7 +25,6 @@ const getStaticProps = async ({ params }) => {
 }
 
 const PostPage = ({ post }) => {
-  console.log('🔴 POST', post)
   return (
     <AppLayout
       title={post.title}
