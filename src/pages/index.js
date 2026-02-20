@@ -1,17 +1,30 @@
 import { Box, Button } from '@mui/material'
+import dynamic from 'next/dynamic'
 
 import AppLayout from '@/layouts/AppLayout'
 
-import Hero from '@/features/home/Hero'
-import About from '@/features/home/About'
-import Experience from '@/features/home/Experience'
-import Portfolio from '@/features/home/Portfolio'
-import Services from '@/features/home/Services'
-import Testimonial from '@/features/home/Testimonial'
-import Blog from '@/features/home/Blog'
 import Footer from '@/layouts/Footer'
 
 import contentService from '@/services/content'
+
+// Temporary hydration bisect switch.
+// Modes: off | group-a | group-b
+const HYDRATION_BISECT_MODE = 'group-a'
+
+const withBisectSsr = (isGroupA) => {
+  if (HYDRATION_BISECT_MODE === 'off') return true
+  if (HYDRATION_BISECT_MODE === 'group-a') return !isGroupA
+  if (HYDRATION_BISECT_MODE === 'group-b') return isGroupA
+  return true
+}
+
+const AboutSection = dynamic(() => import('@/features/home/About'), { ssr: withBisectSsr(true) })
+const BlogSection = dynamic(() => import('@/features/home/Blog'), { ssr: withBisectSsr(true) })
+const ExperienceSection = dynamic(() => import('@/features/home/Experience'), { ssr: withBisectSsr(true) })
+const PortfolioSection = dynamic(() => import('@/features/home/Portfolio'), { ssr: withBisectSsr(false) })
+const ServicesSection = dynamic(() => import('@/features/home/Services'), { ssr: withBisectSsr(false) })
+const TestimonialSection = dynamic(() => import('@/features/home/Testimonial'), { ssr: withBisectSsr(false) })
+const HeroSection = dynamic(() => import('@/features/home/Hero'))
 
 const getProjectHomeImage = (imagePath) => {
   if (!imagePath) return imagePath
@@ -83,13 +96,13 @@ export default function Home({ experiences, projects, testimonials, services, po
       image="/images/default.jpg"
       url="/"
     >
-      <Hero />
-      <About />
-      <Blog posts={posts} />
-      <Experience experiences={experiences} />
-      <Portfolio projects={projects} />
-      <Services services={services} />
-      <Testimonial testimonials={testimonials} />
+      <HeroSection />
+      <AboutSection />
+      <BlogSection posts={posts} />
+      <ExperienceSection experiences={experiences} />
+      <PortfolioSection projects={projects} />
+      <ServicesSection services={services} />
+      <TestimonialSection testimonials={testimonials} />
     </AppLayout>
   )
 }
