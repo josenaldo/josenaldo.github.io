@@ -53,6 +53,7 @@ const ProjectsPage = ({ projects }) => {
                 key={project.url}
                 author={project.author}
                 date={project.date}
+                moreLinkText="View project"
               />
             ))}
           </Box>

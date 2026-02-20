@@ -54,6 +54,7 @@ const BlogPage = ({ posts }) => {
                 author={post.author}
                 date={post.date}
                 category={post.category}
+                moreLinkText="Read post"
               />
             ))}
           </Box>

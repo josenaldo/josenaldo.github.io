@@ -50,9 +50,9 @@ const ExperienceTimeline = ({ experiences, showEllipsis = false }) => {
               </Typography>
               <Typography variant='body1' color='text.secondary'>{experience.description}</Typography>
 
-              <Typography>
+              <Box>
                 <Chip component='span' label={experience.location} size="small" variant="outlined" color='primary' />
-              </Typography>
+              </Box>
             </TimelineContent>
           </TimelineItem>
         ))}

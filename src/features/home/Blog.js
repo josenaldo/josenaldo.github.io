@@ -38,10 +38,11 @@ const Blog = ({ posts }) => {
               image={post.image}
               url={post.url}
               category={post.category}
+              moreLinkText="Read post"
             />
           ))}
         </Box>
-        <CallToAction href="/blog" ariaLabel="View all blog posts">More</CallToAction>
+        <CallToAction href="/blog" ariaLabel="View all blog posts">All posts</CallToAction>
       </Box>
     </Section>
   )

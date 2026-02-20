@@ -19,7 +19,7 @@ const ContentCard = ({
   text,
   url,
   image,
-  moreLinkText = 'More',
+  moreLinkText = 'Details',
   date,
   author,
   category,

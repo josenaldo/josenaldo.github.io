@@ -50,6 +50,8 @@ const Portfolio = ({ projects }) => {
                   src={project.image}
                   alt={project.title}
                   fill
+                  loading='eager'
+                  priority
                   style={{
                     objectFit: 'cover',
                   }}
@@ -64,7 +66,7 @@ const Portfolio = ({ projects }) => {
                 </Typography>
               </CardContent>
               <CardActions>
-                <Button href={project.url} aria-label={`Open ${project.title}`}>More</Button>
+                <Button href={project.url} aria-label={`Open ${project.title}`}>View project</Button>
                 <Button
                   color="secondary"
                   href={project.projectUrl}
@@ -76,7 +78,7 @@ const Portfolio = ({ projects }) => {
             </Card>
           ))}
         </Box>
-        <CallToAction href="/projects" ariaLabel="View all projects">More</CallToAction>
+        <CallToAction href="/projects" ariaLabel="View all projects">All projects</CallToAction>
       </Box>
     </Section>
   )
