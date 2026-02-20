@@ -1,17 +1,25 @@
-import { Chip, Button } from '@mui/material'
+import { Chip } from '@mui/material'
 
 const ContentCategory = ({ category, color = 'secondary' }) => {
   if (!category) return null
 
+  const categorySlug = encodeURIComponent(String(category).trim())
+  const label = String(category).trim().toUpperCase()
+
   return (
-    <Button
+    <Chip
       size="small"
-      // variant="contained"
       color={color}
-      href={`/blog/category/${category}`}
-    >
-      {category}
-    </Button>
+      label={label}
+      component="a"
+      clickable
+      href={`/blog/category/${categorySlug}`}
+      sx={{
+        fontWeight: 700,
+        letterSpacing: '0.08em',
+        textTransform: 'uppercase',
+      }}
+    />
   )
 }
 

@@ -12,6 +12,16 @@ import Image from 'next/image'
 import CallToAction from '@/components/CallToAction'
 
 const Portfolio = ({ projects }) => {
+  const titleLineClamp = 2
+  const descriptionLineClamp = 3
+
+  const lineClampSx = (lines) => ({
+    display: '-webkit-box',
+    WebkitBoxOrient: 'vertical',
+    WebkitLineClamp: lines,
+    overflow: 'hidden',
+  })
+
   return (
     <Section elevation={2}>
       <Box
@@ -28,7 +38,9 @@ const Portfolio = ({ projects }) => {
           sx={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+            alignItems: 'stretch',
             gap: 4,
+            width: '100%',
           }}
         >
           {projects.map((project, index) => (
@@ -37,6 +49,16 @@ const Portfolio = ({ projects }) => {
               sx={{
                 display: 'flex',
                 flexDirection: 'column',
+                height: '100%',
+                overflow: 'hidden',
+                transition: (theme) =>
+                  theme.transitions.create(['transform', 'box-shadow'], {
+                    duration: theme.transitions.duration.short,
+                  }),
+                '&:hover': {
+                  transform: 'translateY(-2px)',
+                  boxShadow: 6,
+                },
               }}
             >
               <CardMedia
@@ -44,6 +66,7 @@ const Portfolio = ({ projects }) => {
                   aspectRatio: '16/9',
                   width: '100%',
                   position: 'relative',
+                  lineHeight: 0,
                 }}
               >
                 <Image
@@ -56,15 +79,40 @@ const Portfolio = ({ projects }) => {
                   }}
                 />
               </CardMedia>
-              <CardContent sx={{ flexGrow: 1 }}>
-                <Typography gutterBottom variant="h5" component="div">
+              <CardContent sx={{ flexGrow: 1, pt: 2 }}>
+                <Typography
+                  gutterBottom
+                  variant="h5"
+                  component="div"
+                  sx={{
+                    ...lineClampSx(titleLineClamp),
+                    minHeight: '2.8em',
+                  }}
+                >
                   {project.title}
                 </Typography>
-                <Typography variant="body2" color="text.secondary">
+                <Typography
+                  variant="body2"
+                  color="text.secondary"
+                  sx={{
+                    ...lineClampSx(descriptionLineClamp),
+                    minHeight: '4.3em',
+                  }}
+                >
                   {project.description}
                 </Typography>
               </CardContent>
-              <CardActions>
+              <CardActions
+                sx={{
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  px: 2,
+                  pb: 2,
+                  pt: 1,
+                  borderTop: '1px solid',
+                  borderColor: 'divider',
+                }}
+              >
                 <Button href={project.url} aria-label={`Open ${project.title}`}>View project</Button>
                 <Button
                   color="secondary"

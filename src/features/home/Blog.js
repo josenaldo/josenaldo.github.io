@@ -24,6 +24,7 @@ const Blog = ({ posts }) => {
               sm: '1fr 1fr',
               md: '1fr 1fr 1fr',
             },
+            alignItems: 'stretch',
             gap: 2,
             width: '100%',
           }}
@@ -39,6 +40,7 @@ const Blog = ({ posts }) => {
               url={post.url}
               category={post.category}
               moreLinkText="Read post"
+              showText
             />
           ))}
         </Box>

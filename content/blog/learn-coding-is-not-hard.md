@@ -5,7 +5,7 @@ description:
 date: 2023-06-14 22:00:00 -0300
 author: Josenaldo Matos
 image: "/images/blog/learn-coding-is-not-hard.png"
-category: personal
+category: learning
 ---
 
 Is it hard to learn coding well enough to become a professional developer?

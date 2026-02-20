@@ -1,5 +1,5 @@
 ---
-title: "Interfaces aren't villains: the problem isn't the interface, it's purposeless abstraction"
+title: "Interfaces aren't villains"
 description: "A technical and architectural analysis on the value of defining explicit contracts even when there's only one concrete implementation."
 date: 2025-12-24 09:00:00 -0300
 author: Josenaldo Matos
@@ -13,8 +13,7 @@ It stems from a real frustration. Many projects accumulate unnecessary layers ju
 
 The criticism is valid. The diagnosis, not always.
 
-The right target isn't the interface itself.
-The right target is speculative abstraction: the kind that doesn't protect a real boundary and doesn't reduce impact.
+The right target isn't the interface itself. It's speculative abstraction: the kind that doesn't protect a real boundary and doesn't reduce impact.
 
 Interfaces don't exist to "predict the future."
 Interfaces exist to **limit the impact of the present**.
@@ -39,11 +38,11 @@ But it misses when it concludes that:
 
 In reality, this conclusion becomes dangerous because it conflates different concepts:
 
-| Thing          | What it is                        | Benefit                  | Cost      | When to use                   |
-| -------------- | --------------------------------- | ------------------------ | --------- | ----------------------------- |
-| Interface      | Boundary contract                 | Reduces external impact  | Low       | Dependencies and exposure     |
-| Abstraction    | Way to organize solution space    | Medium                   | Medium    | When concrete variation exists|
-| Extra layers   | Speculative structure             | Low/Uncertain            | High      | Only with proven need         |
+| Thing        | What it is                     | Benefit                 | Cost   | When to use                    |
+| ------------ | ------------------------------ | ----------------------- | ------ | ------------------------------ |
+| Interface    | Boundary contract              | Reduces external impact | Low    | Dependencies and exposure      |
+| Abstraction  | Way to organize solution space | Medium                  | Medium | When concrete variation exists |
+| Extra layers | Speculative structure          | Low/Uncertain           | High   | Only with proven need          |
 
 **Creating an interface ≠ creating layers.**
 
@@ -180,13 +179,13 @@ These points share a trait: they concentrate uncertainty and risk. An explicit c
 
 ## Decision checklist (use before creating)
 
-| Question                                              | If "yes", create interface |
-| ----------------------------------------------------- | -------------------------- |
-| Does this component touch something I don't control?  | Yes                        |
-| Might I need to update vendor, version, or stack?     | Yes                        |
-| If this dependency breaks, does the entire system suffer? | Yes                   |
-| Does this API expose too many details?                | Yes                        |
-| Is there risk of impact beyond the current module?    | Yes                        |
+| Question                                                  | If "yes", create interface |
+| --------------------------------------------------------- | -------------------------- |
+| Does this component touch something I don't control?      | Yes                        |
+| Might I need to update vendor, version, or stack?         | Yes                        |
+| If this dependency breaks, does the entire system suffer? | Yes                        |
+| Does this API expose too many details?                    | Yes                        |
+| Is there risk of impact beyond the current module?        | Yes                        |
 
 If everything is "no", don't create it.
 If one is "yes", your interface already has a reason.

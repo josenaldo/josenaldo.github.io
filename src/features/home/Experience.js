@@ -1,8 +1,13 @@
 import { Box, Button, Container, Paper, Typography } from '@mui/material'
+import dynamic from 'next/dynamic'
 
 import Section from '@/components/Section'
-import ExperienceTimeline from '@/components/ExperienceTimeline'
 import CallToAction from '@/components/CallToAction'
+
+const ExperienceTimeline = dynamic(() => import('@/components/ExperienceTimeline'), {
+  ssr: false,
+  loading: () => <Box sx={{ minHeight: { xs: 320, md: 420 } }} />,
+})
 
 const Experience = ({ experiences }) => {
   return (

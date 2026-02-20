@@ -1,7 +1,7 @@
 import { Link as MuiLink } from '@mui/material'
 import NextLink from 'next/link'
 
-const Link = ({ href, children, color, sx, ...restProps }) => {
+const Link = ({ href, children, color = 'secondary', sx, ...restProps }) => {
   const linkStyle = {
     color: `${color}.main`,
     '&:hover': {

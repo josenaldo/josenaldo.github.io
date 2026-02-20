@@ -1,21 +1,14 @@
-import { Box } from '@mui/material'
-import dynamic from 'next/dynamic'
-
 import AppLayout from '@/layouts/AppLayout'
 
 import HeroSection from '@/features/home/Hero'
 import AboutSection from '@/features/home/About'
 import BlogSection from '@/features/home/Blog'
+import ExperienceSection from '@/features/home/Experience'
 import PortfolioSection from '@/features/home/Portfolio'
 import ServicesSection from '@/features/home/Services'
 import TestimonialSection from '@/features/home/Testimonial'
 
 import contentService from '@/services/content'
-
-const ExperienceSection = dynamic(() => import('@/features/home/Experience'), {
-  ssr: false,
-  loading: () => <Box sx={{ minHeight: { xs: 420, md: 560 } }} />,
-})
 
 const getProjectHomeImage = (imagePath) => {
   if (!imagePath) return imagePath

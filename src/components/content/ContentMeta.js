@@ -19,11 +19,12 @@ const ContentMeta = ({ date, author, color = 'text.secondary' }) => {
         <Box
           sx={{
             display: 'flex',
-            alignItems: 'flex-start',
+            alignItems: 'center',
             gap: 1,
+            whiteSpace: 'nowrap',
           }}
         >
-          <DateIcon fontSize="0.75rem" />
+          <DateIcon sx={{ fontSize: '0.95rem' }} />
           <Typography variant="caption">
             {format(parseISO(date), 'dd/MM/yyyy')}
           </Typography>
@@ -34,11 +35,12 @@ const ContentMeta = ({ date, author, color = 'text.secondary' }) => {
         <Box
           sx={{
             display: 'flex',
-            alignItems: 'flex-start',
+            alignItems: 'center',
             gap: 1,
+            whiteSpace: 'nowrap',
           }}
         >
-          <AuthorIcon fontSize="0.75rem" />
+          <AuthorIcon sx={{ fontSize: '0.95rem' }} />
           <Typography variant="caption">{author}</Typography>
         </Box>
       )}

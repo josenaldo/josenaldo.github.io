@@ -40,6 +40,7 @@ const ProjectsPage = ({ projects }) => {
                 sm: '1fr 1fr',
                 md: '1fr 1fr 1fr',
               },
+              alignItems: 'stretch',
               gap: 3,
               my: 5,
             }}
