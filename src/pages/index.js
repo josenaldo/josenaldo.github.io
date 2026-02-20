@@ -7,23 +7,12 @@ import Footer from '@/layouts/Footer'
 
 import contentService from '@/services/content'
 
-// Temporary hydration bisect switch.
-// Modes: off | group-a | group-b
-const HYDRATION_BISECT_MODE = 'group-a'
-
-const withBisectSsr = (isGroupA) => {
-  if (HYDRATION_BISECT_MODE === 'off') return true
-  if (HYDRATION_BISECT_MODE === 'group-a') return !isGroupA
-  if (HYDRATION_BISECT_MODE === 'group-b') return isGroupA
-  return true
-}
-
-const AboutSection = dynamic(() => import('@/features/home/About'), { ssr: withBisectSsr(true) })
-const BlogSection = dynamic(() => import('@/features/home/Blog'), { ssr: withBisectSsr(true) })
-const ExperienceSection = dynamic(() => import('@/features/home/Experience'), { ssr: withBisectSsr(true) })
-const PortfolioSection = dynamic(() => import('@/features/home/Portfolio'), { ssr: withBisectSsr(false) })
-const ServicesSection = dynamic(() => import('@/features/home/Services'), { ssr: withBisectSsr(false) })
-const TestimonialSection = dynamic(() => import('@/features/home/Testimonial'), { ssr: withBisectSsr(false) })
+const AboutSection = dynamic(() => import('@/features/home/About'))
+const BlogSection = dynamic(() => import('@/features/home/Blog'))
+const ExperienceSection = dynamic(() => import('@/features/home/Experience'), { ssr: false })
+const PortfolioSection = dynamic(() => import('@/features/home/Portfolio'))
+const ServicesSection = dynamic(() => import('@/features/home/Services'))
+const TestimonialSection = dynamic(() => import('@/features/home/Testimonial'))
 const HeroSection = dynamic(() => import('@/features/home/Hero'))
 
 const getProjectHomeImage = (imagePath) => {
