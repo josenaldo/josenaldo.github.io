@@ -12,7 +12,8 @@
     "postbuild": "next-sitemap",
     "start": "next start",
     "lint": "eslint src",
-    "info": "next info"
+    "info": "next info",
+    "lighthouse": "lighthouse http://localhost:6500 --view --chrome-flags='--headless' --output json --output-path .tmp/lighthouse-report.json"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
@@ -46,6 +47,8 @@
   },
   "license": "MIT",
   "devDependencies": {
+    "eslint-plugin-simple-import-sort": "^12.1.1",
+    "lighthouse": "^13.0.3",
     "typescript": "^5.9.3"
   }
 }
