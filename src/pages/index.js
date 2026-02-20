@@ -13,6 +13,20 @@ import Footer from '@/layouts/Footer'
 
 import contentService from '@/services/content'
 
+const getProjectHomeImage = (imagePath) => {
+  if (!imagePath) return imagePath
+
+  const fileName = imagePath.split('/').pop()
+  const baseName = fileName?.replace(/\.[^.]+$/, '')
+  const isPrint = imagePath.includes('/prints/')
+
+  if (!baseName) return imagePath
+
+  return isPrint
+    ? `/images/projects/thumbs/prints-${baseName}.webp`
+    : `/images/projects/thumbs/${baseName}.webp`
+}
+
 export async function getStaticProps() {
   // Important: Contentlayer documents include large fields (e.g. body.html/body.raw/_raw)
   // that should not be sent to the Home page. Only pass what the UI uses.
@@ -30,6 +44,7 @@ export async function getStaticProps() {
     description: project.description,
     projectUrl: project.projectUrl,
     image: project.image,
+    imageThumb: getProjectHomeImage(project.image),
     url: project.url,
   }))
 

@@ -47,11 +47,10 @@ const Portfolio = ({ projects }) => {
                 }}
               >
                 <Image
-                  src={project.image}
+                  src={project.imageThumb || project.image}
                   alt={project.title}
                   fill
-                  loading='eager'
-                  priority
+                  sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   style={{
                     objectFit: 'cover',
                   }}

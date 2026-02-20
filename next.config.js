@@ -9,6 +9,7 @@ const nextConfig = {
   reactStrictMode: true,
   // Turbopack is now default in Next.js 16
   turbopack: {},
+  productionBrowserSourceMaps: true,
   images: {
     unoptimized: true,
     // Updated to remotePatterns (images.domains deprecated)
