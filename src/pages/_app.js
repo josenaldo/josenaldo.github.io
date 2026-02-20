@@ -8,8 +8,6 @@ import seoData from '@/data/SeoConfig'
 import { generateDefaultSeo } from 'next-seo/pages'
 
 import theme from '@/styles/theme'
-// import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3'
-import { ReCaptchaProvider } from 'next-recaptcha-v3'
 
 const { SeoConfig } = seoData
 
@@ -22,12 +20,7 @@ export default function App({ Component, pageProps }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
 
-      {/* <GoogleReCaptchaProvider reCaptchaKey="6Lejh7glAAAAADkJrpGCuGozGzXHWfvCCcU3vQho"> */}
-      <ReCaptchaProvider reCaptchaKey="[GTM-6Lejh7glAAAAADkJrpGCuGozGzXHWfvCCcU3vQho]">
-        <Component {...pageProps} />
-      </ReCaptchaProvider>
-      {/* </GoogleReCaptchaProvider> */}
+      <Component {...pageProps} />
     </ThemeProvider>
   )
 }
-

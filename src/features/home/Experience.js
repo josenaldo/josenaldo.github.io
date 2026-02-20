@@ -20,7 +20,7 @@ const Experience = ({ experiences }) => {
         <Box>
           <ExperienceTimeline experiences={experiences} showEllipsis />
         </Box>
-        <CallToAction href="/experiences">Read More</CallToAction>
+        <CallToAction href="/experiences" ariaLabel="View all experiences">More</CallToAction>
       </Box>
     </Section>
   )

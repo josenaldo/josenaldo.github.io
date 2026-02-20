@@ -87,7 +87,6 @@ const ContactPage = () => {
             </Card>
             <SocialList />
 
-            {/* <ContactForm /> */}
           </Box>
         </Box>
       </Container>

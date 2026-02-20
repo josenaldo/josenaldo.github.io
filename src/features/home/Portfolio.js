@@ -64,7 +64,7 @@ const Portfolio = ({ projects }) => {
                 </Typography>
               </CardContent>
               <CardActions>
-                <Button href={project.url}>More</Button>
+                <Button href={project.url} aria-label={`Open ${project.title}`}>More</Button>
                 <Button
                   color="secondary"
                   href={project.projectUrl}
@@ -76,7 +76,7 @@ const Portfolio = ({ projects }) => {
             </Card>
           ))}
         </Box>
-        <CallToAction href="/projects">Read More</CallToAction>
+        <CallToAction href="/projects" ariaLabel="View all projects">More</CallToAction>
       </Box>
     </Section>
   )

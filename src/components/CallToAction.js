@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import { Box, Button } from '@mui/material'
 
-const CallToAction = ({ children, href }) => {
+const CallToAction = ({ children, href, ariaLabel }) => {
   return (
     <Box
       sx={{
@@ -12,7 +12,7 @@ const CallToAction = ({ children, href }) => {
 
       }}
     >
-      <Button variant="contained" href={href}>
+      <Button variant="contained" href={href} aria-label={ariaLabel}>
         {children}
       </Button>
     </Box>
@@ -22,6 +22,7 @@ const CallToAction = ({ children, href }) => {
 CallToAction.propTypes = {
   children: PropTypes.node.isRequired,
   href: PropTypes.string.isRequired,
+  ariaLabel: PropTypes.string,
 }
 
 export default CallToAction

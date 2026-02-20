@@ -41,7 +41,7 @@ const Blog = ({ posts }) => {
             />
           ))}
         </Box>
-        <CallToAction href="/blog">Read More</CallToAction>
+        <CallToAction href="/blog" ariaLabel="View all blog posts">More</CallToAction>
       </Box>
     </Section>
   )

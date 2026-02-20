@@ -19,7 +19,7 @@ const ContentCard = ({
   text,
   url,
   image,
-  moreLinkText = 'Read more',
+  moreLinkText = 'More',
   date,
   author,
   category,
@@ -101,7 +101,7 @@ const ContentCard = ({
           }}
         >
           {url ? (
-            <Button component="a" href={url} aria-label={title ? `Read more about ${title}` : moreLinkText}>
+            <Button component="a" href={url} aria-label={title ? `Open ${title}` : moreLinkText}>
               {moreLinkText}
             </Button>
           ) : (
