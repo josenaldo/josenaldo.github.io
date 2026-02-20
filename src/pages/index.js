@@ -7,8 +7,8 @@ import Footer from '@/layouts/Footer'
 
 import contentService from '@/services/content'
 
-const AboutSection = dynamic(() => import('@/features/home/About'))
-const BlogSection = dynamic(() => import('@/features/home/Blog'))
+const AboutSection = dynamic(() => import('@/features/home/About'), { ssr: false })
+const BlogSection = dynamic(() => import('@/features/home/Blog'), { ssr: false })
 const ExperienceSection = dynamic(() => import('@/features/home/Experience'), { ssr: false })
 const PortfolioSection = dynamic(() => import('@/features/home/Portfolio'))
 const ServicesSection = dynamic(() => import('@/features/home/Services'))
