@@ -1,8 +1,8 @@
 import DateIcon from '@mui/icons-material/CalendarToday'
 import AuthorIcon from '@mui/icons-material/PersonOutlined'
 import { Box, Typography } from '@mui/material'
-import PropTypes from 'prop-types'
 import { format, parseISO } from 'date-fns'
+import PropTypes from 'prop-types'
 
 const ContentMeta = ({ date, author, color = 'text.secondary' }) => {
     return (

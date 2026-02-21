@@ -1,5 +1,4 @@
 import { Box, Typography } from '@mui/material'
-import PropTypes from 'prop-types'
 
 import photo200 from '@/assets/images/josenaldo-200.webp'
 import photo300 from '@/assets/images/josenaldo-300.webp'
@@ -67,7 +66,5 @@ const Hero = () => {
         </Section>
     )
 }
-
-Hero.propTypes = {}
 
 export default Hero

@@ -1,7 +1,6 @@
 import React from 'react'
 
 import { AppBar, Container, NoSsr, Toolbar } from '@mui/material'
-import PropTypes from 'prop-types'
 
 import Logo from '@/components/Logo'
 import pages from '@/data/pages'
@@ -33,7 +32,5 @@ const Header = () => {
         </AppBar>
     )
 }
-
-Header.propTypes = {}
 
 export default Header

@@ -1,6 +1,6 @@
 import { Box, Divider } from '@mui/material'
-import PropTypes from 'prop-types'
 import { MDXProvider } from '@mdx-js/react'
+import PropTypes from 'prop-types'
 // import { Remark } from 'react-remark'
 import Markdown from 'react-markdown'
 import externalLinks from 'rehype-external-links'

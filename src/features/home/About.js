@@ -1,5 +1,4 @@
 import { Box, Chip, Typography } from '@mui/material'
-import PropTypes from 'prop-types'
 
 import CallToAction from '@/components/CallToAction'
 import Section from '@/components/Section'
@@ -69,7 +68,5 @@ const About = () => {
         </Section>
     )
 }
-
-About.propTypes = {}
 
 export default About

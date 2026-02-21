@@ -3,8 +3,8 @@ import React from 'react'
 import Head from 'next/head'
 
 import { Box } from '@mui/material'
-import PropTypes from 'prop-types'
 import { generateNextSeo } from 'next-seo/pages'
+import PropTypes from 'prop-types'
 
 import Footer from '@/layouts/Footer'
 import GetInTouch from '@/layouts/GetInTouch'

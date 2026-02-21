@@ -1,5 +1,4 @@
 import { Box, Button, Typography } from '@mui/material'
-import PropTypes from 'prop-types'
 
 import Section from '@/components/Section'
 import socialLinks from '@/data/socialLinks'
@@ -61,7 +60,5 @@ const GetInTouch = () => {
         </Section>
     )
 }
-
-GetInTouch.propTypes = {}
 
 export default GetInTouch
