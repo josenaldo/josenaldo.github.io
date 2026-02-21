@@ -54,26 +54,31 @@ Opcional:
 
 ## Decision Tree (quando houver variações)
 
-1) Projeto é “produto” ou “experimento/estudo”?
+1. Projeto é “produto” ou “experimento/estudo”?
+
 - Produto → foco em usuário, uso e confiabilidade.
 - Estudo → foco em aprendizado, hipóteses e limitações.
 
-2) Existe resultado mensurável?
+2. Existe resultado mensurável?
+
 - Sim → destacar (métricas).
 - Não → destacar qualidade do aprendizado e evidências (ex.: testes, arquitetura, docs).
 
 ## Workflow (faça em ordem)
 
-1) Coletar inputs
+1. Coletar inputs
+
 - Usar `assets/project-intake.md`.
 
-2) Escrever versões
+2. Escrever versões
+
 - Versão curta (1–2 frases)
 - Versão longa (seções no template)
 
-3) Adaptar para Contentlayer (projeto)
+3. Adaptar para Contentlayer (projeto)
+
 - Garantir frontmatter mínimo em `contentlayer.config.js` para `Project`:
-  - `id`, `title`, `description`, `projectUrl`, `pin`, `image`
+    - `id`, `title`, `description`, `projectUrl`, `pin`, `image`
 
 ## Saída esperada
 

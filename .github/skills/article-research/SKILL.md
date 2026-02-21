@@ -54,33 +54,40 @@ Opcional (ajuda muito):
 
 ## Decision Tree (quando houver variações)
 
-1) O texto é mais “decisão técnica” ou “ensaio opinativo”?
+1. O texto é mais “decisão técnica” ou “ensaio opinativo”?
+
 - Decisão → focar em opções, trade-offs, critérios e recomendação.
 - Ensaio → focar em tese, exemplos, contra-argumentos e síntese.
 
-2) O tema envolve risco de dogmatismo?
+2. O tema envolve risco de dogmatismo?
+
 - Sim → explicitar contextos onde a regra falha + “quando NÃO fazer”.
 - Não → manter exemplos e delimitações, mas menos ênfase em exceções.
 
 ## Workflow (faça em ordem)
 
-1) Delimitar pergunta e tese provisória
+1. Delimitar pergunta e tese provisória
+
 - Transformar o tema em 1 pergunta-guia e 1 tese provisória.
 - Listar o que o texto **não** vai cobrir.
 
-2) Mapear o espaço de argumentos
+2. Mapear o espaço de argumentos
+
 - Listar 3–5 argumentos a favor e 2–4 contra-argumentos sérios.
 - Identificar “pontos frágeis” (onde o leitor pode discordar com razão).
 
-3) Coletar evidências e exemplos
+3. Coletar evidências e exemplos
+
 - Para cada argumento, anexar 1–2 evidências (ou exemplos) e 1 risco/limitação.
 - Quando aplicável, criar 1 micro-estudo de caso (ex.: “antes/depois” em arquitetura).
 
-4) Produzir Research Brief
+4. Produzir Research Brief
+
 - Gerar o brief no template em `assets/research-brief-template.md`.
 - Incluir: tese, público, premissas, argumentos, evidências, exemplos, anti-tese, e “o que eu não sei ainda”.
 
-5) Preparar ponte para escrita
+5. Preparar ponte para escrita
+
 - Sugerir 2–3 estruturas possíveis (outline) e qual combina mais com o objetivo.
 
 ## Saída esperada

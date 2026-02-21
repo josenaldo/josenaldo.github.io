@@ -5,7 +5,7 @@ company: Muvz
 location: Remote
 period: October 2023 - April 2024
 show: true
-description: "Led migration from monolith to microservices, delivering event-driven integrations and mentoring the team."
+description: 'Led migration from monolith to microservices, delivering event-driven integrations and mentoring the team.'
 ---
 
 ### Senior Full Stack Developer | Muvz

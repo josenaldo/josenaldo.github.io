@@ -4,9 +4,9 @@ title: Workaround-Oriented Programming (Book)
 image: /images/projects/livro-pog.jpg
 projectUrl: https://livropog.com.br
 pin: true
-description:
-  "An online book platform built with Next.js for publishing technical chapters in Markdown, with search, SEO, and continuous content delivery."
+description: 'An online book platform built with Next.js for publishing technical chapters in Markdown, with search, SEO, and continuous content delivery.'
 ---
+
 ## 1. Elevator Pitch
 
 A publishing platform for the "Workaround-Oriented Programming" book, built for continuous web publication and accessible technical content.

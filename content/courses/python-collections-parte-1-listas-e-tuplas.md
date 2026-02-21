@@ -1,5 +1,5 @@
 ---
-name: "Python Collections parte 1: listas e tuplas"
+name: 'Python Collections parte 1: listas e tuplas'
 institution: Alura
 completionDate: 2021-09-13
 workload: 8

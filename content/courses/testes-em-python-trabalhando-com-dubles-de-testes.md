@@ -1,5 +1,5 @@
 ---
-name: "Testes em Python: trabalhando com dublês de testes"
+name: 'Testes em Python: trabalhando com dublês de testes'
 institution: Alura
 completionDate: 2021-10-06
 workload: 10

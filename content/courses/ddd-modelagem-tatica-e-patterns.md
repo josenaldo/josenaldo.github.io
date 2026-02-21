@@ -1,5 +1,5 @@
 ---
-name: "DDD: Modelagem Tática e Patterns"
+name: 'DDD: Modelagem Tática e Patterns'
 institution: Full Cycle
 completionDate: 2024-06-20
 workload: 34

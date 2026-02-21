@@ -6,12 +6,12 @@ Estas regras garantem que todas as skills do MedEspecialista sigam um padrão co
 
 - O arquivo SKILL.md deve começar com um bloco YAML entre `---`.
 - Campos obrigatórios:
-  - `name`: Nome da skill (string)
-  - `description`: Descrição clara do que a skill faz e quando deve ser usada (string)
+    - `name`: Nome da skill (string)
+    - `description`: Descrição clara do que a skill faz e quando deve ser usada (string)
 - Campos opcionais permitidos:
-  - `license`: Informação de licença (string)
-  - `allowed-tools`: Lista de ferramentas externas permitidas (array)
-  - `metadata`: Objeto para metadados adicionais (objeto)
+    - `license`: Informação de licença (string)
+    - `allowed-tools`: Lista de ferramentas externas permitidas (array)
+    - `metadata`: Objeto para metadados adicionais (objeto)
 - Não use outros campos além dos listados acima.
 
 ## Exemplo de frontmatter válido
@@ -22,10 +22,10 @@ name: maintain-docs
 description: Skill para criar ou manter documentação técnica e funcional em Português, seguindo padrões do projeto MedEspecialista. Use quando solicitado para gerar, atualizar ou revisar documentação de código, features, módulos ou APIs.
 license: MIT
 allowed-tools:
-  - markdownlint
+    - markdownlint
 metadata:
-  author: Equipe MedEspecialista
-  created: 2026-01-26
+    author: Equipe MedEspecialista
+    created: 2026-01-26
 ---
 ```
 

@@ -1,5 +1,5 @@
 ---
-name: "Python para Data Science"
+name: 'Python para Data Science'
 institution: Alura
 completionDate: 2021-09-09
 workload: 10

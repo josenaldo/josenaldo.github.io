@@ -1,19 +1,19 @@
 :root {
-  --font-size-h6: clamp(0.8rem, 0.72vw + 0.53rem, 1.22rem);
-  --font-size-h5: clamp(1rem, 1.07vw + 0.6rem, 1.63rem);
-  --font-size-h4: clamp(1.25rem, 1.57vw + 0.66rem, 2.17rem);
-  --font-size-h3: clamp(1.56rem, 2.26vw + 0.71rem, 2.89rem);
-  --font-size-h2: clamp(1.95rem, 3.24vw + 0.74rem, 3.85rem);
-  --font-size-h1: clamp(2.44rem, 4.6vw + 0.72rem, 5.13rem);
+    --font-size-h6: clamp(0.8rem, 0.72vw + 0.53rem, 1.22rem);
+    --font-size-h5: clamp(1rem, 1.07vw + 0.6rem, 1.63rem);
+    --font-size-h4: clamp(1.25rem, 1.57vw + 0.66rem, 2.17rem);
+    --font-size-h3: clamp(1.56rem, 2.26vw + 0.71rem, 2.89rem);
+    --font-size-h2: clamp(1.95rem, 3.24vw + 0.74rem, 3.85rem);
+    --font-size-h1: clamp(2.44rem, 4.6vw + 0.72rem, 5.13rem);
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-  }
+    :root {
+    }
 }
 
 * {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
 }

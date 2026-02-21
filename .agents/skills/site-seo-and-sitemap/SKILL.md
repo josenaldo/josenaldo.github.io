@@ -44,22 +44,27 @@ Guia prático para manter SEO consistente em build estático.
 
 ## Workflow (faça em ordem)
 
-1) Confirmar URL do site
+1. Confirmar URL do site
+
 - Definir/validar `NEXT_PUBLIC_SITE_URL`.
 - Para dev local, considerar `.env.local` (não commitar secrets).
 
-2) Revisar defaults
+2. Revisar defaults
+
 - Conferir `src/data/SeoConfig.js`: `canonical`, `openGraph.url`, `images.url`, ícones em `additionalLinkTags`.
 
-3) Revisar por página
+3. Revisar por página
+
 - Onde existir `AppLayout`, garantir `title`, `description`, `image` coerentes.
 - Evitar meta duplicada/ruim em `_app.js` (o `Head` do template do Next pode conflitar com `DefaultSeo`).
 
-4) Sitemap e robots
+4. Sitemap e robots
+
 - Config em `next-sitemap.config.js` já existe.
 - Se `sitemap.xml`/`robots.txt` não estiverem sendo gerados, adicionar execução do `next-sitemap` no pipeline (por exemplo, `postbuild`).
 
-5) Validar
+5. Validar
+
 - Rodar `npm run build` e verificar se os arquivos finais estão no output publicado.
 
 ## Saída esperada

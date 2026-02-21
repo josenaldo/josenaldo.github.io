@@ -1,60 +1,60 @@
 .markdownBody {
-  margin: clamp(1rem, 4vw, 2rem);
+    margin: clamp(1rem, 4vw, 2rem);
 }
 
 .markdownBody p {
-  margin: 1.5rem 0;
+    margin: 1.5rem 0;
 }
 
 .markdownBody ul {
-  margin-left: 1.5rem;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+    margin-left: 1.5rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 }
 
 .tableWrapper {
-  width: 100%;
-  overflow-x: auto;
-  margin: 1.5rem 0;
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.02);
+    width: 100%;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.02);
 }
 
 .table {
-  width: 100%;
-  min-width: 760px;
-  border-collapse: collapse;
-  font-size: 0.95rem;
-  line-height: 1.45;
+    width: 100%;
+    min-width: 760px;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+    line-height: 1.45;
 }
 
 .tableHead {
-  background: rgba(154, 103, 234, 0.2);
+    background: rgba(154, 103, 234, 0.2);
 }
 
 .tableHeaderCell {
-  text-align: left;
-  font-weight: 700;
-  color: inherit;
-  padding: 0.85rem 1rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+    text-align: left;
+    font-weight: 700;
+    color: inherit;
+    padding: 0.85rem 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 .tableBody .tableRow:nth-child(even) {
-  background: rgba(255, 255, 255, 0.03);
+    background: rgba(255, 255, 255, 0.03);
 }
 
 .tableRow:hover {
-  background: rgba(100, 216, 203, 0.08);
+    background: rgba(100, 216, 203, 0.08);
 }
 
 .tableCell {
-  vertical-align: top;
-  padding: 0.8rem 1rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    vertical-align: top;
+    padding: 0.8rem 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .tableBody .tableRow:last-child .tableCell {
-  border-bottom: none;
+    border-bottom: none;
 }

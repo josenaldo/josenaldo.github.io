@@ -4,9 +4,9 @@ title: MedEspecialista Platform (API + Admin + Frontend)
 image: /images/projects/prints/medespecialista-frontend-landing.png
 projectUrl: https://medespecialista.com.br/
 pin: true
-description:
-  "A multi-repository medical education platform I led from July 2024 to February 2026, modernizing architecture, delivery flow, and product capabilities across API, admin panel, and student-facing frontend."
+description: 'A multi-repository medical education platform I led from July 2024 to February 2026, modernizing architecture, delivery flow, and product capabilities across API, admin panel, and student-facing frontend.'
 ---
+
 ## 1. Elevator Pitch
 
 MedEspecialista is a production platform that helps doctors prepare for medical residency exams. From **July 2024 to February 2026**, I led end-to-end modernization and delivery across three core repositories: backend API, admin panel, and student-facing frontend.

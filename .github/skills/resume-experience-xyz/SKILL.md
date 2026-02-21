@@ -54,32 +54,32 @@ Opcional (mas ideal):
 
 ## Decision Tree (quando houver variações)
 
-1) Você tem métricas confiáveis?
+1. Você tem métricas confiáveis?
 
 - Sim → usar Y numérico.
 - Não → usar Y qualitativo (ex.: “reduziu incidentes recorrentes”, “melhorou tempo de onboarding”) e marcar pergunta.
 
-1) A vaga pede escopo técnico específico?
+1. A vaga pede escopo técnico específico?
 
 - Sim → priorizar bullets alinhados (ex.: performance, cloud, arquitetura).
 - Não → equilibrar impacto, colaboração e execução.
 
 ## Workflow (faça em ordem)
 
-1) Coletar fatos brutos
+1. Coletar fatos brutos
 
 - Usar o formulário em `assets/experience-intake.md`.
 
-1) Agrupar por temas
+1. Agrupar por temas
 
 - Performance, confiabilidade, produtividade, arquitetura, produto, liderança.
 
-1) Escrever bullets XYZ
+1. Escrever bullets XYZ
 
 - Usar o template em `assets/xyz-bullets-template.md`.
 - Gerar 4–7 bullets por experiência (ajustar para o tamanho do currículo).
 
-1) Calibrar e cortar
+1. Calibrar e cortar
 
 - Remover redundâncias.
 - Garantir variedade: nem todos os bullets falam de “feature”.

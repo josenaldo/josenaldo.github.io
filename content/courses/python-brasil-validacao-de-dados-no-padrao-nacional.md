@@ -1,5 +1,5 @@
 ---
-name: "Python Brasil: validação de dados no padrão nacional"
+name: 'Python Brasil: validação de dados no padrão nacional'
 institution: Alura
 completionDate: 2021-09-28
 workload: 7

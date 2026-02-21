@@ -45,29 +45,35 @@ Workflow and guardrails for building and deploying this repo as a static Next.js
 
 ## Decision Tree
 
-1) O deploy é “user page” (`username.github.io`) ou “project page” (`username.github.io/repo`)?
+1. O deploy é “user page” (`username.github.io`) ou “project page” (`username.github.io/repo`)?
+
 - User page → normalmente `basePath` vazio.
 - Project page → pode exigir `basePath` e ajuste de links/rotas.
 
-2) O erro é no CI ou só em produção?
+2. O erro é no CI ou só em produção?
+
 - CI → focar em Node/cache/commands/env vars.
 - Produção → focar em `NEXT_PUBLIC_SITE_URL`, caminhos absolutos, sitemap/robots, assets.
 
 ## Workflow (faça em ordem)
 
-1) Reproduzir localmente
+1. Reproduzir localmente
+
 - Rodar `npm ci` (ou `npm install`) e `npm run build`.
 - Confirmar que existe `out/` após o build.
 
-2) Confirmar invariantes do Next export
+2. Confirmar invariantes do Next export
+
 - `next.config.js` deve manter `output: 'export'`.
 - `images.unoptimized: true` faz sentido para export estático.
 
-3) Ajustar CI/Actions
+3. Ajustar CI/Actions
+
 - No workflow, usar o script do projeto (`npm run build`) para incluir Contentlayer.
 - Publicar `./out` com `actions/upload-pages-artifact`.
 
-4) Validar
+4. Validar
+
 - Re-executar o workflow (ou simular via `npm run build`).
 - Conferir que a URL final e assets renderizam (CSS, imagens, OG).
 

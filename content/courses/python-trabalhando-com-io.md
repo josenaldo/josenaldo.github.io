@@ -1,5 +1,5 @@
 ---
-name: "Python: trabalhando com I/O"
+name: 'Python: trabalhando com I/O'
 institution: Alura
 completionDate: 2021-10-11
 workload: 6

@@ -4,9 +4,9 @@ title: Learning Git and GitHub
 image: /images/projects/aprendendo-git-e-github.jpg
 projectUrl: https://josenaldo.com.br/aprendendo-git-e-github/
 pin: false
-description:
-  "A curated learning roadmap for Git and GitHub, combining Portuguese and English resources to help developers build practical version-control skills."
+description: 'A curated learning roadmap for Git and GitHub, combining Portuguese and English resources to help developers build practical version-control skills.'
 ---
+
 ## 1. Elevator Pitch
 
 A curated and practical roadmap designed to accelerate Git and GitHub adoption in real-world software workflows.

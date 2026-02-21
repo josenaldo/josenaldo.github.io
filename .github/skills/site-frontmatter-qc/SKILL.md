@@ -39,19 +39,19 @@ Evita erros silenciosos e quebras no build: Contentlayer exige campos obrigatór
 
 ### Padrões recomendados
 
-- `description` específico: dizer *o que* o leitor ganha (não “sobre X” genérico).
+- `description` específico: dizer _o que_ o leitor ganha (não “sobre X” genérico).
 - `image` deve apontar para um asset em `public/` (ex.: `/images/...`).
 
 ## Decision Tree (quando houver variações)
 
-1) É erro de campo obrigatório ou qualidade editorial?
+1. É erro de campo obrigatório ou qualidade editorial?
 
 - Obrigatório → corrigir primeiro.
 - Editorial → tratar com `site-content-refresh`/`article-review`.
 
 ## Workflow (faça em ordem)
 
-1) Identificar o tipo de documento pelo path
+1. Identificar o tipo de documento pelo path
 
 Conforme `contentlayer.config.js`:
 
@@ -63,17 +63,17 @@ Conforme `contentlayer.config.js`:
 - Skills (`content/skills/**/*.md`) → `name`, `level`, `firstContact` (number)
 - Courses (`content/courses/**/*.md`) → `name`, `institution`, `completionDate` (date), `workload` (number), `courseLink`, `certificateLink`
 
-1) Checar presença e tipo
+1. Checar presença e tipo
 
 - Campos faltando
 - Tipos errados (ex.: `id` como string)
 
-1) Checar consistência prática
+1. Checar consistência prática
 
 - `image` existe e segue convenção
 - `projectUrl` é URL válida
 
-1) Validar via build
+1. Validar via build
 
 - Rodar `npm run build` para garantir que Contentlayer gerou sem erro.
 

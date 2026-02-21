@@ -1,9 +1,9 @@
 ---
 title: Josenaldo de Oliveira Matos Filho
-description:
-  "Senior Full Stack Engineer (Java/Spring + React/TypeScript) | Remote Contractor (LATAM)"
-image: "/images/default.jpg"
+description: 'Senior Full Stack Engineer (Java/Spring + React/TypeScript) | Remote Contractor (LATAM)'
+image: '/images/default.jpg'
 ---
+
 Location: Uberlândia, Minas Gerais, Brazil | Time Zone: GMT-3 (São Paulo Time)
 
 [+55 (34) 99183-0215](https://wa.me/5534991830215) | [josenaldo@gmail.com](mailto:josenaldo@gmail.com) | [https://github.com/josenaldo](https://github.com/josenaldo) | [https://linkedin.com/in/josenaldo](https://linkedin.com/in/josenaldo)

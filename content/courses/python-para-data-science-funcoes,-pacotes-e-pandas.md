@@ -1,5 +1,5 @@
 ---
-name: "Python para Data Science: Funções, Pacotes e Pandas"
+name: 'Python para Data Science: Funções, Pacotes e Pandas'
 institution: Alura
 completionDate: 2021-11-19
 workload: 10

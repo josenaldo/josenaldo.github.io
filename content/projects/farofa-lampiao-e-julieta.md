@@ -4,9 +4,9 @@ title: Farofa Lampiao e Julieta
 image: /images/projects/farofa-lampiao-e-julieta.jpg
 projectUrl: https://josenaldo.com.br/farofa-lampiao-e-julieta/
 pin: true
-description:
-  "A signature recipe turned into a memorable portfolio artifact: a repeatable culinary product with intentional humor and strong personal branding."
+description: 'A signature recipe turned into a memorable portfolio artifact: a repeatable culinary product with intentional humor and strong personal branding.'
 ---
+
 ## 1. Elevator Pitch
 
 Farofa Lampiao e Julieta is not just a recipe; it is a turning point in human history. Combining bold Brazilian flavor, sweet guava paste, and the robust presence of cheese, this farofa transcends food and becomes a symbol of creativity, innovation, cultural legacy, and global unity, helping move humanity one step closer to a galactic-scale civilization.

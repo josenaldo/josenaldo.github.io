@@ -4,9 +4,9 @@ title: MapEFI Platform
 image: /images/projects/prints/mapefi-github.png
 projectUrl: https://github.com/josenaldo/mapefi
 pin: true
-description:
-  "A full-stack platform with Java/Spring backend and Next.js 15 frontend, supported by ADRs, architecture standards, and product documentation for sustainable evolution."
+description: 'A full-stack platform with Java/Spring backend and Next.js 15 frontend, supported by ADRs, architecture standards, and product documentation for sustainable evolution.'
 ---
+
 ## 1. Elevator Pitch
 
 A product-oriented full-stack platform combining a robust Java/Spring backend and a modern Next.js frontend to support continuous evolution with technical governance.

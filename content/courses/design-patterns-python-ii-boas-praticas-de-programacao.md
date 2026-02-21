@@ -1,5 +1,5 @@
 ---
-name: "Design Patterns Python II: boas práticas de programação"
+name: 'Design Patterns Python II: boas práticas de programação'
 institution: Alura
 completionDate: 2021-10-22
 workload: 16

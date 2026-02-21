@@ -26,28 +26,28 @@ Uma afirmação clara, defensável e contextual.
 
 ## Argumentos principais
 
-1) Argumento
+1. Argumento
 
 - Evidência/Exemplo:
 - Limitações/Riscos:
 
-1) Argumento
+1. Argumento
 
 - Evidência/Exemplo:
 - Limitações/Riscos:
 
-1) Argumento
+1. Argumento
 
 - Evidência/Exemplo:
 - Limitações/Riscos:
 
 ## Contra-argumentos sérios
 
-1) Contra-argumento
+1. Contra-argumento
 
 - Resposta (honesta, sem “enganar”):
 
-1) Contra-argumento
+1. Contra-argumento
 
 - Resposta:
 

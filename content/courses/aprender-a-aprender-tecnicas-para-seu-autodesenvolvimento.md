@@ -1,5 +1,5 @@
 ---
-name: "Aprender a aprender: técnicas para seu autodesenvolvimento"
+name: 'Aprender a aprender: técnicas para seu autodesenvolvimento'
 institution: Alura
 completionDate: 2022-01-11
 workload: 8

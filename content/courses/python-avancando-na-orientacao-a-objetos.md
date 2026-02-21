@@ -1,5 +1,5 @@
 ---
-name: "Python: avançando na orientação a objetos"
+name: 'Python: avançando na orientação a objetos'
 institution: Alura
 completionDate: 2021-09-17
 workload: 10

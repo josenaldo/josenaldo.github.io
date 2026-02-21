@@ -1,5 +1,5 @@
 ---
-name: "Python 3: entendendo o Tratamento de Erros"
+name: 'Python 3: entendendo o Tratamento de Erros'
 institution: Alura
 completionDate: 2021-10-06
 workload: 12

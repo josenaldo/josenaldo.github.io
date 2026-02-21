@@ -1,5 +1,5 @@
 ---
-name: "Pandas: formatos diferentes de entrada e saída (IO)"
+name: 'Pandas: formatos diferentes de entrada e saída (IO)'
 institution: Alura
 completionDate: 2022-01-06
 workload: 6

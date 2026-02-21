@@ -1,5 +1,5 @@
 ---
-name: "Comunicação entre sistemas: REST, GraphQL e gRPC"
+name: 'Comunicação entre sistemas: REST, GraphQL e gRPC'
 institution: Full Cycle
 completionDate: 2024-03-15
 workload: 18

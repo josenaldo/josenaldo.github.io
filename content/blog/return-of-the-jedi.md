@@ -1,12 +1,12 @@
 ---
 title: The return of the Jedi
-description:
-  "This post marks the beginning of a new journey in my life: my fight for my return to the world of software development."
+description: 'This post marks the beginning of a new journey in my life: my fight for my return to the world of software development.'
 date: 2023-04-14 22:00:00 -0300
 author: Josenaldo Matos
-image: "/images/blog/return-of-the-jedi.png"
+image: '/images/blog/return-of-the-jedi.png'
 category: personal
 ---
+
 Hello, everyone! My name is Josenaldo Matos, and I'm incredibly excited to be launching my new blog, Nephro Nerd Chronicles. This first post is about how I'm embarking on a journey to return to work after a long and challenging period in my life.
 
 I've been working in software development since 1999, and I'm passionate about creating web applications, especially using Java and JavaScript. However, my life took an unexpected turn in 2008 when I lost my kidney function and had to start hemodialysis. Through the years, I've had to overcome many obstacles, including a kidney transplant, multiple accidents, and the loss of a loved one.
