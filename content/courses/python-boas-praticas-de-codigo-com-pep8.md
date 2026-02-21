@@ -1,5 +1,5 @@
 ---
-name: "Python: boas práticas de código com PEP8"
+name: 'Python: boas práticas de código com PEP8'
 institution: Alura
 completionDate: 2021-10-26
 workload: 10

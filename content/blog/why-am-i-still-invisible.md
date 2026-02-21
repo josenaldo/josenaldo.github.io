@@ -1,9 +1,9 @@
 ---
 title: Why am I still invisible?
-description: "Why, despite being qualified, am I still invisible to the job market?"
+description: 'Why, despite being qualified, am I still invisible to the job market?'
 date: 2024-07-31 22:00:00 -0300
 author: Josenaldo Matos
-image: "/images/blog/why-am-i-still-invisible.png"
+image: '/images/blog/why-am-i-still-invisible.png'
 category: job-market
 ---
 
@@ -11,7 +11,7 @@ I saw [this LinkedIn post by Pablo Jorge Maciel](https://www.linkedin.com/posts/
 
 There are two ways to get a job: hunting and farming.
 
-I saw this definition on Twitter (*I'll never call it X*), in this thread by [@SergioRocks](https://x.com/SergioRocks/status/1811386383258272092), and I thought it was really good.
+I saw this definition on Twitter (_I'll never call it X_), in this thread by [@SergioRocks](https://x.com/SergioRocks/status/1811386383258272092), and I thought it was really good.
 
 Hunting is when you actively go after work. It's when you send your resume, when you apply. It's when you network, when you go to events, when you introduce yourself. It's when you cold call, when you message on LinkedIn. It's when you interview, when you take tests. It's when you chase it down.
 
@@ -49,8 +49,8 @@ There's lots of advice out there, but I'll summarize here:
 - Prefer ATS-compatible file formats, like PDF
 - Focus on positions well-aligned with your skills
 - Give preference to:
-  - more recent positions (the chance of old positions being ghosts is higher)
-  - positions with fewer applications (the chance of being seen is higher)
+    - more recent positions (the chance of old positions being ghosts is higher)
+    - positions with fewer applications (the chance of being seen is higher)
 - Apply to as many positions as possible. Keep sending resumes until your email provider starts suspecting you're trying to communicate with another planet.
 
 There's not much way around it. If you need to find a job, you're going to have to sweat. However, while hunting is essential for an active and immediate search for opportunities, it shouldn't be the only strategy adopted.

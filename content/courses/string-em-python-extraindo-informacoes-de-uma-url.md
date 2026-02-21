@@ -1,5 +1,5 @@
 ---
-name: "String em Python: extraindo informações de uma URL"
+name: 'String em Python: extraindo informações de uma URL'
 institution: Alura
 completionDate: 2021-09-22
 workload: 8

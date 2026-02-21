@@ -23,7 +23,7 @@ SEMPRE use exatamente esta estrutura de template:
 
 - Achado 1 com dados de apoio
 - Achado 2 com dados de apoio
-- Achado 3 com dados de apoio 
+- Achado 3 com dados de apoio
 
 ## Recomendações
 

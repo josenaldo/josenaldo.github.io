@@ -1,10 +1,17 @@
 {
-  "compilerOptions": {
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["./src/*"],
-      "contentlayer/generated": ["./.contentlayer/generated"]
-    }
-  },
-  "include": ["next-env.d.js", "**/*.jsx", "**/*.js", ".contentlayer/generated"]
+    "compilerOptions": {
+        "baseUrl": ".",
+        "module": "esnext",
+        "moduleResolution": "bundler",
+        "paths": {
+            "@/*": ["./src/*"],
+            "contentlayer/generated": ["./.contentlayer/generated"]
+        }
+    },
+    "include": [
+        "next-env.d.js",
+        "**/*.jsx",
+        "**/*.js",
+        ".contentlayer/generated"
+    ]
 }

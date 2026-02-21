@@ -94,6 +94,7 @@ URL computada: `/${flattenedPath sem pages/}` (ex.: `content/pages/about.md` →
 - `certificateLink` (string)
 
 Computed:
+
 - `url`: `/${flattenedPath}`
 - `slug`: baseado no path removendo `courses/`
 
@@ -112,18 +113,22 @@ Computed:
 
 ## Workflow (faça em ordem)
 
-1) Identificar tipo e arquivo
+1. Identificar tipo e arquivo
+
 - Confirmar em qual pasta o conteúdo vive.
 
-2) Criar/editar o Markdown
+2. Criar/editar o Markdown
+
 - Garantir todos os campos `required` no frontmatter.
 - Se adicionar imagem, usar path absoluto do site (ex.: `/images/...`) quando apropriado.
 
-3) Validar localmente
+3. Validar localmente
+
 - Rodar `npm run dev` para validação rápida (Contentlayer2 + Next em watch).
 - Ou rodar `npm run build` para validação completa.
 
-4) Ajustar onde o conteúdo aparece (se necessário)
+4. Ajustar onde o conteúdo aparece (se necessário)
+
 - Se o conteúdo não renderizar, localizar o `contentService`/página correspondente e validar filtros (ex.: `show`, `pin`).
 
 ## Saída esperada

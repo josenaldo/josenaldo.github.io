@@ -4,9 +4,9 @@ title: Personal Website (Next.js + Contentlayer)
 image: /images/projects/prints/josenaldo.github.io-github.png
 projectUrl: https://josenaldo.com.br/
 pin: false
-description:
-  "A production personal website built with Next.js and Contentlayer2, published as static export and structured for portfolio, resume, and technical content."
+description: 'A production personal website built with Next.js and Contentlayer2, published as static export and structured for portfolio, resume, and technical content.'
 ---
+
 ## 1. Elevator Pitch
 
 A production personal platform that consolidates professional branding, resume, portfolio projects, and technical writing in one website.

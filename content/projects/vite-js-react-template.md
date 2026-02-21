@@ -4,9 +4,9 @@ title: Vite JavaScript React Minimal Template
 image: /images/projects/vite-js-react-minimal.jpg
 projectUrl: https://github.com/josenaldo/vite-js-react-minimal
 pin: false
-description:
-  "A minimal React + Vite starter template with environment setup and standard scripts for fast project bootstrapping."
+description: 'A minimal React + Vite starter template with environment setup and standard scripts for fast project bootstrapping.'
 ---
+
 ## 1. Elevator Pitch
 
 A lean starter template for launching React applications with Vite in minutes, focused on speed and developer productivity.

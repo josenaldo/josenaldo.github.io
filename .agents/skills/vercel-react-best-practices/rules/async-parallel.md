@@ -21,8 +21,8 @@ const comments = await fetchComments()
 
 ```typescript
 const [user, posts, comments] = await Promise.all([
-  fetchUser(),
-  fetchPosts(),
-  fetchComments()
+    fetchUser(),
+    fetchPosts(),
+    fetchComments(),
 ])
 ```

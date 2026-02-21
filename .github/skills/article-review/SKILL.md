@@ -52,29 +52,35 @@ Opcional:
 
 ## Decision Tree (quando houver variações)
 
-1) O problema é estilo ou argumento?
+1. O problema é estilo ou argumento?
+
 - Estilo → cortar redundância, ajustar ritmo, clarificar frases.
 - Argumento → reorganizar seções, adicionar contra-argumento e delimitação.
 
-2) O texto está longo por quê?
+2. O texto está longo por quê?
+
 - Repetição → consolidar.
 - Muitos tópicos → dividir em 2 posts.
 
 ## Workflow (faça em ordem)
 
-1) Leitura diagnóstica
+1. Leitura diagnóstica
+
 - Identificar tese, promessas por seção e pontos frágeis.
 
-2) Relatório de Revisão
+2. Relatório de Revisão
+
 - Preencher o template em `assets/review-report-template.md`.
 - Separar feedback em: argumento, clareza, precisão, estilo, estrutura.
 
-3) Passes de revisão
+3. Passes de revisão
+
 - Passo 1: estrutura (ordem e cortes)
 - Passo 2: clareza (frase/parágrafo)
 - Passo 3: voz (naturalidade)
 
-4) Validação para o site
+4. Validação para o site
+
 - Checar frontmatter mínimo (para blog: `title`, `description`, `date`, `author`, `image`, `category`).
 - Sugerir melhoria de título/description para SEO sem clickbait.
 

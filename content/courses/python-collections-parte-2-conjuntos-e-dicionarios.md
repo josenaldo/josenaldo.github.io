@@ -1,5 +1,5 @@
 ---
-name: "Python Collections parte 2: conjuntos e dicionários"
+name: 'Python Collections parte 2: conjuntos e dicionários'
 institution: Alura
 completionDate: 2021-09-24
 workload: 9

@@ -4,9 +4,9 @@ title: Codeflix Admin Catalog Backend
 image: /images/projects/prints/codeflix-admin-catalog-backend-github.png
 projectUrl: https://github.com/josenaldo/codeflix-admin-catalog-backend
 pin: true
-description:
-  "A Java backend for catalog administration, organized into domain/application/infrastructure modules with focus on clean architecture and long-term maintainability."
+description: 'A Java backend for catalog administration, organized into domain/application/infrastructure modules with focus on clean architecture and long-term maintainability.'
 ---
+
 ## 1. Elevator Pitch
 
 A modular catalog backend designed for maintainability and architectural clarity in enterprise-style systems.

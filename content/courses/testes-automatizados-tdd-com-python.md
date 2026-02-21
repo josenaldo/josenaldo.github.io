@@ -1,5 +1,5 @@
 ---
-name: "Testes automatizados: TDD com Python"
+name: 'Testes automatizados: TDD com Python'
 institution: Alura
 completionDate: 2021-10-01
 workload: 6

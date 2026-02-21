@@ -46,19 +46,23 @@ Uma frase descrevendo o valor da skill e seu escopo (o que resolve e o que NÃO 
 
 Use apenas quando houver mais de um caminho de execução.
 
-1) Condição A?
+1. Condição A?
+
 - Sim → caminho A
 - Não → caminho B
 
 ## Workflow (faça em ordem)
 
-1) Delimitar escopo
+1. Delimitar escopo
+
 - Quais arquivos/módulo/feature.
 
-2) Executar a mudança/ação
+2. Executar a mudança/ação
+
 - Passos concretos.
 
-3) Validar
+3. Validar
+
 - Qual comando/teste/checagem roda.
 
 ## Saída esperada
@@ -85,4 +89,3 @@ Use apenas quando houver mais de um caminho de execução.
 ## Consulte também
 
 - Referências internas do repo (instructions/ e outras skills).
-

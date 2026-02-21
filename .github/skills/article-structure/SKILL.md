@@ -52,32 +52,32 @@ Opcional:
 
 ## Decision Tree (quando houver variações)
 
-1) A tese é controversa?
+1. A tese é controversa?
 
 - Sim → introduzir contra-argumento cedo e responder com rigor.
 - Não → focar em didática e exemplos.
 
-1) O leitor quer “como fazer”?
+1. O leitor quer “como fazer”?
 
 - Sim → usar estrutura de tutorial/checklist.
 - Não → usar estrutura de ensaio/argumento.
 
 ## Workflow (faça em ordem)
 
-1) Escolher forma do artigo
+1. Escolher forma do artigo
 
 - Selecionar um dos templates em `assets/`.
 
-1) Escrever o outline
+1. Escrever o outline
 
 - Para cada seção: objetivo, tópicos, exemplo, frase de transição.
 
-1) Calibrar tamanho
+1. Calibrar tamanho
 
 - Unir seções redundantes; cortar o que não serve ao argumento.
 - Garantir pelo menos 1 seção de limitações/anti-padrões.
 
-1) Preparar rascunho “zero”
+1. Preparar rascunho “zero”
 
 - Escrever frases-guia por seção (1–3 por seção) para tirar o bloqueio de página em branco.
 

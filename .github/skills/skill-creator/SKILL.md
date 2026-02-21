@@ -20,23 +20,23 @@ Cada skill deve seguir a estrutura abaixo:
 
 ```markdown
 {skill}/
-  SKILL.md           # Guia principal da skill (frontmatter + instruções)
-  scripts/           # Scripts reutilizáveis (opcional)
-  references/        # Documentação, padrões, exemplos (opcional)
-  assets/            # Templates, imagens, arquivos de apoio (opcional)
+SKILL.md # Guia principal da skill (frontmatter + instruções)
+scripts/ # Scripts reutilizáveis (opcional)
+references/ # Documentação, padrões, exemplos (opcional)
+assets/ # Templates, imagens, arquivos de apoio (opcional)
 ```
 
 **Exemplo:**
 
 ```markdown
 pdf-editor/
-  SKILL.md
-  scripts/
-    rotate_pdf.py
-  references/
-    schema.md
-  assets/
-    template.pdf
+SKILL.md
+scripts/
+rotate_pdf.py
+references/
+schema.md
+assets/
+template.pdf
 ```
 
 ## Padrões de Divulgação Progressiva
@@ -64,7 +64,7 @@ Quando a skill cobre múltiplos frameworks, crie um arquivo de referência por v
 cloud-deploy/
 ├── SKILL.md (workflow + seleção de provider)
 └── references/
-    ├── aws.md (padrões AWS) 
+    ├── aws.md (padrões AWS)
     ├── gcp.md (padrões GCP)
     └── azure.md (padrões Azure)
 ```
@@ -201,9 +201,9 @@ Escreva o YAML frontmatter com `name` e `description`:
 
 - `name`: Nome da skill
 - `description`: Principal mecanismo de disparo. Ajuda o agente a saber quando usar a skill.
-  - Diga o que a skill faz e quando deve ser usada.
-  - Inclua todos os "quando usar" aqui – não no corpo. O corpo só é lido após o disparo.
-  - Exemplo para skill docx: "Criação, edição e análise de documentos .docx, com suporte a alterações rastreadas, comentários, preservação de formatação e extração de texto. Use quando precisar: (1) Criar documentos, (2) Editar conteúdo, (3) Trabalhar com alterações rastreadas, (4) Adicionar comentários, ou outras tarefas com .docx"
+    - Diga o que a skill faz e quando deve ser usada.
+    - Inclua todos os "quando usar" aqui – não no corpo. O corpo só é lido após o disparo.
+    - Exemplo para skill docx: "Criação, edição e análise de documentos .docx, com suporte a alterações rastreadas, comentários, preservação de formatação e extração de texto. Use quando precisar: (1) Criar documentos, (2) Editar conteúdo, (3) Trabalhar com alterações rastreadas, (4) Adicionar comentários, ou outras tarefas com .docx"
 
 Não inclua outros campos no frontmatter.
 
@@ -222,8 +222,8 @@ Para manter consistência, todas as skills devem usar a mesma espinha dorsal de 
 - Exemplos de prompt
 - Inputs (o que pedir ao usuário)
 - Princípios e regras
-  - Crítico (não negociar)
-  - Padrões recomendados (quando aplicável)
+    - Crítico (não negociar)
+    - Padrões recomendados (quando aplicável)
 - Decision Tree (quando houver variações)
 - Workflow (faça em ordem)
 - Saída esperada
@@ -255,10 +255,10 @@ scripts/package_skill.py <caminho/da/skill> ./dist
 O script irá:
 
 1. **Validar** a skill:
-   - Formato do frontmatter YAML
-   - Convenção de nomes e estrutura
-   - Descrição completa e de qualidade
-   - Organização dos arquivos e referências
+    - Formato do frontmatter YAML
+    - Convenção de nomes e estrutura
+    - Descrição completa e de qualidade
+    - Organização dos arquivos e referências
 2. **Empacotar** se passar na validação, criando .skill (zip) com todos os arquivos e estrutura correta.
 
 Se falhar, corrija os erros e rode novamente.

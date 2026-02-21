@@ -49,30 +49,36 @@ Opcional:
 
 ## Decision Tree (quando houver variações)
 
-1) O problema é conteúdo ou metadado?
+1. O problema é conteúdo ou metadado?
+
 - Conteúdo → revisão (usar `article-review`).
 - Metadado/estrutura → usar `site-frontmatter-qc`.
 
-2) O item está desatualizado tecnicamente?
+2. O item está desatualizado tecnicamente?
+
 - Sim → adicionar “atualização” com data, ou ajustar o texto (sem reescrever tudo).
 - Não → focar em clareza e concisão.
 
 ## Workflow (faça em ordem)
 
-1) Inventariar itens
+1. Inventariar itens
+
 - Listar arquivos-alvo e seus metadados essenciais.
 
-2) Diagnóstico rápido por item
+2. Diagnóstico rápido por item
+
 - O que está bom?
 - O que está fraco?
 - O que está errado/desatualizado?
 
-3) Aplicar mudanças mínimas de alto impacto
+3. Aplicar mudanças mínimas de alto impacto
+
 - Título/description mais específicos.
 - Cortar repetições.
 - Inserir exemplo concreto quando o texto está abstrato.
 
-4) Validar build do site
+4. Validar build do site
+
 - Rodar `npm run build` para pegar erros do Contentlayer/export.
 
 ## Saída esperada

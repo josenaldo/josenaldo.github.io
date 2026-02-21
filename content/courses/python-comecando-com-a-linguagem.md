@@ -1,5 +1,5 @@
 ---
-name: "Python: começando com a linguagem"
+name: 'Python: começando com a linguagem'
 institution: Alura
 completionDate: 2021-09-11
 workload: 12

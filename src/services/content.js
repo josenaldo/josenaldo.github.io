@@ -1,162 +1,165 @@
-import {
-  allExperiences,
-  allPages,
-  allPosts,
-  allProjects,
-  allServices,
-  allSkills,
-  allTestimonials
-} from 'contentlayer/generated'
 import { compareDesc } from 'date-fns'
 
+import {
+    allExperiences,
+    allPages,
+    allPosts,
+    allProjects,
+    allServices,
+    allSkills,
+    allTestimonials,
+} from 'contentlayer/generated'
+
 const lastExperiences = (numberOfExperiences) => {
-  return allExperiences
-    .sort((a, b) => {
-      return b.id - a.id
-    })
-    .slice(0, numberOfExperiences)
+    return allExperiences
+        .sort((a, b) => {
+            return b.id - a.id
+        })
+        .slice(0, numberOfExperiences)
 }
 
 const lastProjects = (numberOfProjects) => {
-  return allProjects
-    .sort((a, b) => {
-      return a.id - b.id
-    })
-    .slice(0, numberOfProjects)
+    return allProjects
+        .sort((a, b) => {
+            return a.id - b.id
+        })
+        .slice(0, numberOfProjects)
 }
 
 const getAllProjects = () => {
-  return allProjects
+    return allProjects
 }
 
 const getAllProjectsPaths = () => {
-  const paths = allProjects.map((project) => project.url)
-  return paths
+    const paths = allProjects.map((project) => project.url)
+    return paths
 }
 
 const getProjectData = (slug) => {
-  const url = `/projects/${slug}`
-  const projects = getAllProjects()
+    const url = `/projects/${slug}`
+    const projects = getAllProjects()
 
-  const project = projects.find((p) => {
-    if (p.url === url) {
-      return p
-    }
-  })
+    const project = projects.find((p) => {
+        if (p.url === url) {
+            return p
+        }
+    })
 
-  return project
+    return project
 }
 
 const getTestimonials = () => {
-  return allTestimonials.filter((t) => t.show !== false)
+    return allTestimonials.filter((t) => t.show !== false)
 }
 
 const getServices = () => {
-  return allServices
-    .filter((s) => s.show !== false)
-    .sort((a, b) => (a.order ?? 0) - (b.order ?? 0))
+    return allServices
+        .filter((s) => s.show !== false)
+        .sort((a, b) => (a.order ?? 0) - (b.order ?? 0))
 }
 
 const getAllPosts = () => {
-  return allPosts
+    return allPosts
 }
 
 const getSortedPosts = (numberOfPosts) => {
-  const posts = allPosts.sort((a, b) => {
-    return compareDesc(new Date(a.date), new Date(b.date))
-  })
+    const posts = allPosts.sort((a, b) => {
+        return compareDesc(new Date(a.date), new Date(b.date))
+    })
 
-  if (numberOfPosts) {
-    return posts.slice(0, numberOfPosts)
-  }
+    if (numberOfPosts) {
+        return posts.slice(0, numberOfPosts)
+    }
 
-  return posts
+    return posts
 }
 
 const getAllPostsPaths = () => {
-  const paths = allPosts.map((post) => post.url)
-  return paths
+    const paths = allPosts.map((post) => post.url)
+    return paths
 }
 
 const getPostData = (slug) => {
-  const url = `/blog/${slug}`
-  const posts = getSortedPosts()
+    const url = `/blog/${slug}`
+    const posts = getSortedPosts()
 
-  const post = posts.find((post, index, posts) => {
-    if (post.url === url) {
-      const isFirst = index === posts.length - 1
-      const isLast = index === 0
-      const previousPost = !isFirst ? posts[index + 1] : null
-      const nextPost = !isLast ? posts[index - 1] : null
+    const post = posts.find((post, index, posts) => {
+        if (post.url === url) {
+            const isFirst = index === posts.length - 1
+            const isLast = index === 0
+            const previousPost = !isFirst ? posts[index + 1] : null
+            const nextPost = !isLast ? posts[index - 1] : null
 
-      if (previousPost) {
-        post.previous = {
-          url: previousPost.url,
-          title: previousPost.title,
-        }
-      } else {
-        post.previous = {
-          url: '/blog',
-        }
-      }
+            if (previousPost) {
+                post.previous = {
+                    url: previousPost.url,
+                    title: previousPost.title,
+                }
+            } else {
+                post.previous = {
+                    url: '/blog',
+                }
+            }
 
-      if (nextPost) {
-        post.next = {
-          url: nextPost.url,
-          title: nextPost.title,
+            if (nextPost) {
+                post.next = {
+                    url: nextPost.url,
+                    title: nextPost.title,
+                }
+            } else {
+                post.next = {
+                    url: '/blog',
+                }
+            }
+            return post
         }
-      } else {
-        post.next = {
-          url: '/blog',
-        }
-      }
-      return post
-    }
-  })
+    })
 
-  return post
+    return post
 }
 
 const getPageData = (url) => {
-  const page = allPages.find((page) => page.url === url)
+    const page = allPages.find((page) => page.url === url)
 
-  return page
+    return page
 }
 
 const getAllSkills = () => {
-  const skillsByLevel = allSkills.reduce((acc, skill) => {
-    if (!acc[skill.level]) {
-      acc[skill.level] = []
-    }
+    const skillsByLevel = allSkills.reduce((acc, skill) => {
+        if (!acc[skill.level]) {
+            acc[skill.level] = []
+        }
 
-    acc[skill.level].push(skill)
+        acc[skill.level].push(skill)
 
-    return acc
-  }, {})
+        return acc
+    }, {})
 
-  const skillByLevelKeys = Object.keys(skillsByLevel)
+    const skillByLevelKeys = Object.keys(skillsByLevel)
 
-  skillByLevelKeys.forEach((key) => {
-    skillsByLevel[key] = skillsByLevel[key].sort((a, b) => {
-      return a.firstContact - b.firstContact
+    skillByLevelKeys.forEach((key) => {
+        skillsByLevel[key] = skillsByLevel[key].sort((a, b) => {
+            return a.firstContact - b.firstContact
+        })
     })
-  })
 
-  return skillsByLevel
+    return skillsByLevel
 }
 
-export default {
-  lastExperiences,
-  lastProjects,
-  getAllProjects,
-  getAllProjectsPaths,
-  getProjectData,
-  getTestimonials,
-  getServices,
-  getAllPosts,
-  getSortedPosts,
-  getAllPostsPaths,
-  getPostData,
-  getPageData,
-  getAllSkills,
+const contentService = {
+    lastExperiences,
+    lastProjects,
+    getAllProjects,
+    getAllProjectsPaths,
+    getProjectData,
+    getTestimonials,
+    getServices,
+    getAllPosts,
+    getSortedPosts,
+    getAllPostsPaths,
+    getPostData,
+    getPageData,
+    getAllSkills,
 }
+
+export default contentService

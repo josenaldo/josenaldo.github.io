@@ -3,7 +3,7 @@ title: "Interfaces aren't villains"
 description: "A technical and architectural analysis on the value of defining explicit contracts even when there's only one concrete implementation."
 date: 2025-12-24 09:00:00 -0300
 author: Josenaldo Matos
-image: "/images/blog/interfaces-arent-villains.png"
+image: '/images/blog/interfaces-arent-villains.png'
 category: architecture
 ---
 

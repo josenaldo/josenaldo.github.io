@@ -1,5 +1,5 @@
 ---
-name: "Python: avançando na linguagem"
+name: 'Python: avançando na linguagem'
 institution: Alura
 completionDate: 2021-09-14
 workload: 12

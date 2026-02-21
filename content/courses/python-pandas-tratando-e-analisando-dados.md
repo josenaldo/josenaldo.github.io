@@ -1,5 +1,5 @@
 ---
-name: "Python Pandas: tratando e analisando dados"
+name: 'Python Pandas: tratando e analisando dados'
 institution: Alura
 completionDate: 2021-12-09
 workload: 12

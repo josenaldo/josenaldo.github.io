@@ -1,51 +1,57 @@
+import DateIcon from '@mui/icons-material/CalendarToday'
+import AuthorIcon from '@mui/icons-material/PersonOutlined'
 import { Box, Typography } from '@mui/material'
 import { format, parseISO } from 'date-fns'
-
-import AuthorIcon from '@mui/icons-material/PersonOutlined'
-import DateIcon from '@mui/icons-material/CalendarToday'
+import PropTypes from 'prop-types'
 
 const ContentMeta = ({ date, author, color = 'text.secondary' }) => {
-  return (
-    <Box
-      sx={{
-        display: 'flex',
-        alignItems: 'center',
-        gap: 2,
-        pt: 1,
-        color: color,
-      }}
-    >
-      {date && (
+    return (
         <Box
-          sx={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: 1,
-            whiteSpace: 'nowrap',
-          }}
+            sx={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: 2,
+                pt: 1,
+                color: color,
+            }}
         >
-          <DateIcon sx={{ fontSize: '0.95rem' }} />
-          <Typography variant="caption">
-            {format(parseISO(date), 'dd/MM/yyyy')}
-          </Typography>
-        </Box>
-      )}
+            {date && (
+                <Box
+                    sx={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: 1,
+                        whiteSpace: 'nowrap',
+                    }}
+                >
+                    <DateIcon sx={{ fontSize: '0.95rem' }} />
+                    <Typography variant="caption">
+                        {format(parseISO(date), 'dd/MM/yyyy')}
+                    </Typography>
+                </Box>
+            )}
 
-      {author && (
-        <Box
-          sx={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: 1,
-            whiteSpace: 'nowrap',
-          }}
-        >
-          <AuthorIcon sx={{ fontSize: '0.95rem' }} />
-          <Typography variant="caption">{author}</Typography>
+            {author && (
+                <Box
+                    sx={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: 1,
+                        whiteSpace: 'nowrap',
+                    }}
+                >
+                    <AuthorIcon sx={{ fontSize: '0.95rem' }} />
+                    <Typography variant="caption">{author}</Typography>
+                </Box>
+            )}
         </Box>
-      )}
-    </Box>
-  )
+    )
+}
+
+ContentMeta.propTypes = {
+    date: PropTypes.string,
+    author: PropTypes.string,
+    color: PropTypes.string,
 }
 
 export default ContentMeta
