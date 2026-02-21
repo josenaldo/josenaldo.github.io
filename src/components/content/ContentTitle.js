@@ -1,4 +1,5 @@
 import { Stack, Typography } from '@mui/material'
+import PropTypes from 'prop-types'
 
 const ContentTitle = ({
     title,
@@ -21,6 +22,13 @@ const ContentTitle = ({
             </Typography>
         </Stack>
     )
+}
+
+ContentTitle.propTypes = {
+    title: PropTypes.string.isRequired,
+    subtitle: PropTypes.string,
+    titleVariant: PropTypes.string,
+    subtitleVariant: PropTypes.string,
 }
 
 export default ContentTitle

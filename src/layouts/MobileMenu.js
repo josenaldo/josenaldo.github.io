@@ -12,6 +12,7 @@ import {
     ListItemText,
     SwipeableDrawer,
 } from '@mui/material'
+import PropTypes from 'prop-types'
 
 const MobileMenu = ({ pages }) => {
     const [drawerOpen, setDrawerOpen] = React.useState(false)
@@ -65,6 +66,16 @@ const MobileMenu = ({ pages }) => {
             </SwipeableDrawer>
         </Box>
     )
+}
+
+MobileMenu.propTypes = {
+    pages: PropTypes.arrayOf(
+        PropTypes.shape({
+            name: PropTypes.string.isRequired,
+            url: PropTypes.string.isRequired,
+            icon: PropTypes.elementType,
+        })
+    ).isRequired,
 }
 
 export default MobileMenu

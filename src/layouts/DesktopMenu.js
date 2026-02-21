@@ -1,4 +1,5 @@
 import { Box, Button } from '@mui/material'
+import PropTypes from 'prop-types'
 
 const DesktopMenu = ({ pages }) => {
     return (
@@ -10,6 +11,15 @@ const DesktopMenu = ({ pages }) => {
             ))}
         </Box>
     )
+}
+
+DesktopMenu.propTypes = {
+    pages: PropTypes.arrayOf(
+        PropTypes.shape({
+            name: PropTypes.string.isRequired,
+            url: PropTypes.string.isRequired,
+        })
+    ).isRequired,
 }
 
 export default DesktopMenu

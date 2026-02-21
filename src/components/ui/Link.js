@@ -1,6 +1,7 @@
 import NextLink from 'next/link'
 
 import { Link as MuiLink } from '@mui/material'
+import PropTypes from 'prop-types'
 
 const Link = ({ href, children, color = 'secondary', sx, ...restProps }) => {
     const linkStyle = {
@@ -29,6 +30,13 @@ const Link = ({ href, children, color = 'secondary', sx, ...restProps }) => {
 // Set default props
 Link.defaultProps = {
     color: 'primary',
+}
+
+Link.propTypes = {
+    href: PropTypes.string.isRequired,
+    children: PropTypes.node.isRequired,
+    color: PropTypes.string,
+    sx: PropTypes.object,
 }
 
 export default Link

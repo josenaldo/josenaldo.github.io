@@ -1,4 +1,5 @@
 import { Box } from '@mui/material'
+import PropTypes from 'prop-types'
 
 const Code = ({ children }) => {
     return (
@@ -22,6 +23,10 @@ const Code = ({ children }) => {
             </Box>
         </Box>
     )
+}
+
+Code.propTypes = {
+    children: PropTypes.node.isRequired,
 }
 
 export default Code

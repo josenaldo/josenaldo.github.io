@@ -1,4 +1,5 @@
 import { Box, Container, Paper } from '@mui/material'
+import PropTypes from 'prop-types'
 
 const Footer = () => {
     return (
@@ -45,5 +46,7 @@ const Footer = () => {
         </Box>
     )
 }
+
+Footer.propTypes = {}
 
 export default Footer

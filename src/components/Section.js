@@ -1,4 +1,5 @@
 import { Box, Container, Paper } from '@mui/material'
+import PropTypes from 'prop-types'
 
 const Section = ({ elevation, children, py = 8 }) => {
     return (
@@ -13,6 +14,12 @@ const Section = ({ elevation, children, py = 8 }) => {
             </Paper>
         </Box>
     )
+}
+
+Section.propTypes = {
+    elevation: PropTypes.number,
+    children: PropTypes.node.isRequired,
+    py: PropTypes.number,
 }
 
 export default Section

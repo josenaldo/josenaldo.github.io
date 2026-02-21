@@ -3,6 +3,7 @@ import DeviceHubIcon from '@mui/icons-material/DeviceHub'
 import PsychologyIcon from '@mui/icons-material/Psychology'
 import SchoolIcon from '@mui/icons-material/School'
 import { Box, Typography } from '@mui/material'
+import PropTypes from 'prop-types'
 
 import CallToAction from '@/components/CallToAction'
 import IconCard from '@/components/content/IconCard'
@@ -67,6 +68,16 @@ const Services = ({ services }) => {
             </Box>
         </Section>
     )
+}
+
+Services.propTypes = {
+    services: PropTypes.arrayOf(
+        PropTypes.shape({
+            title: PropTypes.string.isRequired,
+            description: PropTypes.string,
+            icon: PropTypes.string,
+        })
+    ),
 }
 
 export default Services

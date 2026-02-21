@@ -7,6 +7,7 @@ import {
     CardMedia,
     Typography,
 } from '@mui/material'
+import PropTypes from 'prop-types'
 
 import ContentCardImage from '@/components/content/ContentCardImage'
 import ContentCategory from '@/components/content/ContentCategory'
@@ -183,6 +184,22 @@ const ContentCard = ({
             )}
         </Card>
     )
+}
+
+ContentCard.propTypes = {
+    icon: PropTypes.elementType,
+    title: PropTypes.string.isRequired,
+    text: PropTypes.string,
+    url: PropTypes.string,
+    image: PropTypes.string,
+    moreLinkText: PropTypes.string,
+    date: PropTypes.string,
+    author: PropTypes.string,
+    category: PropTypes.string,
+    showText: PropTypes.bool,
+    showMeta: PropTypes.bool,
+    showActions: PropTypes.bool,
+    showShare: PropTypes.bool,
 }
 
 export default ContentCard

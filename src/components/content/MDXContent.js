@@ -1,4 +1,5 @@
 import { Box, Divider } from '@mui/material'
+import PropTypes from 'prop-types'
 import { MDXProvider } from '@mdx-js/react'
 // import { Remark } from 'react-remark'
 import Markdown from 'react-markdown'
@@ -80,6 +81,10 @@ const MDXContent = ({ content }) => {
             </MDXProvider>
         </Box>
     )
+}
+
+MDXContent.propTypes = {
+    content: PropTypes.string.isRequired,
 }
 
 export default MDXContent

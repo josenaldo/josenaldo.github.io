@@ -1,4 +1,5 @@
 import { Box, Card, CardContent, CardMedia } from '@mui/material'
+import PropTypes from 'prop-types'
 
 import ContentCategory from '@/components/content/ContentCategory'
 import ContentMainImage from '@/components/content/ContentMainImage'
@@ -102,6 +103,17 @@ const ContentView = ({
             </CardContent>
         </Card>
     )
+}
+
+ContentView.propTypes = {
+    content: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    description: PropTypes.string,
+    image: PropTypes.string,
+    url: PropTypes.string.isRequired,
+    date: PropTypes.string,
+    author: PropTypes.string,
+    category: PropTypes.string,
 }
 
 export default ContentView

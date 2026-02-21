@@ -1,4 +1,5 @@
 import { Box, Typography } from '@mui/material'
+import PropTypes from 'prop-types'
 
 const Blockquote = ({ children }) => {
     return (
@@ -19,6 +20,10 @@ const Blockquote = ({ children }) => {
             </Typography>
         </Box>
     )
+}
+
+Blockquote.propTypes = {
+    children: PropTypes.node.isRequired,
 }
 
 export default Blockquote

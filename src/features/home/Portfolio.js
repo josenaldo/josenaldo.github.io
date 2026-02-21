@@ -9,6 +9,7 @@ import {
     CardMedia,
     Typography,
 } from '@mui/material'
+import PropTypes from 'prop-types'
 
 import CallToAction from '@/components/CallToAction'
 import Section from '@/components/Section'
@@ -144,6 +145,18 @@ const Portfolio = ({ projects }) => {
             </Box>
         </Section>
     )
+}
+
+Portfolio.propTypes = {
+    projects: PropTypes.arrayOf(
+        PropTypes.shape({
+            id: PropTypes.string.isRequired,
+            title: PropTypes.string.isRequired,
+            description: PropTypes.string,
+            image: PropTypes.string,
+            url: PropTypes.string.isRequired,
+        })
+    ).isRequired,
 }
 
 export default Portfolio

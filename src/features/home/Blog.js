@@ -1,4 +1,5 @@
 import { Box, Typography } from '@mui/material'
+import PropTypes from 'prop-types'
 
 import CallToAction from '@/components/CallToAction'
 import ContentCard from '@/components/content/ContentCard'
@@ -51,6 +52,20 @@ const Blog = ({ posts }) => {
             </Box>
         </Section>
     )
+}
+
+Blog.propTypes = {
+    posts: PropTypes.arrayOf(
+        PropTypes.shape({
+            url: PropTypes.string.isRequired,
+            title: PropTypes.string.isRequired,
+            description: PropTypes.string,
+            author: PropTypes.string,
+            date: PropTypes.string,
+            image: PropTypes.string,
+            category: PropTypes.string,
+        })
+    ).isRequired,
 }
 
 export default Blog

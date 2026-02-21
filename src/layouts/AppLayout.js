@@ -3,6 +3,7 @@ import React from 'react'
 import Head from 'next/head'
 
 import { Box } from '@mui/material'
+import PropTypes from 'prop-types'
 import { generateNextSeo } from 'next-seo/pages'
 
 import Footer from '@/layouts/Footer'
@@ -49,6 +50,14 @@ const AppLayout = ({ children, title, description, image, url }) => {
             <Footer />
         </Box>
     )
+}
+
+AppLayout.propTypes = {
+    children: PropTypes.node.isRequired,
+    title: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
+    url: PropTypes.string.isRequired,
 }
 
 export default AppLayout

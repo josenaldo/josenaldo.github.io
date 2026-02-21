@@ -6,6 +6,7 @@ import {
     ListItemAvatar,
     ListItemText,
 } from '@mui/material'
+import PropTypes from 'prop-types'
 
 import socialLinks from '@/data/socialLinks'
 
@@ -45,5 +46,7 @@ const SocialList = () => {
         </Box>
     )
 }
+
+SocialList.propTypes = {}
 
 export default SocialList

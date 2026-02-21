@@ -8,7 +8,7 @@ import TimelineSeparator from '@mui/lab/TimelineSeparator'
 import { Box, Chip, NoSsr, Typography } from '@mui/material'
 import { useTheme } from '@mui/material/styles'
 import useMediaQuery from '@mui/material/useMediaQuery'
-import { PropTypes } from 'prop-types'
+import PropTypes from 'prop-types'
 
 const ExperienceTimeline = ({ experiences, showEllipsis = false }) => {
     const theme = useTheme()
@@ -90,7 +90,15 @@ const ExperienceTimeline = ({ experiences, showEllipsis = false }) => {
 }
 
 ExperienceTimeline.propTypes = {
-    experiences: PropTypes.array.isRequired,
+    experiences: PropTypes.arrayOf(
+        PropTypes.shape({
+            period: PropTypes.string.isRequired,
+            company: PropTypes.string.isRequired,
+            title: PropTypes.string.isRequired,
+            description: PropTypes.string.isRequired,
+            location: PropTypes.string.isRequired,
+        })
+    ).isRequired,
     showEllipsis: PropTypes.bool,
 }
 

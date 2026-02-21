@@ -1,6 +1,7 @@
 import dynamic from 'next/dynamic'
 
 import { Box, Typography } from '@mui/material'
+import PropTypes from 'prop-types'
 
 import CallToAction from '@/components/CallToAction'
 import Section from '@/components/Section'
@@ -40,6 +41,18 @@ const Experience = ({ experiences }) => {
             </Box>
         </Section>
     )
+}
+
+Experience.propTypes = {
+    experiences: PropTypes.arrayOf(
+        PropTypes.shape({
+            period: PropTypes.string.isRequired,
+            company: PropTypes.string.isRequired,
+            title: PropTypes.string.isRequired,
+            description: PropTypes.string.isRequired,
+            location: PropTypes.string.isRequired,
+        })
+    ).isRequired,
 }
 
 export default Experience

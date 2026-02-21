@@ -1,4 +1,5 @@
 import { Avatar, Box, Card, CardContent, Typography } from '@mui/material'
+import PropTypes from 'prop-types'
 
 import CallToAction from '@/components/CallToAction'
 import Section from '@/components/Section'
@@ -106,6 +107,16 @@ const Testimonial = ({ testimonials }) => {
             </Box>
         </Section>
     )
+}
+
+Testimonial.propTypes = {
+    testimonials: PropTypes.arrayOf(
+        PropTypes.shape({
+            name: PropTypes.string.isRequired,
+            image: PropTypes.string,
+            text: PropTypes.string,
+        })
+    ),
 }
 
 export default Testimonial

@@ -1,6 +1,7 @@
 import DateIcon from '@mui/icons-material/CalendarToday'
 import AuthorIcon from '@mui/icons-material/PersonOutlined'
 import { Box, Typography } from '@mui/material'
+import PropTypes from 'prop-types'
 import { format, parseISO } from 'date-fns'
 
 const ContentMeta = ({ date, author, color = 'text.secondary' }) => {
@@ -45,6 +46,12 @@ const ContentMeta = ({ date, author, color = 'text.secondary' }) => {
             )}
         </Box>
     )
+}
+
+ContentMeta.propTypes = {
+    date: PropTypes.string,
+    author: PropTypes.string,
+    color: PropTypes.string,
 }
 
 export default ContentMeta

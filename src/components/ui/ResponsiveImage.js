@@ -1,6 +1,7 @@
 import Image from 'next/image'
 
 import { Box, Typography } from '@mui/material'
+import PropTypes from 'prop-types'
 
 const ResponsiveImage = (props) => {
     const alt = props.alt?.replace(/ *\{[^)]*\} */g, '')
@@ -68,6 +69,11 @@ const ResponsiveImage = (props) => {
             )}
         </Box>
     )
+}
+
+ResponsiveImage.propTypes = {
+    src: PropTypes.string.isRequired,
+    alt: PropTypes.string,
 }
 
 export default ResponsiveImage

@@ -1,4 +1,5 @@
 import { Chip } from '@mui/material'
+import PropTypes from 'prop-types'
 
 const ContentCategory = ({ category, color = 'secondary' }) => {
     if (!category) return null
@@ -21,6 +22,11 @@ const ContentCategory = ({ category, color = 'secondary' }) => {
             }}
         />
     )
+}
+
+ContentCategory.propTypes = {
+    category: PropTypes.string,
+    color: PropTypes.string,
 }
 
 export default ContentCategory

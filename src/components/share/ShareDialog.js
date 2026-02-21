@@ -13,6 +13,7 @@ import {
     IconButton,
     Typography,
 } from '@mui/material'
+import PropTypes from 'prop-types'
 
 const iconFontSize = {
     xs: 40,
@@ -132,6 +133,14 @@ const ShareDialog = ({ title, description, url, open, onClose }) => {
             </DialogActions>
         </Dialog>
     )
+}
+
+ShareDialog.propTypes = {
+    title: PropTypes.string.isRequired,
+    description: PropTypes.string,
+    url: PropTypes.string.isRequired,
+    open: PropTypes.bool.isRequired,
+    onClose: PropTypes.func.isRequired,
 }
 
 export default ShareDialog

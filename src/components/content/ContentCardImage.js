@@ -1,6 +1,7 @@
 import Image from 'next/image'
 
 import { Box } from '@mui/material'
+import PropTypes from 'prop-types'
 
 import AppConfig from '@/data/AppConfig'
 
@@ -27,6 +28,12 @@ const ContentCardImage = ({ image, alt, aspectRatio = '16/9' }) => {
             )}
         </>
     )
+}
+
+ContentCardImage.propTypes = {
+    image: PropTypes.string,
+    alt: PropTypes.string.isRequired,
+    aspectRatio: PropTypes.string,
 }
 
 export default ContentCardImage

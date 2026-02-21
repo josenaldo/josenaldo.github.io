@@ -1,6 +1,7 @@
 import React from 'react'
 
 import { Box, Card, CardContent, Typography } from '@mui/material'
+import PropTypes from 'prop-types'
 
 const getText = ({ title, text, service }) => {
     const resolvedTitle = title ?? service?.title
@@ -83,6 +84,17 @@ const IconCard = ({ icon, title, text, service, elevation = 2 }) => {
             </CardContent>
         </Card>
     )
+}
+
+IconCard.propTypes = {
+    icon: PropTypes.elementType,
+    title: PropTypes.string,
+    text: PropTypes.string,
+    service: PropTypes.shape({
+        title: PropTypes.string,
+        description: PropTypes.string,
+    }),
+    elevation: PropTypes.number,
 }
 
 export default IconCard

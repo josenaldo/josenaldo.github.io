@@ -2,6 +2,7 @@ import React from 'react'
 
 import ShareIcon from '@mui/icons-material/Share'
 import { Box, IconButton } from '@mui/material'
+import PropTypes from 'prop-types'
 
 import ShareDialog from '@/components/share/ShareDialog'
 
@@ -80,6 +81,14 @@ const ShareLink = ({ title, description, url, image, color = 'secondary' }) => {
             )}
         </Box>
     )
+}
+
+ShareLink.propTypes = {
+    title: PropTypes.string.isRequired,
+    description: PropTypes.string,
+    url: PropTypes.string.isRequired,
+    image: PropTypes.string,
+    color: PropTypes.string,
 }
 
 export default ShareLink
