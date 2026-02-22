@@ -150,6 +150,40 @@ If you need a simple heuristic: the interface usually belongs to whoever wants s
 
 ---
 
+## The change nobody predicted: software rot
+
+There is a class of change that rarely appears in the "should I use an interface?" debate, even though it's arguably the most certain one: **the software itself will decay.**
+
+Not because your team makes bad decisions. Not because requirements are unclear. Simply because the world around the code keeps moving.
+
+Consider what happens over five years of a production system:
+
+- The JVM or runtime gets updated — and a dependency breaks silently.
+- The cloud provider deprecates an API version your SDK depended on.
+- A framework upgrade changes injection semantics or lifecycle contracts.
+- The database driver introduces a new behavior with the same method signature.
+- A security patch in an OS library changes how a connection pool behaves.
+
+At no point did anyone decide to "swap Postgres for Oracle." Nobody planned to change the payment vendor. Nobody wanted to touch the authentication library. But the library touched them — because that's what software does. It rots.
+
+**Software rot** (sometimes called *bit rot* or *entropy*) is the gradual degradation of a system's operational environment while the code itself stays still. The surrounding world evolves: dependencies age, platforms shift, security requirements tighten. Code that worked in 2020 may fail in 2025 without a single intentional change.
+
+This is precisely where abstractions and separation of concerns prove their worth beyond the "swap vendor" scenario.
+
+When external dependencies sit behind a contract, adapting to rot becomes local work:
+
+- the SDK changed its exception model → you fix one adapter
+- the database driver deprecated a method → you update one implementation
+- the cloud API returned a new field → you adjust the mapping in one place
+
+Without the interface, this same event propagates. Every place that directly touched the dependency now needs to change, be reviewed, and be retested. The scope of a library patch is no longer the library — it's the entire codebase.
+
+**The interface doesn't protect you from change. It controls where change is allowed to land.**
+
+And since software rot is not a risk you can avoid — only a timeline you can't predict — designing for it is not overengineering. It's maintenance discipline.
+
+---
+
 ## When an interface isn't worth it
 
 - purely internal services, without exposure
@@ -198,6 +232,12 @@ This checklist acts as a conscious design exercise. It forces the team to reflec
 
 Interfaces aren't about the future.
 They're about the cost of change **today**.
+
+Change doesn't only come from architectural decisions — swapping vendors, scaling teams, adding features. It also comes from entropy: runtime upgrades, deprecated APIs, security patches, framework evolution. Software rots not because teams fail, but because the world keeps moving around static code.
+
+The interface is the firewall between your domain logic and everything that changes without asking permission.
+
+That boundary pays for itself long before the second implementation ever appears.
 
 - Don't create interfaces to inflate architecture.
 - Don't create abstractions to win arguments in code reviews.
