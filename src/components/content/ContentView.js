@@ -1,6 +1,7 @@
 import { Box, Card, CardContent, CardMedia } from '@mui/material'
 import PropTypes from 'prop-types'
 
+import BlogDisclaimer from '@/components/content/BlogDisclaimer'
 import ContentCategory from '@/components/content/ContentCategory'
 import ContentMainImage from '@/components/content/ContentMainImage'
 import ContentMeta from '@/components/content/ContentMeta'
@@ -100,6 +101,8 @@ const ContentView = ({
                 >
                     <MDXContent content={content} />
                 </Box>
+
+                <BlogDisclaimer />
             </CardContent>
         </Card>
     )
