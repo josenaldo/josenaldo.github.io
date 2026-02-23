@@ -1,9 +1,8 @@
-import { Box, Typography } from '@mui/material'
+import { Box, Button, Stack, Typography } from '@mui/material'
 
 import photo200 from '@/assets/images/josenaldo-200.webp'
 import photo300 from '@/assets/images/josenaldo-300.webp'
 import photo400 from '@/assets/images/josenaldo-400.webp'
-import CallToAction from '@/components/CallToAction'
 import Section from '@/components/Section'
 
 const Hero = () => {
@@ -35,7 +34,29 @@ const Hero = () => {
                         (React, NextJS) web development. Explore my portfolio,
                         read my blog, and come talk about your project!
                     </Typography>
-                    <CallToAction href="/contact">Get in Touch</CallToAction>
+                    <Stack
+                        direction={{ xs: 'column', sm: 'row' }}
+                        spacing={2}
+                        justifyContent={{ xs: 'center', md: 'flex-start' }}
+                        sx={{ mt: 2 }}
+                    >
+                        <Button
+                            variant="contained"
+                            href="/files/en/JosenaldoDeOliveiraMatosFilho_en.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Download my resume"
+                        >
+                            Download Resume
+                        </Button>
+                        <Button
+                            variant="outlined"
+                            href="/contact"
+                            aria-label="Get in touch"
+                        >
+                            Get in Touch
+                        </Button>
+                    </Stack>
                 </Box>
                 <Box
                     sx={{
