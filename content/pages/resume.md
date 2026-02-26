@@ -8,7 +8,7 @@ Location: Uberlândia, Minas Gerais, Brazil | Time Zone: GMT-3 (São Paulo Time)
 
 [+55 (34) 99183-0215](https://wa.me/5534991830215) | [josenaldo@gmail.com](mailto:josenaldo@gmail.com) | [https://github.com/josenaldo](https://github.com/josenaldo) | [https://linkedin.com/in/josenaldo](https://linkedin.com/in/josenaldo)
 
-Download resume: [pt-br.pdf](/files/pt/JosenaldoDeOliveiraMatosFilho_pt.pdf) | [pt-br.docx](/files/pt/JosenaldoDeOliveiraMatosFilho_pt.docx) | [en-us.pdf](/files/en/JosenaldoDeOliveiraMatosFilho_en.pdf) | [en-us.docx](/files/en/JosenaldoDeOliveiraMatosFilho_en.docx)
+Download resume: [pt-br.pdf](/files/pt/JosenaldoDeOliveiraMatosFilho_pt.pdf) | [pt-br.odt](/files/pt/JosenaldoDeOliveiraMatosFilho_pt.odt) | [en-us.pdf](/files/en/JosenaldoDeOliveiraMatosFilho_en.pdf) | [en-us.odt](/files/en/JosenaldoDeOliveiraMatosFilho_en.odt)
 
 ## SUMMARY
 
