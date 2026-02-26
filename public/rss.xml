@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Josenaldo Matos — Blog</title>
+    <link>https://josenaldo.com.br/blog</link>
+    <description>Articles about software development, engineering, and career.</description>
+    <language>en</language>
+    <lastBuildDate>Thu, 26 Feb 2026 13:08:34 GMT</lastBuildDate>
+    <atom:link href="https://josenaldo.com.br/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Como escrever o seu currículo como desenvolvedor</title>
+      <link>https://josenaldo.com.br/blog/como-escrever-o-seu-curriculo</link>
+      <guid isPermaLink="true">https://josenaldo.com.br/blog/como-escrever-o-seu-curriculo</guid>
+      <pubDate>Tue, 24 Feb 2026 03:00:00 GMT</pubDate>
+      <description>Um guia completo para estagiários, juniores e plenos com pouca experiência que querem montar um currículo que passa pelo ATS e chama a atenção do recrutador.</description>
+      <enclosure url="https://josenaldo.com.br/images/blog/como-escrever-o-seu-curriculo.png" type="image/jpeg" />
+    </item>
+    <item>
+      <title>AI and Developers: Another Brick or Another Floor?</title>
+      <link>https://josenaldo.com.br/blog/ai-and-developers-another-brick-or-another-floor</link>
+      <guid isPermaLink="true">https://josenaldo.com.br/blog/ai-and-developers-another-brick-or-another-floor</guid>
+      <pubDate>Sun, 22 Feb 2026 12:25:00 GMT</pubDate>
+      <description>AI will shake the market — that much is certain. Whether it walls developers in or elevates them depends on a timescale most people forget to consider.</description>
+      <enclosure url="https://josenaldo.com.br/images/blog/ai-and-developers-another-brick-or-another-floor.png" type="image/jpeg" />
+    </item>
+    <item>
+      <title>The first draft of Programação Orientada a Gambiarra</title>
+      <link>https://josenaldo.com.br/blog/first-draft-programacao-orientada-a-gambiarra</link>
+      <guid isPermaLink="true">https://josenaldo.com.br/blog/first-draft-programacao-orientada-a-gambiarra</guid>
+      <pubDate>Thu, 19 Feb 2026 03:00:00 GMT</pubDate>
+      <description>A short update on my first complete draft, and what this book is really about.</description>
+      <enclosure url="https://josenaldo.com.br/images/blog/programacao-orientada-a-gambiarra-first-draft.png" type="image/jpeg" />
+    </item>
+    <item>
+      <title>Interfaces aren&apos;t villains</title>
+      <link>https://josenaldo.com.br/blog/interfaces-arent-villains</link>
+      <guid isPermaLink="true">https://josenaldo.com.br/blog/interfaces-arent-villains</guid>
+      <pubDate>Wed, 24 Dec 2025 12:00:00 GMT</pubDate>
+      <description>A technical and architectural analysis on the value of defining explicit contracts even when there&apos;s only one concrete implementation.</description>
+      <enclosure url="https://josenaldo.com.br/images/blog/interfaces-arent-villains.png" type="image/jpeg" />
+    </item>
+    <item>
+      <title>Why am I still invisible?</title>
+      <link>https://josenaldo.com.br/blog/why-am-i-still-invisible</link>
+      <guid isPermaLink="true">https://josenaldo.com.br/blog/why-am-i-still-invisible</guid>
+      <pubDate>Thu, 01 Aug 2024 01:00:00 GMT</pubDate>
+      <description>Why, despite being qualified, am I still invisible to the job market?</description>
+      <enclosure url="https://josenaldo.com.br/images/blog/why-am-i-still-invisible.png" type="image/jpeg" />
+    </item>
+    <item>
+      <title>Is learning coding really hard?</title>
+      <link>https://josenaldo.com.br/blog/learn-coding-is-not-hard</link>
+      <guid isPermaLink="true">https://josenaldo.com.br/blog/learn-coding-is-not-hard</guid>
+      <pubDate>Thu, 15 Jun 2023 01:00:00 GMT</pubDate>
+      <description>Spoiler: Learn how to code isn&apos;t hard. Its just a lot of work. And we usually confuse these two concepts.</description>
+      <enclosure url="https://josenaldo.com.br/images/blog/learn-coding-is-not-hard.png" type="image/jpeg" />
+    </item>
+    <item>
+      <title>The return of the Jedi</title>
+      <link>https://josenaldo.com.br/blog/return-of-the-jedi</link>
+      <guid isPermaLink="true">https://josenaldo.com.br/blog/return-of-the-jedi</guid>
+      <pubDate>Sat, 15 Apr 2023 01:00:00 GMT</pubDate>
+      <description>This post marks the beginning of a new journey in my life: my fight for my return to the world of software development.</description>
+      <enclosure url="https://josenaldo.com.br/images/blog/return-of-the-jedi.png" type="image/jpeg" />
+    </item>
+  </channel>
+</rss>

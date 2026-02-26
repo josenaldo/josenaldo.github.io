@@ -8,7 +8,7 @@
     "private": true,
     "scripts": {
         "dev": "concurrently \"contentlayer2 dev\" \"next dev -p 3500\"",
-        "build": "contentlayer2 build && next build",
+        "build": "contentlayer2 build && node scripts/generate-rss.js && next build",
         "postbuild": "next-sitemap",
         "start": "next start",
         "lint": "eslint src",
