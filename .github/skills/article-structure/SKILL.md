@@ -11,6 +11,7 @@ Organiza um texto para que ele tenha início, meio e fim — e para que cada se�
 
 - Gerar um outline completo (títulos, propósito da seção, conteúdo esperado).
 - Definir um arco narrativo coerente: problema → tensão → proposta → evidências → trade-offs → síntese.
+- Permitir estrutura flexível para textos curtos, médios, longos e séries.
 
 ## Quando usar (gatilhos)
 
@@ -28,7 +29,7 @@ Organiza um texto para que ele tenha início, meio e fim — e para que cada se�
 
 - Tema + tese (ou o Research Brief, se existir).
 - Tipo de texto: tutorial, decisão técnica, ensaio opinativo, estudo de caso.
-- Tamanho/tempo de leitura desejado (ex.: 6–10 min, 12–15 min).
+- Formato e tamanho desejado (post único curto/médio/longo ou série).
 - Se o texto deve conter código (e em qual linguagem).
 
 Opcional:
@@ -44,6 +45,7 @@ Opcional:
 - Cada seção deve ter 1 propósito explícito: ou avança argumento, ou prova, ou delimita contexto.
 - Sempre incluir “quando não vale”/limitações quando o tema vira dogma fácil.
 - Evitar listas longas sem ligação lógica; preferir progressão (“portanto”, “porém”, “logo”).
+- Não impor fórmula fixa de quantidade de parágrafos; adaptar à densidade real do tema.
 
 ### Padrões recomendados
 
@@ -62,6 +64,11 @@ Opcional:
 - Sim → usar estrutura de tutorial/checklist.
 - Não → usar estrutura de ensaio/argumento.
 
+3. O conteúdo está denso demais para um único post?
+
+- Sim → dividir em série usando `assets/outline-series.md`.
+- Não → manter post único.
+
 ## Workflow (faça em ordem)
 
 1. Escolher forma do artigo
@@ -76,6 +83,11 @@ Opcional:
 
 - Unir seções redundantes; cortar o que não serve ao argumento.
 - Garantir pelo menos 1 seção de limitações/anti-padrões.
+- Usar guia de tamanho:
+	- Curto: 600–900 palavras
+	- Médio: 900–1500 palavras
+	- Longo: 1500–2500+ palavras
+	- Série: quando houver múltiplas ideias centrais que perderiam força em um único texto
 
 1. Preparar rascunho “zero”
 
@@ -99,6 +111,7 @@ Opcional:
 - `assets/outline-essay.md`: outline para ensaio técnico.
 - `assets/outline-decision-record.md`: outline para “decisão técnica”.
 - `assets/outline-tutorial.md`: outline para tutorial.
+- `assets/outline-series.md`: outline para planejamento de séries.
 
 ## Limitações e recomendações futuras
 
@@ -108,3 +121,5 @@ Opcional:
 
 - `article-research`
 - `article-review`
+- `article-series-planning`
+- `article-voice-preservation`

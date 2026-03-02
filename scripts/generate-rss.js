@@ -6,6 +6,30 @@ const SITE_URL =
 const BLOG_DIR = path.join(process.cwd(), 'content', 'blog')
 const OUTPUT_FILE = path.join(process.cwd(), 'public', 'rss.xml')
 
+const STATUS_ALIASES = {
+    draft: 'draft',
+    rascunho: 'draft',
+    planned: 'planned',
+    planejado: 'planned',
+    published: 'published',
+    publicado: 'published',
+}
+
+function normalizePostStatus(status) {
+    const normalizedStatus = `${status || 'published'}`
+        .trim()
+        .toLowerCase()
+
+    return STATUS_ALIASES[normalizedStatus] || 'draft'
+}
+
+function isPublishedPost(post, now = new Date()) {
+    return (
+        normalizePostStatus(post.status) === 'published' &&
+        new Date(post.date) <= now
+    )
+}
+
 function parseFrontmatter(content) {
     const match = content.match(/^---\r?\n([\s\S]*?)\r?\n---/)
     if (!match) return {}
@@ -85,10 +109,12 @@ function main() {
                 title: fm.title || slug,
                 description: fm.description || '',
                 date: fm.date || new Date().toISOString(),
+                status: fm.status || 'published',
                 image: fm.image || '',
             }
         })
         .filter((post) => post.title)
+        .filter((post) => isPublishedPost(post))
         .sort((a, b) => new Date(b.date) - new Date(a.date))
 
     const rss = generateRss(posts)

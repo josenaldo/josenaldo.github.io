@@ -39,6 +39,10 @@ Estas skills existem para ajudar no fluxo de escrita/revisão e na manutenção 
     - Foco: outline e estrutura (ensaio, decisão técnica, tutorial).
 - `article-review`
     - Foco: revisão de argumento, clareza, estilo e “voz humana”.
+- `article-series-planning`
+    - Foco: decidir post único vs série e mapear capítulos com continuidade.
+- `article-voice-preservation`
+    - Foco: preservar tom autoral e imperfeições intencionais na revisão.
 - `resume-experience-xyz`
     - Foco: bullets de currículo no formato XYZ (Google).
 - `portfolio-project-description`
@@ -47,6 +51,16 @@ Estas skills existem para ajudar no fluxo de escrita/revisão e na manutenção 
     - Foco: revisão e atualização de conteúdo antigo sem quebrar build/export.
 - `site-frontmatter-qc`
     - Foco: QA/padronização de frontmatter conforme Contentlayer.
+
+## Fluxo editorial recomendado (autoria humana + IA assistiva)
+
+Para manter autenticidade sem perder qualidade, use as skills nesta ordem:
+
+1. `article-research` (quando o tema ainda está cru)
+2. `article-structure` (definir outline flexível ou série)
+3. `article-series-planning` (quando o tema pede divisão em partes)
+4. `article-voice-preservation` (definir contrato de voz)
+5. `article-review` (revisão não invasiva com limite de intervenção)
 
 ## Proposta de adição (curta e objetiva)
 
