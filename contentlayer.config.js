@@ -25,6 +25,12 @@ export const Post = defineDocumentType(() => ({
             description: 'The date of the post',
             required: true,
         },
+        status: {
+            type: 'string',
+            description:
+                'The publication status of the post (draft/rascunho, planned/planejado, published/publicado)',
+            required: false,
+        },
         author: {
             type: 'string',
             description: 'The author of the post',

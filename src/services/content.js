@@ -10,6 +10,40 @@ import {
     allTestimonials,
 } from 'contentlayer/generated'
 
+const STATUS_ALIASES = {
+    draft: 'draft',
+    rascunho: 'draft',
+    planned: 'planned',
+    planejado: 'planned',
+    published: 'published',
+    publicado: 'published',
+}
+
+const normalizePostStatus = (status) => {
+    const normalizedStatus = `${status || 'published'}`
+        .trim()
+        .toLowerCase()
+
+    return STATUS_ALIASES[normalizedStatus] || 'draft'
+}
+
+const isPublishedPost = (post, now = new Date()) => {
+    const normalizedStatus = normalizePostStatus(post.status)
+    return normalizedStatus === 'published' && new Date(post.date) <= now
+}
+
+const shouldIncludeUnpublishedPosts = () => {
+    return process.env.NODE_ENV !== 'production'
+}
+
+const getVisiblePosts = () => {
+    if (shouldIncludeUnpublishedPosts()) {
+        return allPosts
+    }
+
+    return allPosts.filter((post) => isPublishedPost(post))
+}
+
 const lastExperiences = (numberOfExperiences) => {
     return allExperiences
         .sort((a, b) => {
@@ -59,11 +93,11 @@ const getServices = () => {
 }
 
 const getAllPosts = () => {
-    return allPosts
+    return getVisiblePosts()
 }
 
 const getSortedPosts = (numberOfPosts) => {
-    const posts = allPosts.sort((a, b) => {
+    const posts = [...getAllPosts()].sort((a, b) => {
         return compareDesc(new Date(a.date), new Date(b.date))
     })
 
@@ -75,7 +109,7 @@ const getSortedPosts = (numberOfPosts) => {
 }
 
 const getAllPostsPaths = () => {
-    const paths = allPosts.map((post) => post.url)
+    const paths = getAllPosts().map((post) => post.url)
     return paths
 }
 

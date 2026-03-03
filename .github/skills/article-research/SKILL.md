@@ -31,6 +31,7 @@ Pesquisa aplicada para escrever melhor: transformar um tema em tese, evidências
 - Objetivo do texto (ensinar, convencer, documentar decisão, reflexão crítica).
 - Tom/voz (mais pragmático, mais opinativo, mais didático) e idioma.
 - Escopo: o que entra e o que fica fora.
+- Formato alvo: post único (curto/médio/longo) ou série.
 
 Opcional (ajuda muito):
 
@@ -89,11 +90,13 @@ Opcional (ajuda muito):
 5. Preparar ponte para escrita
 
 - Sugerir 2–3 estruturas possíveis (outline) e qual combina mais com o objetivo.
+- Indicar quando vale dividir em série (com critério explícito).
 
 ## Saída esperada
 
 - Um Research Brief em Markdown seguindo `assets/research-brief-template.md`.
 - Uma lista curta de “pontos frágeis” e perguntas que precisam ser respondidas para o texto não ficar superficial.
+- Recomendação final: post único ou série, com justificativa objetiva.
 
 ## Checklist
 

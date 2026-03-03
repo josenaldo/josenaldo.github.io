@@ -1,35 +1,36 @@
 {
-	"folders": [
-		{
-			"path": ".."
-		},
-		{
-			"path": "../../josenaldo"
-		}
-	],
-	"settings": {
-		"workbench.colorCustomizations": {
-			"activityBar.activeBackground": "#8c008c",
-			"activityBar.background": "#8c008c",
-			"activityBar.foreground": "#e7e7e7",
-			"activityBar.inactiveForeground": "#e7e7e799",
-			"activityBarBadge.background": "#7f8000",
-			"activityBarBadge.foreground": "#e7e7e7",
-			"commandCenter.border": "#e7e7e799",
-			"editorGroup.border": "#8c008c",
-			"sash.hoverBorder": "#8c008c",
-			"sideBar.border": "#8c008c",
-			"statusBar.background": "#590059",
-			"statusBar.foreground": "#e7e7e7",
-			"statusBarItem.hoverBackground": "#8c008c",
-			"statusBarItem.remoteBackground": "#590059",
-			"statusBarItem.remoteForeground": "#e7e7e7",
-			"tab.activeBorder": "#8c008c",
-			"titleBar.activeBackground": "#590059",
-			"titleBar.activeForeground": "#e7e7e7",
-			"titleBar.inactiveBackground": "#59005999",
-			"titleBar.inactiveForeground": "#e7e7e799"
-		},
-		"peacock.color": "#590059"
-	}
+    "folders": [
+        {
+            "path": "..",
+        },
+        {
+            "path": "../../josenaldo",
+        },
+    ],
+    "settings": {
+        "workbench.colorCustomizations": {
+            "activityBar.activeBackground": "#8c008c",
+            "activityBar.background": "#8c008c",
+            "activityBar.foreground": "#e7e7e7",
+            "activityBar.inactiveForeground": "#e7e7e799",
+            "activityBarBadge.background": "#7f8000",
+            "activityBarBadge.foreground": "#e7e7e7",
+            "commandCenter.border": "#e7e7e799",
+            "editorGroup.border": "#8c008c",
+            "sash.hoverBorder": "#8c008c",
+            "sideBar.border": "#8c008c",
+            "statusBar.background": "#590059",
+            "statusBar.foreground": "#e7e7e7",
+            "statusBarItem.hoverBackground": "#8c008c",
+            "statusBarItem.remoteBackground": "#590059",
+            "statusBarItem.remoteForeground": "#e7e7e7",
+            "tab.activeBorder": "#8c008c",
+            "titleBar.activeBackground": "#590059",
+            "titleBar.activeForeground": "#e7e7e7",
+            "titleBar.inactiveBackground": "#59005999",
+            "titleBar.inactiveForeground": "#e7e7e799",
+        },
+        "peacock.color": "#590059",
+        "markdown.extension.toc.levels": "1..2",
+    },
 }

@@ -9,6 +9,10 @@ on:
     push:
         branches: ['main']
 
+    # Runs daily so scheduled posts can be published automatically
+    schedule:
+        - cron: '5 10 * * *'
+
     # Allows you to run this workflow manually from the Actions tab
     workflow_dispatch:
 
