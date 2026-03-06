@@ -28,7 +28,7 @@
             "titleBar.activeBackground": "#590059",
             "titleBar.activeForeground": "#e7e7e7",
             "titleBar.inactiveBackground": "#59005999",
-            "titleBar.inactiveForeground": "#e7e7e799",
+            "titleBar.inactiveForeground": "#e7e7e799"
         },
         "peacock.color": "#590059",
         "markdown.extension.toc.levels": "1..2",
