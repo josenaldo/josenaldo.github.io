@@ -15,7 +15,6 @@ Muitos recorrem a templates em ferraamentas como Canva, Figma ou PowerPoint. Alg
 
 Se você chegou aqui, veio em busca de uma luz. Então vamos conversar?
 
-
  — o software de triagem automática que a maioria das empresas usa para filtrar candidaturas.
 
 Você abre o Google Docs, digita seu nome, e trava.
@@ -155,9 +154,11 @@ Cargo | Empresa | Mês/Ano – Mês/Ano (ou Atual)
 Este é o erro mais comum. A maioria das pessoas lista responsabilidades. O que o recrutador quer ver são realizações.
 
 **Responsabilidade (não faça isso):**
+
 > "Responsável pelo desenvolvimento de APIs REST para o sistema de pagamento."
 
 **Realização (faça assim):**
+
 > "Desenvolvi 3 endpoints REST em Node.js para integração com gateway de pagamento, eliminando um processo manual que tomava 2 horas por dia da equipe de operações."
 
 A fórmula é simples: _fiz [o quê], usando [como], e o resultado foi [o quê]_. Nem sempre você vai ter um número exato — mas sempre vai ter um contexto de por que aquilo importou.
@@ -165,6 +166,7 @@ A fórmula é simples: _fiz [o quê], usando [como], e o resultado foi [o quê]_
 ### Para quem tem pouca ou nenhuma experiência formal
 
 Inclua:
+
 - Estágios, mesmo que curtos
 - Trabalho voluntário relacionado à tecnologia
 - Freelances ou projetos pagos, mesmo que informais
