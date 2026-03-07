@@ -1,56 +1,87 @@
 ---
-title: 'Context Engineering: como transformar agentes de IA em desenvolvedores confiáveis'
-description: 'Guia completo do Estágio 1 ao Estágio 3 para transformar uso de agentes de IA em um sistema previsível, com contexto estruturado, skills e memória de projeto.'
+title: "Context Engineering: como transformar agentes de IA em desenvolvedores confiáveis"
+description: Guia completo do Estágio 1 ao Estágio 3 para transformar uso de agentes de IA em um sistema previsível, com contexto estruturado, skills e memória de projeto.
 date: 2026-03-04 09:00:00 -0300
 author: Josenaldo Matos
-image: '/images/blog/context-engineering-guia-completo.png'
+image: /images/blog/context-engineering-guia-completo.png
 category: pt-br
+status: draft
 ---
 
-# Context Engineering: Como Transformar Agentes de IA em Desenvolvedores Confiáveis
+Uberlândia, Minas Gerais, Brasil, América do Sul, Planeta Terra.
+Março de 2026.
 
-> **Guia completo do Estágio 1 ao Estágio 3 — Para desenvolvedores que já usam IA no dia a dia**
->
-> Premissa: você trabalha com múltiplos agentes — Claude Code, GitHub Copilot, OpenAI Codex, Gemini — no mesmo repositório.
+Se você está lendo esse post no futuro longínquo (a partir de Abril de 2026), é bem provável que você venha a rir desse conteúdo. Mas eu preciso pôr isso por escrito. Preciso organizar o que sei, até o momento, antes que invalidem de novo.
+
+A IA é uma realidade. Não é mais um elemento da ficção científica, mas sim um colega de trabalho chato que fica dando pitaco em tudo que escrevo.
+
+Agora temos IA em tudo que é canto. Tem IA no editor, IA no navegador, IA no sistema operacional, no carro, na geladeira, até mesmo [na sua privada (não, não estou brincando)](https://www.tecmundo.com.br/produto/409734-ces-2026-sanitarios-inteligentes-analisam-a-urina-em-busca-de-doencas.htm).
+
+No meio desse turbilhão estamos nós, desenvolvedores, contentes porque finalmente aprendemos a usar os agentes — essas entidades cuja função é sugar dinheiro e cuspir código fonte — e fingindo que não tem c-level tentando nos obliterar da realidade.
+
+Depois de quase um ano de esforço árduo, de muito café com monster de mango loco e de ter apostado uma quantidade indecente de tokens — suficiente para o Tigrinho sentir ciúme — eu finalmente estava com meus agentes devidamente configurados!
+
+Mas, como a vida não é um morango, agora chega um coachador (minha tradução de *coach*) metido a Neo do Linketrix, com conteúdo sensacionalista, te falando que você deve instalar uma tal de **skills**, tal qual no filme, e matar os Agentes Smith!
+
+Sério? Nem bem terminamos de aprender a usar os agentes, e já querem que a gente mude tudo de novo?
+
+Mas chega de mimimi. Vamos ao que interessa.
 
 ---
 
 ## Índice
 
-1. [A Virada de 2026: De Prompt Engineering para Context Engineering](#secao-1)
-2. [O Que É Context Engineering](#secao-2)
-3. [Os 3 Estágios de Maturidade](#secao-3)
-4. [Ferramentas e Seus Arquivos de Contexto](#secao-4)
-5. [Como Criar um CLAUDE.md e AGENTS.md que Funcionam](#secao-5)
-6. [Como Criar Skills que Realmente Funcionam](#secao-6)
-7. [Memória Estruturada: O Agente que Lembra](#secao-7)
-8. [Multi-Agente na Prática](#secao-8)
-9. [O Skill Graph: Estágio 3 na Prática](#secao-9)
-10. [Guia Passo a Passo: Da Fase 0 à Fase 3](#secao-10)
-11. [Armadilhas e Anti-Padrões](#secao-11)
-12. [Conclusão e Próximos Passos](#secao-12)
+- [Índice](#índice)
+- [Introdução](#introdução)
+- [1. A Virada de 2026: De Prompt Engineering para Context Engineering](#1-a-virada-de-2026-de-prompt-engineering-para-context-engineering)
+- [2. O Que É Context Engineering](#2-o-que-é-context-engineering)
+- [3. Os 3 Estágios de Maturidade](#3-os-3-estágios-de-maturidade)
+- [4. Ferramentas e Seus Arquivos de Contexto](#4-ferramentas-e-seus-arquivos-de-contexto)
+- [5. Como Criar um CLAUDE.md e AGENTS.md que Funcionam](#5-como-criar-um-claudemd-e-agentsmd-que-funcionam)
+- [6. Como Criar Skills que Realmente Funcionam](#6-como-criar-skills-que-realmente-funcionam)
+- [7. Memória Estruturada: O Agente que Lembra](#7-memória-estruturada-o-agente-que-lembra)
+- [8. Multi-Agente na Prática](#8-multi-agente-na-prática)
+- [9. O Skill Graph: Estágio 3 na Prática](#9-o-skill-graph-estágio-3-na-prática)
+- [10. Guia Passo a Passo: Da Fase 0 à Fase 3](#10-guia-passo-a-passo-da-fase-0-à-fase-3)
+- [11. Armadilhas e Anti-Padrões](#11-armadilhas-e-anti-padrões)
+- [12. Conclusão e Próximos Passos](#12-conclusão-e-próximos-passos)
+- [Apêndice: Templates Completos](#apêndice-templates-completos)
 
 ---
 
-## Abertura
+## Introdução
 
-Você já passou horas ajustando a forma como pede algo para um agente de IA, só para descobrir que na próxima sessão ele esqueceu tudo? Já viu o agente gerar código perfeito do ponto de vista técnico, mas completamente fora dos padrões do seu projeto? Já precisou corrigir uma violação arquitetural que deveria ser impossível — e o agente não percebeu?
+Não vou nem perguntar, eu vou afirmar: Se você tem usado a IA no seu dia a dia:
 
-Esses problemas têm uma causa em comum, e ela não é o modelo. Não é a qualidade do LLM que você escolheu.
+- você já passou horas ajustando a forma como pede algo para um agente de IA, só para descobrir que na próxima sessão ele esqueceu tudo.
+- você já viu o agente gerar código perfeito do ponto de vista técnico, mas completamente fora dos padrões do seu projeto.
+- você já precisou corrigir uma violação arquitetural que deveria ser impossível — e o agente não percebeu.
+- você já teve vontade de apertar o shift + delete ou executar um `rm -rf` na raiz do servidor da OpenAI só para evitar que o agente parasse de beber tokens feito um Opala desregulado dando voltas no quarteirão.
+- você ou toma remédios controlados, ou está tentando parar, ou está torcendo pra começar.
+
+A boa notícia é que tudo isso tem causa em comum, e ela não é o modelo, nem é a qualidade do LLM que você escolheu.
 
 **O problema é o contexto que você oferece.**
 
-Durante anos, o foco esteve no prompt: como perguntar melhor, como ser mais específico, como dar exemplos no chat. Isso funcionou por um tempo. Mas à medida que os agentes se tornaram parte permanente do fluxo de desenvolvimento — não uma curiosidade, mas uma ferramenta usada em toda PR — ficou claro que prompt engineering tem um limite fundamental: não escala.
+Durante anos, o foco esteve no prompt: como perguntar melhor, como ser mais específico, como dar exemplos no chat.
 
-Um agente sem estrutura de contexto é como um desenvolvedor júnior contratado todos os dias, sem onboarding, sem documentação, sem acesso às decisões que o time já tomou. Cada sessão começa do zero.
+"Vamos fazer engenharia de prompt, amiguinho!" eles disseram. E tal qual um jogo de gacha, tal qual um loot box de jogo mobile, você apostava tokens, testava variações, e às vezes conseguia o resultado que queria.
 
-Context engineering é a disciplina que resolve isso. Não é sobre o que você pede. É sobre o ambiente que você cria para que o agente trabalhe.
+Isso funcionou por um tempo. Mas os agentes se tornaram parte permanente do fluxo — não mais uma curiosidade, mas uma ferramenta usada em toda PR. E ficou claro: prompt engineering não escala.
+
+Um agente sem estrutura de contexto é como aquele seu amigo desenvolvedor júnior, que muda de emprego toda semana, e entra sem onboarding, sem documentação, sem acesso às decisões que o time já tomou. A cada sessão ele começa do zero e repete os mesmos erros.
+
+Context engineering é a disciplina que resolve isso.
+
+> Não é sobre o que você pede. É sobre o ambiente que você cria para que o agente trabalhe.
+>
+> Coachador Neo do Linketrix, viciado em ChatGPT
+
+É, Coachador. Agora, nós temos que saber como criar esse ambiente. E, assim como ocorre no nosso ambiente, se o ambiente do agente for tóxico, ele vai produzir resultados intoxicados. Tal qual um ser humano, um agente alcoolizado não vai dirigir em linha reta.
 
 Este artigo cobre o caminho completo: do desenvolvedor que usa IA no chat (Estágio 1) até o projeto com um grafo de capacidades executáveis onde violações arquiteturais são estruturalmente impossíveis (Estágio 3). Os exemplos usam Node.js + Express + React, mas os princípios se aplicam a qualquer stack.
 
 ---
-
-<a name="secao-1"></a>
 
 ## 1. A Virada de 2026: De Prompt Engineering para Context Engineering
 
@@ -58,13 +89,13 @@ Este artigo cobre o caminho completo: do desenvolvedor que usa IA no chat (Está
 
 Para entender onde estamos, é útil ver como chegamos até aqui:
 
-- **2023** — A era do prompt engineering. A habilidade mais valorizada era formular o pedido perfeito. Cursos de "prompt engineering" proliferaram. O foco estava em o que pedir ao modelo.
+- **2023** — A era do prompt engineering. A habilidade mais valorizada era formular o pedido perfeito. Você balançava um galho de árvore e caíam pelo menos uns 5 vendedores de cursos de "prompt engineering". O foco estava em o que pedir ao modelo.
 
-- **2024** — A era dos agent frameworks. LangChain, AutoGen, CrewAI. A ideia era orquestrar múltiplos agentes em pipelines complexos. Multi-agente virou a buzzword do ano.
+- **2024** — A era dos agent frameworks. LangChain, AutoGen, CrewAI. A ideia era orquestrar múltiplos agentes em pipelines complexos. Multi-agente virou a buzzword do ano. Tinha c-level se molhando todo ao cogitar demitir a equipe inteira.
 
-- **2025** — O recuo do multi-agente. As arquiteturas complexas de agentes múltiplos mostraram problemas sérios: perda de contexto entre agentes, overhead de comunicação, dificuldade de debug. A indústria começou a preferir um único agente bem configurado.
+- **2025** — O recuo do multi-agente. As arquiteturas complexas de agentes múltiplos mostraram problemas sérios: perda de contexto entre agentes, overhead de comunicação, dificuldade de debug. A lei de Conway é implacável e a estrutura agêntica replicava os mesmos problemas da estrutura humana. A indústria começou a preferir um único agente bem configurado.
 
-- **2026** — Context engineering. O campo inteiro mudou de foco. A pergunta deixou de ser "como eu peço?" e passou a ser "o que o agente vê antes de responder?".
+- **2026** — Context engineering. O campo inteiro mudou de foco. A pergunta deixou de ser "como eu peço?" e passou a ser "o que o agente vê antes de responder?". E assim nascem as skills.
 
 ### A Mudança de Paradigma
 
@@ -81,31 +112,49 @@ Para entender onde estamos, é útil ver como chegamos até aqui:
 
 Dois estudos publicados no início de 2026 reformularam como a indústria pensa sobre contexto:
 
-**SkillsBench (fevereiro/2026):** Projetos com skills bem curadas (unidades de conhecimento procedural carregadas sob demanda) apresentaram **+16,2 pontos percentuais** de taxa de sucesso em relação a projetos sem skills. Mais surpreendente: modelos menores com skills bem construídas performaram comparável a modelos maiores sem skills.
+**[SkillsBench](https://arxiv.org/abs/2602.12670) (fevereiro/2026):** Projetos com skills bem curadas (unidades de conhecimento procedural carregadas sob demanda) apresentaram **+16,2 pontos percentuais** de taxa de sucesso em relação a projetos sem skills. Mais surpreendente: modelos menores com skills bem construídas performaram comparável a modelos maiores sem skills.
 
-**arXiv (fevereiro/2026):** Contexto excessivo degrada o raciocínio do modelo progressivamente. Arquivos de contexto com mais de 200 linhas reduziram a taxa de sucesso em mais de 20%. Em alguns experimentos, projetos sem contexto global performaram melhor do que projetos com documentação extensa — porque o agente explorava menos e tomava decisões mais focadas.
+**[Evaluating AGENTS.md](https://arxiv.org/abs/2602.11988) (fevereiro/2026):** Contexto excessivo degrada o raciocínio do modelo progressivamente. Arquivos de contexto com mais de 200 linhas reduziram a taxa de sucesso em mais de 20%. Em alguns experimentos, projetos sem contexto global performaram melhor do que projetos com documentação extensa — porque o agente explorava menos e tomava decisões mais focadas.
 
 A conclusão prática: **mais contexto não é melhor contexto**. A arte está em curar o mínimo necessário.
 
+### Operação de Janela de Contexto (na prática)
+
+No dia a dia de CLIs de coding, a sessão nunca começa do zero. Antes do primeiro prompt, a ferramenta já carregou instruções de sistema, definições de ferramentas e arquivos de contexto do projeto (`CLAUDE.md`, `AGENTS.md`, etc.).
+
+Na prática, uma heurística útil é trabalhar na faixa de **40% a 60% de utilização** de contexto. Não é regra rígida, mas acima dessa faixa tende a aumentar perda de detalhe, recuperação confusa de informação e microalucinações.
+
+No Claude Code, isso pode ser monitorado com `/context` e controlado com `/compact`. Para não compactar tarde demais, você pode antecipar o limite de auto-compactação:
+
+```json
+{
+  "env": {
+    "CLAUDE_AUTOCOMPACT_PCT_OVERRIDE": "50"
+  }
+}
+```
+
+Se `50` ficar agressivo para o seu fluxo, ajuste para `60` ou `70` e monitore qualidade x custo. E um cuidado importante: compactar sem instrução explícita pode resumir demais; ao usar compactação, peça para preservar decisões, restrições e pendências.
+
 ### A Frase que Resume Tudo
 
-> "Você está ensinando o agente. Deveria estar restringindo."
+**"Você está ensinando o agente. Deveria estar restringindo."**
 
 Essa distinção é central. Quando você escreve "Use a classe BaseEntity porque ela oferece serialização automática, integração com o ORM e facilita testes", você está explicando. O agente processa a justificativa, consome atenção com ela, e ainda assim pode ignorá-la.
 
-Quando você escreve `ALWAYS extend BaseEntity`, você está restringindo. O agente aplica a regra sem questionar.
+Entenda: você não está casado com o agente e, portanto, não precisa dar satisfação a ele. É ele quem trabalha para você. O que você precisa é dizer O QUE você quer, não POR QUE você quer.
 
-Documentação narrativa é para humanos. Contexto executável é para agentes.
+Quando você escreve `ALWAYS extend BaseEntity`, você está **restringindo**. O agente aplica a regra sem questionar.
+
+Documentação narrativa é para humanos. O que agentes querem é **contexto executável**.
 
 ---
-
-<a name="secao-2"></a>
 
 ## 2. O Que É Context Engineering
 
 ### Definição
 
-Context engineering é a arte e a disciplina de curar o que um agente de IA vê antes de responder — com o objetivo de produzir resultados consistentes, previsíveis e alinhados com as necessidades do projeto.
+Context engineering é a arte e a disciplina de curar o que um agente de IA vê antes de responder, com o objetivo de produzir resultados consistentes, previsíveis e alinhados com as necessidades do projeto.
 
 Não confunda com "context window", que é o limite técnico de tokens que um modelo pode processar. Context engineering é uma disciplina, não uma restrição. É sobre escolher o que colocar na janela de contexto, não sobre o tamanho dela.
 
@@ -114,52 +163,40 @@ Não confunda com "context window", que é o limite técnico de tokens que um mo
 Todo agente que trabalha em um projeto de software precisa de cinco tipos de contexto distintos:
 
 **1. Contexto de Identidade**
+
 Quem é o projeto, qual é a stack, qual é a arquitetura. É a resposta às perguntas: "Onde estou?" e "Como este projeto funciona?"
 
 Exemplos: nome do projeto, tecnologias usadas, estrutura de diretórios, padrão arquitetural (MVC, Clean Architecture, etc.).
 
 **2. Contexto de Restrições**
+
 O que NUNCA fazer. São as regras que protegem integridade arquitetural, segurança, padrões do time.
 
 Exemplos: "NUNCA importe Express na camada de domínio", "SEMPRE escreva testes para novos Use Cases", "NUNCA acesse a API diretamente em componentes React".
 
 **3. Contexto Procedural**
+
 Como executar operações específicas, passo a passo. São os checklists e workflows que garantem que uma operação seja executada da forma correta.
 
 Exemplos: como criar uma nova entidade de domínio, como adicionar um endpoint HTTP, como escrever um teste de integração.
 
 **4. Contexto de Estado**
+
 Decisões já tomadas, padrões confirmados, bugs conhecidos, estado de migrations. É a memória do projeto — o que aconteceu antes desta sessão.
 
 Exemplos: "Em março/2026 decidimos usar Joi para validação no lugar de express-validator", "O módulo de pagamentos ainda está em legado, não migre ainda".
 
 **5. Contexto Temporário**
+
 O que está acontecendo agora: os arquivos abertos no editor, a seleção de código atual, a tarefa específica desta sessão. Este contexto é gerenciado automaticamente pelas ferramentas.
 
 ### O Funil de Contexto
 
 Pense no contexto como um funil que vai do mais amplo ao mais específico:
 
-```
-┌─────────────────────────────────────┐
-│         IDENTIDADE DO PROJETO       │  ← sempre carregado
-│    (CLAUDE.md / AGENTS.md)          │
-├─────────────────────────────────────┤
-│         RESTRIÇÕES CRÍTICAS         │  ← sempre carregado
-│    (regras de fronteira)            │
-├─────────────────────────────────────┤
-│       CONTEXTO PROCEDURAL           │  ← carregado sob demanda
-│    (skills para a tarefa atual)     │
-├─────────────────────────────────────┤
-│         ESTADO DO PROJETO           │  ← carregado quando relevante
-│    (memory/MEMORY.md)               │
-├─────────────────────────────────────┤
-│         CONTEXTO TEMPORÁRIO         │  ← automático
-│    (arquivos abertos, seleção)      │
-└─────────────────────────────────────┘
-```
+![Funil de Contexto](/images/blog/context-engineering-guia-completo-funil-de-contexto.png)
 
-A chave é que cada camada é carregada no momento certo — não tudo de uma vez. Um agente que precisa criar uma entidade de domínio não precisa carregar o contexto de como escrever um teste de integração. Essa separação é o que permite que o sistema escale.
+A chave é que cada camada é carregada no momento certo, não tudo de uma vez. Um agente que precisa criar uma entidade de domínio não precisa carregar o contexto de como escrever um teste de integração. Essa separação é o que permite que o sistema escale.
 
 ### A Analogia do Dev Novo
 
@@ -172,21 +209,28 @@ Imagine contratar um desenvolvedor experiente para o seu projeto. No primeiro di
 
 No segundo dia, ele está trabalhando. Você não precisa repetir tudo isso.
 
-Um agente de IA, sem context engineering, é contratado do zero toda sessão. Com context engineering, ele começa onde parou.
+Como diria o Chaves: "Isso e só um supositório!". Nós sabemos que o onboarding não costuma ser assim.
+
+O que fazemos (e ainda consideramos boa prática) é **chunchar** (ênfase no termo técnico *chunchar*) no novo dev uma CHAPROCA DE DOCUMENTAÇÃO pra essa pessoa se virar sozinha. Ela que lute com Arqueologia de Software pra entender o que existe. Ele que invoque seus poderes mediúnicos e use a Psicografia de Código pra adivinhar o que o autor quis dizer.
+
+O resultado é que a pessoa será soterrada de informação, vai tiltar e passará semanas paralisada e confusa. Toda vez que ela for fazer algo, vai ter que consultar a documentação (que ela não conhece bem) ou perguntar para alguém. E, ainda assim, vai cometer erros, vai ter retrabalho, vai parar outras pessoas...
+
+Um agente de IA, sem context engineering, é como um júnior contratado do zero, sem onboarding, toda sessão. Com context engineering, ele sabe onde parou e onde tem que começar.
+
+Agora que você já sabe o diagnóstico, vamos ver os graus da doença.
 
 ---
 
-<a name="secao-3"></a>
-
 ## 3. Os 3 Estágios de Maturidade
 
-A maioria dos projetos que usa agentes de IA pode ser classificada em um de três estágios. Identificar onde você está é o primeiro passo para melhorar.
+A maioria dos projetos que usa agentes de IA pode ser classificada em um de três estágios. Identificar onde você está
+é o primeiro passo para melhorar.
 
 ### A Tabela dos Estágios
 
 | Dimensão                     | Estágio 1                       | Estágio 2                     | Estágio 3                          |
 | ---------------------------- | ------------------------------- | ----------------------------- | ---------------------------------- |
-| **Nome**                     | Contexto Entusiasta             | Skills Estruturadas           | Skill Graph Architecture           |
+| **Nome**                     | Context Enthusiast              | Structured Skills             | Skill Graph Architecture           |
 | **Sintoma principal**        | "funciona às vezes"             | "funciona se eu souber pedir" | "funciona de forma previsível"     |
 | **Arquivo principal**        | README longo ou prompt no chat  | AGENTS.md + algumas skills    | CLAUDE.md + skill graph            |
 | **Memória**                  | Nenhuma (cada sessão do zero)   | Informal (notas no chat)      | Estruturada e commitada            |
@@ -207,7 +251,8 @@ Você está no Estágio 1 se:
 - Skills existem, mas são longas e educativas ("como funciona a arquitetura")
 - A taxa de sucesso do agente depende muito de como você formula o pedido
 
-**O que acontece no Estágio 1:** O agente é competente, mas trabalha no escuro. Ele infere o que pode do código existente e do que você diz no chat, mas não tem estrutura para ser consistente entre sessões.
+**O que acontece no Estágio 1:** O agente é competente, mas trabalha no escuro. Ele infere o que pode do código
+existente e do que você diz no chat, mas não tem estrutura para ser consistente entre sessões. Tipo estagiário numa sala sem luz. Ele sabe andar, mas bate em tudo.
 
 ### Sintomas do Estágio 2
 
@@ -221,7 +266,8 @@ Você está no Estágio 2 se:
 - Algumas operações têm skills, outras não têm
 - O agente às vezes precisa ser corrigido sobre padrões que "deveriam estar claros"
 
-**O que acontece no Estágio 2:** Há estrutura, mas incompleta. O agente funciona bem quando você sabe exatamente qual skill invocar. Fica inconsistente quando a tarefa não se encaixa claramente em nenhuma skill existente.
+**O que acontece no Estágio 2:** Há estrutura, mas incompleta. O agente funciona bem quando você sabe exatamente qual
+skill invocar. Fica inconsistente quando a tarefa não se encaixa claramente em nenhuma skill existente.
 
 ### O que Caracteriza o Estágio 3
 
@@ -235,47 +281,89 @@ No Estágio 3:
 - Violações arquiteturais são detectadas pelo próprio agente, não na PR review
 - O custo de tokens por feature é estável — não cresce com o tamanho do projeto
 
-**O que acontece no Estágio 3:** O repositório se torna um grafo de capacidades executáveis. Cada tipo de operação tem um caminho claro. O agente segue o caminho, não inventa.
+**O que acontece no Estágio 3:** O repositório se torna um grafo de capacidades executáveis. Cada tipo de operação tem
+um caminho claro. O agente segue o caminho, não inventa. É o sonho de todo tech lead: um dev que segue o processo sem reclamar.
 
 ### O Erro Mais Comum
 
 A maioria dos projetos acredita estar no Estágio 2 quando ainda está no Estágio 1 com mais arquivos.
 
-A diferença entre Estágio 1 e Estágio 2 não é a quantidade de documentação. É a qualidade da estrutura: skills focadas vs. genéricas, regras imperativas vs. educativas, memória persistente vs. volátil.
+A diferença entre Estágio 1 e Estágio 2 não é a quantidade de documentação. É a qualidade da estrutura: skills focadas
+vs. genéricas, regras imperativas vs. educativas, memória persistente vs. volátil.
+
+De novo: se seu projeto está tentando **ensinar** o agente, ele provavelmente está no Estágio 1.
 
 ---
-
-<a name="secao-4"></a>
 
 ## 4. Ferramentas e Seus Arquivos de Contexto
 
 ### O Problema do Multi-Agente
 
-Quando você usa Claude Code, GitHub Copilot e OpenAI Codex no mesmo projeto, cada ferramenta lê arquivos diferentes. Isso cria um risco real: regras inconsistentes entre ferramentas.
+Quando você usa Claude Code, GitHub Copilot e OpenAI Codex no mesmo projeto, cada ferramenta lê arquivos diferentes.
+Isso cria um risco real: regras inconsistentes entre ferramentas.
 
-Se Claude Code segue uma restrição arquitetural, mas o Copilot não tem acesso a ela, você terá metade das suas PRs com violações — geradas pela ferramenta que não "sabia" da regra.
+Se Claude Code segue uma restrição arquitetural, mas o Copilot não tem acesso a ela, você terá metade das suas PRs com
+violações — geradas pela ferramenta que não "sabia" da regra.
+
+Pra evitar esse problema, o primeiro passo é compreender como cada ferramenta lida com arquivos de contexto.
 
 ### A Tabela de Compatibilidade
 
-| Arquivo                               | Claude Code | GitHub Copilot    | Cursor        | OpenAI Codex  | Gemini CLI    |
-| ------------------------------------- | ----------- | ----------------- | ------------- | ------------- | ------------- |
-| `CLAUDE.md`                           | ✅ Primário  | ❌ Ignora          | ❌ Ignora      | ❌ Ignora      | ❌ Ignora      |
-| `AGENTS.md`                           | ✅ Fallback  | ⚠️ Lê parcialmente | ✅ Lê          | ✅ Lê          | ✅ Lê          |
-| `.github/copilot-instructions.md`     | ❌ Ignora    | ✅ Primário        | ❌ Ignora      | ❌ Ignora      | ❌ Ignora      |
-| `.github/skills/*/SKILL.md`           | ✅ Nativo    | ❌ Não suporta     | ❌ Não suporta | ❌ Não suporta | ❌ Não suporta |
-| `.cursorrules` / `.cursor/rules/*.md` | ❌ Ignora    | ❌ Ignora          | ✅ Primário    | ❌ Ignora      | ❌ Ignora      |
-| `GEMINI.md`                           | ❌ Ignora    | ❌ Ignora          | ❌ Ignora      | ❌ Ignora      | ✅ Primário    |
+| Arquivo                               | Claude Code   | GitHub Copilot | Cursor        | OpenAI Codex  | Gemini CLI    |
+| ------------------------------------- | ------------- | -------------- | ------------- | ------------- | ------------- |
+| `CLAUDE.md`                           | ✅ Primário    | ❌ Ignora       | ❌ Ignora      | ❌ Ignora      | ❌ Ignora      |
+| `AGENTS.md`                           | ✅ Fallback    | ⚠️ Parcial      | ✅ Lê          | ✅ Lê          | ✅ Lê          |
+| `.github/copilot-instructions.md`     | ❌ Ignora      | ✅ Primário     | ❌ Ignora      | ❌ Ignora      | ❌ Ignora      |
+| `.github/skills/*/SKILL.md`           | ❌ Ignora      | ✅ Nativo       | ❌ Não suporta | ❌ Não suporta | ❌ Não suporta |
+| `.claude/skills/*/SKILL.md`           | ✅ Nativo      | ❌ Ignora       | ❌ Não suporta | ❌ Não suporta | ❌ Não suporta |
+| `.agents/skills/*/SKILL.md`           | ⚠️ Via symlink | ⚠️ Via symlink  | ✅ Nativo      | ✅ Nativo      | ✅ Nativo      |
+| `.cursorrules` / `.cursor/rules/*.md` | ❌ Ignora      | ❌ Ignora       | ✅ Primário    | ❌ Ignora      | ❌ Ignora      |
+| `GEMINI.md`                           | ❌ Ignora      | ❌ Ignora       | ❌ Ignora      | ❌ Ignora      | ✅ Primário    |
 
-> **Nota:** A compatibilidade evolui rapidamente. Verifique a documentação atualizada de cada ferramenta.
+> **Nota:** A compatibilidade evolui rapidamente. No momento em que ler esse artigo, verifique a documentação atualizada de cada ferramenta. É provável que mais ferramentas adotem o padrão de skills ou que haja mudanças na forma como elas lidam com arquivos de contexto, em direção a uma maior unificação.
+
+### A Estratégia de Localização Neutra
+
+Um padrão emergente resolve o problema de skills em múltiplas ferramentas: usar `.agents/skills/` como diretório canônico e criar **symlinks** nos diretórios específicos de cada ferramenta.
+
+Esse diretório já é lido nativamente por Cursor, OpenAI Codex e Gemini CLI. Para Claude Code e GitHub Copilot, criamos symlinks que apontam para a mesma fonte de verdade:
+
+```shell
+.agents/skills/  ← fonte de verdade (open standard — Codex, Gemini, Cursor)
+.github/skills/  → ../.agents/skills/   (symlink — Copilot nativo)
+.claude/skills/  → ../.agents/skills/   (symlink — Claude Code)
+```
+
+Vantagens:
+
+- Uma única fonte de verdade para todas as ferramentas
+- Adicionar uma skill em `.agents/skills/` a torna disponível em todas as ferramentas automaticamente
+- Git rastreia symlinks — a estrutura é portável e compartilhável
+
+O mesmo padrão se aplica a instructions e outros arquivos de contexto: centralizar em `.agents/`, usar symlinks nos
+diretórios específicos.
+
+> Obs: Se você usa Windows, vai ter um trabalho a mais para lidar com links simbólicos. Sugiro que use o WSL ou uma
+> solução de contêiner para manter a estrutura de arquivos consistente. Ou sofra. Você já usa Windows. Já está acostumado com sofrimento.
 
 ### A Estratégia das Três Camadas
 
-Para manter consistência entre ferramentas, use uma arquitetura de três camadas:
+"O que? Camadas? Na IA? Lá vem esse povo do Java complicar o que era simples."
+
+É jovem, lá vamos nós de novo: Camadas não são complicação, são organização. E organização é o que salva o dia quando o projeto cresce.
+
+É só mais uma aplicação do bom e velho princípio da separação de preocupações (Separation of Concerns). Se você colocar tudo em um único arquivo, ele vai virar um monstro difícil de manter e vai degradar o contexto mais rápido. Não é curioso como um produto de nossa inteligência acaba por se comportar como nossa inteligência?
+
+Então, jovem gafanhoto...Colocando em termos mais simples, nós dividimos o trabalho em camadas para não encher seu contexto com informação irrelevante precipitadamente.
+
+Para manter consistência entre ferramentas e gerenciar melhor o contexto delas, use uma arquitetura de três camadas:
 
 **Camada 1 — Universal (AGENTS.md)**
-Regras que valem para todos os agentes. Esta é a fonte de verdade. Tudo o que está aqui é repetido implicitamente em todas as ferramentas.
 
-```
+Regras que valem para todos os agentes. Esta é a fonte de verdade. Tudo o que está aqui é repetido implicitamente em
+todas as ferramentas.
+
+```text
 AGENTS.md
 ├── Arquitetura do projeto (5-8 linhas)
 ├── Regras críticas (5-10 regras imperativas)
@@ -284,16 +372,18 @@ AGENTS.md
 ```
 
 **Camada 2 — Específica por Ferramenta**
+
 Arquivos otimizados para cada ferramenta. Não duplicam as regras do AGENTS.md — referenciam.
 
-```
-CLAUDE.md          → para Claude Code (comandos npm, referência às skills)
-.github/copilot-instructions.md → para Copilot (lista de skills traduzida)
-.cursorrules       → para Cursor (regras no formato que o Cursor entende)
+```text
+CLAUDE.md                           → para Claude Code (comandos npm, referência às skills)
+.github/copilot-instructions.md     → para Copilot (lista de skills traduzida)
+.cursorrules                        → para Cursor (regras no formato que o Cursor entende)
 ```
 
 **Camada 3 — Procedural (skills/)**
-Carregada sob demanda, disponível apenas para ferramentas que suportam o mecanismo (atualmente Claude Code).
+
+Carregada sob demanda. GitHub Copilot lê `.github/skills/` nativamente. Claude Code lê `.claude/skills/` nativamente. Para Codex, Gemini e Cursor, use `.agents/skills/` com symlink (ver estratégia acima).
 
 ### O Princípio Anti-Duplicação
 
@@ -323,8 +413,6 @@ Claude Code não usa esse mecanismo nativamente. Se você colocar `applyTo` no C
 **Solução prática:** Use `applyTo` apenas em arquivos dentro de `.github/instructions/` (que o Copilot lê), nunca em CLAUDE.md ou AGENTS.md.
 
 ---
-
-<a name="secao-5"></a>
 
 ## 5. Como Criar um CLAUDE.md e AGENTS.md que Funcionam
 
@@ -366,7 +454,6 @@ Node.js/Express, Clean Architecture (migração desde 2025).
 
 - NUNCA importe Express, Sequelize ou `src/models/*` em `domain/` ou `application/`
 - SEMPRE estenda BaseEntity para novas entidades de domínio
-- SEMPRE use o padrão Facade: Controller → Facade → UseCases
 - NUNCA adicione lógica de negócio em Controllers
 - SEMPRE escreva testes unitários para novos Use Cases
 
@@ -393,7 +480,7 @@ Ver `memory/MEMORY.md` para decisões arquiteturais e padrões confirmados.
 
 ❌ **Explicações de por que a regra existe**
 
-```
+```markdown
 # Errado:
 - NUNCA importe Express em domain/ porque isso viola o princípio de inversão
   de dependência e torna o código difícil de testar...
@@ -413,6 +500,29 @@ CLAUDE.md é para o agente. README é para humanos.
 
 ❌ **Listas longas de skills**
 Uma referência ao AGENTS.md é suficiente.
+
+### Bloco opcional no CLAUDE.md: disciplina do agente principal
+
+Uma prática que melhora consistência é declarar explicitamente o papel do agente principal como **orquestrador** e delegar execução para subagentes em contexto limpo.
+
+```markdown
+## Context Engineering (Main Agent Discipline)
+
+O agente principal é **orquestrador**, não executor.
+
+**Papel do agente principal:** coordenar arquivos, abrir subagentes, consolidar resumos e comunicar status.
+
+**O agente principal NUNCA:** explorar o codebase amplamente, implementar mudanças grandes sozinho, processar saídas longas de terminal sem filtragem.
+
+### Protocolo de comunicação com subagentes
+
+- Todo prompt termina com: "Retorne resumo estruturado com [campos exatos]"
+- Nunca pedir "retorne tudo"
+- Meta de 10-20 linhas acionáveis por retorno
+- Encadear subagentes passando apenas campos relevantes entre etapas
+```
+
+Esse bloco é opcional, mas ajuda a proteger o contexto principal de inchaço em tarefas longas.
 
 ### Template para AGENTS.md
 
@@ -464,11 +574,11 @@ Adote a regra: **se você vai adicionar uma linha, remova uma linha equivalente 
 
 ---
 
-<a name="secao-6"></a>
-
 ## 6. Como Criar Skills que Realmente Funcionam
 
 ### O Que É Uma Skill
+
+Se você chegou até aqui, já deve estar impaciente comigo. "Que caralhos são skills?" é a pergunta martelando na sua cabeça, certo?
 
 Uma skill é uma unidade de conhecimento procedural carregada sob demanda. É a resposta à pergunta: "como executar esta operação específica neste projeto?"
 
@@ -476,20 +586,79 @@ Não confunda skill com documentação. Documentação explica para humanos. Ski
 
 A analogia mais precisa é um **runbook de operações**: um documento que um técnico abre quando precisa executar um procedimento específico. Ele não lê o runbook inteiro todo dia — só quando vai executar aquele procedimento.
 
-Assim funcionam as skills: o agente carrega o frontmatter (nome + descrição) de todas as skills disponíveis. Quando a tarefa combina com uma skill, carrega o conteúdo completo. Se a skill referencia arquivos adicionais, carrega apenas quando necessário.
+Caso ainda não saiba, a skill é um arquivo markdown dividido em duas partes: frontmatter (nome + descrição) e corpo (checklist passo a passo).
 
-Esse mecanismo se chama **progressive disclosure** — revelação progressiva de contexto.
+O agente carrega o frontmatter (nome + descrição) de todas as skills disponíveis. É como ter, em mãos, fichas indicando quando usar cada skill. Quando a tarefa combina com uma skill, ele carrega o conteúdo completo. Se a skill referencia arquivos adicionais, carrega apenas quando necessário.
+
+Esse mecanismo se chama **progressive disclosure** — revelação progressiva de contexto — e é o que permite que o sistema escale sem sobrecarregar o agente.
+
+```text
+├── .agents/skills/
+│   ├── create-entity/
+│   │   └── SKILL.md
+│   ├── create-usecase/
+│   │   └── SKILL.md
+│   └── enforce-boundary/
+│       └── SKILL.md
+```
+
+Aqui, temos um exemplo simples de uma skill de `create-entity`. O agente sabe que ela existe, mas só lê o conteúdo quando precisa criar ou modificar uma entidade de domínio:
+
+```markdown
+---
+name: create-entity
+description: Criar ou modificar entidade de domínio com validação e factory. Use ao adicionar entidades no módulo domain/.
+---
+
+# Skill: Criar Entidade de Domínio
+
+## Quando usar
+
+- Criar nova entidade de negócio (ex: Pedido, Produto, Cliente)
+- Adicionar campos a uma entidade existente
+
+## Checklist
+
+### 1. Entidade (`src/{módulo}/domain/entity/{entidade}.entity.js`)
+
+- [ ] Estende `BaseEntity`
+- [ ] Construtor recebe apenas primitivos ou Value Objects
+- [ ] Método `validate()` lança `DomainError` se dados inválidos
+- [ ] Sem imports de Express, Sequelize ou `src/models/*`
+
+### 2. Factory (`src/{módulo}/domain/entity/{entidade}.factory.js`)
+
+- [ ] Método estático `create(data)` instancia e valida a entidade
+
+### 3. Teste (`src/{módulo}/domain/entity/__tests__/{entidade}.entity.test.js`)
+
+- [ ] Testa criação com dados válidos
+- [ ] Testa rejeição com dados inválidos
+
+## Consulte também
+
+- [enforce-boundary](../enforce-boundary/SKILL.md)
+```
+
+Perceba o padrão: frontmatter curto (2 campos), seção "Quando usar" com frases que o dev diria naturalmente, e checklist com `[ ]` que o agente marca enquanto executa. Sem explicações, sem justificativas — apenas instruções executáveis.
 
 ### Os 3 Tipos de Skills
 
+Nós classificamos as skills em três tipos, cada um com um propósito distinto:
+
 **Micro-skill (40-60 linhas)**
+
 Operação atômica, um único nível de abstração. São as mais usadas.
 
 Exemplos: `create-entity`, `add-endpoint`, `write-unit-test`, `create-usecase`.
 
-Regra: se você precisar de mais de 60 linhas, provavelmente são duas micro-skills.
+Regras:
+
+- se você precisar de mais de 60 linhas, provavelmente são duas micro-skills.
+- se precisa de exemplos, use referências
 
 **Meta-skill (30-50 linhas)**
+
 Orquestra micro-skills para executar um workflow completo. Contém a sequência de passos, não os detalhes de cada passo.
 
 Exemplos: `implement-backend-feature`, `implement-feature-admin`.
@@ -497,6 +666,7 @@ Exemplos: `implement-backend-feature`, `implement-feature-admin`.
 Regra: uma meta-skill não deve ter checklists detalhados — ela aponta para as micro-skills que os têm.
 
 **Constraint-skill (20-40 linhas)**
+
 Contém apenas restrições e checklists de verificação. Não tem workflow, não tem passos — tem regras que nunca devem ser violadas.
 
 Exemplos: `enforce-boundary`.
@@ -546,7 +716,7 @@ description: Criando uma nova entidade de domínio em Clean Architecture com val
 
 ### Estrutura de uma Meta-skill
 
-```markdown
+````markdown
 ---
 name: implement-backend-feature
 description: Implementando feature completa no backend (entidade → use case → endpoint → testes). Use como ponto de entrada para qualquer nova funcionalidade backend em módulo existente.
@@ -586,19 +756,20 @@ description: Implementando feature completa no backend (entidade → use case �
 npm run test:unit    # deve passar
 npm run lint         # deve passar
 ```
+````
 
-```
-
-### Regras de Authoria
+### Regras de Autoria
 
 **Nomenclatura:** verbo-substantivo, em inglês, kebab-case.
+
 - ✅ `create-entity`, `add-endpoint`, `write-unit-test`
-- ❌ `entity-creation`, `endpoint-addition`, `unit-test-writing`
+- ❌ `entity-creation`, `endpoint-addition`, `unit-test-writing` (tecnologia-centric, passivo)
 - ❌ `backend-entity`, `http-endpoint` (tecnologia-centric)
 
 **Tamanho:** 40-120 linhas. Se passar de 120, é candidato a divisão.
 
 **Seção "Quando usar":** escreva as frases que o usuário DIRIA, não as que você DESCREVERIA.
+
 - ✅ "Criar nova entidade de negócio", "Adicionar campo a uma entidade"
 - ❌ "Quando for necessário instanciar um novo objeto de domínio seguindo os padrões Clean Architecture"
 
@@ -610,9 +781,12 @@ npm run lint         # deve passar
 
 ### Estrutura de Diretórios
 
-```
+As skills ficam organizadas no diretório `.agents/skills/`. Ferramentas específicas, como Copilot ou Claude, têm symlinks para esse diretório.
 
-.github/skills/
+Dentro de `skills/`, cada skill tem seu próprio diretório, que deve conter o arquivo `SKILL.md` e pode conter uma pasta opcional de `references/` para exemplos de código ou arquivos adicionais. Esses arquivos de referência só são carregados quando a skill é invocada, mantendo o contexto leve.
+
+```text
+.agents/skills/
 ├── create-entity/
 │   ├── SKILL.md              ← obrigatório
 │   └── references/           ← opcional
@@ -636,14 +810,60 @@ Quando você tem uma skill de 200 linhas que cobre "todo o backend Clean Archite
 
 Quando você tem `create-entity` (50 linhas) e `add-endpoint` (45 linhas) separadas, o agente carrega 50 linhas para criar a entidade, e 45 para adicionar o endpoint. Total: menos contexto, mais foco, melhor resultado.
 
+### A Divisão de Responsabilidades: `docs/` vs `skills/`
+
+Uma confusão frequente é onde vai cada tipo de informação. A distinção é simples:
+
+**`docs/` é para referência humana.** Nada dentro de `docs/` deve ser carregado como contexto de agente. A estrutura recomendada:
+
+- `docs/specs/{módulo}/` — specs funcionais por módulo: user stories, contrato de endpoints, modelo de domínio, ADR do módulo
+- `docs/adr/` — decisões arquiteturais globais (cross-cutting, afetam o projeto inteiro)
+- `docs/runbooks/` — procedimentos operacionais: deploy, troubleshooting, acesso a banco, rollback
+- `docs/input/` — referências externas, pesquisa, materiais de apoio
+
+**`skills/` é para instrução do agente.** Se algo é procedural e o agente precisa executar, é uma skill.
+
+A regra prática para decidir onde algo vai:
+
+| Pergunta                                   | Destino                                     |
+| ------------------------------------------ | ------------------------------------------- |
+| "Como eu faço X?" (humano consultando)     | `docs/runbooks/`                            |
+| "O que o agente deve fazer ao executar X?" | `skills/`                                   |
+| "Por que decidimos usar X?"                | `docs/adr/` ou `docs/specs/{módulo}/adr.md` |
+| "O que o agente deve SEMPRE/NUNCA fazer?"  | `CLAUDE.md` ou `AGENTS.md`                  |
+| "Qual foi a história do requisito Y?"      | `docs/specs/{módulo}/user-stories/`         |
+
+**O anti-padrão:** colocar procedimentos em `docs/` e referenciar essas páginas como contexto para o agente. Isso faz o agente carregar documentação de onboarding quando deveria ter uma skill de 50 linhas.
+
+### Índice de documentação para lazy-loading
+
+Para evitar que o arquivo global vire um monólito de contexto, mantenha no `CLAUDE.md`/`AGENTS.md` apenas um índice curto de documentação. O agente consulta o detalhamento sob demanda.
+
+```markdown
+## Documentation
+
+Documentação detalhada em `docs/`. Ler sob demanda.
+
+| Tópico                  | Local                |
+| ----------------------- | -------------------- |
+| Arquitetura             | `docs/architecture/` |
+| App Web                 | `docs/apps/website/` |
+| API                     | `docs/apps/api/`     |
+| Deploy                  | `docs/deployment/`   |
+| Guia de desenvolvimento | `docs/development/`  |
+```
+
+A lógica é simples: índice sempre carregado; conteúdo denso só quando a tarefa exigir.
+
 ---
 
-<a name="secao-7"></a>
 ## 7. Memória Estruturada: O Agente que Lembra
 
 ### O Problema da Amnésia
 
-Todo agente começa uma nova sessão sem memória das anteriores. Isso é intrínseco à forma como os LLMs funcionam — eles não têm memória persistente nativa.
+Sabe aquele amigo que bebe demais numa sexta e na segunda jura que não fez nada? "Eu falei isso? Não lembro." Pois é. Seu agente faz a mesma coisa. Toda sessão é ressaca total: memória zerada.
+
+Isso é intrínseco à forma como os LLMs funcionam — eles não têm memória persistente nativa.
 
 Sem estrutura de memória explícita:
 
@@ -659,6 +879,7 @@ Sem estrutura de memória explícita:
 Claude Code, por exemplo, mantém um arquivo de memória automático em `~/.claude/projects/{projeto}/memory/MEMORY.md`. Ele gerencia isso sozinho, atualizando entre sessões.
 
 Características:
+
 - Automática — o agente decide o que salvar
 - Local na máquina — não sincroniza com o repositório
 - Pessoal — reflete as preferências e descobertas do dev que usa a ferramenta
@@ -670,6 +891,7 @@ Use para: preferências pessoais de workflow, descobertas específicas da sua se
 Um arquivo `memory/MEMORY.md` commitado no repositório. Editado pelo time (e pelo agente, quando instruído).
 
 Características:
+
 - Intencional — o time decide o que salvar
 - Compartilhada — disponível para todos os devs e todos os agentes
 - Durável — sobrevive a troca de máquina, onboarding de novo dev, mudança de ferramenta
@@ -742,8 +964,6 @@ No **AGENTS.md:**
 
 ---
 
-<a name="secao-8"></a>
-
 ## 8. Multi-Agente na Prática
 
 ### O Desafio Real
@@ -805,7 +1025,16 @@ Ver AGENTS.md para arquitetura e regras universais.
 
 **Camada 3 — Skills (disponível onde suportado)**
 
-Atualmente, skills nativas são suportadas principalmente pelo Claude Code. Para outras ferramentas, o AGENTS.md e o arquivo específico fazem o papel de "skill simplificada".
+Para Codex, Gemini e Cursor, o padrão emergente é `.agents/skills/` (com symlinks das pastas específicas apontando para lá).
+
+A fonte de verdade é `.agents/skills/`. Cada ferramenta que tem pasta nativa própria recebe um symlink apontando para ela:
+
+- **GitHub Copilot** lê `.github/skills/` nativamente → criamos symlink `.github/skills/ → ../.agents/skills/`
+- **Claude Code** lê `.claude/skills/` nativamente → criamos symlink `.claude/skills/ → ../.agents/skills/`
+
+Assim, ao adicionar uma skill em `.agents/skills/`, ela fica disponível para todas as ferramentas automaticamente.
+
+Onde nenhum mecanismo nativo existe, o AGENTS.md faz o papel de "skill simplificada" — descreve o workflow em texto, sem a progressividade do mecanismo de skills.
 
 ### Exemplo de Fluxo Real
 
@@ -834,11 +1063,11 @@ O desenvolvedor não precisou explicar o workflow. Não precisou listar os arqui
 
 ---
 
-<a name="secao-9"></a>
-
 ## 9. O Skill Graph: Estágio 3 na Prática
 
 ### O Conceito
+
+Se você chegou até aqui sem fechar a aba, parabéns. Esse é o final boss.
 
 No Estágio 2, você tem skills isoladas. O desenvolvedor invoca a skill certa no momento certo.
 
@@ -857,6 +1086,8 @@ implement-backend-feature (meta-skill)
 └── [verificação final] enforce-boundary (constraint-skill)
     └── checa todas as fronteiras antes de finalizar
 ```
+
+Se você já jogou RPG, pense nas skills como a árvore de habilidades. A meta-skill é a classe, as micro-skills são as habilidades individuais, e a constraint-skill é o mestre que não te deixa usar magia negra.
 
 Quando o desenvolvedor pede "implementa o CRUD de produtos", o agente:
 
@@ -958,15 +1189,13 @@ Como saber se você chegou lá:
 
 ---
 
-<a name="secao-10"></a>
-
 ## 10. Guia Passo a Passo: Da Fase 0 à Fase 3
 
 > "Você não precisa fazer tudo de uma vez. Cada fase tem ROI imediato."
 
-### Fase 0 — Diagnóstico (estimativa: 2 horas)
+### Fase 0 — Diagnóstico
 
-Antes de mudar qualquer coisa, entenda onde você está.
+Antes de sair mexendo no paciente, faça como um bom médico: diagnóstico completo. Entenda o estado atual do projeto, onde estão os arquivos de contexto, quais regras estão espalhadas, quais operações são mais frequentes, onde as violações arquiteturais acontecem.
 
 **Checklist de diagnóstico:**
 
@@ -977,10 +1206,11 @@ Antes de mudar qualquer coisa, entenda onde você está.
 - [ ] Identificar as violações arquiteturais mais recentes — onde elas aconteceram?
 - [ ] Verificar se existe `memory/MEMORY.md` commitado — e se está sendo mantido
 - [ ] Avaliar: qual Estágio é o projeto? (tabela da Seção 3)
+- [ ] Auditar a pasta `docs/`: verificar se há procedimentos que deveriam ser skills, e specs que deveriam estar em `docs/specs/{módulo}/`
 
 **Saída esperada:** uma lista priorizada de problemas e uma foto clara do estado atual.
 
-### Fase 1 — Fundação (estimativa: 4-6 horas)
+### Fase 1 — Fundação
 
 O objetivo é garantir que o agente tenha contexto mínimo consistente em toda sessão.
 
@@ -998,7 +1228,7 @@ O objetivo é garantir que o agente tenha contexto mínimo consistente em toda s
 
 **Validação:** Abra uma nova sessão, não forneça contexto adicional, peça ao agente para descrever a arquitetura do projeto. Ele deve responder corretamente com base apenas no `CLAUDE.md` e `AGENTS.md`.
 
-### Fase 2 — Skills Estruturadas (estimativa: 1-2 dias)
+### Fase 2 — Skills Estruturadas
 
 O objetivo é ter skills focadas para as operações mais frequentes.
 
@@ -1014,7 +1244,7 @@ O objetivo é ter skills focadas para as operações mais frequentes.
 
 **Validação:** Abra uma nova sessão, peça uma operação simples (ex: "cria uma nova entidade de domínio para Produto"). O agente deve identificar e usar a micro-skill correspondente sem instrução adicional.
 
-### Fase 3 — Skill Graph (estimativa: 2-3 dias)
+### Fase 3 — Skill Graph
 
 O objetivo é conectar as skills em um grafo navegável.
 
@@ -1040,9 +1270,19 @@ O objetivo é conectar as skills em um grafo navegável.
 | Fase 2 | Usar micro-skills corretas sem instrução adicional            |
 | Fase 3 | Executar features completas seguindo workflow automaticamente |
 
----
+### Matriz de Modelo por Tipo de Tarefa (budget operacional)
 
-<a name="secao-11"></a>
+Outro ganho prático é formalizar uma matriz de seleção de modelo por tipo de tarefa, equilibrando custo, latência e qualidade.
+
+| Tipo de tarefa                                                               | Classe de modelo recomendada | Exemplo prático |
+| ---------------------------------------------------------------------------- | ---------------------------- | --------------- |
+| Varredura de arquivos, discovery, lint, formatação, docs                     | Rápido/econômico             | Claude Haiku    |
+| Implementação padrão, testes, investigação de bug                            | Intermediário                | Claude Sonnet   |
+| Refatoração multi-arquivo complexa, decisão arquitetural, conflitos difíceis | Alta capacidade              | Claude Opus     |
+
+O princípio é agnóstico de ferramenta: **não usar modelo “martelo hidráulico” para tarefa simples**. Registrar essa matriz no `CLAUDE.md` reduz custo sem perder qualidade.
+
+---
 
 ## 11. Armadilhas e Anti-Padrões
 
@@ -1127,13 +1367,11 @@ description: Mantendo documentação do projeto (JSDoc, README, ADR, RFC, OpenAP
 
 ---
 
-<a name="secao-12"></a>
-
 ## 12. Conclusão e Próximos Passos
 
 ### A Jornada em Perspectiva
 
-Você começou o artigo com um agente que funciona às vezes — capaz, mas imprevisível, dependente de prompts bem formulados, começando do zero em cada sessão.
+Você começou o artigo com um agente que é como um júnior que acabou de chegar no time: funciona às vezes; é capaz, mas imprevisível; dependente de ordens bem formuladas e começa do zero em cada sessão.
 
 O caminho que percorremos:
 
@@ -1147,7 +1385,7 @@ O modelo não muda. O que muda é o ambiente que você cria.
 
 Um LLM de última geração sem contexto estruturado produz resultados medíocres. O mesmo LLM com um CLAUDE.md bem escrito, skills focadas e memória estruturada produz resultados consistentemente acima da média.
 
-Você não está programando o agente. Você está curando o ambiente em que ele raciocina.
+Você não está programando o agente. Você está curando o ambiente em que ele raciocina. Seu trabalho não é mais construir o produto, mas configurar a fábrica que constrói o produto.
 
 ### Por Que Vale o Investimento
 
@@ -1170,26 +1408,28 @@ O investimento em context engineering se paga a cada feature, não apenas na fea
 4. Reduza os arquivos de instructions mais longos
 
 **Na próxima semana (Fase 2):**
-5. Identifique as 5 operações atômicas mais frequentes
-6. Crie as micro-skills faltantes (uma por dia é um bom ritmo)
-7. Crie a constraint-skill de fronteiras arquiteturais
-8. Commite o `memory/MEMORY.md` com as decisões já tomadas
+
+1. Identifique as 5 operações atômicas mais frequentes
+2. Crie as micro-skills faltantes (uma por dia é um bom ritmo)
+3. Crie a constraint-skill de fronteiras arquiteturais
+4. Commite o `memory/MEMORY.md` com as decisões já tomadas
 
 **No próximo mês (Fase 3):**
-9. Crie as meta-skills para os workflows principais
-10. Conecte as skills em um grafo navegável
-11. Teste com sessão limpa — feature completa sem instrução de workflow
-12. Monitore as métricas: tokens por sessão, violações na PR review, tempo de feature
+
+1. Crie as meta-skills para os workflows principais
+2. Conecte as skills em um grafo navegável
+3. Teste com sessão limpa — feature completa sem instrução de workflow
+4. Monitore as métricas: tokens por sessão, violações na PR review, tempo de feature
 
 ### Para Continuar Aprendendo
 
 A disciplina de context engineering está evoluindo rapidamente. Algumas referências:
 
-- **Anthropic — Effective Context Engineering:** Guia oficial sobre como estruturar contexto para agentes Claude
-- **Anthropic — Agent Skills Overview:** Documentação técnica sobre skills e como o Claude as usa
-- **Martin Fowler — Context Engineering for Coding Agents:** Análise arquitetural da disciplina por um dos maiores nomes em engenharia de software
-- **HumanLayer — Writing a good CLAUDE.md:** Guia prático com exemplos reais
-- **Anthropic — Skill Authoring Best Practices:** Como escrever skills que o agente realmente usa
+- **[Anthropic — Best Practices for Claude Code](https://code.claude.com/docs/en/best-practices):** Guia oficial sobre como estruturar contexto para agentes Claude
+- **[Anthropic — Extend Claude with Skills](https://code.claude.com/docs/en/skills):** Documentação técnica sobre skills e como o Claude as usa
+- **[Martin Fowler — Context Engineering for Coding Agents](https://martinfowler.com/articles/exploring-gen-ai/context-engineering-coding-agents.html):** Análise arquitetural da disciplina por um dos maiores nomes em engenharia de software
+- **[HumanLayer — Writing a good CLAUDE.md](https://www.humanlayer.dev/blog/writing-a-good-claude-md):** Guia prático com exemplos reais
+- **[Agent Skills — Open Standard](https://agentskills.io/):** Especificação aberta do formato de skills para agentes, com guia de autoria e exemplos
 
 ---
 
@@ -1312,7 +1552,7 @@ description: [Gerúndio + o que faz + quando usar]. [Terceira pessoa, 1-2 frases
 
 ### Template: Meta-skill
 
-```markdown
+````markdown
 ---
 name: [verbo-workflow]
 description: [Gerúndio + o que compõe + quando usar]. [Meta-skill que orquestra X, Y, Z.]
@@ -1350,11 +1590,11 @@ description: [Gerúndio + o que compõe + quando usar]. [Meta-skill que orquestr
 [comando de validação final]
 ```
 
-```
+````
 
 ### Template: Constraint-skill
 
-```markdown
+````markdown
 ---
 name: enforce-boundary
 description: Verificando fronteiras arquiteturais antes de finalizar qualquer mudança. Use como checklist final em qualquer edição de código.
@@ -1389,4 +1629,4 @@ description: Verificando fronteiras arquiteturais antes de finalizar qualquer mu
 [comando de testes]
 ```
 
-```
+````
