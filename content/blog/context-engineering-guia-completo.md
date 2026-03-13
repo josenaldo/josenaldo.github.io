@@ -6,6 +6,7 @@ author: Josenaldo Matos
 image: /images/blog/context-engineering-guia-completo.png
 category: pt-br
 status: draft
+language: pt
 ---
 
 Uberlândia, Minas Gerais, Brasil, América do Sul, Planeta Terra.
@@ -321,6 +322,8 @@ Pra evitar esse problema, o primeiro passo é compreender como cada ferramenta l
 | `GEMINI.md`                           | ❌ Ignora      | ❌ Ignora       | ❌ Ignora      | ❌ Ignora      | ✅ Primário    |
 
 > **Nota:** A compatibilidade evolui rapidamente. No momento em que ler esse artigo, verifique a documentação atualizada de cada ferramenta. É provável que mais ferramentas adotem o padrão de skills ou que haja mudanças na forma como elas lidam com arquivos de contexto, em direção a uma maior unificação.
+>
+> *A localização exata das skills para cada ferramenta pode variar com as versões. Consulte a documentação oficial antes de criar a estrutura de diretórios.*
 
 ### A Estratégia de Localização Neutra
 
@@ -640,13 +643,21 @@ description: Criar ou modificar entidade de domínio com validação e factory. 
 - [enforce-boundary](../enforce-boundary/SKILL.md)
 ```
 
-Perceba o padrão: frontmatter curto (2 campos), seção "Quando usar" com frases que o dev diria naturalmente, e checklist com `[ ]` que o agente marca enquanto executa. Sem explicações, sem justificativas — apenas instruções executáveis.
+Perceba o padrão: frontmatter com `name` e `description` como campos obrigatórios (outros opcionais são `license`, `compatibility`, `allowed-tools` e `metadata`). A `description` é o mecanismo de triggering — o agente a lê antes de decidir se vai carregar o resto da skill. O corpo usa `## Instruções` com passos numerados, `## Critical` para regras de alto impacto, `## Exemplos` com cenários reais, e `## Troubleshooting` para os erros mais comuns. Instruções executáveis, não explicações arquiteturais.
+
+A `description` merece atenção especial porque é o único campo que o agente lê **antes** de carregar a skill. É ela que decide se a skill vai ser acionada. O resto do arquivo — o corpo com checklists e exemplos — só entra em cena se a description convencer o agente de que aquela skill é relevante para a tarefa atual.
+
+Isso tem implicações práticas importantes. Uma description fraca ("Skill para criar entidades") resulta em undertriggering: o agente não usa a skill mesmo quando deveria. Uma description vaga demais resulta em overtriggering: a skill é carregada em contextos errados, ocupando espaço desnecessário.
+
+A estrutura que funciona é: **O QUE faz** + **QUANDO usar** (frases que o usuário diria) + **capacidades-chave** + opcionalmente **"Não use para X"** se houver risco de overtriggering. Tudo isso em menos de 1024 caracteres, sem tags XML (`<` ou `>`).
+
+Uma dica contraintuitiva: a description deve ser um pouco "empurrativa". Em vez de "Cria entidade de domínio", prefira "Cria ou modifica uma entidade de domínio no backend. Use quando o usuário pedir para adicionar entidade, criar modelo de domínio, ou disser 'criar X', 'adicionar campo a Y', 'novo Value Object'." O agente tende ao undertriggering — uma nudge a mais na description compensa esse viés.
 
 ### Os 3 Tipos de Skills
 
 Nós classificamos as skills em três tipos, cada um com um propósito distinto:
 
-**Micro-skill (40-60 linhas)**
+**Micro-skill**
 
 Operação atômica, um único nível de abstração. São as mais usadas.
 
@@ -654,64 +665,84 @@ Exemplos: `create-entity`, `add-endpoint`, `write-unit-test`, `create-usecase`.
 
 Regras:
 
-- se você precisar de mais de 60 linhas, provavelmente são duas micro-skills.
-- se precisa de exemplos, use referências
+- Se precisar de exemplos longos (mais de 20 linhas de código), coloque em `references/` e aponte explicitamente no corpo da skill.
+- O SKILL.md completo deve ter menos de 5.000 palavras — se passar disso, divida em micro-skills ou mova conteúdo para `references/`.
 
-**Meta-skill (30-50 linhas)**
+**Meta-skill**
 
 Orquestra micro-skills para executar um workflow completo. Contém a sequência de passos, não os detalhes de cada passo.
 
 Exemplos: `implement-backend-feature`, `implement-feature-admin`.
 
-Regra: uma meta-skill não deve ter checklists detalhados — ela aponta para as micro-skills que os têm.
+Regra: uma meta-skill não deve ter checklists detalhados — ela aponta para as micro-skills que os têm. Inclua sempre `enforce-boundary` (ou equivalente) como passo final.
 
-**Constraint-skill (20-40 linhas)**
+**Constraint-skill**
 
 Contém apenas restrições e checklists de verificação. Não tem workflow, não tem passos — tem regras que nunca devem ser violadas.
 
 Exemplos: `enforce-boundary`.
 
-Regra: uma constraint-skill nunca explica por que a restrição existe. Ela apenas lista o que verificar.
+Regra: use `## Critical` para enfatizar as regras de alto impacto — não CAPS (ALWAYS/NEVER) como substituto para explicação de contexto. CAPS é aceitável em CLAUDE.md e AGENTS.md, mas dentro do corpo de uma skill, o modelo responde melhor ao `## Critical` acompanhado de uma breve explicação do porquê.
 
 ### Estrutura de uma Micro-skill
+
+Olha a diferença estrutural. Antes era um checklist disfarçado de skill. Agora é uma skill de verdade: tem instruções com passos, tem exemplos concretos com situação real de usuário, tem troubleshooting para o erro mais comum, e tem uma seção `## Critical` que explica o porquê da regra mais importante — em vez de gritar NUNCA em caps como se o desenvolvedor fosse criança.
 
 ```markdown
 ---
 name: create-entity
-description: Criando uma nova entidade de domínio em Clean Architecture com validação e factory. Use ao adicionar ou modificar entidades no módulo domain/.
+description: "Cria ou modifica uma entidade de domínio no backend, seguindo Clean Architecture. Use quando o usuário pedir para adicionar entidade, criar modelo de domínio, adicionar campo, ou disser 'criar X', 'novo Value Object'. Não use para criar Use Cases — use create-usecase."
 ---
 
 # Skill: Criar Entidade de Domínio
 
-## Quando usar
+## Instruções
 
-- Criar nova entidade de negócio (ex: Pedido, Produto, Cliente)
-- Adicionar campos a uma entidade existente
-- Criar Value Objects associados a uma entidade
-
-## Checklist
-
-### 1. Entidade (`src/{módulo}/domain/entity/{entidade}.entity.js`)
+### Passo 1: Criar a entidade (`src/{módulo}/domain/entity/{entidade}.entity.js`)
 
 - [ ] Estende `BaseEntity` de `src/@shared/domain/entity/`
 - [ ] Construtor recebe apenas primitivos ou Value Objects — nunca models do Sequelize
 - [ ] Método `validate()` lança `DomainError` se dados inválidos
-- [ ] Sem imports de Express, Sequelize ou `src/models/*`
 
-### 2. Factory (`src/{módulo}/domain/entity/{entidade}.factory.js`)
+### Passo 2: Criar a factory (`src/{módulo}/domain/entity/{entidade}.factory.js`)
 
 - [ ] Método estático `create(data)` instancia e valida a entidade
 - [ ] Aceita dados brutos, retorna entidade validada ou lança erro
 
-### 3. Schema de Validação (`src/{módulo}/domain/validator/{entidade}.validator.js`)
+### Passo 3: Criar o schema de validação (`src/{módulo}/domain/validator/{entidade}.validator.js`)
 
 - [ ] Usa Joi para definir o schema
-- [ ] Validação executada pelo método `validate()` da entidade
+- [ ] Sem imports de Express, Sequelize ou `src/models/*`
+
+## Critical
+
+- Nunca importe Express, Sequelize ou `src/models/*` em `domain/`. A camada de domínio não pode depender de infraestrutura — isso é o que permite testar a lógica de negócio sem banco de dados ou HTTP.
+
+## Exemplos
+
+### Exemplo 1: Nova entidade de negócio
+
+Usuário diz: "Cria a entidade Produto com nome, preço e estoque"
+
+Ações: cria `produto.entity.js` estendendo `BaseEntity`, `produto.factory.js` com `create(data)`, `produto.validator.js` com schema Joi.
+
+Resultado: entidade testável, sem dependência de infraestrutura.
+
+## Troubleshooting
+
+**Erro: `Cannot find module 'BaseEntity'`**
+Causa: import com caminho errado.
+Solução: verifique `src/@shared/domain/entity/base.entity.js` e ajuste o import relativo.
+
+## Performance Notes
+
+- Execute os 3 passos em ordem — não pule a validação
+- Não finalize sem verificar que não há imports de Express ou Sequelize
 
 ## Consulte também
 
-- [enforce-boundary](../enforce-boundary/SKILL.md)
-- [create-usecase](../create-usecase/SKILL.md)
+- [enforce-boundary](../enforce-boundary/SKILL.md) — checklist final obrigatório
+- [create-usecase](../create-usecase/SKILL.md) — próximo passo após criar a entidade
 ```
 
 ### Estrutura de uma Meta-skill
@@ -766,14 +797,28 @@ npm run lint         # deve passar
 - ❌ `entity-creation`, `endpoint-addition`, `unit-test-writing` (tecnologia-centric, passivo)
 - ❌ `backend-entity`, `http-endpoint` (tecnologia-centric)
 
-**Tamanho:** 40-120 linhas. Se passar de 120, é candidato a divisão.
+**Frontmatter permitido:**
 
-**Seção "Quando usar":** escreva as frases que o usuário DIRIA, não as que você DESCREVERIA.
+O frontmatter de uma skill aceita apenas os seguintes campos:
 
-- ✅ "Criar nova entidade de negócio", "Adicionar campo a uma entidade"
-- ❌ "Quando for necessário instanciar um novo objeto de domínio seguindo os padrões Clean Architecture"
+- `name` — obrigatório, kebab-case, igual ao nome da pasta
+- `description` — obrigatório, < 1024 chars, sem tags XML
+- `license` — opcional (ex: MIT, se for open-source)
+- `compatibility` — opcional (ex: `claude-code`, 1-500 chars)
+- `allowed-tools` — opcional (restringe ferramentas — ex: `"Bash(python:*) WebFetch"`)
+- `metadata` — opcional, campos livres (version, author, category, tags)
 
-**Checklists com `[ ]`:** o agente pode marcar progressão enquanto executa. Cada item deve ser uma ação concreta e verificável.
+**Proibido:** tags XML no frontmatter, campos não listados acima (ex: `triggers:` não existe), nomes com prefixo `claude` ou `anthropic`.
+
+**Seção `## Instruções`:** use passos numerados com ações concretas. "Crie o arquivo X com Y" é melhor que "é necessário criar o arquivo X". O agente segue melhor imperativos do que descrições.
+
+**Seção `## Critical`:** use para regras que, se violadas, causam bugs graves ou violações de arquitetura. Explique brevemente o porquê — não para justificar ao agente, mas porque o modelo entende contexto e vai aplicar a regra melhor se souber a consequência de violá-la. Evite CAPS (ALWAYS/NEVER) como substituto para essa seção.
+
+**Seção `## Exemplos`:** inclua ao menos um exemplo concreto. O formato que funciona: "Usuário diz: [frase real]" → "Ações: [lista]" → "Resultado: [o que o usuário recebe]". Exemplos de código com mais de 20 linhas vão em `references/`.
+
+**Seção `## Troubleshooting`:** documente os 2-3 erros mais comuns que acontecem ao executar a skill. Formato: **Erro** + **Causa** + **Solução**.
+
+**Seção `## Performance Notes`:** use quando o agente tende a pular etapas. "Execute cada passo em ordem, sem pular validações." Não é obrigatório, mas resolve problemas de preguiça agêntica.
 
 **Referências cruzadas:** uma skill pode referenciar outra, mas máximo um nível de profundidade. Não crie cadeias: A → B → C → D. Se isso acontecer, A é uma meta-skill que deveria apontar diretamente para B, C e D.
 
@@ -783,25 +828,28 @@ npm run lint         # deve passar
 
 As skills ficam organizadas no diretório `.agents/skills/`. Ferramentas específicas, como Copilot ou Claude, têm symlinks para esse diretório.
 
-Dentro de `skills/`, cada skill tem seu próprio diretório, que deve conter o arquivo `SKILL.md` e pode conter uma pasta opcional de `references/` para exemplos de código ou arquivos adicionais. Esses arquivos de referência só são carregados quando a skill é invocada, mantendo o contexto leve.
+O `references/` é o terceiro nível do sistema de progressive disclosure. A lógica funciona assim:
+
+1. **Sempre no contexto:** o frontmatter (`name` + `description`) de todas as skills disponíveis — são ~100 palavras por skill
+2. **Sob demanda:** o corpo completo do SKILL.md, quando a skill é ativada — ideal abaixo de 500 linhas
+3. **Apenas quando explicitamente referenciado:** arquivos em `references/` — sem limite de tamanho, carregados só quando a skill instrui o agente a ler
+
+Isso significa que você pode ter exemplos longos (50+ linhas de código), templates completos ou documentação de referência em `references/` — e eles só entram no contexto quando o agente realmente precisar. Não poluem o contexto de quem está fazendo outra tarefa.
+
+Regra prática: se um exemplo de código tem mais de 20 linhas, vai para `references/`. O SKILL.md principal mantém apenas o essencial acionável.
 
 ```text
 .agents/skills/
 ├── create-entity/
-│   ├── SKILL.md              ← obrigatório
-│   └── references/           ← opcional
-│       └── entity-example.js ← exemplo concreto (carregado só quando necessário)
+│   ├── SKILL.md              ← carregado quando a skill é ativada
+│   └── references/
+│       └── entity-example.js ← carregado só quando o SKILL.md instrui
 ├── add-endpoint/
-│   └── SKILL.md
-├── write-unit-test/
-│   └── SKILL.md
-├── create-usecase/
-│   └── SKILL.md
-├── enforce-boundary/
-│   └── SKILL.md
+│   ├── SKILL.md
+│   └── references/
+│       └── controller-patterns.md
 └── implement-backend-feature/
     └── SKILL.md              ← meta-skill que aponta para as outras
-
 ```
 
 ### Por Que Skills Pequenas Vencem
@@ -809,6 +857,17 @@ Dentro de `skills/`, cada skill tem seu próprio diretório, que deve conter o a
 Quando você tem uma skill de 200 linhas que cobre "todo o backend Clean Architecture", o agente carrega 200 linhas para criar uma entidade — quando precisava de 40.
 
 Quando você tem `create-entity` (50 linhas) e `add-endpoint` (45 linhas) separadas, o agente carrega 50 linhas para criar a entidade, e 45 para adicionar o endpoint. Total: menos contexto, mais foco, melhor resultado.
+
+### Como o Agente Decide Qual Skill Usar
+
+Aqui está o que acontece nos bastidores quando você pede algo ao agente:
+
+1. O agente tem na memória ativa o frontmatter (`name` + `description`) de todas as skills disponíveis
+2. Para cada prompt do usuário, ele avalia qual description mais se encaixa com a tarefa
+3. Se a description de uma skill corresponde, ele carrega o corpo completo do SKILL.md
+4. Se o corpo do SKILL.md referencia arquivos em `references/`, carrega apenas os que a tarefa exige
+
+A consequência prática é que a description não é só metadado — é o único mecanismo de seleção. Uma skill com description ruim nunca vai ser usada, não importa quão bom seja o resto do conteúdo. É como ter um produto excelente com embalagem errada na prateleira de um supermercado escuro.
 
 ### A Divisão de Responsabilidades: `docs/` vs `skills/`
 
@@ -1116,13 +1175,15 @@ Para Node.js + Express + Clean Architecture:
 
 Para React + Clean Architecture (frontend):
 
-| Camada     | Arquivo                             | Skill Responsável            |
-| ---------- | ----------------------------------- | ---------------------------- |
-| API Client | `src/features/{módulo}/api/`        | `create-frontend-api-client` |
-| Hooks      | `src/features/{módulo}/hooks/`      | `create-data-hooks`          |
-| Components | `src/features/{módulo}/components/` | `create-component`           |
-| Pages      | `src/features/{módulo}/pages/`      | `create-page`                |
-| Meta       | Feature completa                    | `implement-feature-frontend` |
+| Camada          | Arquivo                             | Skill Responsável              |
+| --------------- | ----------------------------------- | ------------------------------ |
+| API Client      | `src/features/{módulo}/api/`        | `create-frontend-api-client`   |
+| Model/Contratos | `src/features/{módulo}/model/`      | `frontend-model-contracts`     |
+| Hooks           | `src/features/{módulo}/hooks/`      | `frontend-hooks-react-query`   |
+| Components      | `src/features/{módulo}/components/` | `create-frontend-component`    |
+| Pages           | `src/features/{módulo}/pages/`      | `frontend-pages-shell`         |
+| Testes          | Qualquer camada                     | `create-frontend-test`         |
+| Meta            | Feature completa                    | `implement-feature-frontend`   |
 
 ### O SDLC Executável
 
@@ -1150,10 +1211,12 @@ diagnose-legacy-bug (skill de diagnóstico)
 
 ```
 implement-feature-frontend
-  → create-frontend-api-client
-  → create-data-hooks
-  → create-component
-  → create-page
+  → create-frontend-api-client   (funções HTTP por intenção)
+  → frontend-model-contracts     (contratos de dados / normalização)
+  → frontend-hooks-react-query   (hooks com queryKey + invalidação)
+  → create-frontend-component    (componentes de UI isolados)
+  → frontend-pages-shell         (page shell padrão)
+  → create-frontend-test         (testes de hook/page/component)
 ```
 
 Cada um desses caminhos pode ser codificado em uma meta-skill. O agente segue o caminho sem precisar de instrução a cada passo.
@@ -1310,6 +1373,10 @@ pois desacopla a lógica de negócio do framework de persistência...
 
 **A regra:** Remova tudo que começa com "porque", "pois", "para que", "isso permite", "a vantagem é". Se você precisa preservar o raciocínio, coloque em `docs/ARCHITECTURE_PATTERNS.md` — que é documentação para humanos, não contexto para agentes.
 
+**Exceção para skills:** dentro do corpo de uma skill (não no CLAUDE.md ou AGENTS.md), explicar o *porquê* de uma regra crítica é aceitável — e útil. O modelo entende teoria e aplica melhor uma restrição quando entende a consequência de violá-la.
+
+A regra mais precisa é: **contexto global = imperativo puro**; **skill = imperativo + contexto mínimo de consequência no `## Critical`**. Não explique no CLAUDE.md. Explique na skill, brevemente, onde o agente está executando a operação que pode violar a regra.
+
 ### Anti-padrão 2: O Arquivo Monstro
 
 **O problema:** Um arquivo de contexto (AGENTS.md, CLAUDE.md, instructions) com 200, 300, 400 linhas. Frequentemente o resultado de meses de adições incrementais sem remoções equivalentes.
@@ -1336,18 +1403,28 @@ pois desacopla a lógica de negócio do framework de persistência...
 
 ### Anti-padrão 4: A Skill Genérica Demais
 
-**O problema:** Uma skill que cobre múltiplas operações não relacionadas.
+**O problema:** Uma skill que tenta **executar** múltiplas operações não relacionadas no mesmo SKILL.md, sem delegar.
 
 ```markdown
 ---
-name: maintain-docs
-description: Mantendo documentação do projeto (JSDoc, README, ADR, RFC, OpenAPI, Markdown)
+name: backend-tasks
+description: Tarefas de backend incluindo criação de entidades, endpoints, testes e migração.
 ---
+
+# Skill: Backend Tasks
+
+## Quando usar
+- Criar entidade
+- Adicionar endpoint
+- Escrever teste
+- Migrar legado
 ```
 
-**O que acontece:** O agente que precisa criar um ADR carrega contexto sobre JSDoc que não precisa. O contexto extra reduz o foco — e a taxa de sucesso.
+**O que acontece:** O agente que precisa criar uma entidade carrega contexto sobre endpoints, testes e migração que não precisa. O contexto extra reduz o foco — e a taxa de sucesso.
 
-**A regra:** Uma skill, uma operação. Se cobrir mais de duas operações, divida.
+O problema não é uma meta-skill que redireciona para micro-skills focadas — isso é o padrão correto. O problema é uma skill que tenta **executar** múltiplas operações não relacionadas no mesmo SKILL.md, sem delegar. Se o `## Workflow` da skill for "faça A, depois B, depois C" onde A, B e C são operações distintas que têm suas próprias micro-skills, essa skill deveria ser uma meta-skill que **aponta** para as micro-skills de A, B e C — não uma skill que descreve os três procedimentos em linha.
+
+**A regra:** Uma skill, uma operação. Se cobrir mais de duas operações, divida — ou transforme em meta-skill que delega.
 
 ### Anti-padrão 5: A Memória Volátil
 
@@ -1425,6 +1502,7 @@ O investimento em context engineering se paga a cada feature, não apenas na fea
 
 A disciplina de context engineering está evoluindo rapidamente. Algumas referências:
 
+- **[Anthropic — The Complete Guide to Building Skills for Claude](https://anthropic.com/skills-guide):** O guia oficial lançado em março/2026 pela Anthropic. Cobre progressive disclosure, estrutura de frontmatter, tipos de skill, boas práticas de description e quando usar `## Critical` vs CAPS. É a referência primária para autoria de skills no Claude Code.
 - **[Anthropic — Best Practices for Claude Code](https://code.claude.com/docs/en/best-practices):** Guia oficial sobre como estruturar contexto para agentes Claude
 - **[Anthropic — Extend Claude with Skills](https://code.claude.com/docs/en/skills):** Documentação técnica sobre skills e como o Claude as usa
 - **[Martin Fowler — Context Engineering for Coding Agents](https://martinfowler.com/articles/exploring-gen-ai/context-engineering-coding-agents.html):** Análise arquitetural da disciplina por um dos maiores nomes em engenharia de software

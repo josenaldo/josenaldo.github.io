@@ -69,7 +69,13 @@ export async function getStaticProps() {
         category: post.category,
     }))
 
-    return { props: { experiences, projects, testimonials, services, posts } }
+    const skills = contentService.getAllSkillsByCategory().map(({ group, color, skills }) => ({
+        group,
+        color,
+        skills: skills.map(({ name, firstContact }) => ({ name, firstContact })),
+    }))
+
+    return { props: { experiences, projects, testimonials, services, posts, skills } }
 }
 
 export default function Home({
@@ -78,6 +84,7 @@ export default function Home({
     testimonials,
     services,
     posts,
+    skills,
 }) {
     return (
         <AppLayout
@@ -87,7 +94,7 @@ export default function Home({
             url="/"
         >
             <HeroSection />
-            <AboutSection />
+            <AboutSection skills={skills} />
             <BlogSection posts={posts} />
             <ExperienceSection experiences={experiences} />
             <PortfolioSection projects={projects} />

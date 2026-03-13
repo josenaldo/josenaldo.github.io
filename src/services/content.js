@@ -10,6 +10,8 @@ import {
     allTestimonials,
 } from 'contentlayer/generated'
 
+import skillGroups from '@/data/skillGroups'
+
 const STATUS_ALIASES = {
     draft: 'draft',
     rascunho: 'draft',
@@ -180,6 +182,27 @@ const getAllSkills = () => {
     return skillsByLevel
 }
 
+const getAllSkillsByCategory = () => {
+    const colorMap = Object.fromEntries(
+        skillGroups.map(({ group, color }) => [group, color])
+    )
+
+    const grouped = allSkills.reduce((acc, skill) => {
+        if (!skill.group) return acc
+        if (!acc[skill.group]) acc[skill.group] = []
+        acc[skill.group].push(skill)
+        return acc
+    }, {})
+
+    return skillGroups
+        .filter(({ group }) => grouped[group])
+        .map(({ group }) => ({
+            group,
+            color: colorMap[group],
+            skills: grouped[group].sort((a, b) => a.firstContact - b.firstContact),
+        }))
+}
+
 const contentService = {
     lastExperiences,
     lastProjects,
@@ -194,6 +217,7 @@ const contentService = {
     getPostData,
     getPageData,
     getAllSkills,
+    getAllSkillsByCategory,
 }
 
 export default contentService

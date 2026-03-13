@@ -1,113 +1,62 @@
-/**
- * Skills organized by proficiency level
- * Based on resume and recent projects
- */
-
 const skills = [
-    // Languages
+    // Core Stack
     'Java',
-    'JavaScript',
-    'TypeScript',
-    'Python',
-    'Go',
-
-    // Backend Frameworks & Libraries
-    'Spring',
     'Spring Boot',
-    'Spring Security',
-    'Spring Data',
-    'Hibernate',
-    'JPA',
-    'JDBC',
-    'Node.js',
-    'Express',
-    'Django',
-    'Strapi',
-
-    // Frontend Frameworks & Libraries
     'React',
-    'Next.js',
-    'MUI (Material UI)',
-    'React Admin',
-    'React Hook Form',
-    'Redux',
-    'Tan Stack Query',
-    'React Router',
-    'Bootstrap',
+    'TypeScript',
+    'Node.js',
 
-    // Architecture & Design
-    'Object-Oriented Programming',
-    'SOLID',
-    'Hexagonal Architecture',
+    // Backend
+    'Spring Security',
+    'Spring Data JPA',
+    'Hibernate',
+    'BullMQ',
+    'REST',
+    'JWT',
+
+    // Frontend
+    'Next.js',
+    'Mantine',
+    'MUI (Material UI)',
+    'Tan Stack Query',
+    'React Hook Form',
+    'Zod',
+
+    // Databases
+    'PostgreSQL',
+    'MySQL',
+    'Sequelize',
+
+    // Architecture
     'Clean Architecture',
+    'Hexagonal Architecture',
     'Domain-Driven Design',
-    'Design Patterns',
+    'SOLID',
     'Microservices',
     'Event-Driven Architecture',
-    'CQRS',
-    'Event Sourcing',
 
     // Testing
     'JUnit',
     'Mockito',
     'Jest',
-    'Pytest',
+    'React Testing Library',
     'TDD',
-    'Software Testing',
 
-    // Databases
-    'MySQL',
-    'PostgreSQL',
-    'MongoDB',
-    'Oracle',
-    'SQL Server',
-    'SQL',
+    // AI & Productivity
+    'GitHub Copilot Agents',
+    'Prompt Engineering',
 
-    // Messaging & Streaming
-    'Apache Kafka',
-    'RabbitMQ',
-
-    // API & Communication
-    'REST',
-    'GraphQL',
-    'gRPC',
-
-    // DevOps & Tools
-    'Git',
-    'GitHub',
+    // DevOps & Tooling
     'Docker',
-    'Maven',
-    'CI/CD',
-    'Jenkins',
     'GitHub Actions',
+    'CI/CD',
+    'Git',
 
-    // Web Fundamentals
-    'HTML',
-    'CSS',
-
-    // Data Science
-    'Pandas',
-    'NumPy',
-
-    // Methodologies & Practices
+    // Agile
     'Scrum',
     'Kanban',
-    'Event Storming',
-    'Agile',
-
-    // Cloud & Deployment
-    'AWS',
-    'Heroku',
-    'Vercel',
-    'Netlify',
-
-    // Other Tools
-    'Jira',
-    'Trello',
-    'GitLab',
-    'Notion',
-    'Contentlayer',
-    'Vite',
+    'Technical Leadership',
+    'Mentoring',
 ]
 
 export default skills

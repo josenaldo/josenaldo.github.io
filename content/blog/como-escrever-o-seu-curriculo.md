@@ -5,6 +5,7 @@ date: 2026-02-24 00:00:00 -0300
 author: Josenaldo Matos
 image: '/images/blog/como-escrever-o-seu-curriculo.png'
 category: pt-br
+language: pt
 ---
 
 "Alguém aqui tem um template de currículo para me passar?"

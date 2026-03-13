@@ -7,14 +7,18 @@ import {
     Container,
     Typography,
 } from '@mui/material'
+import Masonry from '@mui/lab/Masonry'
 
 import ContentTitle from '@/components/content/ContentTitle'
-// import { getSortedPosts } from '@pog/data'
 import AppLAyout from '@/layouts/AppLayout'
 import contentService from '@/services/content'
 
 const getStaticProps = async () => {
-    const skills = contentService.getAllSkills()
+    const skills = contentService.getAllSkillsByCategory().map(({ group, color, skills }) => ({
+        group,
+        color,
+        skills: skills.map(({ name, firstContact }) => ({ name, firstContact })),
+    }))
     const currentYear = new Date().getFullYear()
     return { props: { skills, currentYear } }
 }
@@ -35,54 +39,36 @@ const ProjectsPage = ({ skills, currentYear }) => {
             url="/skills"
         >
             <Container>
-                <Box
-                    sx={{
-                        my: 5,
-                    }}
-                >
+                <Box sx={{ my: 5 }}>
                     <ContentTitle title={title} subtitle={description} />
-                    <SkillCard
-                        title="Fluent"
-                        text="I'm entirely comfortable with these skills and can start working immediately without the need for review or reference. I am highly proficient and up-to-date with current practices."
-                        skill={skills['fluent']}
-                        currentYear={currentYear}
-                    />
-
-                    <SkillCard
-                        title="Proficient"
-                        text="This category encompasses skills I have worked extensively in the past but may require time to review and update myself on the latest practices and techniques to work effectively with them again. Additionally, it includes technologies I am currently working with, but I still need to acquire the depth of knowledge to consider myself an expert. I am actively learning and improving in these areas to broaden my skill set."
-                        skill={skills['proficient']}
-                        currentYear={currentYear}
-                    />
-
-                    <SkillCard
-                        title="Familiar"
-                        text="I'm familiar with and have some degree of experience with these skills, but I would need some time to practice and deepen my proficiency before I could work effectively with them."
-                        skill={skills['familiar']}
-                        currentYear={currentYear}
-                    />
-
-                    <SkillCard
-                        title="Learner"
-                        text="These are the technologies I'm actively learning and working to add to my skill set."
-                        skill={skills['learner']}
-                        currentYear={currentYear}
-                    />
+                    <Masonry columns={{ xs: 1, sm: 2, md: 3 }} spacing={2}>
+                        {skills.map(({ group, color, skills: groupSkills }) => (
+                            <SkillCard
+                                key={group}
+                                title={group}
+                                color={color}
+                                skill={groupSkills}
+                                currentYear={currentYear}
+                            />
+                        ))}
+                    </Masonry>
                 </Box>
             </Container>
         </AppLAyout>
     )
 }
 
-const SkillCard = ({ title, skill = [], text = '', currentYear }) => {
+const SkillCard = ({ title, color, skill = [], currentYear }) => {
     return (
-        <Card>
-            <CardContent>
-                <Typography variant="h4" component="h2" sx={{}}>
+        <Card
+            sx={{
+                border: `1px solid ${color}`,
+                borderRadius: 2,
+            }}
+        >
+            <CardContent sx={{ pb: 1 }}>
+                <Typography variant="h5" component="h2" sx={{ color }}>
                     {title}
-                </Typography>
-                <Typography variant="body1" component="p" sx={{}}>
-                    {text}
                 </Typography>
             </CardContent>
 
@@ -91,18 +77,26 @@ const SkillCard = ({ title, skill = [], text = '', currentYear }) => {
                     display: 'flex',
                     flexDirection: 'row',
                     flexWrap: 'wrap',
-                    justifyContent: 'space-between',
-                    gap: 3,
-                    px: 8,
+                    gap: 2,
+                    pt: 0,
                 }}
             >
                 {skill.map((s) => (
                     <Badge
                         key={s.name}
                         badgeContent={`${getYearsOfExperience(s.firstContact, currentYear)}+`}
-                        color="primary"
+                        sx={{
+                            '& .MuiBadge-badge': {
+                                backgroundColor: color,
+                                color: '#000',
+                            },
+                        }}
                     >
-                        <Chip label={s.name} variant="outlined" />
+                        <Chip
+                            label={s.name}
+                            variant="outlined"
+                            sx={{ borderColor: color, color }}
+                        />
                     </Badge>
                 ))}
             </CardContent>
