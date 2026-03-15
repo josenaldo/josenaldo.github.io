@@ -25,6 +25,12 @@ export const Post = defineDocumentType(() => ({
             description: 'The date of the post',
             required: true,
         },
+        status: {
+            type: 'string',
+            description:
+                'The publication status of the post (draft/rascunho, planned/planejado, published/publicado)',
+            required: false,
+        },
         author: {
             type: 'string',
             description: 'The author of the post',
@@ -39,6 +45,13 @@ export const Post = defineDocumentType(() => ({
             type: 'string',
             description: 'The image of the post',
             required: true,
+        },
+        language: {
+            type: 'enum',
+            options: ['pt', 'en'],
+            default: 'en',
+            description: 'The language of the post (pt or en)',
+            required: false,
         },
     },
     computedFields: {
@@ -213,6 +226,11 @@ const Skill = defineDocumentType(() => ({
             type: 'number',
             description: 'The year of the first contact with the skill',
             required: true,
+        },
+        group: {
+            type: 'string',
+            description: 'The display group this skill belongs to (e.g. Backend, Frontend)',
+            required: false,
         },
     },
 }))

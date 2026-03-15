@@ -17,6 +17,9 @@ As skills do projeto ficam em `.agents/skills/`.
 
 Skills específicas deste repo:
 
+- `bootstrap-ai-repo`
 - `site-nextjs-static-export`
 - `site-contentlayer-authoring`
 - `site-seo-and-sitemap`
+- `article-series-planning`
+- `article-voice-preservation`

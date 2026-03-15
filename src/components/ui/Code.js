@@ -10,6 +10,7 @@ const Code = ({ children }) => {
                 textWrap: 'none',
                 bgcolor: 'background.paper',
                 padding: '10px',
+                my: 2,
             }}
         >
             <Box

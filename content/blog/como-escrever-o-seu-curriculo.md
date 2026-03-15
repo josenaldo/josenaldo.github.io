@@ -5,6 +5,7 @@ date: 2026-02-24 00:00:00 -0300
 author: Josenaldo Matos
 image: '/images/blog/como-escrever-o-seu-curriculo.png'
 category: pt-br
+language: pt
 ---
 
 "Alguém aqui tem um template de currículo para me passar?"
@@ -14,7 +15,6 @@ Essa é uma pergunta MUITO comum em grupos de tecnologia em que eu participo. Vo
 Muitos recorrem a templates em ferraamentas como Canva, Figma ou PowerPoint. Algumas vezes, isso rende um currículo visualmente bonito, mas que não passa pelo ATS. Em outras, gera um mondrongo mal enjambrado que parece sua cara, que claramente foi montada pela sua mãe sem ler o manual.
 
 Se você chegou aqui, veio em busca de uma luz. Então vamos conversar?
-
 
  — o software de triagem automática que a maioria das empresas usa para filtrar candidaturas.
 
@@ -155,9 +155,11 @@ Cargo | Empresa | Mês/Ano – Mês/Ano (ou Atual)
 Este é o erro mais comum. A maioria das pessoas lista responsabilidades. O que o recrutador quer ver são realizações.
 
 **Responsabilidade (não faça isso):**
+
 > "Responsável pelo desenvolvimento de APIs REST para o sistema de pagamento."
 
 **Realização (faça assim):**
+
 > "Desenvolvi 3 endpoints REST em Node.js para integração com gateway de pagamento, eliminando um processo manual que tomava 2 horas por dia da equipe de operações."
 
 A fórmula é simples: _fiz [o quê], usando [como], e o resultado foi [o quê]_. Nem sempre você vai ter um número exato — mas sempre vai ter um contexto de por que aquilo importou.
@@ -165,6 +167,7 @@ A fórmula é simples: _fiz [o quê], usando [como], e o resultado foi [o quê]_
 ### Para quem tem pouca ou nenhuma experiência formal
 
 Inclua:
+
 - Estágios, mesmo que curtos
 - Trabalho voluntário relacionado à tecnologia
 - Freelances ou projetos pagos, mesmo que informais

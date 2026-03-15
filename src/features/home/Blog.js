@@ -1,11 +1,21 @@
+import { useState } from 'react'
+
 import { Box, Typography } from '@mui/material'
 import PropTypes from 'prop-types'
 
 import CallToAction from '@/components/CallToAction'
 import ContentCard from '@/components/content/ContentCard'
+import Pagination from '@/components/Pagination'
 import Section from '@/components/Section'
 
+const POSTS_PER_PAGE = 6
+
 const Blog = ({ posts }) => {
+    const [currentPage, setCurrentPage] = useState(1)
+    const totalPages = Math.ceil(posts.length / POSTS_PER_PAGE)
+    const startIndex = (currentPage - 1) * POSTS_PER_PAGE
+    const paginatedPosts = posts.slice(startIndex, startIndex + POSTS_PER_PAGE)
+
     return (
         <Section elevation={1}>
             <Box
@@ -31,7 +41,7 @@ const Blog = ({ posts }) => {
                         width: '100%',
                     }}
                 >
-                    {posts.map((post) => (
+                    {paginatedPosts.map((post) => (
                         <ContentCard
                             key={post.url}
                             title={post.title}
@@ -46,6 +56,12 @@ const Blog = ({ posts }) => {
                         />
                     ))}
                 </Box>
+                <Pagination
+                    currentPage={currentPage}
+                    totalPages={totalPages}
+                    onPageChange={setCurrentPage}
+                    compact
+                />
                 <CallToAction href="/blog" ariaLabel="View all blog posts">
                     All posts
                 </CallToAction>

@@ -22,6 +22,39 @@ Practical rule: if a contract reduces surface area and protects a boundary, it's
 
 ---
 
+> **Update — March 3, 2026:** The following section was added after a [post by Luiz Carlos Faria](https://www.linkedin.com/posts/luizcarlosfaria_a-ia-que-est%C3%A1-mudando-o-mundo-%C3%A9-um-modelo-activity-7434393472440143874-cDZj/) sparked a reflection on how the reaction against over-engineering has swung too far in the other direction — and what that pendulum means in the age of AI-assisted development.
+
+## The pendulum swung past the right spot
+
+To understand where this reaction comes from, you have to trace the arc.
+
+For years, the dominant trend in software engineering was accumulation: design patterns on top of design patterns, abstraction on top of abstraction, framework on top of framework. The goal was to manage ever-growing application complexity. The result, in many codebases, was over-engineering — or, as it had already been named in Brazilian Portuguese before the English-speaking world caught up, *exagenharia* (from *exagero de engenharia* — engineering excess). The interface with a single implementation and no real boundary. The repository that wraps a repository. The factory that creates factories. The abstraction that abstracts nothing except another abstraction. These structures don't protect boundaries — they make the codebase heavier, harder to navigate, and slower to change.
+
+The frustration is legitimate. Anyone who has had to read a codebase with twelve layers between a button click and a database row knows the pain. The criticism of *exagenharia* is valid.
+
+What isn't valid is the reaction it triggered.
+
+The pendulum swung — as pendulums always do — past the right position, into under-engineering: *escagenharia* (from *escassez de engenharia* — engineering scarcity). If *exagenharia* is too much structure for no good reason, *escagenharia* is too little structure for every good reason. Business rules inside controllers. Logic in ownerless helpers. External dependencies welded directly into the domain core. No contracts, no boundaries, no cognitive map.
+
+Both are failures. And crucially, neither is cured by its opposite.
+
+*Exagenharia* is not solved by *escagenharia*.
+*Escagenharia* is not solved by *exagenharia*.
+Both are solved by the same thing: **engineering** — the discipline of identifying real boundaries, protecting what deserves protection, and leaving the rest alone.
+
+There is one more dimension that makes this pendulum problem more urgent today. AI coding assistants — the LLMs and Copilots now embedded in every development workflow — function by recognizing patterns, conventions, and repeatable structures. SOLID principles, Repository, Domain Services, Value Objects aren't just architecture: they are the vocabulary that allows a language model to generate coherent, consistent code for your specific project. Code generation has become the cheapest part of the stack. Architectural decisions, boundary definitions, and domain modeling are what remain expensive — and those are exactly what patterns and contracts codify.
+
+A codebase without conventions, with business rules in controllers and domain logic scattered across helpers with no clear owner, is illegible — not only to the developer who will maintain it six months from now, but to the AI assistant helping them. You don't get leverage from chaos. You get guesswork.
+
+The equation is blunt:
+
+→ Clear patterns + explicit contracts = the model understands context = generates consistent code = real daily productivity.
+→ No structure = the model guesses = you review everything = productivity collapses, with or without AI.
+
+Good architecture, it turns out, is not just maintenance discipline. It is also the interface between your codebase and the machines you are now partnering with. Eliminating that structure in the name of simplicity is building exactly the kind of system that becomes increasingly expensive to evolve — for humans and for models alike.
+
+---
+
 ## Where the criticism hits — and where it misses
 
 It hits when it calls out:

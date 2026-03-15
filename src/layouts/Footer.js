@@ -36,8 +36,8 @@ const Footer = () => {
                                 textAlign: 'center',
                             }}
                         >
-                            © 2023 Josenaldo de Oliveira Matos Filho - Todos os
-                            direitos reservados.
+                            © 2023–2026 Josenaldo de Oliveira Matos Filho - Todos
+                            os direitos reservados.
                         </Box>
                     </Box>
                 </Container>

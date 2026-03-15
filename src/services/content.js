@@ -10,6 +10,42 @@ import {
     allTestimonials,
 } from 'contentlayer/generated'
 
+import skillGroups from '@/data/skillGroups'
+
+const STATUS_ALIASES = {
+    draft: 'draft',
+    rascunho: 'draft',
+    planned: 'planned',
+    planejado: 'planned',
+    published: 'published',
+    publicado: 'published',
+}
+
+const normalizePostStatus = (status) => {
+    const normalizedStatus = `${status || 'published'}`
+        .trim()
+        .toLowerCase()
+
+    return STATUS_ALIASES[normalizedStatus] || 'draft'
+}
+
+const isPublishedPost = (post, now = new Date()) => {
+    const normalizedStatus = normalizePostStatus(post.status)
+    return normalizedStatus === 'published' && new Date(post.date) <= now
+}
+
+const shouldIncludeUnpublishedPosts = () => {
+    return process.env.NODE_ENV !== 'production'
+}
+
+const getVisiblePosts = () => {
+    if (shouldIncludeUnpublishedPosts()) {
+        return allPosts
+    }
+
+    return allPosts.filter((post) => isPublishedPost(post))
+}
+
 const lastExperiences = (numberOfExperiences) => {
     return allExperiences
         .sort((a, b) => {
@@ -59,11 +95,11 @@ const getServices = () => {
 }
 
 const getAllPosts = () => {
-    return allPosts
+    return getVisiblePosts()
 }
 
 const getSortedPosts = (numberOfPosts) => {
-    const posts = allPosts.sort((a, b) => {
+    const posts = [...getAllPosts()].sort((a, b) => {
         return compareDesc(new Date(a.date), new Date(b.date))
     })
 
@@ -75,7 +111,7 @@ const getSortedPosts = (numberOfPosts) => {
 }
 
 const getAllPostsPaths = () => {
-    const paths = allPosts.map((post) => post.url)
+    const paths = getAllPosts().map((post) => post.url)
     return paths
 }
 
@@ -146,6 +182,27 @@ const getAllSkills = () => {
     return skillsByLevel
 }
 
+const getAllSkillsByCategory = () => {
+    const colorMap = Object.fromEntries(
+        skillGroups.map(({ group, color }) => [group, color])
+    )
+
+    const grouped = allSkills.reduce((acc, skill) => {
+        if (!skill.group) return acc
+        if (!acc[skill.group]) acc[skill.group] = []
+        acc[skill.group].push(skill)
+        return acc
+    }, {})
+
+    return skillGroups
+        .filter(({ group }) => grouped[group])
+        .map(({ group }) => ({
+            group,
+            color: colorMap[group],
+            skills: grouped[group].sort((a, b) => a.firstContact - b.firstContact),
+        }))
+}
+
 const contentService = {
     lastExperiences,
     lastProjects,
@@ -160,6 +217,7 @@ const contentService = {
     getPostData,
     getPageData,
     getAllSkills,
+    getAllSkillsByCategory,
 }
 
 export default contentService

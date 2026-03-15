@@ -1,0 +1,152 @@
+/**
+ * Prism dark theme for rehype-prism-plus
+ * Based on "One Dark" — adapted to match the site's dark palette.
+ */
+
+code[class*='language-'],
+pre[class*='language-'] {
+    color: #abb2bf;
+    background: none;
+    font-family: 'Fira Code', 'Fira Mono', Menlo, Consolas, 'DejaVu Sans Mono',
+        monospace;
+    font-size: 0.9em;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.6;
+    tab-size: 4;
+    hyphens: none;
+}
+
+pre[class*='language-'] {
+    padding: 1.2em;
+    margin: 1.5rem 0;
+    overflow: auto;
+    border-radius: 8px;
+    background: #1e1e2e;
+}
+
+:not(pre) > code[class*='language-'] {
+    padding: 0.2em 0.4em;
+    border-radius: 4px;
+    background: #1e1e2e;
+    white-space: normal;
+}
+
+/* Token colors */
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+    color: #5c6370;
+    font-style: italic;
+}
+
+.token.punctuation {
+    color: #abb2bf;
+}
+
+.token.namespace {
+    opacity: 0.7;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+    color: #e06c75;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+    color: #98c379;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+    color: #56b6c2;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+    color: #c678dd;
+}
+
+.token.function,
+.token.class-name {
+    color: #61afef;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+    color: #d19a66;
+}
+
+.token.important,
+.token.bold {
+    font-weight: bold;
+}
+
+.token.italic {
+    font-style: italic;
+}
+
+.token.entity {
+    cursor: help;
+}
+
+/* Line highlighting (rehype-prism-plus) */
+.code-highlight {
+    float: left;
+    min-width: 100%;
+}
+
+.code-line {
+    display: block;
+    padding-left: 16px;
+    padding-right: 16px;
+    margin-left: -16px;
+    margin-right: -16px;
+    border-left: 4px solid transparent;
+}
+
+.code-line.inserted {
+    background-color: rgba(16, 185, 129, 0.14);
+}
+
+.code-line.deleted {
+    background-color: rgba(239, 68, 68, 0.14);
+}
+
+.highlight-line {
+    margin-left: -16px;
+    margin-right: -16px;
+    padding-left: 12px;
+    border-left: 4px solid #c678dd;
+    background-color: rgba(198, 120, 221, 0.1);
+}
+
+/* Line numbers (rehype-prism-plus) */
+.line-number::before {
+    display: inline-block;
+    width: 1rem;
+    text-align: right;
+    margin-right: 16px;
+    margin-left: -8px;
+    color: #5c6370;
+    content: attr(line);
+}

@@ -30,9 +30,8 @@ const Hero = () => {
                     </Typography>
                     <Typography variant="h1">Josenaldo Matos</Typography>
                     <Typography variant="subtitle">
-                        With 20+ years in tech, I specialize in Java & JS
-                        (React, NextJS) web development. Explore my portfolio,
-                        read my blog, and come talk about your project!
+                        Senior Full Stack Engineer. 20+ years. Java, Spring
+                        Boot, React, TypeScript.
                     </Typography>
                     <Stack
                         direction={{ xs: 'column', sm: 'row' }}
