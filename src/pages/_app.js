@@ -8,6 +8,7 @@ import seoData from '@/data/SeoConfig'
 import theme from '@/styles/theme'
 
 import '@/styles/globals.css'
+import '@/styles/prism-theme.css'
 
 const { SeoConfig } = seoData
 

@@ -1,4 +1,4 @@
-import { Box, Divider } from '@mui/material'
+import { Box, Divider, Typography } from '@mui/material'
 import { MDXProvider } from '@mdx-js/react'
 import PropTypes from 'prop-types'
 // import { Remark } from 'react-remark'
@@ -12,6 +12,11 @@ import remarkParse from 'remark-parse'
 import Blockquote from '@/components/ui/Blockquote'
 import Code from '@/components/ui/Code'
 import Link from '@/components/ui/Link'
+import {
+    MarkdownListItem,
+    MarkdownOrderedList,
+    MarkdownUnorderedList,
+} from '@/components/ui/MarkdownList'
 import ResponsiveImage from '@/components/ui/ResponsiveImage'
 
 import styles from './MDXContent.module.css'
@@ -35,8 +40,12 @@ const MDXContent = ({ content }) => {
         img: ResponsiveImage,
         a: Link,
         pre: Code,
+        code: (props) => <Typography component="code" fontFamily='monospace' color='secondary' {...props} />,
         hr: (props) => <Divider sx={{ my: 2 }} {...props} />,
         blockquote: Blockquote,
+        ol: MarkdownOrderedList,
+        ul: MarkdownUnorderedList,
+        li: MarkdownListItem,
         center: (props) => <Box sx={{ textAlign: 'center' }} {...props} />,
         table: (props) => (
             <Box className={styles.tableWrapper}>

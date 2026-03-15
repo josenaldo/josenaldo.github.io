@@ -9,12 +9,6 @@
     margin: 1.5rem 0;
 }
 
-.markdownBody ul {
-    margin-left: 1.5rem;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-}
-
 .tableWrapper {
     width: 100%;
     overflow-x: auto;

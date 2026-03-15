@@ -59,7 +59,7 @@ export async function getStaticProps() {
             image: testimonial.image,
         }))
 
-    const posts = contentService.getSortedPosts(6).map((post) => ({
+    const posts = contentService.getSortedPosts().map((post) => ({
         title: post.title,
         description: post.description,
         author: post.author,

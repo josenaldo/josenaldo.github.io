@@ -5,7 +5,7 @@ date: 2026-03-04 09:00:00 -0300
 author: Josenaldo Matos
 image: /images/blog/context-engineering-guia-completo.png
 category: pt-br
-status: draft
+status: published
 language: pt
 ---
 
@@ -76,7 +76,7 @@ Context engineering é a disciplina que resolve isso.
 
 > Não é sobre o que você pede. É sobre o ambiente que você cria para que o agente trabalhe.
 >
-> Coachador Neo do Linketrix, viciado em ChatGPT
+> *Coachador Neo do Linketrix, viciado em ChatGPT*
 
 É, Coachador. Agora, nós temos que saber como criar esse ambiente. E, assim como ocorre no nosso ambiente, se o ambiente do agente for tóxico, ele vai produzir resultados intoxicados. Tal qual um ser humano, um agente alcoolizado não vai dirigir em linha reta.
 
@@ -90,9 +90,9 @@ Este artigo cobre o caminho completo: do desenvolvedor que usa IA no chat (Está
 
 Para entender onde estamos, é útil ver como chegamos até aqui:
 
-- **2023** — A era do prompt engineering. A habilidade mais valorizada era formular o pedido perfeito. Você balançava um galho de árvore e caíam pelo menos uns 5 vendedores de cursos de "prompt engineering". O foco estava em o que pedir ao modelo.
+- **2023** — A era do prompt engineering. A habilidade mais valorizada era ser que nem um pretendente esforçado e saber formular o pedido perfeito. Você balançava um galho de árvore e caíam pelo menos uns 5 vendedores de cursos de "prompt engineering". O foco estava em o que pedir ao modelo.
 
-- **2024** — A era dos agent frameworks. LangChain, AutoGen, CrewAI. A ideia era orquestrar múltiplos agentes em pipelines complexos. Multi-agente virou a buzzword do ano. Tinha c-level se molhando todo ao cogitar demitir a equipe inteira.
+- **2024** — A era dos agent frameworks. LangChain, AutoGen, CrewAI. A ideia era orquestrar múltiplos agentes em pipelines complexos. Era fazer com a IA a mesma bagunça que seu patrão faz na empresa. Multi-agente virou a buzzword do ano. Tinha c-level se molhando todo ao cogitar demitir a equipe inteira.
 
 - **2025** — O recuo do multi-agente. As arquiteturas complexas de agentes múltiplos mostraram problemas sérios: perda de contexto entre agentes, overhead de comunicação, dificuldade de debug. A lei de Conway é implacável e a estrutura agêntica replicava os mesmos problemas da estrutura humana. A indústria começou a preferir um único agente bem configurado.
 
@@ -125,7 +125,7 @@ No dia a dia de CLIs de coding, a sessão nunca começa do zero. Antes do primei
 
 Na prática, uma heurística útil é trabalhar na faixa de **40% a 60% de utilização** de contexto. Não é regra rígida, mas acima dessa faixa tende a aumentar perda de detalhe, recuperação confusa de informação e microalucinações.
 
-No Claude Code, isso pode ser monitorado com `/context` e controlado com `/compact`. Para não compactar tarde demais, você pode antecipar o limite de auto-compactação:
+No Claude Code, isso pode ser monitorado com `/context` e controlado com `/compact`. Para não compactar tarde demais, você pode antecipar o limite de auto-compactação, no arquivo de configuração do Claude Code:
 
 ```json
 {
@@ -137,17 +137,69 @@ No Claude Code, isso pode ser monitorado com `/context` e controlado com `/compa
 
 Se `50` ficar agressivo para o seu fluxo, ajuste para `60` ou `70` e monitore qualidade x custo. E um cuidado importante: compactar sem instrução explícita pode resumir demais; ao usar compactação, peça para preservar decisões, restrições e pendências.
 
-### A Frase que Resume Tudo
+Outro fator que consome janela de contexto é a quantidade de skills habilitadas simultaneamente. Segundo o [guia oficial da Anthropic](https://anthropic.com/skills-guide), ter mais de **20 a 50 skills ativas ao mesmo tempo** causa degradação perceptível — o modelo fica mais lento e as respostas perdem qualidade. Se o projeto crescer a ponto de ter dezenas de skills, considere habilitação seletiva (ativar apenas as skills relevantes para a tarefa) ou "skill packs" — grupos de skills ativados por contexto.
 
-**"Você está ensinando o agente. Deveria estar restringindo."**
+### A Frase que Resume Tudo (Com Um Asterisco Importante)
 
-Essa distinção é central. Quando você escreve "Use a classe BaseEntity porque ela oferece serialização automática, integração com o ORM e facilita testes", você está explicando. O agente processa a justificativa, consome atenção com ela, e ainda assim pode ignorá-la.
+**"Você está ensinando o agente. Portanto, também deveria estar restringindo."**
 
-Entenda: você não está casado com o agente e, portanto, não precisa dar satisfação a ele. É ele quem trabalha para você. O que você precisa é dizer O QUE você quer, não POR QUE você quer.
+Essa frase captura um insight real, mas que muita gente não presta atenção. O formato ideal de instrução depende de **onde** ela vai parar. E quando você pesquisa a documentação oficial dos vendors, descobre que cada um deles já mapeou isso:
 
-Quando você escreve `ALWAYS extend BaseEntity`, você está **restringindo**. O agente aplica a regra sem questionar.
+**Nível 1: Arquivo de configuração global** (CLAUDE.md, AGENTS.md, copilot-instructions.md)
 
-Documentação narrativa é para humanos. O que agentes querem é **contexto executável**.
+Aqui, imperativo seco é o que funciona. A documentação do Claude Code é direta: *"Para cada linha, pergunte: remover isso faria o Claude errar? Se não, corte."* Cada token consumido nesse slot é token que falta durante toda a sessão. Então:
+
+```text
+ALWAYS extend BaseEntity for domain models.
+```
+
+Funciona. Não precisa de justificativa. É uma regra simples, sem ambiguidade, num espaço caro. Isso vale para **todos os modelos** — Claude, Copilot, Gemini. Aqui, brevidade é universal.
+
+**Nível 2: Skills e instruções especializadas** (SKILL.md, `.instructions.md`)
+
+Aqui a coisa muda. O [guia oficial de Skills da Anthropic](https://anthropic.com/skills-guide) usa um padrão que mistura imperativo com uma **frase curta de consequência**:
+
+```markdown
+## Critical
+NEVER commit directly to main.
+Why: CI pipeline runs destructive migration tests on main — a direct push can wipe staging data.
+```
+
+Essa frase extra não é "dar satisfação" ao agente. É dar ao modelo informação suficiente para **generalizar** — para aplicar a regra mesmo em cenários que você não previu explicitamente. Skills têm mais espaço (são carregadas sob demanda), então o custo de token é menor e o ganho de aderência compensa.
+
+A OpenAI segue lógica semelhante no [guia de GPT-5.4](https://developers.openai.com/api/docs/guides/prompt-guidance): blocos XML com diretivas claras frequentemente acompanham uma frase de contexto situacional ("This is especially important for workflows where...").
+
+**Nível 3: Prompts diretos**
+
+Aqui, contexto e motivação ajudam **de verdade**. A própria Anthropic recomenda explicitamente:
+
+> *"Providing context or motivation behind your instructions can help Claude better understand your goals and deliver more targeted responses. Claude is smart enough to generalize from the explanation."*
+>
+> Tradução: *"Fornecer contexto ou motivação por trás de suas instruções pode ajudar o Claude a entender melhor seus objetivos e fornecer respostas mais direcionadas. O Claude é inteligente o suficiente para generalizar a partir da explicação."*
+
+Então aquela frase que parecia "ensinar demais" no `AGENT.md` — *"Use BaseEntity porque ela oferece serialização automática, integração com o ORM e facilita testes"* — vai ser **útil** num prompt. O modelo usa o porquê para inferir quando a regra se aplica e quando não se aplica.
+
+Resumindo: quanto maior o nível em que você estiver atuando, menos explicação você precisa dar e mais imperativo pode ser. Quanto mais próximo do prompt, mais explicação e motivação ajudam o modelo a generalizar.
+
+**Onde os modelos divergem**
+
+Um detalhe que vale registrar: os modelos não reagem da mesma forma à **ênfase**.
+
+- **Claude 4.5/4.6** ficou mais sensível a linguagem agressiva. A Anthropic agora recomenda trocar `CRITICAL: You MUST use this tool` por `Use this tool when...` — porque CAPS e ênfase excessiva podem causar *overtriggering*: o modelo aplica a regra com mais rigidez do que você queria. Para Claude, firmeza > agressividade.
+
+- **Modelos de raciocínio da OpenAI** (o3, o4-mini) funcionam como um colega sênior: você dá a meta e confia que ele resolve os detalhes. Já modelos GPT (4.1, 5.4) ainda se beneficiam de instruções explícitas e estruturadas, como um colega júnior que performa melhor com orientação clara.
+
+- **Gemini** enfatiza *"be precise and direct"* e *"prioritize critical instructions"*, mas sem posição explícita sobre explicar o porquê. Na prática, frameworks de raciocínio do Gemini frequentemente incluem contexto de restrições com rationale.
+
+**Onde todos concordam**
+
+Documentação narrativa (parágrafos longos explicando decisões arquiteturais) não é instrução. Agentes querem **contexto executável** — regras, restrições, exemplos, padrões. A diferença real não é "restringir vs. explicar", mas **calibrar a densidade de explicação ao tipo de contexto e ao custo de token naquele slot**.
+
+| Slot                        | Formato                | Token budget            | Regra                                                    |
+| --------------------------- | ---------------------- | ----------------------- | -------------------------------------------------------- |
+| CLAUDE.md / AGENTS.md       | Imperativo seco        | Caro (sempre carregado) | Corte tudo que não previne erro                          |
+| SKILL.md / .instructions.md | Imperativo + brief WHY | Moderado (sob demanda)  | Adicione consequência quando a regra não é auto-evidente |
+| Prompt direto               | Contexto + motivação   | Livre (descartável)     | Explique o suficiente para o modelo generalizar          |
 
 ---
 
@@ -212,7 +264,7 @@ No segundo dia, ele está trabalhando. Você não precisa repetir tudo isso.
 
 Como diria o Chaves: "Isso e só um supositório!". Nós sabemos que o onboarding não costuma ser assim.
 
-O que fazemos (e ainda consideramos boa prática) é **chunchar** (ênfase no termo técnico *chunchar*) no novo dev uma CHAPROCA DE DOCUMENTAÇÃO pra essa pessoa se virar sozinha. Ela que lute com Arqueologia de Software pra entender o que existe. Ele que invoque seus poderes mediúnicos e use a Psicografia de Código pra adivinhar o que o autor quis dizer.
+O que fazemos (e ainda consideramos boa prática) é **chunchar** (ênfase no termo técnico *chunchar*) no novo dev uma CHAPROCA DE DOCUMENTAÇÃO pra essa pessoa se virar sozinha — isso quando há documentação. Ela que lute com Arqueologia de Software pra entender o que existe. Ele que invoque seus poderes mediúnicos e use a Psicografia de Código pra adivinhar o que o autor quis dizer.
 
 O resultado é que a pessoa será soterrada de informação, vai tiltar e passará semanas paralisada e confusa. Toda vez que ela for fazer algo, vai ter que consultar a documentação (que ela não conhece bem) ou perguntar para alguém. E, ainda assim, vai cometer erros, vai ter retrabalho, vai parar outras pessoas...
 
@@ -249,7 +301,7 @@ Você está no Estágio 1 se:
 - O agente gera código tecnicamente correto mas arquiteturalmente errado
 - Você tem mais de um agente (Claude + Copilot, por exemplo), mas eles seguem regras diferentes
 - Depois de cada correção importante você pensa "precisava anotar isso em algum lugar"
-- Skills existem, mas são longas e educativas ("como funciona a arquitetura")
+- Skills existem, mas são longas e educativas ("como funciona a arquitetura") e menos procedurais ("como criar um endpoint seguindo os padrões")
 - A taxa de sucesso do agente depende muito de como você formula o pedido
 
 **O que acontece no Estágio 1:** O agente é competente, mas trabalha no escuro. Ele infere o que pode do código
@@ -290,9 +342,9 @@ um caminho claro. O agente segue o caminho, não inventa. É o sonho de todo tec
 A maioria dos projetos acredita estar no Estágio 2 quando ainda está no Estágio 1 com mais arquivos.
 
 A diferença entre Estágio 1 e Estágio 2 não é a quantidade de documentação. É a qualidade da estrutura: skills focadas
-vs. genéricas, regras imperativas vs. educativas, memória persistente vs. volátil.
+vs. genéricas, regras calibradas por slot vs. narrativa uniforme, memória persistente vs. volátil.
 
-De novo: se seu projeto está tentando **ensinar** o agente, ele provavelmente está no Estágio 1.
+O teste rápido: abra seu arquivo de contexto principal. Se ele parece um README explicando a arquitetura para um humano novo, é Estágio 1. Se ele parece um checklist executável onde cada regra tem o formato certo para o slot onde vive — imperativo seco no AGENTS.md, consequência breve nas skills, contexto rico nos prompts — você está caminhando para o Estágio 2.
 
 ---
 
@@ -300,8 +352,7 @@ De novo: se seu projeto está tentando **ensinar** o agente, ele provavelmente e
 
 ### O Problema do Multi-Agente
 
-Quando você usa Claude Code, GitHub Copilot e OpenAI Codex no mesmo projeto, cada ferramenta lê arquivos diferentes.
-Isso cria um risco real: regras inconsistentes entre ferramentas.
+Quando você usa Claude Code, GitHub Copilot, Google Gemini e OpenAI Codex no mesmo projeto, cada ferramenta lê arquivos diferentes. Isso cria um risco real: regras inconsistentes entre ferramentas.
 
 Se Claude Code segue uma restrição arquitetural, mas o Copilot não tem acesso a ela, você terá metade das suas PRs com
 violações — geradas pela ferramenta que não "sabia" da regra.
@@ -321,9 +372,12 @@ Pra evitar esse problema, o primeiro passo é compreender como cada ferramenta l
 | `.cursorrules` / `.cursor/rules/*.md` | ❌ Ignora      | ❌ Ignora       | ✅ Primário    | ❌ Ignora      | ❌ Ignora      |
 | `GEMINI.md`                           | ❌ Ignora      | ❌ Ignora       | ❌ Ignora      | ❌ Ignora      | ✅ Primário    |
 
-> **Nota:** A compatibilidade evolui rapidamente. No momento em que ler esse artigo, verifique a documentação atualizada de cada ferramenta. É provável que mais ferramentas adotem o padrão de skills ou que haja mudanças na forma como elas lidam com arquivos de contexto, em direção a uma maior unificação.
+> **Nota:** A compatibilidade evolui rapidamente. No momento em que ler esse artigo, verifique a documentação
+> atualizada de cada ferramenta. É provável que mais ferramentas adotem o padrão de skills ou que haja mudanças na
+> forma como elas lidam com arquivos de contexto, em direção a uma maior unificação.
 >
-> *A localização exata das skills para cada ferramenta pode variar com as versões. Consulte a documentação oficial antes de criar a estrutura de diretórios.*
+> A localização exata das skills para cada ferramenta pode variar com as versões. Consulte a documentação oficial antes
+> de criar a estrutura de diretórios.
 
 ### A Estratégia de Localização Neutra
 
@@ -423,8 +477,8 @@ Claude Code não usa esse mecanismo nativamente. Se você colocar `applyTo` no C
 
 Antes de escrever uma linha, internalize esta regra:
 
-- **CLAUDE.md ideal:** menos de 80 linhas
 - **AGENTS.md ideal:** menos de 60 linhas
+- **CLAUDE.md ideal:** menos de 80 linhas
 - **Arquivo com mais de 150 linhas:** candidato a refatoração
 
 Não é minimalismo por estética. É eficácia. Como mostrado pelos estudos de fevereiro de 2026, arquivos excessivamente longos degradam o raciocínio do agente. O modelo "se perde" em justificativas e exemplos quando deveria aplicar restrições.
@@ -441,6 +495,8 @@ O CLAUDE.md é o arquivo que Claude Code lê automaticamente no início de cada 
 6. **Referência à memória** — onde estão as decisões arquiteturais
 
 ### Template Comentado para CLAUDE.md (Node.js + Express)
+
+Abaixo, segue um pequeno template, em português, para um projeto Node.js/Express que está migrando para Clean Architecture. Ele segue as regras de brevidade e estrutura que discutimos.
 
 ```markdown
 # MeuProjeto API
@@ -493,16 +549,20 @@ Ver `memory/MEMORY.md` para decisões arquiteturais e padrões confirmados.
 ```
 
 ❌ **Exemplos de código**
+
 Os exemplos vão nas skills, não no arquivo de contexto global.
 
 ❌ **Histórico de decisões**
+
 "Em janeiro de 2025 decidimos usar Joi porque..." — isso vai no `memory/MEMORY.md`.
 
 ❌ **Instruções de onboarding para humanos**
-CLAUDE.md é para o agente. README é para humanos.
+
+`CLAUDE.md` é para o agente. `README` e pasta `docs/` são para humanos. Se quiser explicar em mais detalhes para humanos, faça isso no `README` ou em um arquivo de onboarding separado. Ou use a pasta `docs/`.
 
 ❌ **Listas longas de skills**
-Uma referência ao AGENTS.md é suficiente.
+
+Uma referência ao `AGENTS.md` é suficiente.
 
 ### Bloco opcional no CLAUDE.md: disciplina do agente principal
 
@@ -528,6 +588,8 @@ O agente principal é **orquestrador**, não executor.
 Esse bloco é opcional, mas ajuda a proteger o contexto principal de inchaço em tarefas longas.
 
 ### Template para AGENTS.md
+
+No caso do `AGENTS.md`, o foco é listar as regras de forma clara e referenciar os arquivos de contexto específicos. Ele deve ser um guia rápido para o agente entender onde encontrar cada tipo de informação.
 
 ```markdown
 # AGENTS.md — MeuProjeto
@@ -573,7 +635,10 @@ Se um arquivo referenciado não existir:
 
 Um CLAUDE.md ou AGENTS.md começa a deteriorar quando alguém adiciona uma exceção, depois outra, depois uma nota explicativa. Em seis meses, tem 300 linhas e ninguém sabe o que ainda é válido.
 
-Adote a regra: **se você vai adicionar uma linha, remova uma linha equivalente ou a mova para um arquivo mais específico (skill ou memory)**.
+Adote a regra:
+
+> **Se você vai adicionar uma linha, remova uma linha equivalente ou a mova para um arquivo mais específico (skill ou
+> memory)**.
 
 ---
 
@@ -605,53 +670,94 @@ Esse mecanismo se chama **progressive disclosure** — revelação progressiva d
 │       └── SKILL.md
 ```
 
-Aqui, temos um exemplo simples de uma skill de `create-entity`. O agente sabe que ela existe, mas só lê o conteúdo quando precisa criar ou modificar uma entidade de domínio:
+Para dar uma ideia geral da anatomia, veja um exemplo simples de uma skill `run-lint`. Todo projeto tem linter — o que muda de projeto para projeto são as regras e os comandos:
 
 ```markdown
 ---
-name: create-entity
-description: Criar ou modificar entidade de domínio com validação e factory. Use ao adicionar entidades no módulo domain/.
+name: run-lint
+description: "Executando lint e corrigindo erros de estilo/formatação. Use quando o usuário
+pedir para rodar lint, corrigir estilo, formatar código, ou antes de finalizar qualquer PR.
+Não use para erros de lógica ou build — use debug-build."
 ---
 
-# Skill: Criar Entidade de Domínio
+# Skill: Rodar Lint
 
-## Quando usar
+## Instruções
 
-- Criar nova entidade de negócio (ex: Pedido, Produto, Cliente)
-- Adicionar campos a uma entidade existente
+### Passo 1: Executar o linter
 
-## Checklist
+- [ ] Rodar `npm run lint` na raiz do projeto
+- [ ] Anotar os erros reportados (arquivo, linha, regra violada)
 
-### 1. Entidade (`src/{módulo}/domain/entity/{entidade}.entity.js`)
+### Passo 2: Corrigir erros auto-fixáveis
 
-- [ ] Estende `BaseEntity`
-- [ ] Construtor recebe apenas primitivos ou Value Objects
-- [ ] Método `validate()` lança `DomainError` se dados inválidos
-- [ ] Sem imports de Express, Sequelize ou `src/models/*`
+- [ ] Rodar `npm run lint -- --fix`
+- [ ] Verificar se restam erros manuais
 
-### 2. Factory (`src/{módulo}/domain/entity/{entidade}.factory.js`)
+### Passo 3: Corrigir erros manuais
 
-- [ ] Método estático `create(data)` instancia e valida a entidade
+- [ ] Para cada erro restante, aplicar a correção seguindo a regra indicada
+- [ ] Não desabilitar regras do ESLint sem aprovação explícita do usuário
 
-### 3. Teste (`src/{módulo}/domain/entity/__tests__/{entidade}.entity.test.js`)
+## Critical
 
-- [ ] Testa criação com dados válidos
-- [ ] Testa rejeição com dados inválidos
+- Nunca adicione `// eslint-disable` sem aprovação explícita. Desabilitar regras
+  silenciosamente esconde problemas reais e degrada a qualidade do código ao longo do tempo.
+
+## Exemplos
+
+### Exemplo 1: Lint pós-feature
+
+Usuário diz: "Roda o lint antes de abrir a PR"
+
+Ações: executa `npm run lint`, corrige auto-fixáveis, resolve manualmente o restante.
+
+Resultado: código limpo, pronto para PR sem warnings.
+
+## Troubleshooting
+
+**Erro: `Parsing error: Unexpected token`**
+- Causa: arquivo com sintaxe inválida (geralmente JSX sem config de parser).
+- Solução: verificar `eslint.config.js` e confirmar que o parser correto está configurado.
+
+## Performance Notes
+
+- Sempre rode o lint completo, não apenas no arquivo alterado — mudanças podem afetar imports de outros módulos.
 
 ## Consulte também
 
-- [enforce-boundary](../enforce-boundary/SKILL.md)
+- [enforce-boundary](../enforce-boundary/SKILL.md) — checklist de fronteiras arquiteturais
 ```
 
 Perceba o padrão: frontmatter com `name` e `description` como campos obrigatórios (outros opcionais são `license`, `compatibility`, `allowed-tools` e `metadata`). A `description` é o mecanismo de triggering — o agente a lê antes de decidir se vai carregar o resto da skill. O corpo usa `## Instruções` com passos numerados, `## Critical` para regras de alto impacto, `## Exemplos` com cenários reais, e `## Troubleshooting` para os erros mais comuns. Instruções executáveis, não explicações arquiteturais.
 
 A `description` merece atenção especial porque é o único campo que o agente lê **antes** de carregar a skill. É ela que decide se a skill vai ser acionada. O resto do arquivo — o corpo com checklists e exemplos — só entra em cena se a description convencer o agente de que aquela skill é relevante para a tarefa atual.
 
-Isso tem implicações práticas importantes. Uma description fraca ("Skill para criar entidades") resulta em undertriggering: o agente não usa a skill mesmo quando deveria. Uma description vaga demais resulta em overtriggering: a skill é carregada em contextos errados, ocupando espaço desnecessário.
+Isso tem implicações práticas importantes. Uma `description` fraca ("Skill para rodar lint") resulta em undertriggering: o agente não usa a skill mesmo quando deveria. Uma description vaga demais resulta em overtriggering: a skill é carregada em contextos errados, ocupando espaço desnecessário.
+
+> **Undertriggering**: é quando o agente não aciona a skill mesmo quando a tarefa se encaixa. Exemplo: o usuário pede
+> "roda o lint antes da PR", mas a `description` é "Skill para lint" — o agente não tem certeza se isso
+> inclui formatação e ignora a skill.
+>
+> **Overtriggering**: é quando o agente aciona a skill em contextos que não são ideais. Exemplo: a `description` é
+> "Executando verificações de código" e o usuário pede "roda os testes" — o agente carrega a skill de lint
+> quando deveria usar uma skill de testes.
 
 A estrutura que funciona é: **O QUE faz** + **QUANDO usar** (frases que o usuário diria) + **capacidades-chave** + opcionalmente **"Não use para X"** se houver risco de overtriggering. Tudo isso em menos de 1024 caracteres, sem tags XML (`<` ou `>`).
 
-Uma dica contraintuitiva: a description deve ser um pouco "empurrativa". Em vez de "Cria entidade de domínio", prefira "Cria ou modifica uma entidade de domínio no backend. Use quando o usuário pedir para adicionar entidade, criar modelo de domínio, ou disser 'criar X', 'adicionar campo a Y', 'novo Value Object'." O agente tende ao undertriggering — uma nudge a mais na description compensa esse viés.
+Uma dica contraintuitiva: a `description` deve ser um pouco "empurrativa". Em vez de "Roda lint", prefira "Executando lint e corrigindo erros de estilo/formatação. Use quando o usuário pedir para rodar lint, corrigir estilo, formatar código, ou antes de finalizar qualquer PR. Não use para erros de lógica ou build." O agente tende ao undertriggering — uma cutucada a mais na `description` compensa esse viés.
+
+**Truque de debugging:** se você suspeita que a description não está funcionando, pergunte diretamente ao agente: *"Quando você usaria a skill [nome-da-skill]?"*. O agente vai citar a description de volta. Compare o que ele responde com o que você esperava e ajuste o texto com base na diferença. Esse método é mais rápido do que testar por tentativa e erro.
+
+### Problem-first vs. Tool-first
+
+Antes de classificar os tipos, vale entender duas abordagens de design que o [guia da Anthropic](https://anthropic.com/skills-guide) chama de *problem-first* e *tool-first*. A analogia deles é a Home Depot (loja de materiais de construção
+): você pode entrar com um problema ("preciso consertar um armário") e um funcionário te aponta as ferramentas certas, ou pode escolher uma furadeira nova e perguntar como usá-la no seu caso.
+
+- **Problem-first:** "Preciso implementar o CRUD de produtos" → a skill (meta-skill) orquestra as micro-skills na sequência correta. O usuário descreve o resultado; a skill lida com as ferramentas.
+- **Tool-first:** "Tenho o MCP do Sentry conectado" → a skill ensina ao agente os workflows e boas práticas para usar aquela ferramenta. O usuário já tem acesso; a skill fornece expertise.
+
+No contexto de repositórios (o foco deste artigo), a maioria das skills será *problem-first*: o dev descreve o que quer ("cria uma entidade", "implementa a feature") e a skill guia o agente pelas etapas. Skills *tool-first* são mais comuns quando você tem integrações MCP (Notion, Linear, Sentry, etc.) e quer padronizar como o agente usa esses serviços.
 
 ### Os 3 Tipos de Skills
 
@@ -684,14 +790,32 @@ Exemplos: `enforce-boundary`.
 
 Regra: use `## Critical` para enfatizar as regras de alto impacto — não CAPS (ALWAYS/NEVER) como substituto para explicação de contexto. CAPS é aceitável em CLAUDE.md e AGENTS.md, mas dentro do corpo de uma skill, o modelo responde melhor ao `## Critical` acompanhado de uma breve explicação do porquê.
 
+Uma recomendação forte do [guia oficial da Anthropic](https://anthropic.com/skills-guide): **para validações críticas, use scripts programáticos em vez de depender apenas de instruções em linguagem natural**. Código é determinístico; interpretação de linguagem não é. Uma constraint-skill como `enforce-boundary` pode incluir um `scripts/check-boundaries.sh` que faz `grep` por imports proibidos nos diretórios protegidos — e instrui o agente a rodar o script antes de finalizar:
+
+```bash
+# scripts/check-boundaries.sh
+# Verifica imports proibidos na camada de domínio
+find src/*/domain -name '*.js' | xargs grep -l \
+  -e "require.*express" \
+  -e "require.*sequelize" \
+  -e "from 'express'" \
+  -e "from 'sequelize'" \
+  && echo "VIOLAÇÃO: import de infraestrutura em domain/" && exit 1 \
+  || echo "OK: fronteiras respeitadas"
+```
+
+Isso transforma a constraint-skill de uma "sugestão forte" para uma **verificação determinística**. O agente pode errar ao interpretar uma regra em linguagem natural, mas não pode errar ao rodar um script que retorna exit code 1. Se o script falha, a skill instrui o agente a corrigir antes de prosseguir. Esse padrão é especialmente útil no Estágio 3.
+
 ### Estrutura de uma Micro-skill
 
-Olha a diferença estrutural. Antes era um checklist disfarçado de skill. Agora é uma skill de verdade: tem instruções com passos, tem exemplos concretos com situação real de usuário, tem troubleshooting para o erro mais comum, e tem uma seção `## Critical` que explica o porquê da regra mais importante — em vez de gritar NUNCA em caps como se o desenvolvedor fosse criança.
+Olha a diferença estrutural. Antes era um checklist disfarçado de skill. Agora é uma skill de verdade: tem instruções com passos, tem exemplos concretos com situação real de usuário, tem troubleshooting para o erro mais comum, e tem uma seção `## Critical` que explica o porquê da regra mais importante — em vez de gritar NUNCA em caps como se o desenvolvedor fosse um marido de Tiktok.
 
 ```markdown
 ---
 name: create-entity
-description: "Cria ou modifica uma entidade de domínio no backend, seguindo Clean Architecture. Use quando o usuário pedir para adicionar entidade, criar modelo de domínio, adicionar campo, ou disser 'criar X', 'novo Value Object'. Não use para criar Use Cases — use create-usecase."
+description: "Cria ou modifica uma entidade de domínio no backend, seguindo Clean Architecture. Use quando o
+usuário pedir para adicionar entidade, criar modelo de domínio, adicionar campo, ou disser 'criar X',
+'novo Value Object'. Não use para criar Use Cases — use create-usecase."
 ---
 
 # Skill: Criar Entidade de Domínio
@@ -716,7 +840,8 @@ description: "Cria ou modifica uma entidade de domínio no backend, seguindo Cle
 
 ## Critical
 
-- Nunca importe Express, Sequelize ou `src/models/*` em `domain/`. A camada de domínio não pode depender de infraestrutura — isso é o que permite testar a lógica de negócio sem banco de dados ou HTTP.
+- Nunca importe Express, Sequelize ou `src/models/*` em `domain/`. A camada de domínio não pode depender de
+infraestrutura — isso é o que permite testar a lógica de negócio sem banco de dados ou HTTP.
 
 ## Exemplos
 
@@ -724,7 +849,8 @@ description: "Cria ou modifica uma entidade de domínio no backend, seguindo Cle
 
 Usuário diz: "Cria a entidade Produto com nome, preço e estoque"
 
-Ações: cria `produto.entity.js` estendendo `BaseEntity`, `produto.factory.js` com `create(data)`, `produto.validator.js` com schema Joi.
+Ações: cria `produto.entity.js` estendendo `BaseEntity`, `produto.factory.js` com `create(data)`,
+`produto.validator.js` com schema Joi.
 
 Resultado: entidade testável, sem dependência de infraestrutura.
 
@@ -747,10 +873,13 @@ Solução: verifique `src/@shared/domain/entity/base.entity.js` e ajuste o impor
 
 ### Estrutura de uma Meta-skill
 
+Agora, observe a estrutura de uma meta-skill. Ela não tem detalhes de implementação — ela aponta para as micro-skills que têm os detalhes. O foco é a sequência e a orquestração, não o conteúdo de cada passo.
+
 ````markdown
 ---
 name: implement-backend-feature
-description: Implementando feature completa no backend (entidade → use case → endpoint → testes). Use como ponto de entrada para qualquer nova funcionalidade backend em módulo existente.
+description: Implementando feature completa no backend (entidade → use case → endpoint → testes). Use como ponto de
+entrada para qualquer nova funcionalidade backend em módulo existente.
 ---
 
 # Skill: Implementar Feature Backend (Meta-Skill)
@@ -760,34 +889,87 @@ description: Implementando feature completa no backend (entidade → use case �
 - Nova funcionalidade em módulo existente (não novo módulo do zero)
 - Feature que envolve entidade + use case + endpoint
 
+## Inputs necessários
+
+- [O que você precisa saber antes de começar]
+- [Spec, endpoint, entidade envolvida]
+
 ## Workflow (execute nesta ordem)
 
-### 1. Entender e planejar
+### 1. [Primeira etapa]
 
-- Ler spec em `docs/specs/{módulo}/` se existir
-- Identificar: entidades novas? campos novos? Use Cases novos? endpoints novos?
+→ **Usar skill: [[micro-skill-1]](../[micro-skill-1]/SKILL.md)**
 
-### 2. Domain (se há entidade nova ou modificação)
+- [Nota específica para esta etapa, se necessário]
 
-→ **Usar skill: [create-entity](../create-entity/SKILL.md)**
+### 2. [Segunda etapa]
 
-### 3. Application (para cada operação)
+→ **Usar skill: [[micro-skill-2]](../[micro-skill-2]/SKILL.md)**
 
-→ **Usar skill: [create-usecase](../create-usecase/SKILL.md)**
+### 3. Verificação final
 
-### 4. Infrastructure — HTTP (para cada endpoint)
-
-→ **Usar skill: [add-endpoint](../add-endpoint/SKILL.md)**
-
-### 5. Verificação final
-
-→ **Usar skill: [enforce-boundary](../enforce-boundary/SKILL.md)**
+→ **Usar skill: [[enforce-boundary]](../enforce-boundary/SKILL.md)**
 
 ```bash
-npm run test:unit    # deve passar
-npm run lint         # deve passar
+[comando de validação final]
 ```
 ````
+
+### Estrutura de uma Constraint-skill
+
+Por fim, a constraint-skill. Se a micro-skill responde "como fazer X" e a meta-skill responde "em que ordem fazer X, Y e Z", a constraint-skill responde uma pergunta diferente: **"o que nunca pode acontecer?"**
+
+Ela não tem workflow. Não tem passos de implementação. Tem regras de fronteira e um checklist de verificação. O agente a carrega como etapa final de qualquer operação — é o guarda na porta de saída, não o pedreiro construindo a parede.
+
+A diferença estrutural mais importante: enquanto micro-skills e meta-skills confiam em linguagem natural para guiar o agente, a constraint-skill deve — sempre que possível — incluir **validação programática**. Um script bash que retorna exit code 1 é mais confiável do que uma instrução "NUNCA importe X em Y". O agente pode interpretar mal uma regra em texto, mas não pode ignorar um `exit 1`.
+
+````markdown
+---
+name: enforce-boundary
+description: "Verificando fronteiras arquiteturais antes de finalizar qualquer mudança.
+Use como checklist final em qualquer edição de código backend. Deve ser executada
+após micro-skills e como passo final de meta-skills. Não use para validar lógica de
+negócio — use write-unit-test."
+---
+
+# Skill: Enforce Boundary (Constraint-Skill)
+
+## Quando usar
+
+- Antes de finalizar qualquer mudança em código backend
+- Como checklist final de qualquer meta-skill
+- Ao revisar código de outro desenvolvedor ou agente
+
+## Regras de Fronteira (NUNCA violar)
+
+- `domain/`: NUNCA importe Express, Sequelize ou qualquer framework de infraestrutura
+- `application/`: PODE importar `domain/`, NUNCA `infrastructure/` diretamente
+- `infrastructure/`: PODE importar tudo — é a camada de borda
+
+## Checklist de Verificação
+
+- [ ] Arquivos em `domain/` importam apenas outros arquivos de `domain/` ou `@shared/`
+- [ ] Sem imports de ORM, HTTP ou filesystem fora de `infrastructure/`
+- [ ] Controllers delegam para Use Cases — sem lógica de negócio
+- [ ] Testes existem para cada Use Case novo ou modificado
+
+## Validação Automatizada
+
+```bash
+# Script determinístico — mais confiável que regras em linguagem natural
+scripts/check-boundaries.sh
+```
+
+Se o script retornar erro, corrija antes de prosseguir.
+
+## Critical
+
+- Validações programáticas (scripts) são preferíveis a instruções em linguagem natural
+  para verificações de fronteira. Código é determinístico; interpretação de linguagem não é.
+- Se o script retornar erro, o agente DEVE corrigir antes de finalizar a tarefa.
+````
+
+Note a ausência de `## Instruções` com passos numerados — isso é intencional. A constraint-skill não guia uma construção, ela audita o resultado. A seção `## Regras de Fronteira` substitui os passos: em vez de "faça isso", ela diz "isso nunca pode existir". E a seção `## Validação Automatizada` é o que transforma a skill de uma "sugestão forte" em uma **verificação determinística** — o ponto que já discutimos na definição dos tipos.
 
 ### Regras de Autoria
 
@@ -797,9 +979,9 @@ npm run lint         # deve passar
 - ❌ `entity-creation`, `endpoint-addition`, `unit-test-writing` (tecnologia-centric, passivo)
 - ❌ `backend-entity`, `http-endpoint` (tecnologia-centric)
 
-**Frontmatter permitido:**
+O problema de nomes passivos ou tecnologia-centric é que eles não descrevem a ação que o agente deve executar. "Create-entity" diz claramente o que fazer. "Entity-creation" é mais vago — o agente pode não entender se é um comando, um conceito, ou uma categoria de skills.
 
-O frontmatter de uma skill aceita apenas os seguintes campos:
+**Frontmatter permitido:** O frontmatter de uma skill aceita os seguintes campos:
 
 - `name` — obrigatório, kebab-case, igual ao nome da pasta
 - `description` — obrigatório, < 1024 chars, sem tags XML
@@ -818,9 +1000,11 @@ O frontmatter de uma skill aceita apenas os seguintes campos:
 
 **Seção `## Troubleshooting`:** documente os 2-3 erros mais comuns que acontecem ao executar a skill. Formato: **Erro** + **Causa** + **Solução**.
 
-**Seção `## Performance Notes`:** use quando o agente tende a pular etapas. "Execute cada passo em ordem, sem pular validações." Não é obrigatório, mas resolve problemas de preguiça agêntica.
+**Seção `## Performance Notes`:** use quando o agente tende a pular etapas. "Execute cada passo em ordem, sem pular validações." Não é obrigatório, mas resolve problemas de preguiça agêntica (não, oferecer um aumento de salário ou café com monster de mango loco não é uma opção).
 
-**Referências cruzadas:** uma skill pode referenciar outra, mas máximo um nível de profundidade. Não crie cadeias: A → B → C → D. Se isso acontecer, A é uma meta-skill que deveria apontar diretamente para B, C e D.
+Uma nuance importante do [guia oficial da Anthropic](https://anthropic.com/skills-guide): frases de encorajamento como "Take your time" e "Do not skip validation steps" são **mais efetivas quando adicionadas no prompt do usuário** do que quando estão no SKILL.md. Se o agente insiste em pular etapas mesmo com `## Performance Notes`, tente incluir a instrução no prompt da tarefa.
+
+**Referências cruzadas:** uma skill pode referenciar outra, mas máximo um nível de profundidade. Não crie cadeias: A → B → C → D. Se isso acontecer, A é uma meta-skill que deveria apontar diretamente para B, C e D. Lembre-se da regra: **`Grafos cíclicos são uma forma de invocação do mal`**.
 
 **Nunca duplique:** se a regra já está no CLAUDE.md ou AGENTS.md, não repita na skill. A skill adiciona detalhe procedural, não repete contexto global.
 
@@ -836,7 +1020,7 @@ O `references/` é o terceiro nível do sistema de progressive disclosure. A ló
 
 Isso significa que você pode ter exemplos longos (50+ linhas de código), templates completos ou documentação de referência em `references/` — e eles só entram no contexto quando o agente realmente precisar. Não poluem o contexto de quem está fazendo outra tarefa.
 
-Regra prática: se um exemplo de código tem mais de 20 linhas, vai para `references/`. O SKILL.md principal mantém apenas o essencial acionável.
+Regra prática: se um exemplo de código tem mais de 20 linhas, vai para `references/`. O `SKILL.md` principal mantém apenas o essencial acionável.
 
 ```text
 .agents/skills/
@@ -848,9 +1032,15 @@ Regra prática: se um exemplo de código tem mais de 20 linhas, vai para `refere
 │   ├── SKILL.md
 │   └── references/
 │       └── controller-patterns.md
+├── enforce-boundary/
+│   ├── SKILL.md              ← constraint-skill
+│   └── scripts/
+│       └── check-boundaries.sh ← validação determinística
 └── implement-backend-feature/
     └── SKILL.md              ← meta-skill que aponta para as outras
 ```
+
+Além de `references/`, skills podem incluir `scripts/` (código executável: Python, Bash, etc.) e `assets/` (templates, imagens, arquivos de apoio). A regra é a mesma: só entram no contexto quando a skill instrui o agente a usá-los.
 
 ### Por Que Skills Pequenas Vencem
 
@@ -867,13 +1057,13 @@ Aqui está o que acontece nos bastidores quando você pede algo ao agente:
 3. Se a description de uma skill corresponde, ele carrega o corpo completo do SKILL.md
 4. Se o corpo do SKILL.md referencia arquivos em `references/`, carrega apenas os que a tarefa exige
 
-A consequência prática é que a description não é só metadado — é o único mecanismo de seleção. Uma skill com description ruim nunca vai ser usada, não importa quão bom seja o resto do conteúdo. É como ter um produto excelente com embalagem errada na prateleira de um supermercado escuro.
+A consequência prática é que a description não é só metadado — é o único mecanismo de seleção. Uma skill com description ruim nunca vai ser usada, não importa quão bom seja o resto do conteúdo. É como ser um desenvolvedor brilhante, mas ter um [péssimo currículo: ninguém te chama para a entrevista](https://josenaldo.com.br/blog/como-escrever-o-seu-curriculo).
 
 ### A Divisão de Responsabilidades: `docs/` vs `skills/`
 
 Uma confusão frequente é onde vai cada tipo de informação. A distinção é simples:
 
-**`docs/` é para referência humana.** Nada dentro de `docs/` deve ser carregado como contexto de agente. A estrutura recomendada:
+**`docs/` é para referência humana.** Nada dentro de `docs/` deve ser carregado como contexto de agente. Um exemplo de estrutura recomendada:
 
 - `docs/specs/{módulo}/` — specs funcionais por módulo: user stories, contrato de endpoints, modelo de domínio, ADR do módulo
 - `docs/adr/` — decisões arquiteturais globais (cross-cutting, afetam o projeto inteiro)
@@ -884,13 +1074,13 @@ Uma confusão frequente é onde vai cada tipo de informação. A distinção é 
 
 A regra prática para decidir onde algo vai:
 
-| Pergunta                                   | Destino                                     |
-| ------------------------------------------ | ------------------------------------------- |
-| "Como eu faço X?" (humano consultando)     | `docs/runbooks/`                            |
-| "O que o agente deve fazer ao executar X?" | `skills/`                                   |
-| "Por que decidimos usar X?"                | `docs/adr/` ou `docs/specs/{módulo}/adr.md` |
-| "O que o agente deve SEMPRE/NUNCA fazer?"  | `CLAUDE.md` ou `AGENTS.md`                  |
-| "Qual foi a história do requisito Y?"      | `docs/specs/{módulo}/user-stories/`         |
+| Pergunta                                   | Destino                                                     |
+| ------------------------------------------ | ----------------------------------------------------------- |
+| "Como eu faço X?" (humano consultando)     | `docs/runbooks/`                                            |
+| "O que o agente deve fazer ao executar X?" | `skills/`                                                   |
+| "Por que decidimos usar X?"                | `docs/adr/` ou `docs/specs/{módulo}/adr-0000-[adr-name].md` |
+| "O que o agente deve SEMPRE/NUNCA fazer?"  | `CLAUDE.md` ou `AGENTS.md`                                  |
+| "Qual foi a história do requisito Y?"      | `docs/specs/{módulo}/user-stories/`                         |
 
 **O anti-padrão:** colocar procedimentos em `docs/` e referenciar essas páginas como contexto para o agente. Isso faz o agente carregar documentação de onboarding quando deveria ter uma skill de 50 linhas.
 
@@ -1037,10 +1227,10 @@ Quando você usa Claude Code pela manhã, Copilot na tarde e Codex para code rev
 
 **Camada 1 — Base Universal (AGENTS.md)**
 
-Este arquivo é a constituição do projeto. Regras que estão aqui valem para todos.
+Este arquivo é a constituição do projeto. Regras que estão aqui valem para todos — inclusive a lista de skills disponíveis, que é o catálogo central.
 
 ```markdown
-# AGENTS.md
+# AGENTS.md — MeuProjeto
 
 ## Arquitetura
 Aplicação Node.js/Express em migração MVC → Clean Architecture.
@@ -1053,47 +1243,61 @@ Aplicação Node.js/Express em migração MVC → Clean Architecture.
 - SEMPRE use Facade entre Controller e UseCases
 - NUNCA adicione lógica de negócio em Controllers
 - SEMPRE escreva testes unitários para novos Use Cases
+
+## Skills disponíveis
+- `/create-entity` — Criar/modificar entidade de domínio
+- `/create-usecase` — Criar Use Case + teste unitário
+- `/add-endpoint` — Adicionar endpoint HTTP
+- `/implement-backend-feature` — Feature completa (meta-skill)
+- `/enforce-boundary` — Verificar fronteiras (constraint-skill)
+
+## Memória
+Ver `memory/MEMORY.md` para decisões arquiteturais e padrões confirmados.
 ```
 
 **Camada 2 — Específica por Ferramenta**
 
-Cada ferramenta tem seu arquivo específico, mas ele apenas complementa — nunca duplica.
+Cada ferramenta tem seu arquivo específico, mas ele apenas complementa — nunca duplica. Note que nenhum dos exemplos abaixo repete as regras ou a lista de skills — eles referenciam o AGENTS.md.
+
+Exemplo de CLAUDE.md:
 
 ```markdown
-# CLAUDE.md (para Claude Code)
-Ver AGENTS.md para arquitetura e regras.
+# MeuProjeto API
+
+Node.js/Express, Clean Architecture (migração desde 2025).
+Ver AGENTS.md para arquitetura, regras e lista de skills.
 
 ## Comandos
-- npm run dev
-- npm run test:unit
-- npm run lint
+- `npm run dev` — Iniciar em desenvolvimento
+- `npm run test:unit` — Apenas testes unitários
+- `npm run lint` — ESLint
 
-## Skills
-Ver AGENTS.md para lista de skills disponíveis.
+## Memória
+Ver `memory/MEMORY.md` para decisões arquiteturais e padrões confirmados.
 ```
+
+Exemplo de copilot-instructions.md:
 
 ```markdown
-# .github/copilot-instructions.md (para Copilot)
-Ver AGENTS.md para arquitetura e regras universais.
+# .github/copilot-instructions.md
 
-## Seleção de skill por operação
-- Criar entidade → /create-entity
-- Adicionar endpoint → /add-endpoint
-- Feature completa → /implement-backend-feature
+Ver AGENTS.md para arquitetura, regras universais e lista de skills.
+Ver `memory/MEMORY.md` para decisões arquiteturais e padrões confirmados.
 ```
 
-**Camada 3 — Skills (disponível onde suportado)**
+Perceba: o `copilot-instructions.md` é quase um stub. Ele existe para que o Copilot saiba onde procurar — as regras e skills vivem no AGENTS.md. Se você precisar de instruções específicas para o Copilot (como regras de `applyTo` em `.github/instructions/`), adicione apenas o que é exclusivo dessa ferramenta.
 
-Para Codex, Gemini e Cursor, o padrão emergente é `.agents/skills/` (com symlinks das pastas específicas apontando para lá).
+**Camada 3 — Skills (disponível onde suportado)**
 
 A fonte de verdade é `.agents/skills/`. Cada ferramenta que tem pasta nativa própria recebe um symlink apontando para ela:
 
 - **GitHub Copilot** lê `.github/skills/` nativamente → criamos symlink `.github/skills/ → ../.agents/skills/`
 - **Claude Code** lê `.claude/skills/` nativamente → criamos symlink `.claude/skills/ → ../.agents/skills/`
+- **Codex, Gemini, Cursor** leem `.agents/skills/` nativamente — sem symlink necessário
 
 Assim, ao adicionar uma skill em `.agents/skills/`, ela fica disponível para todas as ferramentas automaticamente.
 
-Onde nenhum mecanismo nativo existe, o AGENTS.md faz o papel de "skill simplificada" — descreve o workflow em texto, sem a progressividade do mecanismo de skills.
+Onde nenhum mecanismo nativo de skills existe, o AGENTS.md faz o papel de "skill simplificada" — descreve o workflow em texto, sem a progressividade do mecanismo de skills.
 
 ### Exemplo de Fluxo Real
 
@@ -1134,7 +1338,7 @@ No Estágio 3, as skills se conhecem. Uma meta-skill orquestra micro-skills. Uma
 
 ### Anatomia de um Skill Graph
 
-```
+```text
 implement-backend-feature (meta-skill)
 ├── [1] create-entity (micro-skill)
 │   └── verifica: enforce-boundary
@@ -1160,6 +1364,10 @@ O desenvolvedor não gerenciou o workflow. O workflow estava no grafo.
 
 ### Mapeando sua Arquitetura em Skills
 
+"Tá, bonito o conceito. Mas como eu sei qual skill pertence a qual parte do meu projeto?"
+
+A resposta é simples: cada camada da sua arquitetura tem um tipo de operação predominante. A tabela abaixo mapeia camadas em skills — se o seu projeto segue outra arquitetura, a lógica é a mesma: identifique a operação dominante de cada camada e crie (ou atribua) uma skill pra ela.
+
 Para Node.js + Express + Clean Architecture:
 
 | Camada         | Arquivo                                        | Skill Responsável  |
@@ -1175,23 +1383,25 @@ Para Node.js + Express + Clean Architecture:
 
 Para React + Clean Architecture (frontend):
 
-| Camada          | Arquivo                             | Skill Responsável              |
-| --------------- | ----------------------------------- | ------------------------------ |
-| API Client      | `src/features/{módulo}/api/`        | `create-frontend-api-client`   |
-| Model/Contratos | `src/features/{módulo}/model/`      | `frontend-model-contracts`     |
-| Hooks           | `src/features/{módulo}/hooks/`      | `frontend-hooks-react-query`   |
-| Components      | `src/features/{módulo}/components/` | `create-frontend-component`    |
-| Pages           | `src/features/{módulo}/pages/`      | `frontend-pages-shell`         |
-| Testes          | Qualquer camada                     | `create-frontend-test`         |
-| Meta            | Feature completa                    | `implement-feature-frontend`   |
+| Camada          | Arquivo                             | Skill Responsável            |
+| --------------- | ----------------------------------- | ---------------------------- |
+| API Client      | `src/features/{módulo}/api/`        | `create-frontend-api-client` |
+| Model/Contratos | `src/features/{módulo}/model/`      | `frontend-model-contracts`   |
+| Hooks           | `src/features/{módulo}/hooks/`      | `frontend-hooks-react-query` |
+| Components      | `src/features/{módulo}/components/` | `create-frontend-component`  |
+| Pages           | `src/features/{módulo}/pages/`      | `frontend-pages-shell`       |
+| Testes          | Qualquer camada                     | `create-frontend-test`       |
+| Meta            | Feature completa                    | `implement-feature-frontend` |
 
 ### O SDLC Executável
 
-O Skill Graph cria um SDLC (Software Development Lifecycle) executável. Para cada tipo de operação, existe um caminho claro:
+Se você já trabalhou em empresa que tinha um processo de desenvolvimento documentado num Confluence empoeirado que ninguém seguia, vai entender a beleza dessa parte.
+
+O Skill Graph transforma o SDLC (Software Development Lifecycle) em algo que não depende de boa vontade humana para ser seguido. Para cada tipo de operação, existe um caminho claro — e o agente segue esse caminho porque ele está codificado nas skills, não num wiki que ninguém lê:
 
 **Feature de backend:**
 
-```
+```markdown
 implement-backend-feature
   → create-entity (se nova entidade)
   → create-usecase
@@ -1201,7 +1411,7 @@ implement-backend-feature
 
 **Correção de bug em legado:**
 
-```
+```markdown
 diagnose-legacy-bug (skill de diagnóstico)
   → apply-fix
   → enforce-boundary
@@ -1209,7 +1419,7 @@ diagnose-legacy-bug (skill de diagnóstico)
 
 **Feature de frontend:**
 
-```
+```markdown
 implement-feature-frontend
   → create-frontend-api-client   (funções HTTP por intenção)
   → frontend-model-contracts     (contratos de dados / normalização)
@@ -1222,6 +1432,8 @@ implement-feature-frontend
 Cada um desses caminhos pode ser codificado em uma meta-skill. O agente segue o caminho sem precisar de instrução a cada passo.
 
 ### Como Transicionar do Estágio 2 para o Estágio 3
+
+Se você já tem skills funcionando isoladamente (Estágio 2), conectá-las num grafo não é uma refatoração — é uma evolução incremental. Você não joga fora o que construiu; você liga os fios.
 
 **Passo 1:** Identifique as 5-7 operações atômicas que acontecem em toda PR.
 Exemplo: criar entidade, criar use case, adicionar endpoint, escrever teste unitário.
@@ -1241,7 +1453,7 @@ Documente quais skills existem, o que cada uma faz, e as relações entre elas.
 **Passo 6:** Teste em sessão limpa.
 Abra uma nova sessão, peça uma feature completa. O agente deve seguir o workflow sem instrução adicional.
 
-### Métricas de Stage 3
+### Métricas do Estágio 3
 
 Como saber se você chegou lá:
 
@@ -1254,11 +1466,15 @@ Como saber se você chegou lá:
 
 ## 10. Guia Passo a Passo: Da Fase 0 à Fase 3
 
-> "Você não precisa fazer tudo de uma vez. Cada fase tem ROI imediato."
+Um esclarecimento antes de começar: na Seção 3, definimos **Estágios** (1, 2 e 3) como níveis de maturidade — onde o projeto *está*. Aqui, usamos **Fases** (0, 1, 2 e 3) como etapas de implementação — o que você *faz* pra chegar lá. A Fase 1 te leva ao Estágio 1–2, a Fase 2 ao Estágio 2, e a Fase 3 ao Estágio 3. A Fase 0 é o diagnóstico — porque, ao contrário do que dizem, pular o diagnóstico e sair implementando não é agilidade, é imprudência.
+
+E o mais importante: você não precisa fazer tudo de uma vez. Cada fase tem ROI imediato. Aqui você pode ser preguiçoso e ir por partes — cada etapa já melhora o dia a dia.
 
 ### Fase 0 — Diagnóstico
 
-Antes de sair mexendo no paciente, faça como um bom médico: diagnóstico completo. Entenda o estado atual do projeto, onde estão os arquivos de contexto, quais regras estão espalhadas, quais operações são mais frequentes, onde as violações arquiteturais acontecem.
+Antes de sair mexendo no paciente, faça como um bom médico: diagnóstico completo. Sentar na mesa da sala sem lavar as mãos e abrir a barriga do paciente com um facão de cozinha não é cirurgia, é crime.
+
+Entenda o estado atual do projeto: onde estão os arquivos de contexto, quais regras estão espalhadas, quais operações são mais frequentes, onde as violações arquiteturais acontecem.
 
 **Checklist de diagnóstico:**
 
@@ -1275,7 +1491,7 @@ Antes de sair mexendo no paciente, faça como um bom médico: diagnóstico compl
 
 ### Fase 1 — Fundação
 
-O objetivo é garantir que o agente tenha contexto mínimo consistente em toda sessão.
+Aqui é onde o agente deixa de ser um bêbado com amnésia e começa a lembrar pelo menos quem ele é. O objetivo é garantir que, em toda sessão nova, ele tenha o mínimo necessário pra não perguntar "o que é esse projeto?" pela centésima vez.
 
 **Checklist:**
 
@@ -1293,7 +1509,7 @@ O objetivo é garantir que o agente tenha contexto mínimo consistente em toda s
 
 ### Fase 2 — Skills Estruturadas
 
-O objetivo é ter skills focadas para as operações mais frequentes.
+Se a Fase 1 ensinou o agente a não bater nas paredes, a Fase 2 é onde ele aprende as rotas. O objetivo é que as operações mais frequentes do projeto tenham skills dedicadas — pra que o agente pare de improvisar e comece a seguir um roteiro testado.
 
 **Checklist:**
 
@@ -1307,9 +1523,19 @@ O objetivo é ter skills focadas para as operações mais frequentes.
 
 **Validação:** Abra uma nova sessão, peça uma operação simples (ex: "cria uma nova entidade de domínio para Produto"). O agente deve identificar e usar a micro-skill correspondente sem instrução adicional.
 
+**Dica: use o `skill-creator`**. O Claude tem uma skill built-in chamada `skill-creator`, disponível tanto no Claude.ai quanto no Claude Code. Ela gera skills a partir de descrições em linguagem natural, revisa skills existentes e sugere melhorias. Use-a como atalho para criar as primeiras micro-skills: *"Use the skill-creator skill to help me build a skill for [operação]"*. É possível construir e testar uma skill funcional em 15-30 minutos com essa ferramenta.
+
+**Métricas por skill individual.** Além da validação geral, teste cada skill isoladamente:
+
+- **Triggering:** rode 10-20 queries que *deveriam* acionar a skill + 5-10 que *não deveriam*. Meta: 90% de acerto.
+- **Eficiência:** compare a mesma tarefa com e sem skill habilitada. Conte tool calls e tokens consumidos.
+- **Consistência:** execute o mesmo pedido 3-5 vezes. Os resultados devem ter estrutura consistente.
+
+Essas métricas são aspiracionais — benchmarks, não thresholds rígidos. Mas dão uma referência concreta para iterar.
+
 ### Fase 3 — Skill Graph
 
-O objetivo é conectar as skills em um grafo navegável.
+Esse é o nível em que o agente para de seguir ordens e começa a seguir processos. Você não diz "cria a entidade, depois o use case, depois o endpoint". Você diz "implementa a feature de produtos" e ele sabe o que fazer — porque o caminho está no grafo de skills.
 
 **Checklist:**
 
@@ -1333,9 +1559,9 @@ O objetivo é conectar as skills em um grafo navegável.
 | Fase 2 | Usar micro-skills corretas sem instrução adicional            |
 | Fase 3 | Executar features completas seguindo workflow automaticamente |
 
-### Matriz de Modelo por Tipo de Tarefa (budget operacional)
+### Bônus: Matriz de Modelo por Tipo de Tarefa
 
-Outro ganho prático é formalizar uma matriz de seleção de modelo por tipo de tarefa, equilibrando custo, latência e qualidade.
+Isso não faz parte das Fases, mas é uma consequência natural de ter o contexto organizado: quando você sabe exatamente o que cada tarefa exige, pode escolher o modelo certo pro trabalho — em vez de usar canhão pra matar mosca.
 
 | Tipo de tarefa                                                               | Classe de modelo recomendada | Exemplo prático |
 | ---------------------------------------------------------------------------- | ---------------------------- | --------------- |
@@ -1349,33 +1575,26 @@ O princípio é agnóstico de ferramenta: **não usar modelo “martelo hidrául
 
 ## 11. Armadilhas e Anti-Padrões
 
-### Anti-padrão 1: O Contexto Educativo
+### Anti-padrão 1: A Dissertação no Arquivo de Contexto
 
-**O problema:**
+**O problema:** Regras em arquivos globais (CLAUDE.md, AGENTS.md) que vêm embrulhadas em parágrafos de justificativa, histórico e trade-offs — a ponto de a instrução acionável ficar soterrada.
 
 ```markdown
 ## Regras
 
 Use a classe BaseEntity porque ela oferece serialização automática,
 integração transparente com o ORM e facilita a escrita de testes unitários,
-pois desacopla a lógica de negócio do framework de persistência...
+pois desacopla a lógica de negócio do framework de persistência.
+Historicamente, tentamos herdar de ActiveRecord, mas isso gerou acoplamento
+excessivo com o banco na camada de domínio. Após três sprints de refatoração,
+o time decidiu padronizar BaseEntity como classe base...
 ```
 
-**O correto:**
+**O que acontece:** O agente processa o parágrafo inteiro como contexto genérico. A instrução ("use BaseEntity") compete com a narrativa ao redor. Multiplique isso por 15-20 regras e o arquivo global vira um ensaio — não um manual de operações.
 
-```markdown
-## Regras
+Isso não quer dizer que explicar o "porquê" seja errado. Uma consequência breve na linha da regra ("SEMPRE estenda BaseEntity — herdar de ActiveRecord acopla domínio ao banco") ajuda o agente a aplicar a regra com mais inteligência em casos ambíguos. O problema é quando a justificativa vira dissertação e ocupa mais espaço que a própria instrução.
 
-- SEMPRE estenda BaseEntity para novas entidades de domínio
-```
-
-**Por que é um problema:** O agente processa a justificativa como contexto, consumindo atenção que deveria estar aplicando a regra. Justificativas criam atrito — o agente pode "questionar" a regra se o contexto da tarefa parecer um caso especial.
-
-**A regra:** Remova tudo que começa com "porque", "pois", "para que", "isso permite", "a vantagem é". Se você precisa preservar o raciocínio, coloque em `docs/ARCHITECTURE_PATTERNS.md` — que é documentação para humanos, não contexto para agentes.
-
-**Exceção para skills:** dentro do corpo de uma skill (não no CLAUDE.md ou AGENTS.md), explicar o *porquê* de uma regra crítica é aceitável — e útil. O modelo entende teoria e aplica melhor uma restrição quando entende a consequência de violá-la.
-
-A regra mais precisa é: **contexto global = imperativo puro**; **skill = imperativo + contexto mínimo de consequência no `## Critical`**. Não explique no CLAUDE.md. Explique na skill, brevemente, onde o agente está executando a operação que pode violar a regra.
+**A regra:** Em arquivos globais, a justificativa não pode ser maior que a instrução. Se precisar de mais de uma linha de "porquê", mova para `docs/` ou para o `## Critical` da skill relevante — onde o agente carrega o contexto no momento certo, não em toda sessão.
 
 ### Anti-padrão 2: O Arquivo Monstro
 
@@ -1508,6 +1727,7 @@ A disciplina de context engineering está evoluindo rapidamente. Algumas referê
 - **[Martin Fowler — Context Engineering for Coding Agents](https://martinfowler.com/articles/exploring-gen-ai/context-engineering-coding-agents.html):** Análise arquitetural da disciplina por um dos maiores nomes em engenharia de software
 - **[HumanLayer — Writing a good CLAUDE.md](https://www.humanlayer.dev/blog/writing-a-good-claude-md):** Guia prático com exemplos reais
 - **[Agent Skills — Open Standard](https://agentskills.io/):** Especificação aberta do formato de skills para agentes, com guia de autoria e exemplos
+- **[Anthropic — Skills API Reference](https://docs.anthropic.com/en/docs/agents-and-tools/skills):** Endpoint `/v1/skills`, parâmetro `container.skills` na Messages API, e integração com o Claude Agent SDK — relevante para quem constrói pipelines automatizados ou quer usar skills programaticamente fora do Claude Code/Claude.ai
 
 ---
 
@@ -1675,7 +1895,8 @@ description: [Gerúndio + o que compõe + quando usar]. [Meta-skill que orquestr
 ````markdown
 ---
 name: enforce-boundary
-description: Verificando fronteiras arquiteturais antes de finalizar qualquer mudança. Use como checklist final em qualquer edição de código.
+description: Verificando fronteiras arquiteturais antes de finalizar qualquer mudança. Use como checklist
+final em qualquer edição de código.
 ---
 
 # Skill: Enforce Boundary
@@ -1702,9 +1923,16 @@ description: Verificando fronteiras arquiteturais antes de finalizar qualquer mu
 ## Validação Automatizada
 
 ```bash
-[comando para verificar fronteiras, se existir]
+# Script determinístico — mais confiável que regras em linguagem natural
+scripts/check-boundaries.sh
 [comando de lint]
 [comando de testes]
 ```
+
+## Critical
+
+- Validações programáticas (scripts) são preferíveis a instruções em linguagem natural para verificações
+de fronteira. Código é determinístico; interpretação de linguagem não é.S
+- Se o script retornar erro, o agente DEVE corrigir antes de prosseguir.
 
 ````
