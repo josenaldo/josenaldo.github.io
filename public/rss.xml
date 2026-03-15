@@ -5,8 +5,16 @@
     <link>https://josenaldo.com.br/blog</link>
     <description>Articles about software development, engineering, and career.</description>
     <language>en</language>
-    <lastBuildDate>Sun, 15 Mar 2026 19:03:51 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 15 Mar 2026 21:37:16 GMT</lastBuildDate>
     <atom:link href="https://josenaldo.com.br/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Context Engineering: como transformar agentes de IA em desenvolvedores confiáveis</title>
+      <link>https://josenaldo.com.br/blog/context-engineering-guia-completo</link>
+      <guid isPermaLink="true">https://josenaldo.com.br/blog/context-engineering-guia-completo</guid>
+      <pubDate>Wed, 04 Mar 2026 12:00:00 GMT</pubDate>
+      <description>Guia completo do Estágio 1 ao Estágio 3 para transformar uso de agentes de IA em um sistema previsível, com contexto estruturado, skills e memória de projeto.</description>
+      <enclosure url="https://josenaldo.com.br/images/blog/context-engineering-guia-completo.png" type="image/jpeg" />
+    </item>
     <item>
       <title>Como escrever o seu currículo como desenvolvedor</title>
       <link>https://josenaldo.com.br/blog/como-escrever-o-seu-curriculo</link>
