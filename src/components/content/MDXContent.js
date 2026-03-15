@@ -6,6 +6,7 @@ import Markdown from 'react-markdown'
 import externalLinks from 'rehype-external-links'
 import rehypePrism from 'rehype-prism-plus'
 import rehypeRaw from 'rehype-raw'
+import rehypeSlug from 'rehype-slug'
 import remarkGfm from 'remark-gfm'
 import remarkParse from 'remark-parse'
 
@@ -34,7 +35,7 @@ const MDXContent = ({ content }) => {
         ],
     ]
 
-    const rehypePlugins = [rehypeRaw, rehypePrism]
+    const rehypePlugins = [rehypeRaw, rehypeSlug, rehypePrism]
 
     const components = {
         img: ResponsiveImage,
