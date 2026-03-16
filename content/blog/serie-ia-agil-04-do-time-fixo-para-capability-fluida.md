@@ -5,7 +5,7 @@ date: 2026-03-21 09:00:00 -0300
 status: planned
 author: Josenaldo Matos
 image: '/images/blog/ai-and-developers-another-brick-or-another-floor.png'
-category: pt-br
+category: Engenharia de Software
 language: pt
 ---
 

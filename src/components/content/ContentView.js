@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 
 import BlogDisclaimer from '@/components/content/BlogDisclaimer'
 import ContentCategory from '@/components/content/ContentCategory'
+import ContentLanguage from '@/components/content/ContentLanguage'
 import ContentMainImage from '@/components/content/ContentMainImage'
 import ContentMeta from '@/components/content/ContentMeta'
 import ContentTitle from '@/components/content/ContentTitle'
@@ -19,8 +20,21 @@ const ContentView = ({
     date,
     author,
     category,
+    language,
 }) => {
     const contentImage = image || AppConfig.DEFAULT_CARD_IMAGE
+    const badges = category || language ? (
+        <Box
+            sx={{
+                display: 'flex',
+                flexWrap: 'wrap',
+                gap: 1,
+            }}
+        >
+            {category && <ContentCategory category={category} />}
+            <ContentLanguage language={language} />
+        </Box>
+    ) : null
 
     return (
         <Card
@@ -56,7 +70,7 @@ const ContentView = ({
                             alignSelf: 'center',
                         }}
                     >
-                        <ContentCategory category={category} />
+                        {badges}
                     </Box>
                     <Box
                         sx={{
@@ -117,6 +131,7 @@ ContentView.propTypes = {
     date: PropTypes.string,
     author: PropTypes.string,
     category: PropTypes.string,
+    language: PropTypes.string,
 }
 
 export default ContentView

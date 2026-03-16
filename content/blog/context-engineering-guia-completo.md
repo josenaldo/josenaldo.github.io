@@ -4,7 +4,7 @@ description: Guia completo do Estágio 1 ao Estágio 3 para transformar uso de a
 date: 2026-03-04 09:00:00 -0300
 author: Josenaldo Matos
 image: /images/blog/context-engineering-guia-completo.png
-category: pt-br
+category: Engenharia de Software
 status: published
 language: pt
 ---

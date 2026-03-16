@@ -71,6 +71,7 @@ const BlogPage = ({ posts }) => {
                                 author={post.author}
                                 date={post.date}
                                 category={post.category}
+                                language={post.language}
                                 moreLinkText="Read post"
                             />
                         ))}

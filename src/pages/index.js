@@ -67,6 +67,7 @@ export async function getStaticProps() {
         image: post.image,
         url: post.url,
         category: post.category,
+        language: post.language,
     }))
 
     const skills = contentService.getAllSkillsByCategory().map(({ group, color, skills }) => ({

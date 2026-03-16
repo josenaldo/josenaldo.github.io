@@ -11,6 +11,7 @@ import PropTypes from 'prop-types'
 
 import ContentCardImage from '@/components/content/ContentCardImage'
 import ContentCategory from '@/components/content/ContentCategory'
+import ContentLanguage from '@/components/content/ContentLanguage'
 import ContentMeta from '@/components/content/ContentMeta'
 import ShareLink from '@/components/share/ShareLink'
 
@@ -24,6 +25,7 @@ const ContentCard = ({
     date,
     author,
     category,
+    language,
     showText = false,
     showMeta = true,
     showActions = true,
@@ -34,6 +36,7 @@ const ContentCard = ({
 
     const titleLineClamp = 2
     const descriptionLineClamp = 3
+    const hasBadges = Boolean(category || language)
 
     const lineClampSx = (lines) => ({
         display: '-webkit-box',
@@ -41,6 +44,20 @@ const ContentCard = ({
         WebkitLineClamp: lines,
         overflow: 'hidden',
     })
+
+    const badges = hasBadges ? (
+        <Box
+            sx={{
+                display: 'flex',
+                flexWrap: 'wrap',
+                gap: 1,
+                justifyContent: 'flex-end',
+            }}
+        >
+            {category && <ContentCategory category={category} />}
+            <ContentLanguage language={language} />
+        </Box>
+    ) : null
 
     return (
         <Card
@@ -70,15 +87,16 @@ const ContentCard = ({
                     }}
                 >
                     <ContentCardImage image={image} alt={title} />
-                    {category && (
+                    {badges && (
                         <Box
                             sx={{
                                 position: 'absolute',
                                 top: '1rem',
                                 right: '1rem',
+                                maxWidth: 'calc(100% - 2rem)',
                             }}
                         >
-                            <ContentCategory category={category} />
+                            {badges}
                         </Box>
                     )}
                 </CardMedia>
@@ -97,6 +115,8 @@ const ContentCard = ({
                         flexGrow: 1,
                     }}
                 >
+                    {!hasImage && badges && <Box sx={{ mb: 1 }}>{badges}</Box>}
+
                     <Box
                         sx={{
                             display: 'flex',
@@ -116,12 +136,6 @@ const ContentCard = ({
                         >
                             {title}
                         </Typography>
-
-                        {!hasImage && category && (
-                            <Box sx={{ pt: 0.25 }}>
-                                <ContentCategory category={category} />
-                            </Box>
-                        )}
                     </Box>
 
                     {showText && text && (
@@ -196,6 +210,7 @@ ContentCard.propTypes = {
     date: PropTypes.string,
     author: PropTypes.string,
     category: PropTypes.string,
+    language: PropTypes.string,
     showText: PropTypes.bool,
     showMeta: PropTypes.bool,
     showActions: PropTypes.bool,
