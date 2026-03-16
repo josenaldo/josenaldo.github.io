@@ -11,6 +11,7 @@ import {
 } from 'contentlayer/generated'
 
 import skillGroups from '@/data/skillGroups'
+import slugify from '@/shared/utils/slugify'
 
 const STATUS_ALIASES = {
     draft: 'draft',
@@ -203,6 +204,39 @@ const getAllSkillsByCategory = () => {
         }))
 }
 
+const getAllCategories = () => {
+    const posts = getAllPosts()
+    const categoryMap = new Map()
+
+    posts.forEach((post) => {
+        if (!post.category) return
+        const slug = slugify(post.category)
+        if (categoryMap.has(slug)) {
+            categoryMap.get(slug).count += 1
+        } else {
+            categoryMap.set(slug, {
+                name: post.category,
+                slug,
+                count: 1,
+            })
+        }
+    })
+
+    return [...categoryMap.values()].sort((a, b) =>
+        a.name.localeCompare(b.name)
+    )
+}
+
+const getPostsByCategory = (slug) => {
+    return getSortedPosts().filter(
+        (post) => post.category && slugify(post.category) === slug
+    )
+}
+
+const getAllCategoryPaths = () => {
+    return getAllCategories().map((cat) => cat.slug)
+}
+
 const contentService = {
     lastExperiences,
     lastProjects,
@@ -218,6 +252,9 @@ const contentService = {
     getPageData,
     getAllSkills,
     getAllSkillsByCategory,
+    getAllCategories,
+    getPostsByCategory,
+    getAllCategoryPaths,
 }
 
 export default contentService
