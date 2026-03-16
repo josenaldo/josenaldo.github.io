@@ -4,34 +4,40 @@ description: "Por que desenvolvedores brasileiros produzem instruções melhores
 date: 2026-03-15 09:00:00 -0300
 author: Josenaldo Matos
 image: /images/blog/escreva-em-portugues-o-gargalo-da-ia-nao-e-o-idioma.png
-category: pt-br
-status: draft
+category: opinião
+status: published
 language: pt
 ---
 
-Eu passei anos escrevendo tudo em inglês.
+Eu passei anos escrevendo (ou tentando) tudo em inglês.
 
-README em inglês. Commits em inglês. Comentários em inglês. Skills em inglês. AGENTS.md em inglês. Até anotação de post-it na minha mesa ficava em inglês — como se o modelo fosse aparecer na minha cozinha pedindo café e eu precisasse impressioná-lo.
+README em inglês. Commits em inglês. Comentários em inglês. Skills em inglês. AGENTS.md em inglês. Até anotação de post-it na minha mesa ficava em inglês. Eu queria ter o maior contato possível com a língua inglesa e então forçava a barra pra escrever tudo em inglês, mesmo quando isso me custava tempo, clareza e precisão.
 
-A lógica era simples e parecia irrefutável: os modelos são treinados majoritariamente em inglês. Logo, escrever em inglês = melhor resultado. Qualquer coisa diferente disso era amadorismo. Quem discordasse era preguiçoso demais pra aprender inglês ou não levava o ofício a sério.
+A lógica era simples e parecia irrefutável: a área inteira da TI é baseada em inglês. As linguagens de programação, as bibliotecas, frameworks, documentação... Tudo está em inglês.
 
-Até que um colega me fez uma pergunta que desarmou toda essa lógica com uma frase:
+E agora, esse argumento ficou ainda mais forte com a IA, porque os modelos são treinados majoritariamente em inglês. Logo, escrever em inglês = melhor resultado!
 
-> "O gargalo não é a capacidade de entendimento da IA. É a sua expressividade operando a IA."
+Na minha cabeça, usar meu próprio idioma diretamente nos projetos era algo confuso e que introduziria ruído. E agora, na Era da IA, isso é ainda mais forte, certo?
+
+Aí minha esposa me fez uma inocente pergunta que desarmou toda essa lógica com uma frase:
+
+> "Mas o gargalo agora é a capacidade de entendimento da IA ou a expressividade do operador da IA?"
 
 E eu travei.
 
-Porque ele estava certo.
+Porque ela estava certa.
 
 ---
 
 ## A hipótese que ninguém testa
 
-Vou formular o argumento de forma crua:
+Vou mandar o papo reto:
 
 **Eu escrevendo em português + IA traduzindo internamente para inglês** produz resultado melhor do que **eu escrevendo em inglês ruim + IA sem precisar traduzir**.
 
-Por quê? Porque a tradução que a IA faz do meu português é melhor do que o meu inglês. E a instrução que eu dou em português é mais precisa, mais detalhada e mais completa do que qualquer coisa que eu consiga articular em inglês — porque eu *penso* em português.
+Por quê? Porque a tradução que a IA faz do meu português é bem melhor do que o meu inglês. Ou pior: do que a tradução que nós fazemos do português para o inglês, quando ainda não dominamos completamente o inglês.
+
+Português é minha língua marerna. E a instrução que eu dou em português é mais precisa, mais detalhada e mais completa do que qualquer coisa que eu consiga articular em inglês — porque eu *penso* em português.
 
 Parece óbvio quando escrito assim. Mas a indústria inteira opera na premissa contrária há anos.
 
