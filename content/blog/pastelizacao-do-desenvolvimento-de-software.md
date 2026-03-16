@@ -4,20 +4,20 @@ description: 'A IA transformou parte do software em pastel de feira: rápido, ba
 date: 2026-03-04 12:00:00 -0300
 author: Josenaldo Matos
 image: '/images/blog/pastelizacao-do-desenvolvimento-de-software.png'
-category: pt-br
-status: draft
+category: opinião
+status: published
 language: pt
 ---
 
-No mundo do desenvolvimento de software, existe um meme que nos persegue há décadas: A Dicotomia Pastel-Projeto.
+No mundo do desenvolvimento de software, existe um meme que nos persegue há décadas: a Dicotomia Pastel-Projeto.
 
-Usamos essa metpafora para educar nossos clientes mais ansiosos de que contratar nosso trabalho não é como comprar um pastel na feira.
+Usamos essa metáfora para explicar aos clientes mais ansiosos que contratar nosso trabalho não é como comprar um pastel na feira.
 
 Pense no pastel. Você entra na pastelaria ou barraquinha, pede pastel, paga barato, escolhe o recheio e recebe na hora. Tem pastel de carne, de queijo, de pizza, de frango com catupiry. Parece que tem muita variedade, mas no fundo é a mesma plataforma: massa, óleo quente, velocidade e satisfação imediata.
 
 ![Imagem de um cartaz com meme Pastel x Projeto](/images/blog/pastel_x_projeto.jpeg)
 
-Não é assim que fazemos software, certo? CERTO????
+Não é assim que fazemos software, certo? CERTO?
 
 Fazer software é trabalhoso, caro, complexo e leva muito tempo. Não é só chegar, pedir, pagar e receber.
 
@@ -37,17 +37,17 @@ Você chega com um pedido simples, escolhe um recheio visual, e sai com algo fun
 
 Sinceramente, eu vejo valor nisso. Valor real.
 
-Sejamos sinceros: nem todo problema precisa da dedicação de uma equipe de especialistas seguindo um processo rigodoso.
+Sejamos sinceros: nem todo problema precisa da dedicação de uma equipe de especialistas seguindo um processo rigoroso.
 
-Veja, eu sou um ferrenho defensor da qualidade do software, da sustentabilidade e manutenibilidade do código, da importância de arquitetura e testes. Eu me orgulho de ter projetos rodando há mais de uma década. Eu posso passar horas atormentando um ser humano com conteúdo sobre como fazer bom software.
+Veja, eu sou um ferrenho defensor da qualidade do software, da sustentabilidade e da manutenibilidade do código, da importância de arquitetura e testes. Eu me orgulho de ter projetos rodando há mais de uma década. Eu posso passar horas atormentando um ser humano com conteúdo sobre como fazer bom software.
 
-A questão é: eu não sou maluco de achar que todo projeto merece esse nível de cuidado. Porque diabos eu obrigaria um cliente a pagar por um chef estrelado quando tudo o que ele quer é um pastel de carne pra matar a fome da hora?
+A questão é: eu não sou maluco de achar que todo projeto merece esse nível de cuidado. Por que diabos eu obrigaria um cliente a pagar por um chef estrelado quando tudo o que ele quer é um pastel de carne pra matar a fome da hora?
 
-Sabe aquele site de evento que você precisa pra semana que vem e que só vai acontecer de novo daqui há 3 anos? Pastel! O app de compartilhamento de vídeos que seu candidato flopado vai usar nessa eleição? Pastel! Aquele script maroto que você quer pra não ter que organizar seu álbum com 8000 de fotos de seus amigos magricelas vestindo sunga de texugo no carnaval? Pastel. Landing page? CRUD básico? MVP para validar ideia?
+Sabe aquele site de evento que você precisa pra semana que vem e que só vai acontecer de novo daqui a 3 anos? Pastel! O app de compartilhamento de vídeos que seu candidato flopado vai usar nessa eleição? Pastel! Aquele script maroto que você quer pra não ter que organizar seu álbum com 8000 fotos de seus amigos magricelas vestindo sunga de texugo no carnaval? Pastel! Landing page? CRUD básico? MVP para validar ideia?
 
 TUDO ISSO VIROU PASTEL!
 
-Você já não precisa de uma equipe de engenharia, de trocentas documentações, 4 tgomos sagrados e dois arquitetos vestidos de jedi com sabres de luz de brinquedo pra resolver esses problemas.
+Você já não precisa de uma equipe de engenharia, de trocenta documentação, quatro tomos sagrados e dois arquitetos vestidos de jedi com sabres de luz de brinquedo pra resolver esses problemas.
 
 Você precisa de um código funcional que seja entregue rápido, barato e bom o suficiente.
 
@@ -59,14 +59,14 @@ Nesse tipo de cenário, a pastelaria brilha.
 
 Pastel mata fome. É bom, claro. Quem não gosta de um pastelzinho com caldo de cana? O problema é que pastel não mata todo tipo de larica.
 
-Você consegue pedir camarão na moranga numa pastelaria? Um rodízio de churrasco? Um buffet pra 800 pessoas? Uma Pizza de Pneu? Não.
+Você consegue pedir camarão na moranga numa pastelaria? Um rodízio de churrasco? Um buffet pra 800 pessoas? Uma pizza de pneu? Não.
 
 No software é a mesma coisa.
 
 ![Pizza de pneu](/images/blog/pizza_de_pneu.webp)
 <center><i>Aquele software que você encomendou na fábrica de software</i></center>
 
-Por mais evolução que o desenvolveimento de software traga, sempre tem contexto em que você precisa de:
+Por mais que o desenvolvimento de software evolua, sempre vai existir contexto em que você precisa de:
 
 - arquitetura que sobreviva a anos de evolução;
 - integração com legado cheio de arestas;
@@ -87,15 +87,15 @@ Até aqui, a imagem que eu pintei é a de um tio de avental fritando pastel na c
 
 Só que não é mais isso.
 
-O que está acontecendo agora é outra escala. Não é uma pastelaria de esquina — é uma operação industrial com cinquenta frigideiras automáticas rodando em paralelo. Agentes autônomos que pegam uma tarefa, montam o ambiente, escrevem código, rodam testes, quebram, pesquisam solução, corrigem, rodam de novo, e entregam um pull request pronto pra review.
+O que está acontecendo agora é outra escala. Não é uma pastelaria de esquina — é uma operação industrial com cinquenta frigideiras automáticas rodando em paralelo. Agentes autônomos que pegam uma tarefa, montam o ambiente, escrevem código, rodam testes, quebram, pesquisam solução, corrigem, rodam de novo e entregam um pull request pronto pra review.
 
 A pastelaria agora é autônoma. E o pasteleiro?
 
-Ele párou de fritar pastel. Ela agora tem que projetar a pastelaria.
+Ele parou de fritar pastel. Agora tem que projetar a pastelaria.
 
 Ele projeta a receita com precisão cirúrgica — porque se a receita for vaga, cinquenta frigideiras vão errar ao mesmo tempo, cada uma de um jeito diferente. Ele monta a linha de montagem. Ele define o controle de qualidade. E ele decide quando o pastel que saiu da linha tá bom o suficiente pra servir.
 
-É a mesma pastelaria? É. Mas agora é uma franquia de dark kitchen do Ifodd, com cozinha central e escala industrial. O MVP que antes era artesanal, quase uma colcha de tricô glorificada pelas mãos de várias avós, agora sai de uma linha de produção com testes automatizados, documentação viva, deploy e preview ao vivo.
+É a mesma pastelaria? É. Mas agora é uma franquia de dark kitchen do iFood, com cozinha central e escala industrial. O MVP que antes era artesanal, quase uma colcha de tricô glorificada pelas mãos de várias avós, agora sai de uma linha de produção com testes automatizados, documentação viva, deploy e preview ao vivo.
 
 E isso muda o jogo. Porque "simples" deixou de ser o tio fazendo um pastel na hora — virou uma fábrica cuspindo pastéis personalizados em minutos.
 
@@ -103,26 +103,25 @@ E isso muda o jogo. Porque "simples" deixou de ser o tio fazendo um pastel na ho
 
 ## O problema não é mais fritar, é provar
 
-No tempo dos antgos egípcios, alí por volta dos anos 90, codificar era uma atividade cara, complexa e demorada. Por ter um custo tão alto, tínhámos que tomar todo cuidado para não errar, pois o retrabalho seria desastroso. Desse cenário, emergiram processos cascata.
+No tempo dos antigos egípcios, ali pelos anos 90, codificar era caro, lento e doloroso. Não porque faltasse gente inteligente, mas porque cada mudança custava caro demais. Linguagens menos expressivas, ferramenta pior, feedback lento, deploy arriscado. Nesse cenário, fazia sentido gastar toneladas de energia tentando evitar erro antes que ele nascesse. O cascata era, entre outras coisas, uma tentativa de comprar previsibilidade num mundo em que mudar código ainda era quase um evento diplomático.
 
-À medida que as linguagens de programação evoluíram, permitindo escrever código num nível mais alto de abstração, e as ferramentas de desenvolvimento se tornaram mais sofisticadas, o custo de escrever código caiu. Isso permitiu mais experimentação, mais iteração, mais tentativa e erro. E, com isso vieram métodologias como RUP e MPS BR.
+Depois o custo de produção caiu um degrau. Linguagens ficaram mais amigáveis, frameworks encapsularam trabalho repetitivo, IDEs deixaram de ser um bloco de notas premium e testes automatizados começaram a baratear o retrabalho. A indústria respondeu puxando o processo para modelos mais iterativos: RUP, espiral, modelos de maturidade, ciclos menores, mais checkpoints. Não porque o mercado tivesse alcançado iluminação transcendental, mas porque já dava pra errar menos caro e corrigir sem incendiar o orçamento inteiro.
 
-Mas esses processos eram caros, morosos, pesados. Você tinha que gerar um calhamaço de documentação que, invariavelmente, seviria apenas como peso pra papel, pois o código real ia se distanciando da documentação e ninguém tinha tempo de manter os dois em sincronia. O processo era tão complexo que, muitas vezes, o projeto se arrastava por meses ou anos sem entregar valor real.
+Só que esses modelos ainda carregavam muito peso. Documento demais, ritual demais, acoplamento demais entre plano e realidade. O código mudava, o documento apodrecia, e a equipe ficava mantendo duas ficções ao mesmo tempo: a ficção de que o plano original ainda valia e a ficção de que alguém atualizaria o PDF depois.
 
-Como resposta, o mercado melhorou suas técnicas de engenharia, com o intuito de aumentar a agilidade do desenvolvedor. E Isso levou ao nasimento dos processos ágeis, DevOps, CI/CD, e uma série de práticas que visavam acelerar o ciclo de desenvolvimento e entrega de software. O foco passou a ser entregar valor rapidamente, iterar com feedback constante, e adaptar-se às mudanças de requisitos.
+A resposta seguinte foi puxar o gargalo mais uma vez pra frente. Com automação de build, integração contínua, cloud, deploy frequente e observabilidade melhor, o problema deixou de ser “como evitar qualquer mudança” e passou a ser “como aprender rápido sem quebrar tudo”. Daí vieram o discurso ágil, DevOps, CI/CD e a obsessão por feedback loop curto. Repara na lógica: quando produzir ficou menos caro, o valor saiu do ato de produzir e foi para a capacidade de decidir melhor e corrigir mais rápido.
+
+Agora estamos descendo mais um degrau. Com copilots, LLMs e agentes, escrever código deixou de ser o trecho mais caro de muitos fluxos. Em alguns casos, virou quase a parte trivial. Você pede, o sistema gera, testa, corrige, abre PR, publica preview e ainda te olha com cara de quem fez favor.
 
 Observa aqui um padrão?
 
-Quanto mais barato e fácil ficou escrever código, quando mais automação nós colocamos no processo de desenvolvimento, mais o trabalho do engenheiro se desloca pra longe do código e pra perto das decisões.
+Toda vez que a produção fica mais barata, o gargalo sobe um andar. Primeiro o drama era conseguir escrever. Depois virou organizar o trabalho. Depois virou encurtar feedback. Agora, com a produção quase instantânea, o drama passa a ser outro: decidir o que vale ser produzido, descrever isso sem ambiguidade, montar a esteira certa e provar que o resultado presta.
 
-Não é a primeira vez que nós automatizamos trabalho
+Não é a primeira vez que nós automatizamos trabalho. A mecanização nunca eliminou o problema; ela só deslocou o ponto caro do sistema. Quando a enxada melhora, o gargalo sai do braço. Quando a linha de montagem acelera, o gargalo vai para desenho do processo, coordenação e controle de qualidade. No software, estamos vendo a mesma peça com figurino novo.
 
+Se qualquer agente monta um pastel em minutos, fritar deixou de ser habilidade rara. Raro agora é impedir que a fábrica produza porcaria em escala industrial.
 
-, passamos a última década debatendo sobre os melhores proicessos de se produzir e manter código. Dessa discussão, nasceram
-
-Se qualquer agente monta um pastel em minutos, fritar deixou de ser habilidade rara.
-
-Os gargalos agora são outros. Quatro, pra ser exato:
+É aí que entram os quatro gargalos que sobraram:
 
 **Quem monta a fábrica.** Alguém precisa configurar a linha de produção — definir quais agentes rodam, com quais ferramentas, em qual sequência, com qual feedback loop. Isso é orquestração. Se a fábrica tá mal montada, não importa o quão bom é o pedido ou o quanto você sabe provar: o resultado vai sair torto.
 
@@ -132,7 +131,9 @@ Os gargalos agora são outros. Quatro, pra ser exato:
 
 **Quem prova o pastel e diz se presta.** Quem olha pra massa e percebe que tá crua por dentro. Quem sente que o recheio não combina com o público. Quem identifica que o pastel tem uma cara bonita mas tá contaminado por dentro — passa no teste visual, mas não sobrevive à primeira mordida de verdade. Isso é paladar treinado. É verificação.
 
-No software, gerar código nunca mais vai ser gargalo. Os gargalos agora são **orquestração, arquitetura, especificação e verificação**. E nenhum deles é trabalho de máquina — são trabalho de julgamento.
+Repara que os quatro importam. Mas provar merece o título do capítulo porque é aí que a pastelização mais engana. Produção em escala cria uma ilusão de competência. Sai muita coisa, rápido, com cara de pronto, com print bonita e pipeline verdinho. Só que volume não é evidência de qualidade. Velocidade não é evidência de aderência ao problema. Código que compila continua podendo estar profundamente errado.
+
+No software, o gargalo dominante deixa de ser digitar código e passa a ser **orquestração, arquitetura, especificação e verificação**. A máquina ajuda em todos eles. Mas nenhum deles se resolve só com máquina, porque todos dependem de julgamento.
 
 Verificar em escala é especialmente traiçoeiro. Quando saem cinquenta pastéis por minuto da linha, você não pode provar cada um com calma. Precisa de processo. Precisa de critério. Precisa de quem sabe montar a suíte de testes que pega o que importa — e, ainda assim, sabe que o teste não pega tudo, e mantém o olho treinado pra quando a intuição grita mais alto que a automação.
 
@@ -152,7 +153,7 @@ Nesse cenário, as grandes empresas de software perdem o monopólio da complexid
 
 Eu não sei se concordo. Mas eu entendo o argumento.
 
-E a pergunta que fica é provocativa: **o que você faria se o seu camarão na moranga pudesse ser refeito do zero por R$ 5 mil na segunda-feira?**
+E a pergunta que fica é de fundir a cuca: **o que você faria se o seu camarão na moranga pudesse ser refeito do zero por R$ 5 mil na segunda-feira?**
 
 Será que o que você chama de "software complexo" é complexo de verdade — ou é complexo porque foi caro pra fazer e virou caro demais pra jogar fora?
 
@@ -160,7 +161,7 @@ Será que o que você chama de "software complexo" é complexo de verdade — ou
 
 ## Vários modelos convivendo na mesma cidade
 
-A grande sacada é entender que, da mesma forma que continuamos tendo vários tipos de cozinha, a IA é apenas mais um dos estabelecimentos válidos:
+A grande sacada é entender que, da mesma forma que continuamos tendo vários tipos de cozinha, a IA é apenas mais um estabelecimento válido:
 
 Tem aquele que vai se resolver com um **miojo e um ovo frito (sistema baratinho, de caixinha):** industrializado, só pra matar a fome da hora.
 
@@ -198,7 +199,7 @@ Eu quero estar no trabalho em que:
 
 Mas "se posicionar" mudou de significado.
 
-Antes, eu me diferenciava por saber cozinhar bem. Dominar a linguagem, conhecer o framework, resolver bug obscuro que ninguém mais achava.
+Antes, eu me diferenciava por saber cozinhar bem: dominar a linguagem, conhecer o framework, resolver bug obscuro que ninguém mais achava.
 
 Agora, o que diferencia é saber **projetar a receita** — escrever specs tão claras que cinquenta agentes executam sem ambiguidade. É saber **montar a cozinha** — orquestrar agentes em paralelo, definir fluxos, manter coerência entre os resultados. É saber **desenhar o cardápio** — decidir o que faz sentido construir e o que é desperdício de frigideira. E é saber **provar o prato** — avaliar com rigor se o que saiu da linha de produção realmente serve, se não criou trinca invisível, se não resolve o problema errado.
 
