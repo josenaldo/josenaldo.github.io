@@ -1,7 +1,7 @@
 import { Box, Button } from '@mui/material'
 import PropTypes from 'prop-types'
 
-const CallToAction = ({ children, href, ariaLabel, variant }) => {
+const CallToAction = ({ children, href, ariaLabel, variant = 'outlined' }) => {
     return (
         <Box
             sx={{
