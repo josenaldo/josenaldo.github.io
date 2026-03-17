@@ -5,7 +5,7 @@ date: 2026-02-28 09:00:00 -0300
 status: planned
 author: Josenaldo Matos
 image: '/images/blog/ai-and-developers-another-brick-or-another-floor.png'
-category: pt-br
+category: Engenharia de Software
 language: pt
 ---
 
@@ -14,7 +14,10 @@ language: pt
 
 Essa série nasceu de uma conversa longa sobre IA e desenvolvimento de software. Não foi uma conversa “sobre ferramenta”, foi uma conversa sobre mudança de fundamento: o que era caro ontem ficou barato hoje, e isso mexe com método, carreira, organização e qualidade.
 
-Nesta primeira parte, eu quero começar do começo: Manifesto Ágil. A pergunta é simples, mas desconfortável: a IA deixou o Ágil obsoleto, ou finalmente forçou a gente a encarar o que ele sempre pediu e quase nunca conseguiu praticar de verdade?
+Nesta primeira parte, eu quero começar do começo: Manifesto Ágil. A pergunta é simples, mas desconfortável:
+
+> A IA deixou o Ágil obsoleto, ou finalmente forçou a gente a encarar o que ele sempre pediu e quase
+> +nunca conseguiu praticar de verdade?
 
 O objetivo aqui não é reinventar os quatro valores. É reler cada um deles no contexto atual, com os ganhos e os riscos que aparecem quando a velocidade sobe demais.
 
@@ -22,7 +25,7 @@ O objetivo aqui não é reinventar os quatro valores. É reler cada um deles no 
 
 Os C-levels das principais empresas do mercado estão falando que o desenvolvimento de software está resolvido. Alguns dizem que o desenvolvedor está fora do mercado e que, em poucos anos (ou até meses), a maioria do código será gerada por IA e quem ainda programa estará no olho da rua.
 
-Pro desenvolvedor de software, vai ser o IApocalipse.
+Pro desenvolvedor de software, vai ser o I-Apocalipse.
 
 Eu tenho uma aposta diferente. Pode me chamar de maluco, mas eu acho que a IA  vai ter outro tipo de impacto:
 

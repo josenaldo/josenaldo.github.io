@@ -1,10 +1,12 @@
 import { Chip } from '@mui/material'
 import PropTypes from 'prop-types'
 
+import slugify from '@/shared/utils/slugify'
+
 const ContentCategory = ({ category, color = 'secondary' }) => {
     if (!category) return null
 
-    const categorySlug = encodeURIComponent(String(category).trim())
+    const categorySlug = slugify(category)
     const label = String(category).trim().toUpperCase()
 
     return (

@@ -5,8 +5,16 @@
     <link>https://josenaldo.com.br/blog</link>
     <description>Articles about software development, engineering, and career.</description>
     <language>en</language>
-    <lastBuildDate>Mon, 16 Mar 2026 20:49:44 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 16 Mar 2026 23:44:30 GMT</lastBuildDate>
     <atom:link href="https://josenaldo.com.br/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AI Didn&apos;t Organize My Life. It Helped Me Get My House in Order</title>
+      <link>https://josenaldo.com.br/blog/ai-did-not-organize-my-life-it-helped-me-get-my-house-in-order</link>
+      <guid isPermaLink="true">https://josenaldo.com.br/blog/ai-did-not-organize-my-life-it-helped-me-get-my-house-in-order</guid>
+      <pubDate>Mon, 16 Mar 2026 12:00:00 GMT</pubDate>
+      <description>I didn&apos;t build a cyberpunk workflow that reads my emails for me. I used AI to unlock real work: refactoring, tests, documentation, and projects I had been postponing for far too long.</description>
+      <enclosure url="https://josenaldo.com.br/images/blog/ia-nao-organizou-minha-vida-ela-me-ajudou-a-arrumar-a-casa.png" type="image/jpeg" />
+    </item>
     <item>
       <title>A IA não organizou minha vida. Ela me ajudou a arrumar a casa</title>
       <link>https://josenaldo.com.br/blog/ia-nao-organizou-minha-vida-ela-me-ajudou-a-arrumar-a-casa</link>
@@ -14,6 +22,22 @@
       <pubDate>Mon, 16 Mar 2026 12:00:00 GMT</pubDate>
       <description>Não criei um workflow cyberpunk que lê meus e-mails por mim. Usei IA para destravar trabalho real: refatoração, testes, documentação e projetos que eu vinha adiando havia tempo demais.</description>
       <enclosure url="https://josenaldo.com.br/images/blog/ia-nao-organizou-minha-vida-ela-me-ajudou-a-arrumar-a-casa.png" type="image/jpeg" />
+    </item>
+    <item>
+      <title>Escreva em português: o gargalo da IA não é o idioma, é a sua expressividade</title>
+      <link>https://josenaldo.com.br/blog/escreva-em-portugues-o-gargalo-da-ia-nao-e-o-idioma</link>
+      <guid isPermaLink="true">https://josenaldo.com.br/blog/escreva-em-portugues-o-gargalo-da-ia-nao-e-o-idioma</guid>
+      <pubDate>Sun, 15 Mar 2026 12:00:00 GMT</pubDate>
+      <description>Por que desenvolvedores brasileiros produzem instruções melhores para agentes de IA quando escrevem na língua em que pensam — e por que forçar inglês pode estar piorando seus resultados.</description>
+      <enclosure url="https://josenaldo.com.br/images/blog/escreva-em-portugues-o-gargalo-da-ia-nao-e-o-idioma.png" type="image/jpeg" />
+    </item>
+    <item>
+      <title>A pastelização do desenvolvimento de software</title>
+      <link>https://josenaldo.com.br/blog/pastelizacao-do-desenvolvimento-de-software</link>
+      <guid isPermaLink="true">https://josenaldo.com.br/blog/pastelizacao-do-desenvolvimento-de-software</guid>
+      <pubDate>Wed, 04 Mar 2026 15:00:00 GMT</pubDate>
+      <description>A IA transformou parte do software em pastel de feira: rápido, barato e bom o suficiente. O ponto não é o fim dos restaurantes — é saber quando pastel resolve e quando precisa de camarão na moranga.</description>
+      <enclosure url="https://josenaldo.com.br/images/blog/pastelizacao-do-desenvolvimento-de-software.png" type="image/jpeg" />
     </item>
     <item>
       <title>Context Engineering: como transformar agentes de IA em desenvolvedores confiáveis</title>

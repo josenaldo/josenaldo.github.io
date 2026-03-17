@@ -4,7 +4,7 @@ description: 'Um guia completo para estagiários, juniores e plenos com pouca ex
 date: 2026-02-24 00:00:00 -0300
 author: Josenaldo Matos
 image: '/images/blog/como-escrever-o-seu-curriculo.png'
-category: pt-br
+category: job-market
 language: pt
 ---
 

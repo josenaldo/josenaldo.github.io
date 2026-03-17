@@ -40,6 +40,7 @@ const PostPage = ({ post }) => {
                     date={post.date}
                     author={post.author}
                     category={post.category}
+                    language={post.language}
                     url={post.url}
                 />
             </Container>

@@ -96,20 +96,24 @@ Eu não estou dizendo "abandone o inglês". Estou dizendo "pare de usá-lo onde 
 
 Mas se o projeto é para uma empresa brasileira, com equipe brasileira, com stakeholders que falam português, com domínio em português — forçar inglês na documentação interna, nos prompts, nas Skills e no AGENTS.md é gastar energia cognitiva pra produzir instrução pior.
 
-## O padrão que funciona: híbrido pt+en
+## O padrão que funciona: Portunglês (híbrido pt+en)
 
-Na prática, o padrão que funciona é o que todo dev brasileiro já faz naturalmente:
+Na prática, o padrão que funciona pra mim é o que todo dev brasileiro já faz naturalmente e que eu chamo carinhosamente de portunglês:
 
-- **Texto em linguagem natural** → português: documentação, prompts, instruções de agente, comentários de domínio, Skills, READMEs internos.
-- **Código** → inglês: variáveis, funções, classes, nomes de arquivo, APIs.
+- **Texto em linguagem natural** → português: documentação, prompts, instruções de agente, comentários de domínio, Skills, READMEs internos, identificadores(variáveis, funções, classes) de domínio, comunicação com stakeholders.
+- **Código** → inglês: identificadores(variáveis, funções, classes), nomes de arquivo, APIs, etc;
 
 Não é uma regra nova. É reconhecer que a separação natural que você já faz — pensar em português, codar em inglês — é exatamente o padrão ótimo quando a IA está no loop.
 
 ## O que eu mudei (e o que não mudei)
 
-Eu reestruturei meus repositórios. Hoje, meus AGENTS.md, minhas Skills, minha documentação interna — tudo em português. Código continua em inglês. Commits são em inglês (convenção do ecossistema).
+Eu reestruturei meus repositórios. Hoje, meus AGENTS.md, minhas Skills, minha documentação interna — tudo em português. Código continua em inglês. Commits são em inglês se for convenção do projeto ou conveniente. Se não, é em Portunglês mesmo.
 
 E o resultado? Minhas instruções ficaram mais precisas. Os agentes erram menos. Eu gasto menos tempo reformulando prompts porque a primeira versão já sai com a especificidade que eu quero — porque eu não estou desperdiçando ciclos mentais traduzindo.
+
+Sim, eu misturo português e inglês. E sim, isso é ok ("isso é ok" -> pegou a ironia???).
+
+Minha preocupação, hoje, é maximizar a expressividade e a clareza da minha comunicação com a IA, e não forçar um idioma que não é o meu para tentar agradar um modelo que já entende português perfeitamente. Portanto, expressar conceitos usando mistura de idiomas, dentro desse contexto, deixou de ser uma ofensa para virar uma ferramenta.
 
 ## A frase que fica
 
@@ -119,4 +123,4 @@ A questão é: **você expressa melhor em qual língua?**
 
 Porque no fim, o gargalo não é a compreensão do modelo. É a sua expressividade. E expressividade não se otimiza trocando de idioma — se otimiza usando o idioma em que você pensa.
 
-Escreva em português. A IA se vira.
+Eu escrevo em portunglês e a IA que lute!

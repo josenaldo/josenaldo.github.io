@@ -5,21 +5,36 @@ import { Box, Container } from '@mui/material'
 import ContentCard from '@/components/content/ContentCard'
 import ContentTitle from '@/components/content/ContentTitle'
 import Pagination from '@/components/Pagination'
-import AppLAyout from '@/layouts/AppLayout'
+import AppLayout from '@/layouts/AppLayout'
 import contentService from '@/services/content'
 
 const POSTS_PER_PAGE = 9
 
-const getStaticProps = async () => {
-    const posts = contentService.getSortedPosts()
-    return { props: { posts } }
+const getStaticPaths = async () => {
+    const paths = contentService.getAllCategoryPaths().map((slug) => ({
+        params: { slug },
+    }))
+    return { paths, fallback: false }
 }
 
-const BlogPage = ({ posts }) => {
-    const title = 'Nephro Nerd Chronicles'
-    const description =
-        "Explore Nephro Nerd Chronicles: Josenaldo's fusion of software development and kidney health insights. Be inspired, learn, and connect – one byte at a time!"
-    const image = '/images/pages/blog.jpg'
+const getStaticProps = async ({ params }) => {
+    const { slug } = params
+    const posts = contentService.getPostsByCategory(slug)
+    const categories = contentService.getAllCategories()
+    const category = categories.find((c) => c.slug === slug)
+
+    return {
+        props: {
+            posts,
+            categoryName: category?.name ?? slug,
+            slug,
+        },
+    }
+}
+
+const CategoryPage = ({ posts, categoryName }) => {
+    const title = `Category: ${categoryName}`
+    const description = `All posts in the "${categoryName}" category`
 
     const [currentPage, setCurrentPage] = useState(1)
     const gridRef = useRef(null)
@@ -33,18 +48,13 @@ const BlogPage = ({ posts }) => {
     }
 
     return (
-        <AppLAyout
+        <AppLayout
             title={title}
             description={description}
-            image={image}
-            url="/blog"
+            url={`/blog/category/${encodeURIComponent(categoryName)}`}
         >
             <Container>
-                <Box
-                    sx={{
-                        my: 5,
-                    }}
-                >
+                <Box sx={{ my: 5 }}>
                     <ContentTitle title={title} subtitle={description} />
                     <Box
                         ref={gridRef}
@@ -83,9 +93,9 @@ const BlogPage = ({ posts }) => {
                     />
                 </Box>
             </Container>
-        </AppLAyout>
+        </AppLayout>
     )
 }
 
-export { getStaticProps }
-export default BlogPage
+export { getStaticPaths, getStaticProps }
+export default CategoryPage

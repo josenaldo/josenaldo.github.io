@@ -51,6 +51,7 @@ const Blog = ({ posts }) => {
                             image={post.image}
                             url={post.url}
                             category={post.category}
+                            language={post.language}
                             moreLinkText="Read post"
                             showText
                         />
@@ -80,6 +81,7 @@ Blog.propTypes = {
             date: PropTypes.string,
             image: PropTypes.string,
             category: PropTypes.string,
+            language: PropTypes.string,
         })
     ).isRequired,
 }
