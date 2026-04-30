@@ -3,7 +3,9 @@
 Este repo usa o ecossistema aberto de skills (skills.sh) via CLI `npx skills`.
 
 - Local padrão: `.agents/skills/`
-- Instalação recomendada (sem telemetria): `DISABLE_TELEMETRY=1 npx skills add <owner/repo@skill> -y`
+- Catalogo externo (migracao faseada): `josenaldo/josenaldo-agent-skills`
+- Instalação recomendada (sem telemetria): `DISABLE_TELEMETRY=1 npx skills add <owner/repo> --skill <skill-name> -y`
+- Descoberta no repo: `DISABLE_TELEMETRY=1 npx skills add <owner/repo> --list`
 
 ## Skills já instaladas (Vercel / skills.sh)
 
@@ -24,6 +26,7 @@ Criadas com `npx skills init` e preenchidas para o contexto do projeto:
 
 - `bootstrap-ai-repo`
   - Foco: bootstrap inicial de contexto multiagente (`AGENTS.md`, `CLAUDE.md`, camada do Copilot, `docs/`, `memory/`, política de modelos e aprovações seguras).
+  - Origem canônica em migração: `josenaldo/josenaldo-agent-skills`.
 - `site-nextjs-static-export`
   - Foco: build estático (`output: 'export'`), `out/`, GitHub Pages, CI.
 - `site-contentlayer-authoring`

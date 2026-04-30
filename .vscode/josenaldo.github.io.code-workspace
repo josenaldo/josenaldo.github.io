@@ -6,6 +6,15 @@
         {
             "path": "../../josenaldo",
         },
+        {
+            "path": "../../report",
+        },
+        {
+            "path": "../../curriculo",
+        },
+        {
+            "path": "../../josenaldo-agent-skills",
+        },
     ],
     "settings": {
         "workbench.colorCustomizations": {

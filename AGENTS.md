@@ -12,8 +12,11 @@ Este repositório é um site pessoal em Next.js (Pages Router) com conteúdo em 
 
 As skills do projeto ficam em `.agents/skills/`.
 
+Catalogo externo em migracao faseada: `josenaldo/josenaldo-agent-skills`.
+
 - Listar skills instaladas: `npx skills list`
-- Instalar skills do ecossistema: `DISABLE_TELEMETRY=1 npx skills add <owner/repo@skill> -y`
+- Instalar skills do ecossistema: `DISABLE_TELEMETRY=1 npx skills add <owner/repo> --skill <skill-name> -y`
+- Listar skills de um repositorio: `DISABLE_TELEMETRY=1 npx skills add <owner/repo> --list`
 
 Skills específicas deste repo:
 
