@@ -115,6 +115,22 @@ Passada de humor no microcopy e no 404, acessibilidade, performance, OG images, 
 
 A Etapa 0 é a única bloqueante. A Etapa 1 pode correr em paralelo com ela — uma é texto, a outra é código. A Etapa 2 depende de 0 e 1. As Etapas 3, 4 e 5 dependem de 2 e são independentes entre si.
 
+## Emenda de 2026-08-08 — o que o levantamento da Etapa 1 corrigiu
+
+O levantamento técnico feito antes de planejar a Etapa 1 derrubou uma premissa deste documento e acrescentou quatro fatos. Fica registrado aqui porque spec que erra e não se corrige vira folclore.
+
+**Premissa errada: "a migração Pages → App Router é obrigatória".** Não é. O que é obrigatório em `output: export` é o **prefixo de locale na URL** — a documentação do next-intl é explícita: sem middleware, `localePrefix: 'as-needed'` não funciona e o prefixo é sempre exigido. O roteador, porém, é escolha: `~/repos/palma/site-palma-producoes` faz i18n em **Pages Router** com um segmento `pages/[locale]/` e `getStaticPaths` sobre os locales, sem middleware nenhum. A decisão de ir para App Router + next-intl **permanece**, mas pelo motivo correto: o next-i18next não tem história em App Router, então ficar no Pages Router agora significaria refazer o i18n na migração seguinte. Ressalva sobre a referência: a Palma **não é export estático** — roda em Vercel com servidor Node, tem rotas de API e detecção de locale no servidor. Só a estrutura de rotas dela transfere.
+
+**O domínio real é `josenaldo.com.br`.** O `josenaldo.github.io` responde **301** para ele. Mas o workflow de deploy exporta `NEXT_PUBLIC_SITE_URL=https://josenaldo.github.io`, de modo que canonical, sitemap e RSS anunciam hoje um host que redireciona. Corrigir isso entra na Etapa 1.
+
+**O site publicado é de março de 2026.** O deploy só dispara em push na `main` e o trabalho vive na `dev`. Nada deste roadmap vai ao ar antes de uma fusão deliberada.
+
+**O blog é majoritariamente português.** Dos 26 posts, cerca de 20 em PT e 6 em EN — o inverso do que a interface em inglês sugere. Consequência direta para os redirects: **o destino é por post, não por regra**. `/blog/por-que-ainda-sou-invisivel` precisa cair em `/pt/blog/...`, não em `/en/blog/...`.
+
+**Já existem pares de tradução, com slugs diferentes.** `why-am-i-still-invisible` / `por-que-ainda-sou-invisivel` e `ai-did-not-organize-my-life` / `ia-nao-organizou-minha-vida` são o mesmo texto nos dois idiomas. As duas referências (Palma e cglima) pareiam por **slug idêntico**, o que não serve aqui: forçaria renomear URLs publicadas e dar slug inglês a texto português. O pareamento passa a ser explícito, por um campo `translationKey` no frontmatter — superconjunto da convenção das referências, já que usar a chave igual ao slug reproduz o comportamento delas.
+
+**Toda coleção terá as duas árvores de locale.** `content/{tipo}/{locale}/`, como na Palma. Coleções que hoje só existem em inglês nascem com cópia do texto inglês dentro de `pt/`, marcada como pendente de tradução, para que a Etapa 4 traduza por cima sem precisar tocar em código. O blog é a exceção: post não se duplica — ele existe no idioma em que foi escrito, e a tradução, quando houver, é o par ligado por `translationKey`.
+
 ## Fontes
 
 - `~/repos/personal/curriculo/src/bases/fractional-engineer/cv.en.md` — o posicionamento vigente
