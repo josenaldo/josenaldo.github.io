@@ -79,10 +79,10 @@ const metrics = {
     muvzDelay: {
         id: 'muvzDelay',
         engagement: 'muvz',
-        before: { count: 3, per: 'month' },
+        before: { display: '3mo' },
         after: { count: 0 },
         confidence: 'remembered',
-        note: 'Atraso de três meses eliminado; entrega de volta ao calendário.',
+        note: 'Atraso pontual de três meses, eliminado — não é taxa recorrente. O display "3mo" é duração, não cadência.',
     },
     muvzPerformance: {
         id: 'muvzPerformance',

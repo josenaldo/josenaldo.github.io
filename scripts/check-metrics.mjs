@@ -7,6 +7,7 @@ const RETIRED = [
     '1h -> 2min',
     'one hour to about two minutes',
     '2 semanas → 1 semana',
+    '2 semanas -> 1 semana',
     '1 release a cada 2 meses',
     'one release every two months',
     '1 release por semana',
