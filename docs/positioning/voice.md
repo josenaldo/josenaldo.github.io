@@ -24,7 +24,8 @@ O inglês é o idioma padrão do site e é onde o humor mais quebra. Duas regras
 
 ## Pessoa e tempo verbal
 
-- **Primeira pessoa do singular, sempre.** "I build", "I take over", "eu assumo". Nunca "nós" — não existe "nós"; existe uma pessoa, e o site vende essa pessoa. Algoryst Lab é razão social e não aparece no site.
+- **Primeira pessoa do singular para o trabalho, sempre.** "I build", "I take over", "eu assumo". O que está proibido é o **"nós" corporativo** — o que finge equipe onde existe uma pessoa: "we deliver value", "our team", "nossa metodologia". Algoryst Lab é razão social e não aparece no site.
+- **O "nós" que inclui o leitor é permitido e é bom.** "We should talk", "vamos olhar o seu sistema" — esse "nós" é você e quem está lendo, e trocá-lo pela terceira pessoa ("you should talk to me") deixa a frase fria justamente no ponto em que ela convida.
 - **Presente do indicativo para o que é feito hoje; passado apenas nos engagements**, onde a estrutura Arrived → Built → Result exige.
 
 ## Proibido

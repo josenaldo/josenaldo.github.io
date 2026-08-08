@@ -6,6 +6,13 @@
 // Este módulo guarda VALOR, não frase. Palavras como "quarter", "month" ou
 // "release" vivem nas mensagens de tradução — só o número mora aqui.
 //
+// O que mora aqui é MÉTRICA DE RESULTADO: o que mudou por causa do trabalho,
+// com origem rastreável na nota canônica. Número que descreve o TERMO DA OFERTA
+// ("uma reunião por mês") ou ordem de grandeza sem registro recuperável
+// ("centenas de e-mails por semana") não é métrica e fica na prosa da copy —
+// inventar uma entrada `remembered` para eles encheria a nota canônica de coisa
+// que nunca foi medida, que é exatamente o que a auditoria de 2026-08-07 limpou.
+//
 // confidence:
 //   'measured'   — extraído de git/GitHub/suíte de testes, com comando reproduzível
 //   'counted'    — contagem manual sobre um registro que existe
@@ -60,6 +67,14 @@ const metrics = {
         confidence: 'measured',
         note: 'Antes: 70 casos em 7 arquivos no repo api, no corte. Depois: 9.120 casos nos 3 repos, suíte completa em ~16m32s.',
     },
+    codebasesOwned: {
+        id: 'codebasesOwned',
+        engagement: 'medespecialista',
+        before: null,
+        after: { count: 3 },
+        confidence: 'measured',
+        note: 'Os três repositórios sob responsabilidade única: api, admin e frontend. É a mesma contagem que aparece na apuração de testes.',
+    },
     followUpOperation: {
         id: 'followUpOperation',
         engagement: 'medespecialista',
@@ -107,6 +122,14 @@ const metrics = {
         after: { count: 8 },
         confidence: 'remembered',
         note: null,
+    },
+    muvzSprintCadence: {
+        id: 'muvzSprintCadence',
+        engagement: 'muvz',
+        before: null,
+        after: { count: 15 },
+        confidence: 'remembered',
+        note: 'Sprint de 15 dias, cadência restaurada e mantida pelo time depois da saída. O valor é a duração da sprint em dias.',
     },
     conddizArchitecture: {
         id: 'conddizArchitecture',
