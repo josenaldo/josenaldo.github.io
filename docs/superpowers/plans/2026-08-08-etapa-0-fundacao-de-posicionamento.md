@@ -58,6 +58,7 @@ const RETIRED = [
     '1h -> 2min',
     'one hour to about two minutes',
     '2 semanas → 1 semana',
+    '2 semanas -> 1 semana',
     '1 release a cada 2 meses',
     'one release every two months',
     '1 release por semana',
@@ -233,10 +234,10 @@ const metrics = {
     muvzDelay: {
         id: 'muvzDelay',
         engagement: 'muvz',
-        before: { count: 3, per: 'month' },
+        before: { display: '3mo' },
         after: { count: 0 },
         confidence: 'remembered',
-        note: 'Atraso de três meses eliminado; entrega de volta ao calendário.',
+        note: 'Atraso pontual de três meses, eliminado — não é taxa recorrente. O display "3mo" é duração, não cadência.',
     },
     muvzPerformance: {
         id: 'muvzPerformance',
@@ -407,8 +408,8 @@ O inglês é o idioma padrão do site e é onde o humor mais quebra. Duas regras
 
 - [ ] **Step 2: Verificar a regra de linha única**
 
-Run: `awk 'length > 400 { c++ } END { print c+0 " parágrafos longos (esperado: vários)" }' docs/positioning/voice.md`
-Expected: número maior que zero — confirma que os parágrafos não foram quebrados manualmente em ~80 colunas.
+Run: `awk 'length > 200 { c++ } END { print c+0 " parágrafos longos (esperado: vários)" }' docs/positioning/voice.md`
+Expected: número maior que zero — confirma que os parágrafos não foram quebrados manualmente em ~80 colunas. O limiar é 200 e não 400 porque parágrafo de prosa em português raramente passa de 400 caracteres: com o limiar alto, um arquivo corretamente formatado devolve zero e a verificação não distingue nada.
 
 - [ ] **Step 3: Portão de revisão humana**
 
@@ -605,7 +606,7 @@ git commit -m "docs(positioning): copy canonica em ingles do novo posicionamento
 
 **Interfaces:**
 - Consumes: `docs/positioning/copy.en.md` (Task 3) como referência de conteúdo, `docs/positioning/voice.md` (Task 2) como regra de tom, `src/data/metrics.mjs` (Task 1) para números.
-- Produces: `docs/positioning/copy.pt.md` com exatamente os mesmos cabeçalhos de seção do arquivo EN — a paridade de cabeçalho é o que a Etapa 1 usa para casar as duas árvores de mensagem.
+- Produces: `docs/positioning/copy.pt.md` pareado com o arquivo EN por **número e ordem de seção** — as mesmas nove seções numeradas mais `## Work modes` / `## Modos de trabalho` e `## Engagements`, na mesma sequência. O texto do cabeçalho é traduzido junto com a prosa: a Etapa 1 casa as duas árvores de mensagem pelo número da seção, nunca pela string do cabeçalho.
 
 - [ ] **Step 1: Escrever a versão em português**
 
