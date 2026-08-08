@@ -756,7 +756,7 @@ Expected: sem saída — os dois arquivos têm o mesmo número de cabeçalhos.
 
 - [ ] **Step 3: Verificar paridade de números**
 
-Run: `grep -oE '[0-9][0-9.,]*%?' docs/positioning/copy.en.md | sort | uniq -c > /tmp/en.txt && grep -oE '[0-9][0-9.,]*%?' docs/positioning/copy.pt.md | sort | uniq -c > /tmp/pt.txt && diff /tmp/en.txt /tmp/pt.txt`
+Run: `diff <(grep -oE '[0-9][0-9.,]*%?' docs/positioning/copy.en.md | sort | uniq -c) <(grep -oE '[0-9][0-9.,]*%?' docs/positioning/copy.pt.md | sort | uniq -c)`
 Expected: as diferenças que aparecerem devem ser apenas de separador decimal (`200,000` vs `200.000`) e de números escritos por extenso num idioma e não no outro. Qualquer valor presente num arquivo e ausente no outro é erro e precisa ser corrigido antes de seguir.
 
 - [ ] **Step 4: Rodar a guarda de números**
