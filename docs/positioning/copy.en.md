@@ -45,6 +45,7 @@ Ver a seção `## Engagements` abaixo. Na home, os três aparecem no formato Arr
 - Async-first, remote, GMT-3 — overlapping business hours with the Americas and half of Europe.
 - One scheduled meeting a month. Anything urgent has a channel; nothing urgent needs a calendar invite.
 - Decisions written down where the code is, so the next person — including future you — can reconstruct why.
+- For two years now, the commit log across all ten repositories shows one human name: mine. The only other author in it is an AI agent I built the harness for. That is what the machine buys you.
 
 ## 6. Testimonials
 
@@ -106,9 +107,9 @@ Seção intocada. A copy existente permanece.
 
 ### Medical education platform — medical-residency exam prep
 
-*Fractional engineer · sole owner of three codebases · 2024 – present*
+*Fractional engineer · sole owner of ten repositories, three in active development · 2024 – present*
 
-**Arrived:** Three codebases with no automated pipeline. A release roughly once a quarter, delivered inconsistently and with heavy rework. An approved request took three to six months to reach production. Two people on support hand-sent hundreds of personalized emails every week.
+**Arrived:** Ten repositories with no automated pipeline anywhere. A release roughly once a quarter, delivered inconsistently and with heavy rework. An approved request took three to six months to reach production. Two people on support hand-sent hundreds of personalized emails every week.
 
 **Built:** The full delivery machine — automated tests, CI/CD with staging gates, contract validation, monitoring, and release notes pushed on every deploy — plus an AI-native development workflow running under my sole architecture and review, and a modernization of the codebase carried out in increments alongside feature delivery.
 

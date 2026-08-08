@@ -45,6 +45,7 @@ Ver a seção `## Engagements` abaixo. Na home, os três aparecem no formato Che
 - Async-first, remoto, GMT-3 — horário comercial sobreposto com as Américas e com metade da Europa.
 - Uma reunião marcada por mês. O que for urgente tem canal; nada urgente precisa de convite na agenda.
 - Decisão registrada onde o código está, pra que a próxima pessoa — inclusive você daqui a um ano — consiga reconstruir o porquê.
+- Faz dois anos que o log de commits dos dez repositórios mostra um nome humano só: o meu. O único outro autor que aparece nele é um agente de IA pra quem eu construí o arnês. É isso que a máquina compra pra você.
 
 ## 6. Depoimentos
 
@@ -106,9 +107,9 @@ Seção intocada. A copy existente permanece.
 
 ### Plataforma de educação médica — preparação para prova de residência
 
-*Engenheiro fractional · responsável único por três repositórios · 2024 – hoje*
+*Engenheiro fractional · responsável único por dez repositórios, três em desenvolvimento ativo · 2024 – hoje*
 
-**Cheguei:** Três repositórios sem nenhum pipeline automatizado. Uma release a cada trimestre, entregue de forma inconsistente e com muito retrabalho. Um pedido aprovado levava de três a seis meses pra chegar em produção. Duas pessoas do suporte enviavam à mão centenas de e-mails personalizados por semana.
+**Cheguei:** Dez repositórios sem pipeline automatizado em nenhum deles. Uma release a cada trimestre, entregue de forma inconsistente e com muito retrabalho. Um pedido aprovado levava de três a seis meses pra chegar em produção. Duas pessoas do suporte enviavam à mão centenas de e-mails personalizados por semana.
 
 **Construí:** A máquina de entrega completa — testes automatizados, CI/CD com portões de staging, validação de contrato, monitoramento e release notes a cada deploy — mais um fluxo de desenvolvimento AI-native rodando sob arquitetura e revisão exclusivamente minhas, e a modernização da base feita em incrementos, junto com a entrega de funcionalidade.
 
