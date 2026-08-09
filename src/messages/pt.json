@@ -1,12 +1,91 @@
 {
-    "Nav": {},
-    "Home": {},
-    "Blog": {},
+    "Nav": {
+        "home": "Início",
+        "blog": "Blog",
+        "about": "Sobre",
+        "resume": "Currículo",
+        "experiences": "Experiências",
+        "projects": "Projetos",
+        "courses": "Cursos",
+        "contact": "Contato",
+        "siteMenuLabel": "menu do site"
+    },
+    "Home": {
+        "hero": {
+            "greeting": "Olá, meu nome é",
+            "name": "Josenaldo Matos",
+            "photoAlt": "Josenaldo Matos",
+            "downloadResumeButton": "Baixar Currículo",
+            "downloadResumeAria": "Baixar meu currículo",
+            "getInTouchButton": "Entre em Contato",
+            "getInTouchAria": "Entre em contato"
+        },
+        "about": {
+            "title": "Sobre Mim",
+            "subtitleFarofa": "Eu escrevo, mentoro e faço uma farofa muito boa.",
+            "knowMoreCta": "Saiba mais"
+        },
+        "blog": {
+            "title": "Blog",
+            "allPostsCta": "Todos os posts",
+            "allPostsAria": "Ver todos os posts do blog"
+        },
+        "experience": {
+            "title": "Experiência",
+            "allRolesCta": "Todos os cargos",
+            "allRolesAria": "Ver todas as experiências"
+        },
+        "portfolio": {
+            "title": "Portfólio",
+            "viewProject": "Ver projeto",
+            "visit": "Visitar",
+            "openProjectAria": "Abrir {title}",
+            "allProjectsCta": "Todos os projetos",
+            "allProjectsAria": "Ver todos os projetos"
+        },
+        "services": {
+            "title": "Serviços",
+            "emptyState": "Em breve, mais detalhes sobre os serviços.",
+            "talkCta": "Vamos conversar"
+        },
+        "testimonial": {
+            "title": "Depoimentos",
+            "emptyState": "No momento estou reunindo depoimentos. Se já trabalhamos juntos e você quiser compartilhar um feedback, eu adoraria ouvir.",
+            "shareCta": "Compartilhar um depoimento"
+        }
+    },
+    "Blog": {
+        "disclaimer": {
+            "heading": "Alguns avisos honestos antes de você sair:",
+            "language": "<strong>Sobre o idioma:</strong> Inglês não é a minha língua nativa. Eu falo português brasileiro, baianês, mineirês e um monte de bobagem. Mesmo assim escrevo em inglês — em parte pelo alcance, em parte como prática. Se algo soar estranho, a culpa é SUA! Sua culpa! Você é o especialista em inglês, não eu. Eu sou o cara que perdeu o rim da sogra!",
+            "ai": "<strong>Sobre IA:</strong> Sim, eu uso IA para me ajudar a escrever — da mesma forma que uso uma IDE para escrever código, uma calculadora para evitar aritmética constrangedora, e o Google para lembrar coisas que eu definitivamente aprendi e totalmente não esqueci na hora. IA é uma ferramenta. Eu sou quem escolhe o que dizer; a máquina só ajuda a dizer de um jeito menos incompreensível.",
+            "opinions": "<strong>Sobre as opiniões:</strong> Eu sou programador, não escritor, jornalista, analista ou profeta. Estes são meus pensamentos pessoais — informais, falíveis e totalmente não científicos. Eles existem para minha própria clareza, para a leve diversão de quem passar por aqui, e para o futuro constrangimento dos meus descendentes. Se você discorda, provavelmente está certo. Se você concorda, agradeço seu duvidoso julgamento."
+        }
+    },
     "Projects": {},
     "Courses": {},
     "Experiences": {},
     "Skills": {},
     "Contact": {},
-    "Footer": {},
-    "Common": {}
+    "Footer": {
+        "getInTouchTitle": "Entre em contato",
+        "getInTouchSubtitle": "Estou sempre aberto a discutir novos projetos, ideias criativas ou oportunidades de fazer parte das suas visões."
+    },
+    "Common": {
+        "languageSwitcherLabel": "seletor de idioma",
+        "readPost": "Ler post",
+        "share": "Compartilhar",
+        "close": "fechar",
+        "details": "Detalhes",
+        "openItem": "Abrir {title}",
+        "previousPage": "Página anterior",
+        "nextPage": "Próxima página",
+        "firstPage": "Primeira página",
+        "lastPage": "Última página",
+        "pageNumber": "Página {page}",
+        "shareDialogTitle": "Compartilhar",
+        "shareDialogText": "Compartilhar \"{title}\"",
+        "footnoteLabel": "Notas de rodapé",
+        "footnoteBackLabel": "Voltar ao conteúdo"
+    }
 }

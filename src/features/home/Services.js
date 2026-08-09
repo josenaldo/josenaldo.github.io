@@ -3,6 +3,7 @@ import DeviceHubIcon from '@mui/icons-material/DeviceHub'
 import PsychologyIcon from '@mui/icons-material/Psychology'
 import SchoolIcon from '@mui/icons-material/School'
 import { Box, Typography } from '@mui/material'
+import { useTranslations } from 'next-intl'
 import PropTypes from 'prop-types'
 
 import CallToAction from '@/components/CallToAction'
@@ -17,6 +18,7 @@ const iconMap = {
 }
 
 const Services = ({ services }) => {
+    const t = useTranslations('Home.services')
     const visibleServices = Array.isArray(services) ? services : []
 
     return (
@@ -30,7 +32,7 @@ const Services = ({ services }) => {
                     gap: 5,
                 }}
             >
-                <Typography variant="h2">Services</Typography>
+                <Typography variant="h2">{t('title')}</Typography>
 
                 {visibleServices.length === 0 ? (
                     <Typography
@@ -38,7 +40,7 @@ const Services = ({ services }) => {
                         color="text.secondary"
                         textAlign="center"
                     >
-                        Em breve, mais detalhes sobre os serviços.
+                        {t('emptyState')}
                     </Typography>
                 ) : (
                     <Box
@@ -64,7 +66,7 @@ const Services = ({ services }) => {
                     </Box>
                 )}
 
-                <CallToAction href="/contact">Let’s talk</CallToAction>
+                <CallToAction href="/contact">{t('talkCta')}</CallToAction>
             </Box>
         </Section>
     )

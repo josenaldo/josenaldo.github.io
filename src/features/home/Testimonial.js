@@ -1,10 +1,12 @@
 import { Avatar, Box, Card, CardContent, Typography } from '@mui/material'
+import { useTranslations } from 'next-intl'
 import PropTypes from 'prop-types'
 
 import CallToAction from '@/components/CallToAction'
 import Section from '@/components/Section'
 
 const Testimonial = ({ testimonials }) => {
+    const t = useTranslations('Home.testimonial')
     const visibleTestimonials = Array.isArray(testimonials) ? testimonials : []
 
     return (
@@ -18,7 +20,7 @@ const Testimonial = ({ testimonials }) => {
                     gap: 5,
                 }}
             >
-                <Typography variant="h2">Testimonials</Typography>
+                <Typography variant="h2">{t('title')}</Typography>
 
                 {visibleTestimonials.length === 0 ? (
                     <Box
@@ -32,13 +34,11 @@ const Testimonial = ({ testimonials }) => {
                         }}
                     >
                         <Typography variant="body1" color="text.secondary">
-                            I’m currently collecting testimonials. If we’ve
-                            worked together and you’d like to share feedback,
-                            I’d love to hear it.
+                            {t('emptyState')}
                         </Typography>
                         <Box sx={{ display: 'flex', justifyContent: 'center' }}>
                             <CallToAction href="/contact">
-                                Share a testimonial
+                                {t('shareCta')}
                             </CallToAction>
                         </Box>
                     </Box>

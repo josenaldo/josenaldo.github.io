@@ -13,6 +13,7 @@ import {
     IconButton,
     Typography,
 } from '@mui/material'
+import { useTranslations } from 'next-intl'
 import PropTypes from 'prop-types'
 
 const iconFontSize = {
@@ -70,6 +71,8 @@ const networks = [
 ]
 
 const ShareDialog = ({ title, description, url, open, onClose }) => {
+    const t = useTranslations('Common')
+
     const handleClose = () => {
         onClose()
     }
@@ -85,10 +88,10 @@ const ShareDialog = ({ title, description, url, open, onClose }) => {
                 color="primary"
                 sx={{ paddingRight: '40px' }}
             >
-                Compartilhar
+                {t('shareDialogTitle')}
                 {onClose ? (
                     <IconButton
-                        aria-label="close"
+                        aria-label={t('close')}
                         onClick={handleClose}
                         sx={{
                             position: 'absolute',
@@ -109,7 +112,7 @@ const ShareDialog = ({ title, description, url, open, onClose }) => {
                 }}
             >
                 <DialogContentText>
-                    Compartilhar &quot;{title}&quot;
+                    {t('shareDialogText', { title })}
                 </DialogContentText>
                 <Typography variant="caption">{description}</Typography>
             </DialogContent>

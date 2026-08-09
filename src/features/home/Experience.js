@@ -3,6 +3,7 @@
 import dynamic from 'next/dynamic'
 
 import { Box, Typography } from '@mui/material'
+import { useTranslations } from 'next-intl'
 import PropTypes from 'prop-types'
 
 import CallToAction from '@/components/CallToAction'
@@ -17,6 +18,8 @@ const ExperienceTimeline = dynamic(
 )
 
 const Experience = ({ experiences }) => {
+    const t = useTranslations('Home.experience')
+
     return (
         <Section elevation={1}>
             <Box
@@ -27,18 +30,15 @@ const Experience = ({ experiences }) => {
                     alignItems: 'center',
                 }}
             >
-                <Typography variant="h2">Experience</Typography>
+                <Typography variant="h2">{t('title')}</Typography>
                 <Box>
                     <ExperienceTimeline
                         experiences={experiences}
                         showEllipsis
                     />
                 </Box>
-                <CallToAction
-                    href="/experiences"
-                    ariaLabel="View all experiences"
-                >
-                    All roles
+                <CallToAction href="/experiences" ariaLabel={t('allRolesAria')}>
+                    {t('allRolesCta')}
                 </CallToAction>
             </Box>
         </Section>

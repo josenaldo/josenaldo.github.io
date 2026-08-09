@@ -35,6 +35,12 @@ export async function generateMetadata({ params }) {
             canonical: post.url,
             languages: sibling ? { [sibling.locale]: sibling.url } : undefined,
         },
+        openGraph: {
+            title: post.title,
+            description: post.description,
+            url: post.url,
+            images: post.image ? [{ url: post.image }] : undefined,
+        },
     }
 }
 

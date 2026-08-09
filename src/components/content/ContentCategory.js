@@ -1,6 +1,9 @@
+'use client'
+
 import { Chip } from '@mui/material'
 import PropTypes from 'prop-types'
 
+import { Link } from '@/i18n/navigation'
 import slugify from '@/shared/utils/slugify'
 
 const ContentCategory = ({ category, color = 'secondary' }) => {
@@ -14,7 +17,7 @@ const ContentCategory = ({ category, color = 'secondary' }) => {
             size="small"
             color={color}
             label={label}
-            component="a"
+            component={Link}
             clickable
             href={`/blog/category/${categorySlug}`}
             sx={{

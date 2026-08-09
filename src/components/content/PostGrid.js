@@ -3,6 +3,7 @@
 import { useRef, useState } from 'react'
 
 import { Box } from '@mui/material'
+import { useTranslations } from 'next-intl'
 
 import ContentCard from '@/components/content/ContentCard'
 import Pagination from '@/components/Pagination'
@@ -10,6 +11,7 @@ import Pagination from '@/components/Pagination'
 const POSTS_PER_PAGE = 9
 
 const PostGrid = ({ posts }) => {
+    const t = useTranslations('Common')
     const [currentPage, setCurrentPage] = useState(1)
     const gridRef = useRef(null)
     const totalPages = Math.ceil(posts.length / POSTS_PER_PAGE)
@@ -49,7 +51,7 @@ const PostGrid = ({ posts }) => {
                         date={post.date}
                         category={post.category}
                         language={post.locale}
-                        moreLinkText="Read post"
+                        moreLinkText={t('readPost')}
                     />
                 ))}
             </Box>

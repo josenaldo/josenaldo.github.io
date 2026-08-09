@@ -23,6 +23,12 @@ export async function generateMetadata({ params }) {
                 pt: '/pt/resume',
             },
         },
+        openGraph: {
+            title: page.title,
+            description: page.description,
+            url: `/${locale}/resume`,
+            images: page.image ? [{ url: page.image }] : undefined,
+        },
     }
 }
 

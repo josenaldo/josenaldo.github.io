@@ -1,5 +1,6 @@
 import Masonry from '@mui/lab/Masonry'
 import { Box, Card, CardContent, Chip, Typography } from '@mui/material'
+import { useTranslations } from 'next-intl'
 
 import CallToAction from '@/components/CallToAction'
 import Section from '@/components/Section'
@@ -39,6 +40,8 @@ const SkillGroupCard = ({ group, color, skills }) => (
 )
 
 const About = ({ skills = [] }) => {
+    const t = useTranslations('Home.about')
+
     return (
         <Section elevation={2}>
             <Box
@@ -50,7 +53,7 @@ const About = ({ skills = [] }) => {
                     gap: 5,
                 }}
             >
-                <Typography variant="h2">About Me</Typography>
+                <Typography variant="h2">{t('title')}</Typography>
 
                 <Box
                     sx={{
@@ -62,6 +65,15 @@ const About = ({ skills = [] }) => {
                         gap: 2,
                     }}
                 >
+                    {/*
+                        NOTE(Task 6): estas duas linhas citam "20+ years" e
+                        "200k+ users" — números de interface que não existem
+                        em src/data/metrics.mjs. Por instrução explícita do
+                        brief ("pare e relate"), ficaram de fora da extração
+                        para i18n e continuam hardcoded em inglês nos dois
+                        locales até essa decisão ser tomada. Ver relatório da
+                        Task 6.
+                    */}
                     <Typography variant="subtitle">
                         Senior Full Stack Engineer. 20+ years. Java, Spring
                         Boot, React, TypeScript.
@@ -73,7 +85,7 @@ const About = ({ skills = [] }) => {
                         with ownership.
                     </Typography>
                     <Typography variant="subtitle">
-                        I write, mentor, and make a very good farofa.
+                        {t('subtitleFarofa')}
                     </Typography>
                 </Box>
 
@@ -92,7 +104,7 @@ const About = ({ skills = [] }) => {
                     ))}
                 </Masonry>
 
-                <CallToAction href="/about">Know more</CallToAction>
+                <CallToAction href="/about">{t('knowMoreCta')}</CallToAction>
             </Box>
         </Section>
     )
