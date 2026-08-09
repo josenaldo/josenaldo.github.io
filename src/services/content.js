@@ -6,11 +6,11 @@ import {
     allPosts,
     allProjects,
     allServices,
-    allSkills,
     allTestimonials,
 } from 'contentlayer/generated'
 
 import skillGroups from '@/data/skillGroups'
+import skills from '@/data/skills'
 import slugify from '@/shared/utils/slugify'
 
 const STATUS_ALIASES = {
@@ -162,7 +162,7 @@ const getPageData = (url) => {
 }
 
 const getAllSkills = () => {
-    const skillsByLevel = allSkills.reduce((acc, skill) => {
+    const skillsByLevel = skills.reduce((acc, skill) => {
         if (!acc[skill.level]) {
             acc[skill.level] = []
         }
@@ -188,7 +188,7 @@ const getAllSkillsByCategory = () => {
         skillGroups.map(({ group, color }) => [group, color])
     )
 
-    const grouped = allSkills.reduce((acc, skill) => {
+    const grouped = skills.reduce((acc, skill) => {
         if (!skill.group) return acc
         if (!acc[skill.group]) acc[skill.group] = []
         acc[skill.group].push(skill)

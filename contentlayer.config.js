@@ -208,33 +208,6 @@ const Testimonial = defineDocumentType(() => ({
     },
 }))
 
-const Skill = defineDocumentType(() => ({
-    name: 'Skill',
-    filePathPattern: `skills/**/*.md`,
-    fields: {
-        name: {
-            type: 'string',
-            description: 'The name of the skill',
-            required: true,
-        },
-        level: {
-            type: 'string',
-            description: 'The level of the skill',
-            required: true,
-        },
-        firstContact: {
-            type: 'number',
-            description: 'The year of the first contact with the skill',
-            required: true,
-        },
-        group: {
-            type: 'string',
-            description: 'The display group this skill belongs to (e.g. Backend, Frontend)',
-            required: false,
-        },
-    },
-}))
-
 const Course = defineDocumentType(() => ({
     name: 'Course',
     filePathPattern: `courses/**/*.md`,
@@ -329,7 +302,6 @@ export default makeSource({
         Project,
         Experience,
         Testimonial,
-        Skill,
         Course,
         Service,
     ],

@@ -1,62 +1,429 @@
+// Inventário de skills. Antes eram 92 arquivos Markdown só com frontmatter em
+// content/skills/ — dado puro travestido de conteúdo, e duplicado nesta mesma
+// lista. Nome de tecnologia não se traduz: só os nomes de grupo, que vivem em
+// skillGroups.js, entram na camada de mensagens.
+//
+// 45 skills que ficavam invisíveis (frontmatter sem campo group, então
+// filtradas por getAllSkillsByCategory) foram resgatadas e agrupadas aqui,
+// por decisão explícita do dono do site em 2026-08-08. Outras 6 (Trello,
+// Notion, JIRA, Github, Gitlab, Bootstrap) foram descartadas de propósito:
+// não dizem nada sobre senioridade e não valem uma linha num brag document.
+// O grupo Legacy & Enterprise Java foi criado para acomodar o stack Java
+// legado (EJB, JSF, JSP, CDI, Thymeleaf), evidência direta do posicionamento
+// "Legacy Recovery" do site.
+
 const skills = [
-    // Core Stack
-    'Java',
-    'Spring Boot',
-    'React',
-    'TypeScript',
-    'Node.js',
-
-    // Backend
-    'Spring Security',
-    'Spring Data JPA',
-    'Hibernate',
-    'BullMQ',
-    'REST',
-    'JWT',
-
-    // Frontend
-    'Next.js',
-    'Mantine',
-    'MUI (Material UI)',
-    'Tan Stack Query',
-    'React Hook Form',
-    'Zod',
-
-    // Databases
-    'PostgreSQL',
-    'MySQL',
-    'Sequelize',
-
-    // Architecture
-    'Clean Architecture',
-    'Hexagonal Architecture',
-    'Domain-Driven Design',
-    'SOLID',
-    'Microservices',
-    'Event-Driven Architecture',
-
-    // Testing
-    'JUnit',
-    'Mockito',
-    'Jest',
-    'React Testing Library',
-    'TDD',
-
-    // AI & Productivity
-    'GitHub Copilot Agents',
-    'Prompt Engineering',
-
-    // DevOps & Tooling
-    'Docker',
-    'GitHub Actions',
-    'CI/CD',
-    'Git',
-
-    // Agile
-    'Scrum',
-    'Kanban',
-    'Technical Leadership',
-    'Mentoring',
+    { name: 'Go', group: 'Core Stack', level: 'learner', firstContact: 2024 },
+    { name: 'Java', group: 'Core Stack', level: 'fluent', firstContact: 2003 },
+    {
+        name: 'JavaScript',
+        group: 'Core Stack',
+        level: 'fluent',
+        firstContact: 2003,
+    },
+    {
+        name: 'Node.js',
+        group: 'Core Stack',
+        level: 'familiar',
+        firstContact: 2022,
+    },
+    {
+        name: 'Python',
+        group: 'Core Stack',
+        level: 'proficient',
+        firstContact: 2021,
+    },
+    { name: 'React', group: 'Core Stack', level: 'fluent', firstContact: 2022 },
+    {
+        name: 'Spring Boot',
+        group: 'Core Stack',
+        level: 'fluent',
+        firstContact: 2015,
+    },
+    {
+        name: 'TypeScript',
+        group: 'Core Stack',
+        level: 'proficient',
+        firstContact: 2022,
+    },
+    {
+        name: 'BullMQ',
+        group: 'Backend',
+        level: 'proficient',
+        firstContact: 2022,
+    },
+    { name: 'Django', group: 'Backend', level: 'familiar', firstContact: 2021 },
+    {
+        name: 'Express',
+        group: 'Backend',
+        level: 'familiar',
+        firstContact: 2022,
+    },
+    { name: 'GraphQL', group: 'Backend', level: 'learner', firstContact: 2023 },
+    { name: 'gRPC', group: 'Backend', level: 'learner', firstContact: 2024 },
+    {
+        name: 'Hibernate',
+        group: 'Backend',
+        level: 'fluent',
+        firstContact: 2008,
+    },
+    { name: 'JWT', group: 'Backend', level: 'proficient', firstContact: 2016 },
+    {
+        name: 'Apache Kafka',
+        group: 'Backend',
+        level: 'fluent',
+        firstContact: 2023,
+    },
+    { name: 'REST', group: 'Backend', level: 'fluent', firstContact: 2010 },
+    {
+        name: 'Spring Data JPA',
+        group: 'Backend',
+        level: 'fluent',
+        firstContact: 2012,
+    },
+    {
+        name: 'Spring Security',
+        group: 'Backend',
+        level: 'fluent',
+        firstContact: 2015,
+    },
+    {
+        name: 'Spring Framework',
+        group: 'Backend',
+        level: 'fluent',
+        firstContact: 2012,
+    },
+    { name: 'Strapi', group: 'Backend', level: 'familiar', firstContact: 2022 },
+    {
+        name: 'Content Layer',
+        group: 'Frontend',
+        level: 'proficient',
+        firstContact: 2022,
+    },
+    { name: 'CSS', group: 'Frontend', level: 'fluent', firstContact: 2003 },
+    { name: 'HTML', group: 'Frontend', level: 'fluent', firstContact: 2003 },
+    {
+        name: 'Mantine',
+        group: 'Frontend',
+        level: 'proficient',
+        firstContact: 2023,
+    },
+    {
+        name: 'MUI (Material UI)',
+        group: 'Frontend',
+        level: 'fluent',
+        firstContact: 2022,
+    },
+    { name: 'Next.js', group: 'Frontend', level: 'fluent', firstContact: 2022 },
+    {
+        name: 'Progressive Web Apps',
+        group: 'Frontend',
+        level: 'proficient',
+        firstContact: 2015,
+    },
+    {
+        name: 'React-admin',
+        group: 'Frontend',
+        level: 'fluent',
+        firstContact: 2023,
+    },
+    {
+        name: 'React Hook Form',
+        group: 'Frontend',
+        level: 'fluent',
+        firstContact: 2023,
+    },
+    {
+        name: 'React Router',
+        group: 'Frontend',
+        level: 'familiar',
+        firstContact: 2022,
+    },
+    { name: 'Redux', group: 'Frontend', level: 'familiar', firstContact: 2022 },
+    {
+        name: 'Tan Stack Query',
+        group: 'Frontend',
+        level: 'familiar',
+        firstContact: 2022,
+    },
+    { name: 'Zod', group: 'Frontend', level: 'proficient', firstContact: 2022 },
+    {
+        name: 'Database Modeling',
+        group: 'Databases',
+        level: 'proficient',
+        firstContact: 2003,
+    },
+    { name: 'JDBC', group: 'Databases', level: 'fluent', firstContact: 2003 },
+    { name: 'JPA', group: 'Databases', level: 'fluent', firstContact: 2010 },
+    {
+        name: 'MongoDB',
+        group: 'Databases',
+        level: 'learner',
+        firstContact: 2022,
+    },
+    { name: 'MySQL', group: 'Databases', level: 'fluent', firstContact: 2003 },
+    {
+        name: 'Oracle',
+        group: 'Databases',
+        level: 'familiar',
+        firstContact: 2008,
+    },
+    {
+        name: 'Pandas',
+        group: 'Databases',
+        level: 'familiar',
+        firstContact: 2021,
+    },
+    {
+        name: 'PostgreSQL',
+        group: 'Databases',
+        level: 'proficient',
+        firstContact: 2020,
+    },
+    {
+        name: 'Sequelize',
+        group: 'Databases',
+        level: 'proficient',
+        firstContact: 2019,
+    },
+    {
+        name: 'SQL Server',
+        group: 'Databases',
+        level: 'familiar',
+        firstContact: 2012,
+    },
+    {
+        name: 'SQL',
+        group: 'Databases',
+        level: 'proficient',
+        firstContact: 2003,
+    },
+    {
+        name: 'Clean Architecture',
+        group: 'Architecture',
+        level: 'proficient',
+        firstContact: 2010,
+    },
+    {
+        name: 'Clean Code',
+        group: 'Architecture',
+        level: 'familiar',
+        firstContact: 2023,
+    },
+    {
+        name: 'CQRS',
+        group: 'Architecture',
+        level: 'learner',
+        firstContact: 2024,
+    },
+    {
+        name: 'Design Patterns',
+        group: 'Architecture',
+        level: 'fluent',
+        firstContact: 2004,
+    },
+    {
+        name: 'Domain-Driven Design',
+        group: 'Architecture',
+        level: 'proficient',
+        firstContact: 2023,
+    },
+    {
+        name: 'Event-Driven Architecture',
+        group: 'Architecture',
+        level: 'learner',
+        firstContact: 2024,
+    },
+    {
+        name: 'Event Sourcing',
+        group: 'Architecture',
+        level: 'learner',
+        firstContact: 2024,
+    },
+    {
+        name: 'Event Storming',
+        group: 'Architecture',
+        level: 'learner',
+        firstContact: 2024,
+    },
+    {
+        name: 'Hexagonal Architecture',
+        group: 'Architecture',
+        level: 'fluent',
+        firstContact: 2023,
+    },
+    {
+        name: 'Microservices',
+        group: 'Architecture',
+        level: 'proficient',
+        firstContact: 2015,
+    },
+    {
+        name: 'Object-Oriented Programming',
+        group: 'Architecture',
+        level: 'fluent',
+        firstContact: 2001,
+    },
+    {
+        name: 'Software Architecture',
+        group: 'Architecture',
+        level: 'proficient',
+        firstContact: 2015,
+    },
+    {
+        name: 'SOLID',
+        group: 'Architecture',
+        level: 'fluent',
+        firstContact: 2014,
+    },
+    {
+        name: 'AssertJ',
+        group: 'Testing',
+        level: 'familiar',
+        firstContact: 2023,
+    },
+    {
+        name: 'Hamcrest',
+        group: 'Testing',
+        level: 'familiar',
+        firstContact: 2014,
+    },
+    { name: 'Jest', group: 'Testing', level: 'familiar', firstContact: 2022 },
+    {
+        name: 'JUnit',
+        group: 'Testing',
+        level: 'proficient',
+        firstContact: 2008,
+    },
+    {
+        name: 'Mockito',
+        group: 'Testing',
+        level: 'proficient',
+        firstContact: 2008,
+    },
+    {
+        name: 'React Testing Library',
+        group: 'Testing',
+        level: 'proficient',
+        firstContact: 2022,
+    },
+    {
+        name: 'Software Testing',
+        group: 'Testing',
+        level: 'proficient',
+        firstContact: 2008,
+    },
+    { name: 'TDD', group: 'Testing', level: 'proficient', firstContact: 2015 },
+    {
+        name: 'GitHub Copilot Agents',
+        group: 'AI & Productivity',
+        level: 'proficient',
+        firstContact: 2024,
+    },
+    {
+        name: 'Prompt Engineering',
+        group: 'AI & Productivity',
+        level: 'proficient',
+        firstContact: 2023,
+    },
+    {
+        name: 'AWS',
+        group: 'DevOps & Tooling',
+        level: 'familiar',
+        firstContact: 2015,
+    },
+    {
+        name: 'CI/CD',
+        group: 'DevOps & Tooling',
+        level: 'familiar',
+        firstContact: 2008,
+    },
+    {
+        name: 'Docker',
+        group: 'DevOps & Tooling',
+        level: 'proficient',
+        firstContact: 2018,
+    },
+    {
+        name: 'Git',
+        group: 'DevOps & Tooling',
+        level: 'fluent',
+        firstContact: 2013,
+    },
+    {
+        name: 'GitHub Actions',
+        group: 'DevOps & Tooling',
+        level: 'proficient',
+        firstContact: 2020,
+    },
+    {
+        name: 'Gradle',
+        group: 'DevOps & Tooling',
+        level: 'learner',
+        firstContact: 2024,
+    },
+    {
+        name: 'Jenkins',
+        group: 'DevOps & Tooling',
+        level: 'familiar',
+        firstContact: 2008,
+    },
+    {
+        name: 'Apache Maven',
+        group: 'DevOps & Tooling',
+        level: 'fluent',
+        firstContact: 2008,
+    },
+    { name: 'Kanban', group: 'Agile', level: 'proficient', firstContact: 2015 },
+    {
+        name: 'Mentoring Junior Developers',
+        group: 'Agile',
+        level: 'proficient',
+        firstContact: 2007,
+    },
+    {
+        name: 'Mentoring',
+        group: 'Agile',
+        level: 'proficient',
+        firstContact: 2012,
+    },
+    { name: 'Scrum', group: 'Agile', level: 'proficient', firstContact: 2014 },
+    {
+        name: 'Technical Leadership',
+        group: 'Agile',
+        level: 'proficient',
+        firstContact: 2012,
+    },
+    {
+        name: 'CDI',
+        group: 'Legacy & Enterprise Java',
+        level: 'proficient',
+        firstContact: 2014,
+    },
+    {
+        name: 'EJB',
+        group: 'Legacy & Enterprise Java',
+        level: 'proficient',
+        firstContact: 2008,
+    },
+    {
+        name: 'JSF',
+        group: 'Legacy & Enterprise Java',
+        level: 'proficient',
+        firstContact: 2008,
+    },
+    {
+        name: 'JSP',
+        group: 'Legacy & Enterprise Java',
+        level: 'proficient',
+        firstContact: 2003,
+    },
+    {
+        name: 'Thymeleaf',
+        group: 'Legacy & Enterprise Java',
+        level: 'familiar',
+        firstContact: 2023,
+    },
 ]
 
 export default skills
