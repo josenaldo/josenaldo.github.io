@@ -1,3 +1,5 @@
+import { setRequestLocale } from 'next-intl/server'
+
 import AboutSection from '@/features/home/About'
 import BlogSection from '@/features/home/Blog'
 import ExperienceSection from '@/features/home/Experience'
@@ -5,7 +7,7 @@ import HeroSection from '@/features/home/Hero'
 import PortfolioSection from '@/features/home/Portfolio'
 import ServicesSection from '@/features/home/Services'
 import TestimonialSection from '@/features/home/Testimonial'
-import AppLayout from '@/layouts/AppLayout'
+import { routing } from '@/i18n/routing'
 import contentService from '@/services/content'
 
 const getProjectHomeImage = (imagePath) => {
@@ -22,12 +24,18 @@ const getProjectHomeImage = (imagePath) => {
         : `/images/projects/thumbs/${baseName}.webp`
 }
 
-// TODO(Task 4): remover o locale explícito quando o App Router assumir o roteamento.
-export async function getStaticProps() {
+export function generateStaticParams() {
+    return routing.locales.map((locale) => ({ locale }))
+}
+
+export default async function HomePage({ params }) {
+    const { locale } = await params
+    setRequestLocale(locale)
+
     // Important: Contentlayer documents include large fields (e.g. body.html/body.raw/_raw)
-    // that should not be sent to the Home page. Only pass what the UI uses.
+    // that should not be sent to client section components. Only pass what the UI uses.
     const experiences = contentService
-        .lastExperiences('en', 4)
+        .lastExperiences(locale, 4)
         .map((experience) => ({
             period: experience.period,
             company: experience.company,
@@ -36,7 +44,7 @@ export async function getStaticProps() {
             location: experience.location,
         }))
 
-    const projects = contentService.lastProjects('en', 6).map((project) => ({
+    const projects = contentService.lastProjects(locale, 6).map((project) => ({
         id: project.id,
         title: project.title,
         description: project.description,
@@ -46,7 +54,7 @@ export async function getStaticProps() {
         url: project.url,
     }))
 
-    const services = contentService.getServices('en').map((service) => ({
+    const services = contentService.getServices(locale).map((service) => ({
         title: service.title,
         description: service.description,
         icon: service.icon,
@@ -54,7 +62,7 @@ export async function getStaticProps() {
     }))
 
     const testimonials = contentService
-        .getTestimonials('en')
+        .getTestimonials(locale)
         .map((testimonial) => ({
             name: testimonial.name,
             position: testimonial.position,
@@ -62,7 +70,7 @@ export async function getStaticProps() {
             image: testimonial.image,
         }))
 
-    const posts = contentService.getSortedPosts('en').map((post) => ({
+    const posts = contentService.getSortedPosts(locale).map((post) => ({
         title: post.title,
         description: post.description,
         author: post.author,
@@ -84,26 +92,8 @@ export async function getStaticProps() {
             })),
         }))
 
-    return {
-        props: { experiences, projects, testimonials, services, posts, skills },
-    }
-}
-
-export default function Home({
-    experiences,
-    projects,
-    testimonials,
-    services,
-    posts,
-    skills,
-}) {
     return (
-        <AppLayout
-            title="Josenaldo Matos"
-            description="Software Developer & Kidney Waster"
-            image="/images/default.jpg"
-            url="/"
-        >
+        <>
             <HeroSection />
             <AboutSection skills={skills} />
             <BlogSection posts={posts} />
@@ -111,6 +101,6 @@ export default function Home({
             <PortfolioSection projects={projects} />
             <ServicesSection services={services} />
             <TestimonialSection testimonials={testimonials} />
-        </AppLayout>
+        </>
     )
 }
