@@ -1,8 +1,15 @@
 import Masonry from '@mui/lab/Masonry'
 import { Box, Card, CardContent, Chip, Typography } from '@mui/material'
+import { useTranslations } from 'next-intl'
 
 import CallToAction from '@/components/CallToAction'
 import Section from '@/components/Section'
+import metrics, { yearsOfExperience } from '@/data/metrics.mjs'
+
+// Formata a contagem bruta de `metrics.mjs` para o formato de apresentação
+// ("200000" -> "200k"). O valor numérico vem de lá; o "k" é só apresentação,
+// não entra de novo na mensagem de tradução.
+const formatThousands = (count) => `${count / 1000}k`
 
 const SkillGroupCard = ({ group, color, skills }) => (
     <Card
@@ -39,6 +46,12 @@ const SkillGroupCard = ({ group, color, skills }) => (
 )
 
 const About = ({ skills = [] }) => {
+    const t = useTranslations('Home.about')
+    const years = yearsOfExperience()
+    const trafficPeakUsers = formatThousands(
+        metrics.conddizTrafficPeak.after.count
+    )
+
     return (
         <Section elevation={2}>
             <Box
@@ -50,7 +63,7 @@ const About = ({ skills = [] }) => {
                     gap: 5,
                 }}
             >
-                <Typography variant="h2">About Me</Typography>
+                <Typography variant="h2">{t('title')}</Typography>
 
                 <Box
                     sx={{
@@ -63,17 +76,13 @@ const About = ({ skills = [] }) => {
                     }}
                 >
                     <Typography variant="subtitle">
-                        Senior Full Stack Engineer. 20+ years. Java, Spring
-                        Boot, React, TypeScript.
+                        {t('subtitleTech', { years })}
                     </Typography>
                     <Typography variant="subtitle">
-                        I&apos;ve modernized legacy platforms, led migrations to
-                        microservices, and shipped multi-app ecosystems
-                        supporting 200k+ users &mdash; always remotely, always
-                        with ownership.
+                        {t('subtitleModernized', { users: trafficPeakUsers })}
                     </Typography>
                     <Typography variant="subtitle">
-                        I write, mentor, and make a very good farofa.
+                        {t('subtitleFarofa')}
                     </Typography>
                 </Box>
 
@@ -92,7 +101,7 @@ const About = ({ skills = [] }) => {
                     ))}
                 </Masonry>
 
-                <CallToAction href="/about">Know more</CallToAction>
+                <CallToAction href="/about">{t('knowMoreCta')}</CallToAction>
             </Box>
         </Section>
     )

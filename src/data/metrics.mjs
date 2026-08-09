@@ -17,6 +17,13 @@
 //   'measured'   — extraído de git/GitHub/suíte de testes, com comando reproduzível
 //   'counted'    — contagem manual sobre um registro que existe
 //   'remembered' — memória do estado anterior, sem registro recuperável
+//
+// Este arquivo também abriga dados que não são métrica de resultado:
+// `CAREER_START_YEAR` e `SITE_LAUNCH_YEAR`. São fatos de biografia/histórico
+// (quando a carreira começou, quando o site foi ao ar), não "o que mudou por
+// causa do trabalho" — por isso vivem como exports nomeados próprios, fora
+// do objeto `metrics`, e `checkShape()` (scripts/check-metrics.mjs) nunca os
+// vê, porque só valida o `export default`.
 
 const metrics = {
     deploymentFrequency: {
@@ -182,3 +189,20 @@ const metrics = {
 }
 
 export default metrics
+
+// Fato de biografia, não métrica de resultado — ver nota no cabeçalho do
+// arquivo. Ano em que a carreira em desenvolvimento de software começou.
+export const CAREER_START_YEAR = 2003
+
+// Mesma categoria do CAREER_START_YEAR acima: fato, não métrica de
+// resultado. Ano de lançamento do site — usado no copyright do rodapé. O ano
+// corrente do copyright continua dinâmico (`new Date().getFullYear()`) e
+// fica fora deste módulo, porque é data, não dado.
+export const SITE_LAUNCH_YEAR = 2023
+
+// Arredonda para baixo em múltiplos de 5: 2026 → 20, 2028 → 25, ... O "+" de
+// apresentação ("20+") é sufixo de string de tradução, não deste módulo —
+// aqui mora só o valor.
+export function yearsOfExperience(now = new Date()) {
+    return Math.floor((now.getFullYear() - CAREER_START_YEAR) / 5) * 5
+}

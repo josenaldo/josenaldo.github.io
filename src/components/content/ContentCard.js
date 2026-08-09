@@ -1,3 +1,5 @@
+'use client'
+
 import {
     Box,
     Button,
@@ -7,6 +9,7 @@ import {
     CardMedia,
     Typography,
 } from '@mui/material'
+import { useTranslations } from 'next-intl'
 import PropTypes from 'prop-types'
 
 import ContentCardImage from '@/components/content/ContentCardImage'
@@ -21,7 +24,7 @@ const ContentCard = ({
     text,
     url,
     image,
-    moreLinkText = 'Details',
+    moreLinkText,
     date,
     author,
     category,
@@ -31,6 +34,8 @@ const ContentCard = ({
     showActions = true,
     showShare = true,
 }) => {
+    const t = useTranslations('Common')
+    const resolvedMoreLinkText = moreLinkText ?? t('details')
     const hasImage = Boolean(image)
     const hasMeta = Boolean(date || author)
 
@@ -179,9 +184,13 @@ const ContentCard = ({
                         <Button
                             component="a"
                             href={url}
-                            aria-label={title ? `Open ${title}` : moreLinkText}
+                            aria-label={
+                                title
+                                    ? t('openItem', { title })
+                                    : resolvedMoreLinkText
+                            }
                         >
-                            {moreLinkText}
+                            {resolvedMoreLinkText}
                         </Button>
                     ) : (
                         <Box />

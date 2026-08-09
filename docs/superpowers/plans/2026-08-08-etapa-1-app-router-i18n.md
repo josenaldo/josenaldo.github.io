@@ -4,7 +4,7 @@
 
 **Goal:** Migrar o site de Pages Router monolíngue para App Router com `next-intl`, servindo `/en` e `/pt` em export estático, sem quebrar nenhuma URL publicada e sem reescrever uma linha de copy.
 
-**Architecture:** Rotas passam a viver em `src/app/[locale]/`, com `generateStaticParams` gerando as duas árvores. O conteúdo Markdown migra para `content/{tipo}/{locale}/`, com o locale **computado do caminho**. As strings de interface saem do JSX e vão para `src/messages/{en,pt}.json`. As URLs antigas continuam funcionando por meio de stubs HTML de *meta refresh* gerados depois do build — a única forma de redirecionar em site estático sem servidor.
+**Architecture:** Rotas passam a viver em `src/app/[locale]/`, com `generateStaticParams` gerando as duas árvores. O conteúdo Markdown migra para `content/{tipo}/{locale}/`, com o locale **computado do caminho**. As strings de interface saem do JSX e vão para `src/messages/{en,pt}.json`. As URLs antigas continuam funcionando por meio de stubs HTML de _meta refresh_ gerados depois do build — a única forma de redirecionar em site estático sem servidor.
 
 **Tech Stack:** Next.js 16 (App Router, `output: 'export'`), next-intl, Contentlayer2, MUI 7 com `@mui/material-nextjs`, JavaScript (o repositório **não** usa TypeScript — `jsconfig.json`, arquivos `.js`).
 
@@ -14,7 +14,7 @@
 - **Prettier do repositório:** 4 espaços, aspas simples, sem ponto e vírgula. `npx prettier --check` antes de cada commit.
 - **Locale prefixado é obrigatório.** `output: 'export'` não roda middleware, então `localePrefix: 'as-needed'` está fora. As URLs são `/en/...` e `/pt/...`, sem exceção.
 - **`redirect()` na raiz não funciona em export estático.** A receita oficial do next-intl (`app/page.tsx` com `redirect('/en')`) produz uma página de erro no `out/` — verificado no export do `cglima.github.io`, cujo `out/index.html` é um `__next_error__`. A raiz é resolvida por stub gerado, não por `redirect()`.
-- **Nenhuma URL publicada pode quebrar.** As rotas atuais (`/`, `/about`, `/resume`, `/contact`, `/portfolio`, `/blog`, `/blog/<slug>`, `/blog/category/<slug>`, `/courses`, `/experiences`, `/projects`, `/projects/<slug>`, `/skills`) precisam continuar respondendo depois do deploy.
+- **Nenhuma URL publicada pode quebrar.** As rotas atuais (`/`, `/about`, `/resume`, `/contact`, `/portfolio`, `/blog`, `/blog/<slug>`, `/blog/category/<slug>`, `/courses`, `/experiences`, `/projects`, `/projects/<slug>`, `/skills`) precisam continuar respondendo depois do deploy. **Revertido em 2026-08-09 por decisão do dono do site**: os stubs das URLs antigas (tudo além da raiz) foram removidos de propósito — não é esquecimento, é decisão pós-revisão. Só `/` continua stub (ver `scripts/generate-root-redirect.mjs`), porque a raiz não é um "link antigo": é a porta de entrada do site em export estático sem middleware.
 - **O destino do redirect é por documento, não por regra.** O blog é majoritariamente português: `/blog/por-que-ainda-sou-invisivel` tem de cair em `/pt/blog/...`. Redirecionar tudo para `/en/` levaria leitor a página inexistente.
 - **`defaultLocale` é `en`.** Decisão de posicionamento, já tomada: cliente e recrutador-alvo são internacionais.
 - **Nenhuma copy é reescrita nesta etapa.** As strings atuais são extraídas para os JSONs como estão. A copy nova é a Etapa 2. Se um texto parecer ruim, ele migra ruim.
@@ -26,21 +26,21 @@
 
 ## File Structure
 
-| Arquivo | Responsabilidade |
-| --- | --- |
-| `src/i18n/routing.js` | Locales suportados e `defaultLocale`. Fonte única da lista. |
-| `src/i18n/request.js` | Configuração por requisição do next-intl: resolve o locale e carrega as mensagens. |
-| `src/i18n/navigation.js` | `Link`, `useRouter`, `usePathname` cientes de locale. Todo link interno passa a vir daqui. |
-| `src/messages/en.json`, `src/messages/pt.json` | Strings de interface, agrupadas por namespace de componente. |
-| `src/app/[locale]/layout.js` | **É o root layout.** Renderiza `<html lang>`, `<body>`, fontes, provider do next-intl, tema MUI, `CssBaseline`, header e footer, e chama `setRequestLocale`. Não existe `src/app/layout.js`: a documentação do next-intl só exige um quando há `app/page.js`, e aqui a raiz é stub gerado (Task 7), não rota. |
-| `src/app/[locale]/**/page.js` | Uma rota por página, substituindo `src/pages/**`. |
-| `src/app/providers.js` | `AppRouterCacheProvider` + `ThemeProvider` do MUI — client component, isolado para manter os layouts como server components. |
-| `src/services/content.js` | Passa a filtrar por locale e a resolver pares de tradução. |
-| `scripts/migrate-content-locales.mjs` | Script de uso único: move os Markdown para `content/{tipo}/{locale}/`. Removido ao fim da etapa. |
-| `scripts/generate-legacy-redirects.mjs` | Pós-build: escreve os stubs de *meta refresh* das URLs antigas dentro de `out/`. |
-| `scripts/generate-rss.js` | Alterado: um feed por locale. |
-| `contentlayer.config.js` | Campos computados `locale` e `url`; campo `translationKey`; coleção `Skill` removida. |
-| `src/data/skills.js` | Passa a conter os 92 registros com `group`, `level` e `firstContact`. |
+| Arquivo                                        | Responsabilidade                                                                                                                                                                                                                                                                                              |
+| ---------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `src/i18n/routing.js`                          | Locales suportados e `defaultLocale`. Fonte única da lista.                                                                                                                                                                                                                                                   |
+| `src/i18n/request.js`                          | Configuração por requisição do next-intl: resolve o locale e carrega as mensagens.                                                                                                                                                                                                                            |
+| `src/i18n/navigation.js`                       | `Link`, `useRouter`, `usePathname` cientes de locale. Todo link interno passa a vir daqui.                                                                                                                                                                                                                    |
+| `src/messages/en.json`, `src/messages/pt.json` | Strings de interface, agrupadas por namespace de componente.                                                                                                                                                                                                                                                  |
+| `src/app/[locale]/layout.js`                   | **É o root layout.** Renderiza `<html lang>`, `<body>`, fontes, provider do next-intl, tema MUI, `CssBaseline`, header e footer, e chama `setRequestLocale`. Não existe `src/app/layout.js`: a documentação do next-intl só exige um quando há `app/page.js`, e aqui a raiz é stub gerado (Task 7), não rota. |
+| `src/app/[locale]/**/page.js`                  | Uma rota por página, substituindo `src/pages/**`.                                                                                                                                                                                                                                                             |
+| `src/app/providers.js`                         | `AppRouterCacheProvider` + `ThemeProvider` do MUI — client component, isolado para manter os layouts como server components.                                                                                                                                                                                  |
+| `src/services/content.js`                      | Passa a filtrar por locale e a resolver pares de tradução.                                                                                                                                                                                                                                                    |
+| `scripts/migrate-content-locales.mjs`          | Script de uso único: move os Markdown para `content/{tipo}/{locale}/`. Removido ao fim da etapa.                                                                                                                                                                                                              |
+| `scripts/generate-legacy-redirects.mjs`        | Pós-build: escreve os stubs de _meta refresh_ das URLs antigas dentro de `out/`.                                                                                                                                                                                                                              |
+| `scripts/generate-rss.js`                      | Alterado: um feed por locale.                                                                                                                                                                                                                                                                                 |
+| `contentlayer.config.js`                       | Campos computados `locale` e `url`; campo `translationKey`; coleção `Skill` removida.                                                                                                                                                                                                                         |
+| `src/data/skills.js`                           | Passa a conter os 92 registros com `group`, `level` e `firstContact`.                                                                                                                                                                                                                                         |
 
 ---
 
@@ -55,6 +55,7 @@ As tarefas estão ordenadas para que **o build fique verde ao fim de cada uma**.
 Feita primeiro porque remove 92 arquivos da migração de conteúdo da Task 3.
 
 **Files:**
+
 - Modify: `src/data/skills.js`
 - Modify: `contentlayer.config.js` (remover a definição `Skill` e sua entrada em `documentTypes`)
 - Modify: `src/services/content.js` (remover leitura de `allSkills`)
@@ -62,6 +63,7 @@ Feita primeiro porque remove 92 arquivos da migração de conteúdo da Task 3.
 - Delete: `content/skills/` (92 arquivos)
 
 **Interfaces:**
+
 - Produces: `src/data/skills.js` exporta `default` um array de `{ name, group, level, firstContact }`, onde `group` casa com o campo `group` de `src/data/skillGroups.js` e `firstContact` é `Number`. `src/services/content.js` mantém a assinatura `getAllSkillsByCategory()` retornando `[{ group, color, skills: [{ name, firstContact }] }]`, para que os consumidores não mudem.
 
 - [ ] **Step 0: Medir o Lighthouse ANTES de qualquer mudança**
@@ -160,11 +162,13 @@ git commit -m "refactor(skills): aposenta a colecao de 92 arquivos em favor de u
 Nada passa a usar i18n aqui. A tarefa existe para que a Task 4 encontre o terreno pronto e o build continue verde.
 
 **Files:**
+
 - Create: `src/i18n/routing.js`, `src/i18n/request.js`, `src/i18n/navigation.js`
 - Create: `src/messages/en.json`, `src/messages/pt.json`
 - Modify: `next.config.js`, `package.json`
 
 **Interfaces:**
+
 - Produces: `routing` exporta `{ locales: ['en','pt'], defaultLocale: 'en' }` via `defineRouting`. `navigation.js` exporta `{ Link, redirect, usePathname, useRouter, getPathname }`. As Tasks 4 a 6 importam daqui.
 
 - [ ] **Step 1: Instalar a dependência**
@@ -268,11 +272,13 @@ git commit -m "feat(i18n): infraestrutura do next-intl, ainda sem consumidores"
 ### Task 3: Conteúdo por locale
 
 **Files:**
+
 - Create: `scripts/migrate-content-locales.mjs`
 - Modify: `contentlayer.config.js`, `src/services/content.js`
 - Move: todos os Markdown de `content/`
 
 **Interfaces:**
+
 - Produces: todo documento do Contentlayer ganha os campos computados `locale` (`'en' | 'pt'`, derivado do caminho) e `url` (`/{locale}/{tipo}/{slug}`), mais o campo opcional de frontmatter `translationKey` (String) e `translated` (Boolean, default `true`). `src/services/content.js` passa a receber `locale` como primeiro argumento em todas as funções de listagem, e ganha `getTranslationSibling(doc, targetLocale)` que devolve o documento par ou `null`.
 
 - [ ] **Step 1: Escrever o script de migração**
@@ -281,7 +287,13 @@ Criar `scripts/migrate-content-locales.mjs`. Ele move cada arquivo para a subpas
 
 ```js
 import { execSync } from 'node:child_process'
-import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs'
+import {
+    existsSync,
+    mkdirSync,
+    readFileSync,
+    readdirSync,
+    writeFileSync,
+} from 'node:fs'
 import { join } from 'node:path'
 
 // Coleções cujo conteúdo é escrito num idioma só e não se duplica: um post
@@ -291,7 +303,14 @@ const SINGLE_LANGUAGE = ['blog']
 
 // Coleções que hoje só existem em inglês. A árvore pt/ nasce como cópia
 // marcada `translated: false`, para a Etapa 4 traduzir por cima.
-const DUPLICATED = ['courses', 'experiences', 'projects', 'services', 'testimonials', 'pages']
+const DUPLICATED = [
+    'courses',
+    'experiences',
+    'projects',
+    'services',
+    'testimonials',
+    'pages',
+]
 
 // Posts sem campo `language` no frontmatter, classificados à mão pela leitura
 // do título e do corpo. Sem isto, o default do schema mandaria todos para en/.
@@ -321,7 +340,10 @@ for (const collection of SINGLE_LANGUAGE) {
     for (const file of readdirSync(dir).filter((f) => f.endsWith('.md'))) {
         const slug = file.replace(/\.md$/, '')
         const raw = readFileSync(join(dir, file), 'utf8')
-        const locale = frontmatterValue(raw, 'language') || BLOG_LANGUAGE_OVERRIDES[slug] || 'en'
+        const locale =
+            frontmatterValue(raw, 'language') ||
+            BLOG_LANGUAGE_OVERRIDES[slug] ||
+            'en'
         moveFile(join(dir, file), join(dir, locale, file))
     }
 }
@@ -446,12 +468,14 @@ git commit -m "feat(content): arvore por locale, translationKey e locale computa
 ### Task 4: Esqueleto do App Router e a primeira rota
 
 **Files:**
+
 - Create: `src/app/providers.js`, `src/app/[locale]/layout.js`, `src/app/[locale]/page.js`
 - Delete: `src/pages/index.js`
 
 **Não criar `src/app/layout.js`.** O layout de locale é o root layout — ele é quem renderiza `<html>` e `<body>`. A documentação do next-intl só pede um layout raiz adicional quando existe `app/page.js`, e a raiz deste site é resolvida por stub gerado na Task 7.
 
 **Interfaces:**
+
 - Produces: `src/app/[locale]/layout.js` exporta `generateStaticParams()` retornando `[{locale:'en'},{locale:'pt'}]` e chama `setRequestLocale(locale)`. `src/app/providers.js` exporta `default function Providers({children})`, um client component que instala `AppRouterCacheProvider`, `ThemeProvider` e `CssBaseline`.
 
 - [ ] **Step 1: Criar o provider do MUI**
@@ -615,10 +639,12 @@ git commit -m "feat(app-router): esqueleto de layouts e a home nas duas arvores 
 ### Task 5: Migrar as rotas restantes
 
 **Files:**
+
 - Create: `src/app/[locale]/about/page.js`, `resume/page.js`, `contact/page.js`, `portfolio/page.js`, `blog/page.js`, `blog/[slug]/page.js`, `blog/category/page.js`, `blog/category/[slug]/page.js`, `courses/page.js`, `experiences/page.js`, `projects/page.js`, `projects/[slug]/page.js`, `skills/page.js`
 - Delete: `src/pages/` inteiro, incluindo `_app.js` e `_document.js`
 
 **Interfaces:**
+
 - Produces: toda rota dinâmica exporta `generateStaticParams()` que cruza locales com os documentos **daquele locale** — nunca o produto cartesiano cego, que geraria rota para post inexistente.
 
 - [ ] **Step 1: A receita, aplicada a cada página**
@@ -700,7 +726,10 @@ export async function generateMetadata({ params }) {
     const post = contentService.getPost(slug, locale)
     if (!post) return {}
 
-    const sibling = contentService.getTranslationSibling(post, locale === 'en' ? 'pt' : 'en')
+    const sibling = contentService.getTranslationSibling(
+        post,
+        locale === 'en' ? 'pt' : 'en'
+    )
 
     return {
         title: post.title,
@@ -744,7 +773,7 @@ npm run build
 find out -name 'index.html' | sed 's|out/||;s|/index.html||' | sort
 ```
 
-Expected: cada rota aparece duas vezes, uma sob `en/` e outra sob `pt/`, exceto os posts de blog, que existem só no idioma em que foram escritos. Conferir que o total de páginas de blog é 26, não 52.
+Expected: cada rota aparece duas vezes, uma sob `en/` e outra sob `pt/`, exceto os posts de blog, que existem só no idioma em que foram escritos — e só os publicados, porque `generateStaticParams` consome `getSortedPosts`, que já filtra rascunho em produção. São **13** páginas de post (6 sob `en/`, 7 sob `pt/`), não 26 e muito menos 52: dos 26 arquivos em `content/blog/`, 13 são `draft` ou `planned`.
 
 - [ ] **Step 7: Commit**
 
@@ -758,11 +787,13 @@ git commit -m "feat(app-router): migra as rotas restantes e remove o Pages Route
 ### Task 6: Seletor de idioma e extração das strings
 
 **Files:**
+
 - Create: `src/layouts/LanguageSwitcher.js`
 - Modify: `src/layouts/Header.js`, `DesktopMenu.js`, `MobileMenu.js`, `Footer.js`, `GetInTouch.js`, `src/data/pages.js`, e todo componente com string literal
 - Modify: `src/messages/en.json`, `src/messages/pt.json`
 
 **Interfaces:**
+
 - Produces: `LanguageSwitcher` é client component; usa `usePathname`/`useRouter` de `@/i18n/navigation` para trocar de locale preservando a rota. Em página de post, recebe por prop a URL do par de tradução e a usa como destino quando existir.
 
 - [ ] **Step 1: Escrever o seletor**
@@ -795,7 +826,11 @@ export default function LanguageSwitcher({ siblingUrl = null }) {
     }
 
     return (
-        <ButtonGroup size="small" variant="outlined" aria-label="language switcher">
+        <ButtonGroup
+            size="small"
+            variant="outlined"
+            aria-label="language switcher"
+        >
             {routing.locales.map((lang) => (
                 <Button
                     key={lang}
@@ -825,6 +860,17 @@ Run, para achar o que falta:
 grep -rn '>[A-Z][a-z]\+ ' src/components src/layouts src/features | grep -v 't(' | head -40
 ```
 
+- [ ] **Step 3b: Portar o SEO que a migração do roteador deixou para trás**
+
+O `AppLayout` do Pages Router emitia as tags de `next-seo` (`og:title`, `og:type`, `og:locale`, canonical) a partir de `src/data/SeoConfig.js`. As rotas do App Router nasceram sem elas: `out/about.html` tem `og:*`, `out/en.html` não. A home é justamente a página com maior valor de pré-visualização social, então isto não é polimento.
+
+Portar para `generateMetadata` no layout de locale, com `metadataBase` apontando para `https://josenaldo.com.br`, `openGraph.locale` derivado do locale (`en_US` / `pt_BR`), e `title.template` reproduzindo o `'%s | Josenaldo Matos'` que existe hoje. Cada página que já define `generateMetadata` herda daí.
+
+Recuperar também o carregamento assíncrono da fonte Roboto que estava em `_document.js` (`media="print"` com `onLoad`, mais o `<noscript>`): a Task 4 o trocou por um `<link>` bloqueante, e isso pesa no first paint.
+
+Run: `npm run build && grep -c 'og:' out/en.html`
+Expected: número maior que zero, e comparável ao que `out/about.html` tinha antes da migração.
+
 - [ ] **Step 4: Verificar que não sobrou string solta**
 
 Run: `npx eslint src` e uma leitura das páginas geradas em `out/pt/` procurando texto em inglês que devia estar traduzido.
@@ -840,13 +886,17 @@ git commit -m "feat(i18n): seletor de idioma e extracao das strings de interface
 
 ### Task 7: URLs antigas, raiz e SEO
 
-A tarefa mais importante da etapa: sem ela, o deploy joga fora o SEO acumulado de 26 posts.
+A tarefa mais importante da etapa: sem ela, o deploy joga fora o SEO acumulado dos posts publicados.
+
+**Cuidado com a contagem.** `content/blog/` tem 26 arquivos Markdown, mas isso **não** é o número de posts no ar. O Contentlayer valida os 26, e o filtro de publicação vive em `src/services/content.js` (`isPublishedPost`: `status` normalizado igual a `published` **e** `date <= agora`, aplicado só quando `NODE_ENV === 'production'`). Hoje isso dá **13 publicados** — 6 em `en`, 7 em `pt`. Os outros 13 são 4 `draft`, 8 `planned` da série IA-Ágil e `testes-typescript-suite-agil`, marcado `draft` por decisão explícita. Stub para post não publicado é redirect para 404: o gerador **tem** de iterar o conjunto publicado, nunca `allPosts` cru. E o número não se escreve à mão em lugar nenhum — ele se deriva, porque muda a cada post que sai do rascunho.
 
 **Files:**
+
 - Create: `scripts/generate-legacy-redirects.mjs`
 - Modify: `package.json`, `scripts/generate-rss.js`, `next-sitemap.config.js`, `.github/workflows/nextjs.yml`, `.env.production`
 
 **Interfaces:**
+
 - Produces: `scripts/generate-legacy-redirects.mjs` roda **depois** do `next build` e escreve dentro de `out/` um `index.html` por rota antiga, contendo `<meta http-equiv="refresh" content="0; url=DESTINO">`, `<link rel="canonical" href="DESTINO">` e um link clicável de fallback.
 
 - [ ] **Step 1: Escrever o gerador de stubs**
@@ -855,24 +905,56 @@ A tarefa mais importante da etapa: sem ela, o deploy joga fora o SEO acumulado d
 import { mkdirSync, writeFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 
-import { allCourses, allExperiences, allPages, allPosts, allProjects } from '../.contentlayer/generated/index.mjs'
+import {
+    allCourses,
+    allExperiences,
+    allPages,
+    allPosts,
+    allProjects,
+} from '../.contentlayer/generated/index.mjs'
 
 const SITE = process.env.NEXT_PUBLIC_SITE_URL || 'https://josenaldo.com.br'
 
+// Mesma regra de `isPublishedPost` em src/services/content.js. Duplicada aqui
+// porque este script roda em Node puro, fora do bundler, e não resolve o alias
+// `contentlayer/generated` que o serviço importa. Se a regra mudar lá, muda
+// aqui — são os dois únicos lugares que decidem o que está no ar.
+const STATUS_ALIASES = {
+    draft: 'draft',
+    rascunho: 'draft',
+    planned: 'planned',
+    planejado: 'planned',
+    published: 'published',
+    publicado: 'published',
+}
+
+const isPublished = (post, now = new Date()) => {
+    const status =
+        STATUS_ALIASES[`${post.status || 'published'}`.trim().toLowerCase()] ||
+        'draft'
+    return status === 'published' && new Date(post.date) <= now
+}
+
+const publishedPosts = allPosts.filter((post) => isPublished(post))
+
 // Rotas que existiam antes da migração e o locale para onde cada uma vai.
 // As páginas institucionais eram todas em inglês.
+// Sem barra final: `trailingSlash` é falso neste projeto, então o export gera
+// `out/en.html`, servido em `/en`. Apontar para `/en/` faria o GitHub Pages
+// procurar `out/en/index.html`, que não existe — e devolver 404. Verificado no
+// export da Task 4.
 const STATIC_ROUTES = [
-    ['', '/en/'],
-    ['about', '/en/about/'],
-    ['resume', '/en/resume/'],
-    ['contact', '/en/contact/'],
-    ['portfolio', '/en/portfolio/'],
-    ['blog', '/en/blog/'],
-    ['blog/category', '/en/blog/category/'],
-    ['courses', '/en/courses/'],
-    ['experiences', '/en/experiences/'],
-    ['projects', '/en/projects/'],
-    ['skills', '/en/skills/'],
+    ['', '/en'],
+    ['about', '/en/about'],
+    ['resume', '/en/resume'],
+    ['contact', '/en/contact'],
+    ['portfolio', '/en/portfolio'],
+    ['blog', '/en/blog'],
+    ['blog/category', '/en/blog/category'],
+    ['courses', '/en/courses'],
+    ['experiences', '/en/experiences'],
+    ['projects', '/en/projects'],
+    ['skills', '/en/skills'],
 ]
 
 function stub(destination) {
@@ -905,15 +987,19 @@ for (const [route, destination] of STATIC_ROUTES) {
 }
 
 // O destino de cada post é o locale em que ele foi escrito — a maioria é pt.
-for (const post of allPosts) {
-    write(`blog/${post.slug}`, `${post.url}/`)
+// Só os publicados: rascunho não tem página no export, e stub para página
+// inexistente é um redirect para 404.
+for (const post of publishedPosts) {
+    write(`blog/${post.slug}`, post.url)
 }
 
 for (const project of allProjects.filter((p) => p.locale === 'en')) {
-    write(`projects/${project.slug}`, `${project.url}/`)
+    write(`projects/${project.slug}`, project.url)
 }
 
-console.log(`stubs de redirect gerados: ${STATIC_ROUTES.length + allPosts.length}`)
+console.log(
+    `stubs de redirect gerados: ${STATIC_ROUTES.length + publishedPosts.length}`
+)
 ```
 
 - [ ] **Step 2: Ligar ao build**
@@ -938,17 +1024,24 @@ done
 node --input-type=module -e '
 import { allPosts } from "./.contentlayer/generated/index.mjs"
 import { existsSync } from "node:fs"
-const faltando = allPosts.filter((p) => !existsSync(`out/blog/${p.slug}/index.html`))
-console.log(faltando.length ? `FALTAM ${faltando.length}: ${faltando.map((p) => p.slug).join(", ")}` : "ok todos os 26 posts")
+const ALIASES = { draft: "draft", rascunho: "draft", planned: "planned", planejado: "planned", published: "published", publicado: "published" }
+const isPublished = (p) => (ALIASES[`${p.status || "published"}`.trim().toLowerCase()] || "draft") === "published" && new Date(p.date) <= new Date()
+const publicados = allPosts.filter(isPublished)
+// Duas direções: todo post publicado tem stub, e nenhum stub sobra apontando
+// para rascunho. A segunda metade é a que pega redirect para 404.
+const semStub = publicados.filter((p) => !existsSync(`out/blog/${p.slug}/index.html`))
+const stubDemais = allPosts.filter((p) => !isPublished(p) && existsSync(`out/blog/${p.slug}/index.html`))
+console.log(semStub.length ? `FALTAM ${semStub.length}: ${semStub.map((p) => p.slug).join(", ")}` : `ok todos os ${publicados.length} posts publicados tem stub`)
+console.log(stubDemais.length ? `STUB SOBRANDO ${stubDemais.length}: ${stubDemais.map((p) => p.slug).join(", ")}` : "ok nenhum stub aponta para rascunho")
 '
 ```
 
-Expected: nenhum `FALTA`, e "ok todos os 26 posts".
+Expected: nenhum `FALTA`, nenhum `STUB SOBRANDO`, e a contagem de publicados batendo com a que o gerador imprimiu. No momento em que isto foi escrito são 13 (6 `en`, 7 `pt`) — se o número tiver mudado, é porque um rascunho foi publicado no meio do caminho, e não porque a verificação quebrou.
 
 - [ ] **Step 4: Conferir que o destino de um post PT é a árvore PT**
 
 Run: `grep -o 'url=[^"]*' out/blog/por-que-ainda-sou-invisivel/index.html`
-Expected: `url=/pt/blog/por-que-ainda-sou-invisivel/` — e **não** `/en/`.
+Expected: `url=/pt/blog/por-que-ainda-sou-invisivel` — e **não** `/en/...`.
 
 - [ ] **Step 5: Corrigir o domínio canônico**
 
@@ -973,6 +1066,7 @@ git commit -m "feat(seo): stubs das URLs antigas, dominio canonico correto e fee
 ### Task 8: Fechamento da etapa
 
 **Files:**
+
 - Delete: `scripts/migrate-content-locales.mjs`
 - Modify: `AGENTS.md`, `README.md`
 
@@ -1001,10 +1095,12 @@ git commit -m "docs: registra a arquitetura App Router + i18n e remove o script 
 
 ## Critério de pronto da Etapa 1
 
+> **Nota de 2026-08-09 (decisão do dono do site, não esquecimento):** o critério abaixo sobre "toda URL publicada antes da migração responde" valeu enquanto os stubs de URL antiga existiam. O dono do site revisou o resultado e decidiu remover esses stubs (`scripts/generate-legacy-redirects.mjs` e `scripts/verify-legacy-redirects.mjs` foram apagados) — só o stub da raiz (`/` → `/en`) permanece, via `scripts/generate-root-redirect.mjs`, porque é a porta de entrada do site, não um link antigo. O critério abaixo é registro histórico do que valia na etapa original.
+
 - `npm run build` conclui e o `out/` contém as árvores `en/` e `pt/` completas.
-- Toda URL publicada antes da migração responde: as 11 rotas estáticas e os 26 posts, verificados por script, não por amostragem.
+- Toda URL publicada antes da migração responde: as 11 rotas estáticas e os posts publicados (13 hoje), verificados por script, não por amostragem — e nenhum stub aponta para rascunho.
 - O destino do redirect de um post em português é a árvore `/pt/`.
-- `/` leva a `/en/`.
+- `/` leva a `/en`.
 - Canonical, sitemap e RSS apontam para `https://josenaldo.com.br`.
 - Nenhuma string visível ficou hardcoded em componente.
 - Nenhuma copy foi reescrita — o texto é o mesmo de antes, apenas movido e traduzido diretamente.

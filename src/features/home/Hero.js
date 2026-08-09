@@ -1,11 +1,16 @@
 import { Box, Button, Stack, Typography } from '@mui/material'
+import { useTranslations } from 'next-intl'
 
 import photo200 from '@/assets/images/josenaldo-200.webp'
 import photo300 from '@/assets/images/josenaldo-300.webp'
 import photo400 from '@/assets/images/josenaldo-400.webp'
 import Section from '@/components/Section'
+import { yearsOfExperience } from '@/data/metrics.mjs'
 
 const Hero = () => {
+    const t = useTranslations('Home.hero')
+    const years = yearsOfExperience()
+
     return (
         <Section elevation={1}>
             <Box
@@ -26,12 +31,11 @@ const Hero = () => {
                     }}
                 >
                     <Typography variant="h5" component="p">
-                        Hello, my name is{' '}
+                        {t('greeting')}{' '}
                     </Typography>
-                    <Typography variant="h1">Josenaldo Matos</Typography>
+                    <Typography variant="h1">{t('name')}</Typography>
                     <Typography variant="subtitle">
-                        Senior Full Stack Engineer. 20+ years. Java, Spring
-                        Boot, React, TypeScript.
+                        {t('subtitle', { years })}
                     </Typography>
                     <Stack
                         direction={{ xs: 'column', sm: 'row' }}
@@ -44,16 +48,16 @@ const Hero = () => {
                             href="/files/en/JosenaldoDeOliveiraMatosFilho_en.pdf"
                             target="_blank"
                             rel="noopener noreferrer"
-                            aria-label="Download my resume"
+                            aria-label={t('downloadResumeAria')}
                         >
-                            Download Resume
+                            {t('downloadResumeButton')}
                         </Button>
                         <Button
                             variant="outlined"
                             href="/contact"
-                            aria-label="Get in touch"
+                            aria-label={t('getInTouchAria')}
                         >
-                            Get in Touch
+                            {t('getInTouchButton')}
                         </Button>
                     </Stack>
                 </Box>
@@ -73,7 +77,7 @@ const Hero = () => {
                         />
                         <img
                             src={photo400.src}
-                            alt="Josenaldo Matos"
+                            alt={t('photoAlt')}
                             width="400"
                             height="400"
                             loading="eager"

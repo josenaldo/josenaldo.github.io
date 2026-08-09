@@ -5,9 +5,11 @@ import {
     LastPage,
 } from '@mui/icons-material'
 import { Box, IconButton, Typography } from '@mui/material'
+import { useTranslations } from 'next-intl'
 import PropTypes from 'prop-types'
 
 const Pagination = ({ currentPage, totalPages, onPageChange, compact }) => {
+    const t = useTranslations('Common')
     if (totalPages <= 1) return null
 
     const handleFirst = () => onPageChange(1)
@@ -28,7 +30,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange, compact }) => {
                 <IconButton
                     onClick={handlePrev}
                     disabled={currentPage === 1}
-                    aria-label="Previous page"
+                    aria-label={t('previousPage')}
                     size="small"
                 >
                     <ChevronLeft />
@@ -39,7 +41,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange, compact }) => {
                 <IconButton
                     onClick={handleNext}
                     disabled={currentPage === totalPages}
-                    aria-label="Next page"
+                    aria-label={t('nextPage')}
                     size="small"
                 >
                     <ChevronRight />
@@ -88,7 +90,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange, compact }) => {
             <IconButton
                 onClick={handleFirst}
                 disabled={currentPage === 1}
-                aria-label="First page"
+                aria-label={t('firstPage')}
                 size="small"
             >
                 <FirstPage />
@@ -96,7 +98,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange, compact }) => {
             <IconButton
                 onClick={handlePrev}
                 disabled={currentPage === 1}
-                aria-label="Previous page"
+                aria-label={t('previousPage')}
                 size="small"
             >
                 <ChevronLeft />
@@ -115,7 +117,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange, compact }) => {
                     <IconButton
                         key={page}
                         onClick={() => onPageChange(page)}
-                        aria-label={`Page ${page}`}
+                        aria-label={t('pageNumber', { page })}
                         aria-current={page === currentPage ? 'page' : undefined}
                         size="small"
                         sx={{
@@ -146,7 +148,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange, compact }) => {
             <IconButton
                 onClick={handleNext}
                 disabled={currentPage === totalPages}
-                aria-label="Next page"
+                aria-label={t('nextPage')}
                 size="small"
             >
                 <ChevronRight />
@@ -154,7 +156,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange, compact }) => {
             <IconButton
                 onClick={handleLast}
                 disabled={currentPage === totalPages}
-                aria-label="Last page"
+                aria-label={t('lastPage')}
                 size="small"
             >
                 <LastPage />

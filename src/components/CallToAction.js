@@ -1,5 +1,9 @@
+'use client'
+
 import { Box, Button } from '@mui/material'
 import PropTypes from 'prop-types'
+
+import { Link } from '@/i18n/navigation'
 
 const CallToAction = ({ children, href, ariaLabel, variant = 'outlined' }) => {
     return (
@@ -11,7 +15,12 @@ const CallToAction = ({ children, href, ariaLabel, variant = 'outlined' }) => {
                 mt: 2,
             }}
         >
-            <Button variant={variant} href={href} aria-label={ariaLabel}>
+            <Button
+                variant={variant}
+                component={Link}
+                href={href}
+                aria-label={ariaLabel}
+            >
                 {children}
             </Button>
         </Box>

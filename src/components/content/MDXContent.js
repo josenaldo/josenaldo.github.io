@@ -1,5 +1,8 @@
+'use client'
+
 import { Box, Divider, Typography } from '@mui/material'
 import { MDXProvider } from '@mdx-js/react'
+import { useTranslations } from 'next-intl'
 import PropTypes from 'prop-types'
 // import { Remark } from 'react-remark'
 import Markdown from 'react-markdown'
@@ -23,6 +26,8 @@ import ResponsiveImage from '@/components/ui/ResponsiveImage'
 import styles from './MDXContent.module.css'
 
 const MDXContent = ({ content }) => {
+    const t = useTranslations('Common')
+
     const remarkPlugins = [
         remarkParse,
         remarkGfm,
@@ -41,7 +46,14 @@ const MDXContent = ({ content }) => {
         img: ResponsiveImage,
         a: Link,
         pre: Code,
-        code: (props) => <Typography component="code" fontFamily='monospace' color='secondary' {...props} />,
+        code: (props) => (
+            <Typography
+                component="code"
+                fontFamily="monospace"
+                color="secondary"
+                {...props}
+            />
+        ),
         hr: (props) => <Divider sx={{ my: 2 }} {...props} />,
         blockquote: Blockquote,
         ol: MarkdownOrderedList,
@@ -79,11 +91,11 @@ const MDXContent = ({ content }) => {
                     rehypePlugins={rehypePlugins}
                     remarkRehypeOptions={{
                         allowDangerousHtml: true,
-                        footnoteLabel: 'Notas de rodapé',
-                        footnoteBackLabel: 'Voltar ao conteúdo',
+                        footnoteLabel: t('footnoteLabel'),
+                        footnoteBackLabel: t('footnoteBackLabel'),
                     }}
                     onError={(error) => {
-                        console.error('Erro ao processar o texto', error)
+                        console.error(t('mdxProcessingError'), error)
                     }}
                 >
                     {content}

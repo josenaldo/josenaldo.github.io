@@ -29,9 +29,9 @@ jobs:
     build:
         runs-on: ubuntu-latest
         env:
-            # Used by next-seo and next-sitemap during the static export build.
-            # If you later migrate to a custom domain, update this value.
-            NEXT_PUBLIC_SITE_URL: https://josenaldo.github.io
+            # Used by next-sitemap and the legacy-redirect/RSS scripts during the static export build.
+            # Domínio canônico: josenaldo.github.io responde 301 para este.
+            NEXT_PUBLIC_SITE_URL: https://josenaldo.com.br
         steps:
             - name: Checkout
               uses: actions/checkout@v4

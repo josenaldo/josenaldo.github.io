@@ -1,3 +1,5 @@
+'use client'
+
 import Image from 'next/image'
 
 import {
@@ -9,12 +11,14 @@ import {
     CardMedia,
     Typography,
 } from '@mui/material'
+import { useTranslations } from 'next-intl'
 import PropTypes from 'prop-types'
 
 import CallToAction from '@/components/CallToAction'
 import Section from '@/components/Section'
 
 const Portfolio = ({ projects }) => {
+    const t = useTranslations('Home.portfolio')
     const titleLineClamp = 2
     const descriptionLineClamp = 3
 
@@ -36,7 +40,7 @@ const Portfolio = ({ projects }) => {
                     gap: 5,
                 }}
             >
-                <Typography variant="h2">Portfolio</Typography>
+                <Typography variant="h2">{t('title')}</Typography>
                 <Box
                     sx={{
                         display: 'grid',
@@ -124,23 +128,25 @@ const Portfolio = ({ projects }) => {
                             >
                                 <Button
                                     href={project.url}
-                                    aria-label={`Open ${project.title}`}
+                                    aria-label={t('openProjectAria', {
+                                        title: project.title,
+                                    })}
                                 >
-                                    View project
+                                    {t('viewProject')}
                                 </Button>
                                 <Button
                                     color="secondary"
                                     href={project.projectUrl}
                                     target="_blank"
                                 >
-                                    Visit
+                                    {t('visit')}
                                 </Button>
                             </CardActions>
                         </Card>
                     ))}
                 </Box>
-                <CallToAction href="/projects" ariaLabel="View all projects">
-                    All projects
+                <CallToAction href="/projects" ariaLabel={t('allProjectsAria')}>
+                    {t('allProjectsCta')}
                 </CallToAction>
             </Box>
         </Section>

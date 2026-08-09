@@ -1,4 +1,7 @@
 const { withContentlayer } = require('next-contentlayer2')
+const createNextIntlPlugin = require('next-intl/plugin')
+
+const withNextIntl = createNextIntlPlugin('./src/i18n/request.js')
 
 /** @type {import('next').NextConfig} */
 const isProd = process.env.NODE_ENV === 'production'
@@ -33,4 +36,4 @@ const nextConfig = {
     },
 }
 
-module.exports = withContentlayer(nextConfig)
+module.exports = withNextIntl(withContentlayer(nextConfig))

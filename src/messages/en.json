@@ -1,0 +1,136 @@
+{
+    "Nav": {
+        "home": "Home",
+        "blog": "Blog",
+        "about": "About",
+        "resume": "Resume",
+        "experiences": "Experiences",
+        "projects": "Projects",
+        "courses": "Courses",
+        "contact": "Contact",
+        "siteMenuLabel": "site menu"
+    },
+    "Home": {
+        "hero": {
+            "greeting": "Hello, my name is",
+            "name": "Josenaldo Matos",
+            "photoAlt": "Josenaldo Matos",
+            "subtitle": "Senior Full Stack Engineer. {years}+ years. Java, Spring Boot, React, TypeScript.",
+            "downloadResumeButton": "Download Resume",
+            "downloadResumeAria": "Download my resume",
+            "getInTouchButton": "Get in Touch",
+            "getInTouchAria": "Get in touch"
+        },
+        "about": {
+            "title": "About Me",
+            "subtitleTech": "Senior Full Stack Engineer. {years}+ years. Java, Spring Boot, React, TypeScript.",
+            "subtitleModernized": "I've modernized legacy platforms, led migrations to microservices, and shipped multi-app ecosystems supporting {users}+ users — always remotely, always with ownership.",
+            "subtitleFarofa": "I write, mentor, and make a very good farofa.",
+            "knowMoreCta": "Know more"
+        },
+        "blog": {
+            "title": "Blog",
+            "allPostsCta": "All posts",
+            "allPostsAria": "View all blog posts"
+        },
+        "experience": {
+            "title": "Experience",
+            "allRolesCta": "All roles",
+            "allRolesAria": "View all experiences"
+        },
+        "portfolio": {
+            "title": "Portfolio",
+            "viewProject": "View project",
+            "visit": "Visit",
+            "openProjectAria": "Open {title}",
+            "allProjectsCta": "All projects",
+            "allProjectsAria": "View all projects"
+        },
+        "services": {
+            "title": "Services",
+            "emptyState": "More details about the services are coming soon.",
+            "talkCta": "Let’s talk"
+        },
+        "testimonial": {
+            "title": "Testimonials",
+            "emptyState": "I’m currently collecting testimonials. If we’ve worked together and you’d like to share feedback, I’d love to hear it.",
+            "shareCta": "Share a testimonial"
+        }
+    },
+    "Blog": {
+        "title": "Nephro Nerd Chronicles",
+        "description": "Explore Nephro Nerd Chronicles: Josenaldo's fusion of software development and kidney health insights. Be inspired, learn, and connect – one byte at a time!",
+        "category": {
+            "title": "Categories",
+            "description": "Browse posts by category",
+            "detailTitle": "Category: {category}",
+            "detailDescription": "All posts in the \"{category}\" category",
+            "postCount": "{count, plural, one {# post} other {# posts}}",
+            "viewPosts": "View posts",
+            "viewPostsAria": "View posts in {category}"
+        },
+        "disclaimer": {
+            "heading": "A few honest warnings before you leave:",
+            "language": "<strong>On the language:</strong> English is not my native language. I Speak Brazilian Portuguese, Baianese, Mineirese and a lot of bulshit. I write in it anyway — partly for reach, partly as practice. If something reads strangely, that's YOU! Your fault! You are the English Specialist, not me. I am the guy who lost the kidney of his mother-in-law!",
+            "ai": "<strong>On AI:</strong> Yes, I use AI to help me write — the same way I use an IDE to write code, a calculator to avoid embarrassing arithmetic, and Google to remember things I definitely learned and totally didn't immediately forget. AI is a tool. I'm the one choosing what to say; the machine just helps me say it less incomprehensibly.",
+            "opinions": "<strong>On the opinions:</strong> I'm a programmer, not a writer, journalist, analyst, or prophet. These are my personal thoughts — informal, fallible, and entirely unscientific. They exist for my own clarity, for the mild amusement of anyone who stumbles here, and for the future embarrassment of my descendants. If you disagree, you're probably right. If you agree, I appreciate your questionable judgment."
+        }
+    },
+    "Portfolio": {
+        "title": "Portfolio"
+    },
+    "Projects": {
+        "title": "Projects",
+        "description": "My projects are a mix of personal projects and projects I've worked on professionally.",
+        "viewProjectCta": "View project"
+    },
+    "Courses": {
+        "title": "Courses",
+        "description": "A detailed list of my courses, including the institution, completion date, workload, course link, and certificate link.",
+        "courseLink": "Course Link",
+        "certificate": "Certificate",
+        "workloadHours": "{hours, plural, one {# hour} other {# hours}}"
+    },
+    "Experiences": {
+        "title": "Professional Experiences",
+        "description": "{years}+ years of software engineering across education, media, telecom, and e-commerce. Each experience showcases the challenge faced, actions taken, and measurable results delivered."
+    },
+    "Skills": {
+        "title": "Skills",
+        "description": "I'm a software engineer with experience in a variety of technologies. Here are some of the skills I've developed."
+    },
+    "Contact": {
+        "title": "Get in Touch",
+        "description": "Connect with Josenaldo by filling out the form. Get in touch for project collaborations, idea-sharing, or just a friendly conversation.",
+        "githubCard": {
+            "title": "Like this project?",
+            "body": "Explore the source code on GitHub and make it your own! Fork, star, or contribute to help it grow.",
+            "cta": "Fork on GitHub"
+        }
+    },
+    "Footer": {
+        "getInTouchTitle": "Get in touch",
+        "getInTouchSubtitle": "I'm always open to discussing new projects, creative ideas or opportunities to be part of your visions.",
+        "copyright": "© {startYear}–{currentYear} Josenaldo de Oliveira Matos Filho - All rights reserved."
+    },
+    "Common": {
+        "languageSwitcherLabel": "language switcher",
+        "readPost": "Read post",
+        "share": "Share",
+        "close": "close",
+        "details": "Details",
+        "openItem": "Open {title}",
+        "previousPage": "Previous page",
+        "nextPage": "Next page",
+        "firstPage": "First page",
+        "lastPage": "Last page",
+        "pageNumber": "Page {page}",
+        "shareDialogTitle": "Share",
+        "shareDialogText": "Share \"{title}\"",
+        "footnoteLabel": "Footnotes",
+        "footnoteBackLabel": "Back to content",
+        "successfullyShared": "Successfully shared",
+        "mdxProcessingError": "Error processing text",
+        "shareMessage": "I found this on Josenaldo's site and thought you'd like it: "
+    }
+}

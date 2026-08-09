@@ -1,6 +1,9 @@
+'use client'
+
 import { useState } from 'react'
 
 import { Box, Typography } from '@mui/material'
+import { useTranslations } from 'next-intl'
 import PropTypes from 'prop-types'
 
 import CallToAction from '@/components/CallToAction'
@@ -11,6 +14,8 @@ import Section from '@/components/Section'
 const POSTS_PER_PAGE = 6
 
 const Blog = ({ posts }) => {
+    const t = useTranslations('Home.blog')
+    const tCommon = useTranslations('Common')
     const [currentPage, setCurrentPage] = useState(1)
     const totalPages = Math.ceil(posts.length / POSTS_PER_PAGE)
     const startIndex = (currentPage - 1) * POSTS_PER_PAGE
@@ -27,7 +32,7 @@ const Blog = ({ posts }) => {
                     gap: 5,
                 }}
             >
-                <Typography variant="h2">Blog</Typography>
+                <Typography variant="h2">{t('title')}</Typography>
                 <Box
                     sx={{
                         display: 'grid',
@@ -52,7 +57,7 @@ const Blog = ({ posts }) => {
                             url={post.url}
                             category={post.category}
                             language={post.language}
-                            moreLinkText="Read post"
+                            moreLinkText={tCommon('readPost')}
                             showText
                         />
                     ))}
@@ -63,8 +68,8 @@ const Blog = ({ posts }) => {
                     onPageChange={setCurrentPage}
                     compact
                 />
-                <CallToAction href="/blog" ariaLabel="View all blog posts">
-                    All posts
+                <CallToAction href="/blog" ariaLabel={t('allPostsAria')}>
+                    {t('allPostsCta')}
                 </CallToAction>
             </Box>
         </Section>

@@ -1,0 +1,136 @@
+{
+    "Nav": {
+        "home": "Início",
+        "blog": "Blog",
+        "about": "Sobre",
+        "resume": "Currículo",
+        "experiences": "Experiências",
+        "projects": "Projetos",
+        "courses": "Cursos",
+        "contact": "Contato",
+        "siteMenuLabel": "menu do site"
+    },
+    "Home": {
+        "hero": {
+            "greeting": "Olá, meu nome é",
+            "name": "Josenaldo Matos",
+            "photoAlt": "Josenaldo Matos",
+            "subtitle": "Engenheiro Full Stack Sênior. {years}+ anos. Java, Spring Boot, React, TypeScript.",
+            "downloadResumeButton": "Baixar Currículo",
+            "downloadResumeAria": "Baixar meu currículo",
+            "getInTouchButton": "Entre em Contato",
+            "getInTouchAria": "Entre em contato"
+        },
+        "about": {
+            "title": "Sobre Mim",
+            "subtitleTech": "Engenheiro Full Stack Sênior. {years}+ anos. Java, Spring Boot, React, TypeScript.",
+            "subtitleModernized": "Modernizei plataformas legadas, liderei migrações para microsserviços e lancei ecossistemas multi-app atendendo {users}+ usuários — sempre remotamente, sempre com ownership.",
+            "subtitleFarofa": "Eu escrevo, mentoro e faço uma farofa muito boa.",
+            "knowMoreCta": "Saiba mais"
+        },
+        "blog": {
+            "title": "Blog",
+            "allPostsCta": "Todos os posts",
+            "allPostsAria": "Ver todos os posts do blog"
+        },
+        "experience": {
+            "title": "Experiência",
+            "allRolesCta": "Todos os cargos",
+            "allRolesAria": "Ver todas as experiências"
+        },
+        "portfolio": {
+            "title": "Portfólio",
+            "viewProject": "Ver projeto",
+            "visit": "Visitar",
+            "openProjectAria": "Abrir {title}",
+            "allProjectsCta": "Todos os projetos",
+            "allProjectsAria": "Ver todos os projetos"
+        },
+        "services": {
+            "title": "Serviços",
+            "emptyState": "Em breve, mais detalhes sobre os serviços.",
+            "talkCta": "Vamos conversar"
+        },
+        "testimonial": {
+            "title": "Depoimentos",
+            "emptyState": "No momento estou reunindo depoimentos. Se já trabalhamos juntos e você quiser compartilhar um feedback, eu adoraria ouvir.",
+            "shareCta": "Compartilhar um depoimento"
+        }
+    },
+    "Blog": {
+        "title": "Nephro Nerd Chronicles",
+        "description": "Explore o Nephro Nerd Chronicles: a fusão de Josenaldo entre desenvolvimento de software e reflexões sobre saúde renal. Inspire-se, aprenda e conecte-se – um byte de cada vez!",
+        "category": {
+            "title": "Categorias",
+            "description": "Navegue pelos posts por categoria",
+            "detailTitle": "Categoria: {category}",
+            "detailDescription": "Todos os posts na categoria \"{category}\"",
+            "postCount": "{count, plural, one {# post} other {# posts}}",
+            "viewPosts": "Ver posts",
+            "viewPostsAria": "Ver posts em {category}"
+        },
+        "disclaimer": {
+            "heading": "Alguns avisos honestos antes de você sair:",
+            "language": "<strong>Sobre o idioma:</strong> Inglês não é a minha língua nativa. Eu falo português brasileiro, baianês, mineirês e um monte de bobagem. Mesmo assim escrevo em inglês — em parte pelo alcance, em parte como prática. Se algo soar estranho, a culpa é SUA! Sua culpa! Você é o especialista em inglês, não eu. Eu sou o cara que perdeu o rim da sogra!",
+            "ai": "<strong>Sobre IA:</strong> Sim, eu uso IA para me ajudar a escrever — da mesma forma que uso uma IDE para escrever código, uma calculadora para evitar aritmética constrangedora, e o Google para lembrar coisas que eu definitivamente aprendi e totalmente não esqueci na hora. IA é uma ferramenta. Eu sou quem escolhe o que dizer; a máquina só ajuda a dizer de um jeito menos incompreensível.",
+            "opinions": "<strong>Sobre as opiniões:</strong> Eu sou programador, não escritor, jornalista, analista ou profeta. Estes são meus pensamentos pessoais — informais, falíveis e totalmente não científicos. Eles existem para minha própria clareza, para a leve diversão de quem passar por aqui, e para o futuro constrangimento dos meus descendentes. Se você discorda, provavelmente está certo. Se você concorda, agradeço seu duvidoso julgamento."
+        }
+    },
+    "Portfolio": {
+        "title": "Portfólio"
+    },
+    "Projects": {
+        "title": "Projetos",
+        "description": "Meus projetos são uma mistura de projetos pessoais e projetos em que trabalhei profissionalmente.",
+        "viewProjectCta": "Ver projeto"
+    },
+    "Courses": {
+        "title": "Cursos",
+        "description": "Uma lista detalhada dos meus cursos, incluindo a instituição, data de conclusão, carga horária, link do curso e link do certificado.",
+        "courseLink": "Link do Curso",
+        "certificate": "Certificado",
+        "workloadHours": "{hours, plural, one {# hora} other {# horas}}"
+    },
+    "Experiences": {
+        "title": "Experiências Profissionais",
+        "description": "{years}+ anos de engenharia de software em educação, mídia, telecom e e-commerce. Cada experiência mostra o desafio enfrentado, as ações tomadas e os resultados mensuráveis entregues."
+    },
+    "Skills": {
+        "title": "Habilidades",
+        "description": "Sou um engenheiro de software com experiência em uma variedade de tecnologias. Aqui estão algumas das habilidades que desenvolvi."
+    },
+    "Contact": {
+        "title": "Entre em Contato",
+        "description": "Conecte-se com Josenaldo preenchendo o formulário. Entre em contato para colaborações em projetos, troca de ideias, ou apenas uma conversa amigável.",
+        "githubCard": {
+            "title": "Curtiu este projeto?",
+            "body": "Explore o código-fonte no GitHub e faça dele o seu! Dê um fork, uma estrela, ou contribua para ajudá-lo a crescer.",
+            "cta": "Fork no GitHub"
+        }
+    },
+    "Footer": {
+        "getInTouchTitle": "Entre em contato",
+        "getInTouchSubtitle": "Estou sempre aberto a discutir novos projetos, ideias criativas ou oportunidades de fazer parte das suas visões.",
+        "copyright": "© {startYear}–{currentYear} Josenaldo de Oliveira Matos Filho - Todos os direitos reservados."
+    },
+    "Common": {
+        "languageSwitcherLabel": "seletor de idioma",
+        "readPost": "Ler post",
+        "share": "Compartilhar",
+        "close": "fechar",
+        "details": "Detalhes",
+        "openItem": "Abrir {title}",
+        "previousPage": "Página anterior",
+        "nextPage": "Próxima página",
+        "firstPage": "Primeira página",
+        "lastPage": "Última página",
+        "pageNumber": "Página {page}",
+        "shareDialogTitle": "Compartilhar",
+        "shareDialogText": "Compartilhar \"{title}\"",
+        "footnoteLabel": "Notas de rodapé",
+        "footnoteBackLabel": "Voltar ao conteúdo",
+        "successfullyShared": "Compartilhado com sucesso",
+        "mdxProcessingError": "Erro ao processar o texto",
+        "shareMessage": "Encontrei isto no site do Josenaldo e achei que você ia gostar: "
+    }
+}

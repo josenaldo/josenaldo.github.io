@@ -1,9 +1,12 @@
 import { Box, Button, Typography } from '@mui/material'
+import { useTranslations } from 'next-intl'
 
 import Section from '@/components/Section'
 import socialLinks from '@/data/socialLinks'
 
 const GetInTouch = () => {
+    const t = useTranslations('Footer')
+
     return (
         <Section elevation={2} py={4}>
             <Box
@@ -15,14 +18,13 @@ const GetInTouch = () => {
                     alignItems: 'center',
                 }}
             >
-                <Typography variant="h2">Get in touch</Typography>
+                <Typography variant="h2">{t('getInTouchTitle')}</Typography>
                 <Typography
                     variant="body1"
                     textAlign="center"
                     fontStyle="italic"
                 >
-                    I&apos;m always open to discussing new projects, creative
-                    ideas or opportunities to be part of your visions.
+                    {t('getInTouchSubtitle')}
                 </Typography>
                 <Box
                     sx={{
