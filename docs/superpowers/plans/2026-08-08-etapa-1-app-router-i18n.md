@@ -825,6 +825,17 @@ Run, para achar o que falta:
 grep -rn '>[A-Z][a-z]\+ ' src/components src/layouts src/features | grep -v 't(' | head -40
 ```
 
+- [ ] **Step 3b: Portar o SEO que a migração do roteador deixou para trás**
+
+O `AppLayout` do Pages Router emitia as tags de `next-seo` (`og:title`, `og:type`, `og:locale`, canonical) a partir de `src/data/SeoConfig.js`. As rotas do App Router nasceram sem elas: `out/about.html` tem `og:*`, `out/en.html` não. A home é justamente a página com maior valor de pré-visualização social, então isto não é polimento.
+
+Portar para `generateMetadata` no layout de locale, com `metadataBase` apontando para `https://josenaldo.com.br`, `openGraph.locale` derivado do locale (`en_US` / `pt_BR`), e `title.template` reproduzindo o `'%s | Josenaldo Matos'` que existe hoje. Cada página que já define `generateMetadata` herda daí.
+
+Recuperar também o carregamento assíncrono da fonte Roboto que estava em `_document.js` (`media="print"` com `onLoad`, mais o `<noscript>`): a Task 4 o trocou por um `<link>` bloqueante, e isso pesa no first paint.
+
+Run: `npm run build && grep -c 'og:' out/en.html`
+Expected: número maior que zero, e comparável ao que `out/about.html` tinha antes da migração.
+
 - [ ] **Step 4: Verificar que não sobrou string solta**
 
 Run: `npx eslint src` e uma leitura das páginas geradas em `out/pt/` procurando texto em inglês que devia estar traduzido.
