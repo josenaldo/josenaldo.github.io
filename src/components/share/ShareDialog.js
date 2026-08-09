@@ -36,14 +36,6 @@ const ShareDialog = ({ title, description, url, open, onClose }) => {
     const t = useTranslations('Common')
     const shareMsg = t('shareMessage')
 
-    // Achado da rodada de correção 4: o texto de pré-preenchimento de duas
-    // das quatro redes (`share-1`/`share-3`) é da própria mensagem
-    // (`shareMsg`, agora traduzida). A rede `share-2` (Twitter), porém,
-    // nunca usou `shareMsg` — o texto pré-preenchido é um domínio alheio,
-    // `https://ciro.app.br`, que não é deste site. Mantido como está, sem
-    // alteração: não sabemos se é lixo de outro projeto copiado por engano
-    // ou um link intencional (ex.: crédito/parceria) — é decisão do dono do
-    // site, não algo que uma extração de string deva resolver.
     const networks = [
         {
             id: 'share-1',
@@ -56,7 +48,12 @@ const ShareDialog = ({ title, description, url, open, onClose }) => {
         {
             id: 'share-2',
             netUrl: 'https://twitter.com/intent/tweet?text=',
-            text: 'https://ciro.app.br',
+            // Antes cravava um domínio alheio (`https://ciro.app.br`), lixo
+            // de outro projeto. As outras redes recebem a URL compartilhada
+            // via `netUrl + encodeURIComponent(url)` no DialogActions; aqui
+            // seguimos o mesmo padrão pré-preenchendo o texto do tweet com a
+            // própria página compartilhada.
+            text: url,
             target: '_blank',
             rel: 'noopener noreferrer',
             icon: <TwitterIcon sx={{ fontSize: iconFontSize }} />,
