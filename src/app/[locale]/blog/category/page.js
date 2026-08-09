@@ -1,5 +1,5 @@
 import { Box, Container } from '@mui/material'
-import { setRequestLocale } from 'next-intl/server'
+import { getTranslations, setRequestLocale } from 'next-intl/server'
 
 import ContentTitle from '@/components/content/ContentTitle'
 import { routing } from '@/i18n/routing'
@@ -7,19 +7,17 @@ import contentService from '@/services/content'
 
 import CategoryGrid from './CategoryGrid'
 
-const title = 'Categories'
-const description = 'Browse posts by category'
-
 export function generateStaticParams() {
     return routing.locales.map((locale) => ({ locale }))
 }
 
 export async function generateMetadata({ params }) {
     const { locale } = await params
+    const t = await getTranslations({ locale, namespace: 'Blog.category' })
 
     return {
-        title,
-        description,
+        title: t('title'),
+        description: t('description'),
         alternates: {
             canonical: `/${locale}/blog/category`,
             languages: {
@@ -33,6 +31,7 @@ export async function generateMetadata({ params }) {
 export default async function CategoriesPage({ params }) {
     const { locale } = await params
     setRequestLocale(locale)
+    const t = await getTranslations({ locale, namespace: 'Blog.category' })
 
     const categories = contentService.getAllCategories(locale).map((cat) => ({
         name: cat.name,
@@ -43,7 +42,7 @@ export default async function CategoriesPage({ params }) {
     return (
         <Container>
             <Box sx={{ my: 5 }}>
-                <ContentTitle title={title} subtitle={description} />
+                <ContentTitle title={t('title')} subtitle={t('description')} />
                 <CategoryGrid categories={categories} />
             </Box>
         </Container>

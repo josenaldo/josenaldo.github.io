@@ -58,6 +58,14 @@
         }
     },
     "Blog": {
+        "title": "Nephro Nerd Chronicles",
+        "description": "Explore Nephro Nerd Chronicles: Josenaldo's fusion of software development and kidney health insights. Be inspired, learn, and connect – one byte at a time!",
+        "category": {
+            "title": "Categories",
+            "description": "Browse posts by category",
+            "detailTitle": "Category: {category}",
+            "detailDescription": "All posts in the \"{category}\" category"
+        },
         "disclaimer": {
             "heading": "A few honest warnings before you leave:",
             "language": "<strong>On the language:</strong> English is not my native language. I Speak Brazilian Portuguese, Baianese, Mineirese and a lot of bulshit. I write in it anyway — partly for reach, partly as practice. If something reads strangely, that's YOU! Your fault! You are the English Specialist, not me. I am the guy who lost the kidney of his mother-in-law!",
@@ -65,11 +73,29 @@
             "opinions": "<strong>On the opinions:</strong> I'm a programmer, not a writer, journalist, analyst, or prophet. These are my personal thoughts — informal, fallible, and entirely unscientific. They exist for my own clarity, for the mild amusement of anyone who stumbles here, and for the future embarrassment of my descendants. If you disagree, you're probably right. If you agree, I appreciate your questionable judgment."
         }
     },
-    "Projects": {},
-    "Courses": {},
-    "Experiences": {},
-    "Skills": {},
-    "Contact": {},
+    "Portfolio": {
+        "title": "Portfolio"
+    },
+    "Projects": {
+        "title": "Projects",
+        "description": "My projects are a mix of personal projects and projects I've worked on professionally."
+    },
+    "Courses": {
+        "title": "Courses",
+        "description": "A detailed list of my courses, including the institution, completion date, workload, course link, and certificate link."
+    },
+    "Experiences": {
+        "title": "Professional Experiences",
+        "description": "{years}+ years of software engineering across education, media, telecom, and e-commerce. Each experience showcases the challenge faced, actions taken, and measurable results delivered."
+    },
+    "Skills": {
+        "title": "Skills",
+        "description": "I'm a software engineer with experience in a variety of technologies. Here are some of the skills I've developed."
+    },
+    "Contact": {
+        "title": "Get in Touch",
+        "description": "Connect with Josenaldo by filling out the form. Get in touch for project collaborations, idea-sharing, or just a friendly conversation."
+    },
     "Footer": {
         "getInTouchTitle": "Get in touch",
         "getInTouchSubtitle": "I'm always open to discussing new projects, creative ideas or opportunities to be part of your visions.",

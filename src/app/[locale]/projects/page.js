@@ -1,14 +1,10 @@
 import { Box, Container } from '@mui/material'
-import { setRequestLocale } from 'next-intl/server'
+import { getTranslations, setRequestLocale } from 'next-intl/server'
 
 import ContentCard from '@/components/content/ContentCard'
 import ContentTitle from '@/components/content/ContentTitle'
 import { routing } from '@/i18n/routing'
 import contentService from '@/services/content'
-
-const title = 'Projects'
-const description =
-    "My projects are a mix of personal projects and projects I've worked on professionally."
 
 export function generateStaticParams() {
     return routing.locales.map((locale) => ({ locale }))
@@ -16,10 +12,11 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }) {
     const { locale } = await params
+    const t = await getTranslations({ locale, namespace: 'Projects' })
 
     return {
-        title,
-        description,
+        title: t('title'),
+        description: t('description'),
         alternates: {
             canonical: `/${locale}/projects`,
             languages: {
@@ -33,6 +30,7 @@ export async function generateMetadata({ params }) {
 export default async function ProjectsPage({ params }) {
     const { locale } = await params
     setRequestLocale(locale)
+    const t = await getTranslations({ locale, namespace: 'Projects' })
 
     const projects = contentService.getAllProjects(locale).map((project) => ({
         title: project.title,
@@ -50,7 +48,7 @@ export default async function ProjectsPage({ params }) {
                     my: 5,
                 }}
             >
-                <ContentTitle title={title} subtitle={description} />
+                <ContentTitle title={t('title')} subtitle={t('description')} />
                 <Box
                     sx={{
                         display: 'grid',

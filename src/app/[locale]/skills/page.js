@@ -8,15 +8,11 @@ import {
     Container,
     Typography,
 } from '@mui/material'
-import { setRequestLocale } from 'next-intl/server'
+import { getTranslations, setRequestLocale } from 'next-intl/server'
 
 import ContentTitle from '@/components/content/ContentTitle'
 import { routing } from '@/i18n/routing'
 import contentService from '@/services/content'
-
-const title = 'Skills'
-const description =
-    "I'm a software engineer with experience in a variety of technologies. Here are some of the skills I've developed."
 
 export function generateStaticParams() {
     return routing.locales.map((locale) => ({ locale }))
@@ -24,10 +20,11 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }) {
     const { locale } = await params
+    const t = await getTranslations({ locale, namespace: 'Skills' })
 
     return {
-        title,
-        description,
+        title: t('title'),
+        description: t('description'),
         alternates: {
             canonical: `/${locale}/skills`,
             languages: {
@@ -89,6 +86,7 @@ const SkillCard = ({ title, color, skill = [], currentYear }) => {
 export default async function SkillsPage({ params }) {
     const { locale } = await params
     setRequestLocale(locale)
+    const t = await getTranslations({ locale, namespace: 'Skills' })
 
     const skills = contentService
         .getAllSkillsByCategory()
@@ -105,7 +103,7 @@ export default async function SkillsPage({ params }) {
     return (
         <Container>
             <Box sx={{ my: 5 }}>
-                <ContentTitle title={title} subtitle={description} />
+                <ContentTitle title={t('title')} subtitle={t('description')} />
                 <Masonry columns={{ xs: 1, sm: 2, md: 3 }} spacing={2}>
                     {skills.map(({ group, color, skills: groupSkills }) => (
                         <SkillCard

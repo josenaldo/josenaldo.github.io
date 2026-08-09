@@ -7,16 +7,13 @@ import {
     Container,
     Typography,
 } from '@mui/material'
-import { setRequestLocale } from 'next-intl/server'
+import { getTranslations, setRequestLocale } from 'next-intl/server'
 
 import ContentTitle from '@/components/content/ContentTitle'
 import MDXContent from '@/components/content/MDXContent'
+import { yearsOfExperience } from '@/data/metrics.mjs'
 import { routing } from '@/i18n/routing'
 import contentService from '@/services/content'
-
-const title = 'Professional Experiences'
-const description =
-    '20+ years of software engineering across education, media, telecom, and e-commerce. Each experience showcases the challenge faced, actions taken, and measurable results delivered.'
 
 export function generateStaticParams() {
     return routing.locales.map((locale) => ({ locale }))
@@ -24,10 +21,11 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }) {
     const { locale } = await params
+    const t = await getTranslations({ locale, namespace: 'Experiences' })
 
     return {
-        title,
-        description,
+        title: t('title'),
+        description: t('description', { years: yearsOfExperience() }),
         alternates: {
             canonical: `/${locale}/experiences`,
             languages: {
@@ -41,6 +39,7 @@ export async function generateMetadata({ params }) {
 export default async function ExperiencesPage({ params }) {
     const { locale } = await params
     setRequestLocale(locale)
+    const t = await getTranslations({ locale, namespace: 'Experiences' })
 
     const experiences = contentService
         .lastExperiences(locale)
@@ -56,7 +55,10 @@ export default async function ExperiencesPage({ params }) {
     return (
         <Container>
             <Box>
-                <ContentTitle title={title} subtitle={description} />
+                <ContentTitle
+                    title={t('title')}
+                    subtitle={t('description', { years: yearsOfExperience() })}
+                />
 
                 <Box my={2}>
                     {experiences.map((experience) => (

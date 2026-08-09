@@ -1,5 +1,5 @@
 import { Box, Container } from '@mui/material'
-import { setRequestLocale } from 'next-intl/server'
+import { getTranslations, setRequestLocale } from 'next-intl/server'
 
 import ContentTitle from '@/components/content/ContentTitle'
 import PostGrid from '@/components/content/PostGrid'
@@ -20,13 +20,11 @@ export async function generateMetadata({ params }) {
     const categories = contentService.getAllCategories(locale)
     const category = categories.find((c) => c.slug === slug)
     const categoryName = category?.name ?? slug
-
-    const title = `Category: ${categoryName}`
-    const description = `All posts in the "${categoryName}" category`
+    const t = await getTranslations({ locale, namespace: 'Blog.category' })
 
     return {
-        title,
-        description,
+        title: t('detailTitle', { category: categoryName }),
+        description: t('detailDescription', { category: categoryName }),
         alternates: {
             canonical: `/${locale}/blog/category/${slug}`,
             languages: {
@@ -40,13 +38,14 @@ export async function generateMetadata({ params }) {
 export default async function CategoryPage({ params }) {
     const { locale, slug } = await params
     setRequestLocale(locale)
+    const t = await getTranslations({ locale, namespace: 'Blog.category' })
 
     const categories = contentService.getAllCategories(locale)
     const category = categories.find((c) => c.slug === slug)
     const categoryName = category?.name ?? slug
 
-    const title = `Category: ${categoryName}`
-    const description = `All posts in the "${categoryName}" category`
+    const title = t('detailTitle', { category: categoryName })
+    const description = t('detailDescription', { category: categoryName })
 
     const posts = contentService
         .getPostsByCategory(locale, slug)

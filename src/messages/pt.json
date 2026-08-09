@@ -58,6 +58,14 @@
         }
     },
     "Blog": {
+        "title": "Nephro Nerd Chronicles",
+        "description": "Explore o Nephro Nerd Chronicles: a fusão de Josenaldo entre desenvolvimento de software e reflexões sobre saúde renal. Inspire-se, aprenda e conecte-se – um byte de cada vez!",
+        "category": {
+            "title": "Categorias",
+            "description": "Navegue pelos posts por categoria",
+            "detailTitle": "Categoria: {category}",
+            "detailDescription": "Todos os posts na categoria \"{category}\""
+        },
         "disclaimer": {
             "heading": "Alguns avisos honestos antes de você sair:",
             "language": "<strong>Sobre o idioma:</strong> Inglês não é a minha língua nativa. Eu falo português brasileiro, baianês, mineirês e um monte de bobagem. Mesmo assim escrevo em inglês — em parte pelo alcance, em parte como prática. Se algo soar estranho, a culpa é SUA! Sua culpa! Você é o especialista em inglês, não eu. Eu sou o cara que perdeu o rim da sogra!",
@@ -65,11 +73,29 @@
             "opinions": "<strong>Sobre as opiniões:</strong> Eu sou programador, não escritor, jornalista, analista ou profeta. Estes são meus pensamentos pessoais — informais, falíveis e totalmente não científicos. Eles existem para minha própria clareza, para a leve diversão de quem passar por aqui, e para o futuro constrangimento dos meus descendentes. Se você discorda, provavelmente está certo. Se você concorda, agradeço seu duvidoso julgamento."
         }
     },
-    "Projects": {},
-    "Courses": {},
-    "Experiences": {},
-    "Skills": {},
-    "Contact": {},
+    "Portfolio": {
+        "title": "Portfólio"
+    },
+    "Projects": {
+        "title": "Projetos",
+        "description": "Meus projetos são uma mistura de projetos pessoais e projetos em que trabalhei profissionalmente."
+    },
+    "Courses": {
+        "title": "Cursos",
+        "description": "Uma lista detalhada dos meus cursos, incluindo a instituição, data de conclusão, carga horária, link do curso e link do certificado."
+    },
+    "Experiences": {
+        "title": "Experiências Profissionais",
+        "description": "{years}+ anos de engenharia de software em educação, mídia, telecom e e-commerce. Cada experiência mostra o desafio enfrentado, as ações tomadas e os resultados mensuráveis entregues."
+    },
+    "Skills": {
+        "title": "Habilidades",
+        "description": "Sou um engenheiro de software com experiência em uma variedade de tecnologias. Aqui estão algumas das habilidades que desenvolvi."
+    },
+    "Contact": {
+        "title": "Entre em Contato",
+        "description": "Conecte-se com Josenaldo preenchendo o formulário. Entre em contato para colaborações em projetos, troca de ideias, ou apenas uma conversa amigável."
+    },
     "Footer": {
         "getInTouchTitle": "Entre em contato",
         "getInTouchSubtitle": "Estou sempre aberto a discutir novos projetos, ideias criativas ou oportunidades de fazer parte das suas visões.",

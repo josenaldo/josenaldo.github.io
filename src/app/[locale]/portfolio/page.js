@@ -1,4 +1,4 @@
-import { setRequestLocale } from 'next-intl/server'
+import { getTranslations, setRequestLocale } from 'next-intl/server'
 
 import { routing } from '@/i18n/routing'
 
@@ -8,9 +8,10 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }) {
     const { locale } = await params
+    const t = await getTranslations({ locale, namespace: 'Portfolio' })
 
     return {
-        title: 'Portfolio',
+        title: t('title'),
         alternates: {
             canonical: `/${locale}/portfolio`,
             languages: {
@@ -24,10 +25,11 @@ export async function generateMetadata({ params }) {
 export default async function PortfolioPage({ params }) {
     const { locale } = await params
     setRequestLocale(locale)
+    const t = await getTranslations({ locale, namespace: 'Portfolio' })
 
     return (
         <div>
-            <h1>Portfolio</h1>
+            <h1>{t('title')}</h1>
         </div>
     )
 }

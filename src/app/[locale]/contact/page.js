@@ -7,15 +7,11 @@ import {
     CardContent,
     Typography,
 } from '@mui/material'
-import { setRequestLocale } from 'next-intl/server'
+import { getTranslations, setRequestLocale } from 'next-intl/server'
 
 import SocialList from '@/components/contact/SocialList'
 import ContentTitle from '@/components/content/ContentTitle'
 import { routing } from '@/i18n/routing'
-
-const title = 'Get in Touch'
-const description =
-    'Connect with Josenaldo by filling out the form. Get in touch for project collaborations, idea-sharing, or just a friendly conversation.'
 
 export function generateStaticParams() {
     return routing.locales.map((locale) => ({ locale }))
@@ -23,10 +19,11 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }) {
     const { locale } = await params
+    const t = await getTranslations({ locale, namespace: 'Contact' })
 
     return {
-        title,
-        description,
+        title: t('title'),
+        description: t('description'),
         alternates: {
             canonical: `/${locale}/contact`,
             languages: {
@@ -40,6 +37,7 @@ export async function generateMetadata({ params }) {
 export default async function ContactPage({ params }) {
     const { locale } = await params
     setRequestLocale(locale)
+    const t = await getTranslations({ locale, namespace: 'Contact' })
 
     return (
         <Container>
@@ -48,7 +46,7 @@ export default async function ContactPage({ params }) {
                     my: 5,
                 }}
             >
-                <ContentTitle title={title} subtitle={description} />
+                <ContentTitle title={t('title')} subtitle={t('description')} />
                 <Box
                     sx={{
                         display: 'flex',
