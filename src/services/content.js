@@ -13,11 +13,10 @@ import skillGroups from '@/data/skillGroups'
 import skills from '@/data/skills'
 import slugify from '@/shared/utils/slugify'
 
-// Mesma regra duplicada em scripts/generate-legacy-redirects.mjs e
-// scripts/generate-rss.js — três lugares no total. Repetida lá porque esses
-// scripts rodam em Node puro, fora do bundler, e não resolvem o alias `@/`
-// nem `contentlayer/generated` que este arquivo importa. Se a regra mudar
-// aqui, muda nos três.
+// Mesma regra duplicada em scripts/generate-rss.js. Repetida lá porque esse
+// script roda em Node puro, fora do bundler, e não resolve o alias `@/` nem
+// `contentlayer/generated` que este arquivo importa. Se a regra mudar aqui,
+// muda lá também.
 const STATUS_ALIASES = {
     draft: 'draft',
     rascunho: 'draft',
@@ -102,11 +101,6 @@ const getAllProjects = (locale) => {
     return allProjects.filter(byLocale(locale))
 }
 
-const getAllProjectsPaths = (locale) => {
-    const paths = getAllProjects(locale).map((project) => project.url)
-    return paths
-}
-
 const getProjectData = (locale, slug) => {
     const projects = getAllProjects(locale)
 
@@ -142,11 +136,6 @@ const getSortedPosts = (locale, numberOfPosts) => {
     }
 
     return posts
-}
-
-const getAllPostsPaths = (locale) => {
-    const paths = getAllPosts(locale).map((post) => post.url)
-    return paths
 }
 
 const getPostData = (locale, slug) => {
@@ -265,28 +254,21 @@ const getPostsByCategory = (locale, slug) => {
     )
 }
 
-const getAllCategoryPaths = (locale) => {
-    return getAllCategories(locale).map((cat) => cat.slug)
-}
-
 const contentService = {
     lastExperiences,
     lastProjects,
     getAllProjects,
-    getAllProjectsPaths,
     getProjectData,
     getTestimonials,
     getServices,
     getAllPosts,
     getSortedPosts,
-    getAllPostsPaths,
     getPostData,
     getPageData,
     getAllSkills,
     getAllSkillsByCategory,
     getAllCategories,
     getPostsByCategory,
-    getAllCategoryPaths,
     getTranslationSibling,
 }
 
