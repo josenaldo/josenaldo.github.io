@@ -13,6 +13,11 @@ import skillGroups from '@/data/skillGroups'
 import skills from '@/data/skills'
 import slugify from '@/shared/utils/slugify'
 
+// Mesma regra duplicada em scripts/generate-legacy-redirects.mjs e
+// scripts/generate-rss.js — três lugares no total. Repetida lá porque esses
+// scripts rodam em Node puro, fora do bundler, e não resolvem o alias `@/`
+// nem `contentlayer/generated` que este arquivo importa. Se a regra mudar
+// aqui, muda nos três.
 const STATUS_ALIASES = {
     draft: 'draft',
     rascunho: 'draft',

@@ -13,9 +13,9 @@ const slugify = (text) =>
         .toLowerCase()
         .normalize('NFD')
         .replace(/[\u0300-\u036f]/g, '') // strip diacritics
-        .replace(/[^a-z0-9\s-]/g, '')   // remove non-alphanumeric except spaces/hyphens
-        .replace(/[\s_]+/g, '-')         // spaces/underscores → hyphens
-        .replace(/-+/g, '-')             // collapse consecutive hyphens
-        .replace(/^-|-$/g, '')           // trim leading/trailing hyphens
+        .replace(/[^a-z0-9\s-]/g, '') // remove non-alphanumeric except spaces/hyphens
+        .replace(/[\s_]+/g, '-') // spaces/underscores → hyphens
+        .replace(/-+/g, '-') // collapse consecutive hyphens
+        .replace(/^-|-$/g, '') // trim leading/trailing hyphens
 
 export default slugify

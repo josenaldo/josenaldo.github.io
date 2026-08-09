@@ -8,10 +8,11 @@ import slugify from '../src/shared/utils/slugify.js'
 
 const SITE = process.env.NEXT_PUBLIC_SITE_URL || 'https://josenaldo.com.br'
 
-// Mesma regra de `isPublishedPost` em src/services/content.js. Duplicada aqui
-// porque este script roda em Node puro, fora do bundler, e não resolve o alias
-// `contentlayer/generated` que o serviço importa. Se a regra mudar lá, muda
-// aqui — são os dois únicos lugares que decidem o que está no ar.
+// Mesma regra de `isPublishedPost` em src/services/content.js, e também
+// duplicada em scripts/generate-rss.js. Repetida aqui porque este script roda
+// em Node puro, fora do bundler, e não resolve o alias `@/` nem
+// `contentlayer/generated` que o serviço importa. Se a regra mudar num lugar,
+// muda nos três — são os três lugares que decidem o que está no ar.
 const STATUS_ALIASES = {
     draft: 'draft',
     rascunho: 'draft',

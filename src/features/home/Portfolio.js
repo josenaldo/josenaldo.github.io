@@ -145,10 +145,7 @@ const Portfolio = ({ projects }) => {
                         </Card>
                     ))}
                 </Box>
-                <CallToAction
-                    href="/projects"
-                    ariaLabel={t('allProjectsAria')}
-                >
+                <CallToAction href="/projects" ariaLabel={t('allProjectsAria')}>
                     {t('allProjectsCta')}
                 </CallToAction>
             </Box>

@@ -7,7 +7,9 @@ const LANGUAGE_LABELS = {
 }
 
 const ContentLanguage = ({ language, color = 'primary' }) => {
-    const normalizedLanguage = String(language ?? '').trim().toLowerCase()
+    const normalizedLanguage = String(language ?? '')
+        .trim()
+        .toLowerCase()
     const label = LANGUAGE_LABELS[normalizedLanguage]
 
     if (!label) return null

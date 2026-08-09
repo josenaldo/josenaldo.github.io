@@ -33,6 +33,11 @@ const LOCALE_FEEDS = [
     },
 ]
 
+// Mesma regra de `isPublishedPost` em src/services/content.js, e também
+// duplicada em scripts/generate-legacy-redirects.mjs — três lugares no
+// total. Repetida aqui porque este script roda em Node puro, fora do
+// bundler, e não resolve o alias `@/` nem `contentlayer/generated` que o
+// serviço importa. Se a regra mudar num lugar, muda nos três.
 const STATUS_ALIASES = {
     draft: 'draft',
     rascunho: 'draft',

@@ -26,11 +26,11 @@ export async function generateMetadata({ params }) {
         title: t('detailTitle', { category: categoryName }),
         description: t('detailDescription', { category: categoryName }),
         alternates: {
+            // Categoria não tem translationKey nem par comprovado entre
+            // locales (ex.: "architecture" en x "engenharia-de-software" pt).
+            // Sem esse dado, `languages` fica omitido — igual ao padrão de
+            // blog/[slug] e projects/[slug] quando o post não tem sibling.
             canonical: `/${locale}/blog/category/${slug}`,
-            languages: {
-                en: `/en/blog/category/${slug}`,
-                pt: `/pt/blog/category/${slug}`,
-            },
         },
     }
 }
