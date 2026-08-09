@@ -22,15 +22,27 @@ export async function generateMetadata({ params }) {
     const categoryName = category?.name ?? slug
     const t = await getTranslations({ locale, namespace: 'Blog.category' })
 
+    // Categoria não tem translationKey: o par entre locales só existe quando
+    // o MESMO slug aparece nas categorias dos dois idiomas (hoje:
+    // `job-market` e `personal`). Não inventar mapa de tradução aqui — onde
+    // falta par (`architecture` x `engenharia-de-software`, por exemplo) é
+    // porque o conteúdo ainda não foi traduzido, e isso se resolve
+    // traduzindo, não no código.
+    const otherLocale = routing.locales.find((l) => l !== locale)
+    const otherLocaleCategories = otherLocale
+        ? contentService.getAllCategories(otherLocale)
+        : []
+    const hasCounterpart = otherLocaleCategories.some((c) => c.slug === slug)
+
     return {
         title: t('detailTitle', { category: categoryName }),
         description: t('detailDescription', { category: categoryName }),
         alternates: {
-            // Categoria não tem translationKey nem par comprovado entre
-            // locales (ex.: "architecture" en x "engenharia-de-software" pt).
-            // Sem esse dado, `languages` fica omitido — igual ao padrão de
-            // blog/[slug] e projects/[slug] quando o post não tem sibling.
             canonical: `/${locale}/blog/category/${slug}`,
+            languages:
+                hasCounterpart && otherLocale
+                    ? { [otherLocale]: `/${otherLocale}/blog/category/${slug}` }
+                    : undefined,
         },
     }
 }
