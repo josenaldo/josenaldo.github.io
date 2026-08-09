@@ -5,7 +5,8 @@ import AppLayout from '@/layouts/AppLayout'
 import contentService from '@/services/content'
 
 const getStaticProps = async () => {
-    const page = contentService.getPageData('/resume')
+    // TODO(Task 4): remover o locale explícito quando o App Router assumir o roteamento.
+    const page = contentService.getPageData('en', 'resume')
 
     return {
         props: {

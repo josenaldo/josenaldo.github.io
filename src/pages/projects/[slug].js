@@ -4,8 +4,9 @@ import ContentView from '@/components/content/ContentView'
 import AppLayout from '@/layouts/AppLayout'
 import contentService from '@/services/content'
 
+// TODO(Task 4): remover o locale explícito quando o App Router assumir o roteamento.
 const getStaticPaths = async () => {
-    const paths = contentService.getAllProjectsPaths()
+    const paths = contentService.getAllProjectsPaths('en')
     return {
         paths,
         fallback: false,
@@ -14,7 +15,7 @@ const getStaticPaths = async () => {
 
 const getStaticProps = async ({ params }) => {
     const { slug } = params
-    const project = contentService.getProjectData(slug)
+    const project = contentService.getProjectData('en', slug)
 
     return {
         props: {

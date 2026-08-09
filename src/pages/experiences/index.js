@@ -13,8 +13,9 @@ import MDXContent from '@/components/content/MDXContent'
 import AppLAyout from '@/layouts/AppLayout'
 import contentService from '@/services/content'
 
+// TODO(Task 4): remover o locale explícito quando o App Router assumir o roteamento.
 const getStaticProps = async () => {
-    const experiences = contentService.lastExperiences()
+    const experiences = contentService.lastExperiences('en')
     return { props: { experiences } }
 }
 

@@ -3,7 +3,10 @@ const path = require('path')
 
 const SITE_URL =
     process.env.NEXT_PUBLIC_SITE_URL || 'https://josenaldo.com.br'
-const BLOG_DIR = path.join(process.cwd(), 'content', 'blog')
+// TODO(Task 4): gerar um feed por locale quando o roteamento passar a
+// conhecer locale; por ora, mantém o mesmo escopo (só inglês) que o Pages
+// Router serve.
+const BLOG_DIR = path.join(process.cwd(), 'content', 'blog', 'en')
 const OUTPUT_FILE = path.join(process.cwd(), 'public', 'rss.xml')
 
 const STATUS_ALIASES = {

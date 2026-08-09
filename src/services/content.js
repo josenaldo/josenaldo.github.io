@@ -23,9 +23,7 @@ const STATUS_ALIASES = {
 }
 
 const normalizePostStatus = (status) => {
-    const normalizedStatus = `${status || 'published'}`
-        .trim()
-        .toLowerCase()
+    const normalizedStatus = `${status || 'published'}`.trim().toLowerCase()
 
     return STATUS_ALIASES[normalizedStatus] || 'draft'
 }
@@ -39,68 +37,118 @@ const shouldIncludeUnpublishedPosts = () => {
     return process.env.NODE_ENV !== 'production'
 }
 
-const getVisiblePosts = () => {
-    if (shouldIncludeUnpublishedPosts()) {
-        return allPosts
-    }
-
-    return allPosts.filter((post) => isPublishedPost(post))
+// Coleções indexadas pelo `doc.type` gerado pelo Contentlayer, usadas para
+// resolver a lista correta a partir de um documento qualquer (ex: em
+// getTranslationSibling, que não sabe de antemão o tipo do doc recebido).
+const collectionsByType = {
+    Post: allPosts,
+    Page: allPages,
+    Project: allProjects,
+    Experience: allExperiences,
+    Testimonial: allTestimonials,
+    Service: allServices,
 }
 
-const lastExperiences = (numberOfExperiences) => {
+const allDocumentsOfSameType = (doc) => collectionsByType[doc?.type] || []
+
+export function getTranslationSibling(doc, targetLocale) {
+    if (!doc?.translationKey) return null
+
+    return (
+        allDocumentsOfSameType(doc).find(
+            (candidate) =>
+                candidate.locale === targetLocale &&
+                candidate.translationKey === doc.translationKey
+        ) || null
+    )
+}
+
+const byLocale = (locale) => (doc) => doc.locale === locale
+
+// A árvore de rotas do Pages Router ainda não conhece locale (isso é Task 4);
+// enquanto ela estiver viva, os documentos consumidos por essas páginas
+// precisam de um `url` no formato antigo (`/blog/slug`, sem prefixo de
+// locale), que é o que o roteamento por arquivo dessas páginas realmente
+// serve. O `url` calculado pelo Contentlayer (`/{locale}/{tipo}/{slug}`) é o
+// formato definitivo, usado a partir da Task 4. Sobrescrevemos aqui, no
+// mesmo objeto (o código já mutava `post.previous`/`post.next`), como medida
+// temporária.
+const withLegacyUrl = (buildUrl) => (doc) => {
+    doc.url = buildUrl(doc)
+    return doc
+}
+
+const withLegacyPostUrl = withLegacyUrl((post) => `/blog/${post.slug}`)
+const withLegacyProjectUrl = withLegacyUrl(
+    (project) => `/projects/${project.slug}`
+)
+const withLegacyPageUrl = withLegacyUrl((page) => `/${page.slug}`)
+
+const getVisiblePosts = (locale) => {
+    const posts = allPosts.filter(byLocale(locale)).map(withLegacyPostUrl)
+
+    if (shouldIncludeUnpublishedPosts()) {
+        return posts
+    }
+
+    return posts.filter((post) => isPublishedPost(post))
+}
+
+const lastExperiences = (locale, numberOfExperiences) => {
     return allExperiences
+        .filter(byLocale(locale))
         .sort((a, b) => {
             return b.id - a.id
         })
         .slice(0, numberOfExperiences)
 }
 
-const lastProjects = (numberOfProjects) => {
+const lastProjects = (locale, numberOfProjects) => {
     return allProjects
+        .filter(byLocale(locale))
+        .map(withLegacyProjectUrl)
         .sort((a, b) => {
             return a.id - b.id
         })
         .slice(0, numberOfProjects)
 }
 
-const getAllProjects = () => {
-    return allProjects
+const getAllProjects = (locale) => {
+    return allProjects.filter(byLocale(locale)).map(withLegacyProjectUrl)
 }
 
-const getAllProjectsPaths = () => {
-    const paths = allProjects.map((project) => project.url)
+const getAllProjectsPaths = (locale) => {
+    const paths = getAllProjects(locale).map((project) => project.url)
     return paths
 }
 
-const getProjectData = (slug) => {
-    const url = `/projects/${slug}`
-    const projects = getAllProjects()
+const getProjectData = (locale, slug) => {
+    const projects = getAllProjects(locale)
 
-    const project = projects.find((p) => {
-        if (p.url === url) {
-            return p
-        }
-    })
+    const project = projects.find((p) => p.slug === slug)
 
     return project
 }
 
-const getTestimonials = () => {
-    return allTestimonials.filter((t) => t.show !== false)
+const getTestimonials = (locale) => {
+    return allTestimonials
+        .filter(byLocale(locale))
+        .filter((t) => t.show !== false)
 }
 
-const getServices = () => {
+const getServices = (locale) => {
     return allServices
+        .filter(byLocale(locale))
         .filter((s) => s.show !== false)
         .sort((a, b) => (a.order ?? 0) - (b.order ?? 0))
 }
 
-const getAllPosts = () => {
-    return getVisiblePosts()
+const getAllPosts = (locale) => {
+    return getVisiblePosts(locale)
 }
 
-const getSortedPosts = (numberOfPosts) => {
-    const posts = [...getAllPosts()].sort((a, b) => {
+const getSortedPosts = (locale, numberOfPosts) => {
+    const posts = [...getAllPosts(locale)].sort((a, b) => {
         return compareDesc(new Date(a.date), new Date(b.date))
     })
 
@@ -111,17 +159,16 @@ const getSortedPosts = (numberOfPosts) => {
     return posts
 }
 
-const getAllPostsPaths = () => {
-    const paths = getAllPosts().map((post) => post.url)
+const getAllPostsPaths = (locale) => {
+    const paths = getAllPosts(locale).map((post) => post.url)
     return paths
 }
 
-const getPostData = (slug) => {
-    const url = `/blog/${slug}`
-    const posts = getSortedPosts()
+const getPostData = (locale, slug) => {
+    const posts = getSortedPosts(locale)
 
     const post = posts.find((post, index, posts) => {
-        if (post.url === url) {
+        if (post.slug === slug) {
             const isFirst = index === posts.length - 1
             const isLast = index === 0
             const previousPost = !isFirst ? posts[index + 1] : null
@@ -155,10 +202,12 @@ const getPostData = (slug) => {
     return post
 }
 
-const getPageData = (url) => {
-    const page = allPages.find((page) => page.url === url)
+const getPageData = (locale, slug) => {
+    const page = allPages
+        .filter(byLocale(locale))
+        .find((page) => page.slug === slug)
 
-    return page
+    return page ? withLegacyPageUrl(page) : page
 }
 
 const getAllSkills = () => {
@@ -200,12 +249,14 @@ const getAllSkillsByCategory = () => {
         .map(({ group }) => ({
             group,
             color: colorMap[group],
-            skills: grouped[group].sort((a, b) => a.firstContact - b.firstContact),
+            skills: grouped[group].sort(
+                (a, b) => a.firstContact - b.firstContact
+            ),
         }))
 }
 
-const getAllCategories = () => {
-    const posts = getAllPosts()
+const getAllCategories = (locale) => {
+    const posts = getAllPosts(locale)
     const categoryMap = new Map()
 
     posts.forEach((post) => {
@@ -227,14 +278,14 @@ const getAllCategories = () => {
     )
 }
 
-const getPostsByCategory = (slug) => {
-    return getSortedPosts().filter(
+const getPostsByCategory = (locale, slug) => {
+    return getSortedPosts(locale).filter(
         (post) => post.category && slugify(post.category) === slug
     )
 }
 
-const getAllCategoryPaths = () => {
-    return getAllCategories().map((cat) => cat.slug)
+const getAllCategoryPaths = (locale) => {
+    return getAllCategories(locale).map((cat) => cat.slug)
 }
 
 const contentService = {
@@ -255,6 +306,7 @@ const contentService = {
     getAllCategories,
     getPostsByCategory,
     getAllCategoryPaths,
+    getTranslationSibling,
 }
 
 export default contentService

@@ -1,4 +1,5 @@
 ---
+translationKey: ai-house-in-order
 title: "AI Didn't Organize My Life. It Helped Me Get My House in Order"
 description: "I didn't build a cyberpunk workflow that reads my emails for me. I used AI to unlock real work: refactoring, tests, documentation, and projects I had been postponing for far too long."
 date: 2026-03-16 09:00:00 -0300

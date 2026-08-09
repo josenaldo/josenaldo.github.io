@@ -6,8 +6,9 @@ import AppLAyout from '@/layouts/AppLayout'
 // import { getSortedPosts } from '@pog/data'
 import contentService from '@/services/content'
 
+// TODO(Task 4): remover o locale explícito quando o App Router assumir o roteamento.
 const getStaticProps = async () => {
-    const projects = contentService.getAllProjects()
+    const projects = contentService.getAllProjects('en')
     return { props: { projects } }
 }
 

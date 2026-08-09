@@ -5,7 +5,7 @@
     <link>https://josenaldo.com.br/blog</link>
     <description>Articles about software development, engineering, and career.</description>
     <language>en</language>
-    <lastBuildDate>Mon, 16 Mar 2026 23:44:30 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 09 Aug 2026 02:50:39 GMT</lastBuildDate>
     <atom:link href="https://josenaldo.com.br/rss.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>AI Didn&apos;t Organize My Life. It Helped Me Get My House in Order</title>
@@ -16,60 +16,12 @@
       <enclosure url="https://josenaldo.com.br/images/blog/ia-nao-organizou-minha-vida-ela-me-ajudou-a-arrumar-a-casa.png" type="image/jpeg" />
     </item>
     <item>
-      <title>A IA não organizou minha vida. Ela me ajudou a arrumar a casa</title>
-      <link>https://josenaldo.com.br/blog/ia-nao-organizou-minha-vida-ela-me-ajudou-a-arrumar-a-casa</link>
-      <guid isPermaLink="true">https://josenaldo.com.br/blog/ia-nao-organizou-minha-vida-ela-me-ajudou-a-arrumar-a-casa</guid>
-      <pubDate>Mon, 16 Mar 2026 12:00:00 GMT</pubDate>
-      <description>Não criei um workflow cyberpunk que lê meus e-mails por mim. Usei IA para destravar trabalho real: refatoração, testes, documentação e projetos que eu vinha adiando havia tempo demais.</description>
-      <enclosure url="https://josenaldo.com.br/images/blog/ia-nao-organizou-minha-vida-ela-me-ajudou-a-arrumar-a-casa.png" type="image/jpeg" />
-    </item>
-    <item>
-      <title>Escreva em português: o gargalo da IA não é o idioma, é a sua expressividade</title>
-      <link>https://josenaldo.com.br/blog/escreva-em-portugues-o-gargalo-da-ia-nao-e-o-idioma</link>
-      <guid isPermaLink="true">https://josenaldo.com.br/blog/escreva-em-portugues-o-gargalo-da-ia-nao-e-o-idioma</guid>
-      <pubDate>Sun, 15 Mar 2026 12:00:00 GMT</pubDate>
-      <description>Por que desenvolvedores brasileiros produzem instruções melhores para agentes de IA quando escrevem na língua em que pensam — e por que forçar inglês pode estar piorando seus resultados.</description>
-      <enclosure url="https://josenaldo.com.br/images/blog/escreva-em-portugues-o-gargalo-da-ia-nao-e-o-idioma.png" type="image/jpeg" />
-    </item>
-    <item>
-      <title>A pastelização do desenvolvimento de software</title>
-      <link>https://josenaldo.com.br/blog/pastelizacao-do-desenvolvimento-de-software</link>
-      <guid isPermaLink="true">https://josenaldo.com.br/blog/pastelizacao-do-desenvolvimento-de-software</guid>
-      <pubDate>Wed, 04 Mar 2026 15:00:00 GMT</pubDate>
-      <description>A IA transformou parte do software em pastel de feira: rápido, barato e bom o suficiente. O ponto não é o fim dos restaurantes — é saber quando pastel resolve e quando precisa de camarão na moranga.</description>
-      <enclosure url="https://josenaldo.com.br/images/blog/pastelizacao-do-desenvolvimento-de-software.png" type="image/jpeg" />
-    </item>
-    <item>
-      <title>Context Engineering: como transformar agentes de IA em desenvolvedores confiáveis</title>
-      <link>https://josenaldo.com.br/blog/context-engineering-guia-completo</link>
-      <guid isPermaLink="true">https://josenaldo.com.br/blog/context-engineering-guia-completo</guid>
-      <pubDate>Wed, 04 Mar 2026 12:00:00 GMT</pubDate>
-      <description>Guia completo do Estágio 1 ao Estágio 3 para transformar uso de agentes de IA em um sistema previsível, com contexto estruturado, skills e memória de projeto.</description>
-      <enclosure url="https://josenaldo.com.br/images/blog/context-engineering-guia-completo.png" type="image/jpeg" />
-    </item>
-    <item>
-      <title>Como escrever o seu currículo como desenvolvedor</title>
-      <link>https://josenaldo.com.br/blog/como-escrever-o-seu-curriculo</link>
-      <guid isPermaLink="true">https://josenaldo.com.br/blog/como-escrever-o-seu-curriculo</guid>
-      <pubDate>Tue, 24 Feb 2026 03:00:00 GMT</pubDate>
-      <description>Um guia completo para estagiários, juniores e plenos com pouca experiência que querem montar um currículo que passa pelo ATS e chama a atenção do recrutador.</description>
-      <enclosure url="https://josenaldo.com.br/images/blog/como-escrever-o-seu-curriculo.png" type="image/jpeg" />
-    </item>
-    <item>
       <title>AI and Developers: Another Brick or Another Floor?</title>
       <link>https://josenaldo.com.br/blog/ai-and-developers-another-brick-or-another-floor</link>
       <guid isPermaLink="true">https://josenaldo.com.br/blog/ai-and-developers-another-brick-or-another-floor</guid>
       <pubDate>Sun, 22 Feb 2026 12:25:00 GMT</pubDate>
       <description>AI will shake the market — that much is certain. Whether it walls developers in or elevates them depends on a timescale most people forget to consider.</description>
       <enclosure url="https://josenaldo.com.br/images/blog/ai-and-developers-another-brick-or-another-floor.png" type="image/jpeg" />
-    </item>
-    <item>
-      <title>The first draft of Programação Orientada a Gambiarra</title>
-      <link>https://josenaldo.com.br/blog/first-draft-programacao-orientada-a-gambiarra</link>
-      <guid isPermaLink="true">https://josenaldo.com.br/blog/first-draft-programacao-orientada-a-gambiarra</guid>
-      <pubDate>Thu, 19 Feb 2026 03:00:00 GMT</pubDate>
-      <description>A short update on my first complete draft, and what this book is really about.</description>
-      <enclosure url="https://josenaldo.com.br/images/blog/programacao-orientada-a-gambiarra-first-draft.png" type="image/jpeg" />
     </item>
     <item>
       <title>Interfaces aren&apos;t villains</title>

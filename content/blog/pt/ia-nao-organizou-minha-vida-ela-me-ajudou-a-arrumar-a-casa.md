@@ -1,4 +1,5 @@
 ---
+translationKey: ai-house-in-order
 title: "A IA não organizou minha vida. Ela me ajudou a arrumar a casa"
 description: "Não criei um workflow cyberpunk que lê meus e-mails por mim. Usei IA para destravar trabalho real: refatoração, testes, documentação e projetos que eu vinha adiando havia tempo demais."
 date: 2026-03-16 09:00:00 -0300

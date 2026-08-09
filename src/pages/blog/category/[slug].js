@@ -10,8 +10,9 @@ import contentService from '@/services/content'
 
 const POSTS_PER_PAGE = 9
 
+// TODO(Task 4): remover o locale explícito quando o App Router assumir o roteamento.
 const getStaticPaths = async () => {
-    const paths = contentService.getAllCategoryPaths().map((slug) => ({
+    const paths = contentService.getAllCategoryPaths('en').map((slug) => ({
         params: { slug },
     }))
     return { paths, fallback: false }
@@ -19,8 +20,8 @@ const getStaticPaths = async () => {
 
 const getStaticProps = async ({ params }) => {
     const { slug } = params
-    const posts = contentService.getPostsByCategory(slug)
-    const categories = contentService.getAllCategories()
+    const posts = contentService.getPostsByCategory('en', slug)
+    const categories = contentService.getAllCategories('en')
     const category = categories.find((c) => c.slug === slug)
 
     return {
@@ -81,7 +82,7 @@ const CategoryPage = ({ posts, categoryName }) => {
                                 author={post.author}
                                 date={post.date}
                                 category={post.category}
-                                language={post.language}
+                                language={post.locale}
                                 moreLinkText="Read post"
                             />
                         ))}

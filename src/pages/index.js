@@ -22,18 +22,21 @@ const getProjectHomeImage = (imagePath) => {
         : `/images/projects/thumbs/${baseName}.webp`
 }
 
+// TODO(Task 4): remover o locale explícito quando o App Router assumir o roteamento.
 export async function getStaticProps() {
     // Important: Contentlayer documents include large fields (e.g. body.html/body.raw/_raw)
     // that should not be sent to the Home page. Only pass what the UI uses.
-    const experiences = contentService.lastExperiences(4).map((experience) => ({
-        period: experience.period,
-        company: experience.company,
-        title: experience.title,
-        description: experience.description,
-        location: experience.location,
-    }))
+    const experiences = contentService
+        .lastExperiences('en', 4)
+        .map((experience) => ({
+            period: experience.period,
+            company: experience.company,
+            title: experience.title,
+            description: experience.description,
+            location: experience.location,
+        }))
 
-    const projects = contentService.lastProjects(6).map((project) => ({
+    const projects = contentService.lastProjects('en', 6).map((project) => ({
         id: project.id,
         title: project.title,
         description: project.description,
@@ -43,7 +46,7 @@ export async function getStaticProps() {
         url: project.url,
     }))
 
-    const services = contentService.getServices().map((service) => ({
+    const services = contentService.getServices('en').map((service) => ({
         title: service.title,
         description: service.description,
         icon: service.icon,
@@ -51,7 +54,7 @@ export async function getStaticProps() {
     }))
 
     const testimonials = contentService
-        .getTestimonials()
+        .getTestimonials('en')
         .map((testimonial) => ({
             name: testimonial.name,
             position: testimonial.position,
@@ -59,7 +62,7 @@ export async function getStaticProps() {
             image: testimonial.image,
         }))
 
-    const posts = contentService.getSortedPosts().map((post) => ({
+    const posts = contentService.getSortedPosts('en').map((post) => ({
         title: post.title,
         description: post.description,
         author: post.author,
@@ -67,16 +70,23 @@ export async function getStaticProps() {
         image: post.image,
         url: post.url,
         category: post.category,
-        language: post.language,
+        language: post.locale,
     }))
 
-    const skills = contentService.getAllSkillsByCategory().map(({ group, color, skills }) => ({
-        group,
-        color,
-        skills: skills.map(({ name, firstContact }) => ({ name, firstContact })),
-    }))
+    const skills = contentService
+        .getAllSkillsByCategory()
+        .map(({ group, color, skills }) => ({
+            group,
+            color,
+            skills: skills.map(({ name, firstContact }) => ({
+                name,
+                firstContact,
+            })),
+        }))
 
-    return { props: { experiences, projects, testimonials, services, posts, skills } }
+    return {
+        props: { experiences, projects, testimonials, services, posts, skills },
+    }
 }
 
 export default function Home({

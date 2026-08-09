@@ -1,11 +1,20 @@
-import { Box, Button, Card, CardActions, CardContent, Container, Typography } from '@mui/material'
+import {
+    Box,
+    Button,
+    Card,
+    CardActions,
+    CardContent,
+    Container,
+    Typography,
+} from '@mui/material'
 
 import ContentTitle from '@/components/content/ContentTitle'
 import AppLayout from '@/layouts/AppLayout'
 import contentService from '@/services/content'
 
+// TODO(Task 4): remover o locale explícito quando o App Router assumir o roteamento.
 const getStaticProps = async () => {
-    const categories = contentService.getAllCategories()
+    const categories = contentService.getAllCategories('en')
     return { props: { categories } }
 }
 
@@ -14,11 +23,7 @@ const CategoriesPage = ({ categories }) => {
     const description = 'Browse posts by category'
 
     return (
-        <AppLayout
-            title={title}
-            description={description}
-            url="/blog/category"
-        >
+        <AppLayout title={title} description={description} url="/blog/category">
             <Container>
                 <Box sx={{ my: 5 }}>
                     <ContentTitle title={title} subtitle={description} />

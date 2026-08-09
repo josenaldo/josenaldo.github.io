@@ -1,9 +1,49 @@
 import { defineDocumentType, makeSource } from 'contentlayer2/source-files'
 
-function resolveSlug(doc, folder) {
-    const regex = new RegExp(`${folder}\/?`, 'g')
-    const slug = doc._raw.flattenedPath.replace(regex, '')
-    return slug
+// Chave compartilhada entre as versões do mesmo documento em idiomas
+// diferentes, mais o marcador de que a cópia ainda aguarda tradução.
+// Aplicados a todas as coleções.
+const translationFields = {
+    translationKey: {
+        type: 'string',
+        description:
+            'Chave compartilhada entre as versões do mesmo documento em idiomas diferentes. Ausente = documento sem par.',
+        required: false,
+    },
+    translated: {
+        type: 'boolean',
+        description:
+            'false quando o arquivo ainda carrega o texto do idioma original, aguardando tradução.',
+        default: true,
+        required: false,
+    },
+}
+
+// Campos computados a partir do caminho `<coleção>/<locale>/<slug>.md`.
+// Aplicados a todas as coleções.
+function localeComputedFields() {
+    return {
+        locale: {
+            type: 'string',
+            resolve: (doc) => doc._raw.flattenedPath.split('/')[1],
+        },
+        slug: {
+            type: 'string',
+            resolve: (doc) =>
+                doc._raw.flattenedPath.split('/').slice(2).join('/'),
+        },
+        url: {
+            type: 'string',
+            resolve: (doc) => {
+                const parts = doc._raw.flattenedPath.split('/')
+                const [collection, locale, ...rest] = parts
+                const slug = rest.join('/')
+                return collection === 'pages'
+                    ? `/${locale}/${slug}`
+                    : `/${locale}/${collection}/${slug}`
+            },
+        },
+    }
 }
 
 export const Post = defineDocumentType(() => ({
@@ -46,20 +86,9 @@ export const Post = defineDocumentType(() => ({
             description: 'The image of the post',
             required: true,
         },
-        language: {
-            type: 'enum',
-            options: ['pt', 'en'],
-            default: 'en',
-            description: 'The language of the post (pt or en)',
-            required: false,
-        },
+        ...translationFields,
     },
-    computedFields: {
-        url: {
-            type: 'string',
-            resolve: (doc) => `/${doc._raw.flattenedPath}`,
-        },
-    },
+    computedFields: localeComputedFields(),
 }))
 
 export const Page = defineDocumentType(() => ({
@@ -81,14 +110,9 @@ export const Page = defineDocumentType(() => ({
             description: 'The image of the page',
             required: true,
         },
+        ...translationFields,
     },
-    computedFields: {
-        url: {
-            type: 'string',
-            resolve: (doc) =>
-                `/${doc._raw.flattenedPath.replace(/pages\/?/, '')}`,
-        },
-    },
+    computedFields: localeComputedFields(),
 }))
 
 const Project = defineDocumentType(() => ({
@@ -125,13 +149,9 @@ const Project = defineDocumentType(() => ({
             description: 'The image of the project',
             required: true,
         },
+        ...translationFields,
     },
-    computedFields: {
-        url: {
-            type: 'string',
-            resolve: (doc) => `/${doc._raw.flattenedPath}`,
-        },
-    },
+    computedFields: localeComputedFields(),
 }))
 
 const Experience = defineDocumentType(() => ({
@@ -173,7 +193,9 @@ const Experience = defineDocumentType(() => ({
             description: 'Show the experience in the resume',
             required: true,
         },
+        ...translationFields,
     },
+    computedFields: localeComputedFields(),
 }))
 
 const Testimonial = defineDocumentType(() => ({
@@ -205,7 +227,9 @@ const Testimonial = defineDocumentType(() => ({
             description: 'The image of the testimonial author',
             required: true,
         },
+        ...translationFields,
     },
+    computedFields: localeComputedFields(),
 }))
 
 const Course = defineDocumentType(() => ({
@@ -242,17 +266,9 @@ const Course = defineDocumentType(() => ({
             description: 'The link of the certificate',
             required: true,
         },
+        ...translationFields,
     },
-    computedFields: {
-        url: {
-            type: 'string',
-            resolve: (doc) => `/${doc._raw.flattenedPath}`,
-        },
-        slug: {
-            type: 'string',
-            resolve: (doc) => resolveSlug(doc, 'courses'),
-        },
-    },
+    computedFields: localeComputedFields(),
 }))
 
 const Service = defineDocumentType(() => ({
@@ -291,7 +307,9 @@ const Service = defineDocumentType(() => ({
                 'Icon key used by the UI (e.g. code, api, architecture, mentoring)',
             required: true,
         },
+        ...translationFields,
     },
+    computedFields: localeComputedFields(),
 }))
 
 export default makeSource({
