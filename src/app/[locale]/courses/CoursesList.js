@@ -34,7 +34,8 @@ function CourseItem({ course, expanded, onChange }) {
                     <Typography variant="h6">{course.name}</Typography>
                     <Typography variant="caption">
                         {formatDate(course.completionDate)} |{' '}
-                        {course.institution} | {course.workload} hours
+                        {course.institution} |{' '}
+                        {t('workloadHours', { hours: course.workload })}
                     </Typography>
                 </Box>
             </AccordionSummary>

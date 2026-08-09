@@ -88,7 +88,8 @@
         "title": "Cursos",
         "description": "Uma lista detalhada dos meus cursos, incluindo a instituição, data de conclusão, carga horária, link do curso e link do certificado.",
         "courseLink": "Link do Curso",
-        "certificate": "Certificado"
+        "certificate": "Certificado",
+        "workloadHours": "{hours, plural, one {# hora} other {# horas}}"
     },
     "Experiences": {
         "title": "Experiências Profissionais",
