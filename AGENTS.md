@@ -1,12 +1,22 @@
 # AGENTS.md
 
-Este repositório é um site pessoal em Next.js (Pages Router) com conteúdo em Markdown gerado via Contentlayer2, publicado como site estático (Next `output: 'export'`).
+Este repositório é um site pessoal em Next.js (App Router) com conteúdo em Markdown gerado via Contentlayer2, publicado como site estático (Next `output: 'export'`), servindo `/en` e `/pt` via `next-intl`.
+
+## Arquitetura App Router + i18n
+
+- Rotas vivem em `src/app/[locale]/`, um segmento dinâmico por locale (`en`, `pt`); não existe `src/app/layout.js` — o root layout é `src/app/[locale]/layout.js`.
+- Conteúdo vive em `content/{tipo}/{locale}/` (por exemplo `content/blog/en/`, `content/blog/pt/`); o locale de cada documento é computado a partir do caminho do arquivo, não de um campo de frontmatter.
+- Strings de interface vivem em `src/messages/en.json` e `src/messages/pt.json`, consumidas via `next-intl`.
+- O export é estático e sem middleware (`output: 'export'`, `trailingSlash: false`): `out/en.html` é servido em `/en`, não em `/en/`.
+- **URL antiga nunca é apagada.** Quando uma rota muda de lugar, ela vira um stub de `meta refresh` gerado por `scripts/generate-legacy-redirects.mjs`, que roda no `postbuild` depois do `next-sitemap` (nessa ordem: se rodasse antes, os stubs entrariam no sitemap). `scripts/verify-legacy-redirects.mjs` prova que todo stub aponta para um arquivo que existe de fato em `out/`.
 
 ## Comandos do projeto (npm)
 
 - Dev: `npm run dev`
 - Lint: `npm run lint`
-- Build (inclui Contentlayer): `npm run build`
+- Build (inclui Contentlayer, checagem de métricas, RSS, sitemap e stubs de redirect): `npm run build`
+- Checar métricas isoladamente: `npm run check:metrics`
+- Servir o `out/` gerado: `npm start`
 
 ## Copy e números
 

@@ -1,5 +1,6 @@
 import { setRequestLocale } from 'next-intl/server'
 
+import seoConfigModule from '@/data/SeoConfig'
 import AboutSection from '@/features/home/About'
 import BlogSection from '@/features/home/Blog'
 import ExperienceSection from '@/features/home/Experience'
@@ -9,6 +10,8 @@ import ServicesSection from '@/features/home/Services'
 import TestimonialSection from '@/features/home/Testimonial'
 import { routing } from '@/i18n/routing'
 import contentService from '@/services/content'
+
+const { APP_TITLE, APP_DESCRIPTION } = seoConfigModule
 
 const getProjectHomeImage = (imagePath) => {
     if (!imagePath) return imagePath
@@ -26,6 +29,27 @@ const getProjectHomeImage = (imagePath) => {
 
 export function generateStaticParams() {
     return routing.locales.map((locale) => ({ locale }))
+}
+
+export async function generateMetadata({ params }) {
+    const { locale } = await params
+
+    return {
+        title: APP_TITLE,
+        description: APP_DESCRIPTION,
+        alternates: {
+            canonical: `/${locale}`,
+            languages: {
+                en: '/en',
+                pt: '/pt',
+            },
+        },
+        openGraph: {
+            title: APP_TITLE,
+            description: APP_DESCRIPTION,
+            url: `/${locale}`,
+        },
+    }
 }
 
 export default async function HomePage({ params }) {

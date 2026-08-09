@@ -1050,7 +1050,7 @@ git commit -m "docs: registra a arquitetura App Router + i18n e remove o script 
 - `npm run build` conclui e o `out/` contém as árvores `en/` e `pt/` completas.
 - Toda URL publicada antes da migração responde: as 11 rotas estáticas e os posts publicados (13 hoje), verificados por script, não por amostragem — e nenhum stub aponta para rascunho.
 - O destino do redirect de um post em português é a árvore `/pt/`.
-- `/` leva a `/en/`.
+- `/` leva a `/en`.
 - Canonical, sitemap e RSS apontam para `https://josenaldo.com.br`.
 - Nenhuma string visível ficou hardcoded em componente.
 - Nenhuma copy foi reescrita — o texto é o mesmo de antes, apenas movido e traduzido diretamente.
