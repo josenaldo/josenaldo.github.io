@@ -24,6 +24,25 @@ function findAlternateHref(nextLocale) {
     return alternate?.getAttribute('href') ?? null
 }
 
+// Achado do revisor: em `src/app/[locale]/blog/[slug]/page.js` e
+// `.../projects/[slug]/page.js`, `alternates.languages` só existe quando há
+// par (`sibling ? {...} : undefined`). Sem par, `findAlternateHref` devolve
+// `null` para os dois idiomas, e o fallback abaixo — pensado para as rotas
+// estáticas, onde o pathname é idêntico nos dois idiomas — cairia em
+// `router.replace(pathname, {locale})`, apontando pro MESMO slug (que só
+// existe no idioma de origem) no idioma de destino. `generateStaticParams`
+// dessas duas rotas nunca gera esse par, e o resultado é 404 real no export.
+//
+// Como o switcher não recebe dados da página, a única pista disponível aqui é
+// o próprio pathname: se ele bate com `/blog/<slug>` ou `/projects/<slug>` (e
+// não achamos tag alternate — logo não há par), a degradação razoável é o
+// índice da seção no idioma de destino, não o mesmo slug e não a home.
+function sectionIndexFallback(pathname) {
+    if (/^\/blog\/(?!category(?:\/|$))[^/]+$/.test(pathname)) return '/blog'
+    if (/^\/projects\/[^/]+$/.test(pathname)) return '/projects'
+    return null
+}
+
 export default function LanguageSwitcher() {
     const locale = useLocale()
     const router = useRouter()
@@ -44,7 +63,9 @@ export default function LanguageSwitcher() {
             return
         }
 
-        router.replace(pathname, { locale: nextLocale })
+        const fallbackPathname = sectionIndexFallback(pathname) ?? pathname
+
+        router.replace(fallbackPathname, { locale: nextLocale })
     }
 
     return (

@@ -1,11 +1,7 @@
 import { Box, Container, Paper } from '@mui/material'
 import { useTranslations } from 'next-intl'
 
-// Ano de lançamento do site. Não é métrica de resultado (é uma data, não um
-// "antes/depois" de trabalho) — por isso fica aqui, fora de
-// `src/data/metrics.mjs`, como o CAREER_START_YEAR de lá também fica de fora
-// do objeto `metrics` pelo mesmo motivo.
-const SITE_LAUNCH_YEAR = 2023
+import { SITE_LAUNCH_YEAR } from '@/data/metrics.mjs'
 
 const Footer = () => {
     const t = useTranslations('Footer')
