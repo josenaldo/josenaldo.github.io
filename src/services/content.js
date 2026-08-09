@@ -65,27 +65,8 @@ export function getTranslationSibling(doc, targetLocale) {
 
 const byLocale = (locale) => (doc) => doc.locale === locale
 
-// A árvore de rotas do Pages Router ainda não conhece locale (isso é Task 4);
-// enquanto ela estiver viva, os documentos consumidos por essas páginas
-// precisam de um `url` no formato antigo (`/blog/slug`, sem prefixo de
-// locale), que é o que o roteamento por arquivo dessas páginas realmente
-// serve. O `url` calculado pelo Contentlayer (`/{locale}/{tipo}/{slug}`) é o
-// formato definitivo, usado a partir da Task 4. Sobrescrevemos aqui, no
-// mesmo objeto (o código já mutava `post.previous`/`post.next`), como medida
-// temporária.
-const withLegacyUrl = (buildUrl) => (doc) => {
-    doc.url = buildUrl(doc)
-    return doc
-}
-
-const withLegacyPostUrl = withLegacyUrl((post) => `/blog/${post.slug}`)
-const withLegacyProjectUrl = withLegacyUrl(
-    (project) => `/projects/${project.slug}`
-)
-const withLegacyPageUrl = withLegacyUrl((page) => `/${page.slug}`)
-
 const getVisiblePosts = (locale) => {
-    const posts = allPosts.filter(byLocale(locale)).map(withLegacyPostUrl)
+    const posts = allPosts.filter(byLocale(locale))
 
     if (shouldIncludeUnpublishedPosts()) {
         return posts
@@ -106,7 +87,6 @@ const lastExperiences = (locale, numberOfExperiences) => {
 const lastProjects = (locale, numberOfProjects) => {
     return allProjects
         .filter(byLocale(locale))
-        .map(withLegacyProjectUrl)
         .sort((a, b) => {
             return a.id - b.id
         })
@@ -114,7 +94,7 @@ const lastProjects = (locale, numberOfProjects) => {
 }
 
 const getAllProjects = (locale) => {
-    return allProjects.filter(byLocale(locale)).map(withLegacyProjectUrl)
+    return allProjects.filter(byLocale(locale))
 }
 
 const getAllProjectsPaths = (locale) => {
@@ -203,11 +183,7 @@ const getPostData = (locale, slug) => {
 }
 
 const getPageData = (locale, slug) => {
-    const page = allPages
-        .filter(byLocale(locale))
-        .find((page) => page.slug === slug)
-
-    return page ? withLegacyPageUrl(page) : page
+    return allPages.filter(byLocale(locale)).find((page) => page.slug === slug)
 }
 
 const getAllSkills = () => {

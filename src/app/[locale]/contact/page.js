@@ -1,0 +1,127 @@
+import GitHubIcon from '@mui/icons-material/GitHub'
+import { Box, Container } from '@mui/material'
+import {
+    Box as MuiBox,
+    Button,
+    Card,
+    CardContent,
+    Typography,
+} from '@mui/material'
+import { setRequestLocale } from 'next-intl/server'
+
+import SocialList from '@/components/contact/SocialList'
+import ContentTitle from '@/components/content/ContentTitle'
+import { routing } from '@/i18n/routing'
+
+const title = 'Get in Touch'
+const description =
+    'Connect with Josenaldo by filling out the form. Get in touch for project collaborations, idea-sharing, or just a friendly conversation.'
+
+export function generateStaticParams() {
+    return routing.locales.map((locale) => ({ locale }))
+}
+
+export async function generateMetadata({ params }) {
+    const { locale } = await params
+
+    return {
+        title,
+        description,
+        alternates: {
+            canonical: `/${locale}/contact`,
+            languages: {
+                en: '/en/contact',
+                pt: '/pt/contact',
+            },
+        },
+    }
+}
+
+export default async function ContactPage({ params }) {
+    const { locale } = await params
+    setRequestLocale(locale)
+
+    return (
+        <Container>
+            <Box
+                sx={{
+                    my: 5,
+                }}
+            >
+                <ContentTitle title={title} subtitle={description} />
+                <Box
+                    sx={{
+                        display: 'flex',
+                        flexDirection: {
+                            xs: 'column',
+                            sm: 'row',
+                        },
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        gap: 3,
+                        my: 5,
+                    }}
+                >
+                    <Card
+                        sx={{
+                            minWidth: 300,
+                            maxWidth: 400,
+                            display: 'flex',
+                            flexDirection: 'column',
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                            p: 3,
+                            boxShadow: 3,
+                            background:
+                                'linear-gradient(135deg, #232526 0%, #414345 100%)',
+                            color: '#fff',
+                        }}
+                    >
+                        <CardContent sx={{ textAlign: 'center' }}>
+                            <MuiBox
+                                sx={{
+                                    mb: 2,
+                                    display: 'flex',
+                                    justifyContent: 'center',
+                                }}
+                            >
+                                <GitHubIcon sx={{ fontSize: 48 }} />
+                            </MuiBox>
+                            <Typography
+                                variant="h5"
+                                component="div"
+                                gutterBottom
+                            >
+                                Like this project?
+                            </Typography>
+                            <Typography variant="body1" sx={{ mb: 2 }}>
+                                Explore the source code on GitHub and make it
+                                your own! Fork, star, or contribute to help it
+                                grow.
+                            </Typography>
+                            <Button
+                                variant="contained"
+                                color="secondary"
+                                size="large"
+                                href="https://github.com/josenaldo/josenaldo.github.io"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                startIcon={<GitHubIcon />}
+                                sx={{
+                                    fontWeight: 'bold',
+                                    fontSize: '1.1rem',
+                                    px: 3,
+                                    py: 1,
+                                    boxShadow: 2,
+                                }}
+                            >
+                                Fork on GitHub
+                            </Button>
+                        </CardContent>
+                    </Card>
+                    <SocialList />
+                </Box>
+            </Box>
+        </Container>
+    )
+}

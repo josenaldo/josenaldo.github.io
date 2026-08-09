@@ -1,3 +1,5 @@
+'use client'
+
 import { Box, Divider, Typography } from '@mui/material'
 import { MDXProvider } from '@mdx-js/react'
 import PropTypes from 'prop-types'
@@ -41,7 +43,14 @@ const MDXContent = ({ content }) => {
         img: ResponsiveImage,
         a: Link,
         pre: Code,
-        code: (props) => <Typography component="code" fontFamily='monospace' color='secondary' {...props} />,
+        code: (props) => (
+            <Typography
+                component="code"
+                fontFamily="monospace"
+                color="secondary"
+                {...props}
+            />
+        ),
         hr: (props) => <Divider sx={{ my: 2 }} {...props} />,
         blockquote: Blockquote,
         ol: MarkdownOrderedList,

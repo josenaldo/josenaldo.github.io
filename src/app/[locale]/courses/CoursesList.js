@@ -1,3 +1,5 @@
+'use client'
+
 import { useState } from 'react'
 
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
@@ -7,15 +9,11 @@ import {
     AccordionSummary,
     Box,
     Chip,
-    Container,
     Typography,
 } from '@mui/material'
 
-import ContentTitle from '@/components/content/ContentTitle'
 import MDXContent from '@/components/content/MDXContent'
 import Link from '@/components/ui/Link'
-import { allCourses } from '@/features/courses/api/courses'
-import AppLAyout from '@/layouts/AppLayout'
 import { formatDate } from '@/shared/utils/date-format-utils'
 
 function CourseItem({ course, expanded, onChange }) {
@@ -74,49 +72,25 @@ function CourseItem({ course, expanded, onChange }) {
     )
 }
 
-const getStaticProps = async () => {
-    const courses = allCourses()
-    return { props: { courses: courses } }
-}
-
-const ExperiencesPage = ({ courses }) => {
+const CoursesList = ({ courses }) => {
     const [expanded, setExpanded] = useState(false)
 
     const onChange = (panel) => (event, newExpanded) => {
         setExpanded(newExpanded ? panel : false)
     }
 
-    const title = 'Courses'
-    const description =
-        'A detailed list of my courses, including the institution, completion date, workload, course link, and certificate link.'
-    const image = '/images/default.jpg'
-
     return (
-        <AppLAyout
-            title={title}
-            description={description}
-            image={image}
-            url="/courses"
-        >
-            <Container>
-                <Box>
-                    <ContentTitle title={title} subtitle={description} />
-
-                    <Box my={2}>
-                        {courses.map((course) => (
-                            <CourseItem
-                                key={course.slug}
-                                course={course}
-                                expanded={expanded}
-                                onChange={onChange}
-                            />
-                        ))}
-                    </Box>
-                </Box>
-            </Container>
-        </AppLAyout>
+        <Box my={2}>
+            {courses.map((course) => (
+                <CourseItem
+                    key={course.slug}
+                    course={course}
+                    expanded={expanded}
+                    onChange={onChange}
+                />
+            ))}
+        </Box>
     )
 }
 
-export { getStaticProps }
-export default ExperiencesPage
+export default CoursesList
