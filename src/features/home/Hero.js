@@ -5,9 +5,11 @@ import photo200 from '@/assets/images/josenaldo-200.webp'
 import photo300 from '@/assets/images/josenaldo-300.webp'
 import photo400 from '@/assets/images/josenaldo-400.webp'
 import Section from '@/components/Section'
+import { yearsOfExperience } from '@/data/metrics.mjs'
 
 const Hero = () => {
     const t = useTranslations('Home.hero')
+    const years = yearsOfExperience()
 
     return (
         <Section elevation={1}>
@@ -32,15 +34,8 @@ const Hero = () => {
                         {t('greeting')}{' '}
                     </Typography>
                     <Typography variant="h1">{t('name')}</Typography>
-                    {/*
-                        NOTE(Task 6): "20+ years" é número de interface sem
-                        correspondente em src/data/metrics.mjs. Por instrução
-                        explícita do brief, ficou fora da extração para i18n.
-                        Ver relatório da Task 6.
-                    */}
                     <Typography variant="subtitle">
-                        Senior Full Stack Engineer. 20+ years. Java, Spring
-                        Boot, React, TypeScript.
+                        {t('subtitle', { years })}
                     </Typography>
                     <Stack
                         direction={{ xs: 'column', sm: 'row' }}

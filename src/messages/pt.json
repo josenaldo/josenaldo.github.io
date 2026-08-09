@@ -15,6 +15,7 @@
             "greeting": "Olá, meu nome é",
             "name": "Josenaldo Matos",
             "photoAlt": "Josenaldo Matos",
+            "subtitle": "Engenheiro Full Stack Sênior. {years}+ anos. Java, Spring Boot, React, TypeScript.",
             "downloadResumeButton": "Baixar Currículo",
             "downloadResumeAria": "Baixar meu currículo",
             "getInTouchButton": "Entre em Contato",
@@ -22,6 +23,8 @@
         },
         "about": {
             "title": "Sobre Mim",
+            "subtitleTech": "Engenheiro Full Stack Sênior. {years}+ anos. Java, Spring Boot, React, TypeScript.",
+            "subtitleModernized": "Modernizei plataformas legadas, liderei migrações para microsserviços e lancei ecossistemas multi-app atendendo {users}+ usuários — sempre remotamente, sempre com ownership.",
             "subtitleFarofa": "Eu escrevo, mentoro e faço uma farofa muito boa.",
             "knowMoreCta": "Saiba mais"
         },
@@ -69,7 +72,8 @@
     "Contact": {},
     "Footer": {
         "getInTouchTitle": "Entre em contato",
-        "getInTouchSubtitle": "Estou sempre aberto a discutir novos projetos, ideias criativas ou oportunidades de fazer parte das suas visões."
+        "getInTouchSubtitle": "Estou sempre aberto a discutir novos projetos, ideias criativas ou oportunidades de fazer parte das suas visões.",
+        "copyright": "© {startYear}–{currentYear} Josenaldo de Oliveira Matos Filho - Todos os direitos reservados."
     },
     "Common": {
         "languageSwitcherLabel": "seletor de idioma",

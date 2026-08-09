@@ -15,6 +15,7 @@
             "greeting": "Hello, my name is",
             "name": "Josenaldo Matos",
             "photoAlt": "Josenaldo Matos",
+            "subtitle": "Senior Full Stack Engineer. {years}+ years. Java, Spring Boot, React, TypeScript.",
             "downloadResumeButton": "Download Resume",
             "downloadResumeAria": "Download my resume",
             "getInTouchButton": "Get in Touch",
@@ -22,6 +23,8 @@
         },
         "about": {
             "title": "About Me",
+            "subtitleTech": "Senior Full Stack Engineer. {years}+ years. Java, Spring Boot, React, TypeScript.",
+            "subtitleModernized": "I've modernized legacy platforms, led migrations to microservices, and shipped multi-app ecosystems supporting {users}+ users — always remotely, always with ownership.",
             "subtitleFarofa": "I write, mentor, and make a very good farofa.",
             "knowMoreCta": "Know more"
         },
@@ -69,7 +72,8 @@
     "Contact": {},
     "Footer": {
         "getInTouchTitle": "Get in touch",
-        "getInTouchSubtitle": "I'm always open to discussing new projects, creative ideas or opportunities to be part of your visions."
+        "getInTouchSubtitle": "I'm always open to discussing new projects, creative ideas or opportunities to be part of your visions.",
+        "copyright": "© {startYear}–{currentYear} Josenaldo de Oliveira Matos Filho - All rights reserved."
     },
     "Common": {
         "languageSwitcherLabel": "language switcher",

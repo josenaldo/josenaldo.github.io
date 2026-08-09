@@ -4,6 +4,12 @@ import { useTranslations } from 'next-intl'
 
 import CallToAction from '@/components/CallToAction'
 import Section from '@/components/Section'
+import metrics, { yearsOfExperience } from '@/data/metrics.mjs'
+
+// Formata a contagem bruta de `metrics.mjs` para o formato de apresentação
+// ("200000" -> "200k"). O valor numérico vem de lá; o "k" é só apresentação,
+// não entra de novo na mensagem de tradução.
+const formatThousands = (count) => `${count / 1000}k`
 
 const SkillGroupCard = ({ group, color, skills }) => (
     <Card
@@ -41,6 +47,10 @@ const SkillGroupCard = ({ group, color, skills }) => (
 
 const About = ({ skills = [] }) => {
     const t = useTranslations('Home.about')
+    const years = yearsOfExperience()
+    const trafficPeakUsers = formatThousands(
+        metrics.conddizTrafficPeak.after.count
+    )
 
     return (
         <Section elevation={2}>
@@ -65,24 +75,11 @@ const About = ({ skills = [] }) => {
                         gap: 2,
                     }}
                 >
-                    {/*
-                        NOTE(Task 6): estas duas linhas citam "20+ years" e
-                        "200k+ users" — números de interface que não existem
-                        em src/data/metrics.mjs. Por instrução explícita do
-                        brief ("pare e relate"), ficaram de fora da extração
-                        para i18n e continuam hardcoded em inglês nos dois
-                        locales até essa decisão ser tomada. Ver relatório da
-                        Task 6.
-                    */}
                     <Typography variant="subtitle">
-                        Senior Full Stack Engineer. 20+ years. Java, Spring
-                        Boot, React, TypeScript.
+                        {t('subtitleTech', { years })}
                     </Typography>
                     <Typography variant="subtitle">
-                        I&apos;ve modernized legacy platforms, led migrations to
-                        microservices, and shipped multi-app ecosystems
-                        supporting 200k+ users &mdash; always remotely, always
-                        with ownership.
+                        {t('subtitleModernized', { users: trafficPeakUsers })}
                     </Typography>
                     <Typography variant="subtitle">
                         {t('subtitleFarofa')}
