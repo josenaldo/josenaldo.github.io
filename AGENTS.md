@@ -8,7 +8,7 @@ Este repositório é um site pessoal em Next.js (App Router) com conteúdo em Ma
 - Conteúdo vive em `content/{tipo}/{locale}/` (por exemplo `content/blog/en/`, `content/blog/pt/`); o locale de cada documento é computado a partir do caminho do arquivo, não de um campo de frontmatter.
 - Strings de interface vivem em `src/messages/en.json` e `src/messages/pt.json`, consumidas via `next-intl`.
 - O export é estático e sem middleware (`output: 'export'`, `trailingSlash: false`): `out/en.html` é servido em `/en`, não em `/en/`.
-- **URL antiga nunca é apagada.** Quando uma rota muda de lugar, ela vira um stub de `meta refresh` gerado por `scripts/generate-legacy-redirects.mjs`, que roda no `postbuild` depois do `next-sitemap` (nessa ordem: se rodasse antes, os stubs entrariam no sitemap). `scripts/verify-legacy-redirects.mjs` prova que todo stub aponta para um arquivo que existe de fato em `out/`.
+- **A raiz (`/`) é stub, o resto não é mais.** Decisão do dono do site em 2026-08-09: os stubs de `meta refresh` das URLs antigas (`/about`, `/blog/<slug>`, `/blog/category/<slug>`, `/projects/<slug>` etc.) foram removidos — não eram mais necessários. Só a raiz continua stub, porque não é um "link antigo": é a porta de entrada do site, e `output: 'export'` não roda middleware nem `redirect()` em tempo de requisição. `scripts/generate-root-redirect.mjs` gera `out/index.html` apontando para `/en`, e roda no `postbuild` depois do `next-sitemap` (nessa ordem: se rodasse antes, o stub entraria no sitemap). `scripts/verify-alternates.mjs` prova que toda tag `hreflang` do export aponta para um arquivo que existe de fato em `out/`.
 
 ## Comandos do projeto (npm)
 
