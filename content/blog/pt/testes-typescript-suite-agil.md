@@ -2,6 +2,10 @@
 title: "Suite de testes ágil para agentes de IA: 12 fases, 27 itens, -74% de tempo"
 date: 2026-05-12
 description: "Como padronizamos três projetos (Node.js/Jest, Vitest admin, Vitest frontend) em 12 fases, cortamos o tempo da suite unit em 74% e ensinamos agentes de IA a rodar testes de forma eficiente."
+status: draft
+author: Josenaldo Matos
+category: Engenharia de Software
+image: '/images/blog/testes.png'
 tags: [testes, tdd, jest, vitest, typescript, node, clean-architecture, agentes-ia]
 ---
 

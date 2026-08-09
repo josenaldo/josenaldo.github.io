@@ -744,7 +744,7 @@ npm run build
 find out -name 'index.html' | sed 's|out/||;s|/index.html||' | sort
 ```
 
-Expected: cada rota aparece duas vezes, uma sob `en/` e outra sob `pt/`, exceto os posts de blog, que existem só no idioma em que foram escritos. Conferir que o total de páginas de blog é 26, não 52.
+Expected: cada rota aparece duas vezes, uma sob `en/` e outra sob `pt/`, exceto os posts de blog, que existem só no idioma em que foram escritos — e só os publicados, porque `generateStaticParams` consome `getSortedPosts`, que já filtra rascunho em produção. São **13** páginas de post (6 sob `en/`, 7 sob `pt/`), não 26 e muito menos 52: dos 26 arquivos em `content/blog/`, 13 são `draft` ou `planned`.
 
 - [ ] **Step 7: Commit**
 
@@ -851,7 +851,9 @@ git commit -m "feat(i18n): seletor de idioma e extracao das strings de interface
 
 ### Task 7: URLs antigas, raiz e SEO
 
-A tarefa mais importante da etapa: sem ela, o deploy joga fora o SEO acumulado de 26 posts.
+A tarefa mais importante da etapa: sem ela, o deploy joga fora o SEO acumulado dos posts publicados.
+
+**Cuidado com a contagem.** `content/blog/` tem 26 arquivos Markdown, mas isso **não** é o número de posts no ar. O Contentlayer valida os 26, e o filtro de publicação vive em `src/services/content.js` (`isPublishedPost`: `status` normalizado igual a `published` **e** `date <= agora`, aplicado só quando `NODE_ENV === 'production'`). Hoje isso dá **13 publicados** — 6 em `en`, 7 em `pt`. Os outros 13 são 4 `draft`, 8 `planned` da série IA-Ágil e `testes-typescript-suite-agil`, marcado `draft` por decisão explícita. Stub para post não publicado é redirect para 404: o gerador **tem** de iterar o conjunto publicado, nunca `allPosts` cru. E o número não se escreve à mão em lugar nenhum — ele se deriva, porque muda a cada post que sai do rascunho.
 
 **Files:**
 - Create: `scripts/generate-legacy-redirects.mjs`
@@ -869,6 +871,26 @@ import { dirname, join } from 'node:path'
 import { allCourses, allExperiences, allPages, allPosts, allProjects } from '../.contentlayer/generated/index.mjs'
 
 const SITE = process.env.NEXT_PUBLIC_SITE_URL || 'https://josenaldo.com.br'
+
+// Mesma regra de `isPublishedPost` em src/services/content.js. Duplicada aqui
+// porque este script roda em Node puro, fora do bundler, e não resolve o alias
+// `contentlayer/generated` que o serviço importa. Se a regra mudar lá, muda
+// aqui — são os dois únicos lugares que decidem o que está no ar.
+const STATUS_ALIASES = {
+    draft: 'draft',
+    rascunho: 'draft',
+    planned: 'planned',
+    planejado: 'planned',
+    published: 'published',
+    publicado: 'published',
+}
+
+const isPublished = (post, now = new Date()) => {
+    const status = STATUS_ALIASES[`${post.status || 'published'}`.trim().toLowerCase()] || 'draft'
+    return status === 'published' && new Date(post.date) <= now
+}
+
+const publishedPosts = allPosts.filter((post) => isPublished(post))
 
 // Rotas que existiam antes da migração e o locale para onde cada uma vai.
 // As páginas institucionais eram todas em inglês.
@@ -920,7 +942,9 @@ for (const [route, destination] of STATIC_ROUTES) {
 }
 
 // O destino de cada post é o locale em que ele foi escrito — a maioria é pt.
-for (const post of allPosts) {
+// Só os publicados: rascunho não tem página no export, e stub para página
+// inexistente é um redirect para 404.
+for (const post of publishedPosts) {
     write(`blog/${post.slug}`, post.url)
 }
 
@@ -928,7 +952,7 @@ for (const project of allProjects.filter((p) => p.locale === 'en')) {
     write(`projects/${project.slug}`, project.url)
 }
 
-console.log(`stubs de redirect gerados: ${STATIC_ROUTES.length + allPosts.length}`)
+console.log(`stubs de redirect gerados: ${STATIC_ROUTES.length + publishedPosts.length}`)
 ```
 
 - [ ] **Step 2: Ligar ao build**
@@ -953,12 +977,19 @@ done
 node --input-type=module -e '
 import { allPosts } from "./.contentlayer/generated/index.mjs"
 import { existsSync } from "node:fs"
-const faltando = allPosts.filter((p) => !existsSync(`out/blog/${p.slug}/index.html`))
-console.log(faltando.length ? `FALTAM ${faltando.length}: ${faltando.map((p) => p.slug).join(", ")}` : "ok todos os 26 posts")
+const ALIASES = { draft: "draft", rascunho: "draft", planned: "planned", planejado: "planned", published: "published", publicado: "published" }
+const isPublished = (p) => (ALIASES[`${p.status || "published"}`.trim().toLowerCase()] || "draft") === "published" && new Date(p.date) <= new Date()
+const publicados = allPosts.filter(isPublished)
+// Duas direções: todo post publicado tem stub, e nenhum stub sobra apontando
+// para rascunho. A segunda metade é a que pega redirect para 404.
+const semStub = publicados.filter((p) => !existsSync(`out/blog/${p.slug}/index.html`))
+const stubDemais = allPosts.filter((p) => !isPublished(p) && existsSync(`out/blog/${p.slug}/index.html`))
+console.log(semStub.length ? `FALTAM ${semStub.length}: ${semStub.map((p) => p.slug).join(", ")}` : `ok todos os ${publicados.length} posts publicados tem stub`)
+console.log(stubDemais.length ? `STUB SOBRANDO ${stubDemais.length}: ${stubDemais.map((p) => p.slug).join(", ")}` : "ok nenhum stub aponta para rascunho")
 '
 ```
 
-Expected: nenhum `FALTA`, e "ok todos os 26 posts".
+Expected: nenhum `FALTA`, nenhum `STUB SOBRANDO`, e a contagem de publicados batendo com a que o gerador imprimiu. No momento em que isto foi escrito são 13 (6 `en`, 7 `pt`) — se o número tiver mudado, é porque um rascunho foi publicado no meio do caminho, e não porque a verificação quebrou.
 
 - [ ] **Step 4: Conferir que o destino de um post PT é a árvore PT**
 
@@ -1017,7 +1048,7 @@ git commit -m "docs: registra a arquitetura App Router + i18n e remove o script 
 ## Critério de pronto da Etapa 1
 
 - `npm run build` conclui e o `out/` contém as árvores `en/` e `pt/` completas.
-- Toda URL publicada antes da migração responde: as 11 rotas estáticas e os 26 posts, verificados por script, não por amostragem.
+- Toda URL publicada antes da migração responde: as 11 rotas estáticas e os posts publicados (13 hoje), verificados por script, não por amostragem — e nenhum stub aponta para rascunho.
 - O destino do redirect de um post em português é a árvore `/pt/`.
 - `/` leva a `/en/`.
 - Canonical, sitemap e RSS apontam para `https://josenaldo.com.br`.
