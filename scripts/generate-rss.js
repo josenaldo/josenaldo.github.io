@@ -3,19 +3,8 @@ const path = require('path')
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://josenaldo.com.br'
 
-// Feed legado (Pages Router), mantido byte-a-byte com o comportamento de
-// antes da migração: só posts em inglês, links no formato antigo
-// `/blog/<slug>` (sem prefixo de locale). Há assinantes nesse endereço.
-// ATENÇÃO: desde a decisão do dono do site em 2026-08-09 de remover os
-// stubs de redirect das URLs antigas (`scripts/generate-legacy-redirects.mjs`
-// foi removido), esses links `/blog/<slug>` deixaram de ter stub — o item
-// não foi revisitado nesta rodada; ver preocupação registrada no relatório
-// de decisões do usuário.
-const LEGACY_BLOG_DIR = path.join(process.cwd(), 'content', 'blog', 'en')
-const LEGACY_OUTPUT_FILE = path.join(process.cwd(), 'public', 'rss.xml')
-
-// Feeds por locale (Task 7): cada um só com os posts do seu idioma, links já
-// na árvore com prefixo de locale.
+// Um feed por locale: cada um só com os posts do seu idioma, links já na
+// árvore com prefixo de locale.
 const LOCALE_FEEDS = [
     {
         locale: 'en',
@@ -116,8 +105,7 @@ function readPublishedPosts(blogDir) {
         .sort((a, b) => new Date(b.date) - new Date(a.date))
 }
 
-// itemLinkPrefix é o único ponto que muda entre o feed legado (`/blog`, sem
-// prefixo de locale) e os feeds por locale (`/en/blog`, `/pt/blog`).
+// itemLinkPrefix é o que distingue um feed do outro: `/en/blog` e `/pt/blog`.
 function generateRss(posts, { itemLinkPrefix, blogPath, selfPath, language }) {
     const items = posts
         .map((post) => {
@@ -151,20 +139,11 @@ ${items}
 }
 
 function main() {
-    // Feed legado: preserva exatamente o que existe hoje (link `/blog/<slug>`,
-    // sem prefixo de locale, só posts em inglês). Não mexer no formato.
-    const legacyPosts = readPublishedPosts(LEGACY_BLOG_DIR)
-    const legacyRss = generateRss(legacyPosts, {
-        itemLinkPrefix: '/blog',
-        blogPath: '/blog',
-        selfPath: '/rss.xml',
-        language: 'en',
-    })
-    fs.writeFileSync(LEGACY_OUTPUT_FILE, legacyRss, 'utf-8')
-    console.log(
-        `✓ RSS feed generated: ${LEGACY_OUTPUT_FILE} (${legacyPosts.length} posts)`
-    )
-
+    // O feed legado `/rss.xml` foi removido em 2026-08-09, por decisão do dono
+    // do site. Ele linkava os posts em `/blog/<slug>`, formato que deixou de
+    // existir quando os stubs das URLs antigas foram apagados na mesma decisão
+    // — mantê-lo seria servir um feed cujos links todos dão 404. Ficam os dois
+    // feeds por locale, `/rss-en.xml` e `/rss-pt.xml`.
     for (const feed of LOCALE_FEEDS) {
         const posts = readPublishedPosts(feed.blogDir)
         const rss = generateRss(posts, {
