@@ -5,10 +5,12 @@ const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://josenaldo.com.br'
 
 // Feed legado (Pages Router), mantido byte-a-byte com o comportamento de
 // antes da migração: só posts em inglês, links no formato antigo
-// `/blog/<slug>` (sem prefixo de locale). Há assinantes nesse endereço —
-// trocar o formato dos links quebraria a mesma coisa que os stubs da Task 7
-// existem para evitar. O link antigo continua funcionando graças ao stub de
-// redirect gerado em `scripts/generate-legacy-redirects.mjs`.
+// `/blog/<slug>` (sem prefixo de locale). Há assinantes nesse endereço.
+// ATENÇÃO: desde a decisão do dono do site em 2026-08-09 de remover os
+// stubs de redirect das URLs antigas (`scripts/generate-legacy-redirects.mjs`
+// foi removido), esses links `/blog/<slug>` deixaram de ter stub — o item
+// não foi revisitado nesta rodada; ver preocupação registrada no relatório
+// de decisões do usuário.
 const LEGACY_BLOG_DIR = path.join(process.cwd(), 'content', 'blog', 'en')
 const LEGACY_OUTPUT_FILE = path.join(process.cwd(), 'public', 'rss.xml')
 
@@ -33,11 +35,10 @@ const LOCALE_FEEDS = [
     },
 ]
 
-// Mesma regra de `isPublishedPost` em src/services/content.js, e também
-// duplicada em scripts/generate-legacy-redirects.mjs — três lugares no
-// total. Repetida aqui porque este script roda em Node puro, fora do
-// bundler, e não resolve o alias `@/` nem `contentlayer/generated` que o
-// serviço importa. Se a regra mudar num lugar, muda nos três.
+// Mesma regra de `isPublishedPost` em src/services/content.js. Repetida
+// aqui porque este script roda em Node puro, fora do bundler, e não
+// resolve o alias `@/` nem `contentlayer/generated` que o serviço importa.
+// Se a regra mudar lá, muda aqui também.
 const STATUS_ALIASES = {
     draft: 'draft',
     rascunho: 'draft',

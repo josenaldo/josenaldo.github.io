@@ -3,15 +3,15 @@ import { extname, join } from 'node:path'
 
 // Verificação da revisão final da etapa 1 (App Router + i18n): todo
 // `<link rel="alternate" hrefLang="...">` anunciado num HTML exportado
-// precisa apontar para um arquivo que de fato existe em `out/`. É o
-// equivalente, para hreflang, do que `verify-legacy-redirects.mjs` já faz
-// para os stubs de redirect — sem essa checagem, um par de idioma
-// inventado (ex.: categoria sem tradução) só aparece como perda de
-// posicionamento no Google semanas depois, nunca como build quebrado.
+// precisa apontar para um arquivo que de fato existe em `out/` — sem essa
+// checagem, um par de idioma inventado (ex.: categoria sem tradução) só
+// aparece como perda de posicionamento no Google semanas depois, nunca
+// como build quebrado.
 //
 // Considera o formato flat do export (trailingSlash: false): `/en` vira
-// `out/en.html`, `/en/about` vira `out/en/about.html`, mas os stubs de
-// redirect legado são `out/<rota>/index.html`. Aceita as duas formas.
+// `out/en.html`, `/en/about` vira `out/en/about.html`. O único stub que
+// resta (`out/index.html`, gerado por `scripts/generate-root-redirect.mjs`)
+// usa o formato `out/<rota>/index.html` — ambas as formas são aceitas.
 const OUT_DIR = 'out'
 const SITE_URL_CANDIDATES = [
     process.env.NEXT_PUBLIC_SITE_URL,
@@ -71,7 +71,9 @@ for (const htmlFile of htmlFiles) {
 for (const { htmlFile, href } of alternates) {
     const pathname = stripSiteUrl(href)
     if (pathname === null) {
-        broken.push(`${htmlFile} -> ${href} (não foi possível resolver domínio)`)
+        broken.push(
+            `${htmlFile} -> ${href} (não foi possível resolver domínio)`
+        )
         continue
     }
     const candidates = pathToOutCandidates(pathname)
@@ -90,4 +92,6 @@ if (broken.length > 0) {
     broken.forEach((b) => console.log(`  - ${b}`))
     process.exit(1)
 }
-console.log('ok: todas as tags hreflang apontam para arquivos existentes em out/')
+console.log(
+    'ok: todas as tags hreflang apontam para arquivos existentes em out/'
+)
