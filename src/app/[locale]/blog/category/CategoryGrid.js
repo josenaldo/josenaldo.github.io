@@ -8,10 +8,13 @@ import {
     CardContent,
     Typography,
 } from '@mui/material'
+import { useTranslations } from 'next-intl'
 
 import { Link } from '@/i18n/navigation'
 
 const CategoryGrid = ({ categories }) => {
+    const t = useTranslations('Blog.category')
+
     return (
         <Box
             sx={{
@@ -55,16 +58,18 @@ const CategoryGrid = ({ categories }) => {
                             color="text.secondary"
                             sx={{ mt: 1 }}
                         >
-                            {cat.count} {cat.count === 1 ? 'post' : 'posts'}
+                            {t('postCount', { count: cat.count })}
                         </Typography>
                     </CardContent>
                     <CardActions sx={{ px: 2, pb: 2 }}>
                         <Button
                             component={Link}
                             href={`/blog/category/${cat.slug}`}
-                            aria-label={`View posts in ${cat.name}`}
+                            aria-label={t('viewPostsAria', {
+                                category: cat.name,
+                            })}
                         >
-                            View posts
+                            {t('viewPosts')}
                         </Button>
                     </CardActions>
                 </Card>

@@ -71,7 +71,7 @@ export default async function ProjectsPage({ params }) {
                             key={project.url}
                             author={project.author}
                             date={project.date}
-                            moreLinkText="View project"
+                            moreLinkText={t('viewProjectCta')}
                         />
                     ))}
                 </Box>

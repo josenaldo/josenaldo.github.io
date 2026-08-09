@@ -51,7 +51,7 @@ const ShareLink = ({ title, description, url, image, color = 'secondary' }) => {
             navigator
                 .share(data)
                 .then(() => {
-                    console.log('Successfully shared')
+                    console.log(t('successfullyShared'))
                 })
                 .catch(() => {
                     setOpen(true)

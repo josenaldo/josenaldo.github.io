@@ -64,7 +64,10 @@
             "title": "Categories",
             "description": "Browse posts by category",
             "detailTitle": "Category: {category}",
-            "detailDescription": "All posts in the \"{category}\" category"
+            "detailDescription": "All posts in the \"{category}\" category",
+            "postCount": "{count, plural, one {# post} other {# posts}}",
+            "viewPosts": "View posts",
+            "viewPostsAria": "View posts in {category}"
         },
         "disclaimer": {
             "heading": "A few honest warnings before you leave:",
@@ -78,11 +81,14 @@
     },
     "Projects": {
         "title": "Projects",
-        "description": "My projects are a mix of personal projects and projects I've worked on professionally."
+        "description": "My projects are a mix of personal projects and projects I've worked on professionally.",
+        "viewProjectCta": "View project"
     },
     "Courses": {
         "title": "Courses",
-        "description": "A detailed list of my courses, including the institution, completion date, workload, course link, and certificate link."
+        "description": "A detailed list of my courses, including the institution, completion date, workload, course link, and certificate link.",
+        "courseLink": "Course Link",
+        "certificate": "Certificate"
     },
     "Experiences": {
         "title": "Professional Experiences",
@@ -94,7 +100,12 @@
     },
     "Contact": {
         "title": "Get in Touch",
-        "description": "Connect with Josenaldo by filling out the form. Get in touch for project collaborations, idea-sharing, or just a friendly conversation."
+        "description": "Connect with Josenaldo by filling out the form. Get in touch for project collaborations, idea-sharing, or just a friendly conversation.",
+        "githubCard": {
+            "title": "Like this project?",
+            "body": "Explore the source code on GitHub and make it your own! Fork, star, or contribute to help it grow.",
+            "cta": "Fork on GitHub"
+        }
     },
     "Footer": {
         "getInTouchTitle": "Get in touch",
@@ -116,6 +127,9 @@
         "shareDialogTitle": "Share",
         "shareDialogText": "Share \"{title}\"",
         "footnoteLabel": "Footnotes",
-        "footnoteBackLabel": "Back to content"
+        "footnoteBackLabel": "Back to content",
+        "successfullyShared": "Successfully shared",
+        "mdxProcessingError": "Error processing text",
+        "shareMessage": "Look what I found on POG's site! Check it out: "
     }
 }

@@ -90,12 +90,10 @@ export default async function ContactPage({ params }) {
                                 component="div"
                                 gutterBottom
                             >
-                                Like this project?
+                                {t('githubCard.title')}
                             </Typography>
                             <Typography variant="body1" sx={{ mb: 2 }}>
-                                Explore the source code on GitHub and make it
-                                your own! Fork, star, or contribute to help it
-                                grow.
+                                {t('githubCard.body')}
                             </Typography>
                             <Button
                                 variant="contained"
@@ -113,7 +111,7 @@ export default async function ContactPage({ params }) {
                                     boxShadow: 2,
                                 }}
                             >
-                                Fork on GitHub
+                                {t('githubCard.cta')}
                             </Button>
                         </CardContent>
                     </Card>

@@ -95,7 +95,7 @@ const MDXContent = ({ content }) => {
                         footnoteBackLabel: t('footnoteBackLabel'),
                     }}
                     onError={(error) => {
-                        console.error('Erro ao processar o texto', error)
+                        console.error(t('mdxProcessingError'), error)
                     }}
                 >
                     {content}

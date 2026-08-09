@@ -64,7 +64,10 @@
             "title": "Categorias",
             "description": "Navegue pelos posts por categoria",
             "detailTitle": "Categoria: {category}",
-            "detailDescription": "Todos os posts na categoria \"{category}\""
+            "detailDescription": "Todos os posts na categoria \"{category}\"",
+            "postCount": "{count, plural, one {# post} other {# posts}}",
+            "viewPosts": "Ver posts",
+            "viewPostsAria": "Ver posts em {category}"
         },
         "disclaimer": {
             "heading": "Alguns avisos honestos antes de você sair:",
@@ -78,11 +81,14 @@
     },
     "Projects": {
         "title": "Projetos",
-        "description": "Meus projetos são uma mistura de projetos pessoais e projetos em que trabalhei profissionalmente."
+        "description": "Meus projetos são uma mistura de projetos pessoais e projetos em que trabalhei profissionalmente.",
+        "viewProjectCta": "Ver projeto"
     },
     "Courses": {
         "title": "Cursos",
-        "description": "Uma lista detalhada dos meus cursos, incluindo a instituição, data de conclusão, carga horária, link do curso e link do certificado."
+        "description": "Uma lista detalhada dos meus cursos, incluindo a instituição, data de conclusão, carga horária, link do curso e link do certificado.",
+        "courseLink": "Link do Curso",
+        "certificate": "Certificado"
     },
     "Experiences": {
         "title": "Experiências Profissionais",
@@ -94,7 +100,12 @@
     },
     "Contact": {
         "title": "Entre em Contato",
-        "description": "Conecte-se com Josenaldo preenchendo o formulário. Entre em contato para colaborações em projetos, troca de ideias, ou apenas uma conversa amigável."
+        "description": "Conecte-se com Josenaldo preenchendo o formulário. Entre em contato para colaborações em projetos, troca de ideias, ou apenas uma conversa amigável.",
+        "githubCard": {
+            "title": "Curtiu este projeto?",
+            "body": "Explore o código-fonte no GitHub e faça dele o seu! Dê um fork, uma estrela, ou contribua para ajudá-lo a crescer.",
+            "cta": "Fork no GitHub"
+        }
     },
     "Footer": {
         "getInTouchTitle": "Entre em contato",
@@ -116,6 +127,9 @@
         "shareDialogTitle": "Compartilhar",
         "shareDialogText": "Compartilhar \"{title}\"",
         "footnoteLabel": "Notas de rodapé",
-        "footnoteBackLabel": "Voltar ao conteúdo"
+        "footnoteBackLabel": "Voltar ao conteúdo",
+        "successfullyShared": "Compartilhado com sucesso",
+        "mdxProcessingError": "Erro ao processar o texto",
+        "shareMessage": "Olha só o que eu encontrei no site do POG! Acesse e confira: "
     }
 }

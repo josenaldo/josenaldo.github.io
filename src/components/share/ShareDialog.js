@@ -24,8 +24,6 @@ const iconFontSize = {
     xl: 48,
 }
 
-const shareMsg = 'Olha só o que eu encontrei no site do POG! Acesse e confira: '
-
 const iconSpace = {
     xs: '8px',
     sm: '12px',
@@ -34,44 +32,53 @@ const iconSpace = {
     xl: '24px',
 }
 
-const networks = [
-    {
-        id: 'share-1',
-        netUrl: 'https://www.facebook.com/sharer/sharer.php?u=',
-        text: shareMsg,
-        target: '_blank',
-        rel: 'noopener noreferrer',
-        icon: <FacebookIcon sx={{ fontSize: iconFontSize }} />,
-    },
-    {
-        id: 'share-2',
-        netUrl: 'https://twitter.com/intent/tweet?text=',
-        text: 'https://ciro.app.br',
-        target: '_blank',
-        rel: 'noopener noreferrer',
-        icon: <TwitterIcon sx={{ fontSize: iconFontSize }} />,
-    },
-    {
-        id: 'share-3',
-        netUrl: 'https://api.whatsapp.com/send?text=',
-        text: shareMsg,
-        target: '_blank',
-        rel: 'noopener noreferrer',
-        icon: <WhatsAppIcon sx={{ fontSize: iconFontSize }} />,
-    },
-    {
-        id: 'share-4',
-        videoId: '',
-        netUrl: 'https://telegram.me/share/url?url=',
-        text: shareMsg,
-        target: '_blank',
-        rel: 'noopener noreferrer',
-        icon: <TelegramIcon sx={{ fontSize: iconFontSize }} />,
-    },
-]
-
 const ShareDialog = ({ title, description, url, open, onClose }) => {
     const t = useTranslations('Common')
+    const shareMsg = t('shareMessage')
+
+    // Achado da rodada de correção 4: o texto de pré-preenchimento de duas
+    // das quatro redes (`share-1`/`share-3`) é da própria mensagem
+    // (`shareMsg`, agora traduzida). A rede `share-2` (Twitter), porém,
+    // nunca usou `shareMsg` — o texto pré-preenchido é um domínio alheio,
+    // `https://ciro.app.br`, que não é deste site. Mantido como está, sem
+    // alteração: não sabemos se é lixo de outro projeto copiado por engano
+    // ou um link intencional (ex.: crédito/parceria) — é decisão do dono do
+    // site, não algo que uma extração de string deva resolver.
+    const networks = [
+        {
+            id: 'share-1',
+            netUrl: 'https://www.facebook.com/sharer/sharer.php?u=',
+            text: shareMsg,
+            target: '_blank',
+            rel: 'noopener noreferrer',
+            icon: <FacebookIcon sx={{ fontSize: iconFontSize }} />,
+        },
+        {
+            id: 'share-2',
+            netUrl: 'https://twitter.com/intent/tweet?text=',
+            text: 'https://ciro.app.br',
+            target: '_blank',
+            rel: 'noopener noreferrer',
+            icon: <TwitterIcon sx={{ fontSize: iconFontSize }} />,
+        },
+        {
+            id: 'share-3',
+            netUrl: 'https://api.whatsapp.com/send?text=',
+            text: shareMsg,
+            target: '_blank',
+            rel: 'noopener noreferrer',
+            icon: <WhatsAppIcon sx={{ fontSize: iconFontSize }} />,
+        },
+        {
+            id: 'share-4',
+            videoId: '',
+            netUrl: 'https://telegram.me/share/url?url=',
+            text: shareMsg,
+            target: '_blank',
+            rel: 'noopener noreferrer',
+            icon: <TelegramIcon sx={{ fontSize: iconFontSize }} />,
+        },
+    ]
 
     const handleClose = () => {
         onClose()

@@ -11,12 +11,14 @@ import {
     Chip,
     Typography,
 } from '@mui/material'
+import { useTranslations } from 'next-intl'
 
 import MDXContent from '@/components/content/MDXContent'
 import Link from '@/components/ui/Link'
 import { formatDate } from '@/shared/utils/date-format-utils'
 
 function CourseItem({ course, expanded, onChange }) {
+    const t = useTranslations('Courses')
     const id = `${course.slug}-id`
     const contentId = `${course.slug}-content`
     const headerId = `${course.slug}-header`
@@ -46,7 +48,7 @@ function CourseItem({ course, expanded, onChange }) {
                             rel="noopener noreferrer"
                         >
                             <Chip
-                                label="Course Link"
+                                label={t('courseLink')}
                                 color="primary"
                                 clickable
                             />
@@ -59,7 +61,7 @@ function CourseItem({ course, expanded, onChange }) {
                             rel="noopener noreferrer"
                         >
                             <Chip
-                                label="Certificate"
+                                label={t('certificate')}
                                 color="primary"
                                 clickable
                             />
