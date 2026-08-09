@@ -861,18 +861,22 @@ const SITE = process.env.NEXT_PUBLIC_SITE_URL || 'https://josenaldo.com.br'
 
 // Rotas que existiam antes da migração e o locale para onde cada uma vai.
 // As páginas institucionais eram todas em inglês.
+// Sem barra final: `trailingSlash` é falso neste projeto, então o export gera
+// `out/en.html`, servido em `/en`. Apontar para `/en/` faria o GitHub Pages
+// procurar `out/en/index.html`, que não existe — e devolver 404. Verificado no
+// export da Task 4.
 const STATIC_ROUTES = [
-    ['', '/en/'],
-    ['about', '/en/about/'],
-    ['resume', '/en/resume/'],
-    ['contact', '/en/contact/'],
-    ['portfolio', '/en/portfolio/'],
-    ['blog', '/en/blog/'],
-    ['blog/category', '/en/blog/category/'],
-    ['courses', '/en/courses/'],
-    ['experiences', '/en/experiences/'],
-    ['projects', '/en/projects/'],
-    ['skills', '/en/skills/'],
+    ['', '/en'],
+    ['about', '/en/about'],
+    ['resume', '/en/resume'],
+    ['contact', '/en/contact'],
+    ['portfolio', '/en/portfolio'],
+    ['blog', '/en/blog'],
+    ['blog/category', '/en/blog/category'],
+    ['courses', '/en/courses'],
+    ['experiences', '/en/experiences'],
+    ['projects', '/en/projects'],
+    ['skills', '/en/skills'],
 ]
 
 function stub(destination) {
@@ -906,11 +910,11 @@ for (const [route, destination] of STATIC_ROUTES) {
 
 // O destino de cada post é o locale em que ele foi escrito — a maioria é pt.
 for (const post of allPosts) {
-    write(`blog/${post.slug}`, `${post.url}/`)
+    write(`blog/${post.slug}`, post.url)
 }
 
 for (const project of allProjects.filter((p) => p.locale === 'en')) {
-    write(`projects/${project.slug}`, `${project.url}/`)
+    write(`projects/${project.slug}`, project.url)
 }
 
 console.log(`stubs de redirect gerados: ${STATIC_ROUTES.length + allPosts.length}`)
@@ -948,7 +952,7 @@ Expected: nenhum `FALTA`, e "ok todos os 26 posts".
 - [ ] **Step 4: Conferir que o destino de um post PT é a árvore PT**
 
 Run: `grep -o 'url=[^"]*' out/blog/por-que-ainda-sou-invisivel/index.html`
-Expected: `url=/pt/blog/por-que-ainda-sou-invisivel/` — e **não** `/en/`.
+Expected: `url=/pt/blog/por-que-ainda-sou-invisivel` — e **não** `/en/...`.
 
 - [ ] **Step 5: Corrigir o domínio canônico**
 
