@@ -21,35 +21,10 @@
             "getInTouchButton": "Entre em Contato",
             "getInTouchAria": "Entre em contato"
         },
-        "about": {
-            "title": "Sobre Mim",
-            "subtitleTech": "Engenheiro Full Stack Sênior. {years}+ anos. Java, Spring Boot, React, TypeScript.",
-            "subtitleModernized": "Modernizei plataformas legadas, liderei migrações para microsserviços e lancei ecossistemas multi-app atendendo {users}+ usuários — sempre remotamente, sempre com ownership.",
-            "subtitleFarofa": "Eu escrevo, mentoro e faço uma farofa muito boa.",
-            "knowMoreCta": "Saiba mais"
-        },
         "blog": {
             "title": "Blog",
             "allPostsCta": "Todos os posts",
             "allPostsAria": "Ver todos os posts do blog"
-        },
-        "experience": {
-            "title": "Experiência",
-            "allRolesCta": "Todos os cargos",
-            "allRolesAria": "Ver todas as experiências"
-        },
-        "portfolio": {
-            "title": "Portfólio",
-            "viewProject": "Ver projeto",
-            "visit": "Visitar",
-            "openProjectAria": "Abrir {title}",
-            "allProjectsCta": "Todos os projetos",
-            "allProjectsAria": "Ver todos os projetos"
-        },
-        "services": {
-            "title": "Serviços",
-            "emptyState": "Em breve, mais detalhes sobre os serviços.",
-            "talkCta": "Vamos conversar"
         },
         "testimonial": {
             "title": "Depoimentos",

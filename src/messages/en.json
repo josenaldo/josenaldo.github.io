@@ -21,35 +21,10 @@
             "getInTouchButton": "Get in Touch",
             "getInTouchAria": "Get in touch"
         },
-        "about": {
-            "title": "About Me",
-            "subtitleTech": "Senior Full Stack Engineer. {years}+ years. Java, Spring Boot, React, TypeScript.",
-            "subtitleModernized": "I've modernized legacy platforms, led migrations to microservices, and shipped multi-app ecosystems supporting {users}+ users — always remotely, always with ownership.",
-            "subtitleFarofa": "I write, mentor, and make a very good farofa.",
-            "knowMoreCta": "Know more"
-        },
         "blog": {
             "title": "Blog",
             "allPostsCta": "All posts",
             "allPostsAria": "View all blog posts"
-        },
-        "experience": {
-            "title": "Experience",
-            "allRolesCta": "All roles",
-            "allRolesAria": "View all experiences"
-        },
-        "portfolio": {
-            "title": "Portfolio",
-            "viewProject": "View project",
-            "visit": "Visit",
-            "openProjectAria": "Open {title}",
-            "allProjectsCta": "All projects",
-            "allProjectsAria": "View all projects"
-        },
-        "services": {
-            "title": "Services",
-            "emptyState": "More details about the services are coming soon.",
-            "talkCta": "Let’s talk"
         },
         "testimonial": {
             "title": "Testimonials",

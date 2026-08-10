@@ -278,47 +278,6 @@ const Course = defineDocumentType(() => ({
     computedFields: localeComputedFields(),
 }))
 
-const Service = defineDocumentType(() => ({
-    name: 'Service',
-    filePathPattern: `services/**/*.md`,
-    fields: {
-        show: {
-            type: 'boolean',
-            description: 'Whether to show this service publicly',
-            required: false,
-        },
-        order: {
-            type: 'number',
-            description: 'Ordering (lower comes first)',
-            required: true,
-        },
-        title: {
-            type: 'string',
-            description: 'The service title',
-            required: true,
-        },
-        description: {
-            type: 'string',
-            description: 'Short description shown on the home page',
-            required: true,
-        },
-        image: {
-            type: 'string',
-            description:
-                'Card image (used as OG-like preview image in UI cards)',
-            required: true,
-        },
-        icon: {
-            type: 'string',
-            description:
-                'Icon key used by the UI (e.g. code, api, architecture, mentoring)',
-            required: true,
-        },
-        ...translationFields,
-    },
-    computedFields: localeComputedFields(),
-}))
-
 const Engagement = defineDocumentType(() => ({
     name: 'Engagement',
     filePathPattern: `engagements/**/*.md`,
@@ -420,7 +379,6 @@ export default makeSource({
         Experience,
         Testimonial,
         Course,
-        Service,
         Engagement,
         WorkMode,
     ],

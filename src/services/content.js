@@ -6,7 +6,6 @@ import {
     allPages,
     allPosts,
     allProjects,
-    allServices,
     allTestimonials,
     allWorkModes,
 } from 'contentlayer/generated'
@@ -52,7 +51,6 @@ const collectionsByType = {
     Project: allProjects,
     Experience: allExperiences,
     Testimonial: allTestimonials,
-    Service: allServices,
     Engagement: allEngagements,
     WorkMode: allWorkModes,
 }
@@ -117,13 +115,6 @@ const getTestimonials = (locale) => {
     return allTestimonials
         .filter(byLocale(locale))
         .filter((t) => t.show !== false)
-}
-
-const getServices = (locale) => {
-    return allServices
-        .filter(byLocale(locale))
-        .filter((s) => s.show !== false)
-        .sort((a, b) => (a.order ?? 0) - (b.order ?? 0))
 }
 
 const getEngagements = (locale) => {
@@ -278,7 +269,6 @@ const contentService = {
     getAllProjects,
     getProjectData,
     getTestimonials,
-    getServices,
     getEngagements,
     getWorkModes,
     getAllPosts,
