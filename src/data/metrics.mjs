@@ -30,7 +30,7 @@ const metrics = {
         id: 'deploymentFrequency',
         engagement: 'medespecialista',
         before: { count: 1, per: 'quarter' },
-        after: { count: 4, per: 'month' },
+        after: { count: 4, per: 'month', everyDays: 8 },
         confidence: 'measured',
         note: 'Depois é medido (23 deploys com sucesso em 6 meses, um a cada ~8 dias); o antes é lembrado. Maior intervalo sem deploy: 57,6 dias.',
     },
@@ -94,7 +94,7 @@ const metrics = {
         id: 'soleHumanAuthor',
         engagement: 'medespecialista',
         before: { count: 2 },
-        after: { count: 1 },
+        after: { count: 1, since: '2024-05-17' },
         confidence: 'measured',
         note: 'Nenhum outro autor humano em nenhum dos 10 repositórios desde 2024-05-17 (último commit de outra pessoa); primeiro commit seu em 2024-08-11, ~24 meses e 3.406 commits atrás. O copilot-swe-agent[bot] no log é o agente, e é evidência da âncora "people then, AI agents now".',
     },
@@ -205,4 +205,14 @@ export const SITE_LAUNCH_YEAR = 2023
 // aqui mora só o valor.
 export function yearsOfExperience(now = new Date()) {
     return Math.floor((now.getFullYear() - CAREER_START_YEAR) / 5) * 5
+}
+
+// Anos completos desde que o log de commits passou a mostrar um nome humano
+// só. Calculado, e não cravado: é uma duração que cresce sozinha, e um número
+// escrito à mão aqui começaria a mentir no aniversário seguinte.
+export function yearsAsSoleHumanAuthor(now = new Date()) {
+    const since = new Date(metrics.soleHumanAuthor.after.since)
+    const years = (now - since) / (365.25 * 24 * 60 * 60 * 1000)
+
+    return Math.floor(years)
 }

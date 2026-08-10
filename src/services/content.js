@@ -1,12 +1,13 @@
 import { compareDesc } from 'date-fns'
 
 import {
+    allEngagements,
     allExperiences,
     allPages,
     allPosts,
     allProjects,
-    allServices,
     allTestimonials,
+    allWorkModes,
 } from 'contentlayer/generated'
 
 import skillGroups from '@/data/skillGroups'
@@ -50,7 +51,8 @@ const collectionsByType = {
     Project: allProjects,
     Experience: allExperiences,
     Testimonial: allTestimonials,
-    Service: allServices,
+    Engagement: allEngagements,
+    WorkMode: allWorkModes,
 }
 
 const allDocumentsOfSameType = (doc) => collectionsByType[doc?.type] || []
@@ -88,15 +90,6 @@ const lastExperiences = (locale, numberOfExperiences) => {
         .slice(0, numberOfExperiences)
 }
 
-const lastProjects = (locale, numberOfProjects) => {
-    return allProjects
-        .filter(byLocale(locale))
-        .sort((a, b) => {
-            return a.id - b.id
-        })
-        .slice(0, numberOfProjects)
-}
-
 const getAllProjects = (locale) => {
     return allProjects.filter(byLocale(locale))
 }
@@ -115,10 +108,17 @@ const getTestimonials = (locale) => {
         .filter((t) => t.show !== false)
 }
 
-const getServices = (locale) => {
-    return allServices
+const getEngagements = (locale) => {
+    return allEngagements
         .filter(byLocale(locale))
-        .filter((s) => s.show !== false)
+        .filter((e) => e.show !== false)
+        .sort((a, b) => (a.order ?? 0) - (b.order ?? 0))
+}
+
+const getWorkModes = (locale) => {
+    return allWorkModes
+        .filter(byLocale(locale))
+        .filter((w) => w.show !== false)
         .sort((a, b) => (a.order ?? 0) - (b.order ?? 0))
 }
 
@@ -256,11 +256,11 @@ const getPostsByCategory = (locale, slug) => {
 
 const contentService = {
     lastExperiences,
-    lastProjects,
     getAllProjects,
     getProjectData,
     getTestimonials,
-    getServices,
+    getEngagements,
+    getWorkModes,
     getAllPosts,
     getSortedPosts,
     getPostData,

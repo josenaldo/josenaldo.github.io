@@ -95,7 +95,7 @@ Rotas `[locale]`, `messages/{en,pt}.json`, seletor de idioma, conteúdo migrado 
 
 Pronto quando: o build estático gera as duas árvores completas, nenhuma URL antiga quebra, e o Lighthouse não regride em relação à medição feita antes da migração.
 
-### Etapa 2 — Home nova (o coração)
+### Etapa 2 — Home nova (o coração) — concluída em 2026-08-09
 
 As nove seções, já bilíngues. Novo tipo de conteúdo para os engagements, `services` substituído pelos modos de trabalho, seção de publicações, e a integração do agendamento como CTA único.
 

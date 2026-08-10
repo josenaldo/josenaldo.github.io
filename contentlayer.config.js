@@ -278,41 +278,92 @@ const Course = defineDocumentType(() => ({
     computedFields: localeComputedFields(),
 }))
 
-const Service = defineDocumentType(() => ({
-    name: 'Service',
-    filePathPattern: `services/**/*.md`,
+const Engagement = defineDocumentType(() => ({
+    name: 'Engagement',
+    filePathPattern: `engagements/**/*.md`,
     fields: {
-        show: {
-            type: 'boolean',
-            description: 'Whether to show this service publicly',
-            required: false,
-        },
         order: {
             type: 'number',
-            description: 'Ordering (lower comes first)',
+            description: 'Ordem de exibição na home',
             required: true,
         },
         title: {
             type: 'string',
-            description: 'The service title',
+            description:
+                'O engagement, sem nomear o cliente quando ele é anônimo',
             required: true,
         },
-        description: {
+        role: {
             type: 'string',
-            description: 'Short description shown on the home page',
+            description: 'Papel exercido, escopo e período de atuação',
             required: true,
         },
-        image: {
+        period: {
+            type: 'string',
+            description: 'O intervalo, como texto',
+            required: true,
+        },
+        arrived: {
+            type: 'string',
+            description: 'O estado encontrado na chegada',
+            required: true,
+        },
+        built: {
+            type: 'string',
+            description: 'O que foi construído',
+            required: true,
+        },
+        result: {
             type: 'string',
             description:
-                'Card image (used as OG-like preview image in UI cards)',
+                'O resultado. Obrigatório de propósito: é a parte que vende',
+            required: true,
+        },
+        show: {
+            type: 'boolean',
+            description: 'Whether to show this engagement publicly',
+            required: false,
+        },
+        ...translationFields,
+    },
+    computedFields: localeComputedFields(),
+}))
+
+const WorkMode = defineDocumentType(() => ({
+    name: 'WorkMode',
+    filePathPattern: `workModes/**/*.md`,
+    fields: {
+        order: {
+            type: 'number',
+            description: 'Ordem de exibição na home',
+            required: true,
+        },
+        name: {
+            type: 'string',
+            description:
+                'Nome do modo. Não se traduz: é nome próprio da oferta',
+            required: true,
+        },
+        promise: {
+            type: 'string',
+            description: 'A linha de promessa do modo',
+            required: true,
+        },
+        bullets: {
+            type: 'list',
+            of: { type: 'string' },
+            description: 'Os marcadores do cartão',
             required: true,
         },
         icon: {
             type: 'string',
-            description:
-                'Icon key used by the UI (e.g. code, api, architecture, mentoring)',
+            description: 'Chave do mapa de ícones do componente',
             required: true,
+        },
+        show: {
+            type: 'boolean',
+            description: 'Whether to show this work mode publicly',
+            required: false,
         },
         ...translationFields,
     },
@@ -328,6 +379,7 @@ export default makeSource({
         Experience,
         Testimonial,
         Course,
-        Service,
+        Engagement,
+        WorkMode,
     ],
 })

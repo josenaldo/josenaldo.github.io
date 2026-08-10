@@ -12,44 +12,69 @@
     },
     "Home": {
         "hero": {
-            "greeting": "Olá, meu nome é",
-            "name": "Josenaldo Matos",
-            "photoAlt": "Josenaldo Matos",
-            "subtitle": "Engenheiro Full Stack Sênior. {years}+ anos. Java, Spring Boot, React, TypeScript.",
-            "downloadResumeButton": "Baixar Currículo",
-            "downloadResumeAria": "Baixar meu currículo",
-            "getInTouchButton": "Entre em Contato",
-            "getInTouchAria": "Entre em contato"
+            "headline": "Eu construo a máquina que entrega o seu software.",
+            "subhead": "Engenheiro e arquiteto de software fractional. Assumo plataformas que erodiram até o ponto em que ninguém mais mexe com segurança, e transformo isso numa operação de entrega que consome uma reunião por mês do seu time.",
+            "metricDeploys": "De uma release por trimestre para uma a cada {everyDays} dias",
+            "metricIssues": "Problemas em produção reportados pelo cliente de ~{before} para ~{after} por mês",
+            "metricDeployTime": "Deploy em {after}, não em {before}",
+            "photoAlt": "Josenaldo Matos"
         },
-        "about": {
-            "title": "Sobre Mim",
-            "subtitleTech": "Engenheiro Full Stack Sênior. {years}+ anos. Java, Spring Boot, React, TypeScript.",
-            "subtitleModernized": "Modernizei plataformas legadas, liderei migrações para microsserviços e lancei ecossistemas multi-app atendendo {users}+ usuários — sempre remotamente, sempre com ownership.",
-            "subtitleFarofa": "Eu escrevo, mentoro e faço uma farofa muito boa.",
-            "knowMoreCta": "Saiba mais"
+        "cta": {
+            "bookACall": "Agendar uma conversa de 30 minutos"
+        },
+        "isThisYou": {
+            "title": "Você sabe que o sistema é o gargalo. Só não consegue provar isso numa reunião.",
+            "symptoms": [
+                "A última release foi no trimestre passado, e todo mundo ainda lembra dela.",
+                "Ninguém encosta naquele módulo sem reservar a tarde inteira.",
+                "O engenheiro que entendia o sistema foi embora, e a documentação foi junto.",
+                "Todo deploy é um evento, com plano de rollback e reza.",
+                "A funcionalidade que você aprovou chega três a seis meses depois. Quando chega."
+            ],
+            "closing": "Se você concordou com dois, a gente precisa conversar. Se concordou com os cinco, a gente precisa conversar essa semana."
+        },
+        "workModes": {
+            "title": "Modos de trabalho",
+            "emptyState": "Os modos de trabalho estão sendo escritos. Agende uma conversa e eu explico pessoalmente."
+        },
+        "engagements": {
+            "title": "Engagements",
+            "emptyState": "Os engagements estão sendo escritos. Agende uma conversa e eu explico pessoalmente.",
+            "arrived": "Cheguei",
+            "built": "Construí",
+            "result": "Resultado"
+        },
+        "howIOperate": {
+            "title": "Sua participação é uma reunião por mês.",
+            "body": "Requisitos, decisões de arquitetura e backlog moram no repositório, como fonte única que você consegue ler sem mim na sala. Todo deploy dispara release notes — técnicas e de negócio — automaticamente pra você. Você recebe atualização proativa e com sinal alto, em vez de reunião de status, e o código e o pipeline são seus desde o primeiro dia, não desde o último.",
+            "marker1": "Async-first, remoto, GMT-3 — horário comercial sobreposto com as Américas e com metade da Europa.",
+            "marker2": "Uma reunião marcada por mês. O que for urgente tem canal; nada urgente precisa de convite na agenda.",
+            "marker3": "Decisão registrada onde o código está, pra que a próxima pessoa — inclusive você daqui a um ano — consiga reconstruir o porquê.",
+            "marker4": "Faz {years} anos que o log de commits dos {repos} repositórios mostra um nome humano só: o meu. O único outro autor que aparece nele é um agente de IA pra quem eu construí o arnês. É isso que a máquina compra pra você."
+        },
+        "closingCta": {
+            "title": "Vamos olhar o seu sistema.",
+            "body": "Trinta minutos, sem slide. Você descreve o que está quebrando; eu digo o que olharia primeiro e se eu sou a pessoa certa pra isso."
         },
         "blog": {
-            "title": "Blog",
+            "title": "Escrito recentemente",
             "allPostsCta": "Todos os posts",
-            "allPostsAria": "Ver todos os posts do blog"
+            "allPostsAria": "Todos os posts: veja todos os posts do blog"
         },
-        "experience": {
-            "title": "Experiência",
-            "allRolesCta": "Todos os cargos",
-            "allRolesAria": "Ver todas as experiências"
-        },
-        "portfolio": {
-            "title": "Portfólio",
-            "viewProject": "Ver projeto",
-            "visit": "Visitar",
-            "openProjectAria": "Abrir {title}",
-            "allProjectsCta": "Todos os projetos",
-            "allProjectsAria": "Ver todos os projetos"
-        },
-        "services": {
-            "title": "Serviços",
-            "emptyState": "Em breve, mais detalhes sobre os serviços.",
-            "talkCta": "Vamos conversar"
+        "publications": {
+            "title": "Três lugares onde eu escrevo",
+            "blog": {
+                "name": "Blog",
+                "description": "Textos sobre entrega, arquitetura e o que acontece de verdade quando um engenheiro só toca uma plataforma inteira com agentes de IA."
+            },
+            "pog": {
+                "name": "Programação Orientada a Gambiarra (livropog.com.br)",
+                "description": "Um livro técnico vivo sobre a distância entre a arquitetura que a gente apresenta e a gambiarra que a gente entrega. Publicação contínua."
+            },
+            "codex": {
+                "name": "Codex Technomanticus",
+                "description": "Meu grimório — as notas de trabalho que eu mantenho sobre desenvolvimento fullstack e mando pro colega quando a mesma dúvida aparece pela segunda vez."
+            }
         },
         "testimonial": {
             "title": "Depoimentos",
@@ -119,7 +144,7 @@
         "share": "Compartilhar",
         "close": "fechar",
         "details": "Detalhes",
-        "openItem": "Abrir {title}",
+        "openItem": "{label}: {title}",
         "previousPage": "Página anterior",
         "nextPage": "Próxima página",
         "firstPage": "Primeira página",
