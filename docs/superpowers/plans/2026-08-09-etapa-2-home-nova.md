@@ -396,7 +396,11 @@ export const BOOKING_URL = null
 
 **Não faça deste componente um `async` de servidor.** `src/components/CallToAction.js` e `src/features/home/Blog.js` já são client components, e componente async não pode ser renderizado dentro de um client component. O `useTranslations` do next-intl funciona nos dois lados; o `getTranslations` de `next-intl/server`, não. Use o primeiro.
 
+**Correção de 2026-08-09, descoberta na execução:** este componente precisa de `'use client'` no topo. Sem a diretiva, o `Link` de `@/i18n/navigation` resolve para a variante `react-server`, que não pode ser passada como prop `component={Link}` para o `Button` do MUI — e o build quebra. É exatamente por isso que `src/components/CallToAction.js` já é client. A diretiva **não** contradiz o parágrafo acima: o componente continua síncrono, sem estado nem manipulador; o que não pode é ser `async`.
+
 ```js
+'use client'
+
 import { Button } from '@mui/material'
 import { useTranslations } from 'next-intl'
 
