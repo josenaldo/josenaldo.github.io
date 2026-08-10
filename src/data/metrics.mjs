@@ -30,7 +30,7 @@ const metrics = {
         id: 'deploymentFrequency',
         engagement: 'medespecialista',
         before: { count: 1, per: 'quarter' },
-        after: { count: 4, per: 'month' },
+        after: { count: 4, per: 'month', everyDays: 8 },
         confidence: 'measured',
         note: 'Depois é medido (23 deploys com sucesso em 6 meses, um a cada ~8 dias); o antes é lembrado. Maior intervalo sem deploy: 57,6 dias.',
     },

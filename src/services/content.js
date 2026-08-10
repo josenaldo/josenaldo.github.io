@@ -1,12 +1,14 @@
 import { compareDesc } from 'date-fns'
 
 import {
+    allEngagements,
     allExperiences,
     allPages,
     allPosts,
     allProjects,
     allServices,
     allTestimonials,
+    allWorkModes,
 } from 'contentlayer/generated'
 
 import skillGroups from '@/data/skillGroups'
@@ -51,6 +53,8 @@ const collectionsByType = {
     Experience: allExperiences,
     Testimonial: allTestimonials,
     Service: allServices,
+    Engagement: allEngagements,
+    WorkMode: allWorkModes,
 }
 
 const allDocumentsOfSameType = (doc) => collectionsByType[doc?.type] || []
@@ -119,6 +123,20 @@ const getServices = (locale) => {
     return allServices
         .filter(byLocale(locale))
         .filter((s) => s.show !== false)
+        .sort((a, b) => (a.order ?? 0) - (b.order ?? 0))
+}
+
+const getEngagements = (locale) => {
+    return allEngagements
+        .filter(byLocale(locale))
+        .filter((e) => e.show !== false)
+        .sort((a, b) => (a.order ?? 0) - (b.order ?? 0))
+}
+
+const getWorkModes = (locale) => {
+    return allWorkModes
+        .filter(byLocale(locale))
+        .filter((w) => w.show !== false)
         .sort((a, b) => (a.order ?? 0) - (b.order ?? 0))
 }
 
@@ -261,6 +279,8 @@ const contentService = {
     getProjectData,
     getTestimonials,
     getServices,
+    getEngagements,
+    getWorkModes,
     getAllPosts,
     getSortedPosts,
     getPostData,
