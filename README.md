@@ -10,7 +10,7 @@ A zero-cost, developer-authored platform for tracking a software career over the
 
 Most developer portfolios are static brochures: created once, updated rarely, and abandoned when life gets busy. This project is a different bet — a personal platform designed for **continuous, low-friction career documentation**, where you can accumulate and revisit your own professional history over the years, without ever paying a hosting bill.
 
-Every piece of content — blog posts, projects, experiences, courses, skills, testimonials — is a **plain Markdown file**. Publishing new content is a `git push`. No CMS login, no admin panel, no database.
+Every piece of content — blog posts, projects, experiences, courses, engagements, work modes, testimonials — is a **plain Markdown file**. Publishing new content is a `git push`. No CMS login, no admin panel, no database.
 
 This repository is **open source on purpose**. Fork it, swap the content for yours, and you have a fully functional personal site in an afternoon.
 
@@ -114,12 +114,12 @@ josenaldo.github.io/
 │   │   ├── en/                   # English posts
 │   │   └── pt/                   # Portuguese posts
 │   ├── courses/              # Completed courses and certifications
+│   ├── engagements/          # Client engagements, as Arrived → Built → Result
 │   ├── experiences/          # Work and career experiences
 │   ├── pages/                # Static pages (About, Resume)
 │   ├── projects/             # Portfolio projects
-│   ├── services/             # Services you offer
-│   ├── skills/               # Technical skills
-│   └── testimonials/         # Testimonials from colleagues
+│   ├── testimonials/         # Testimonials from colleagues
+│   └── workModes/            # The ways you take on work
 │                              # (every content type above has its own en/ and pt/ subfolders)
 │
 ├── public/                   # Static assets (images, icons, PDFs)
@@ -131,6 +131,7 @@ josenaldo.github.io/
 │   ├── messages/             # UI strings per locale (en.json, pt.json)
 │   ├── features/             # Page-level feature components
 │   ├── components/           # Reusable React components
+│   ├── data/                 # Non-Markdown data: metrics, skills, links
 │   ├── layouts/              # Page layout wrappers
 │   └── services/             # Data access (reads from Contentlayer output)
 │
@@ -229,18 +230,13 @@ Use Markdown freely.
 
 ### Adding a skill
 
-Create a new file in `content/skills/en/` (or `content/skills/pt/`):
+Skills are **not** Markdown. They live in `src/data/skills.js` as a plain array — a skill is a name, a group, a level and a year, with no prose attached, so a file per skill bought nothing and cost 92 files. Add an entry to the array:
 
-```markdown
----
-name: React
-level: Advanced
-firstContact: 2020
----
+```js
+{ name: 'React', group: 'Frontend', level: 'Advanced', firstContact: 2020 },
 ```
 
-| `level` values | `Beginner`, `Intermediate`, `Advanced`, `Expert` |
-| -------------- | ------------------------------------------------ |
+`level` is one of `Beginner`, `Intermediate`, `Advanced`, `Expert`. `group` has to match a group declared in `src/data/skillGroups.js` — a skill whose group does not match is silently dropped from the page.
 
 ### Adding a course or certification
 

@@ -270,8 +270,9 @@ const Course = defineDocumentType(() => ({
         },
         certificateLink: {
             type: 'string',
-            description: 'The link of the certificate',
-            required: true,
+            description:
+                'Link do certificado. Opcional: 28 dos 72 cursos não têm certificado emitido, e a listagem já esconde o botão quando o campo falta. Era obrigatório e esses cursos preenchiam com "---", que o YAML lê como nulo — daí 28 avisos do Contentlayer a cada build.',
+            required: false,
         },
         ...translationFields,
     },
