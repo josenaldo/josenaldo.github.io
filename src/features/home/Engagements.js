@@ -107,7 +107,6 @@ const Engagements = ({ engagements }) => {
                                             variant="overline"
                                             sx={{
                                                 color: 'inherit',
-                                                opacity: 0.85,
                                             }}
                                         >
                                             {t('result')}

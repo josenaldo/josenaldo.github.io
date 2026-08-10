@@ -59,7 +59,7 @@
         "blog": {
             "title": "Escrito recentemente",
             "allPostsCta": "Todos os posts",
-            "allPostsAria": "Ver todos os posts do blog"
+            "allPostsAria": "Todos os posts: veja todos os posts do blog"
         },
         "publications": {
             "title": "Três lugares onde eu escrevo",
@@ -144,7 +144,7 @@
         "share": "Compartilhar",
         "close": "fechar",
         "details": "Detalhes",
-        "openItem": "Abrir {title}",
+        "openItem": "{label}: {title}",
         "previousPage": "Página anterior",
         "nextPage": "Próxima página",
         "firstPage": "Primeira página",

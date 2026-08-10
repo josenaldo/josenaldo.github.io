@@ -186,7 +186,10 @@ const ContentCard = ({
                             href={url}
                             aria-label={
                                 title
-                                    ? t('openItem', { title })
+                                    ? t('openItem', {
+                                          label: resolvedMoreLinkText,
+                                          title,
+                                      })
                                     : resolvedMoreLinkText
                             }
                         >

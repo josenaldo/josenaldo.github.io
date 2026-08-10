@@ -95,6 +95,7 @@ const Publications = () => {
                                     <Button
                                         {...linkProps}
                                         aria-label={tCommon('openItem', {
+                                            label: tCommon('details'),
                                             title: name,
                                         })}
                                     >

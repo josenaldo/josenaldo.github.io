@@ -59,7 +59,7 @@
         "blog": {
             "title": "Recent writing",
             "allPostsCta": "All posts",
-            "allPostsAria": "View all blog posts"
+            "allPostsAria": "All posts: view every post on the blog"
         },
         "publications": {
             "title": "Three places I write",
@@ -144,7 +144,7 @@
         "share": "Share",
         "close": "close",
         "details": "Details",
-        "openItem": "Open {title}",
+        "openItem": "{label}: {title}",
         "previousPage": "Previous page",
         "nextPage": "Next page",
         "firstPage": "First page",
