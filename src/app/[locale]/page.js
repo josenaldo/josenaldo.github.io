@@ -2,8 +2,11 @@ import { setRequestLocale } from 'next-intl/server'
 
 import seoConfigModule from '@/data/SeoConfig'
 import BlogSection from '@/features/home/Blog'
+import ClosingCtaSection from '@/features/home/ClosingCta'
 import EngagementsSection from '@/features/home/Engagements'
 import HeroSection from '@/features/home/Hero'
+import HowIOperateSection from '@/features/home/HowIOperate'
+import IsThisYouSection from '@/features/home/IsThisYou'
 import TestimonialSection from '@/features/home/Testimonial'
 import WorkModesSection from '@/features/home/WorkModes'
 import { routing } from '@/i18n/routing'
@@ -83,10 +86,13 @@ export default async function HomePage({ params }) {
     return (
         <>
             <HeroSection />
+            <IsThisYouSection />
             <WorkModesSection workModes={workModes} />
             <EngagementsSection engagements={engagements} />
+            <HowIOperateSection />
             <BlogSection posts={posts} />
             <TestimonialSection testimonials={testimonials} />
+            <ClosingCtaSection />
         </>
     )
 }

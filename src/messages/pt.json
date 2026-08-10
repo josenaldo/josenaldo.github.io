@@ -22,6 +22,17 @@
         "cta": {
             "bookACall": "Agendar uma conversa de 30 minutos"
         },
+        "isThisYou": {
+            "title": "Você sabe que o sistema é o gargalo. Só não consegue provar isso numa reunião.",
+            "symptoms": [
+                "A última release foi no trimestre passado, e todo mundo ainda lembra dela.",
+                "Ninguém encosta naquele módulo sem reservar a tarde inteira.",
+                "O engenheiro que entendia o sistema foi embora, e a documentação foi junto.",
+                "Todo deploy é um evento, com plano de rollback e reza.",
+                "A funcionalidade que você aprovou chega três a seis meses depois. Quando chega."
+            ],
+            "closing": "Se você concordou com dois, a gente precisa conversar. Se concordou com os cinco, a gente precisa conversar essa semana."
+        },
         "workModes": {
             "title": "Modos de trabalho",
             "emptyState": "Os modos de trabalho estão sendo escritos. Agende uma conversa e eu explico pessoalmente."
@@ -32,6 +43,18 @@
             "arrived": "Cheguei",
             "built": "Construí",
             "result": "Resultado"
+        },
+        "howIOperate": {
+            "title": "Sua participação é uma reunião por mês.",
+            "body": "Requisitos, decisões de arquitetura e backlog moram no repositório, como fonte única que você consegue ler sem mim na sala. Todo deploy dispara release notes — técnicas e de negócio — automaticamente pra você. Você recebe atualização proativa e com sinal alto, em vez de reunião de status, e o código e o pipeline são seus desde o primeiro dia, não desde o último.",
+            "marker1": "Async-first, remoto, GMT-3 — horário comercial sobreposto com as Américas e com metade da Europa.",
+            "marker2": "Uma reunião marcada por mês. O que for urgente tem canal; nada urgente precisa de convite na agenda.",
+            "marker3": "Decisão registrada onde o código está, pra que a próxima pessoa — inclusive você daqui a um ano — consiga reconstruir o porquê.",
+            "marker4": "Faz {years} anos que o log de commits dos {repos} repositórios mostra um nome humano só: o meu. O único outro autor que aparece nele é um agente de IA pra quem eu construí o arnês. É isso que a máquina compra pra você."
+        },
+        "closingCta": {
+            "title": "Vamos olhar o seu sistema.",
+            "body": "Trinta minutos, sem slide. Você descreve o que está quebrando; eu digo o que olharia primeiro e se eu sou a pessoa certa pra isso."
         },
         "blog": {
             "title": "Blog",

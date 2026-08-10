@@ -22,6 +22,17 @@
         "cta": {
             "bookACall": "Book a 30-minute call"
         },
+        "isThisYou": {
+            "title": "You know the system is the bottleneck. You just can't prove it in a meeting.",
+            "symptoms": [
+                "Your last release was a quarter ago, and everyone still remembers it.",
+                "Nobody touches that one module without clearing the afternoon.",
+                "The engineer who understood the system left, and the documentation left with them.",
+                "Every deploy is an event, with a rollback plan and a prayer.",
+                "Features arrive three to six months after you approved them, if they arrive."
+            ],
+            "closing": "If you nodded twice, we should talk. If you nodded at all five, we should talk this week."
+        },
         "workModes": {
             "title": "Work modes",
             "emptyState": "Work modes are being written up. Book a call and I'll walk you through them."
@@ -32,6 +43,18 @@
             "arrived": "Arrived",
             "built": "Built",
             "result": "Result"
+        },
+        "howIOperate": {
+            "title": "Your involvement is one meeting a month.",
+            "body": "Requirements, architecture decisions, and backlog live in the repository, as one source of truth you can read without me in the room. Every deploy pushes release notes — technical and business — to you automatically. You get proactive, high-signal updates instead of status calls, and you own the code and the pipeline from the first day, not from the last one.",
+            "marker1": "Async-first, remote, GMT-3 — overlapping business hours with the Americas and half of Europe.",
+            "marker2": "One scheduled meeting a month. Anything urgent has a channel; nothing urgent needs a calendar invite.",
+            "marker3": "Decisions written down where the code is, so the next person — including future you — can reconstruct why.",
+            "marker4": "For {years} years now, the commit log across all {repos} repositories shows one human name: mine. The only other author in it is an AI agent I built the harness for. That is what the machine buys you."
+        },
+        "closingCta": {
+            "title": "Let's look at your system.",
+            "body": "Thirty minutes, no slides. You describe what's breaking; I tell you what I'd look at first and whether I'm the right person for it."
         },
         "blog": {
             "title": "Blog",
