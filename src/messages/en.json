@@ -57,9 +57,24 @@
             "body": "Thirty minutes, no slides. You describe what's breaking; I tell you what I'd look at first and whether I'm the right person for it."
         },
         "blog": {
-            "title": "Blog",
+            "title": "Recent writing",
             "allPostsCta": "All posts",
             "allPostsAria": "View all blog posts"
+        },
+        "publications": {
+            "title": "Three places I write",
+            "blog": {
+                "name": "Blog",
+                "description": "Essays on delivery, architecture, and what actually happens when one engineer runs a platform with AI agents."
+            },
+            "pog": {
+                "name": "Workaround-Oriented Programming (livropog.com.br)",
+                "description": "A living technical book about the gap between the architecture we present and the workarounds we ship. Written in Portuguese, published continuously."
+            },
+            "codex": {
+                "name": "Codex Technomanticus",
+                "description": "My grimoire — the working notes I keep for full-stack engineering and share with colleagues when a question comes up twice. Written in Portuguese."
+            }
         },
         "testimonial": {
             "title": "Testimonials",

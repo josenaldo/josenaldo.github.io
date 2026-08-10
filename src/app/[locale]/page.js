@@ -7,6 +7,7 @@ import EngagementsSection from '@/features/home/Engagements'
 import HeroSection from '@/features/home/Hero'
 import HowIOperateSection from '@/features/home/HowIOperate'
 import IsThisYouSection from '@/features/home/IsThisYou'
+import PublicationsSection from '@/features/home/Publications'
 import TestimonialSection from '@/features/home/Testimonial'
 import WorkModesSection from '@/features/home/WorkModes'
 import { routing } from '@/i18n/routing'
@@ -90,8 +91,9 @@ export default async function HomePage({ params }) {
             <WorkModesSection workModes={workModes} />
             <EngagementsSection engagements={engagements} />
             <HowIOperateSection />
-            <BlogSection posts={posts} />
             <TestimonialSection testimonials={testimonials} />
+            <BlogSection posts={posts} />
+            <PublicationsSection />
             <ClosingCtaSection />
         </>
     )

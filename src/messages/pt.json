@@ -57,9 +57,24 @@
             "body": "Trinta minutos, sem slide. Você descreve o que está quebrando; eu digo o que olharia primeiro e se eu sou a pessoa certa pra isso."
         },
         "blog": {
-            "title": "Blog",
+            "title": "Escrito recentemente",
             "allPostsCta": "Todos os posts",
             "allPostsAria": "Ver todos os posts do blog"
+        },
+        "publications": {
+            "title": "Três lugares onde eu escrevo",
+            "blog": {
+                "name": "Blog",
+                "description": "Textos sobre entrega, arquitetura e o que acontece de verdade quando um engenheiro só toca uma plataforma inteira com agentes de IA."
+            },
+            "pog": {
+                "name": "Programação Orientada a Gambiarra (livropog.com.br)",
+                "description": "Um livro técnico vivo sobre a distância entre a arquitetura que a gente apresenta e a gambiarra que a gente entrega. Publicação contínua."
+            },
+            "codex": {
+                "name": "Codex Technomanticus",
+                "description": "Meu grimório — as notas de trabalho que eu mantenho sobre desenvolvimento fullstack e mando pro colega quando a mesma dúvida aparece pela segunda vez."
+            }
         },
         "testimonial": {
             "title": "Depoimentos",
