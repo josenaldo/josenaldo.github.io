@@ -6,7 +6,6 @@ status: planned
 author: Josenaldo Matos
 image: '/images/blog/ai-and-developers-another-brick-or-another-floor.png'
 category: Engenharia de Software
-language: pt
 ---
 
 > **Série: IA, Ágil, Lean, Arquitetura e Craftsmanship (8 partes)**

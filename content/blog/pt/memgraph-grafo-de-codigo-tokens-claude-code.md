@@ -6,7 +6,6 @@ author: Josenaldo Matos
 image: /images/blog/memgraph-grafo-de-codigo-tokens-claude-code.png
 category: Engenharia de Software
 status: draft
-language: pt
 tags:
     [
         claude-code,

@@ -7,7 +7,6 @@ author: Josenaldo Matos
 image: /images/blog/ia-nao-organizou-minha-vida-ela-me-ajudou-a-arrumar-a-casa.png
 category: opinion
 status: published
-language: en
 ---
 
 I completely agree with [a recent post by Raphael Oliveira](https://www.linkedin.com/posts/rafaelcgo_geral-postando-criei-um-workflow-de-activity-7439377697845444608-S5Tj).

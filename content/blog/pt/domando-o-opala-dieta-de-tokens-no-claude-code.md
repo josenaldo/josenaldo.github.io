@@ -6,7 +6,6 @@ author: Josenaldo Matos
 image: /images/blog/domando-o-opala-dieta-de-tokens-no-claude-code.png
 category: Engenharia de Software
 status: draft
-language: pt
 tags:
     [
         claude-code,

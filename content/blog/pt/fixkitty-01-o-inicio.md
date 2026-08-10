@@ -6,7 +6,6 @@ author: Josenaldo Matos
 image: /images/blog/fixkitty-01-o-inicio.png
 category: Engenharia de Software
 status: draft
-language: pt
 ---
 
 Saudações imundiçados de meu coração!

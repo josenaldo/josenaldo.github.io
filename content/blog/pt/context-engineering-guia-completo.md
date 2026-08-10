@@ -6,7 +6,6 @@ author: Josenaldo Matos
 image: /images/blog/context-engineering-guia-completo.png
 category: Engenharia de Software
 status: published
-language: pt
 ---
 
 Uberlândia, Minas Gerais, Brasil, América do Sul, Planeta Terra.

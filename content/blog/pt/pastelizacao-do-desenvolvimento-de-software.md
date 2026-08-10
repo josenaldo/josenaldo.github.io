@@ -6,7 +6,6 @@ author: Josenaldo Matos
 image: '/images/blog/pastelizacao-do-desenvolvimento-de-software.png'
 category: opinião
 status: published
-language: pt
 ---
 
 No mundo do desenvolvimento de software, existe um meme que nos persegue há décadas: a Dicotomia Pastel-Projeto.

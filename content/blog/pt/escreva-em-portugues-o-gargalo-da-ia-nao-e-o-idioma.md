@@ -6,7 +6,6 @@ author: Josenaldo Matos
 image: /images/blog/escreva-em-portugues-o-gargalo-da-ia-nao-e-o-idioma.png
 category: opinião
 status: published
-language: pt
 ---
 
 Eu passei anos escrevendo (ou tentando) tudo em inglês.

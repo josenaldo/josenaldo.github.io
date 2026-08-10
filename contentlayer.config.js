@@ -86,6 +86,13 @@ export const Post = defineDocumentType(() => ({
             description: 'The image of the post',
             required: true,
         },
+        tags: {
+            type: 'list',
+            of: { type: 'string' },
+            description:
+                'Palavras-chave do post. Opcional: a maioria dos posts não tem. Ainda não há página que as consuma — o campo existe para que o Contentlayer pare de descartar em silêncio o que já foi escrito no frontmatter.',
+            required: false,
+        },
         ...translationFields,
     },
     computedFields: localeComputedFields(),

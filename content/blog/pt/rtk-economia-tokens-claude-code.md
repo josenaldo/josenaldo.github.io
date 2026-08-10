@@ -6,7 +6,6 @@ author: Josenaldo Matos
 image: /images/blog/rtk-economia-tokens-claude-code.png
 category: Engenharia de Software
 status: draft
-language: pt
 tags:
     [
         claude-code,
