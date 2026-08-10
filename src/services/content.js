@@ -90,15 +90,6 @@ const lastExperiences = (locale, numberOfExperiences) => {
         .slice(0, numberOfExperiences)
 }
 
-const lastProjects = (locale, numberOfProjects) => {
-    return allProjects
-        .filter(byLocale(locale))
-        .sort((a, b) => {
-            return a.id - b.id
-        })
-        .slice(0, numberOfProjects)
-}
-
 const getAllProjects = (locale) => {
     return allProjects.filter(byLocale(locale))
 }
@@ -265,7 +256,6 @@ const getPostsByCategory = (locale, slug) => {
 
 const contentService = {
     lastExperiences,
-    lastProjects,
     getAllProjects,
     getProjectData,
     getTestimonials,
