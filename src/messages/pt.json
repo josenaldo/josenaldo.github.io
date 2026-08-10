@@ -22,6 +22,17 @@
         "cta": {
             "bookACall": "Agendar uma conversa de 30 minutos"
         },
+        "workModes": {
+            "title": "Modos de trabalho",
+            "emptyState": "Os modos de trabalho estão sendo escritos. Agende uma conversa e eu explico pessoalmente."
+        },
+        "engagements": {
+            "title": "Engagements",
+            "emptyState": "Os engagements estão sendo escritos. Agende uma conversa e eu explico pessoalmente.",
+            "arrived": "Cheguei",
+            "built": "Construí",
+            "result": "Resultado"
+        },
         "blog": {
             "title": "Blog",
             "allPostsCta": "Todos os posts",

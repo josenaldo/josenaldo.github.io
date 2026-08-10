@@ -2,8 +2,10 @@ import { setRequestLocale } from 'next-intl/server'
 
 import seoConfigModule from '@/data/SeoConfig'
 import BlogSection from '@/features/home/Blog'
+import EngagementsSection from '@/features/home/Engagements'
 import HeroSection from '@/features/home/Hero'
 import TestimonialSection from '@/features/home/Testimonial'
+import WorkModesSection from '@/features/home/WorkModes'
 import { routing } from '@/i18n/routing'
 import contentService from '@/services/content'
 
@@ -60,9 +62,29 @@ export default async function HomePage({ params }) {
         language: post.locale,
     }))
 
+    const workModes = contentService.getWorkModes(locale).map((mode) => ({
+        name: mode.name,
+        promise: mode.promise,
+        bullets: mode.bullets,
+        icon: mode.icon,
+    }))
+
+    const engagements = contentService
+        .getEngagements(locale)
+        .map((engagement) => ({
+            title: engagement.title,
+            role: engagement.role,
+            period: engagement.period,
+            arrived: engagement.arrived,
+            built: engagement.built,
+            result: engagement.result,
+        }))
+
     return (
         <>
             <HeroSection />
+            <WorkModesSection workModes={workModes} />
+            <EngagementsSection engagements={engagements} />
             <BlogSection posts={posts} />
             <TestimonialSection testimonials={testimonials} />
         </>
