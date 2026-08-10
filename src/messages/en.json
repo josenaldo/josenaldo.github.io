@@ -12,14 +12,15 @@
     },
     "Home": {
         "hero": {
-            "greeting": "Hello, my name is",
-            "name": "Josenaldo Matos",
-            "photoAlt": "Josenaldo Matos",
-            "subtitle": "Senior Full Stack Engineer. {years}+ years. Java, Spring Boot, React, TypeScript.",
-            "downloadResumeButton": "Download Resume",
-            "downloadResumeAria": "Download my resume",
-            "getInTouchButton": "Get in Touch",
-            "getInTouchAria": "Get in touch"
+            "headline": "I build the machine that ships your software.",
+            "subhead": "Fractional software engineer and architect. I take over platforms that have eroded past the point where anyone can safely change them, and turn them into a delivery operation that runs on one meeting a month.",
+            "metricDeploys": "From a release once a quarter to one every {everyDays} days",
+            "metricIssues": "Client-reported production issues down from ~{before} to ~{after} a month",
+            "metricDeployTime": "Deploys in {after} instead of {before}",
+            "photoAlt": "Josenaldo Matos"
+        },
+        "cta": {
+            "bookACall": "Book a 30-minute call"
         },
         "blog": {
             "title": "Blog",

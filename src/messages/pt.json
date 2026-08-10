@@ -12,14 +12,15 @@
     },
     "Home": {
         "hero": {
-            "greeting": "Olá, meu nome é",
-            "name": "Josenaldo Matos",
-            "photoAlt": "Josenaldo Matos",
-            "subtitle": "Engenheiro Full Stack Sênior. {years}+ anos. Java, Spring Boot, React, TypeScript.",
-            "downloadResumeButton": "Baixar Currículo",
-            "downloadResumeAria": "Baixar meu currículo",
-            "getInTouchButton": "Entre em Contato",
-            "getInTouchAria": "Entre em contato"
+            "headline": "Eu construo a máquina que entrega o seu software.",
+            "subhead": "Engenheiro e arquiteto de software fractional. Assumo plataformas que erodiram até o ponto em que ninguém mais mexe com segurança, e transformo isso numa operação de entrega que consome uma reunião por mês do seu time.",
+            "metricDeploys": "De uma release por trimestre para uma a cada {everyDays} dias",
+            "metricIssues": "Problemas em produção reportados pelo cliente de ~{before} para ~{after} por mês",
+            "metricDeployTime": "Deploy em {after}, não em {before}",
+            "photoAlt": "Josenaldo Matos"
+        },
+        "cta": {
+            "bookACall": "Agendar uma conversa de 30 minutos"
         },
         "blog": {
             "title": "Blog",
