@@ -30,8 +30,8 @@ const Hero = () => {
                     </Typography>
                     <Typography variant="h1">Josenaldo Matos</Typography>
                     <Typography variant="subtitle">
-                        Senior Full Stack Engineer. 20+ years. Java, Spring
-                        Boot, React, TypeScript.
+                        Fractional Software Engineer & Architect. 20+ years. I
+                        build the machine that ships your software.
                     </Typography>
                     <Stack
                         direction={{ xs: 'column', sm: 'row' }}
@@ -41,15 +41,6 @@ const Hero = () => {
                     >
                         <Button
                             variant="contained"
-                            href="/files/en/JosenaldoDeOliveiraMatosFilho_en.pdf"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label="Download my resume"
-                        >
-                            Download Resume
-                        </Button>
-                        <Button
-                            variant="outlined"
                             href="/contact"
                             aria-label="Get in touch"
                         >
