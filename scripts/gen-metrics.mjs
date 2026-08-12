@@ -280,9 +280,15 @@ export function renderNote(texto, canonical) {
     return saida
 }
 
-import { readFileSync, writeFileSync } from 'node:fs'
+import {
+    accessSync,
+    constants,
+    existsSync,
+    readFileSync,
+    writeFileSync,
+} from 'node:fs'
 import { homedir } from 'node:os'
-import { join } from 'node:path'
+import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 const VAULT = join(
@@ -306,14 +312,58 @@ function alvos(canonical, notaAtual) {
         {
             caminho: 'src/data/metrics.mjs',
             conteudo: renderMetricsModule(canonical),
+            envVar: null,
         },
-        { caminho: 'src/data/retired.json', conteudo: retired },
+        { caminho: 'src/data/retired.json', conteudo: retired, envVar: null },
         {
             caminho: join(CAMINHOS.curriculo, 'data/retired.json'),
             conteudo: retired,
+            envVar: 'CURRICULO_REPO',
         },
-        { caminho: CAMINHOS.note, conteudo: renderNote(notaAtual, canonical) },
+        {
+            caminho: CAMINHOS.note,
+            conteudo: renderNote(notaAtual, canonical),
+            envVar: 'CANONICAL_NOTE',
+        },
     ]
+}
+
+// Confere, para cada alvo, que dá pra escrever nele — SEM escrever em
+// nenhum. Roda inteira antes da primeira escrita real: um gerador que grava
+// metade dos arquivos e morre no terceiro deixa os artefatos fora de
+// sincronia entre si (e um deles é a nota canônica do dono), o que é pior do
+// que se recusar a começar. Só entra em jogo no modo de escrita — o `--check`
+// já não escreve nada, então não precisa desta guarda.
+export function verificarDestinos(alvos) {
+    const errors = []
+
+    for (const { caminho, envVar } of alvos) {
+        const dir = dirname(caminho)
+        const sufixo = envVar ? ` (controlado por ${envVar})` : ''
+
+        if (!existsSync(dir)) {
+            errors.push(`${caminho}: diretório "${dir}" não existe${sufixo}`)
+            continue
+        }
+
+        if (existsSync(caminho)) {
+            try {
+                accessSync(caminho, constants.W_OK)
+            } catch {
+                errors.push(`${caminho}: sem permissão de escrita${sufixo}`)
+            }
+        } else {
+            try {
+                accessSync(dir, constants.W_OK)
+            } catch {
+                errors.push(
+                    `${caminho}: diretório "${dir}" sem permissão de escrita${sufixo}`
+                )
+            }
+        }
+    }
+
+    return errors
 }
 
 function main() {
@@ -328,9 +378,21 @@ function main() {
     }
 
     const notaAtual = readFileSync(CAMINHOS.note, 'utf8')
+    const alvosGerados = alvos(canonical, notaAtual)
+
+    if (!modoCheck) {
+        const destinoErrors = verificarDestinos(alvosGerados)
+
+        if (destinoErrors.length > 0) {
+            console.error('gen-metrics FALHOU — destino inválido:')
+            for (const error of destinoErrors) console.error(`  - ${error}`)
+            process.exit(1)
+        }
+    }
+
     const defasados = []
 
-    for (const { caminho, conteudo } of alvos(canonical, notaAtual)) {
+    for (const { caminho, conteudo } of alvosGerados) {
         if (modoCheck) {
             let atual = null
             try {

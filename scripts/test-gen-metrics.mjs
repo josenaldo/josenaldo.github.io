@@ -1,10 +1,12 @@
 import assert from 'node:assert/strict'
+import { join } from 'node:path'
 
 import {
     renderMetricsModule,
     renderNote,
     renderRetired,
     validateCanonical,
+    verificarDestinos,
 } from './gen-metrics.mjs'
 
 let failed = 0
@@ -376,6 +378,61 @@ test('renderNote aceita id de engagement com dígito e hífen', () => {
         .replace('metricas:fim:acme', 'metricas:fim:acme-2020')
 
     assert.doesNotThrow(() => renderNote(nota, canonical))
+})
+
+test('verificarDestinos acusa diretório inexistente e nomeia a variável de ambiente', () => {
+    const caminho = join(
+        '/tmp',
+        'gen-metrics-teste-diretorio-que-nao-existe-de-verdade',
+        'data',
+        'retired.json'
+    )
+
+    const erros = verificarDestinos([{ caminho, envVar: 'CURRICULO_REPO' }])
+
+    assert.equal(erros.length, 1)
+    assert.match(erros[0], /CURRICULO_REPO/)
+    assert.match(
+        erros[0],
+        /gen-metrics-teste-diretorio-que-nao-existe-de-verdade/
+    )
+})
+
+test('verificarDestinos não acusa nada quando não há envVar (destino fixo do repo)', () => {
+    const caminho = join(
+        '/tmp',
+        'gen-metrics-teste-outro-diretorio-inexistente',
+        'metrics.mjs'
+    )
+
+    const erros = verificarDestinos([{ caminho, envVar: null }])
+
+    assert.equal(erros.length, 1)
+    assert.doesNotMatch(erros[0], /controlado por/)
+})
+
+test('verificarDestinos aceita um diretório existente e gravável', () => {
+    const erros = verificarDestinos([
+        { caminho: join(process.cwd(), 'src/data/metrics.mjs'), envVar: null },
+    ])
+
+    assert.deepEqual(erros, [])
+})
+
+test('verificarDestinos roda sobre múltiplos alvos e acumula todos os erros', () => {
+    const erros = verificarDestinos([
+        { caminho: join(process.cwd(), 'src/data/metrics.mjs'), envVar: null },
+        {
+            caminho: join(
+                '/tmp',
+                'gen-metrics-teste-terceiro-diretorio-inexistente',
+                'x.json'
+            ),
+            envVar: 'CURRICULO_REPO',
+        },
+    ])
+
+    assert.equal(erros.length, 1)
 })
 
 process.exit(failed)
