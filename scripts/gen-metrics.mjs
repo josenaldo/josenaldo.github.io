@@ -279,3 +279,84 @@ export function renderNote(texto, canonical) {
 
     return saida
 }
+
+import { readFileSync, writeFileSync } from 'node:fs'
+import { homedir } from 'node:os'
+import { join } from 'node:path'
+import { fileURLToPath } from 'node:url'
+
+const VAULT = join(
+    homedir(),
+    'repos/personal/codex-technomanticus-apocrypha/03-Dominios/Inglês/Entrevistas'
+)
+
+const CAMINHOS = {
+    canonical:
+        process.env.CANONICAL_METRICS ?? join(VAULT, 'metricas-canonicas.json'),
+    note: process.env.CANONICAL_NOTE ?? join(VAULT, 'Métricas Canônicas.md'),
+    curriculo:
+        process.env.CURRICULO_REPO ??
+        join(homedir(), 'repos/personal/curriculo'),
+}
+
+function alvos(canonical, notaAtual) {
+    const retired = `${JSON.stringify(renderRetired(canonical), null, 4)}\n`
+
+    return [
+        {
+            caminho: 'src/data/metrics.mjs',
+            conteudo: renderMetricsModule(canonical),
+        },
+        { caminho: 'src/data/retired.json', conteudo: retired },
+        {
+            caminho: join(CAMINHOS.curriculo, 'data/retired.json'),
+            conteudo: retired,
+        },
+        { caminho: CAMINHOS.note, conteudo: renderNote(notaAtual, canonical) },
+    ]
+}
+
+function main() {
+    const modoCheck = process.argv.includes('--check')
+    const canonical = JSON.parse(readFileSync(CAMINHOS.canonical, 'utf8'))
+    const errors = validateCanonical(canonical)
+
+    if (errors.length > 0) {
+        console.error('gen-metrics FALHOU — canônico inválido:')
+        for (const error of errors) console.error(`  - ${error}`)
+        process.exit(1)
+    }
+
+    const notaAtual = readFileSync(CAMINHOS.note, 'utf8')
+    const defasados = []
+
+    for (const { caminho, conteudo } of alvos(canonical, notaAtual)) {
+        if (modoCheck) {
+            let atual = null
+            try {
+                atual = readFileSync(caminho, 'utf8')
+            } catch {
+                atual = null
+            }
+            if (atual !== conteudo) defasados.push(caminho)
+        } else {
+            writeFileSync(caminho, conteudo)
+            console.log(`  escrito — ${caminho}`)
+        }
+    }
+
+    if (modoCheck && defasados.length > 0) {
+        console.error('gen-metrics --check FALHOU — artefatos defasados:')
+        for (const caminho of defasados) console.error(`  - ${caminho}`)
+        console.error('Rode `yarn metrics:gen` e commite o resultado.')
+        process.exit(1)
+    }
+
+    console.log(
+        modoCheck
+            ? 'gen-metrics --check OK — artefatos em dia com o canônico.'
+            : 'gen-metrics OK.'
+    )
+}
+
+if (process.argv[1] === fileURLToPath(import.meta.url)) main()
