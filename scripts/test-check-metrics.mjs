@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict'
 
-import { containsRetiredVariant } from './check-metrics.mjs'
+import { checkShape, containsRetiredVariant } from './check-metrics.mjs'
 
 let failed = 0
 
@@ -70,6 +70,38 @@ test('containsRetiredVariant continua procurando após uma colisão e acha uma o
 
 test('containsRetiredVariant retorna false quando a variante não aparece', () => {
     assert.equal(containsRetiredVariant('nada a ver aqui', '-90%'), false)
+})
+
+test('checkShape acusa "note" no módulo emitido (vazamento pro repositório público)', () => {
+    const metrics = {
+        exemplo: {
+            id: 'exemplo',
+            engagement: 'algum-engagement',
+            before: { confidence: 'measured', value: 1 },
+            after: { confidence: 'measured', value: 2 },
+            note: 'texto que não deveria estar aqui',
+        },
+    }
+
+    const errors = checkShape(metrics)
+
+    assert.ok(
+        errors.some((e) => e.includes('exemplo') && e.includes('"note"')),
+        `esperava um erro sobre "note" em metrics.exemplo, recebeu: ${JSON.stringify(errors)}`
+    )
+})
+
+test('checkShape não acusa nada quando "note" está ausente e o resto é válido', () => {
+    const metrics = {
+        exemplo: {
+            id: 'exemplo',
+            engagement: 'algum-engagement',
+            before: { confidence: 'measured', value: 1 },
+            after: { confidence: 'measured', value: 2 },
+        },
+    }
+
+    assert.deepEqual(checkShape(metrics), [])
 })
 
 process.exit(failed)

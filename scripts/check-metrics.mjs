@@ -70,29 +70,49 @@ function checkRetiredNumbers(variantes) {
     }
 }
 
-function checkLado(key, nome, lado) {
+function checkLado(key, nome, lado, errs) {
     if (lado === null) return
     if (!VALID_CONFIDENCE.includes(lado.confidence)) {
-        errors.push(
+        errs.push(
             `metrics.${key}.${nome}: confidence "${lado.confidence}" inválida`
         )
     }
 }
 
-function checkShape(metrics) {
+// Retorna a lista de erros em vez de empurrar direto no array global —
+// assim dá pra testar isoladamente (ver test-check-metrics.mjs) sem
+// precisar expor ou resetar estado de módulo entre casos de teste.
+export function checkShape(metrics) {
+    const errs = []
+
     for (const [key, metric] of Object.entries(metrics)) {
         if (metric.id !== key) {
-            errors.push(`metrics.${key}: id "${metric.id}" difere da chave`)
+            errs.push(`metrics.${key}: id "${metric.id}" difere da chave`)
         }
         if (typeof metric.engagement !== 'string' || !metric.engagement) {
-            errors.push(`metrics.${key}: engagement ausente`)
+            errs.push(`metrics.${key}: engagement ausente`)
         }
         if (metric.before === null && metric.after === null) {
-            errors.push(`metrics.${key}: before e after ambos nulos`)
+            errs.push(`metrics.${key}: before e after ambos nulos`)
         }
-        checkLado(key, 'before', metric.before ?? null)
-        checkLado(key, 'after', metric.after ?? null)
+        // O módulo emitido é público; "note" carrega procedência, ressalvas
+        // e — no histórico real deste projeto — nomes de repositórios
+        // internos de cliente e o estado de uma reescrita que o dono
+        // decidiu manter fora do ar. Isso mora só na nota canônica, no
+        // vault privado (ver CABECALHO em gen-metrics.mjs). Se "note"
+        // aparece aqui, não é estilo: é o vazamento voltando por um rebase
+        // ou merge que reintroduziu o campo no gerador — bloqueie o build
+        // em vez de publicar.
+        if ('note' in metric) {
+            errs.push(
+                `metrics.${key}: campo "note" presente no módulo emitido — isto vaza conteúdo privado (procedência/ressalvas da nota canônica, possivelmente nomes de repositório de cliente) num repositório público. Remova a emissão de "note" em scripts/gen-metrics.mjs (renderMetricsModule) e rode \`yarn metrics:gen\` de novo.`
+            )
+        }
+        checkLado(key, 'before', metric.before ?? null, errs)
+        checkLado(key, 'after', metric.after ?? null, errs)
     }
+
+    return errs
 }
 
 function checkGerado() {
@@ -112,7 +132,7 @@ async function main() {
 
     const { default: metrics } = await import('../src/data/metrics.mjs')
     checkGerado()
-    checkShape(metrics)
+    errors.push(...checkShape(metrics))
     checkRetiredNumbers(variantes)
 
     if (errors.length > 0) {
