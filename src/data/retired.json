@@ -1,0 +1,87 @@
+{
+    "updated": "2026-08-12",
+    "entradas": [
+        {
+            "motivo": "Versão antiga; a atual é `~2h → ~15min`.",
+            "variantes": [
+                "deploy 1h → 2min",
+                "1h → 2min",
+                "1h -> 2min",
+                "one hour to about two minutes",
+                "2h → 2min",
+                "2h -> 2min",
+                "~2 hours to ~2 minutes",
+                "~1 hour to ~2 minutes",
+                "~1 hora para ~2 minutos",
+                "~2 horas para ~2 minutos"
+            ]
+        },
+        {
+            "motivo": "Métrica errada e valor errado. O correto é *product lead time* `3-6 meses → ~1 semana`.",
+            "variantes": [
+                "lead time 2 semanas → 1 semana",
+                "2 semanas → 1 semana",
+                "2 semanas -> 1 semana",
+                "2 weeks → 1 week",
+                "~2 weeks to ~1 week",
+                "2 semanas para 1 semana"
+            ]
+        },
+        {
+            "motivo": "Baseline incorreta; a real é **trimestral**.",
+            "variantes": [
+                "1 release a cada 2 meses",
+                "one release every two months"
+            ]
+        },
+        {
+            "motivo": "**Superestimada.** O medido é ~4/mês (1 a cada ~8 dias).",
+            "variantes": [
+                "1 release por semana",
+                "one release per week",
+                "two production deploys per week"
+            ]
+        },
+        {
+            "motivo": "Percentual sobre baseline contada informalmente. Usar o par bruto `~100 → ~5` e nomear a fonte.",
+            "variantes": [
+                "production incidents −90%",
+                "−90%",
+                "-90%",
+                "−95%",
+                "-95%"
+            ]
+        },
+        {
+            "motivo": "Aritmeticamente correto sobre a baseline antiga (0,5/mês × 7 = 3,5/mês). Com a baseline corrigida viraria ~1.070% — que é verdadeiro mas é falsa precisão sobre número lembrado. **Substituir por números brutos.**",
+            "variantes": [
+                "600% throughput"
+            ]
+        },
+        {
+            "motivo": "Três estimativas divergentes; o medido é **9.120**.",
+            "variantes": [
+                "5.000+",
+                "5,000+",
+                "7.000+",
+                "7,000+",
+                "3.000+",
+                "3,000+"
+            ]
+        },
+        {
+            "motivo": "Inflado por variação de config de git do mesmo indivíduo. O real é ~2.",
+            "variantes": [
+                "6 autores antes",
+                "6 autores",
+                "6 authors"
+            ]
+        },
+        {
+            "motivo": "Nunca existiu — elaboração que entrou na geração do [[Q032 - How do you reframe the 2016-2020 health gap as operational advantage - EN|Q032]] e passou a circular como dado. Corrigido em 2026-08-07.",
+            "variantes": [
+                "600% no cycle time"
+            ]
+        }
+    ]
+}

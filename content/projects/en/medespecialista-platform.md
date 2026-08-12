@@ -180,7 +180,7 @@ Commit volume below is based on local git history. The first three repositories 
 ### Business Outcomes from This Timeline
 
 - **Follow-up module**: replaced a manual monthly mentoring follow-up routine with an operational flow that reduced execution from **~1 month to ~2 hours**, according to internal operation practice.
-- **Deployment automation**: reduced release effort from **~1 hour to ~2 minutes** through automated CI/CD workflows and repeatable staging/production processes.
+- **Deployment automation**: reduced release effort from **~2 hours to ~15 minutes** through automated CI/CD workflows and repeatable staging/production processes.
 - **PDF extraction and Notice operations**: converted edital processing from a heavily manual workflow into a reviewed, cached, validated extraction flow with admin screens and regression tests.
 - **Program import/export**: reduced repetitive content-program setup by adding spreadsheet-based import/export with validation and editable review.
 - **Frontend modernization**: brought admin and learner apps closer to the same modern baseline, reducing divergence in routing, UI shell, typed contracts, testing, and error handling.
