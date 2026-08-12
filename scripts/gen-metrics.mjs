@@ -175,3 +175,88 @@ export function renderMetricsModule(canonical) {
         ).replace('__LAUNCH__', canonical.biography.siteLaunchYear)
     )
 }
+
+const ROTULO_CONFIANCA = {
+    measured: 'Medido',
+    counted: 'Contado',
+    remembered: 'Lembrado',
+}
+
+function celulaConfianca(before, after) {
+    const antes = before?.confidence
+    const depois = after?.confidence
+
+    if (antes && depois && antes !== depois) {
+        return `antes: ${ROTULO_CONFIANCA[antes]} · depois: ${ROTULO_CONFIANCA[depois]}`
+    }
+
+    return ROTULO_CONFIANCA[depois ?? antes]
+}
+
+function tabelaEngagement(canonical, engagementId) {
+    const linhas = [
+        '| Métrica | Antes | Depois | Confiança | Fonte / ressalva |',
+        '| --- | --- | --- | --- | --- |',
+    ]
+
+    for (const [, metric] of Object.entries(canonical.metrics)) {
+        if (metric.engagement !== engagementId) continue
+
+        const antes = metric.before ? metric.before.text : '—'
+        const depois = metric.after ? `**${metric.after.text}**` : '—'
+
+        linhas.push(
+            `| **${metric.label}** | ${antes} | ${depois} | **${celulaConfianca(metric.before, metric.after)}** | ${metric.note ?? ''} |`
+        )
+    }
+
+    return linhas.join('\n')
+}
+
+function tabelaAposentados(canonical) {
+    const linhas = ['| Número | Por quê |', '| --- | --- |']
+
+    for (const entrada of canonical.retired) {
+        const numeros = entrada.variantes.map((v) => `\`${v}\``).join(' · ')
+        linhas.push(`| ${numeros} | ${entrada.motivo} |`)
+    }
+
+    return linhas.join('\n')
+}
+
+export function renderNote(texto, canonical) {
+    const ids = [...canonical.engagements.map((e) => e.id), 'aposentados']
+    const encontrados = [
+        ...texto.matchAll(/<!-- metricas:inicio:([a-z]+) -->/g),
+    ].map((m) => m[1])
+
+    for (const id of encontrados) {
+        if (!ids.includes(id)) {
+            throw new Error(`marcador de id desconhecido na nota: "${id}"`)
+        }
+        if (!texto.includes(`<!-- metricas:fim:${id} -->`)) {
+            throw new Error(`marcador "${id}" sem fim correspondente`)
+        }
+    }
+
+    let saida = texto
+
+    for (const id of ids) {
+        if (!encontrados.includes(id)) {
+            throw new Error(`nenhum bloco de marcador na nota para "${id}"`)
+        }
+
+        const conteudo =
+            id === 'aposentados'
+                ? tabelaAposentados(canonical)
+                : tabelaEngagement(canonical, id)
+
+        const bloco = new RegExp(
+            `(<!-- metricas:inicio:${id} -->\\n)[\\s\\S]*?(\\n<!-- metricas:fim:${id} -->)`
+        )
+
+        saida = saida.replace(bloco, `$1${conteudo}$2`)
+    }
+
+    return saida
+}

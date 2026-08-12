@@ -2,6 +2,7 @@ import assert from 'node:assert/strict'
 
 import {
     renderMetricsModule,
+    renderNote,
     renderRetired,
     validateCanonical,
 } from './gen-metrics.mjs'
@@ -236,6 +237,106 @@ test('retired.json preserva a ordem de várias entradas', () => {
 
     assert.equal(saida.entradas.length, 2)
     assert.deepEqual(saida.entradas[1].variantes, ['600%', '−90%'])
+})
+
+function notaFixture() {
+    return [
+        '# Métricas Canônicas',
+        '',
+        'Prosa humana que não pode ser tocada.',
+        '',
+        '## Acme (2020 – 2021)',
+        '',
+        '<!-- metricas:inicio:acme -->',
+        'conteúdo velho que deve sumir',
+        '<!-- metricas:fim:acme -->',
+        '',
+        '> [!tip] Callout humano preservado',
+        '',
+        '## Números aposentados — não citar',
+        '',
+        '<!-- metricas:inicio:aposentados -->',
+        'lixo velho',
+        '<!-- metricas:fim:aposentados -->',
+        '',
+        'Rodapé humano.',
+        '',
+    ].join('\n')
+}
+
+test('renderNote preserva tudo fora dos marcadores', () => {
+    const saida = renderNote(notaFixture(), baseCanonical())
+
+    assert.match(saida, /Prosa humana que não pode ser tocada\./)
+    assert.match(saida, /> \[!tip\] Callout humano preservado/)
+    assert.match(saida, /Rodapé humano\./)
+    assert.doesNotMatch(saida, /conteúdo velho que deve sumir/)
+    assert.doesNotMatch(saida, /lixo velho/)
+})
+
+test('renderNote emite as cinco colunas com o texto humano', () => {
+    const saida = renderNote(notaFixture(), baseCanonical())
+
+    assert.match(
+        saida,
+        /\| Métrica \| Antes \| Depois \| Confiança \| Fonte \/ ressalva \|/
+    )
+    assert.match(saida, /~2h manual/)
+    assert.match(saida, /\*\*~15min automatizado\*\*/)
+})
+
+test('renderNote mostra confiança por lado quando os lados divergem', () => {
+    const canonical = baseCanonical()
+    canonical.metrics.deployDuration.after.confidence = 'measured'
+
+    assert.match(
+        renderNote(notaFixture(), canonical),
+        /antes: Lembrado · depois: Medido/
+    )
+})
+
+test('renderNote colapsa a confiança quando os lados coincidem', () => {
+    const saida = renderNote(notaFixture(), baseCanonical())
+
+    assert.match(saida, /\| \*\*Lembrado\*\* \|/)
+    assert.doesNotMatch(saida, /antes: Lembrado · depois: Lembrado/)
+})
+
+test('renderNote emite a tabela de aposentados com motivo', () => {
+    const saida = renderNote(notaFixture(), baseCanonical())
+
+    assert.match(saida, /`1h → 2min`/)
+    assert.match(saida, /Valor antigo\./)
+})
+
+test('renderNote é idempotente', () => {
+    const canonical = baseCanonical()
+    const primeira = renderNote(notaFixture(), canonical)
+    const segunda = renderNote(primeira, canonical)
+
+    assert.equal(primeira, segunda)
+})
+
+test('renderNote recusa marcador sem fim', () => {
+    const quebrada = notaFixture().replace('<!-- metricas:fim:acme -->', '')
+
+    assert.throws(() => renderNote(quebrada, baseCanonical()), /acme.*fim/)
+})
+
+test('renderNote recusa marcador de id desconhecido', () => {
+    const quebrada = notaFixture().replace(
+        '<!-- metricas:inicio:acme -->',
+        '<!-- metricas:inicio:fantasma -->\n<!-- metricas:fim:fantasma -->\n<!-- metricas:inicio:acme -->'
+    )
+
+    assert.throws(() => renderNote(quebrada, baseCanonical()), /fantasma/)
+})
+
+test('renderNote recusa engagement sem bloco na nota', () => {
+    const canonical = baseCanonical()
+    canonical.engagements.push({ id: 'orfao', titulo: 'Órfão' })
+
+    assert.throws(() => renderNote(notaFixture(), canonical), /orfao/)
 })
 
 process.exit(failed)
