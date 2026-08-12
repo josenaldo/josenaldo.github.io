@@ -116,7 +116,7 @@ function literal(valor) {
     return String(valor)
 }
 
-function renderLado(lado, recuo) {
+function renderLado(lado, recuo, prefixo) {
     if (lado === null) return 'null'
 
     const campos = { ...lado.value, confidence: lado.confidence }
@@ -124,8 +124,13 @@ function renderLado(lado, recuo) {
         ([chave, valor]) => `${chave}: ${literal(valor)}`
     )
 
-    return `{ ${partes.join(', ')} }`.length + recuo <= 80
-        ? `{ ${partes.join(', ')} }`
+    const linhaUnica = `{ ${partes.join(', ')} }`
+    // Largura real da linha emitida: recuo + "before: "/"after: " + o objeto
+    // + a vírgula final que renderMetricsModule sempre acrescenta.
+    const largura = recuo + prefixo.length + linhaUnica.length + 1
+
+    return largura <= 80
+        ? linhaUnica
         : `{\n${partes.map((p) => `${' '.repeat(recuo + 4)}${p},`).join('\n')}\n${' '.repeat(recuo)}}`
 }
 
@@ -144,8 +149,8 @@ export function renderMetricsModule(canonical) {
                 `${comentario}    ${id}: {\n` +
                 `        id: '${id}',\n` +
                 `        engagement: '${metric.engagement}',\n` +
-                `        before: ${renderLado(metric.before ?? null, 8)},\n` +
-                `        after: ${renderLado(metric.after ?? null, 8)},\n` +
+                `        before: ${renderLado(metric.before ?? null, 8, 'before: ')},\n` +
+                `        after: ${renderLado(metric.after ?? null, 8, 'after: ')},\n` +
                 `        note: ${literal(metric.note)},\n` +
                 `    },`
             )

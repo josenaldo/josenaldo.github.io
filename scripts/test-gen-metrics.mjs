@@ -176,4 +176,43 @@ test('emite os exports de biografia e as duas funções', () => {
     )
 })
 
+test('quebra o lado em múltiplas linhas quando o value não cabe em 80 colunas', () => {
+    const canonical = baseCanonical()
+    canonical.metrics.deployDuration.before.value = {
+        display: 'x'.repeat(50),
+    }
+
+    const saida = renderMetricsModule(canonical)
+
+    assert.match(
+        saida,
+        /before: \{\n {12}display: 'x+',\n {12}confidence: 'remembered',\n {8}\},/
+    )
+})
+
+test('nenhuma linha de código do corpo emitido passa de 80 colunas', () => {
+    // Este é o comprimento de fronteira que passava na checagem antiga
+    // (conteúdo + recuo <= 80) mas, somado ao prefixo "before: " e à vírgula
+    // final, produzia uma linha real acima de 80 colunas — o defeito que o
+    // Prettier reformataria e que quebraria o `format:check`. Restrito às
+    // linhas de código (exclui prosa de comentário do cabeçalho/rodapé, que
+    // não é tocada pelo Prettier e por isso é irrelevante para esse limite).
+    const canonical = baseCanonical()
+    canonical.metrics.deployDuration.before.value = {
+        display: 'x'.repeat(27),
+    }
+
+    const saida = renderMetricsModule(canonical)
+    const linhasDeCodigo = saida
+        .split('\n')
+        .filter((linha) => !linha.trim().startsWith('//'))
+
+    for (const linha of linhasDeCodigo) {
+        assert.ok(
+            linha.length <= 80,
+            `linha excede 80 colunas (${linha.length}): "${linha}"`
+        )
+    }
+})
+
 process.exit(failed)
