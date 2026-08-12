@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict'
 
-import { validateCanonical } from './gen-metrics.mjs'
+import { renderMetricsModule, validateCanonical } from './gen-metrics.mjs'
 
 let failed = 0
 
@@ -120,6 +120,60 @@ test('aposentado sem variantes é recusado', () => {
     canonical.retired[0].variantes = []
 
     assert.match(validateCanonical(canonical)[0], /aposentado.*variante/)
+})
+
+test('emite cabeçalho de arquivo gerado', () => {
+    const saida = renderMetricsModule(baseCanonical())
+
+    assert.match(saida, /ARQUIVO GERADO/)
+    assert.match(saida, /não edite à mão/)
+})
+
+test('emite o lado com confidence achatada dentro do value', () => {
+    const saida = renderMetricsModule(baseCanonical())
+
+    assert.match(saida, /display: '15min'/)
+    assert.match(saida, /confidence: 'remembered'/)
+})
+
+test('omite métrica com site false', () => {
+    const canonical = baseCanonical()
+    canonical.metrics.deployDuration.site = false
+
+    assert.doesNotMatch(renderMetricsModule(canonical), /deployDuration/)
+})
+
+test('emite before nulo como null', () => {
+    const canonical = baseCanonical()
+    canonical.metrics.deployDuration.before = null
+
+    assert.match(renderMetricsModule(canonical), /before: null/)
+})
+
+test('emite derivation como comentário', () => {
+    const canonical = baseCanonical()
+    canonical.metrics.deployDuration.derivation =
+        'A data é do corte, não da entrada.'
+
+    assert.match(
+        renderMetricsModule(canonical),
+        /\/\/ A data é do corte, não da entrada\./
+    )
+})
+
+test('emite os exports de biografia e as duas funções', () => {
+    const saida = renderMetricsModule(baseCanonical())
+
+    assert.match(saida, /export const CAREER_START_YEAR = 2003/)
+    assert.match(saida, /export const SITE_LAUNCH_YEAR = 2023/)
+    assert.match(
+        saida,
+        /export function yearsOfExperience\(now = new Date\(\)\)/
+    )
+    assert.match(
+        saida,
+        /export function yearsAsSoleHumanAuthor\(now = new Date\(\)\)/
+    )
 })
 
 process.exit(failed)
