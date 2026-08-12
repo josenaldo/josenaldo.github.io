@@ -193,6 +193,13 @@ function celulaConfianca(before, after) {
     return ROTULO_CONFIANCA[depois ?? antes]
 }
 
+// Escapa a barra vertical em texto livre vindo do canônico antes de inserir
+// numa célula de tabela Markdown — sem isso, um valor como "Slack #x | 6
+// meses" quebra o número de colunas da linha.
+function escapaCelula(texto) {
+    return String(texto).replace(/\|/g, '\\|')
+}
+
 function tabelaEngagement(canonical, engagementId) {
     const linhas = [
         '| Métrica | Antes | Depois | Confiança | Fonte / ressalva |',
@@ -202,11 +209,14 @@ function tabelaEngagement(canonical, engagementId) {
     for (const [, metric] of Object.entries(canonical.metrics)) {
         if (metric.engagement !== engagementId) continue
 
-        const antes = metric.before ? metric.before.text : '—'
-        const depois = metric.after ? `**${metric.after.text}**` : '—'
+        const antes = metric.before ? escapaCelula(metric.before.text) : '—'
+        const depois = metric.after
+            ? `**${escapaCelula(metric.after.text)}**`
+            : '—'
+        const nota = escapaCelula(metric.note ?? '')
 
         linhas.push(
-            `| **${metric.label}** | ${antes} | ${depois} | **${celulaConfianca(metric.before, metric.after)}** | ${metric.note ?? ''} |`
+            `| **${escapaCelula(metric.label)}** | ${antes} | ${depois} | **${celulaConfianca(metric.before, metric.after)}** | ${nota} |`
         )
     }
 
@@ -218,7 +228,7 @@ function tabelaAposentados(canonical) {
 
     for (const entrada of canonical.retired) {
         const numeros = entrada.variantes.map((v) => `\`${v}\``).join(' · ')
-        linhas.push(`| ${numeros} | ${entrada.motivo} |`)
+        linhas.push(`| ${numeros} | ${escapaCelula(entrada.motivo)} |`)
     }
 
     return linhas.join('\n')
@@ -227,7 +237,7 @@ function tabelaAposentados(canonical) {
 export function renderNote(texto, canonical) {
     const ids = [...canonical.engagements.map((e) => e.id), 'aposentados']
     const encontrados = [
-        ...texto.matchAll(/<!-- metricas:inicio:([a-z]+) -->/g),
+        ...texto.matchAll(/<!-- metricas:inicio:([a-z0-9_-]+) -->/g),
     ].map((m) => m[1])
 
     for (const id of encontrados) {
@@ -255,7 +265,16 @@ export function renderNote(texto, canonical) {
             `(<!-- metricas:inicio:${id} -->\\n)[\\s\\S]*?(\\n<!-- metricas:fim:${id} -->)`
         )
 
-        saida = saida.replace(bloco, `$1${conteudo}$2`)
+        // Função como replacement, não string: uma string de replacement
+        // reinterpreta padrões como $&, $1..$9 que aparecerem DENTRO do
+        // conteúdo gerado (ex.: um "note" com "R$1" no canônico), o que
+        // injetaria o texto casado — inclusive marcadores antigos — na
+        // saída e quebraria a idempotência. Uma função de replacement
+        // insere seu retorno literalmente, sem reinterpretação.
+        saida = saida.replace(
+            bloco,
+            (match, inicio, fim) => `${inicio}${conteudo}${fim}`
+        )
     }
 
     return saida

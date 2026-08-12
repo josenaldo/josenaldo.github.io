@@ -339,4 +339,43 @@ test('renderNote recusa engagement sem bloco na nota', () => {
     assert.throws(() => renderNote(notaFixture(), canonical), /orfao/)
 })
 
+test('renderNote trata $& e $1 no conteúdo gerado como texto literal', () => {
+    const canonical = baseCanonical()
+    canonical.metrics.deployDuration.note = 'R$1 economizados, ref $&'
+
+    const primeira = renderNote(notaFixture(), canonical)
+
+    assert.match(primeira, /R\$1 economizados, ref \$&/)
+    assert.doesNotMatch(primeira, /conteúdo velho que deve sumir/)
+
+    const segunda = renderNote(primeira, canonical)
+    assert.equal(primeira, segunda)
+})
+
+test('renderNote escapa barra vertical em texto livre', () => {
+    const canonical = baseCanonical()
+    canonical.metrics.deployDuration.note =
+        'Fonte: Slack #deploys | 6 meses de dados'
+
+    const saida = renderNote(notaFixture(), canonical)
+    const linhaDados = saida.split('\n').find((l) => l.includes('Slack'))
+
+    assert.ok(linhaDados, 'linha com o note não encontrada')
+    // Tabela de 5 colunas tem 6 barras verticais delimitadoras não escapadas.
+    const naoEscapadas = (linhaDados.match(/(?<!\\)\|/g) || []).length
+    assert.equal(naoEscapadas, 6)
+})
+
+test('renderNote aceita id de engagement com dígito e hífen', () => {
+    const canonical = baseCanonical()
+    canonical.engagements = [{ id: 'acme-2020', titulo: 'Acme 2020' }]
+    canonical.metrics.deployDuration.engagement = 'acme-2020'
+
+    const nota = notaFixture()
+        .replace('metricas:inicio:acme', 'metricas:inicio:acme-2020')
+        .replace('metricas:fim:acme', 'metricas:fim:acme-2020')
+
+    assert.doesNotThrow(() => renderNote(nota, canonical))
+})
+
 process.exit(failed)
