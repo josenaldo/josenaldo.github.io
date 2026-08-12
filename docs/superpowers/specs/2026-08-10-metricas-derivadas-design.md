@@ -113,3 +113,19 @@ A página `/hiring`, os links para `dist/bases/`, o marcador *trabalho remunerad
 `josenaldo.com.br/resume` está no ar hoje com os três números aposentados, o percentual sem origem e o título abandonado, e a spec 3b só remove essa página quando a `dev` for para a `main` — o que publicaria o site novo inteiro, contra a decisão de não soltar nada ainda. Decisão de 2026-08-10: **hotfix pequeno direto na `main`**, corrigindo os números e o título de `content/pages/{en,pt}/resume.md` pelos valores canônicos, publicando só isso. A página morre na 3b de qualquer forma; o hotfix existe para parar de sangrar hoje.
 
 Um segundo defeito da mesma página fica registrado para o hotfix decidir: `content/pages/pt/resume.md` está **inteiro em inglês**, apesar de servir `/pt/resume`.
+
+## Dívida técnica deixada pela execução
+
+Registrada aqui porque o ledger da execução é efêmero e git-ignored. A revisão final triou cada item como dívida, nenhum bloqueando a fusão. Os dois primeiros foram marcados para priorizar.
+
+- **Nenhum teste cobre `alvos()`, `main()` e o modo `--check` do `gen-metrics.mjs`.** É a camada que decide o que é escrito e onde — a única peça que toca a nota canônica de verdade. É a lacuna mais séria da lista.
+- **O parsing tab-separated no `bin/build.sh` do `curriculo` assume que `variante` e `motivo` nunca contêm tab ou newline literais.** Os `motivo` já carregam markdown livre vindo do vault, então é o item mais plausível de quebrar em silêncio.
+- `literal()` no `gen-metrics.mjs` escapa aspas simples mas não barra invertida. Nenhum texto do canônico contém barra hoje.
+- `renderRetired` faz cópia rasa: o array `variantes` segue sendo a mesma referência do canônico. Os dois consumidores só serializam.
+- `renderNote` usa `replace` não-global: dois pares de marcador com o mesmo id fariam só o primeiro ser atualizado, em silêncio.
+- `retired[].variantes` não passa pelo escape de barra vertical, embora seja renderizado dentro de célula de tabela.
+- Em `--check`, o `readFileSync` do canônico ausente estoura com stack trace em vez do padrão de erro limpo do resto do arquivo.
+- O teste "não acusa quando um dígito sucede a variante" em `test-check-metrics.mjs` usa `-905%`, onde `-90%` nunca é substring — passa pelo motivo errado. A implementação está correta; a cobertura é que não exercita o lado direito da fronteira.
+- `check:metrics` e `metrics:check` são nomes quase idênticos com significados diferentes: forma e números aposentados, que roda em CI, contra frescor, que só roda local. Nenhum workflow referencia os nomes, então renomear é seguro.
+- O README não diz que `core.hooksPath` é configuração local não versionada, e que `yarn hooks:install` precisa rodar uma vez por clone.
+- `python3` é invocado uma vez por arquivo gerado no `curriculo`, reparseando o mesmo `retired.json` cinco ou seis vezes por build.
