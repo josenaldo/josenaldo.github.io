@@ -1,57 +1,58 @@
-import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs'
+import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs'
 import { join } from 'node:path'
 
-const RETIRED = [
-    '600%',
-    '1h → 2min',
-    '1h -> 2min',
-    'one hour to about two minutes',
-    '2 semanas → 1 semana',
-    '2 semanas -> 1 semana',
-    '1 release a cada 2 meses',
-    'one release every two months',
-    '1 release por semana',
-    'one release per week',
-    '−90%',
-    '-90%',
-    '−95%',
-    '-95%',
-    '5.000+',
-    '5,000+',
-    '7.000+',
-    '7,000+',
-    '3.000+',
-    '3,000+',
-    '6 autores',
-    '6 authors',
-]
-
 const VALID_CONFIDENCE = ['measured', 'counted', 'remembered']
+const DIRETORIOS = ['src', 'docs/positioning', 'content']
+
+// Arquivos que colidem por acaso com uma variante aposentada, sem citar a
+// métrica que ela descreve. Nunca usar isto para afrouxar a lista de
+// aposentados — só para colisão de substring comprovadamente não relacionada.
+const EXCECOES = [
+    // Post sobre economia de tokens do RTK: "70-95%" e "60-90%" são faixas de
+    // economia por comando do RTK, não o "-90%"/"-95%" aposentado (que era
+    // sobre incidentes de produção do MedEspecialista). Colisão de substring.
+    'content/blog/pt/rtk-economia-tokens-claude-code.md',
+]
 
 const errors = []
 
 function walk(dir) {
     const out = []
-    // docs/positioning/ só nasce na Task 2 — antes disso o diretório não existe.
     if (!existsSync(dir)) return out
+
     for (const entry of readdirSync(dir)) {
         if (entry === 'node_modules' || entry.startsWith('.')) continue
         const full = join(dir, entry)
         if (statSync(full).isDirectory()) out.push(...walk(full))
         else if (/\.(js|jsx|mjs|json|md)$/.test(entry)) out.push(full)
     }
+
     return out
 }
 
-function checkRetiredNumbers() {
-    const files = [...walk('src'), ...walk('docs/positioning')]
+function checkRetiredNumbers(variantes) {
+    const files = DIRETORIOS.flatMap(walk).filter(
+        (file) => file !== 'src/data/retired.json' && !EXCECOES.includes(file)
+    )
+
     for (const file of files) {
         const content = readFileSync(file, 'utf8')
-        for (const retired of RETIRED) {
-            if (content.includes(retired)) {
-                errors.push(`${file}: número aposentado "${retired}"`)
+        for (const { variante, motivo } of variantes) {
+            if (content.includes(variante)) {
+                errors.push(
+                    `${file}: número aposentado "${variante}" — ${motivo}`
+                )
             }
         }
+    }
+}
+
+function checkLado(key, nome, lado) {
+    if (lado === null) return
+    if (!VALID_CONFIDENCE.includes(lado.confidence)) {
+        errors.push(
+            `metrics.${key}.${nome}: confidence "${lado.confidence}" inválida`
+        )
     }
 }
 
@@ -59,11 +60,6 @@ function checkShape(metrics) {
     for (const [key, metric] of Object.entries(metrics)) {
         if (metric.id !== key) {
             errors.push(`metrics.${key}: id "${metric.id}" difere da chave`)
-        }
-        if (!VALID_CONFIDENCE.includes(metric.confidence)) {
-            errors.push(
-                `metrics.${key}: confidence "${metric.confidence}" inválida`
-            )
         }
         if (typeof metric.engagement !== 'string' || !metric.engagement) {
             errors.push(`metrics.${key}: engagement ausente`)
@@ -74,12 +70,29 @@ function checkShape(metrics) {
         if (!('note' in metric)) {
             errors.push(`metrics.${key}: campo note ausente (use null)`)
         }
+        checkLado(key, 'before', metric.before ?? null)
+        checkLado(key, 'after', metric.after ?? null)
     }
 }
 
+function checkGerado() {
+    const fonte = readFileSync('src/data/metrics.mjs', 'utf8')
+    if (!fonte.startsWith('// ARQUIVO GERADO')) {
+        errors.push(
+            'src/data/metrics.mjs perdeu o cabeçalho de arquivo gerado — foi editado à mão?'
+        )
+    }
+}
+
+const retired = JSON.parse(readFileSync('src/data/retired.json', 'utf8'))
+const variantes = retired.entradas.flatMap(({ motivo, variantes }) =>
+    variantes.map((variante) => ({ variante, motivo }))
+)
+
 const { default: metrics } = await import('../src/data/metrics.mjs')
+checkGerado()
 checkShape(metrics)
-checkRetiredNumbers()
+checkRetiredNumbers(variantes)
 
 if (errors.length > 0) {
     console.error('check-metrics FALHOU:')
@@ -88,5 +101,5 @@ if (errors.length > 0) {
 }
 
 console.log(
-    `check-metrics OK — ${Object.keys(metrics).length} métricas válidas, nenhum número aposentado.`
+    `check-metrics OK — ${Object.keys(metrics).length} métricas válidas, ${variantes.length} variantes aposentadas, nenhuma encontrada.`
 )
