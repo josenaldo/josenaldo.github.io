@@ -116,7 +116,7 @@ josenaldo.github.io/
 │   ├── courses/              # Completed courses and certifications
 │   ├── engagements/          # Client engagements, as Arrived → Built → Result
 │   ├── experiences/          # Work and career experiences
-│   ├── pages/                # Static pages (About, Resume)
+│   ├── pages/                # Static pages (About)
 │   ├── projects/             # Portfolio projects
 │   ├── testimonials/         # Testimonials from colleagues
 │   └── workModes/            # The ways you take on work
@@ -270,7 +270,7 @@ image: /images/testimonials/jane-doe.jpg
 
 Set `show: false` to keep a testimonial in the repository without displaying it.
 
-### Updating the About and Resume pages
+### Updating the About page
 
 Edit the corresponding Markdown files in `content/pages/en/` and `content/pages/pt/`. The content body renders as Markdown on those pages.
 
