@@ -109,6 +109,16 @@ export function yearsAsSoleHumanAuthor(now = new Date()) {
 }
 `
 
+export function renderRetired(canonical) {
+    return {
+        updated: canonical.updated,
+        entradas: canonical.retired.map(({ motivo, variantes }) => ({
+            motivo,
+            variantes,
+        })),
+    }
+}
+
 function literal(valor) {
     if (valor === null) return 'null'
     if (typeof valor === 'string') return `'${valor.replace(/'/g, "\\'")}'`

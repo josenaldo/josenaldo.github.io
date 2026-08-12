@@ -1,6 +1,10 @@
 import assert from 'node:assert/strict'
 
-import { renderMetricsModule, validateCanonical } from './gen-metrics.mjs'
+import {
+    renderMetricsModule,
+    renderRetired,
+    validateCanonical,
+} from './gen-metrics.mjs'
 
 let failed = 0
 
@@ -213,6 +217,25 @@ test('nenhuma linha de código do corpo emitido passa de 80 colunas', () => {
             `linha excede 80 colunas (${linha.length}): "${linha}"`
         )
     }
+})
+
+test('retired.json preserva motivo e variantes', () => {
+    const saida = renderRetired(baseCanonical())
+
+    assert.equal(saida.updated, '2026-08-10')
+    assert.equal(saida.entradas.length, 1)
+    assert.equal(saida.entradas[0].motivo, 'Valor antigo.')
+    assert.deepEqual(saida.entradas[0].variantes, ['1h → 2min'])
+})
+
+test('retired.json preserva a ordem de várias entradas', () => {
+    const canonical = baseCanonical()
+    canonical.retired.push({ motivo: 'Outro.', variantes: ['600%', '−90%'] })
+
+    const saida = renderRetired(canonical)
+
+    assert.equal(saida.entradas.length, 2)
+    assert.deepEqual(saida.entradas[1].variantes, ['600%', '−90%'])
 })
 
 process.exit(failed)
