@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# Impede commitar artefatos de métrica defasados em relação ao canônico do vault.
+# Instale com: yarn hooks:install
+set -uo pipefail
+
+if [ ! -e "${CANONICAL_METRICS:-$HOME/repos/personal/codex-technomanticus-apocrypha/03-Dominios/Inglês/Entrevistas/metricas-canonicas.json}" ]; then
+  echo "pre-commit: canônico indisponível, pulando a checagem de frescor das métricas." >&2
+  exit 0
+fi
+
+node scripts/gen-metrics.mjs --check || exit 1

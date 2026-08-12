@@ -294,6 +294,14 @@ Place your images in `public/images/` and reference them with paths like `/image
 
 ---
 
+## Metrics: canonical source and freshness check
+
+`src/data/metrics.mjs` and `src/data/retired.json` are **generated files** — do not edit them by hand. Their single source of truth is a canonical JSON file (`metricas-canonicas.json`) that lives in a private vault outside this repository, owned by the site's maintainer. To change a number, edit that canonical JSON in the vault and then run `yarn metrics:gen`, which regenerates both files here from it.
+
+`yarn hooks:install` wires up a local pre-commit hook (`.githooks/pre-commit`) that runs `yarn metrics:check` (`node scripts/gen-metrics.mjs --check`) before every commit, blocking the commit if the generated files are stale relative to the vault's canonical JSON. This freshness check **only runs locally, on machines that have the vault**: GitHub Actions CI never sees the vault, so it cannot detect staleness — it only validates the shape of the generated files and checks for retired numbers via `yarn check:metrics`, which runs as part of `yarn build`. If you clone this repository without the vault, the hook detects its absence, prints a warning, and lets the commit through, so you can keep working normally; the freshness guarantee is a convenience for the maintainer's own machine, not a property of this repository or its CI.
+
+---
+
 ## Deployment
 
 ### Option 1: GitHub Pages (recommended — free and automatic)
