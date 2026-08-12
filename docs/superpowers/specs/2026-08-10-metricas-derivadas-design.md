@@ -104,7 +104,9 @@ O critério de aceite da migração é objetivo: os campos que `Hero`, `HowIOper
 
 ## Fora de escopo
 
-A página `/hiring`, os links para `dist/bases/`, o marcador *trabalho remunerado vs projeto próprio* em `projects` e o enriquecimento de Experiences, Projects e Courses são as specs 3b e 3c. Os quatro PDFs velhos em `public/files/{en,pt}/` também ficam para a 3b, porque quem os linka é a página `/resume`, que morre lá.
+A página `/hiring`, os links para `dist/bases/`, o marcador *trabalho remunerado vs projeto próprio* em `projects` e o enriquecimento de Experiences, Projects e Courses são as specs 3b e 3c.
+
+**Emenda de 2026-08-12.** O destino da página de currículo foi decidido antes da 3b: **o currículo sai do site e passa a viver só no repo `curriculo`.** Não é corrigido, é removido. Na `main` isso já aconteceu (commit `818cfd2`): a rota `/resume`, a entrada de menu, o botão de download do Hero e os quatro arquivos de `public/files/` foram apagados, e `/resume` devolve 404. Na `dev` o mesmo acontece dentro da Task 6 desta spec. Em consequência, a 3b deixa de "absorver `/resume`" e passa a criar `/hiring` do zero, apontando para os PDFs de `dist/bases/`. O mesmo commit trocou o subtítulo do Hero da `main`, que ainda anunciava o posicionamento abandonado na primeira dobra da home.
 
 ## Trabalho adjacente, fora desta spec
 

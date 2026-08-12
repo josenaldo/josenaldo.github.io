@@ -44,6 +44,7 @@ Valores de ambiente usados pelo gerador, com estes defaults exatos:
 - Modificar `scripts/check-metrics.mjs` — forma nova, `walk()` incluindo `content/`, leitura do `retired.json`.
 - Modificar `package.json` — scripts `metrics:gen`, `metrics:check`, `hooks:install`.
 - Modificar `README.md` — como instalar o hook e como propagar uma métrica.
+- Apagar `content/pages/{en,pt}/resume.md` e `src/app/[locale]/resume/` — o currículo sai do site (Task 6).
 
 **Repo `curriculo`** (público):
 
@@ -1130,11 +1131,26 @@ console.log(
 Run: `yarn check:metrics`
 Expected: FAIL, apontando `content/pages/en/resume.md` e `content/pages/pt/resume.md` com `~1 hour to ~2 minutes`, `~2 hours to ~2 minutes` e `~2 weeks to ~1 week`. É a descoberta que motivou a spec, e é esperada aqui.
 
-- [ ] **Step 3: Corrigir os arquivos acusados**
+- [ ] **Step 3: Apagar as páginas de currículo**
 
-Nas duas páginas, trocar cada número aposentado pelo valor canônico correspondente: deploy vira `~2 hours to ~15 minutes`, lead time vira `3–6 months to ~1 week` (e passa a se chamar *product lead time*), e `reducing manual work by 97%` sai — o percentual não existe no canônico; o fato correspondente é a operação mensal de follow-up, que se escreve `turning a month-long manual operation into a ~2-hour automated one`. Trocar também o título de `Senior Full Stack Engineer` para `Fractional Software Engineer & Architect`, alinhando com os currículos-base.
+Decisão do dono do site em 2026-08-12: **o currículo não é corrigido, é removido.** Ele agora vive no repo `curriculo` (`github.com/josenaldo/curriculo`), e o site deixa de hospedar uma cópia que divergia em silêncio. O mesmo já foi feito na `main` pelo commit `818cfd2`; aqui é o reflexo na `dev`, cuja estrutura é outra (App Router, um arquivo por locale).
 
-Se algum outro arquivo de `content/` for acusado, ler o contexto antes de mexer: se for citação histórica legítima, acrescentar o caminho a uma constante `EXCECOES` no `check-metrics.mjs` com um comentário dizendo por quê — nunca remover a variante da lista de aposentados.
+```bash
+git rm content/pages/en/resume.md content/pages/pt/resume.md
+git rm -r "src/app/[locale]/resume"
+```
+
+Depois, remover as referências órfãs que sobrarem. Procurar com:
+
+```bash
+grep -rn "resume" src/ content/ --include=*.js --include=*.json --include=*.md | grep -vi "your resume\|my resume\|a resume\|resumes"
+```
+
+O que aparecer em navegação, mensagens de tradução (`src/messages/{en,pt}.json`) ou dados de página precisa sair junto. Menção genérica à palavra "resume" dentro de post de blog é prosa, e fica.
+
+`/en/resume` e `/pt/resume` passam a devolver 404 por decisão explícita — a página volta na Etapa 3b como `/hiring`, com outra URL.
+
+Se algum **outro** arquivo de `content/` for acusado pelo `check-metrics`, ler o contexto antes de mexer: se for citação histórica legítima, acrescentar o caminho a uma constante `EXCECOES` no `check-metrics.mjs` com um comentário dizendo por quê — nunca remover a variante da lista de aposentados.
 
 - [ ] **Step 4: Rodar de novo**
 
@@ -1149,8 +1165,8 @@ Expected: PASS, sem avisos do Contentlayer.
 - [ ] **Step 6: Commit**
 
 ```bash
-git add scripts/check-metrics.mjs content/pages/en/resume.md content/pages/pt/resume.md
-git commit -m "feat(metricas): check-metrics valida forma nova e varre content/"
+git add -A scripts/check-metrics.mjs content src
+git commit -m "feat(metricas): check-metrics varre content/ e o curriculo sai do site"
 ```
 
 ---
