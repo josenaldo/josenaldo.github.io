@@ -90,9 +90,6 @@ function checkShape(metrics) {
         if (metric.before === null && metric.after === null) {
             errors.push(`metrics.${key}: before e after ambos nulos`)
         }
-        if (!('note' in metric)) {
-            errors.push(`metrics.${key}: campo note ausente (use null)`)
-        }
         checkLado(key, 'before', metric.before ?? null)
         checkLado(key, 'after', metric.after ?? null)
     }

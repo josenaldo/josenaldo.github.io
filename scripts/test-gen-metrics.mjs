@@ -143,6 +143,17 @@ test('emite o lado com confidence achatada dentro do value', () => {
     assert.match(saida, /confidence: 'remembered'/)
 })
 
+test('não emite o campo note no módulo — procedência e ressalva ficam só na nota canônica privada', () => {
+    const canonical = baseCanonical()
+    canonical.metrics.deployDuration.note =
+        'Ressalva sensível que não pode vazar pro módulo público.'
+
+    const saida = renderMetricsModule(canonical)
+
+    assert.doesNotMatch(saida, /note:/)
+    assert.doesNotMatch(saida, /Ressalva sensível/)
+})
+
 test('omite métrica com site false', () => {
     const canonical = baseCanonical()
     canonical.metrics.deployDuration.site = false

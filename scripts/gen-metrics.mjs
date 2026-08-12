@@ -80,6 +80,10 @@ const CABECALHO = `// ARQUIVO GERADO — não edite à mão.
 //   'measured'   — extraído de git/GitHub/suíte de testes, com comando reproduzível
 //   'counted'    — contagem manual sobre um registro que existe
 //   'remembered' — memória do estado anterior, sem registro recuperável
+//
+// A procedência e as ressalvas de cada métrica (fonte, ressalva, contexto)
+// não são emitidas aqui — vivem só na nota canônica "Métricas Canônicas.md",
+// no vault privado. Este arquivo público fica com valor e confiança.
 `
 
 const RODAPE = `
@@ -161,7 +165,6 @@ export function renderMetricsModule(canonical) {
                 `        engagement: '${metric.engagement}',\n` +
                 `        before: ${renderLado(metric.before ?? null, 8, 'before: ')},\n` +
                 `        after: ${renderLado(metric.after ?? null, 8, 'after: ')},\n` +
-                `        note: ${literal(metric.note)},\n` +
                 `    },`
             )
         })
@@ -296,6 +299,8 @@ const VAULT = join(
     'repos/personal/codex-technomanticus-apocrypha/03-Dominios/Inglês/Entrevistas'
 )
 
+// A nota canônica é um arquivo versionado no vault privado — se uma geração
+// sair errada, `git checkout` nela restaura o estado anterior.
 const CAMINHOS = {
     canonical:
         process.env.CANONICAL_METRICS ?? join(VAULT, 'metricas-canonicas.json'),
