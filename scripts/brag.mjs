@@ -46,7 +46,12 @@ export function agregar(notas) {
         throw new Error('Brag/index.md ausente — sem ele não há biografia')
 
     const notaAposentados = notas.find((n) => n.caminho.endsWith(APOSENTADOS))
-    const retired = notaAposentados ? notaAposentados.metricas : []
+    if (!notaAposentados) {
+        throw new Error(
+            `Brag/${APOSENTADOS} ausente — sem ele não há garantia de que valores aposentados de métricas continuam registrados; se o vault é novo, declare a lista vazia explicitamente no arquivo em vez de omiti-lo`
+        )
+    }
+    const retired = notaAposentados.metricas
 
     const metrics = {}
     const withheld = []
@@ -114,12 +119,17 @@ export function validarArvore(notas) {
             .filter((n) => n.ehIndice && n.engagement !== '')
             .map((n) => n.engagement)
     )
+    const pastasSemIndiceReportadas = new Set()
 
     for (const n of notas) {
         if (n.engagement === '') continue
 
-        if (!pastasComIndice.has(n.engagement)) {
-            erros.push(`${n.caminho}: pasta "${n.engagement}" não tem index.md`)
+        if (
+            !pastasComIndice.has(n.engagement) &&
+            !pastasSemIndiceReportadas.has(n.engagement)
+        ) {
+            pastasSemIndiceReportadas.add(n.engagement)
+            erros.push(`pasta "${n.engagement}" não tem index.md`)
         }
 
         const declarado = n.frontmatter.engagement

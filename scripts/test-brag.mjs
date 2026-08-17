@@ -183,7 +183,14 @@ function arvoreFixture() {
                 note: null,
             },
         ]),
+        aposentadosFixture(),
     ]
+}
+
+function aposentadosFixture() {
+    const aposentados = nota('', false, { title: 'Números aposentados' }, [])
+    aposentados.caminho = 'Brag/Numeros aposentados.md'
+    return aposentados
 }
 
 test('agrega métricas de índice e de conquista no mesmo mapa', () => {
@@ -334,6 +341,11 @@ test('árvore legítima de dois níveis continua funcionando', () => {
             'acme/conquista.md',
             'title: "Entrega"\nupdated: "2026-08-10"'
         )
+        escreverNota(
+            dir,
+            'Numeros aposentados.md',
+            'title: "Números aposentados"\nupdated: "2026-08-10"'
+        )
     })
 
     assert.deepEqual(
@@ -347,6 +359,7 @@ test('árvore legítima de dois níveis continua funcionando', () => {
         [
             { engagement: 'acme', ehIndice: false },
             { engagement: 'acme', ehIndice: true },
+            { engagement: '', ehIndice: false },
             { engagement: '', ehIndice: true },
         ]
     )
@@ -409,17 +422,47 @@ test('árvore válida não produz erro', () => {
 
 test('retired vem da nota de números aposentados', () => {
     const arvore = arvoreFixture()
-    const aposentados = nota('', false, { title: 'Números aposentados' }, [])
-    aposentados.caminho = 'Brag/Numeros aposentados.md'
+    const aposentados = arvore.find((n) =>
+        n.caminho.endsWith('Numeros aposentados.md')
+    )
     aposentados.metricas = [
         { motivo: 'Valor antigo.', variantes: ['1h → 2min'] },
     ]
-    arvore.push(aposentados)
 
     const c = agregar(arvore)
 
     assert.equal(c.retired.length, 1)
     assert.deepEqual(c.retired[0].variantes, ['1h → 2min'])
+})
+
+test('pasta sem index com três notas produz uma única linha de erro, nomeando a pasta', () => {
+    const arvore = arvoreFixture().filter(
+        (n) => !(n.engagement === 'acme' && n.ehIndice)
+    )
+    arvore.push(nota('acme', false, { title: 'B' }, []))
+    arvore[arvore.length - 1].caminho = 'acme/b.md'
+    arvore.push(nota('acme', false, { title: 'C' }, []))
+    arvore[arvore.length - 1].caminho = 'acme/c.md'
+
+    const erros = validarArvore(arvore)
+    const semIndice = erros.filter((e) => /index\.md/.test(e))
+
+    assert.equal(semIndice.length, 1)
+    assert.match(semIndice[0], /acme/)
+})
+
+test('árvore sem Numeros aposentados.md é recusada, nomeando o arquivo esperado', () => {
+    const arvore = arvoreFixture().filter(
+        (n) => !n.caminho.endsWith('Numeros aposentados.md')
+    )
+
+    assert.throws(() => agregar(arvore), /Numeros aposentados\.md/)
+})
+
+test('árvore com Numeros aposentados.md presente e lista vazia é aceita sem erro', () => {
+    const c = agregar(arvoreFixture())
+
+    assert.deepEqual(c.retired, [])
 })
 
 process.exit(failed)
