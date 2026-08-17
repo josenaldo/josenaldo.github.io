@@ -86,7 +86,12 @@ export function agregar(notas) {
         }
 
         for (const m of n.metricas) {
-            metrics[m.id] = { ...m, engagement: n.engagement }
+            // `id` só existe na nota para permitir a montagem do mapa (a
+            // chave já é o id) e para `validarArvore` detectar duplicidade —
+            // não pertence ao valor: o canônico nunca teve `id` dentro do
+            // objeto de cada métrica, só como chave de `metrics`.
+            const { id, ...resto } = m
+            metrics[id] = { ...resto, engagement: n.engagement }
         }
     }
 
