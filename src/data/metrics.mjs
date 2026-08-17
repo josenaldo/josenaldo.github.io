@@ -23,6 +23,30 @@
 // no vault privado. Este arquivo público fica com valor e confiança.
 
 const metrics = {
+    conddizArchitecture: {
+        id: 'conddizArchitecture',
+        engagement: 'conddiz',
+        before: null,
+        after: { display: '1/3', confidence: 'remembered' },
+    },
+    conddizTrafficPeak: {
+        id: 'conddizTrafficPeak',
+        engagement: 'conddiz',
+        before: null,
+        after: { count: 200000, confidence: 'remembered' },
+    },
+    digidadosBilling: {
+        id: 'digidadosBilling',
+        engagement: 'digidados',
+        before: { display: '2d', confidence: 'remembered' },
+        after: { display: '3min', confidence: 'remembered' },
+    },
+    digidadosIncidentResponse: {
+        id: 'digidadosIncidentResponse',
+        engagement: 'digidados',
+        before: { count: 5, confidence: 'remembered' },
+        after: { count: 1, confidence: 'remembered' },
+    },
     deploymentFrequency: {
         id: 'deploymentFrequency',
         engagement: 'medespecialista',
@@ -53,11 +77,11 @@ const metrics = {
         before: null,
         after: { count: 0, confidence: 'remembered' },
     },
-    automatedTests: {
-        id: 'automatedTests',
+    agentTokenCost: {
+        id: 'agentTokenCost',
         engagement: 'medespecialista',
-        before: { count: 70, confidence: 'measured' },
-        after: { count: 9120, confidence: 'measured' },
+        before: null,
+        after: { display: '-80%', confidence: 'measured' },
     },
     followUpOperation: {
         id: 'followUpOperation',
@@ -65,11 +89,11 @@ const metrics = {
         before: { count: 1, per: 'month', confidence: 'remembered' },
         after: { display: '2h', confidence: 'remembered' },
     },
-    agentTokenCost: {
-        id: 'agentTokenCost',
+    automatedTests: {
+        id: 'automatedTests',
         engagement: 'medespecialista',
-        before: null,
-        after: { display: '-80%', confidence: 'measured' },
+        before: { count: 70, confidence: 'measured' },
+        after: { count: 9120, confidence: 'measured' },
     },
     codebasesOwned: {
         id: 'codebasesOwned',
@@ -119,30 +143,6 @@ const metrics = {
         engagement: 'muvz',
         before: null,
         after: { count: 15, confidence: 'remembered' },
-    },
-    conddizArchitecture: {
-        id: 'conddizArchitecture',
-        engagement: 'conddiz',
-        before: null,
-        after: { display: '1/3', confidence: 'remembered' },
-    },
-    conddizTrafficPeak: {
-        id: 'conddizTrafficPeak',
-        engagement: 'conddiz',
-        before: null,
-        after: { count: 200000, confidence: 'remembered' },
-    },
-    digidadosBilling: {
-        id: 'digidadosBilling',
-        engagement: 'digidados',
-        before: { display: '2d', confidence: 'remembered' },
-        after: { display: '3min', confidence: 'remembered' },
-    },
-    digidadosIncidentResponse: {
-        id: 'digidadosIncidentResponse',
-        engagement: 'digidados',
-        before: { count: 5, confidence: 'remembered' },
-        after: { count: 1, confidence: 'remembered' },
     },
 }
 

@@ -61,6 +61,9 @@ export function validateCanonical(canonical) {
     return errors
 }
 
+const AVISO_GERADO =
+    'ARQUIVO GERADO a partir de Brag/** no vault — não edite à mão; rode `yarn metrics:gen`.'
+
 const CABECALHO = `// ARQUIVO GERADO — não edite à mão.
 //
 // Origem: 03-Dominios/Inglês/Entrevistas/metricas-canonicas.json, no vault
@@ -294,6 +297,8 @@ import { homedir } from 'node:os'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
+import { agregar, lerArvore, validarArvore } from './brag.mjs'
+
 const VAULT = join(
     homedir(),
     'repos/personal/codex-technomanticus-apocrypha/03-Dominios/Inglês/Entrevistas'
@@ -308,6 +313,7 @@ const CAMINHOS = {
     curriculo:
         process.env.CURRICULO_REPO ??
         join(homedir(), 'repos/personal/curriculo'),
+    brag: process.env.BRAG_ROOT ?? join(VAULT, 'Brag'),
 }
 
 function alvos(canonical, notaAtual) {
@@ -329,6 +335,11 @@ function alvos(canonical, notaAtual) {
             caminho: CAMINHOS.note,
             conteudo: renderNote(notaAtual, canonical),
             envVar: 'CANONICAL_NOTE',
+        },
+        {
+            caminho: CAMINHOS.canonical,
+            conteudo: `${JSON.stringify({ _gerado: AVISO_GERADO, ...canonical }, null, 4)}\n`,
+            envVar: 'CANONICAL_METRICS',
         },
     ]
 }
@@ -373,7 +384,33 @@ export function verificarDestinos(alvos) {
 
 function main() {
     const modoCheck = process.argv.includes('--check')
-    const canonical = JSON.parse(readFileSync(CAMINHOS.canonical, 'utf8'))
+
+    let notas
+    try {
+        notas = lerArvore(CAMINHOS.brag)
+    } catch (error) {
+        console.error(
+            `gen-metrics FALHOU — não foi possível ler ${CAMINHOS.brag}: ${error.message}`
+        )
+        process.exit(1)
+    }
+
+    const errosArvore = validarArvore(notas)
+
+    if (errosArvore.length > 0) {
+        console.error('gen-metrics FALHOU — árvore de brags inválida:')
+        for (const erro of errosArvore) console.error(`  - ${erro}`)
+        process.exit(1)
+    }
+
+    let canonical
+    try {
+        canonical = agregar(notas)
+    } catch (error) {
+        console.error(`gen-metrics FALHOU — ${error.message}`)
+        process.exit(1)
+    }
+
     const errors = validateCanonical(canonical)
 
     if (errors.length > 0) {
