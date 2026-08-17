@@ -51,6 +51,12 @@ export function agregar(notas) {
         if (n.engagement === '') continue
 
         if (n.ehIndice) {
+            if (n.frontmatter.retido === true) {
+                throw new Error(
+                    `${n.caminho}: retido: true não é válido em index.md de engagement — retenção se aplica a notas de conquista, não ao engagement inteiro; esconder o engagement inteiro é funcionalidade que ainda não existe e precisa ser desenhada, não improvisada`
+                )
+            }
+
             engagements.push({
                 id: n.frontmatter.id,
                 titulo: n.frontmatter.titulo,
@@ -97,11 +103,16 @@ export function agregar(notas) {
 export function lerArvore(raizDir) {
     const notas = []
 
-    function visitar(dir, engagement) {
+    function visitar(dir, engagement, profundidade) {
         for (const entrada of readdirSync(dir).sort()) {
             const cheio = join(dir, entrada)
             if (statSync(cheio).isDirectory()) {
-                visitar(cheio, entrada)
+                if (profundidade >= 1) {
+                    throw new Error(
+                        `${cheio}: pasta aninhada além de um nível não é suportada — a estrutura esperada é Brag/<engagement>/<nota>.md (dois níveis)`
+                    )
+                }
+                visitar(cheio, entrada, profundidade + 1)
                 continue
             }
             if (!entrada.endsWith('.md')) continue
@@ -120,7 +131,7 @@ export function lerArvore(raizDir) {
         }
     }
 
-    visitar(raizDir, '')
+    visitar(raizDir, '', 0)
 
     return notas
 }

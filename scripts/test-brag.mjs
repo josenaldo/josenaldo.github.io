@@ -1,6 +1,9 @@
 import assert from 'node:assert/strict'
+import { mkdtempSync, mkdirSync, rmSync, writeFileSync } from 'node:fs'
+import { tmpdir } from 'node:os'
+import { join } from 'node:path'
 
-import { agregar, parseBrag } from './brag.mjs'
+import { agregar, lerArvore, parseBrag } from './brag.mjs'
 
 let failed = 0
 
@@ -267,6 +270,89 @@ test('engagements saem ordenados por inicio decrescente', () => {
         agregar(arvore).engagements.map((e) => e.id),
         ['zeta', 'acme']
     )
+})
+
+function arvoreTemporaria(construir) {
+    const dir = mkdtempSync(join(tmpdir(), 'brag-test-'))
+    try {
+        construir(dir)
+        return lerArvore(dir)
+    } finally {
+        rmSync(dir, { recursive: true, force: true })
+    }
+}
+
+function escreverNota(dir, caminhoRelativo, frontmatter) {
+    const cheio = join(dir, caminhoRelativo)
+    mkdirSync(join(cheio, '..'), { recursive: true })
+    writeFileSync(cheio, `---\n${frontmatter}\n---\n\n# Nota\n`)
+}
+
+test('lerArvore recusa pasta aninhada além de um nível', () => {
+    assert.throws(() => {
+        arvoreTemporaria((dir) => {
+            escreverNota(
+                dir,
+                'index.md',
+                'careerStartYear: 2003\nsiteLaunchYear: 2023\nupdated: "2026-08-10"'
+            )
+            escreverNota(
+                dir,
+                'acme/index.md',
+                'id: acme\ntitulo: "Acme"\nupdated: "2026-08-10"'
+            )
+            escreverNota(
+                dir,
+                'acme/sub/nota.md',
+                'title: "Aninhada"\nupdated: "2026-08-10"'
+            )
+        })
+    }, /acme[\\/]sub.*n(í|i)vel/)
+})
+
+test('index.md de engagement com retido: true é recusado', () => {
+    const arvore = arvoreFixture()
+    arvore[1].frontmatter.retido = true
+
+    assert.throws(() => agregar(arvore), /acme\/index\.md/)
+})
+
+test('árvore legítima de dois níveis continua funcionando', () => {
+    const notas = arvoreTemporaria((dir) => {
+        escreverNota(
+            dir,
+            'index.md',
+            'careerStartYear: 2003\nsiteLaunchYear: 2023\nupdated: "2026-08-10"'
+        )
+        escreverNota(
+            dir,
+            'acme/index.md',
+            'id: acme\ntitulo: "Acme"\nupdated: "2026-08-10"'
+        )
+        escreverNota(
+            dir,
+            'acme/conquista.md',
+            'title: "Entrega"\nupdated: "2026-08-10"'
+        )
+    })
+
+    assert.deepEqual(
+        notas
+            .map((n) => ({ engagement: n.engagement, ehIndice: n.ehIndice }))
+            .sort((a, b) =>
+                `${a.engagement}${a.ehIndice}`.localeCompare(
+                    `${b.engagement}${b.ehIndice}`
+                )
+            ),
+        [
+            { engagement: 'acme', ehIndice: false },
+            { engagement: 'acme', ehIndice: true },
+            { engagement: '', ehIndice: true },
+        ]
+    )
+
+    const c = agregar(notas)
+    assert.deepEqual(c.engagements, [{ id: 'acme', titulo: 'Acme' }])
 })
 
 process.exit(failed)
