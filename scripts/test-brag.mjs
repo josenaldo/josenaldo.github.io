@@ -3,7 +3,7 @@ import { mkdtempSync, mkdirSync, rmSync, writeFileSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 
-import { agregar, lerArvore, parseBrag } from './brag.mjs'
+import { agregar, lerArvore, parseBrag, validarArvore } from './brag.mjs'
 
 let failed = 0
 
@@ -353,6 +353,73 @@ test('árvore legítima de dois níveis continua funcionando', () => {
 
     const c = agregar(notas)
     assert.deepEqual(c.engagements, [{ id: 'acme', titulo: 'Acme' }])
+})
+
+test('id de métrica duplicado entre notas é recusado, nomeando os dois arquivos', () => {
+    const arvore = arvoreFixture()
+    arvore.push(
+        nota('acme', false, { title: 'Outra' }, [
+            {
+                id: 'deployDuration',
+                label: 'Duplicada',
+                site: true,
+                before: null,
+                after: { confidence: 'measured', text: 'x', value: {} },
+                note: null,
+            },
+        ])
+    )
+    arvore[arvore.length - 1].caminho = 'acme/outra.md'
+
+    const erros = validarArvore(arvore)
+
+    assert.equal(erros.length, 1)
+    assert.match(erros[0], /deployDuration/)
+    assert.match(erros[0], /acme\/conquista\.md/)
+    assert.match(erros[0], /acme\/outra\.md/)
+})
+
+test('nota em pasta sem index é recusada', () => {
+    const arvore = arvoreFixture().filter(
+        (n) => !(n.engagement === 'acme' && n.ehIndice)
+    )
+
+    assert.match(validarArvore(arvore)[0], /acme.*index\.md/)
+})
+
+test('engagement do frontmatter divergindo da pasta é recusado', () => {
+    const arvore = arvoreFixture()
+    arvore[2].frontmatter.engagement = 'outro'
+
+    assert.match(validarArvore(arvore)[0], /outro.*acme/)
+})
+
+test('nota retida sem gatilho é recusada', () => {
+    const arvore = arvoreFixture()
+    arvore.push(
+        nota('acme', false, { title: 'R', retido: true, motivo: 'M' }, [])
+    )
+
+    assert.match(validarArvore(arvore)[0], /gatilho/)
+})
+
+test('árvore válida não produz erro', () => {
+    assert.deepEqual(validarArvore(arvoreFixture()), [])
+})
+
+test('retired vem da nota de números aposentados', () => {
+    const arvore = arvoreFixture()
+    const aposentados = nota('', false, { title: 'Números aposentados' }, [])
+    aposentados.caminho = 'Brag/Numeros aposentados.md'
+    aposentados.metricas = [
+        { motivo: 'Valor antigo.', variantes: ['1h → 2min'] },
+    ]
+    arvore.push(aposentados)
+
+    const c = agregar(arvore)
+
+    assert.equal(c.retired.length, 1)
+    assert.deepEqual(c.retired[0].variantes, ['1h → 2min'])
 })
 
 process.exit(failed)

@@ -38,10 +38,15 @@ export function parseBrag(texto, caminho) {
     return { frontmatter, metricas }
 }
 
+const APOSENTADOS = 'Numeros aposentados.md'
+
 export function agregar(notas) {
     const raiz = notas.find((n) => n.engagement === '' && n.ehIndice)
     if (!raiz)
         throw new Error('Brag/index.md ausente — sem ele não há biografia')
+
+    const notaAposentados = notas.find((n) => n.caminho.endsWith(APOSENTADOS))
+    const retired = notaAposentados ? notaAposentados.metricas : []
 
     const metrics = {}
     const withheld = []
@@ -49,6 +54,7 @@ export function agregar(notas) {
 
     for (const n of notas) {
         if (n.engagement === '') continue
+        if (n.caminho.endsWith(APOSENTADOS)) continue
 
         if (n.ehIndice) {
             if (n.frontmatter.retido === true) {
@@ -96,8 +102,50 @@ export function agregar(notas) {
         engagements: engagements.map(({ id, titulo }) => ({ id, titulo })),
         metrics,
         withheld,
-        retired: [],
+        retired,
     }
+}
+
+export function validarArvore(notas) {
+    const erros = []
+    const donoDaMetrica = new Map()
+    const pastasComIndice = new Set(
+        notas
+            .filter((n) => n.ehIndice && n.engagement !== '')
+            .map((n) => n.engagement)
+    )
+
+    for (const n of notas) {
+        if (n.engagement === '') continue
+
+        if (!pastasComIndice.has(n.engagement)) {
+            erros.push(`${n.caminho}: pasta "${n.engagement}" não tem index.md`)
+        }
+
+        const declarado = n.frontmatter.engagement
+        if (!n.ehIndice && declarado && declarado !== n.engagement) {
+            erros.push(
+                `${n.caminho}: frontmatter declara engagement "${declarado}" mas o arquivo está em "${n.engagement}"`
+            )
+        }
+
+        if (n.frontmatter.retido === true && !n.frontmatter.gatilho) {
+            erros.push(`${n.caminho}: nota retida precisa de campo gatilho`)
+        }
+
+        for (const m of n.metricas) {
+            const anterior = donoDaMetrica.get(m.id)
+            if (anterior) {
+                erros.push(
+                    `métrica "${m.id}" declarada em dois lugares: ${anterior} e ${n.caminho}`
+                )
+            } else {
+                donoDaMetrica.set(m.id, n.caminho)
+            }
+        }
+    }
+
+    return erros
 }
 
 export function lerArvore(raizDir) {
