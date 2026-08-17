@@ -1,3 +1,6 @@
+import { readdirSync, readFileSync, statSync } from 'node:fs'
+import { basename, join } from 'node:path'
+
 import { parse } from 'yaml'
 
 // Extrai o bloco YAML que segue o cabeçalho "## Métricas". Qualquer outro
@@ -33,4 +36,91 @@ export function parseBrag(texto, caminho) {
     }
 
     return { frontmatter, metricas }
+}
+
+export function agregar(notas) {
+    const raiz = notas.find((n) => n.engagement === '' && n.ehIndice)
+    if (!raiz)
+        throw new Error('Brag/index.md ausente — sem ele não há biografia')
+
+    const metrics = {}
+    const withheld = []
+    const engagements = []
+
+    for (const n of notas) {
+        if (n.engagement === '') continue
+
+        if (n.ehIndice) {
+            engagements.push({
+                id: n.frontmatter.id,
+                titulo: n.frontmatter.titulo,
+                inicio: n.frontmatter.inicio ?? '',
+            })
+        }
+
+        if (n.frontmatter.retido === true) {
+            withheld.push({
+                id: n.frontmatter.id ?? basename(n.caminho, '.md'),
+                titulo: n.frontmatter.title ?? n.frontmatter.titulo,
+                motivo: n.frontmatter.motivo,
+                gatilho: n.frontmatter.gatilho,
+            })
+            continue
+        }
+
+        for (const m of n.metricas) {
+            metrics[m.id] = { ...m, engagement: n.engagement }
+        }
+    }
+
+    engagements.sort((a, b) => b.inicio.localeCompare(a.inicio))
+
+    const updated = notas
+        .map((n) => n.frontmatter.updated)
+        .filter(Boolean)
+        .sort()
+        .pop()
+
+    return {
+        updated,
+        biography: {
+            careerStartYear: raiz.frontmatter.careerStartYear,
+            siteLaunchYear: raiz.frontmatter.siteLaunchYear,
+        },
+        engagements: engagements.map(({ id, titulo }) => ({ id, titulo })),
+        metrics,
+        withheld,
+        retired: [],
+    }
+}
+
+export function lerArvore(raizDir) {
+    const notas = []
+
+    function visitar(dir, engagement) {
+        for (const entrada of readdirSync(dir).sort()) {
+            const cheio = join(dir, entrada)
+            if (statSync(cheio).isDirectory()) {
+                visitar(cheio, entrada)
+                continue
+            }
+            if (!entrada.endsWith('.md')) continue
+
+            const { frontmatter, metricas } = parseBrag(
+                readFileSync(cheio, 'utf8'),
+                cheio
+            )
+            notas.push({
+                caminho: cheio,
+                engagement,
+                ehIndice: entrada === 'index.md',
+                frontmatter,
+                metricas,
+            })
+        }
+    }
+
+    visitar(raizDir, '')
+
+    return notas
 }
