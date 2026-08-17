@@ -3,7 +3,14 @@ import { mkdtempSync, mkdirSync, rmSync, writeFileSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 
-import { agregar, lerArvore, parseBrag, validarArvore } from './brag.mjs'
+import {
+    agregar,
+    classificarDiretorio,
+    descobrirRepos,
+    lerArvore,
+    parseBrag,
+    validarArvore,
+} from './brag.mjs'
 
 let failed = 0
 
@@ -463,6 +470,44 @@ test('árvore com Numeros aposentados.md presente e lista vazia é aceita sem er
     const c = agregar(arvoreFixture())
 
     assert.deepEqual(c.retired, [])
+})
+
+function arvoreDeReposFixture() {
+    const raiz = mkdtempSync(join(tmpdir(), 'brag-repos-'))
+
+    mkdirSync(join(raiz, 'api', '.git'), { recursive: true })
+    mkdirSync(join(raiz, 'admin', '.git'), { recursive: true })
+    mkdirSync(join(raiz, 'api-metrics'), { recursive: true })
+    writeFileSync(
+        join(raiz, 'api-metrics', '.git'),
+        'gitdir: /x/.git/worktrees/api-metrics\n'
+    )
+    mkdirSync(join(raiz, 'outros'), { recursive: true })
+
+    return raiz
+}
+
+test('classifica repositório, worktree e ruído pela natureza do .git', () => {
+    const raiz = arvoreDeReposFixture()
+
+    assert.equal(classificarDiretorio(join(raiz, 'api')), 'repo')
+    assert.equal(classificarDiretorio(join(raiz, 'api-metrics')), 'worktree')
+    assert.equal(classificarDiretorio(join(raiz, 'outros')), 'ruido')
+})
+
+test('descobre só os repositórios, ordenados', () => {
+    assert.deepEqual(descobrirRepos(arvoreDeReposFixture()), ['admin', 'api'])
+})
+
+test('respeita a lista de ignorados', () => {
+    assert.deepEqual(descobrirRepos(arvoreDeReposFixture(), ['admin']), ['api'])
+})
+
+test('raiz inexistente falha nomeando o caminho', () => {
+    assert.throws(
+        () => descobrirRepos('/caminho/que/nao/existe'),
+        /\/caminho\/que\/nao\/existe/
+    )
 })
 
 process.exit(failed)

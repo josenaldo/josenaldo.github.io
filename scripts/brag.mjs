@@ -1,4 +1,4 @@
-import { readdirSync, readFileSync, statSync } from 'node:fs'
+import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs'
 import { basename, join } from 'node:path'
 
 import { parse } from 'yaml'
@@ -156,6 +156,29 @@ export function validarArvore(notas) {
     }
 
     return erros
+}
+
+// A natureza do .git separa os três casos, e é a única regra confiável:
+// contar diretórios daria 19 onde o número certo é 10, em ~/repos/medespecialista.
+export function classificarDiretorio(caminho) {
+    const git = join(caminho, '.git')
+    if (!existsSync(git)) return 'ruido'
+
+    return statSync(git).isDirectory() ? 'repo' : 'worktree'
+}
+
+export function descobrirRepos(raiz, ignorar = []) {
+    if (!existsSync(raiz)) {
+        throw new Error(`raiz de repositórios não existe: ${raiz}`)
+    }
+
+    return readdirSync(raiz)
+        .filter((entrada) => !ignorar.includes(entrada))
+        .filter((entrada) => statSync(join(raiz, entrada)).isDirectory())
+        .filter(
+            (entrada) => classificarDiretorio(join(raiz, entrada)) === 'repo'
+        )
+        .sort()
 }
 
 export function lerArvore(raizDir) {
