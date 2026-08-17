@@ -211,6 +211,35 @@ test('agrega métricas de índice e de conquista no mesmo mapa', () => {
     assert.equal(c.metrics.reposAtivos.engagement, 'acme')
 })
 
+// Regressão: agregar() já assinou `{ ...m, engagement: n.engagement }`, o
+// que deixava um `id` residual dentro do VALOR de cada métrica — campo que
+// o canônico nunca teve (o id só existe como chave de `metrics`). Os dois
+// asserts acima não pegavam isso porque só perguntam por presença de chave
+// e por um campo específico, nunca pela forma completa do objeto. Este
+// teste fixa a forma inteira, então falha se o campo `id` da nota (que
+// `arvoreFixture` sempre inclui, como uma nota real) vazar para o valor.
+test('métrica agregada tem exatamente os campos do canônico, sem "id" residual', () => {
+    const c = agregar(arvoreFixture())
+
+    assert.deepEqual(c.metrics.deployDuration, {
+        engagement: 'acme',
+        label: 'Deploy duration',
+        site: true,
+        before: {
+            confidence: 'remembered',
+            text: '~2h',
+            value: { display: '2h' },
+        },
+        after: {
+            confidence: 'remembered',
+            text: '~15min',
+            value: { display: '15min' },
+        },
+        note: null,
+    })
+    assert.equal('id' in c.metrics.deployDuration, false)
+})
+
 test('engagements vêm dos índices de pasta', () => {
     const c = agregar(arvoreFixture())
 

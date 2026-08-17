@@ -145,10 +145,13 @@ function parseIntervalo(titulo) {
     return { inicio: m[1], fim: m[2] === 'atual' ? '' : m[2] }
 }
 
+// `lineWidth: 0` desliga o dobramento automático da lib em ~80 colunas —
+// os campos de prosa (`note`, `motivo`) são texto que o dono edita à mão, e
+// o vault não quebra parágrafo manualmente (ver CLAUDE.md).
 function yamlLista(itens) {
     if (itens.length === 0) return '[]'
 
-    return stringify(itens).trimEnd()
+    return stringify(itens, { lineWidth: 0 }).trimEnd()
 }
 
 // Serializa a métrica no formato de nota: prefixa `id` e remove
@@ -335,7 +338,7 @@ function notaAposentados(canonical) {
         ['publish', false],
     ])
 
-    const yamlRetired = stringify(canonical.retired).trimEnd()
+    const yamlRetired = stringify(canonical.retired, { lineWidth: 0 }).trimEnd()
 
     return `${fm}
 
