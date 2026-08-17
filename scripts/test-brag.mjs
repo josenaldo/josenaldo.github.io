@@ -472,35 +472,45 @@ test('árvore com Numeros aposentados.md presente e lista vazia é aceita sem er
     assert.deepEqual(c.retired, [])
 })
 
-function arvoreDeReposFixture() {
+function comArvoreDeRepos(fn) {
     const raiz = mkdtempSync(join(tmpdir(), 'brag-repos-'))
+    try {
+        mkdirSync(join(raiz, 'api', '.git'), { recursive: true })
+        mkdirSync(join(raiz, 'admin', '.git'), { recursive: true })
+        mkdirSync(join(raiz, 'api-metrics'), { recursive: true })
+        writeFileSync(
+            join(raiz, 'api-metrics', '.git'),
+            'gitdir: /x/.git/worktrees/api-metrics\n'
+        )
+        mkdirSync(join(raiz, 'outros'), { recursive: true })
 
-    mkdirSync(join(raiz, 'api', '.git'), { recursive: true })
-    mkdirSync(join(raiz, 'admin', '.git'), { recursive: true })
-    mkdirSync(join(raiz, 'api-metrics'), { recursive: true })
-    writeFileSync(
-        join(raiz, 'api-metrics', '.git'),
-        'gitdir: /x/.git/worktrees/api-metrics\n'
-    )
-    mkdirSync(join(raiz, 'outros'), { recursive: true })
-
-    return raiz
+        return fn(raiz)
+    } finally {
+        rmSync(raiz, { recursive: true, force: true })
+    }
 }
 
 test('classifica repositório, worktree e ruído pela natureza do .git', () => {
-    const raiz = arvoreDeReposFixture()
-
-    assert.equal(classificarDiretorio(join(raiz, 'api')), 'repo')
-    assert.equal(classificarDiretorio(join(raiz, 'api-metrics')), 'worktree')
-    assert.equal(classificarDiretorio(join(raiz, 'outros')), 'ruido')
+    comArvoreDeRepos((raiz) => {
+        assert.equal(classificarDiretorio(join(raiz, 'api')), 'repo')
+        assert.equal(
+            classificarDiretorio(join(raiz, 'api-metrics')),
+            'worktree'
+        )
+        assert.equal(classificarDiretorio(join(raiz, 'outros')), 'ruido')
+    })
 })
 
 test('descobre só os repositórios, ordenados', () => {
-    assert.deepEqual(descobrirRepos(arvoreDeReposFixture()), ['admin', 'api'])
+    comArvoreDeRepos((raiz) => {
+        assert.deepEqual(descobrirRepos(raiz), ['admin', 'api'])
+    })
 })
 
 test('respeita a lista de ignorados', () => {
-    assert.deepEqual(descobrirRepos(arvoreDeReposFixture(), ['admin']), ['api'])
+    comArvoreDeRepos((raiz) => {
+        assert.deepEqual(descobrirRepos(raiz, ['admin']), ['api'])
+    })
 })
 
 test('raiz inexistente falha nomeando o caminho', () => {
