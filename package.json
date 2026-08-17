@@ -61,6 +61,7 @@
         "eslint-plugin-simple-import-sort": "^12.1.1",
         "lighthouse": "^13.0.3",
         "prettier": "^3.8.1",
-        "typescript": "^5.9.3"
+        "typescript": "^5.9.3",
+        "yaml": "2.8.2"
     }
 }
