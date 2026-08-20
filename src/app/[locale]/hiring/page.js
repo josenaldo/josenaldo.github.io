@@ -2,6 +2,7 @@ import { Container } from '@mui/material'
 import { setRequestLocale } from 'next-intl/server'
 
 import ContentView from '@/components/content/ContentView'
+import Evidence from '@/features/hiring/Evidence'
 import { routing } from '@/i18n/routing'
 import contentService from '@/services/content'
 
@@ -39,14 +40,17 @@ export default async function HiringPage({ params }) {
     const page = contentService.getPageData(locale, 'hiring')
 
     return (
-        <Container>
-            <ContentView
-                content={page.body.raw}
-                title={page.title}
-                description={page.description}
-                image={page.image}
-                url={page.url}
-            />
-        </Container>
+        <>
+            <Container>
+                <ContentView
+                    content={page.body.raw}
+                    title={page.title}
+                    description={page.description}
+                    image={page.image}
+                    url={page.url}
+                />
+            </Container>
+            <Evidence />
+        </>
     )
 }

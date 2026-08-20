@@ -81,6 +81,14 @@
             "shareCta": "Compartilhar um depoimento"
         }
     },
+    "Hiring": {
+        "evidence": {
+            "title": "Os números",
+            "codebases": "{owned} repositórios sob minha propriedade, {active} deles em desenvolvimento ativo a qualquer momento.",
+            "issues": "Problemas em produção reportados pelo cliente de ~{before} para ~{after} por mês.",
+            "deployFrequency": "Uma release a cada {everyDays} dias."
+        }
+    },
     "Blog": {
         "title": "Nephro Nerd Chronicles",
         "description": "Explore o Nephro Nerd Chronicles: a fusão de Josenaldo entre desenvolvimento de software e reflexões sobre saúde renal. Inspire-se, aprenda e conecte-se – um byte de cada vez!",
