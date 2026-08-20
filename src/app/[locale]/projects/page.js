@@ -1,4 +1,4 @@
-import { Box, Container } from '@mui/material'
+import { Box, Container, Typography } from '@mui/material'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 
 import ContentCard from '@/components/content/ContentCard'
@@ -49,6 +49,13 @@ export default async function ProjectsPage({ params }) {
                 }}
             >
                 <ContentTitle title={t('title')} subtitle={t('description')} />
+                <Typography
+                    variant="body1"
+                    color="text.secondary"
+                    sx={{ mt: 2 }}
+                >
+                    {t('scopeNote')}
+                </Typography>
                 <Box
                     sx={{
                         display: 'grid',

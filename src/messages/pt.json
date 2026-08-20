@@ -3,6 +3,7 @@
         "home": "Início",
         "blog": "Blog",
         "about": "Sobre",
+        "hiring": "Sênior part-time",
         "experiences": "Experiências",
         "projects": "Projetos",
         "courses": "Cursos",
@@ -125,6 +126,7 @@
     "Projects": {
         "title": "Projetos",
         "description": "Meus projetos são uma mistura de projetos pessoais e projetos em que trabalhei profissionalmente.",
+        "scopeNote": "Aqui estão projetos próprios. Para trabalho com clientes, veja a página inicial e a página de contratação.",
         "viewProjectCta": "Ver projeto"
     },
     "Courses": {
