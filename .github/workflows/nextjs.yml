@@ -64,6 +64,8 @@ jobs:
               # Commenting out static_site_generator to avoid basePath injection
               # with:
               #   static_site_generator: next
+            - name: Check draft markers
+              run: node scripts/check-draft-markers.mjs
             - name: Restore cache
               uses: actions/cache@v4
               with:
