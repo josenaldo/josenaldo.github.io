@@ -87,6 +87,17 @@
             "codebases": "{owned} repositórios sob minha propriedade, {active} deles em desenvolvimento ativo a qualquer momento.",
             "issues": "Problemas em produção reportados pelo cliente de ~{before} para ~{after} por mês.",
             "deployFrequency": "Uma release a cada {everyDays} dias."
+        },
+        "resumes": {
+            "title": "Baixe meu currículo",
+            "seniorEn": "Currículo Senior Engineer (EN)",
+            "seniorPt": "Currículo Senior Engineer (PT)",
+            "fractionalNote": "Não está contratando pra uma vaga, e sim procurando alguém pra tocar a engenharia do seu produto de ponta a ponta? É esse o encaixe fractional — o mesmo histórico, em regime parcial.",
+            "fractionalEn": "Currículo Fractional Engineer (EN)",
+            "fractionalPt": "Currículo Fractional Engineer (PT)"
+        },
+        "cta": {
+            "title": "Vamos conversar sobre isso."
         }
     },
     "Blog": {

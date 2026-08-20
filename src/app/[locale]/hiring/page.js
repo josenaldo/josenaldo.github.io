@@ -1,8 +1,11 @@
-import { Container } from '@mui/material'
-import { setRequestLocale } from 'next-intl/server'
+import { Box, Container, Typography } from '@mui/material'
+import { getTranslations, setRequestLocale } from 'next-intl/server'
 
+import BookACallButton from '@/components/BookACallButton'
 import ContentView from '@/components/content/ContentView'
+import Section from '@/components/Section'
 import Evidence from '@/features/hiring/Evidence'
+import ResumeDownloads from '@/features/hiring/ResumeDownloads'
 import { routing } from '@/i18n/routing'
 import contentService from '@/services/content'
 
@@ -38,6 +41,7 @@ export default async function HiringPage({ params }) {
     setRequestLocale(locale)
 
     const page = contentService.getPageData(locale, 'hiring')
+    const t = await getTranslations('Hiring.cta')
 
     return (
         <>
@@ -51,6 +55,23 @@ export default async function HiringPage({ params }) {
                 />
             </Container>
             <Evidence />
+            <ResumeDownloads />
+            <Section elevation={0}>
+                <Box
+                    sx={{
+                        display: 'flex',
+                        flexDirection: 'column',
+                        alignItems: 'center',
+                        gap: 3,
+                        maxWidth: 'md',
+                        mx: 'auto',
+                        textAlign: 'center',
+                    }}
+                >
+                    <Typography variant="h2">{t('title')}</Typography>
+                    <BookACallButton />
+                </Box>
+            </Section>
         </>
     )
 }

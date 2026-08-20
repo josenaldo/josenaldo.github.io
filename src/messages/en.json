@@ -87,6 +87,17 @@
             "codebases": "{owned} repositories under my ownership, {active} of them under active development at any given time.",
             "issues": "Client-reported production issues down from ~{before} to ~{after} a month.",
             "deployFrequency": "A release every {everyDays} days."
+        },
+        "resumes": {
+            "title": "Download my résumé",
+            "seniorEn": "Senior Engineer résumé (EN)",
+            "seniorPt": "Senior Engineer résumé (PT)",
+            "fractionalNote": "Not hiring for a single seat, but for someone to run the engineering side of your product end to end? That's the fractional engagement — same track record, part-time.",
+            "fractionalEn": "Fractional Engineer résumé (EN)",
+            "fractionalPt": "Fractional Engineer résumé (PT)"
+        },
+        "cta": {
+            "title": "Let's talk about it."
         }
     },
     "Blog": {
