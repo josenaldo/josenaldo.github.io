@@ -87,3 +87,15 @@ O repo `curriculo` estava 5 commits atrás do GitHub, e entre eles o `dd999e4`, 
 ## Fora de escopo
 
 O enriquecimento de Experiences, Projects e Courses, que é a spec 3c. Qualquer mudança na home ou na copy aprovada da Etapa 2. Uma página que descreva as duas formas de contratação lado a lado — ela resolveria o buraco de arquitetura de informação que este desenho revelou, já que `workModes` responde *o que* e `engagements` responde *para quem*, mas nada responde *como se contrata*. Fica registrado como possibilidade futura, não como trabalho desta etapa.
+
+## Dívida técnica deixada pela execução
+
+Registrada aqui porque o ledger da execução é efêmero e git-ignored. A revisão final triou cada item; nenhum bloqueia a fusão.
+
+- **A guarda de marcador compara substring exata.** `scripts/check-draft-markers.mjs` procura `a escrever pelo dono do site` sem normalizar espaço em branco, então reformatar o comentário em várias linhas a burlaria. Nada no repositório reflui prosa automaticamente — o Prettier usa `proseWrap: preserve` e não há `prettier --check` no CI —, então exige edição manual. Normalizar com `replace(/\s+/g, ' ')` antes do `includes` fecharia.
+- **`Evidence.js` usa o texto interpolado como `key` do `.map`.** Herdado de `HowIOperate.js`, que faz igual. Corrigir só aqui criaria inconsistência.
+- **O wrapper de CTA aparece três vezes** — em `ClosingCta.js`, na página `/hiring` e em `ResumeDownloads.js` — com o mesmo objeto `sx` centralizado. Um wrapper compartilhado eliminaria.
+- **A `scopeNote` de `/projects` diz "a maior parte é projeto próprio"** sem explicitar que um dos onze itens é trabalho remunerado. Verdadeira, mas menos afiada do que poderia ser.
+- **`hiring-terms.md` carrega frontmatter `title`, `description` e `image` que a renderização não usa.** O schema `Page` os exige; o bloco é fragmento de corpo, renderizado por `MDXContent`.
+
+Dívida de conteúdo, separada da técnica: a seção de termos contratuais de `/hiring` não foi escrita. O marcador `<!-- termos-contratuais: a escrever pelo dono do site -->` está nos dois `hiring-terms.md`, e o workflow de publicação recusa ir ao ar enquanto ele existir.
