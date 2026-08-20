@@ -41,6 +41,7 @@ export default async function HiringPage({ params }) {
     setRequestLocale(locale)
 
     const page = contentService.getPageData(locale, 'hiring')
+    const terms = contentService.getPageData(locale, 'hiring-terms')
     const t = await getTranslations('Hiring.cta')
 
     return (
@@ -55,6 +56,15 @@ export default async function HiringPage({ params }) {
                 />
             </Container>
             <Evidence />
+            <Container>
+                <ContentView
+                    content={terms.body.raw}
+                    title={terms.title}
+                    description={terms.description}
+                    image={terms.image}
+                    url={terms.url}
+                />
+            </Container>
             <ResumeDownloads />
             <Section elevation={0}>
                 <Box
