@@ -3,6 +3,7 @@ import { getTranslations, setRequestLocale } from 'next-intl/server'
 
 import BookACallButton from '@/components/BookACallButton'
 import ContentView from '@/components/content/ContentView'
+import MDXContent from '@/components/content/MDXContent'
 import Section from '@/components/Section'
 import Evidence from '@/features/hiring/Evidence'
 import ResumeDownloads from '@/features/hiring/ResumeDownloads'
@@ -56,15 +57,9 @@ export default async function HiringPage({ params }) {
                 />
             </Container>
             <Evidence />
-            <Container>
-                <ContentView
-                    content={terms.body.raw}
-                    title={terms.title}
-                    description={terms.description}
-                    image={terms.image}
-                    url={terms.url}
-                />
-            </Container>
+            <Section elevation={0}>
+                <MDXContent content={terms.body.raw} />
+            </Section>
             <ResumeDownloads />
             <Section elevation={0}>
                 <Box
