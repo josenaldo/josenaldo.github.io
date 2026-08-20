@@ -12,6 +12,7 @@
         "postbuild": "next-sitemap && node scripts/generate-root-redirect.mjs && node scripts/verify-alternates.mjs",
         "start": "npx serve@latest out -l 6500",
         "check:metrics": "node scripts/check-metrics.mjs",
+        "verify:cv-links": "node scripts/verify-cv-links.mjs",
         "metrics:gen": "node scripts/gen-metrics.mjs",
         "metrics:check": "node scripts/gen-metrics.mjs --check",
         "metrics:test": "node scripts/test-gen-metrics.mjs",
