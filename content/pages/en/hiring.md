@@ -1,6 +1,6 @@
 ---
-title: Hire a senior fullstack engineer, not an employee
-description: 'A senior fullstack engineer available for contract work — end-to-end ownership, async delivery, no employment overhead.'
+title: Senior Software Engineer — Remote Contractor (LATAM, GMT-3)
+description: 'Senior Software Engineer with end-to-end ownership and AI-native delivery — remote contractor based in LATAM (GMT-3).'
 image: '/images/default.jpg'
 ---
 

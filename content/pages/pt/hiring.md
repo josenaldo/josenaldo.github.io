@@ -1,6 +1,6 @@
 ---
-title: Contrate um engenheiro fullstack sênior, não um funcionário
-description: 'Um engenheiro fullstack sênior disponível para contratação como prestador — ownership ponta a ponta, entrega assíncrona, sem overhead de emprego.'
+title: Engenheiro de Software Sênior — Contratação Remota (LATAM, GMT-3)
+description: 'Engenheiro de Software Sênior com ownership ponta a ponta e entrega AI-native — contratação remota, LATAM (GMT-3).'
 image: '/images/default.jpg'
 ---
 
