@@ -1,9 +1,49 @@
 import { defineDocumentType, makeSource } from 'contentlayer2/source-files'
 
-function resolveSlug(doc, folder) {
-    const regex = new RegExp(`${folder}\/?`, 'g')
-    const slug = doc._raw.flattenedPath.replace(regex, '')
-    return slug
+// Chave compartilhada entre as versões do mesmo documento em idiomas
+// diferentes, mais o marcador de que a cópia ainda aguarda tradução.
+// Aplicados a todas as coleções.
+const translationFields = {
+    translationKey: {
+        type: 'string',
+        description:
+            'Chave compartilhada entre as versões do mesmo documento em idiomas diferentes. Ausente = documento sem par.',
+        required: false,
+    },
+    translated: {
+        type: 'boolean',
+        description:
+            'false quando o arquivo ainda carrega o texto do idioma original, aguardando tradução.',
+        default: true,
+        required: false,
+    },
+}
+
+// Campos computados a partir do caminho `<coleção>/<locale>/<slug>.md`.
+// Aplicados a todas as coleções.
+function localeComputedFields() {
+    return {
+        locale: {
+            type: 'string',
+            resolve: (doc) => doc._raw.flattenedPath.split('/')[1],
+        },
+        slug: {
+            type: 'string',
+            resolve: (doc) =>
+                doc._raw.flattenedPath.split('/').slice(2).join('/'),
+        },
+        url: {
+            type: 'string',
+            resolve: (doc) => {
+                const parts = doc._raw.flattenedPath.split('/')
+                const [collection, locale, ...rest] = parts
+                const slug = rest.join('/')
+                return collection === 'pages'
+                    ? `/${locale}/${slug}`
+                    : `/${locale}/${collection}/${slug}`
+            },
+        },
+    }
 }
 
 export const Post = defineDocumentType(() => ({
@@ -46,20 +86,16 @@ export const Post = defineDocumentType(() => ({
             description: 'The image of the post',
             required: true,
         },
-        language: {
-            type: 'enum',
-            options: ['pt', 'en'],
-            default: 'en',
-            description: 'The language of the post (pt or en)',
+        tags: {
+            type: 'list',
+            of: { type: 'string' },
+            description:
+                'Palavras-chave do post. Opcional: a maioria dos posts não tem. Ainda não há página que as consuma — o campo existe para que o Contentlayer pare de descartar em silêncio o que já foi escrito no frontmatter.',
             required: false,
         },
+        ...translationFields,
     },
-    computedFields: {
-        url: {
-            type: 'string',
-            resolve: (doc) => `/${doc._raw.flattenedPath}`,
-        },
-    },
+    computedFields: localeComputedFields(),
 }))
 
 export const Page = defineDocumentType(() => ({
@@ -81,14 +117,9 @@ export const Page = defineDocumentType(() => ({
             description: 'The image of the page',
             required: true,
         },
+        ...translationFields,
     },
-    computedFields: {
-        url: {
-            type: 'string',
-            resolve: (doc) =>
-                `/${doc._raw.flattenedPath.replace(/pages\/?/, '')}`,
-        },
-    },
+    computedFields: localeComputedFields(),
 }))
 
 const Project = defineDocumentType(() => ({
@@ -125,13 +156,9 @@ const Project = defineDocumentType(() => ({
             description: 'The image of the project',
             required: true,
         },
+        ...translationFields,
     },
-    computedFields: {
-        url: {
-            type: 'string',
-            resolve: (doc) => `/${doc._raw.flattenedPath}`,
-        },
-    },
+    computedFields: localeComputedFields(),
 }))
 
 const Experience = defineDocumentType(() => ({
@@ -173,7 +200,9 @@ const Experience = defineDocumentType(() => ({
             description: 'Show the experience in the resume',
             required: true,
         },
+        ...translationFields,
     },
+    computedFields: localeComputedFields(),
 }))
 
 const Testimonial = defineDocumentType(() => ({
@@ -205,34 +234,9 @@ const Testimonial = defineDocumentType(() => ({
             description: 'The image of the testimonial author',
             required: true,
         },
+        ...translationFields,
     },
-}))
-
-const Skill = defineDocumentType(() => ({
-    name: 'Skill',
-    filePathPattern: `skills/**/*.md`,
-    fields: {
-        name: {
-            type: 'string',
-            description: 'The name of the skill',
-            required: true,
-        },
-        level: {
-            type: 'string',
-            description: 'The level of the skill',
-            required: true,
-        },
-        firstContact: {
-            type: 'number',
-            description: 'The year of the first contact with the skill',
-            required: true,
-        },
-        group: {
-            type: 'string',
-            description: 'The display group this skill belongs to (e.g. Backend, Frontend)',
-            required: false,
-        },
-    },
+    computedFields: localeComputedFields(),
 }))
 
 const Course = defineDocumentType(() => ({
@@ -266,59 +270,105 @@ const Course = defineDocumentType(() => ({
         },
         certificateLink: {
             type: 'string',
-            description: 'The link of the certificate',
-            required: true,
-        },
-    },
-    computedFields: {
-        url: {
-            type: 'string',
-            resolve: (doc) => `/${doc._raw.flattenedPath}`,
-        },
-        slug: {
-            type: 'string',
-            resolve: (doc) => resolveSlug(doc, 'courses'),
-        },
-    },
-}))
-
-const Service = defineDocumentType(() => ({
-    name: 'Service',
-    filePathPattern: `services/**/*.md`,
-    fields: {
-        show: {
-            type: 'boolean',
-            description: 'Whether to show this service publicly',
+            description:
+                'Link do certificado. Opcional: 28 dos 72 cursos não têm certificado emitido, e a listagem já esconde o botão quando o campo falta. Era obrigatório e esses cursos preenchiam com "---", que o YAML lê como nulo — daí 28 avisos do Contentlayer a cada build.',
             required: false,
         },
+        ...translationFields,
+    },
+    computedFields: localeComputedFields(),
+}))
+
+const Engagement = defineDocumentType(() => ({
+    name: 'Engagement',
+    filePathPattern: `engagements/**/*.md`,
+    fields: {
         order: {
             type: 'number',
-            description: 'Ordering (lower comes first)',
+            description: 'Ordem de exibição na home',
             required: true,
         },
         title: {
             type: 'string',
-            description: 'The service title',
+            description:
+                'O engagement, sem nomear o cliente quando ele é anônimo',
             required: true,
         },
-        description: {
+        role: {
             type: 'string',
-            description: 'Short description shown on the home page',
+            description: 'Papel exercido, escopo e período de atuação',
             required: true,
         },
-        image: {
+        period: {
+            type: 'string',
+            description: 'O intervalo, como texto',
+            required: true,
+        },
+        arrived: {
+            type: 'string',
+            description: 'O estado encontrado na chegada',
+            required: true,
+        },
+        built: {
+            type: 'string',
+            description: 'O que foi construído',
+            required: true,
+        },
+        result: {
             type: 'string',
             description:
-                'Card image (used as OG-like preview image in UI cards)',
+                'O resultado. Obrigatório de propósito: é a parte que vende',
+            required: true,
+        },
+        show: {
+            type: 'boolean',
+            description: 'Whether to show this engagement publicly',
+            required: false,
+        },
+        ...translationFields,
+    },
+    computedFields: localeComputedFields(),
+}))
+
+const WorkMode = defineDocumentType(() => ({
+    name: 'WorkMode',
+    filePathPattern: `workModes/**/*.md`,
+    fields: {
+        order: {
+            type: 'number',
+            description: 'Ordem de exibição na home',
+            required: true,
+        },
+        name: {
+            type: 'string',
+            description:
+                'Nome do modo. Não se traduz: é nome próprio da oferta',
+            required: true,
+        },
+        promise: {
+            type: 'string',
+            description: 'A linha de promessa do modo',
+            required: true,
+        },
+        bullets: {
+            type: 'list',
+            of: { type: 'string' },
+            description: 'Os marcadores do cartão',
             required: true,
         },
         icon: {
             type: 'string',
-            description:
-                'Icon key used by the UI (e.g. code, api, architecture, mentoring)',
+            description: 'Chave do mapa de ícones do componente',
             required: true,
         },
+        show: {
+            type: 'boolean',
+            description: 'Whether to show this work mode publicly',
+            required: false,
+        },
+        ...translationFields,
     },
+    computedFields: localeComputedFields(),
 }))
 
 export default makeSource({
@@ -329,8 +379,8 @@ export default makeSource({
         Project,
         Experience,
         Testimonial,
-        Skill,
         Course,
-        Service,
+        Engagement,
+        WorkMode,
     ],
 })

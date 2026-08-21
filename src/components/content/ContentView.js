@@ -23,18 +23,19 @@ const ContentView = ({
     language,
 }) => {
     const contentImage = image || AppConfig.DEFAULT_CARD_IMAGE
-    const badges = category || language ? (
-        <Box
-            sx={{
-                display: 'flex',
-                flexWrap: 'wrap',
-                gap: 1,
-            }}
-        >
-            {category && <ContentCategory category={category} />}
-            <ContentLanguage language={language} />
-        </Box>
-    ) : null
+    const badges =
+        category || language ? (
+            <Box
+                sx={{
+                    display: 'flex',
+                    flexWrap: 'wrap',
+                    gap: 1,
+                }}
+            >
+                {category && <ContentCategory category={category} />}
+                <ContentLanguage language={language} />
+            </Box>
+        ) : null
 
     return (
         <Card

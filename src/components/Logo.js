@@ -1,10 +1,14 @@
+'use client'
+
 import { Typography } from '@mui/material'
+
+import { Link } from '@/i18n/navigation'
 
 const Logo = () => {
     return (
         <Typography
             noWrap
-            component="a"
+            component={Link}
             href="/"
             sx={{
                 fontSize: 'var(--font-size-h6)',

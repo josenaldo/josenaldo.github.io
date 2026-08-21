@@ -1,11 +1,18 @@
-import { Box, Button, Stack, Typography } from '@mui/material'
+import { Box, Typography } from '@mui/material'
+import { useTranslations } from 'next-intl'
 
 import photo200 from '@/assets/images/josenaldo-200.webp'
 import photo300 from '@/assets/images/josenaldo-300.webp'
 import photo400 from '@/assets/images/josenaldo-400.webp'
+import BookACallButton from '@/components/BookACallButton'
 import Section from '@/components/Section'
+import metrics from '@/data/metrics.mjs'
+
+const { deploymentFrequency, clientReportedIssues, deployDuration } = metrics
 
 const Hero = () => {
+    const t = useTranslations('Home.hero')
+
     return (
         <Section elevation={1}>
             <Box
@@ -25,28 +32,36 @@ const Hero = () => {
                         maxWidth: { sm: '100%', md: 'clamp(300px,50vw,50%)' },
                     }}
                 >
-                    <Typography variant="h5" component="p">
-                        Hello, my name is{' '}
-                    </Typography>
-                    <Typography variant="h1">Josenaldo Matos</Typography>
-                    <Typography variant="subtitle">
-                        Fractional Software Engineer & Architect. 20+ years. I
-                        build the machine that ships your software.
-                    </Typography>
-                    <Stack
-                        direction={{ xs: 'column', sm: 'row' }}
-                        spacing={2}
-                        justifyContent={{ xs: 'center', md: 'flex-start' }}
-                        sx={{ mt: 2 }}
+                    <Typography variant="h1">{t('headline')}</Typography>
+                    <Typography variant="subtitle">{t('subhead')}</Typography>
+                    <Box sx={{ mt: 2 }}>
+                        <Typography variant="body1">
+                            {t('metricDeploys', {
+                                everyDays: deploymentFrequency.after.everyDays,
+                            })}
+                        </Typography>
+                        <Typography variant="body1">
+                            {t('metricIssues', {
+                                before: clientReportedIssues.before.count,
+                                after: clientReportedIssues.after.count,
+                            })}
+                        </Typography>
+                        <Typography variant="body1">
+                            {t('metricDeployTime', {
+                                before: deployDuration.before.display,
+                                after: deployDuration.after.display,
+                            })}
+                        </Typography>
+                    </Box>
+                    <Box
+                        sx={{
+                            display: 'flex',
+                            justifyContent: { xs: 'center', md: 'flex-start' },
+                            mt: 3,
+                        }}
                     >
-                        <Button
-                            variant="contained"
-                            href="/contact"
-                            aria-label="Get in touch"
-                        >
-                            Get in Touch
-                        </Button>
-                    </Stack>
+                        <BookACallButton />
+                    </Box>
                 </Box>
                 <Box
                     sx={{
@@ -64,7 +79,7 @@ const Hero = () => {
                         />
                         <img
                             src={photo400.src}
-                            alt="Josenaldo Matos"
+                            alt={t('photoAlt')}
                             width="400"
                             height="400"
                             loading="eager"

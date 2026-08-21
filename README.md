@@ -10,7 +10,7 @@ A zero-cost, developer-authored platform for tracking a software career over the
 
 Most developer portfolios are static brochures: created once, updated rarely, and abandoned when life gets busy. This project is a different bet — a personal platform designed for **continuous, low-friction career documentation**, where you can accumulate and revisit your own professional history over the years, without ever paying a hosting bill.
 
-Every piece of content — blog posts, projects, experiences, courses, skills, testimonials — is a **plain Markdown file**. Publishing new content is a `git push`. No CMS login, no admin panel, no database.
+Every piece of content — blog posts, projects, experiences, courses, engagements, work modes, testimonials — is a **plain Markdown file**. Publishing new content is a `git push`. No CMS login, no admin panel, no database.
 
 This repository is **open source on purpose**. Fork it, swap the content for yours, and you have a fully functional personal site in an afternoon.
 
@@ -32,16 +32,16 @@ This repository is **open source on purpose**. Fork it, swap the content for you
 
 ## Tech Stack
 
-| Layer | Technology | Why |
-|---|---|---|
-| Framework | [Next.js 16](https://nextjs.org/) | Static export, App Router, file-based routing |
-| Content layer | [Contentlayer2](https://contentlayer.dev/) | Turns Markdown files into typed JS objects at build time |
-| UI | [Material UI (MUI) 7](https://mui.com/) | Production-ready React component library |
-| Styling | [Emotion](https://emotion.sh/) | CSS-in-JS, used internally by MUI |
-| Markdown rendering | [react-markdown](https://github.com/remarkjs/react-markdown) | Safe, extensible Markdown renderer |
-| SEO | [next-seo](https://github.com/garmeeh/next-seo) + [next-sitemap](https://github.com/iamvishnusankar/next-sitemap) | Meta tags and sitemap generation |
-| Deployment | GitHub Pages via [GitHub Actions](https://docs.github.com/en/actions) | Free, automated, no server needed |
-| Language | JavaScript (JSX) | No TypeScript required — lower barrier to entry |
+| Layer              | Technology                                                                                                        | Why                                                      |
+| ------------------ | ----------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------- |
+| Framework          | [Next.js 16](https://nextjs.org/)                                                                                 | Static export, App Router, file-based routing            |
+| Content layer      | [Contentlayer2](https://contentlayer.dev/)                                                                        | Turns Markdown files into typed JS objects at build time |
+| UI                 | [Material UI (MUI) 7](https://mui.com/)                                                                           | Production-ready React component library                 |
+| Styling            | [Emotion](https://emotion.sh/)                                                                                    | CSS-in-JS, used internally by MUI                        |
+| Markdown rendering | [react-markdown](https://github.com/remarkjs/react-markdown)                                                      | Safe, extensible Markdown renderer                       |
+| SEO                | [next-seo](https://github.com/garmeeh/next-seo) + [next-sitemap](https://github.com/iamvishnusankar/next-sitemap) | Meta tags and sitemap generation                         |
+| Deployment         | GitHub Pages via [GitHub Actions](https://docs.github.com/en/actions)                                             | Free, automated, no server needed                        |
+| Language           | JavaScript (JSX)                                                                                                  | No TypeScript required — lower barrier to entry          |
 
 ---
 
@@ -111,22 +111,27 @@ josenaldo.github.io/
 │
 ├── content/                  # ← All your content lives here (Markdown files)
 │   ├── blog/                 # Blog posts
+│   │   ├── en/                   # English posts
+│   │   └── pt/                   # Portuguese posts
 │   ├── courses/              # Completed courses and certifications
+│   ├── engagements/          # Client engagements, as Arrived → Built → Result
 │   ├── experiences/          # Work and career experiences
-│   ├── pages/                # Static pages (About, Resume)
+│   ├── pages/                # Static pages (About)
 │   ├── projects/             # Portfolio projects
-│   ├── services/             # Services you offer
-│   ├── skills/               # Technical skills
-│   └── testimonials/         # Testimonials from colleagues
+│   ├── testimonials/         # Testimonials from colleagues
+│   └── workModes/            # The ways you take on work
+│                              # (every content type above has its own en/ and pt/ subfolders)
 │
 ├── public/                   # Static assets (images, icons, PDFs)
 │   ├── files/                # Downloadable files (e.g., your CV)
 │   └── images/               # Photos used in content files
 │
 ├── src/                      # Application source code
-│   ├── pages/                # Next.js pages (routing)
+│   ├── app/[locale]/         # Next.js App Router pages (routing, per locale)
+│   ├── messages/             # UI strings per locale (en.json, pt.json)
 │   ├── features/             # Page-level feature components
 │   ├── components/           # Reusable React components
+│   ├── data/                 # Non-Markdown data: metrics, skills, links
 │   ├── layouts/              # Page layout wrappers
 │   └── services/             # Data access (reads from Contentlayer output)
 │
@@ -140,7 +145,7 @@ josenaldo.github.io/
 
 ## Customizing Your Content
 
-All content is stored in the `content/` directory as Markdown files. Each file has a **frontmatter** block (YAML between `---` delimiters) that defines structured fields, followed by the content body in Markdown.
+All content is stored in the `content/` directory as Markdown files. Each file has a **frontmatter** block (YAML between `---` delimiters) that defines structured fields, followed by the content body in Markdown. The site is bilingual: every content type has an `en/` and a `pt/` subfolder, and the locale of a file is read from that path, so a post lives in `content/blog/en/` or `content/blog/pt/`, never directly in `content/blog/`.
 
 ### Personal information and site metadata
 
@@ -154,7 +159,7 @@ NEXT_PUBLIC_SITE_URL=https://<your-username>.github.io
 
 ### Adding a blog post
 
-Create a new file in `content/blog/`:
+Create a new file in `content/blog/en/` (or `content/blog/pt/` for a Portuguese post):
 
 ```markdown
 ---
@@ -169,18 +174,18 @@ image: /images/blog/my-first-post.jpg
 Your blog post content goes here. Standard Markdown is supported.
 ```
 
-| Field | Required | Description |
-|---|---|---|
-| `title` | Yes | Post title |
-| `description` | Yes | Short summary for listings and meta tags |
-| `date` | Yes | Publication date (`YYYY-MM-DD`) |
-| `author` | Yes | Your name |
-| `category` | No | Used for filtering |
-| `image` | No | Path relative to `public/` |
+| Field         | Required | Description                              |
+| ------------- | -------- | ---------------------------------------- |
+| `title`       | Yes      | Post title                               |
+| `description` | Yes      | Short summary for listings and meta tags |
+| `date`        | Yes      | Publication date (`YYYY-MM-DD`)          |
+| `author`      | Yes      | Your name                                |
+| `category`    | No       | Used for filtering                       |
+| `image`       | No       | Path relative to `public/`               |
 
 ### Adding a project
 
-Create a new file in `content/projects/`:
+Create a new file in `content/projects/en/` (or `content/projects/pt/`):
 
 ```markdown
 ---
@@ -196,18 +201,18 @@ Detailed project description using Markdown. Use headings, bullet lists,
 code blocks — whatever helps tell the story of the project.
 ```
 
-| Field | Required | Description |
-|---|---|---|
-| `id` | Yes | Unique integer — used for ordering |
-| `title` | Yes | Project title |
-| `description` | Yes | Short summary |
-| `projectUrl` | No | Link to the live project or repository |
-| `pin` | No | `true` to feature the project on the homepage |
-| `image` | No | Path relative to `public/` |
+| Field         | Required | Description                                   |
+| ------------- | -------- | --------------------------------------------- |
+| `id`          | Yes      | Unique integer — used for ordering            |
+| `title`       | Yes      | Project title                                 |
+| `description` | Yes      | Short summary                                 |
+| `projectUrl`  | No       | Link to the live project or repository        |
+| `pin`         | No       | `true` to feature the project on the homepage |
+| `image`       | No       | Path relative to `public/`                    |
 
 ### Adding a work experience
 
-Create a new file in `content/experiences/`:
+Create a new file in `content/experiences/en/` (or `content/experiences/pt/`):
 
 ```markdown
 ---
@@ -225,22 +230,17 @@ Use Markdown freely.
 
 ### Adding a skill
 
-Create a new file in `content/skills/`:
+Skills are **not** Markdown. They live in `src/data/skills.js` as a plain array — a skill is a name, a group, a level and a year, with no prose attached, so a file per skill bought nothing and cost 92 files. Add an entry to the array:
 
-```markdown
----
-name: React
-level: Advanced
-firstContact: 2020
----
+```js
+{ name: 'React', group: 'Frontend', level: 'Advanced', firstContact: 2020 },
 ```
 
-| `level` values | `Beginner`, `Intermediate`, `Advanced`, `Expert` |
-|---|---|
+`level` is one of `Beginner`, `Intermediate`, `Advanced`, `Expert`. `group` has to match a group declared in `src/data/skillGroups.js` — a skill whose group does not match is silently dropped from the page.
 
 ### Adding a course or certification
 
-Create a new file in `content/courses/`:
+Create a new file in `content/courses/en/` (or `content/courses/pt/`):
 
 ```markdown
 ---
@@ -255,7 +255,7 @@ certificateLink: https://www.credly.com/badges/your-badge-id
 
 ### Adding a testimonial
 
-Create a new file in `content/testimonials/`:
+Create a new file in `content/testimonials/en/` (or `content/testimonials/pt/`):
 
 ```markdown
 ---
@@ -270,9 +270,9 @@ image: /images/testimonials/jane-doe.jpg
 
 Set `show: false` to keep a testimonial in the repository without displaying it.
 
-### Updating the About and Resume pages
+### Updating the About page
 
-Edit the corresponding Markdown files in `content/pages/`. The content body renders as Markdown on those pages.
+Edit the corresponding Markdown files in `content/pages/en/` and `content/pages/pt/`. The content body renders as Markdown on those pages.
 
 ### Replacing images
 
@@ -282,15 +282,23 @@ Place your images in `public/images/` and reference them with paths like `/image
 
 ## Available Scripts
 
-| Command | Description |
-|---|---|
-| `yarn dev` | Starts the development server at `localhost:3500` with hot reload |
-| `yarn build` | Runs a full production build (Contentlayer + Next.js + sitemap) |
-| `yarn start` | Serves the production build locally |
-| `yarn lint` | Checks for code issues with ESLint |
-| `yarn lint:fix` | Auto-fixes fixable ESLint issues |
-| `yarn format` | Formats all files with Prettier |
-| `yarn format:check` | Checks formatting without modifying files |
+| Command             | Description                                                       |
+| ------------------- | ----------------------------------------------------------------- |
+| `yarn dev`          | Starts the development server at `localhost:3500` with hot reload |
+| `yarn build`        | Runs a full production build (Contentlayer + Next.js + sitemap)   |
+| `yarn start`        | Serves the production build locally                               |
+| `yarn lint`         | Checks for code issues with ESLint                                |
+| `yarn lint:fix`     | Auto-fixes fixable ESLint issues                                  |
+| `yarn format`       | Formats all files with Prettier                                   |
+| `yarn format:check` | Checks formatting without modifying files                         |
+
+---
+
+## Metrics: canonical source and freshness check
+
+`src/data/metrics.mjs` and `src/data/retired.json` are **generated files** — do not edit them by hand. Their single source of truth is a canonical JSON file (`metricas-canonicas.json`) that lives in a private vault outside this repository, owned by the site's maintainer. To change a number, edit that canonical JSON in the vault and then run `yarn metrics:gen`, which regenerates both files here from it.
+
+`yarn hooks:install` wires up a local pre-commit hook (`.githooks/pre-commit`) that runs `yarn metrics:check` (`node scripts/gen-metrics.mjs --check`) before every commit, blocking the commit if the generated files are stale relative to the vault's canonical JSON. This freshness check **only runs locally, on machines that have the vault**: GitHub Actions CI never sees the vault, so it cannot detect staleness — it only validates the shape of the generated files and checks for retired numbers via `yarn check:metrics`, which runs as part of `yarn build`. If you clone this repository without the vault, the hook detects its absence, prints a warning, and lets the commit through, so you can keep working normally; the freshness guarantee is a convenience for the maintainer's own machine, not a property of this repository or its CI.
 
 ---
 
@@ -331,7 +339,7 @@ Markdown files (content/)
         ↓
   Generates typed JS objects in .contentlayer/generated/
         ↓
-  Next.js reads those objects at build time (getStaticProps)
+  Next.js reads those objects at build time (App Router, per locale)
         ↓
   Renders each page to static HTML
         ↓
@@ -371,6 +379,7 @@ Make sure the image path in your frontmatter starts with `/` and the file exists
 **GitHub Actions deployment fails**
 
 Check the Actions tab in your repository for the error log. The most common causes are:
+
 - A Markdown file failing Contentlayer validation (same as above — check the build step log)
 - The `NEXT_PUBLIC_SITE_URL` environment variable not being set in the workflow
 

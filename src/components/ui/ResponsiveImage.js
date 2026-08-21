@@ -5,7 +5,6 @@ import PropTypes from 'prop-types'
 
 const ResponsiveImage = (props) => {
     const alt = props.alt?.replace(/ *\{[^)]*\} */g, '')
-    console.log('ResponsiveImage alt:', alt)
 
     const metaWidth = props.alt?.match(/{([^}]+)x/)
     const metaHeight = props.alt?.match(/x([^}]+)}/)
@@ -13,10 +12,8 @@ const ResponsiveImage = (props) => {
     const height = metaHeight ? Number(metaHeight[1]) : 500
     const isPriority = props.alt?.toLowerCase().includes('{priority}')
     const hasCaption = props.alt?.toLowerCase().includes('{caption:')
-    console.log('ResponsiveImage hasCaption:', hasCaption)
 
     const caption = props.alt?.match(/{caption: (.*?)}/)?.pop()
-    console.log('ResponsiveImage caption:', caption)
     return (
         <Box
             component="span"

@@ -8,9 +8,18 @@
     "private": true,
     "scripts": {
         "dev": "concurrently \"contentlayer2 dev\" \"next dev -p 3500\"",
-        "build": "contentlayer2 build && node scripts/generate-rss.js && next build",
-        "postbuild": "next-sitemap",
-        "start": "npx serve@latest out",
+        "build": "node scripts/check-metrics.mjs && contentlayer2 build && node scripts/generate-rss.js && next build",
+        "postbuild": "next-sitemap && node scripts/generate-root-redirect.mjs && node scripts/verify-alternates.mjs",
+        "start": "npx serve@latest out -l 6500",
+        "check:metrics": "node scripts/check-metrics.mjs",
+        "check:draft-markers": "node scripts/check-draft-markers.mjs",
+        "verify:cv-links": "node scripts/verify-cv-links.mjs",
+        "metrics:gen": "node scripts/gen-metrics.mjs",
+        "metrics:check": "node scripts/gen-metrics.mjs --check",
+        "metrics:test": "node scripts/test-gen-metrics.mjs",
+        "brag:test": "node scripts/test-brag.mjs",
+        "brag:seed": "node scripts/seed-brags.mjs",
+        "hooks:install": "git config core.hooksPath .githooks",
         "lint": "eslint src",
         "lint:fix": "eslint src --fix",
         "format": "prettier . --write",
@@ -26,6 +35,7 @@
         "@mui/icons-material": "^7.3.8",
         "@mui/lab": "^7.0.1-beta.22",
         "@mui/material": "^7.3.8",
+        "@mui/material-nextjs": "^9.3.0",
         "axios": "^1.8.3",
         "concurrently": "^9.1.2",
         "contentlayer2": "^0.5.8",
@@ -37,7 +47,7 @@
         "eslint-plugin-react": "^7.37.4",
         "next": "^16.1.6",
         "next-contentlayer2": "^0.5.8",
-        "next-seo": "^7.2.0",
+        "next-intl": "^4.13.5",
         "next-sitemap": "^4.2.3",
         "prop-types": "^15.8.1",
         "react": "^19.2.4",
@@ -55,6 +65,7 @@
         "eslint-plugin-simple-import-sort": "^12.1.1",
         "lighthouse": "^13.0.3",
         "prettier": "^3.8.1",
-        "typescript": "^5.9.3"
+        "typescript": "^5.9.3",
+        "yaml": "2.8.2"
     }
 }

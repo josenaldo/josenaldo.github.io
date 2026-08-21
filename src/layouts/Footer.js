@@ -1,6 +1,12 @@
 import { Box, Container, Paper } from '@mui/material'
+import { useTranslations } from 'next-intl'
+
+import { SITE_LAUNCH_YEAR } from '@/data/metrics.mjs'
 
 const Footer = () => {
+    const t = useTranslations('Footer')
+    const currentYear = new Date().getFullYear()
+
     return (
         <Box
             component="footer"
@@ -36,8 +42,10 @@ const Footer = () => {
                                 textAlign: 'center',
                             }}
                         >
-                            © 2023–2026 Josenaldo de Oliveira Matos Filho - Todos
-                            os direitos reservados.
+                            {t('copyright', {
+                                startYear: SITE_LAUNCH_YEAR,
+                                currentYear,
+                            })}
                         </Box>
                     </Box>
                 </Container>

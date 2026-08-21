@@ -1,18 +1,23 @@
 import { compareDesc } from 'date-fns'
 
 import {
+    allEngagements,
     allExperiences,
     allPages,
     allPosts,
     allProjects,
-    allServices,
-    allSkills,
     allTestimonials,
+    allWorkModes,
 } from 'contentlayer/generated'
 
 import skillGroups from '@/data/skillGroups'
+import skills from '@/data/skills'
 import slugify from '@/shared/utils/slugify'
 
+// Mesma regra duplicada em scripts/generate-rss.js. Repetida lá porque esse
+// script roda em Node puro, fora do bundler, e não resolve o alias `@/` nem
+// `contentlayer/generated` que este arquivo importa. Se a regra mudar aqui,
+// muda lá também.
 const STATUS_ALIASES = {
     draft: 'draft',
     rascunho: 'draft',
@@ -23,9 +28,7 @@ const STATUS_ALIASES = {
 }
 
 const normalizePostStatus = (status) => {
-    const normalizedStatus = `${status || 'published'}`
-        .trim()
-        .toLowerCase()
+    const normalizedStatus = `${status || 'published'}`.trim().toLowerCase()
 
     return STATUS_ALIASES[normalizedStatus] || 'draft'
 }
@@ -39,68 +42,92 @@ const shouldIncludeUnpublishedPosts = () => {
     return process.env.NODE_ENV !== 'production'
 }
 
-const getVisiblePosts = () => {
-    if (shouldIncludeUnpublishedPosts()) {
-        return allPosts
-    }
-
-    return allPosts.filter((post) => isPublishedPost(post))
+// Coleções indexadas pelo `doc.type` gerado pelo Contentlayer, usadas para
+// resolver a lista correta a partir de um documento qualquer (ex: em
+// getTranslationSibling, que não sabe de antemão o tipo do doc recebido).
+const collectionsByType = {
+    Post: allPosts,
+    Page: allPages,
+    Project: allProjects,
+    Experience: allExperiences,
+    Testimonial: allTestimonials,
+    Engagement: allEngagements,
+    WorkMode: allWorkModes,
 }
 
-const lastExperiences = (numberOfExperiences) => {
+const allDocumentsOfSameType = (doc) => collectionsByType[doc?.type] || []
+
+export function getTranslationSibling(doc, targetLocale) {
+    if (!doc?.translationKey) return null
+
+    return (
+        allDocumentsOfSameType(doc).find(
+            (candidate) =>
+                candidate.locale === targetLocale &&
+                candidate.translationKey === doc.translationKey
+        ) || null
+    )
+}
+
+const byLocale = (locale) => (doc) => doc.locale === locale
+
+const getVisiblePosts = (locale) => {
+    const posts = allPosts.filter(byLocale(locale))
+
+    if (shouldIncludeUnpublishedPosts()) {
+        return posts
+    }
+
+    return posts.filter((post) => isPublishedPost(post))
+}
+
+const lastExperiences = (locale, numberOfExperiences) => {
     return allExperiences
+        .filter(byLocale(locale))
         .sort((a, b) => {
             return b.id - a.id
         })
         .slice(0, numberOfExperiences)
 }
 
-const lastProjects = (numberOfProjects) => {
-    return allProjects
-        .sort((a, b) => {
-            return a.id - b.id
-        })
-        .slice(0, numberOfProjects)
+const getAllProjects = (locale) => {
+    return allProjects.filter(byLocale(locale))
 }
 
-const getAllProjects = () => {
-    return allProjects
-}
+const getProjectData = (locale, slug) => {
+    const projects = getAllProjects(locale)
 
-const getAllProjectsPaths = () => {
-    const paths = allProjects.map((project) => project.url)
-    return paths
-}
-
-const getProjectData = (slug) => {
-    const url = `/projects/${slug}`
-    const projects = getAllProjects()
-
-    const project = projects.find((p) => {
-        if (p.url === url) {
-            return p
-        }
-    })
+    const project = projects.find((p) => p.slug === slug)
 
     return project
 }
 
-const getTestimonials = () => {
-    return allTestimonials.filter((t) => t.show !== false)
+const getTestimonials = (locale) => {
+    return allTestimonials
+        .filter(byLocale(locale))
+        .filter((t) => t.show !== false)
 }
 
-const getServices = () => {
-    return allServices
-        .filter((s) => s.show !== false)
+const getEngagements = (locale) => {
+    return allEngagements
+        .filter(byLocale(locale))
+        .filter((e) => e.show !== false)
         .sort((a, b) => (a.order ?? 0) - (b.order ?? 0))
 }
 
-const getAllPosts = () => {
-    return getVisiblePosts()
+const getWorkModes = (locale) => {
+    return allWorkModes
+        .filter(byLocale(locale))
+        .filter((w) => w.show !== false)
+        .sort((a, b) => (a.order ?? 0) - (b.order ?? 0))
 }
 
-const getSortedPosts = (numberOfPosts) => {
-    const posts = [...getAllPosts()].sort((a, b) => {
+const getAllPosts = (locale) => {
+    return getVisiblePosts(locale)
+}
+
+const getSortedPosts = (locale, numberOfPosts) => {
+    const posts = [...getAllPosts(locale)].sort((a, b) => {
         return compareDesc(new Date(a.date), new Date(b.date))
     })
 
@@ -111,17 +138,11 @@ const getSortedPosts = (numberOfPosts) => {
     return posts
 }
 
-const getAllPostsPaths = () => {
-    const paths = getAllPosts().map((post) => post.url)
-    return paths
-}
-
-const getPostData = (slug) => {
-    const url = `/blog/${slug}`
-    const posts = getSortedPosts()
+const getPostData = (locale, slug) => {
+    const posts = getSortedPosts(locale)
 
     const post = posts.find((post, index, posts) => {
-        if (post.url === url) {
+        if (post.slug === slug) {
             const isFirst = index === posts.length - 1
             const isLast = index === 0
             const previousPost = !isFirst ? posts[index + 1] : null
@@ -155,14 +176,12 @@ const getPostData = (slug) => {
     return post
 }
 
-const getPageData = (url) => {
-    const page = allPages.find((page) => page.url === url)
-
-    return page
+const getPageData = (locale, slug) => {
+    return allPages.filter(byLocale(locale)).find((page) => page.slug === slug)
 }
 
 const getAllSkills = () => {
-    const skillsByLevel = allSkills.reduce((acc, skill) => {
+    const skillsByLevel = skills.reduce((acc, skill) => {
         if (!acc[skill.level]) {
             acc[skill.level] = []
         }
@@ -188,7 +207,7 @@ const getAllSkillsByCategory = () => {
         skillGroups.map(({ group, color }) => [group, color])
     )
 
-    const grouped = allSkills.reduce((acc, skill) => {
+    const grouped = skills.reduce((acc, skill) => {
         if (!skill.group) return acc
         if (!acc[skill.group]) acc[skill.group] = []
         acc[skill.group].push(skill)
@@ -200,12 +219,14 @@ const getAllSkillsByCategory = () => {
         .map(({ group }) => ({
             group,
             color: colorMap[group],
-            skills: grouped[group].sort((a, b) => a.firstContact - b.firstContact),
+            skills: grouped[group].sort(
+                (a, b) => a.firstContact - b.firstContact
+            ),
         }))
 }
 
-const getAllCategories = () => {
-    const posts = getAllPosts()
+const getAllCategories = (locale) => {
+    const posts = getAllPosts(locale)
     const categoryMap = new Map()
 
     posts.forEach((post) => {
@@ -227,34 +248,28 @@ const getAllCategories = () => {
     )
 }
 
-const getPostsByCategory = (slug) => {
-    return getSortedPosts().filter(
+const getPostsByCategory = (locale, slug) => {
+    return getSortedPosts(locale).filter(
         (post) => post.category && slugify(post.category) === slug
     )
 }
 
-const getAllCategoryPaths = () => {
-    return getAllCategories().map((cat) => cat.slug)
-}
-
 const contentService = {
     lastExperiences,
-    lastProjects,
     getAllProjects,
-    getAllProjectsPaths,
     getProjectData,
     getTestimonials,
-    getServices,
+    getEngagements,
+    getWorkModes,
     getAllPosts,
     getSortedPosts,
-    getAllPostsPaths,
     getPostData,
     getPageData,
     getAllSkills,
     getAllSkillsByCategory,
     getAllCategories,
     getPostsByCategory,
-    getAllCategoryPaths,
+    getTranslationSibling,
 }
 
 export default contentService

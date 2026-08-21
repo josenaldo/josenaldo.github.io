@@ -40,3 +40,10 @@ next-env.d.ts
 .env
 
 .tmp
+# Feeds RSS: gerados por scripts/generate-rss.js no inicio do build.
+# Versiona-los sujava a arvore a cada compilacao por causa do lastBuildDate.
+/public/rss-en.xml
+/public/rss-pt.xml
+
+# Configuracao local do Claude Code, especifica de maquina
+.claude/settings.local.json

@@ -13,6 +13,7 @@ import {
     IconButton,
     Typography,
 } from '@mui/material'
+import { useTranslations } from 'next-intl'
 import PropTypes from 'prop-types'
 
 const iconFontSize = {
@@ -23,8 +24,6 @@ const iconFontSize = {
     xl: 48,
 }
 
-const shareMsg = 'Olha só o que eu encontrei no site do POG! Acesse e confira: '
-
 const iconSpace = {
     xs: '8px',
     sm: '12px',
@@ -33,43 +32,51 @@ const iconSpace = {
     xl: '24px',
 }
 
-const networks = [
-    {
-        id: 'share-1',
-        netUrl: 'https://www.facebook.com/sharer/sharer.php?u=',
-        text: shareMsg,
-        target: '_blank',
-        rel: 'noopener noreferrer',
-        icon: <FacebookIcon sx={{ fontSize: iconFontSize }} />,
-    },
-    {
-        id: 'share-2',
-        netUrl: 'https://twitter.com/intent/tweet?text=',
-        text: 'https://ciro.app.br',
-        target: '_blank',
-        rel: 'noopener noreferrer',
-        icon: <TwitterIcon sx={{ fontSize: iconFontSize }} />,
-    },
-    {
-        id: 'share-3',
-        netUrl: 'https://api.whatsapp.com/send?text=',
-        text: shareMsg,
-        target: '_blank',
-        rel: 'noopener noreferrer',
-        icon: <WhatsAppIcon sx={{ fontSize: iconFontSize }} />,
-    },
-    {
-        id: 'share-4',
-        videoId: '',
-        netUrl: 'https://telegram.me/share/url?url=',
-        text: shareMsg,
-        target: '_blank',
-        rel: 'noopener noreferrer',
-        icon: <TelegramIcon sx={{ fontSize: iconFontSize }} />,
-    },
-]
-
 const ShareDialog = ({ title, description, url, open, onClose }) => {
+    const t = useTranslations('Common')
+    const shareMsg = t('shareMessage')
+
+    const networks = [
+        {
+            id: 'share-1',
+            netUrl: 'https://www.facebook.com/sharer/sharer.php?u=',
+            text: shareMsg,
+            target: '_blank',
+            rel: 'noopener noreferrer',
+            icon: <FacebookIcon sx={{ fontSize: iconFontSize }} />,
+        },
+        {
+            id: 'share-2',
+            netUrl: 'https://twitter.com/intent/tweet?text=',
+            // Antes cravava um domínio alheio (`https://ciro.app.br`), lixo
+            // de outro projeto. As outras redes recebem a URL compartilhada
+            // via `netUrl + encodeURIComponent(url)` no DialogActions; aqui
+            // seguimos o mesmo padrão pré-preenchendo o texto do tweet com a
+            // própria página compartilhada.
+            text: url,
+            target: '_blank',
+            rel: 'noopener noreferrer',
+            icon: <TwitterIcon sx={{ fontSize: iconFontSize }} />,
+        },
+        {
+            id: 'share-3',
+            netUrl: 'https://api.whatsapp.com/send?text=',
+            text: shareMsg,
+            target: '_blank',
+            rel: 'noopener noreferrer',
+            icon: <WhatsAppIcon sx={{ fontSize: iconFontSize }} />,
+        },
+        {
+            id: 'share-4',
+            videoId: '',
+            netUrl: 'https://telegram.me/share/url?url=',
+            text: shareMsg,
+            target: '_blank',
+            rel: 'noopener noreferrer',
+            icon: <TelegramIcon sx={{ fontSize: iconFontSize }} />,
+        },
+    ]
+
     const handleClose = () => {
         onClose()
     }
@@ -85,10 +92,10 @@ const ShareDialog = ({ title, description, url, open, onClose }) => {
                 color="primary"
                 sx={{ paddingRight: '40px' }}
             >
-                Compartilhar
+                {t('shareDialogTitle')}
                 {onClose ? (
                     <IconButton
-                        aria-label="close"
+                        aria-label={t('close')}
                         onClick={handleClose}
                         sx={{
                             position: 'absolute',
@@ -109,7 +116,7 @@ const ShareDialog = ({ title, description, url, open, onClose }) => {
                 }}
             >
                 <DialogContentText>
-                    Compartilhar &quot;{title}&quot;
+                    {t('shareDialogText', { title })}
                 </DialogContentText>
                 <Typography variant="caption">{description}</Typography>
             </DialogContent>

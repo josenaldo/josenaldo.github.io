@@ -1,12 +1,16 @@
+'use client'
+
 import React from 'react'
 
 import ShareIcon from '@mui/icons-material/Share'
 import { Box, IconButton } from '@mui/material'
+import { useTranslations } from 'next-intl'
 import PropTypes from 'prop-types'
 
 import ShareDialog from '@/components/share/ShareDialog'
 
 const ShareLink = ({ title, description, url, image, color = 'secondary' }) => {
+    const t = useTranslations('Common')
     const [open, setOpen] = React.useState(false)
     const [isNativeShare, setNativeShare] = React.useState(false)
     const [mounted, setMounted] = React.useState(false)
@@ -47,7 +51,7 @@ const ShareLink = ({ title, description, url, image, color = 'secondary' }) => {
             navigator
                 .share(data)
                 .then(() => {
-                    console.log('Successfully shared')
+                    console.log(t('successfullyShared'))
                 })
                 .catch(() => {
                     setOpen(true)
@@ -63,7 +67,7 @@ const ShareLink = ({ title, description, url, image, color = 'secondary' }) => {
                 onClick={handleOnClick}
                 color={color}
                 variant="contained"
-                aria-label="Share"
+                aria-label={t('share')}
             >
                 <ShareIcon />
             </IconButton>
