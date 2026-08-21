@@ -99,3 +99,15 @@ Registrada aqui porque o ledger da execução é efêmero e git-ignored. A revis
 - **`hiring-terms.md` carrega frontmatter `title`, `description` e `image` que a renderização não usa.** O schema `Page` os exige; o bloco é fragmento de corpo, renderizado por `MDXContent`.
 
 Dívida de conteúdo, separada da técnica: a seção de termos contratuais de `/hiring` não foi escrita. O marcador `<!-- termos-contratuais: a escrever pelo dono do site -->` está nos dois `hiring-terms.md`, e o workflow de publicação recusa ir ao ar enquanto ele existir.
+
+## Emenda de 2026-08-20 — os termos contratuais saem da página
+
+A spec previa uma seção de termos contratuais a ser escrita pelo dono do site, e a execução deixou um marcador no lugar dela. **Isso estava errado, e o erro foi de leitura.**
+
+O dono do site havia dito que aceita vaga PJ sênior part-time, sem exclusividade e sem horário fixo — e, na mesma frase, que **mais do que o modelo de trabalho, o que importa ali é o papel**. Isso é uma qualificação sobre o formato que ele aceita. A spec converteu em seção de termos, e os despachos da execução escalaram para "o que part-time significa em horas, como ele cobra, o que acontece quando o volume cresce" — sendo que preço nunca foi mencionado por ele.
+
+Horas, preço e escopo se negociam projeto a projeto e não pertencem a uma página pública. Anunciá-los ancora a negociação antes de existir projeto.
+
+O que resta legítimo já está coberto: o título diz `Remote Contractor (LATAM, GMT-3)`, em copy aprovada, no ponto mais precoce da página; e o bloco "Como isso funciona" descreve a operação assíncrona e o overhead técnico e gerencial saindo das costas do cliente. Carga, exclusividade e valores se conversam quando houver projeto.
+
+**Decisão:** o marcador sai dos dois arquivos, e nada entra no lugar. O bloco está completo. A guarda `check-draft-markers.mjs` **permanece** no workflow de publicação: ela é genérica, custa um passo de CI, e passa a proteger qualquer marcador de rascunho futuro em `content/` — o mecanismo é bom mesmo tendo nascido de uma premissa errada.
