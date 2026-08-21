@@ -30,7 +30,7 @@ My responsibility was to lead the modernization across the core repositories: th
 
 #### Result
 
-- Reduced deployment effort from **~1 hour to ~10 minutes** with automated CI/CD and repeatable staging/production workflows.
+- Reduced deployment effort from **~2 hours to ~15 minutes** with automated CI/CD and repeatable staging/production workflows.
 - Reduced a manual monthly follow-up operation from **~1 month to ~2 hours** by turning it into an operational module.
 - Delivered **935 commits from February to April 2026** across four MedEspecialista repositories (`api`, `admin`, `frontend`, and `backend`), combining feature work, modernization, tests, documentation, and tooling.
 - Converted edital/PDF processing from a mostly manual workflow into a validated extraction and review flow with admin screens, caching, error handling, filters, and automated tests.
