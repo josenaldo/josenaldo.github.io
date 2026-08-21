@@ -21,6 +21,7 @@ const ContentView = ({
     author,
     category,
     language,
+    showDisclaimer = true,
 }) => {
     const contentImage = image || AppConfig.DEFAULT_CARD_IMAGE
     const badges =
@@ -117,7 +118,7 @@ const ContentView = ({
                     <MDXContent content={content} />
                 </Box>
 
-                <BlogDisclaimer />
+                {showDisclaimer && <BlogDisclaimer />}
             </CardContent>
         </Card>
     )
@@ -128,6 +129,7 @@ ContentView.propTypes = {
     title: PropTypes.string.isRequired,
     description: PropTypes.string,
     image: PropTypes.string,
+    showDisclaimer: PropTypes.bool,
     url: PropTypes.string.isRequired,
     date: PropTypes.string,
     author: PropTypes.string,

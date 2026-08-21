@@ -54,6 +54,7 @@ export default async function HiringPage({ params }) {
                     description={page.description}
                     image={page.image}
                     url={page.url}
+                    showDisclaimer={false}
                 />
             </Container>
             <Evidence />
