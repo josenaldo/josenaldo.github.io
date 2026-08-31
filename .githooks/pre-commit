@@ -1,11 +1,16 @@
 #!/usr/bin/env bash
-# Impede commitar artefatos de métrica defasados em relação ao canônico do vault.
+# Impede commitar artefatos de métricas e de experiências defasados em
+# relação ao vault.
 # Instale com: yarn hooks:install
 set -uo pipefail
 
-if [ ! -e "${CANONICAL_METRICS:-$HOME/repos/personal/codex-technomanticus-apocrypha/03-Dominios/Inglês/Entrevistas/metricas-canonicas.json}" ]; then
-  echo "pre-commit: canônico indisponível, pulando a checagem de frescor das métricas." >&2
+VAULT_METRICAS="${CANONICAL_METRICS:-$HOME/repos/personal/codex-technomanticus-apocrypha/03-Dominios/Inglês/Entrevistas/metricas-canonicas.json}"
+VAULT_BRAG="${BRAG_ROOT:-$HOME/repos/personal/codex-technomanticus-apocrypha/03-Dominios/Inglês/Entrevistas/Brag}"
+
+if [ ! -e "$VAULT_METRICAS" ] || [ ! -d "$VAULT_BRAG" ]; then
+  echo "pre-commit: vault indisponível, pulando as checagens de frescor de métricas e experiências." >&2
   exit 0
 fi
 
 node scripts/gen-metrics.mjs --check || exit 1
+node scripts/gen-experiences.mjs --check || exit 1
