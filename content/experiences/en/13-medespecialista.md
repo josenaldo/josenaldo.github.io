@@ -3,9 +3,13 @@ id: 13
 title: Senior Full Stack Developer
 company: MedEspecialista
 location: Remote
-period: June 2024 - Current
+period: August 2024 - Current
 show: true
-description: 'Lead modernization of a multi-repository medical education platform, reducing deploy effort, automating operational workflows, and migrating core apps toward typed, tested, observable architecture.'
+description: Lead modernization of a multi-repository medical education
+  platform, reducing deploy effort, automating operational workflows, and
+  migrating core apps toward typed, tested, observable architecture.
+translationKey: medespecialista
+translated: true
 ---
 
 ### Senior Full Stack Developer | MedEspecialista

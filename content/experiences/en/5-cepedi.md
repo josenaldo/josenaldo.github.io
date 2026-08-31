@@ -5,7 +5,10 @@ company: CEPEDI
 location: Ilhéus, Brasil
 period: September 2006 - April 2008
 show: true
-description: 'Coordinated Java training, certified 44 devs, and achieved 100% job placement in advanced class.'
+description: Coordinated Java training, certified 44 devs, and achieved 100% job
+  placement in advanced class.
+translationKey: cepedi-2006
+translated: true
 ---
 
 ### Java Coordinator and Java Developer | CEPEDI

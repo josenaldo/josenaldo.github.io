@@ -1,30 +1,32 @@
 ---
-translated: false
 id: 2
 title: Scientific Initiation Scholarship
 company: State University of Santa Cruz - UESC
 location: Ilhéus, Brasil
 period: April 2003 - August 2004
 show: true
-description: 'Integrated lab systems and automated genetic data processing, streamlining scientific research at UESC.'
+description: Integrated lab systems and automated genetic data processing,
+  streamlining scientific research at UESC.
+translationKey: uesc-2003
+translated: true
 ---
 
 ### Scientific Initiation Scholarship | State University of Santa Cruz (UESC)
 
-#### Challenge
+#### Desafio
 
-Develop a web-based integration platform for the Bioinformatics Laboratory to consolidate multiple laboratory systems and automate genetic sequencing data processing. The solution required handling complex XML data transformations and providing unified interface for researchers.
+Desenvolver uma plataforma de integração baseada em web para o Laboratório de Bioinformática, consolidando múltiplos sistemas do laboratório e automatizando o processamento de dados de sequenciamento genético. A solução exigia lidar com transformações complexas de dados XML e oferecer uma interface unificada para os pesquisadores.
 
-#### Action
+#### Ação
 
-- **Web Interface Development**: Built comprehensive web interface using Java SE and Java EE technologies (Servlets, JSP) to integrate various laboratory systems.
-- **Data Processing Automation**: Implemented automated processing of genetic sequencing data using XML, XSLT, and XPath for data transformation and integration.
-- **Development Environment**: Utilized NetBeans IDE for rapid development and maintained code quality standards.
-- **System Integration**: Connected disparate laboratory systems through unified web platform.
+- **Desenvolvimento de Interface Web**: Construiu uma interface web abrangente usando tecnologias Java SE e Java EE (Servlets, JSP) para integrar diversos sistemas do laboratório.
+- **Automação de Processamento de Dados**: Implementou o processamento automatizado de dados de sequenciamento genético usando XML, XSLT e XPath para transformação e integração de dados.
+- **Ambiente de Desenvolvimento**: Utilizou a IDE NetBeans para desenvolvimento ágil e manteve padrões de qualidade de código.
+- **Integração de Sistemas**: Conectou sistemas díspares do laboratório através de uma plataforma web unificada.
 
-#### Result
+#### Resultado
 
-- Successfully delivered integrated web platform consolidating multiple Bioinformatics Laboratory systems.
-- Automated genetic sequencing data processing, reducing manual effort and potential errors.
-- Provided researchers with unified interface for accessing laboratory systems and data.
-- Gained hands-on experience with Java EE, XML technologies, and scientific computing during undergraduate research.
+- Entregou com sucesso uma plataforma web integrada, consolidando múltiplos sistemas do Laboratório de Bioinformática.
+- Automatizou o processamento de dados de sequenciamento genético, reduzindo esforço manual e erros potenciais.
+- Ofereceu aos pesquisadores uma interface unificada para acessar os sistemas e os dados do laboratório.
+- Ganhou experiência prática com Java EE, tecnologias XML, e computação científica durante a pesquisa de graduação.

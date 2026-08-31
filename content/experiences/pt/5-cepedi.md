@@ -1,31 +1,33 @@
 ---
-translated: false
 id: 5
 title: Java Coordinator and Java Developer
 company: CEPEDI
 location: Ilhéus, Brasil
 period: September 2006 - April 2008
 show: true
-description: 'Coordinated Java training, certified 44 devs, and achieved 100% job placement in advanced class.'
+description: Coordinated Java training, certified 44 devs, and achieved 100% job
+  placement in advanced class.
+translationKey: cepedi-2006
+translated: true
 ---
 
 ### Java Coordinator and Java Developer | CEPEDI
 
-#### Challenge
+#### Desafio
 
-Lead Java training programs and coordinate technical education initiatives for software development students, ensuring high approval rates and employability. The role required balancing instructional coordination, curriculum development, and process improvements to deliver qualified Java developers to the regional market.
+Liderar programas de treinamento em Java e coordenar iniciativas de educação técnica para estudantes de desenvolvimento de software, garantindo altas taxas de aprovação e empregabilidade. A função exigia equilibrar coordenação instrucional, desenvolvimento de currículo e melhorias de processo para entregar desenvolvedores Java qualificados ao mercado regional.
 
-#### Action
+#### Ação
 
-- **Training Program Leadership**: Coordinated and instructed Programming Formation Course (CFP) with 40 participants, achieving 77.5% approval rate (31 approved).
-- **Curriculum Development**: Designed and delivered Logic Programming course with strong results (13 approved out of 40 participants).
-- **Advanced Training**: Coordinated Advanced Java and Java for Web training for 5 selected students, focusing on enterprise-grade skills.
-- **Process Improvement**: Implemented development tools and processes to enhance training effectiveness and student learning outcomes.
-- **Knowledge Sharing**: Organized mini-courses and technical sessions to deepen Java ecosystem knowledge across various topics.
+- **Liderança de Programa de Treinamento**: Coordenou e ministrou o Curso de Formação de Programadores (CFP) com 40 participantes, alcançando taxa de aprovação de 77,5% (31 aprovados).
+- **Desenvolvimento de Currículo**: Projetou e ministrou o curso de Lógica de Programação com resultados fortes (13 aprovados entre 40 participantes).
+- **Treinamento Avançado**: Coordenou o treinamento de Java Avançado e Java para Web para 5 alunos selecionados, com foco em habilidades de nível corporativo.
+- **Melhoria de Processos**: Implementou ferramentas e processos de desenvolvimento para aumentar a efetividade do treinamento e os resultados de aprendizado dos alunos.
+- **Compartilhamento de Conhecimento**: Organizou minicursos e sessões técnicas para aprofundar o conhecimento do ecossistema Java em diversos temas.
 
-#### Result
+#### Resultado
 
-- Achieved 100% employment rate for Advanced Java training graduates—all 5 students were hired.
-- Successfully trained and certified 44 Java developers through structured programs (CFP and Logic Programming courses).
-- Improved training processes and tooling, enhancing learning effectiveness and student outcomes.
-- Established regional reputation for quality Java education, strengthening CEPEDI's market position.
+- Alcançou taxa de empregabilidade de 100% entre os formados no treinamento de Java Avançado — todos os 5 alunos foram contratados.
+- Treinou e certificou com sucesso 44 desenvolvedores Java através de programas estruturados (cursos CFP e Lógica de Programação).
+- Melhorou os processos e as ferramentas de treinamento, aumentando a efetividade do aprendizado e os resultados dos alunos.
+- Estabeleceu reputação regional por educação Java de qualidade, fortalecendo a posição de mercado da CEPEDI.

@@ -5,7 +5,10 @@ company: TQI
 location: Uberlândia, Brasil
 period: October 2011 - October 2012
 show: true
-description: 'Designed scalable backend architectures for e-commerce, integrating systems and optimizing performance.'
+description: Designed scalable backend architectures for e-commerce, integrating
+  systems and optimizing performance.
+translationKey: tqi
+translated: true
 ---
 
 ### Senior Backend Developer | TQI

@@ -1,30 +1,32 @@
 ---
-translated: false
 id: 9
 title: Senior Java Developer
 company: Sankhya
 location: Uberlândia, Brasil
 period: November 2013 - January 2015
 show: true
-description: 'Led migration from applets to centralized service, ensuring fiscal compliance and security in Sankhya ERP.'
+description: Led migration from applets to centralized service, ensuring fiscal
+  compliance and security in Sankhya ERP.
+translationKey: sankhya
+translated: true
 ---
 
 ### Senior Java Developer | Sankhya
 
-#### Challenge
+#### Desafio
 
-Develop a printing management service for Sankhya ERP to replace the legacy Java Applets-based solution (obsolete and insecure technology) with a modern, secure, and centralized alternative. Additionally, implement the CTE (Electronic Transport Document) module to ensure fiscal compliance for transportation operations.
+Desenvolver um serviço de gestão de impressão para o ERP Sankhya para substituir a solução legada baseada em Java Applets (tecnologia obsoleta e insegura) por uma alternativa moderna, segura e centralizada. Além disso, implementar o módulo CTE (Conhecimento de Transporte Eletrônico) para garantir a conformidade fiscal das operações de transporte.
 
-#### Action
+#### Ação
 
-- **Printing Service Development**: Designed and implemented the Sankhya Printing Service using Java 8, Guice, JUnit for testing, Adobe Flex for the frontend, and REST for communication, providing centralized control and traceability.
-- **Technical Leadership**: Led the complete development cycle including design, development, deployment, and maintenance of the printing service.
-- **CTE Module Implementation**: Developed the CTE (Electronic Transport Document) module using Java EE 5 and Adobe Flex, with full ERP integration and fiscal compliance rules.
-- **Team Mentorship**: Provided mentorship to developers and conducted code reviews to maintain quality standards.
+- **Desenvolvimento do Serviço de Impressão**: Projetou e implementou o Sankhya Printing Service usando Java 8, Guice, JUnit para testes, Adobe Flex para o frontend, e REST para comunicação, oferecendo controle centralizado e rastreabilidade.
+- **Liderança Técnica**: Liderou o ciclo completo de desenvolvimento, incluindo design, desenvolvimento, deploy e manutenção do serviço de impressão.
+- **Implementação do Módulo CTE**: Desenvolveu o módulo CTE (Conhecimento de Transporte Eletrônico) usando Java EE 5 e Adobe Flex, com integração completa ao ERP e regras de conformidade fiscal.
+- **Mentoria de Equipe**: Ofereceu mentoria a desenvolvedores e conduziu code reviews para manter os padrões de qualidade.
 
-#### Result
+#### Resultado
 
-- Eliminated security and obsolescence risks by replacing Java Applets with modern, centralized solution.
-- Achieved fiscal compliance and automated transport document generation through CTE module.
-- Delivered project on time and within budget with full traceability and centralized printing control.
-- Improved system reliability and reduced maintenance overhead through modern technology stack.
+- Eliminou riscos de segurança e obsolescência ao substituir Java Applets por uma solução moderna e centralizada.
+- Alcançou conformidade fiscal e automatizou a geração de documentos de transporte através do módulo CTE.
+- Entregou o projeto no prazo e dentro do orçamento, com rastreabilidade completa e controle de impressão centralizado.
+- Melhorou a confiabilidade do sistema e reduziu a sobrecarga de manutenção através de um stack tecnológico moderno.

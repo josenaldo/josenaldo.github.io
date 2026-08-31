@@ -1,33 +1,35 @@
 ---
-translated: false
 id: 11
 title: Senior Full Stack Developer
 company: Conddiz
 location: Remote
 period: March 2022 - August 2022
 show: true
-description: 'Designed multi-app ecosystem for presidential campaign, supporting 200k users and mentoring the team.'
+description: Designed multi-app ecosystem for presidential campaign, supporting
+  200k users and mentoring the team.
+translationKey: conddiz
+translated: true
 ---
 
 ### Senior Full Stack Developer | Conddiz
 
-#### Challenge
+#### Desafio
 
-Joined remotely as senior engineer/architect on a high-visibility project supporting a major Brazilian presidential campaign. The project required designing and delivering a scalable multi-app ecosystem with tight deadlines, high traffic expectations (~200k concurrent users during critical campaign moments), and multiple social media integrations across different platforms.
+Entrou remotamente como engenheiro sênior/arquiteto em um projeto de alta visibilidade dando suporte a uma grande campanha presidencial brasileira. O projeto exigia projetar e entregar um ecossistema multi-app escalável com prazos apertados, expectativa de tráfego alto (~200 mil usuários simultâneos em momentos críticos da campanha), e múltiplas integrações de redes sociais em diferentes plataformas.
 
-#### Action
+#### Ação
 
-- **Ecosystem Architecture**: Designed and delivered a scalable multi-app ecosystem with 1 backend serving 3 frontends, using Node.js, Strapi, and MySQL, including content modeling (Content Types), authentication/registration flows, and integrations across the platform.
-- **Frontend Development**: Built the official campaign website and two production-ready PWAs using React, Next.js, MUI, TanStack Query (React Query) + Axios, and React Hook Form.
-- **Integrations**: Implemented integrations with YouTube, TikTok, Instagram, Facebook, Twitter/X, and WhatsApp, enabling cross-platform engagement and content distribution.
-- **Technical Leadership**: Took ownership of frontend architecture and delivery while partnering with DevOps/project lead responsible for infrastructure and releases.
-- **Team Mentorship**: Mentored new team members through training, code review, pair programming, and promoting best practices in modern web development.
+- **Arquitetura do Ecossistema**: Projetou e entregou um ecossistema multi-app escalável com 1 backend servindo 3 frontends, usando Node.js, Strapi e MySQL, incluindo modelagem de conteúdo (Content Types), fluxos de autenticação/cadastro, e integrações em toda a plataforma.
+- **Desenvolvimento de Frontend**: Construiu o site oficial da campanha e dois PWAs prontos para produção usando React, Next.js, MUI, TanStack Query (React Query) + Axios, e React Hook Form.
+- **Integrações**: Implementou integrações com YouTube, TikTok, Instagram, Facebook, Twitter/X e WhatsApp, viabilizando engajamento e distribuição de conteúdo entre plataformas.
+- **Liderança Técnica**: Assumiu a responsabilidade pela arquitetura e entrega de frontend, em parceria com o DevOps/líder de projeto responsável por infraestrutura e releases.
+- **Mentoria de Equipe**: Fez mentoria de novos membros da equipe através de treinamento, code review, pair programming, e promovendo boas práticas em desenvolvimento web moderno.
 
-#### Result
+#### Resultado
 
-- Successfully delivered all applications on time and within budget despite tight campaign deadlines.
-- Supported traffic peaks of ~200k concurrent users/visitors during critical campaign moments with stable performance.
-- Official campaign website achieved over 2 million visits throughout the campaign period.
-- Video app reached more than 10,000 downloads with gamification features.
-- TV app engaged more than 10,000 viewers with interactive features.
-- Empowered junior team members with NextJS, Strapi, and MUI expertise through effective mentorship.
+- Entregou com sucesso todas as aplicações no prazo e dentro do orçamento, apesar dos prazos apertados da campanha.
+- Suportou picos de tráfego de ~200 mil usuários/visitantes simultâneos em momentos críticos da campanha com performance estável.
+- O site oficial da campanha alcançou mais de 2 milhões de visitas ao longo do período de campanha.
+- O app de vídeo alcançou mais de 10 mil downloads com recursos de gamificação.
+- O app de TV engajou mais de 10 mil espectadores com recursos interativos.
+- Capacitou membros juniores da equipe com expertise em NextJS, Strapi e MUI através de mentoria efetiva.

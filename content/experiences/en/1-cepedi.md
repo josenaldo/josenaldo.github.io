@@ -5,7 +5,10 @@ company: CEPEDI
 location: Ilhéus, Brasil
 period: November 2003 - February 2004
 show: true
-description: "Developed automated testing system for assembly line, boosting Novadata's quality control and reliability."
+description: Developed automated testing system for assembly line, boosting
+  Novadata's quality control and reliability.
+translationKey: cepedi-2003
+translated: true
 ---
 
 ### Junior Java Programmer | CEPEDI

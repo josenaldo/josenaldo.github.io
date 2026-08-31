@@ -1,29 +1,31 @@
 ---
-translated: false
 id: 4
 title: Java Instructor
 company: SENAI
 location: Ilhéus, Brasil
 period: May 2007 - July 2007
 show: true
-description: 'Trained 18 students in Java, blending theory and practice, and boosting regional tech skills.'
+description: Trained 18 students in Java, blending theory and practice, and
+  boosting regional tech skills.
+translationKey: senai
+translated: true
 ---
 
 ### Java Instructor | SENAI
 
-#### Challenge
+#### Desafio
 
-Deliver professional Java training courses for SENAI (Brazilian National Service for Industrial Training), ensuring students gained practical programming skills for the regional technology job market. The courses needed to balance theoretical foundations with hands-on application.
+Ministrar cursos profissionalizantes de Java para o SENAI (Serviço Nacional de Aprendizagem Industrial), garantindo que os alunos ganhassem habilidades práticas de programação para o mercado de tecnologia regional. Os cursos precisavam equilibrar fundamentos teóricos com aplicação prática.
 
-#### Action
+#### Ação
 
-- **Course Delivery**: Taught two intensive 40-hour courses: "Introduction to Java Language" and "Applied Programming Logic in Java".
-- **Curriculum Design**: Structured courses to cover Java technology fundamentals and programming logic using practical, hands-on approach.
-- **Student Engagement**: Maintained high engagement and completion rates through effective teaching methodology.
+- **Ministração de Curso**: Ministrou dois cursos intensivos de 40 horas: "Introdução à Linguagem Java" e "Lógica de Programação Aplicada em Java".
+- **Design de Currículo**: Estruturou os cursos para cobrir os fundamentos da tecnologia Java e a lógica de programação usando uma abordagem prática e aplicada.
+- **Engajamento dos Alunos**: Manteve altas taxas de engajamento e conclusão através de metodologia de ensino efetiva.
 
-#### Result
+#### Resultado
 
-- Successfully trained 18 students across two courses with strong participation (8 and 10 students respectively).
-- Delivered complete foundational Java education covering both language syntax and programming logic.
-- Achieved positive course outcomes with high student satisfaction and completion rates.
-- Contributed to regional workforce development by providing quality Java programming education.
+- Treinou com sucesso 18 alunos em dois cursos, com forte participação (8 e 10 alunos, respectivamente).
+- Entregou educação Java fundamental completa, cobrindo tanto a sintaxe da linguagem quanto a lógica de programação.
+- Alcançou resultados positivos nos cursos, com alta satisfação e taxas de conclusão dos alunos.
+- Contribuiu para o desenvolvimento da força de trabalho regional ao oferecer educação de programação Java de qualidade.

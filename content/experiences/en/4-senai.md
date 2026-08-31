@@ -5,7 +5,10 @@ company: SENAI
 location: Ilhéus, Brasil
 period: May 2007 - July 2007
 show: true
-description: 'Trained 18 students in Java, blending theory and practice, and boosting regional tech skills.'
+description: Trained 18 students in Java, blending theory and practice, and
+  boosting regional tech skills.
+translationKey: senai
+translated: true
 ---
 
 ### Java Instructor | SENAI

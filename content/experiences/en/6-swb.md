@@ -5,7 +5,10 @@ company: SWB
 location: Uberlândia, Brasil
 period: May 2008 - June 2009
 show: true
-description: 'Implemented Oracle auditing and Java EE enterprise systems, boosting traceability and performance.'
+description: Implemented Oracle auditing and Java EE enterprise systems,
+  boosting traceability and performance.
+translationKey: swb
+translated: true
 ---
 
 ### Java Developer | SWB

@@ -1,30 +1,32 @@
 ---
-translated: false
 id: 7
 title: Systems Analyst
 company: Everis
 location: Uberlândia, Brasil
 period: July 2009 - July 2011
 show: true
-description: 'Delivered multi-stack projects, mentored teams, and ensured CMMI 3 standards for enterprise clients.'
+description: Delivered multi-stack projects, mentored teams, and ensured CMMI 3
+  standards for enterprise clients.
+translationKey: everis
+translated: true
 ---
 
 ### Systems Analyst | Everis
 
-#### Challenge
+#### Desafio
 
-Work on diverse projects for telecom and enterprise clients, implementing solutions across multiple technologies while maintaining CMMI 3 software development processes. The role required technical versatility, mentorship of junior developers, and delivering proof-of-concepts for emerging technologies.
+Atuar em projetos diversos para clientes de telecom e corporativos, implementando soluções em múltiplas tecnologias enquanto mantinha os processos de desenvolvimento de software CMMI nível 3. A função exigia versatilidade técnica, mentoria de desenvolvedores juniores, e entrega de provas de conceito para tecnologias emergentes.
 
-#### Action
+#### Ação
 
-- **Multi-Technology Development**: Developed projects using Java, PHP, HTML, JavaScript, and database technologies (MySQL, Oracle, PL/SQL).
-- **Process Implementation**: Contributed to implementing and maintaining software development processes based on CMMI level 3 standards.
-- **Team Mentorship**: Mentored less experienced team members, sharing knowledge and promoting best practices.
-- **Innovation & POC**: Developed a proof of concept for integrating Adobe Flex and Java for Telefônica's back-office system, demonstrating feasibility of modern RIA (Rich Internet Application) technologies.
+- **Desenvolvimento Multi-Tecnologia**: Desenvolveu projetos usando Java, PHP, HTML, JavaScript, e tecnologias de banco de dados (MySQL, Oracle, PL/SQL).
+- **Implementação de Processos**: Contribuiu para a implementação e manutenção de processos de desenvolvimento de software baseados no padrão CMMI nível 3.
+- **Mentoria de Equipe**: Fez mentoria de membros menos experientes da equipe, compartilhando conhecimento e promovendo boas práticas.
+- **Inovação e POC**: Desenvolveu uma prova de conceito integrando Adobe Flex e Java para o back-office da Telefônica, demonstrando a viabilidade de tecnologias RIA (Rich Internet Application) modernas.
 
-#### Result
+#### Resultado
 
-- Successfully delivered multiple projects across diverse technology stacks for major clients.
-- Helped maintain CMMI 3 certification through consistent process adherence and quality standards.
-- Improved team capabilities through effective mentorship and knowledge transfer.
-- Demonstrated viability of Flex-Java integration for enterprise back-office systems, influencing technology adoption decisions.
+- Entregou com sucesso múltiplos projetos em stacks tecnológicos diversos para grandes clientes.
+- Ajudou a manter a certificação CMMI 3 através da aderência consistente a processos e padrões de qualidade.
+- Melhorou as capacidades da equipe através de mentoria efetiva e transferência de conhecimento.
+- Demonstrou a viabilidade da integração Flex-Java para sistemas corporativos de back-office, influenciando decisões de adoção tecnológica.

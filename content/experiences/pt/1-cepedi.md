@@ -1,29 +1,31 @@
 ---
-translated: false
 id: 1
 title: Junior Java Programmer
 company: CEPEDI
 location: Ilhéus, Brasil
 period: November 2003 - February 2004
 show: true
-description: "Developed automated testing system for assembly line, boosting Novadata's quality control and reliability."
+description: Developed automated testing system for assembly line, boosting
+  Novadata's quality control and reliability.
+translationKey: cepedi-2003
+translated: true
 ---
 
 ### Junior Java Programmer | CEPEDI
 
-#### Challenge
+#### Desafio
 
-Develop an automated testing system for hardware and multimedia components in the Novadata computer assembly line. The system needed to ensure quality control by testing multiple hardware components efficiently during the manufacturing process.
+Desenvolver um sistema de testes automatizados para componentes de hardware e multimídia na linha de montagem de computadores da Novadata. O sistema precisava garantir controle de qualidade testando múltiplos componentes de hardware de forma eficiente durante o processo de fabricação.
 
-#### Action
+#### Ação
 
-- **System Development**: Worked on development of automated testing system using Java SE for hardware and multimedia quality assurance in computer assembly line.
-- **Software Engineering**: Participated in full development cycle including analyzing requirements, designing components, and coding system modules.
-- **Quality Assurance**: Implemented automated tests for hardware validation ensuring consistent quality standards.
+- **Desenvolvimento de Sistema**: Trabalhou no desenvolvimento de um sistema de testes automatizados usando Java SE para garantia de qualidade de hardware e multimídia na linha de montagem de computadores.
+- **Engenharia de Software**: Participou do ciclo completo de desenvolvimento, incluindo análise de requisitos, design de componentes, e codificação dos módulos do sistema.
+- **Garantia de Qualidade**: Implementou testes automatizados para validação de hardware, garantindo padrões de qualidade consistentes.
 
-#### Result
+#### Resultado
 
-- Successfully contributed to deployment of automated testing system for Novadata computer assembly line.
-- Improved quality control efficiency by automating hardware and multimedia component testing.
-- Gained foundational experience in Java SE development, software engineering practices, and industrial automation.
-- Delivered reliable quality assurance solution for manufacturing environment.
+- Contribuiu com sucesso para a implantação do sistema de testes automatizados na linha de montagem de computadores da Novadata.
+- Melhorou a eficiência do controle de qualidade ao automatizar os testes de componentes de hardware e multimídia.
+- Ganhou experiência fundamental em desenvolvimento Java SE, práticas de engenharia de software, e automação industrial.
+- Entregou uma solução confiável de garantia de qualidade para o ambiente de manufatura.

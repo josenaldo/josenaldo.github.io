@@ -5,7 +5,10 @@ company: State University of Santa Cruz - UESC
 location: Ilhéus, Brasil
 period: April 2003 - August 2004
 show: true
-description: 'Integrated lab systems and automated genetic data processing, streamlining scientific research at UESC.'
+description: Integrated lab systems and automated genetic data processing,
+  streamlining scientific research at UESC.
+translationKey: uesc-2003
+translated: true
 ---
 
 ### Scientific Initiation Scholarship | State University of Santa Cruz (UESC)
