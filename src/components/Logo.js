@@ -10,13 +10,13 @@ const Logo = () => {
             noWrap
             component={Link}
             href="/"
-            sx={{
-                fontSize: 'var(--font-size-h6)',
+            sx={(theme) => ({
+                fontSize: theme.typography.h6.fontSize,
                 mr: 2,
                 fontWeight: 700,
                 color: 'inherit',
                 textDecoration: 'none',
-            }}
+            })}
         >
             Josenaldo Matos
         </Typography>
