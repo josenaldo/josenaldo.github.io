@@ -1,4 +1,5 @@
-// Carregamento assíncrono da fonte Roboto restaurado a partir do
+// Carregamento assíncrono das fontes do design system (Space Grotesk,
+// IBM Plex Sans, IBM Plex Mono), restaurado a partir do
 // `_document.js` do Pages Router (git show 1afc314^:src/pages/_document.js).
 //
 // Rodada de correção 2: a primeira versão deste componente era Client
@@ -20,7 +21,7 @@
 // usam para simular o `onload="this.media='all'"` nativo de HTML puro sem
 // escrever esse atributo como string (que o React não aceita em `onLoad`).
 const FONT_HREF =
-    'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap'
+    'https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap'
 
 const loadFontScript = `
 (function () {
