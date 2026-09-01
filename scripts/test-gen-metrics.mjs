@@ -379,6 +379,66 @@ test('renderNote escapa barra vertical em texto livre', () => {
     assert.equal(naoEscapadas, 6)
 })
 
+test('renderNote substitui bloco de marcador vazio (sem \\n entre início e fim)', () => {
+    // Regressão: quando o bloco no vault já nasce vazio — os marcadores de
+    // início e fim em linhas adjacentes, com um único \n entre eles — a regex
+    // antiga exigia DOIS \n (um pra fechar o grupo 1, outro pra abrir o grupo
+    // 2) que não podiam consumir o mesmo \n. O replace virava um no-op
+    // silencioso e o bloco ficava vazio pra sempre, mesmo com métrica real
+    // cadastrada para o engagement.
+    const canonical = baseCanonical()
+    canonical.engagements.push({ id: 'manchester', titulo: 'Manchester' })
+    // Nenhuma métrica aponta para "manchester" — tabelaEngagement produz só
+    // o cabeçalho da tabela, sem linhas de dado.
+
+    const nota = [
+        '# Métricas Canônicas',
+        '',
+        '## Manchester',
+        '',
+        '<!-- metricas:inicio:manchester -->',
+        '<!-- metricas:fim:manchester -->',
+        '',
+        '## Acme (2020 – 2021)',
+        '',
+        '<!-- metricas:inicio:acme -->',
+        'conteúdo velho que deve sumir',
+        '<!-- metricas:fim:acme -->',
+        '',
+        '## Números aposentados — não citar',
+        '',
+        '<!-- metricas:inicio:aposentados -->',
+        'lixo velho',
+        '<!-- metricas:fim:aposentados -->',
+        '',
+    ].join('\n')
+
+    const saida = renderNote(nota, canonical)
+
+    // Se a regex tivesse dado no-op, o bloco continuaria com os marcadores
+    // vazios adjacentes — exatamente o texto de entrada. Confirmamos que a
+    // substituição de fato ocorreu: o bloco do manchester agora contém o
+    // cabeçalho da tabela (a prova de que o conteúdo gerado foi inserido).
+    assert.doesNotMatch(
+        saida,
+        /<!-- metricas:inicio:manchester -->\n<!-- metricas:fim:manchester -->/
+    )
+    // Sem \n de sobra pra preservar (o bloco original não tinha nenhum), a
+    // saída encosta o fim da tabela no marcador de fim — comportamento
+    // esperado da correção mínima, e ainda assim idempotente.
+    assert.match(
+        saida,
+        /<!-- metricas:inicio:manchester -->\n\| Métrica \| Antes \| Depois \| Confiança \| Fonte \/ ressalva \|\n\| --- \| --- \| --- \| --- \| --- \|<!-- metricas:fim:manchester -->/
+    )
+
+    // A regressão idempotente importa tanto quanto a substituição em si: uma
+    // correção que só funciona na primeira passada e diverge na segunda
+    // reintroduziria o mesmo tipo de bug de sincronia que o --check existe
+    // pra pegar.
+    const segunda = renderNote(saida, canonical)
+    assert.equal(saida, segunda)
+})
+
 test('renderNote aceita id de engagement com dígito e hífen', () => {
     const canonical = baseCanonical()
     canonical.engagements = [{ id: 'acme-2020', titulo: 'Acme 2020' }]

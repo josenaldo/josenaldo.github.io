@@ -94,6 +94,11 @@ const CAMINHOS = {
     brag: process.env.BRAG_ROOT ?? join(VAULT, 'Brag'),
 }
 
+// Allow-list explícita, não "toda pasta sob Brag/": o vault pode conter
+// pastas de engagement ad-hoc (rascunho incompleto, experimento pessoal)
+// que ainda não estão prontas pro site. É isso que impede uma pasta assim
+// de entrar no site sem querer. Uma 14ª experiência real exige adicionar
+// o nome da pasta aqui manualmente.
 const ENGAGEMENTS_CONHECIDOS = [
     'medespecialista',
     'muvz',

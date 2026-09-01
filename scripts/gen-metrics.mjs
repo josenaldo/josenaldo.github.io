@@ -268,7 +268,7 @@ export function renderNote(texto, canonical) {
                 : tabelaEngagement(canonical, id)
 
         const bloco = new RegExp(
-            `(<!-- metricas:inicio:${id} -->\\n)[\\s\\S]*?(\\n<!-- metricas:fim:${id} -->)`
+            `(<!-- metricas:inicio:${id} -->\\n)[\\s\\S]*?(\\n?<!-- metricas:fim:${id} -->)`
         )
 
         // Função como replacement, não string: uma string de replacement
