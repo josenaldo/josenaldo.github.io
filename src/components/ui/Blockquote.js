@@ -38,11 +38,11 @@ const Blockquote = ({ children }) => {
     return (
         <Box
             component="blockquote"
-            sx={{
+            sx={(theme) => ({
                 display: 'flex',
                 flexDirection: 'column',
-                bgcolor: 'background.quote',
-                color: 'text.quote',
+                bgcolor: theme.surface.result,
+                color: theme.ink.body,
                 py: 2,
                 px: { xs: 2, md: 4 },
                 my: 2,
@@ -54,7 +54,7 @@ const Blockquote = ({ children }) => {
                 '& p': {
                     my: 1,
                 },
-            }}
+            })}
         >
             {quoteChildren}
             {citation && (
