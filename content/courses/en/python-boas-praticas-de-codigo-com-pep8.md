@@ -1,10 +1,12 @@
 ---
-name: 'Python: boas práticas de código com PEP8'
+name: "Python: boas práticas de código com PEP8"
 institution: Alura
 completionDate: 2021-10-26
 workload: 10
 courseLink: https://cursos.alura.com.br/course/pep8-linters-python
 certificateLink: https://cursos.alura.com.br/certificate/a5097e50-5efe-487c-9937-4cba42f89d3d?lang=pt_BR
+translationKey: python-boas-praticas-de-codigo-com-pep8
+translated: true
 ---
 
 In this course, I learned:

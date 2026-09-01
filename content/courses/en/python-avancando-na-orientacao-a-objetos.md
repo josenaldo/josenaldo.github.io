@@ -1,10 +1,12 @@
 ---
-name: 'Python: avançando na orientação a objetos'
+name: "Python: avançando na orientação a objetos"
 institution: Alura
 completionDate: 2021-09-17
 workload: 10
 courseLink: https://cursos.alura.com.br/course/python-3-avancando-orientacao-objetos
 certificateLink: https://cursos.alura.com.br/certificate/4398e170-ec22-41e4-a39e-ab8361b70762?lang=pt_BR
+translationKey: python-avancando-na-orientacao-a-objetos
+translated: true
 ---
 
 In this course, I learned:

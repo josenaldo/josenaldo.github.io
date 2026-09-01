@@ -1,10 +1,12 @@
 ---
-name: 'Python: começando com a linguagem'
+name: "Python: começando com a linguagem"
 institution: Alura
 completionDate: 2021-09-11
 workload: 12
 courseLink: https://cursos.alura.com.br/course/python-introducao-a-linguagem
 certificateLink: https://cursos.alura.com.br/certificate/2d853b48-df1e-4097-89a5-72258b839329?lang=pt_BR
+translationKey: python-comecando-com-a-linguagem
+translated: true
 ---
 
 In this course, I learned:

@@ -1,10 +1,11 @@
 ---
-translated: false
 name: Full Stack Open - 1 to 7 - React, Redux, Node.js, MongoDB, GraphQL e TypeScript
 institution: University of Helsinki
 completionDate: 2023-07-30
 workload: 225
 courseLink: https://fullstackopen.com
+translationKey: full-stack-open-1-to-7-react-redux-nodejs-mongodb-graphql-e-typescript
+translated: true
 ---
 
-In this comprehensive course, I learned modern full-stack web development with React, Node.js, and related technologies. The course covered fundamentals of web apps and React (components, props, state, hooks, event handling), communicating with servers and REST APIs, server programming with Node.js and Express (CRUD operations, middleware, routing), automated testing of frontend and backend with Jest, Vitest, Cypress, and Playwright, advanced state management with Redux Toolkit, React with TypeScript for type-safe development, authentication and security with JWT and bcrypt, GraphQL for building and consuming APIs, and DevOps with Docker, GitHub Actions, and CI/CD. I also learned database management with MongoDB/Mongoose and PostgreSQL, deployed applications to render.com and fly.io, and completed extensive project-based assignments that mimic real-world full-stack development.
+Neste curso abrangente, aprendi desenvolvimento web full-stack moderno com React, Node.js e tecnologias relacionadas. O curso abordou os fundamentos de aplicações web e React (componentes, props, state, hooks, tratamento de eventos), a comunicação com servidores e APIs REST, a programação de servidores com Node.js e Express (operações CRUD, middleware, roteamento), testes automatizados de frontend e backend com Jest, Vitest, Cypress e Playwright, o gerenciamento avançado de estado com Redux Toolkit, o uso de React com TypeScript para desenvolvimento com tipagem segura, autenticação e segurança com JWT e bcrypt, GraphQL para construir e consumir APIs, e DevOps com Docker, GitHub Actions e CI/CD. Também aprendi o gerenciamento de bancos de dados com MongoDB/Mongoose e PostgreSQL, fiz deploy de aplicações no render.com e no fly.io, e completei extensos exercícios baseados em projetos que simulam o desenvolvimento full-stack no mundo real.

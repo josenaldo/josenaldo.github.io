@@ -1,19 +1,20 @@
 ---
-translated: false
-name: 'Testes em Python: trabalhando com dublês de testes'
+name: "Testes em Python: trabalhando com dublês de testes"
 institution: Alura
 completionDate: 2021-10-06
 workload: 10
 courseLink: https://cursos.alura.com.br/course/python-testes-com-dubles
 certificateLink: https://cursos.alura.com.br/certificate/a13b4525-408c-4f44-92c9-cd8eb4b752e5?lang=pt_BR
+translationKey: testes-em-python-trabalhando-com-dubles-de-testes
+translated: true
 ---
 
-In this course, I learned:
+Neste curso, aprendi:
 
-- **Introduction to Test Doubles**: Understanding TDD, designing book consultation tests, and why test doubles are useful.
-- **Using Test Doubles**: Applying test doubles for HTTP requests, understanding `Stub`, and handling exceptions with `unittest.mock`.
-- **Capturing Indirect Outputs**: Testing function calls, verifying directory and file creation, using `Spy`, and ensuring correct write operations.
-- **Programming Expected Behavior and Verifying Inputs**: Exploring the `Mock` double, testing repeated requests and responses, handling errors in API calls, and logging failures.
-- **Handling Errors and Dependencies**: Testing failures on the first page of results, dealing with unavailable components, and verifying database insertions.
-- **Using `Fake` Doubles**: Implementing `Fake` test doubles with and without `unittest.mock` and testing data persistence.
-- **Final Project and Conclusion**: Applying test doubles in real-world scenarios.
+- **Introdução a dublês de teste**: Entendimento de TDD, design de testes de consulta de livros, e por que dublês de teste são úteis.
+- **Usando dublês de teste**: Aplicação de dublês de teste para requisições HTTP, entendimento do `Stub`, e tratamento de exceções com `unittest.mock`.
+- **Capturando saídas indiretas**: Teste de chamadas de função, verificação da criação de diretórios e arquivos, uso do `Spy`, e garantia de operações de escrita corretas.
+- **Programando comportamento esperado e verificando entradas**: Exploração do dublê `Mock`, teste de requisições e respostas repetidas, tratamento de erros em chamadas de API, e registro de falhas.
+- **Tratando erros e dependências**: Teste de falhas na primeira página de resultados, lidando com componentes indisponíveis, e verificação de inserções no banco de dados.
+- **Usando dublês do tipo `Fake`**: Implementação de dublês `Fake` com e sem `unittest.mock`, e teste de persistência de dados.
+- **Projeto final e conclusão**: Aplicação de dublês de teste em cenários reais.

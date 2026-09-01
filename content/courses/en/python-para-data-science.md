@@ -1,10 +1,12 @@
 ---
-name: 'Python para Data Science'
+name: Python para Data Science
 institution: Alura
 completionDate: 2021-09-09
 workload: 10
 courseLink: https://cursos.alura.com.br/course/python-intro
 certificateLink: https://cursos.alura.com.br/certificate/14fe654e-ad02-4b9f-9df5-859781dcf134?lang=pt_BR
+translationKey: python-para-data-science
+translated: true
 ---
 
 In this course, I learned:

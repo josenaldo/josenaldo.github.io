@@ -1,10 +1,12 @@
 ---
-name: 'Pandas: formatos diferentes de entrada e saída (IO)'
+name: "Pandas: formatos diferentes de entrada e saída (IO)"
 institution: Alura
 completionDate: 2022-01-06
 workload: 6
 courseLink: https://cursos.alura.com.br/course/pandas-io
 certificateLink: https://cursos.alura.com.br/certificate/7085d8df-6a35-43ff-ba39-924d7bab1fb8?lang=pt_BR
+translationKey: pandas-formatos-diferentes-de-entrada-e-saida-io
+translated: true
 ---
 
 - **Reading Students with JSON**: Setting up the environment, reading student names from JSON, adding unique IDs, merging DataFrames, and working with JSON both locally and on the web.

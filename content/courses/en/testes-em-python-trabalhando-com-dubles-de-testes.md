@@ -1,10 +1,12 @@
 ---
-name: 'Testes em Python: trabalhando com dublês de testes'
+name: "Testes em Python: trabalhando com dublês de testes"
 institution: Alura
 completionDate: 2021-10-06
 workload: 10
 courseLink: https://cursos.alura.com.br/course/python-testes-com-dubles
 certificateLink: https://cursos.alura.com.br/certificate/a13b4525-408c-4f44-92c9-cd8eb4b752e5?lang=pt_BR
+translationKey: testes-em-python-trabalhando-com-dubles-de-testes
+translated: true
 ---
 
 In this course, I learned:

@@ -1,10 +1,11 @@
 ---
-translated: false
 name: Domain Driven Design
 institution: Full Cycle
 completionDate: 2024-02-11
 workload: 6
 courseLink: https://plataforma.fullcycle.com.br
+translationKey: domain-driven-design
+translated: true
 ---
 
-In this course, I learned the fundamentals of Domain Driven Design for building software that reflects business complexity. The course covered the importance of Ubiquitous Language for team communication, identifying Domains, Subdomains, and Bounded Contexts, strategic design patterns including Context Maps and integration patterns (Partnership, Shared Kernel, Customer/Supplier, Anticorruption Layer), tactical design with Entities, Value Objects, Aggregates, and Repositories, and how to integrate DDD with modern architectures like microservices, CQRS, and Event Sourcing. I also learned Event Storming for collaborative modeling, layered architecture patterns, and common mistakes to avoid when implementing DDD in real-world projects.
+Neste curso, aprendi os fundamentos de Domain Driven Design para construir software que reflita a complexidade do negócio. O curso abordou a importância da Linguagem Ubíqua para a comunicação da equipe, a identificação de Domains, Subdomains e Bounded Contexts, padrões de design estratégico incluindo Context Maps e padrões de integração (Partnership, Shared Kernel, Customer/Supplier, Anticorruption Layer), o design tático com Entities, Value Objects, Aggregates e Repositories, e como integrar o DDD com arquiteturas modernas como microsserviços, CQRS e Event Sourcing. Também aprendi Event Storming para modelagem colaborativa, padrões de arquitetura em camadas, e os erros comuns a evitar ao implementar DDD em projetos reais.

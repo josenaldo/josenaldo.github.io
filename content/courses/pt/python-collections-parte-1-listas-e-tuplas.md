@@ -1,20 +1,21 @@
 ---
-translated: false
-name: 'Python Collections parte 1: listas e tuplas'
+name: "Python Collections parte 1: listas e tuplas"
 institution: Alura
 completionDate: 2021-09-13
 workload: 8
 courseLink: https://cursos.alura.com.br/course/python-collections-listas-e-tuplas
 certificateLink: https://cursos.alura.com.br/certificate/a70e283e-67c3-43f5-8a2b-19013fcf7d0c?lang=pt_BR
+translationKey: python-collections-parte-1-listas-e-tuplas
+translated: true
 ---
 
-In this course, I learned:
+Neste curso, aprendi:
 
-- **Introduction to Collections and Lists**: Introduction to lists and list operations, exploring list comprehension, and handling the mutability of lists.
-- **Tuples**: Exploring tuples, comparing them to lists, and using them with objects and classes. Understanding the difference between tuples and lists.
-- **Polymorphism and Arrays**: Exploring lists with polymorphism, arrays using NumPy, and creating arrays with abstract methods.
-- **Equality**: Understanding equality in Python and implementing the `__eq__` method for object comparison.
-- **Other Built-in Functions**: Exploring built-in functions like `enumerate`, `range`, and automatic tuple unpacking.
-- **Natural Order**: Basic sorting of lists and organizing data.
-- **Custom Sorting**: Implementing custom sorting for objects and using the `__lt__` method to define the sorting behavior.
-- **Total Sorting**: Using `functools` for complete sorting and applying best practices in sorting.
+- **Introdução a collections e listas**: Introdução a listas e operações com listas, exploração de list comprehension, e tratamento da mutabilidade das listas.
+- **Tuplas**: Exploração de tuplas, comparação com listas, e uso com objetos e classes. Entendimento da diferença entre tuplas e listas.
+- **Polimorfismo e arrays**: Exploração de listas com polimorfismo, arrays usando NumPy, e criação de arrays com métodos abstratos.
+- **Igualdade**: Entendimento da igualdade em Python e implementação do método `__eq__` para comparação de objetos.
+- **Outras funções nativas**: Exploração de funções nativas como `enumerate`, `range`, e desempacotamento automático de tuplas.
+- **Ordem natural**: Ordenação básica de listas e organização de dados.
+- **Ordenação personalizada**: Implementação de ordenação personalizada para objetos e uso do método `__lt__` para definir o comportamento de ordenação.
+- **Ordenação total**: Uso do `functools` para ordenação completa e aplicação de boas práticas de ordenação.

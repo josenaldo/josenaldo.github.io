@@ -1,19 +1,20 @@
 ---
-translated: false
-name: 'Testes automatizados: TDD com Python'
+name: "Testes automatizados: TDD com Python"
 institution: Alura
 completionDate: 2021-10-01
 workload: 6
 courseLink: https://cursos.alura.com.br/course/tdd-com-python
 certificateLink: https://cursos.alura.com.br/certificate/94dce9c0-87c1-4b6f-b4f8-b433a3531bde?lang=pt_BR
+translationKey: testes-automatizados-tdd-com-python
+translated: true
 ---
 
-In this course, I learned:
+Neste curso, aprendi:
 
-- **Preparing the Environment**: Setting up the project, understanding the domain, and implementing the auction evaluator.
-- **Unit Testing Basics**: Starting with unit tests, running tests in the terminal, and exploring the connection between testing and productivity.
-- **Best Practices and Test Scenarios**: Creating new tests, renaming them, working with equivalence classes, and isolating the test setup.
-- **Refactoring Domain Classes**: Implementing encapsulation, understanding state and behavior, and applying the Law of Demeter (Principle of Least Knowledge).
-- **New Business Rules and Exception Testing**: Adding new business rules, testing exceptions, and following TDD with baby steps.
-- **Testing with Pytest**: Introduction to Pytest, writing tests, using fixtures, and testing exceptions.
-- **Refactoring the Project**: Isolating conditions, adding business exceptions, improving code readability, and refactoring the domain.
+- **Preparando o ambiente**: Configuração do projeto, entendimento do domínio, e implementação do avaliador de leilões.
+- **Fundamentos de testes unitários**: Início com testes unitários, execução de testes no terminal, e exploração da relação entre testes e produtividade.
+- **Boas práticas e cenários de teste**: Criação de novos testes, renomeação de testes, trabalho com classes de equivalência, e isolamento da configuração de testes.
+- **Refatorando classes de domínio**: Implementação de encapsulamento, entendimento de estado e comportamento, e aplicação da Lei de Demeter (Princípio do Menor Conhecimento).
+- **Novas regras de negócio e teste de exceções**: Adição de novas regras de negócio, teste de exceções, e aplicação de TDD em passos pequenos (baby steps).
+- **Testando com Pytest**: Introdução ao Pytest, escrita de testes, uso de fixtures, e teste de exceções.
+- **Refatorando o projeto**: Isolamento de condições, adição de exceções de negócio, melhoria da legibilidade do código, e refatoração do domínio.

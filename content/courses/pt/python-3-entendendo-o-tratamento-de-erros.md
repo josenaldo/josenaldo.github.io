@@ -1,20 +1,21 @@
 ---
-translated: false
-name: 'Python 3: entendendo o Tratamento de Erros'
+name: "Python 3: entendendo o Tratamento de Erros"
 institution: Alura
 completionDate: 2021-10-06
 workload: 12
 courseLink: https://cursos.alura.com.br/course/python-exceptions
 certificateLink: https://cursos.alura.com.br/certificate/051b684a-d0a0-4776-bcb4-58f804dc74a2?lang=pt_BR
+translationKey: python-3-entendendo-o-tratamento-de-erros
+translated: true
 ---
 
-In this course, I learned:
+Neste curso, aprendi:
 
-- **Introduction to Exceptions**: Understanding `AttributeError`, identifying exceptions, forcing errors, using `try` and `except`, and handling errors.
-- **Propagation and Raising Exceptions**: Handling multiple `except` blocks, using `raise`, and understanding exception flow.
-- **Arguments and Aliases**: Simulating private attributes, encapsulating assignments, and working with exception arguments.
-- **Debugging via Command Line**: Using the debugger to analyze and fix exceptions efficiently.
-- **Enhancing Exceptions**: Creating custom exceptions, reflecting on errors, and enriching exception handling.
-- **Chained Exceptions**: Understanding `traceback`, handling chained exceptions, and managing error information.
-- **Releasing Resources with `with`**: Using the `finally` block, resource management, and syntactic sugar for cleanup operations.
-- **Final Project and Conclusion**: Applying learned concepts in a final project.
+- **Introdução a exceções**: Entendendo o `AttributeError`, identificando exceções, forçando erros, usando `try` e `except`, e tratando erros.
+- **Propagação e disparo de exceções**: Tratamento de múltiplos blocos `except`, uso do `raise`, e entendimento do fluxo de exceções.
+- **Argumentos e apelidos**: Simulação de atributos privados, encapsulamento de atribuições, e trabalho com argumentos de exceções.
+- **Depuração via linha de comando**: Uso do debugger para analisar e corrigir exceções de forma eficiente.
+- **Aprimorando exceções**: Criação de exceções personalizadas, reflexão sobre erros, e enriquecimento do tratamento de exceções.
+- **Exceções encadeadas**: Entendendo `traceback`, tratamento de exceções encadeadas, e gerenciamento de informações de erro.
+- **Liberando recursos com `with`**: Uso do bloco `finally`, gerenciamento de recursos, e o açúcar sintático para operações de limpeza.
+- **Projeto final e conclusão**: Aplicação dos conceitos aprendidos em um projeto final.

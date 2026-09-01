@@ -1,10 +1,12 @@
 ---
-name: 'Python: avançando na linguagem'
+name: "Python: avançando na linguagem"
 institution: Alura
 completionDate: 2021-09-14
 workload: 12
 courseLink: https://cursos.alura.com.br/course/python-3-avancando-na-linguagem
 certificateLink: https://cursos.alura.com.br/certificate/16d053a2-8eea-498b-9031-e6dd136bce94?lang=pt_BR
+translationKey: python-avancando-na-linguagem
+translated: true
 ---
 
 In this course, I learned:

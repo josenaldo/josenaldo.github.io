@@ -1,10 +1,11 @@
 ---
-translated: false
 name: Arquitetura Hexagonal
 institution: Full Cycle
 completionDate: 2024-04-15
 workload: 18
 courseLink: https://plataforma.fullcycle.com.br
+translationKey: arquitetura-hexagonal
+translated: true
 ---
 
-In this course, I learned how to build scalable and maintainable software using Hexagonal Architecture (Ports and Adapters pattern). The course covered decoupling business logic from infrastructure, implementing ports and adapters, organizing code by layers, and applying Domain-Driven Design concepts like Aggregates, Entities, Value Objects, and Repositories. I practiced structuring applications with clear boundaries, implementing use cases, building web and persistence adapters, and applying TDD/BDD testing strategies while integrating with frameworks like Spring Boot and Docker.
+Neste curso, aprendi a construir software escalável e sustentável usando a Arquitetura Hexagonal (padrão Ports and Adapters). O curso abordou o desacoplamento da lógica de negócio da infraestrutura, a implementação de ports e adapters, a organização do código em camadas, e a aplicação de conceitos de Domain-Driven Design como Aggregates, Entities, Value Objects e Repositories. Pratiquei a estruturação de aplicações com limites claros, a implementação de casos de uso, a construção de adapters web e de persistência, e a aplicação de estratégias de teste TDD/BDD integrando com frameworks como Spring Boot e Docker.

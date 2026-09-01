@@ -1,10 +1,12 @@
 ---
-name: 'Python Collections parte 1: listas e tuplas'
+name: "Python Collections parte 1: listas e tuplas"
 institution: Alura
 completionDate: 2021-09-13
 workload: 8
 courseLink: https://cursos.alura.com.br/course/python-collections-listas-e-tuplas
 certificateLink: https://cursos.alura.com.br/certificate/a70e283e-67c3-43f5-8a2b-19013fcf7d0c?lang=pt_BR
+translationKey: python-collections-parte-1-listas-e-tuplas
+translated: true
 ---
 
 In this course, I learned:

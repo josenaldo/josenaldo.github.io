@@ -1,10 +1,12 @@
 ---
-name: 'Aprender a aprender: técnicas para seu autodesenvolvimento'
+name: "Aprender a aprender: técnicas para seu autodesenvolvimento"
 institution: Alura
 completionDate: 2022-01-11
 workload: 8
 courseLink: https://cursos.alura.com.br/course/aprender-a-aprender-tecnicas-para-seu-autodesenvolvimento
 certificateLink: https://cursos.alura.com.br/certificate/6e59da71-cb9d-4ae0-9672-9b16101ccf08?lang=pt_BR
+translationKey: aprender-a-aprender-tecnicas-para-seu-autodesenvolvimento
+translated: true
 ---
 
 In this course, I learned:

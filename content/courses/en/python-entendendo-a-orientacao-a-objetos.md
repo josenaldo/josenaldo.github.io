@@ -1,10 +1,12 @@
 ---
-name: 'Python: entendendo a Orientação a Objetos'
+name: "Python: entendendo a Orientação a Objetos"
 institution: Alura
 completionDate: 2021-09-21
 workload: 12
 courseLink: https://cursos.alura.com.br/course/python-3-intro-orientacao-objetos
 certificateLink: https://cursos.alura.com.br/certificate/e12e15bc-e3ff-4990-a898-df35ea2445a2?lang=pt_BR
+translationKey: python-entendendo-a-orientacao-a-objetos
+translated: true
 ---
 
 In this course, I learned:

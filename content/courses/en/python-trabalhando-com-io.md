@@ -1,10 +1,12 @@
 ---
-name: 'Python: trabalhando com I/O'
+name: "Python: trabalhando com I/O"
 institution: Alura
 completionDate: 2021-10-11
 workload: 6
 courseLink: https://cursos.alura.com.br/course/python-3-trabalhando-com-io
 certificateLink: https://cursos.alura.com.br/certificate/65919d5f-7585-497e-b977-0a65279bea73?lang=pt_BR
+translationKey: python-trabalhando-com-io
+translated: true
 ---
 
 In this course, I learned:

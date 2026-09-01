@@ -1,10 +1,11 @@
 ---
-translated: false
-name: 'DDD: Modelagem Tática e Patterns'
+name: "DDD: Modelagem Tática e Patterns"
 institution: Full Cycle
 completionDate: 2024-06-20
 workload: 34
 courseLink: https://plataforma.fullcycle.com.br
+translationKey: ddd-modelagem-tatica-e-patterns
+translated: true
 ---
 
-In this course, I learned tactical Domain-Driven Design patterns for building complex, scalable systems. The course covered Entities and Value Objects, Aggregates and Aggregate Roots, Domain Services for stateless operations, Repositories for persistence abstraction, Domain Events for representing business occurrences, Bounded Contexts for managing complexity, and Factories for encapsulating object creation. I also learned how to implement Hexagonal Architecture, apply the Anti-Corruption Layer pattern for legacy integration, and use CQRS for separating read and write responsibilities. The course included hands-on exercises building real scenarios like e-commerce systems with proper domain modeling.
+Neste curso, aprendi os padrões táticos de Domain-Driven Design para construir sistemas complexos e escaláveis. O curso abordou Entities e Value Objects, Aggregates e Aggregate Roots, Domain Services para operações sem estado, Repositories para abstração de persistência, Domain Events para representar ocorrências de negócio, Bounded Contexts para gerenciar complexidade, e Factories para encapsular a criação de objetos. Também aprendi a implementar Arquitetura Hexagonal, aplicar o padrão Anti-Corruption Layer para integração com sistemas legados, e usar CQRS para separar as responsabilidades de leitura e escrita. O curso incluiu exercícios práticos construindo cenários reais, como sistemas de e-commerce com modelagem de domínio adequada.

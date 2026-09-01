@@ -1,10 +1,12 @@
 ---
-name: 'Python Collections parte 2: conjuntos e dicionários'
+name: "Python Collections parte 2: conjuntos e dicionários"
 institution: Alura
 completionDate: 2021-09-24
 workload: 9
 courseLink: https://cursos.alura.com.br/course/python-collections-conjuntos-e-dicionarios
 certificateLink: https://cursos.alura.com.br/certificate/105a5964-9ca2-4414-bcff-cdff34d3731d?lang=pt_BR
+translationKey: python-collections-parte-2-conjuntos-e-dicionarios
+translated: true
 ---
 
 In this course, I learned:

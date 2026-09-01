@@ -1,10 +1,11 @@
 ---
-translated: false
 name: Kafka for Developers using Spring Boot
 institution: Udemy
 completionDate: 2024-08-12
 workload: 17
 courseLink: https://www.udemy.com
+translationKey: kafka-for-developers-using-spring-boot
+translated: true
 ---
 
-In this course, I learned how to integrate Apache Kafka into Java/Spring Boot applications for building event-driven microservices. The course covered Kafka fundamentals (topics, brokers, producers, consumers, partitions, offsets), setting up Kafka with Spring Boot and configuring Spring Kafka dependencies, writing producer code to publish events and building consumer components to subscribe and read messages, handling serialization/deserialization with JSON and Avro, Kafka Streams API for real-time event processing, error handling with retries and dead-letter topics, implementing transactions and exactly-once delivery semantics, and testing Kafka applications with embedded Kafka. I also learned security best practices with SSL/SASL and how to tune and monitor Kafka applications.
+Neste curso, aprendi a integrar o Apache Kafka em aplicações Java/Spring Boot para construir microsserviços orientados a eventos. O curso abordou os fundamentos do Kafka (topics, brokers, producers, consumers, partitions, offsets), a configuração do Kafka com Spring Boot e das dependências do Spring Kafka, a escrita de código producer para publicar eventos e a construção de componentes consumer para assinar e ler mensagens, o tratamento de serialização/desserialização com JSON e Avro, a Kafka Streams API para processamento de eventos em tempo real, o tratamento de erros com retries e dead-letter topics, a implementação de transações e semântica de entrega exactly-once, e o teste de aplicações Kafka com Kafka embarcado (embedded Kafka). Também aprendi boas práticas de segurança com SSL/SASL e como ajustar e monitorar aplicações Kafka.

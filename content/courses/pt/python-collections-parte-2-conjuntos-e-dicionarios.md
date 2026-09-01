@@ -1,17 +1,18 @@
 ---
-translated: false
-name: 'Python Collections parte 2: conjuntos e dicionários'
+name: "Python Collections parte 2: conjuntos e dicionários"
 institution: Alura
 completionDate: 2021-09-24
 workload: 9
 courseLink: https://cursos.alura.com.br/course/python-collections-conjuntos-e-dicionarios
 certificateLink: https://cursos.alura.com.br/certificate/105a5964-9ca2-4414-bcff-cdff34d3731d?lang=pt_BR
+translationKey: python-collections-parte-2-conjuntos-e-dicionarios
+translated: true
 ---
 
-In this course, I learned:
+Neste curso, aprendi:
 
-- **Introduction to Sets**: Understanding sets in Python, performing basic operations, and verifying data in sets.
-- **Set Operations**: Exploring more set operations, working with different types of sets, and handling set variations.
-- **Dictionaries**: Introduction to dictionaries, performing operations on dictionaries, and filtering values from them.
-- **Variations of Dictionaries**: Exploring `defaultdict` and `Counter`, counting values, and applying these variations in practical scenarios.
-- **Practical Practice**: Applying all the concepts learned in practice and finalizing the project.
+- **Introdução a conjuntos**: Entendimento de conjuntos em Python, realização de operações básicas, e verificação de dados em conjuntos.
+- **Operações com conjuntos**: Exploração de mais operações com conjuntos, trabalho com diferentes tipos de conjuntos, e tratamento de variações de conjuntos.
+- **Dicionários**: Introdução a dicionários, realização de operações com dicionários, e filtragem de valores a partir deles.
+- **Variações de dicionários**: Exploração de `defaultdict` e `Counter`, contagem de valores, e aplicação dessas variações em cenários práticos.
+- **Prática**: Aplicação de todos os conceitos aprendidos na prática e finalização do projeto.

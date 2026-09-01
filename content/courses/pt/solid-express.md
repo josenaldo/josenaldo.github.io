@@ -1,10 +1,11 @@
 ---
-translated: false
 name: SOLID Express
 institution: Full Cycle
 completionDate: 2024-01-25
 workload: 3
 courseLink: https://plataforma.fullcycle.com.br
+translationKey: solid-express
+translated: true
 ---
 
-In this course, I learned the five SOLID principles for writing maintainable and scalable object-oriented code. The course covered the Single Responsibility Principle (SRP) for focused classes, Open/Closed Principle (OCP) for designing software open for extension but closed for modification, Liskov Substitution Principle (LSP) for proper subtype behavior, Interface Segregation Principle (ISP) for creating small and focused interfaces, and Dependency Inversion Principle (DIP) for inverting dependencies between high-level and low-level modules. I practiced identifying anti-patterns, refactoring legacy code to follow SOLID principles, and applying all principles together in integrated examples with before-and-after code comparisons.
+Neste curso, aprendi os cinco princípios SOLID para escrever código orientado a objetos sustentável e escalável. O curso abordou o Single Responsibility Principle (SRP) para classes com foco único, o Open/Closed Principle (OCP) para projetar software aberto para extensão mas fechado para modificação, o Liskov Substitution Principle (LSP) para o comportamento correto de subtipos, o Interface Segregation Principle (ISP) para criar interfaces pequenas e focadas, e o Dependency Inversion Principle (DIP) para inverter as dependências entre módulos de alto e baixo nível. Pratiquei a identificação de anti-patterns, a refatoração de código legado para seguir os princípios SOLID, e a aplicação de todos os princípios em conjunto em exemplos integrados com comparações de código antes e depois.

@@ -1,10 +1,12 @@
 ---
-name: 'String em Python: extraindo informações de uma URL'
+name: "String em Python: extraindo informações de uma URL"
 institution: Alura
 completionDate: 2021-09-22
 workload: 8
 courseLink: https://cursos.alura.com.br/course/string-python-extraindo-informacoes-url
 certificateLink: https://cursos.alura.com.br/certificate/3b69d38a-3cc5-4ab2-a54d-aed1bd07a063?lang=pt_BR
+translationKey: string-em-python-extraindo-informacoes-de-uma-url
+translated: true
 ---
 
 In this course, I learned:

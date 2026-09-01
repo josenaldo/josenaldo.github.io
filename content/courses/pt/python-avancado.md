@@ -1,10 +1,11 @@
 ---
-translated: false
 name: Python Avançado
 institution: Alura
 completionDate: 2021-10-31
 workload: 76
 courseLink: https://cursos.alura.com.br/user/Josenaldo/fullCertificate/3c841cee5b2497ea9617f7e630b8ead1
+translationKey: python-avancado
+translated: true
 ---
 
-In this learning path, I completed several advanced Python courses covering professional development practices. The course covered automated testing with unittest and pytest, implementing test-driven development (TDD) methodology, design patterns in Python (Creational, Structural, and Behavioral patterns), advanced I/O operations (file handling, streams, context managers), following PEP 8 style guide and Python best practices, error handling and exception management, debugging techniques and tools, working with different file formats and data serialization, and writing clean, maintainable, and Pythonic code. I learned how to structure larger Python projects, apply SOLID principles in Python, use decorators and metaclasses, and implement professional-grade error handling strategies.
+Nesta trilha de aprendizado, completei diversos cursos avançados de Python cobrindo práticas profissionais de desenvolvimento. O curso abordou testes automatizados com unittest e pytest, a implementação da metodologia de desenvolvimento orientado a testes (TDD), design patterns em Python (padrões Criacionais, Estruturais e Comportamentais), operações avançadas de I/O (manipulação de arquivos, streams, context managers), a adoção do guia de estilo PEP 8 e das boas práticas do Python, o tratamento de erros e o gerenciamento de exceções, técnicas e ferramentas de depuração, o trabalho com diferentes formatos de arquivo e serialização de dados, e a escrita de código limpo, sustentável e pythônico. Aprendi a estruturar projetos Python maiores, aplicar os princípios SOLID em Python, usar decorators e metaclasses, e implementar estratégias profissionais de tratamento de erros.

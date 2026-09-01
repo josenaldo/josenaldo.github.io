@@ -1,17 +1,18 @@
 ---
-translated: false
-name: 'Python para Data Science: linguagem e Numpy'
+name: "Python para Data Science: linguagem e Numpy"
 institution: Alura
 completionDate: 2021-11-07
 workload: 12
 courseLink: https://cursos.alura.com.br/course/python-tipos-listas-numpy
 certificateLink: https://cursos.alura.com.br/certificate/02ac6c28-a250-45ef-8d21-19598f13e9c8?lang=pt_BR
+translationKey: python-para-data-science-linguagem-e-numpy
+translated: true
 ---
 
-In this course, I learned:
+Neste curso, aprendi:
 
-- **Data Scientist Environment**: How to setting up the development environment, checking Python version, working with NumPy arrays, and using them with external data.
-- **Python Features**: How to performing mathematical operations, working with variables and data types, string formatting and concatenation, and understanding indentation and comments.
-- **Working with Lists**: How to creating and manipulating lists, selecting and slicing list elements, and using list methods and copy operations.
-- **Conditionals and Loops**: How to using `for` loops, list comprehensions, nested loops, and conditional statements (`if`, `elif`, `else`) with logical operators.
-- **Exploring NumPy**: How to understanding NumPy arrays, performing operations, selecting and slicing array elements, and applying basic statistical functions like calculating the mean.
+- **Ambiente do cientista de dados**: Como configurar o ambiente de desenvolvimento, verificar a versão do Python, trabalhar com arrays NumPy, e usá-los com dados externos.
+- **Recursos do Python**: Como realizar operações matemáticas, trabalhar com variáveis e tipos de dados, formatação e concatenação de strings, e entendimento de indentação e comentários.
+- **Trabalhando com listas**: Como criar e manipular listas, selecionar e fatiar elementos de listas, e usar métodos de lista e operações de cópia.
+- **Condicionais e loops**: Como usar loops `for`, list comprehensions, loops aninhados, e instruções condicionais (`if`, `elif`, `else`) com operadores lógicos.
+- **Explorando o NumPy**: Como entender arrays NumPy, realizar operações, selecionar e fatiar elementos de arrays, e aplicar funções estatísticas básicas como o cálculo da média.

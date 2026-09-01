@@ -1,10 +1,12 @@
 ---
-name: 'Python para Data Science: Funções, Pacotes e Pandas'
+name: "Python para Data Science: Funções, Pacotes e Pandas"
 institution: Alura
 completionDate: 2021-11-19
 workload: 10
 courseLink: https://cursos.alura.com.br/course/python-funcoes-pacotes-pandas
 certificateLink: https://cursos.alura.com.br/certificate/5271a376-278a-4b87-99f6-fbb50afc64af?lang=pt_BR
+translationKey: python-para-data-science-funcoes,-pacotes-e-pandas
+translated: true
 ---
 
 In this course, I learned:

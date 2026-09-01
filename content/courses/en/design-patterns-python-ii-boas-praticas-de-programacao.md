@@ -1,10 +1,12 @@
 ---
-name: 'Design Patterns Python II: boas práticas de programação'
+name: "Design Patterns Python II: boas práticas de programação"
 institution: Alura
 completionDate: 2021-10-22
 workload: 16
 courseLink: https://cursos.alura.com.br/course/design-patterns-python-2
 certificateLink: https://cursos.alura.com.br/certificate/4c47c6c1-b12d-4401-a0cf-9c432464dbaa?lang=pt_BR
+translationKey: design-patterns-python-ii-boas-praticas-de-programacao
+translated: true
 ---
 
 In this course, I learned:

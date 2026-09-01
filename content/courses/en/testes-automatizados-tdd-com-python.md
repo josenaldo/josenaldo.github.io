@@ -1,10 +1,12 @@
 ---
-name: 'Testes automatizados: TDD com Python'
+name: "Testes automatizados: TDD com Python"
 institution: Alura
 completionDate: 2021-10-01
 workload: 6
 courseLink: https://cursos.alura.com.br/course/tdd-com-python
 certificateLink: https://cursos.alura.com.br/certificate/94dce9c0-87c1-4b6f-b4f8-b433a3531bde?lang=pt_BR
+translationKey: testes-automatizados-tdd-com-python
+translated: true
 ---
 
 In this course, I learned:

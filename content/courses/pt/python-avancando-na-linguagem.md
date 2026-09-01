@@ -1,19 +1,20 @@
 ---
-translated: false
-name: 'Python: avançando na linguagem'
+name: "Python: avançando na linguagem"
 institution: Alura
 completionDate: 2021-09-14
 workload: 12
 courseLink: https://cursos.alura.com.br/course/python-3-avancando-na-linguagem
 certificateLink: https://cursos.alura.com.br/certificate/16d053a2-8eea-498b-9031-e6dd136bce94?lang=pt_BR
+translationKey: python-avancando-na-linguagem
+translated: true
 ---
 
-In this course, I learned:
+Neste curso, aprendi:
 
-- **Game Loop**: Setting up the game structure, understanding boolean types, handling errors, and configuring the IDE for UTF-8 support.
-- **Manipulating Strings**: Finding and iterating over characters in a string, using built-in string functions, and modifying strings effectively.
-- **Working with Lists**: Understanding list structures, storing guessed letters, counting occurrences, and exploring list operations.
-- **Working with Tuples**: Learning about immutable sequences, differences between lists and tuples, and using tuples alongside lists.
-- **Implementing Game Termination**: Setting error limits, controlling loops, using list comprehensions, and handling alternative exit strategies.
-- **Reading and Writing Files**: Using the `open` function, managing file access, reading and writing words, and implementing best practices.
-- **Improving Code and Presentation**: Organizing code into functions, enhancing game visuals, applying best coding practices, and exporting refactored code.
+- **Game Loop**: Configuração da estrutura do jogo, entendimento do tipo booleano, tratamento de erros, e configuração da IDE para suporte a UTF-8.
+- **Manipulando strings**: Busca e iteração sobre caracteres em uma string, uso de funções nativas de strings, e modificação de strings de forma eficaz.
+- **Trabalhando com listas**: Entendimento de estruturas de lista, armazenamento de letras já tentadas, contagem de ocorrências, e exploração de operações com listas.
+- **Trabalhando com tuplas**: Aprendizado sobre sequências imutáveis, diferenças entre listas e tuplas, e uso de tuplas em conjunto com listas.
+- **Implementando o encerramento do jogo**: Definição de limites de erro, controle de loops, uso de list comprehensions, e tratamento de estratégias alternativas de saída.
+- **Lendo e escrevendo arquivos**: Uso da função `open`, gerenciamento do acesso a arquivos, leitura e escrita de palavras, e implementação de boas práticas.
+- **Melhorando o código e a apresentação**: Organização do código em funções, aprimoramento visual do jogo, aplicação de boas práticas de codificação, e exportação do código refatorado.

@@ -1,10 +1,12 @@
 ---
-name: 'Python para Data Science: linguagem e Numpy'
+name: "Python para Data Science: linguagem e Numpy"
 institution: Alura
 completionDate: 2021-11-07
 workload: 12
 courseLink: https://cursos.alura.com.br/course/python-tipos-listas-numpy
 certificateLink: https://cursos.alura.com.br/certificate/02ac6c28-a250-45ef-8d21-19598f13e9c8?lang=pt_BR
+translationKey: python-para-data-science-linguagem-e-numpy
+translated: true
 ---
 
 In this course, I learned:

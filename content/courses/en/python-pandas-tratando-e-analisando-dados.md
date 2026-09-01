@@ -1,10 +1,12 @@
 ---
-name: 'Python Pandas: tratando e analisando dados'
+name: "Python Pandas: tratando e analisando dados"
 institution: Alura
 completionDate: 2021-12-09
 workload: 12
 courseLink: https://cursos.alura.com.br/course/introducao-python-pandas
 certificateLink: https://cursos.alura.com.br/certificate/6ed939cb-6b89-4e07-84ca-0e34b8f7cd5b?lang=pt_BR
+translationKey: python-pandas-tratando-e-analisando-dados
+translated: true
 ---
 
 In this course, I learned:

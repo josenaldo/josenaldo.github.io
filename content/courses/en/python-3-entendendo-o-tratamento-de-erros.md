@@ -1,10 +1,12 @@
 ---
-name: 'Python 3: entendendo o Tratamento de Erros'
+name: "Python 3: entendendo o Tratamento de Erros"
 institution: Alura
 completionDate: 2021-10-06
 workload: 12
 courseLink: https://cursos.alura.com.br/course/python-exceptions
 certificateLink: https://cursos.alura.com.br/certificate/051b684a-d0a0-4776-bcb4-58f804dc74a2?lang=pt_BR
+translationKey: python-3-entendendo-o-tratamento-de-erros
+translated: true
 ---
 
 In this course, I learned:
