@@ -1,71 +1,74 @@
 ---
-translated: false
 id: 9
 title: Personal Website (Next.js + Contentlayer)
-image: /images/projects/prints/josenaldo.github.io-github.png
+description: A zero-cost, developer-authored platform for tracking a software
+  career over the years — built with Next.js, Contentlayer2, and Markdown,
+  deployable to GitHub Pages or Vercel in minutes.
 projectUrl: https://josenaldo.com.br/
 pin: false
-description: 'A zero-cost, developer-authored platform for tracking a software career over the years — built with Next.js, Contentlayer2, and Markdown, deployable to GitHub Pages or Vercel in minutes.'
+image: /images/projects/prints/josenaldo.github.io-github.png
+translationKey: josenaldo-github-io
+translated: true
 ---
 
-## 1. Elevator Pitch
+## 1. Pitch de Elevador
 
-Most developer portfolios are static brochures: created once, updated rarely, and abandoned when life gets busy. This project is a different bet — a personal platform designed for continuous, low-friction career documentation, where a developer can accumulate and revisit their own professional history over the years, without ever paying a hosting bill.
+A maioria dos portfólios de desenvolvedores são folhetos estáticos: criados uma vez, raramente atualizados, e abandonados quando a vida fica corrida. Este projeto é uma aposta diferente — uma plataforma pessoal desenhada para documentação de carreira contínua e de baixo atrito, na qual um desenvolvedor pode acumular e revisitar sua própria história profissional ao longo dos anos, sem nunca pagar uma conta de hospedagem.
 
-## 2. Problem and Context
+## 2. Problema e Contexto
 
-There are two opposite ends of the personal site spectrum: paid SaaS products (LinkedIn, Medium, hosted portfolio builders) that own your data and charge a monthly fee, and hand-crafted sites that require heavy setup and give up the moment content needs to be added quickly.
+Existem duas pontas opostas no espectro de sites pessoais: produtos SaaS pagos (LinkedIn, Medium, construtores de portfólio hospedados) que são donos dos seus dados e cobram uma mensalidade, e sites feitos à mão que exigem uma configuração pesada e desistem no momento em que é preciso adicionar conteúdo rapidamente.
 
-Neither works long-term. The paid option creates dependency. The heavy option creates friction — and friction kills consistency.
+Nenhuma das duas funciona a longo prazo. A opção paga cria dependência. A opção pesada cria atrito — e atrito mata a consistência.
 
-The goal here was to break that trade-off: a platform that a developer can maintain for **years**, adding content in minutes, owning everything, and spending zero dollars.
+O objetivo aqui foi romper esse trade-off: uma plataforma que um desenvolvedor consiga manter por **anos**, adicionando conteúdo em minutos, sendo dono de tudo e gastando zero dólares.
 
-## 3. Scope and Role
+## 3. Escopo e Atuação
 
-This is a solo project — concept, architecture, implementation, and ongoing content. Every decision, from the content model to the deploy pipeline, reflects a deliberate choice to keep the cost of maintenance as low as possible.
+Este é um projeto solo — concepção, arquitetura, implementação e conteúdo contínuo. Cada decisão, do modelo de conteúdo ao pipeline de deploy, reflete uma escolha deliberada de manter o custo de manutenção o mais baixo possível.
 
-## 4. Solution Implemented
+## 4. Solução Implementada
 
-The answer was simple on purpose: **Markdown files in a public GitHub repository, built with Next.js and deployed as static HTML**.
+A resposta foi propositalmente simples: **arquivos Markdown em um repositório público no GitHub, construído com Next.js e publicado como HTML estático**.
 
-- Content lives in `content/` as plain `.md` files, organized by type (blog posts, projects, experiences, courses, skills, testimonials).
-- Contentlayer2 transforms those files into typed data at build time — no database, no CMS API, no runtime.
-- Static export (`output: 'export'`) means the output is just HTML + CSS + JS — publishable anywhere, for free: GitHub Pages, Vercel, Netlify.
-- The public GitHub repository doubles as version control and as a transparent record of how the career evolved over time.
+- O conteúdo vive em `content/` como arquivos `.md` simples, organizados por tipo (posts de blog, projetos, experiências, cursos, habilidades, depoimentos).
+- O Contentlayer2 transforma esses arquivos em dados tipados em tempo de build — sem banco de dados, sem API de CMS, sem runtime.
+- A exportação estática (`output: 'export'`) faz com que a saída seja apenas HTML + CSS + JS — publicável em qualquer lugar, de graça: GitHub Pages, Vercel, Netlify.
+- O repositório público no GitHub funciona ao mesmo tempo como controle de versão e como um registro transparente de como a carreira evoluiu ao longo do tempo.
 
-Adding a new blog post or experience is a single Markdown file. Publishing is a `git push`.
+Adicionar um novo post de blog ou experiência é um único arquivo Markdown. Publicar é um `git push`.
 
-## 5. Key Decisions and Trade-offs
+## 5. Decisões-Chave e Trade-offs
 
-**Why Markdown?**
-Markdown is the most portable content format available. It is readable by humans, parseable by machines, and — increasingly important — it is the preferred input format when sharing information with AI tools. Every piece of content on this site can be fed directly into an AI context with zero transformation. That was not a coincidence; it was a design goal.
+**Por que Markdown?**
+Markdown é o formato de conteúdo mais portátil disponível. É legível por humanos, interpretável por máquinas e — cada vez mais importante — é o formato de entrada preferido ao compartilhar informação com ferramentas de IA. Cada peça de conteúdo deste site pode ser alimentada diretamente em um contexto de IA sem nenhuma transformação. Isso não foi coincidência; foi um objetivo de design.
 
-**Why static export?**
-A running server has a cost — in money, in maintenance, and in failure surface. A static site has none of that. The trade-off is no server-side dynamic features, which is entirely acceptable for a personal site.
+**Por que exportação estática?**
+Um servidor em execução tem um custo — em dinheiro, em manutenção e em superfície de falha. Um site estático não tem nada disso. O trade-off é a ausência de recursos dinâmicos do lado do servidor, o que é inteiramente aceitável para um site pessoal.
 
-**Why a public repository?**
-Two reasons. The practical one: the whole premise — zero cost, open stack, long-term maintainability — is more useful if other developers can fork it and build their own version. The code is the documentation.
+**Por que um repositório público?**
+Duas razões. A prática: toda a premissa — custo zero, stack aberta, manutenibilidade de longo prazo — se torna mais útil se outros desenvolvedores puderem fazer fork e construir sua própria versão. O código é a documentação.
 
-The deeper reason is **building in public**. A public repository is not just source code — it is a transparent record of how I think, how I work, and how my career evolves. Every commit, every content addition, every architectural decision is visible. That transparency is intentional: it replaces the vague claims on a résumé with something a recruiter or collaborator can actually inspect. You don't have to take my word for it — you can watch the work happen.
+A razão mais profunda é **construir em público**. Um repositório público não é só código-fonte — é um registro transparente de como eu penso, como eu trabalho e como minha carreira evolui. Cada commit, cada conteúdo adicionado, cada decisão arquitetural fica visível. Essa transparência é intencional: ela substitui as afirmações vagas de um currículo por algo que um recrutador ou colaborador pode de fato inspecionar. Você não precisa confiar na minha palavra — pode acompanhar o trabalho acontecendo.
 
-## 6. Quality and Engineering Practices
+## 6. Qualidade e Práticas de Engenharia
 
-- Typed content schema via Contentlayer2 catches broken frontmatter at build time, not in production.
-- Domain-organized content structure (`content/blog`, `content/projects`, `content/experiences`, etc.) keeps history clean as the site grows.
-- `next-sitemap` generates `sitemap.xml` and `robots.txt` automatically on every build.
-- CI/CD via GitHub Actions: every push to `main` triggers a static build and deploy to GitHub Pages.
+- O schema de conteúdo tipado via Contentlayer2 detecta frontmatter quebrado em tempo de build, não em produção.
+- A estrutura de conteúdo organizada por domínio (`content/blog`, `content/projects`, `content/experiences`, etc.) mantém o histórico limpo à medida que o site cresce.
+- O `next-sitemap` gera `sitemap.xml` e `robots.txt` automaticamente em cada build.
+- CI/CD via GitHub Actions: todo push para `main` dispara um build estático e deploy no GitHub Pages.
 
-## 7. Portfolio Relevance
+## 7. Relevância para o Portfólio
 
-This is the project that holds all other projects. It demonstrates product thinking (what problem am I solving and for whom?), technical judgment (simple stack for a long-lived use case), and discipline in execution (a public history of consistent iteration).
+Este é o projeto que sustenta todos os outros projetos. Ele demonstra pensamento de produto (que problema estou resolvendo e para quem?), julgamento técnico (stack simples para um caso de uso de longa duração) e disciplina de execução (um histórico público de iteração consistente).
 
-It is also a living artifact: the longer it runs, the more valuable the career documentation it contains becomes.
+Também é um artefato vivo: quanto mais tempo ele existe, mais valiosa se torna a documentação de carreira que ele contém.
 
 ## 8. Links
 
 - GitHub: <https://github.com/josenaldo/josenaldo.github.io>
-- Production: <https://josenaldo.com.br/>
+- Produção: <https://josenaldo.com.br/>
 
-## 9. Visual Evidence
+## 9. Evidência Visual
 
 ![Personal Website - GitHub](/images/projects/prints/josenaldo.github.io-github.png)

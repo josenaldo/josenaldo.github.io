@@ -1,10 +1,14 @@
 ---
 id: 1
 title: Workaround-Oriented Programming (Book)
-image: /images/projects/livro-pog.jpg
+description: A full editorial platform for a living technical book — built with
+  Next.js, Contentlayer, and a Git-based publishing pipeline to write, version,
+  and ship content continuously.
 projectUrl: https://livropog.com.br
 pin: true
-description: 'A full editorial platform for a living technical book — built with Next.js, Contentlayer, and a Git-based publishing pipeline to write, version, and ship content continuously.'
+image: /images/projects/livro-pog.jpg
+translationKey: livro-pog
+translated: true
 ---
 
 ## 1. Elevator Pitch

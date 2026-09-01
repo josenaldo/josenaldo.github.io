@@ -1,10 +1,14 @@
 ---
 id: 7
 title: EFI Harness Planner
-image: /images/projects/prints/injection-harness-github.png
+description: A full-stack planning application for electronic fuel injection
+  harnesses, using NestJS, React, TypeScript, JWT authentication, and
+  subscription-tier business rules.
 projectUrl: https://github.com/josenaldo/injection-harness
 pin: true
-description: 'A full-stack planning application for electronic fuel injection harnesses, using NestJS, React, TypeScript, JWT authentication, and subscription-tier business rules.'
+image: /images/projects/prints/injection-harness-github.png
+translationKey: injection-harness
+translated: true
 ---
 
 ## 1. Elevator Pitch

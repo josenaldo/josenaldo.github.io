@@ -1,10 +1,15 @@
 ---
 id: 0
 title: MedEspecialista Platform (API + Backend + Admin + Frontend)
-image: /images/projects/prints/medespecialista-frontend-landing.png
+description: A multi-repository medical education platform I lead since July
+  2024, modernizing backend architecture, operational tooling, student
+  experience, CI/CD, automated tests, and AI-assisted delivery across API,
+  backend, admin, and frontend apps.
 projectUrl: https://medespecialista.com.br/
 pin: true
-description: 'A multi-repository medical education platform I lead since July 2024, modernizing backend architecture, operational tooling, student experience, CI/CD, automated tests, and AI-assisted delivery across API, backend, admin, and frontend apps.'
+image: /images/projects/prints/medespecialista-frontend-landing.png
+translationKey: medespecialista-platform
+translated: true
 ---
 
 ## 1. Elevator Pitch

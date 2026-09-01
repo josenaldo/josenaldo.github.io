@@ -1,10 +1,13 @@
 ---
 id: 8
 title: WalletCore (EDA + Kafka)
-image: /images/projects/prints/fc-walletcore-github.png
+description: An event-driven wallet and balance system built with Kafka,
+  integrating Go and Java services for asynchronous financial processing.
 projectUrl: https://github.com/josenaldo/fc-walletcore
 pin: false
-description: 'An event-driven wallet and balance system built with Kafka, integrating Go and Java services for asynchronous financial processing.'
+image: /images/projects/prints/fc-walletcore-github.png
+translationKey: fc-walletcore
+translated: true
 ---
 
 ## 1. Elevator Pitch

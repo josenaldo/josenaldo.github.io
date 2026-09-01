@@ -1,54 +1,57 @@
 ---
-translated: false
 id: 5
 title: MapEFI Platform
-image: /images/projects/prints/mapefi-github.png
+description: A full-stack platform with Java/Spring backend and Next.js 15
+  frontend, supported by ADRs, architecture standards, and product documentation
+  for sustainable evolution.
 projectUrl: https://github.com/josenaldo/mapefi
 pin: true
-description: 'A full-stack platform with Java/Spring backend and Next.js 15 frontend, supported by ADRs, architecture standards, and product documentation for sustainable evolution.'
+image: /images/projects/prints/mapefi-github.png
+translationKey: mapefi
+translated: true
 ---
 
-## 1. Elevator Pitch
+## 1. Pitch de Elevador
 
-A product-oriented full-stack platform combining a robust Java/Spring backend and a modern Next.js frontend to support continuous evolution with technical governance.
+Uma plataforma full-stack orientada a produto, combinando um backend robusto em Java/Spring com um frontend moderno em Next.js, para sustentar evolução contínua com governança técnica.
 
-## 2. Problem and Context
+## 2. Problema e Contexto
 
-The project required a strong architectural foundation to evolve features predictably while preserving code quality and alignment across frontend, backend, and domain rules.
+O projeto exigia uma base arquitetural forte para evoluir funcionalidades de forma previsível, preservando qualidade de código e alinhamento entre frontend, backend e regras de domínio.
 
-## 3. Scope and Role
+## 3. Escopo e Atuação
 
-- Architectural structuring.
-- Stack and technical guideline definition.
-- Functional and technical documentation organization (ADRs, analysis docs, guidelines).
+- Estruturação arquitetural.
+- Definição de stack e diretrizes técnicas.
+- Organização da documentação funcional e técnica (ADRs, documentos de análise, guidelines).
 
-## 4. Solution Implemented
+## 4. Solução Implementada
 
-A layered implementation with clear separation of concerns and living documentation to support medium and long-term technical decisions.
+Uma implementação em camadas, com separação clara de responsabilidades e documentação viva para sustentar decisões técnicas de médio e longo prazo.
 
-## 5. Stack and Architecture
+## 5. Stack e Arquitetura
 
 - Backend: Java 25, Spring Boot 3.5, JPA, Validation, Security, OpenAPI, Liquibase.
 - Frontend: Next.js 15 (App Router), React 19, TypeScript, Mantine.
-- Data: PostgreSQL strategy documented through ADRs/guidelines.
-- Architecture: Clean Architecture, REST API, Problem Details error model.
+- Dados: estratégia de PostgreSQL documentada via ADRs/guidelines.
+- Arquitetura: Clean Architecture, API REST, modelo de erro Problem Details.
 
-## 6. Quality and Engineering Practices
+## 6. Qualidade e Práticas de Engenharia
 
-- ADRs covering stack, architecture, and testing strategy.
-- Backend/frontend/security/database guidelines.
-- Foundation prepared for standardized development and testing.
+- ADRs cobrindo stack, arquitetura e estratégia de testes.
+- Guidelines de backend/frontend/segurança/banco de dados.
+- Base preparada para desenvolvimento e testes padronizados.
 
-## 7. Portfolio Relevance
+## 7. Relevância para o Portfólio
 
-A strong senior-level case for architecture leadership, technical decision-making, and disciplined full-stack project execution.
+Um caso forte de nível sênior para liderança de arquitetura, tomada de decisão técnica e execução disciplinada de projeto full-stack.
 
 ## 8. Links
 
 - GitHub: <https://github.com/josenaldo/mapefi>
-- Production: no public production URL declared in the repository.
-- Technical reference (frontend ADR): <https://github.com/josenaldo/mapefi/blob/master/docs/adrs/0009-frontend-nextjs15-app-router.md>
+- Produção: nenhuma URL de produção pública declarada no repositório.
+- Referência técnica (ADR de frontend): <https://github.com/josenaldo/mapefi/blob/master/docs/adrs/0009-frontend-nextjs15-app-router.md>
 
-## 9. Visual Evidence
+## 9. Evidência Visual
 
 ![MapEFI - GitHub](/images/projects/prints/mapefi-github.png)

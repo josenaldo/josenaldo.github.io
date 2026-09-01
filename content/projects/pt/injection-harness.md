@@ -1,52 +1,55 @@
 ---
-translated: false
 id: 7
 title: EFI Harness Planner
-image: /images/projects/prints/injection-harness-github.png
+description: A full-stack planning application for electronic fuel injection
+  harnesses, using NestJS, React, TypeScript, JWT authentication, and
+  subscription-tier business rules.
 projectUrl: https://github.com/josenaldo/injection-harness
 pin: true
-description: 'A full-stack planning application for electronic fuel injection harnesses, using NestJS, React, TypeScript, JWT authentication, and subscription-tier business rules.'
+image: /images/projects/prints/injection-harness-github.png
+translationKey: injection-harness
+translated: true
 ---
 
-## 1. Elevator Pitch
+## 1. Pitch de Elevador
 
-A niche full-stack product for planning EFI wiring harnesses with project management, domain constraints, and recipe generation.
+Um produto full-stack de nicho para planejamento de chicotes elétricos de EFI, com gestão de projetos, restrições de domínio e geração de receitas de montagem.
 
-## 2. Problem and Context
+## 2. Problema e Contexto
 
-Manual harness planning is error-prone and hard to standardize. The project turns that workflow into a structured domain application.
+O planejamento manual de chicotes é propenso a erros e difícil de padronizar. O projeto transforma esse fluxo de trabalho em uma aplicação de domínio estruturada.
 
-## 3. Scope and Role
+## 3. Escopo e Atuação
 
-- End-to-end full-stack implementation.
-- Authentication and persistence strategy.
-- Business rules by subscription plan.
+- Implementação full-stack de ponta a ponta.
+- Estratégia de autenticação e persistência.
+- Regras de negócio por plano de assinatura.
 
-## 4. Solution Implemented
+## 4. Solução Implementada
 
-Decoupled backend/frontend architecture with APIs for project registration, harness definitions (materials/wires/connectors), and build recipe generation.
+Arquitetura backend/frontend desacoplada, com APIs para cadastro de projetos, definições de chicote (materiais/fios/conectores) e geração de receitas de montagem.
 
-## 5. Stack and Architecture
+## 5. Stack e Arquitetura
 
 - Backend: NestJS (Express), Prisma, SQLite, JWT.
 - Frontend: React + Vite + TypeScript + Mantine.
-- Domain rules: tier-based limits and capabilities (Basic/Pro/Elite).
+- Regras de domínio: limites e capacidades por nível (Basic/Pro/Elite).
 
-## 6. Quality and Engineering Practices
+## 6. Qualidade e Práticas de Engenharia
 
-- Clear repository structure (`backend/` and `frontend/`).
-- Reproducible setup using Prisma migrations.
-- Product-oriented foundation ready for future iterations.
+- Estrutura de repositório clara (`backend/` e `frontend/`).
+- Configuração reprodutível usando migrations do Prisma.
+- Base orientada a produto, pronta para iterações futuras.
 
-## 7. Portfolio Relevance
+## 7. Relevância para o Portfólio
 
-Shows your ability to translate a specific operational domain into a production-style full-stack system.
+Mostra a capacidade de traduzir um domínio operacional específico em um sistema full-stack no estilo de produção.
 
 ## 8. Links
 
 - GitHub: <https://github.com/josenaldo/injection-harness>
-- Production: no public production URL declared in the repository.
+- Produção: nenhuma URL de produção pública declarada no repositório.
 
-## 9. Visual Evidence
+## 9. Evidência Visual
 
 ![EFI Harness Planner - GitHub](/images/projects/prints/injection-harness-github.png)

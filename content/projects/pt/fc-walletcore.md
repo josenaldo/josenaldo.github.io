@@ -1,53 +1,55 @@
 ---
-translated: false
 id: 8
 title: WalletCore (EDA + Kafka)
-image: /images/projects/prints/fc-walletcore-github.png
+description: An event-driven wallet and balance system built with Kafka,
+  integrating Go and Java services for asynchronous financial processing.
 projectUrl: https://github.com/josenaldo/fc-walletcore
 pin: false
-description: 'An event-driven wallet and balance system built with Kafka, integrating Go and Java services for asynchronous financial processing.'
+image: /images/projects/prints/fc-walletcore-github.png
+translationKey: fc-walletcore
+translated: true
 ---
 
-## 1. Elevator Pitch
+## 1. Pitch de Elevador
 
-An event-driven architecture project for digital wallet operations, focused on decoupled services and consistent balance processing.
+Um projeto de arquitetura orientada a eventos para operações de carteira digital, focado em serviços desacoplados e processamento consistente de saldo.
 
-## 2. Problem and Context
+## 2. Problema e Contexto
 
-Distributed transactional systems require reliable asynchronous communication. This project applies EDA to synchronize transactions and balances across services.
+Sistemas transacionais distribuídos exigem comunicação assíncrona confiável. Este projeto aplica EDA para sincronizar transações e saldos entre serviços.
 
-## 3. Scope and Role
+## 3. Escopo e Atuação
 
-- Service implementation and integration.
-- Messaging and local environment setup.
-- End-to-end documentation for execution and APIs.
+- Implementação e integração dos serviços.
+- Configuração de mensageria e do ambiente local.
+- Documentação de ponta a ponta para execução e APIs.
 
-## 4. Solution Implemented
+## 4. Solução Implementada
 
-A microservices ecosystem that publishes and consumes events to process wallet transactions and update balances asynchronously.
+Um ecossistema de microsserviços que publica e consome eventos para processar transações de carteira e atualizar saldos de forma assíncrona.
 
-## 5. Stack and Architecture
+## 5. Stack e Arquitetura
 
-- Services in Go (`wallet-core`) and Java (`balance-app`).
-- Kafka + Zookeeper for messaging.
-- MySQL for persistence.
-- Docker Compose for local orchestration.
+- Serviços em Go (`wallet-core`) e Java (`balance-app`).
+- Kafka + Zookeeper para mensageria.
+- MySQL para persistência.
+- Docker Compose para orquestração local.
 
-## 6. Quality and Engineering Practices
+## 6. Qualidade e Práticas de Engenharia
 
-- Detailed README with prerequisites and endpoints.
-- Complete local environment for testing and observability.
-- Well-documented topics, ports, and operational commands.
+- README detalhado com pré-requisitos e endpoints.
+- Ambiente local completo para testes e observabilidade.
+- Tópicos, portas e comandos operacionais bem documentados.
 
-## 7. Portfolio Relevance
+## 7. Relevância para o Portfólio
 
-Strengthens your profile in microservices and event-driven architecture, aligned with enterprise modernization scenarios.
+Fortalece o perfil em microsserviços e arquitetura orientada a eventos, alinhado a cenários de modernização corporativa.
 
 ## 8. Links
 
 - GitHub: <https://github.com/josenaldo/fc-walletcore>
-- Production: no public production URL declared in the repository.
+- Produção: nenhuma URL de produção pública declarada no repositório.
 
-## 9. Visual Evidence
+## 9. Evidência Visual
 
 ![WalletCore - GitHub](/images/projects/prints/fc-walletcore-github.png)

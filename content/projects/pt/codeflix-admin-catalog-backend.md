@@ -1,53 +1,56 @@
 ---
-translated: false
 id: 6
 title: Codeflix Admin Catalog Backend
-image: /images/projects/prints/codeflix-admin-catalog-backend-github.png
+description: A Java backend for catalog administration, organized into
+  domain/application/infrastructure modules with focus on clean architecture and
+  long-term maintainability.
 projectUrl: https://github.com/josenaldo/codeflix-admin-catalog-backend
 pin: true
-description: 'A Java backend for catalog administration, organized into domain/application/infrastructure modules with focus on clean architecture and long-term maintainability.'
+image: /images/projects/prints/codeflix-admin-catalog-backend-github.png
+translationKey: codeflix-admin-catalog-backend
+translated: true
 ---
 
-## 1. Elevator Pitch
+## 1. Pitch de Elevador
 
-A modular catalog backend designed for maintainability and architectural clarity in enterprise-style systems.
+Um backend de catálogo modular projetado para manutenibilidade e clareza arquitetural em sistemas de estilo corporativo.
 
-## 2. Problem and Context
+## 2. Problema e Contexto
 
-Catalog platforms often grow quickly and become hard to maintain when responsibilities are not properly separated. This project addresses that risk with a modular structure.
+Plataformas de catálogo costumam crescer rápido e se tornam difíceis de manter quando as responsabilidades não são bem separadas. Este projeto endereça esse risco com uma estrutura modular.
 
-## 3. Scope and Role
+## 3. Escopo e Atuação
 
-- Modular architecture design.
-- Build and development environment setup.
-- Foundation for API and testing workflows.
+- Design de arquitetura modular.
+- Configuração do ambiente de build e desenvolvimento.
+- Base para fluxos de API e testes.
 
-## 4. Solution Implemented
+## 4. Solução Implementada
 
-A multi-module codebase with explicit domain/application/infrastructure boundaries to keep business logic decoupled from implementation details.
+Uma base de código multi-módulo com fronteiras explícitas entre domain/application/infrastructure, mantendo a lógica de negócio desacoplada dos detalhes de implementação.
 
-## 5. Stack and Architecture
+## 5. Stack e Arquitetura
 
 - Java 25 + Gradle.
-- Modules: `domain`, `application`, `infrastructure`.
-- Libraries: Spring dependency management, Mockito, JUnit Platform, ULID, Vavr.
-- Local OpenAPI/Swagger support.
+- Módulos: `domain`, `application`, `infrastructure`.
+- Bibliotecas: Spring dependency management, Mockito, JUnit Platform, ULID, Vavr.
+- Suporte local a OpenAPI/Swagger.
 
-## 6. Quality and Engineering Practices
+## 6. Qualidade e Práticas de Engenharia
 
-- Test execution configured across modules.
-- Dev Containers and Docker Compose for reproducible environments.
-- Backend foundation aligned with clean architecture principles.
+- Execução de testes configurada entre os módulos.
+- Dev Containers e Docker Compose para ambientes reprodutíveis.
+- Base de backend alinhada com os princípios de clean architecture.
 
-## 7. Portfolio Relevance
+## 7. Relevância para o Portfólio
 
-Reinforces your Senior Java profile with clear emphasis on architecture, maintainability, and engineering quality.
+Reforça o perfil sênior em Java com ênfase clara em arquitetura, manutenibilidade e qualidade de engenharia.
 
 ## 8. Links
 
 - GitHub: <https://github.com/josenaldo/codeflix-admin-catalog-backend>
-- Production: no public production URL declared in the repository.
+- Produção: nenhuma URL de produção pública declarada no repositório.
 
-## 9. Visual Evidence
+## 9. Evidência Visual
 
 ![Codeflix Catalog Backend - GitHub](/images/projects/prints/codeflix-admin-catalog-backend-github.png)

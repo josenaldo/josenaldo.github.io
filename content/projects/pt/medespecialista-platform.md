@@ -1,214 +1,218 @@
 ---
-translated: false
 id: 0
 title: MedEspecialista Platform (API + Backend + Admin + Frontend)
-image: /images/projects/prints/medespecialista-frontend-landing.png
+description: A multi-repository medical education platform I lead since July
+  2024, modernizing backend architecture, operational tooling, student
+  experience, CI/CD, automated tests, and AI-assisted delivery across API,
+  backend, admin, and frontend apps.
 projectUrl: https://medespecialista.com.br/
 pin: true
-description: 'A multi-repository medical education platform I lead since July 2024, modernizing backend architecture, operational tooling, student experience, CI/CD, automated tests, and AI-assisted delivery across API, backend, admin, and frontend apps.'
+image: /images/projects/prints/medespecialista-frontend-landing.png
+translationKey: medespecialista-platform
+translated: true
 ---
 
-## 1. Elevator Pitch
+## 1. Pitch de Elevador
 
-MedEspecialista is a production platform that helps doctors prepare for medical residency exams. Since **July 2024**, I have led end-to-end modernization and delivery across four core repositories: legacy/API modernization, a new NestJS backend foundation, the internal admin panel, and the student-facing frontend.
+MedEspecialista é uma plataforma em produção que ajuda médicos a se prepararem para exames de residência médica. Desde **julho de 2024**, lidero a modernização e a entrega de ponta a ponta em quatro repositórios centrais: modernização do legado/API, uma nova fundação de backend em NestJS, o painel administrativo interno e o frontend voltado ao estudante.
 
-The work combines product delivery with architectural renovation: keep the live platform moving, reduce manual operational work, introduce safer release practices, and gradually move critical domains toward clearer contracts, tests, and modular architecture.
+O trabalho combina entrega de produto com renovação arquitetural: manter a plataforma em produção funcionando, reduzir trabalho operacional manual, introduzir práticas de release mais seguras e mover gradualmente domínios críticos rumo a contratos mais claros, testes e arquitetura modular.
 
-## 2. Problem and Context
+## 2. Problema e Contexto
 
-When I took ownership, the platform had significant technical debt, mixed architectural styles, and slower delivery cycles. Core workflows depended on manual operations, inconsistent validation, and legacy frontend/backend patterns that made change riskier than it needed to be.
+Quando assumi a responsabilidade, a plataforma tinha débito técnico significativo, estilos arquiteturais mistos e ciclos de entrega mais lentos. Fluxos de trabalho centrais dependiam de operações manuais, validação inconsistente e padrões legados de frontend/backend que tornavam a mudança mais arriscada do que precisava ser.
 
-From February to April 2026, the platform entered a heavier modernization cycle: Notice/Edital workflows were expanded, PDF extraction became a product capability, exam-file management was added, frontend stacks were migrated aggressively, and a new backend foundation was started to support a cleaner long-term migration path.
+De fevereiro a abril de 2026, a plataforma entrou em um ciclo de modernização mais intenso: os fluxos de Notice/Edital foram expandidos, a extração de PDF se tornou uma capacidade de produto, a gestão de arquivos de prova foi adicionada, as stacks de frontend foram migradas de forma agressiva, e uma nova fundação de backend foi iniciada para sustentar um caminho de migração de longo prazo mais limpo.
 
-## 3. Scope and Role
+## 3. Escopo e Atuação
 
-I worked as the primary senior engineer responsible for architecture and execution across the platform:
+Atuei como o engenheiro sênior principal responsável pela arquitetura e execução em toda a plataforma:
 
-- **API (`medespecialista/api`)**: backend reliability, domain modeling, Clean Architecture migration paths, Notice/Edital workflows, PDF extraction, exam files, tests, CI/CD, and documentation governance.
-- **Backend (`medespecialista/backend`)**: new NestJS + Prisma + Zod foundation for the next backend generation, with typed configuration, observability, OpenAPI, CI, Docker, and migration documentation.
-- **Admin (`medespecialista/admin`)**: modernization of the internal operations panel, including Notice workflows, PDF extraction review, exam-file administration, auth flows, program import/export, unified shell, and stronger typed frontend patterns.
-- **Frontend (`medespecialista/frontend`)**: evolution of the learner-facing application, including Notice details, propagation alerts, flexible cronogram, test analysis, auth flows, program import/export, and migration from legacy React patterns to Vite/TypeScript/Mantine 9.
+- **API (`medespecialista/api`)**: confiabilidade do backend, modelagem de domínio, caminhos de migração para Clean Architecture, fluxos de Notice/Edital, extração de PDF, arquivos de prova, testes, CI/CD e governança de documentação.
+- **Backend (`medespecialista/backend`)**: nova fundação em NestJS + Prisma + Zod para a próxima geração do backend, com configuração tipada, observabilidade, OpenAPI, CI, Docker e documentação de migração.
+- **Admin (`medespecialista/admin`)**: modernização do painel operacional interno, incluindo fluxos de Notice, revisão de extração de PDF, administração de arquivos de prova, fluxos de autenticação, importação/exportação de programas, shell unificado e padrões de frontend tipado mais fortes.
+- **Frontend (`medespecialista/frontend`)**: evolução da aplicação voltada ao estudante, incluindo detalhes de Notice, alertas de propagação, cronograma flexível, análise de provas, fluxos de autenticação, importação/exportação de programas e migração dos padrões legados de React para Vite/TypeScript/Mantine 9.
 
-## 4. Solution Implemented
+## 4. Solução Implementada
 
-I applied an incremental modernization strategy, prioritizing production safety:
+Apliquei uma estratégia de modernização incremental, priorizando a segurança em produção:
 
-- Kept legacy routes and flows operational while introducing modern modular paths in parallel.
-- Moved Notice/Edital behavior toward explicit entities, use cases, facades, schemas, and regression tests.
-- Added PDF extraction with caching, validation, specialized error handling, and operational screens for review/filtering.
-- Introduced exam-file management with S3 integration, expertise filters, lifecycle actions, upload validation, and download/watermark handling.
-- Hardened E2E infrastructure with database reset helpers, Docker scripts, seed data, serial execution where needed, and reduced flaky test behavior.
-- Standardized documentation practices with ADRs, PRDs, specs, user stories, runbooks, migration plans, and reusable agent skills.
-- Modernized both web apps toward Vite, TypeScript, React 19, Mantine 9, React Router 7, TanStack Query, Sentry, Vitest, and Playwright.
-- Started a new backend foundation in NestJS 11, Node 24, Prisma 7, Zod, OpenAPI, Prometheus metrics, and Clean Architecture-oriented project rules.
+- Mantive rotas e fluxos legados operacionais enquanto introduzia caminhos modulares modernos em paralelo.
+- Movi o comportamento de Notice/Edital em direção a entidades explícitas, casos de uso, facades, schemas e testes de regressão.
+- Adicionei extração de PDF com cache, validação, tratamento de erro especializado e telas operacionais de revisão/filtragem.
+- Introduzi a gestão de arquivos de prova com integração S3, filtros de especialidade, ações de ciclo de vida, validação de upload e tratamento de download/marca d'água.
+- Reforcei a infraestrutura de E2E com helpers de reset de banco de dados, scripts Docker, dados de seed, execução serial quando necessário, e redução de comportamento instável nos testes.
+- Padronizei práticas de documentação com ADRs, PRDs, specs, histórias de usuário, runbooks, planos de migração e skills de agente reutilizáveis.
+- Modernizei as duas aplicações web em direção a Vite, TypeScript, React 19, Mantine 9, React Router 7, TanStack Query, Sentry, Vitest e Playwright.
+- Iniciei uma nova fundação de backend em NestJS 11, Node 24, Prisma 7, Zod, OpenAPI, métricas Prometheus e regras de projeto orientadas a Clean Architecture.
 
-This allowed ongoing product delivery while reducing regression risk and giving the platform a clearer migration path.
+Isso permitiu a entrega contínua de produto enquanto reduzia o risco de regressão e dava à plataforma um caminho de migração mais claro.
 
-## 5. Architecture and Stack
+## 5. Arquitetura e Stack
 
 ### API
 
 - **Runtime/Framework**: Node.js + Express
-- **Data/Infra**: PostgreSQL, Sequelize, Redis, BullMQ, Socket.IO, S3 integrations
-- **Validation & Contracts**: Joi, Zod, OpenAPI v2 validation pipeline
-- **Quality**: Jest, Supertest, Testcontainers-style E2E infrastructure, fixture helpers, docs linting, link validation
-- **Architecture direction**: coexistence strategy between legacy routes and Clean Architecture modules, with migration plans documented
+- **Dados/Infra**: PostgreSQL, Sequelize, Redis, BullMQ, Socket.IO, integrações S3
+- **Validação e Contratos**: Joi, Zod, pipeline de validação OpenAPI v2
+- **Qualidade**: Jest, Supertest, infraestrutura de E2E no estilo Testcontainers, helpers de fixture, lint de documentação, validação de links
+- **Direção arquitetural**: estratégia de coexistência entre rotas legadas e módulos de Clean Architecture, com planos de migração documentados
 
 ### Backend
 
 - **Runtime/Framework**: Node.js 24 + NestJS 11 + TypeScript 6
-- **Data/Infra**: PostgreSQL, Redis, Prisma 7, Docker Compose development stack
-- **Validation & Contracts**: Zod, nestjs-zod, OpenAPI/Swagger
-- **Observability**: Prometheus metrics and LGTM stack foundations (Grafana, Loki, Tempo, Alloy)
-- **Quality**: Jest unit/integration/E2E scripts, CI workflows, typed configuration, drift-check scripts
-- **Architecture direction**: new backend foundation for a staged migration from legacy API modules
+- **Dados/Infra**: PostgreSQL, Redis, Prisma 7, stack de desenvolvimento em Docker Compose
+- **Validação e Contratos**: Zod, nestjs-zod, OpenAPI/Swagger
+- **Observabilidade**: métricas Prometheus e bases da stack LGTM (Grafana, Loki, Tempo, Alloy)
+- **Qualidade**: scripts de unit/integration/E2E em Jest, workflows de CI, configuração tipada, scripts de verificação de drift
+- **Direção arquitetural**: nova fundação de backend para uma migração em etapas a partir dos módulos legados da API
 
 ### Admin
 
 - **Stack**: React 19 + TypeScript + Vite 8 + Mantine 9 + TanStack Query + React Router 7
-- **Quality**: Vitest + Playwright E2E + ESLint/TypeScript strictness improvements
-- **Key domains managed**: users, notices, PDF extractions, exam files, follow-up, flexible cronogram, study metrics, test analysis, expertise/program administration
+- **Qualidade**: Vitest + Playwright E2E + melhorias de rigor em ESLint/TypeScript
+- **Principais domínios geridos**: usuários, notices, extrações de PDF, arquivos de prova, follow-up, cronograma flexível, métricas de estudo, análise de provas, administração de especialidade/programa
 
 ### Frontend
 
 - **Stack**: React 19 + TypeScript + Vite 8 + Mantine 9 + TanStack Query + React Router 7
-- **Reliability**: Sentry integration, ErrorBoundary improvements, Playwright E2E, shared E2E helpers
-- **Evolving domains**: notices, notice guide/propagation, program content, import/export, flexible cronogram, study metrics, test analysis, study room
-- **Direction**: convergence with admin patterns for shell, routing, UI components, typed contracts, and shared workflow behavior
+- **Confiabilidade**: integração com Sentry, melhorias no ErrorBoundary, Playwright E2E, helpers de E2E compartilhados
+- **Domínios em evolução**: notices, guia/propagação de notice, conteúdo de programa, importação/exportação, cronograma flexível, métricas de estudo, análise de provas, sala de estudos
+- **Direção**: convergência com os padrões do admin para shell, roteamento, componentes de UI, contratos tipados e comportamento de fluxo de trabalho compartilhado
 
-## 6. API / Backend / Admin / Frontend Breakdown
+## 6. Detalhamento de API / Backend / Admin / Frontend
 
 ### API (`https://github.com/medespecialista/api`)
 
-I structured and expanded the backend to support both delivery speed and technical governance:
+Estruturei e expandi o backend para sustentar tanto velocidade de entrega quanto governança técnica:
 
-- Implemented and expanded key modules: Notice/Edital, Program, Flexible Cronogram, Metrics, Follow-up, Users, PDF extraction, and Exam Files.
-- Built the PDF extraction flow with Gemini/OpenRouter integration, caching, validation, model selection by extraction stage, quota/error handling, and review endpoints.
-- Added Notice/Edital v2 routes, status rules, draft/edit validations, guide/propagation fields, template propagation, and child-notice acknowledgment flows.
-- Added exam-file management with expertise linkage, upload limits, S3 client handling, filters, lifecycle status, and user-scoped downloads.
-- Improved Flexible Cronogram with Hamilton-method time allocation, ownership validation, fallback behavior, and expanded domain/use-case tests.
-- Hardened E2E and integration testing through database reset endpoints, fixture helpers, container rebuild scripts, and less flaky reset strategy.
-- Strengthened deploy and governance with OpenAPI validation, docs validation, PR templates, issue templates, runbooks, and staging/production promotion docs.
+- Implementei e expandi módulos-chave: Notice/Edital, Program, Cronograma Flexível, Métricas, Follow-up, Usuários, extração de PDF e Arquivos de Prova.
+- Construí o fluxo de extração de PDF com integração Gemini/OpenRouter, cache, validação, seleção de modelo por etapa de extração, tratamento de cota/erro e endpoints de revisão.
+- Adicionei rotas de Notice/Edital v2, regras de status, validações de rascunho/edição, campos de guia/propagação, propagação de template e fluxos de confirmação de notice filho.
+- Adicionei a gestão de arquivos de prova com vínculo a especialidades, limites de upload, tratamento de cliente S3, filtros, status de ciclo de vida e downloads restritos por usuário.
+- Melhorei o Cronograma Flexível com alocação de tempo pelo método Hamilton, validação de propriedade, comportamento de fallback e testes de domínio/caso de uso expandidos.
+- Reforcei os testes de E2E e integração por meio de endpoints de reset de banco de dados, helpers de fixture, scripts de reconstrução de container e uma estratégia de reset menos instável.
+- Fortaleci deploy e governança com validação OpenAPI, validação de documentação, templates de PR, templates de issue, runbooks e documentação de promoção entre staging/produção.
 
 ### Backend (`https://github.com/medespecialista/backend`)
 
-I started the next backend generation as a clean foundation for long-term migration:
+Iniciei a próxima geração de backend como uma fundação limpa para a migração de longo prazo:
 
-- Established NestJS 11 + TypeScript 6 + Prisma 7 + Zod as the new backend baseline.
-- Added typed configuration, environment validation, `DATABASE_URL` bootstrap, `TRUST_PROXY`, and explicit application error hierarchies.
-- Introduced shared domain/application/infra primitives: `BaseEntity`, `Notification Pattern`, value-object `Id`, application errors, use-case interfaces, pagination/list query, global exception filters, and Zod validation pipe.
-- Introspected the legacy database into Prisma, created a baseline migration, and added drift-check/developer scripts.
-- Added health checks, Prometheus metrics, Docker Compose development infrastructure, OpenAPI/CI workflows, and runbooks.
-- Documented the migration foundation with specs, plans, ADR-style templates, module registry, and Copilot skills tailored to backend patterns, database patterns, testing, security, and documentation.
+- Estabeleci NestJS 11 + TypeScript 6 + Prisma 7 + Zod como a nova base do backend.
+- Adicionei configuração tipada, validação de ambiente, bootstrap de `DATABASE_URL`, `TRUST_PROXY` e hierarquias explícitas de erro de aplicação.
+- Introduzi primitivas compartilhadas de domain/application/infra: `BaseEntity`, `Notification Pattern`, value-object `Id`, erros de aplicação, interfaces de caso de uso, paginação/list query, filtros globais de exceção e pipe de validação Zod.
+- Introspeccionei o banco de dados legado no Prisma, criei uma migration baseline e adicionei scripts de verificação de drift/desenvolvedor.
+- Adicionei health checks, métricas Prometheus, infraestrutura de desenvolvimento em Docker Compose, workflows de OpenAPI/CI e runbooks.
+- Documentei a fundação de migração com specs, planos, templates no estilo ADR, registro de módulos e skills de Copilot personalizadas para padrões de backend, padrões de banco de dados, testes, segurança e documentação.
 
 ### Admin (`https://github.com/medespecialista/admin`)
 
-I modernized and scaled the internal operations interface used by the team:
+Modernizei e escalei a interface de operações interna usada pela equipe:
 
-- Implemented PDF import/extraction screens, extraction listing, filters, detail pages, and error handling.
-- Added Notice/Edital workflows for status, draft/edit validation, update verification, template management, guide editor, child-notice propagation, and richer form behavior.
-- Added Exam File management: models, API client, hooks, list/show/add/edit pages, lifecycle actions, upload validation, status badges, and toolbar conventions.
-- Modernized authentication UX with session expiration warnings, reset-token pre-verification, resend cooldown, password strength meter, route preservation, temporary password generation, change-password page, and logout confirmation.
-- Built program-content import/export using XLSX/CSV parsing, validation, editable review steps, reusable wizard structure, and export helpers.
-- Migrated the admin shell to a unified layout with compact brand, user menu, breadcrumbs, page headers, nested router config, and route constants.
-- Upgraded core frontend dependencies and tooling: Mantine 7/8 to 9, Vite 5 to 8, Vitest 2 to 4, React Router 7, stricter TypeScript/ESLint, and drag-and-drop migration to `@dnd-kit`.
+- Implementei telas de importação/extração de PDF, listagem de extrações, filtros, páginas de detalhe e tratamento de erro.
+- Adicionei fluxos de Notice/Edital para status, validação de rascunho/edição, verificação de atualização, gestão de template, editor de guia, propagação de notice filho e comportamento de formulário mais rico.
+- Adicionei a gestão de Arquivos de Prova: models, cliente de API, hooks, páginas de listagem/exibição/adição/edição, ações de ciclo de vida, validação de upload, badges de status e convenções de toolbar.
+- Modernizei a UX de autenticação com avisos de expiração de sessão, pré-verificação de token de reset, cooldown de reenvio, medidor de força de senha, preservação de rota, geração de senha temporária, página de troca de senha e confirmação de logout.
+- Construí a importação/exportação de conteúdo de programa usando parsing de XLSX/CSV, validação, etapas de revisão editáveis, estrutura de wizard reutilizável e helpers de exportação.
+- Migrei o shell do admin para um layout unificado, com marca compacta, menu de usuário, breadcrumbs, cabeçalhos de página, configuração de router aninhado e constantes de rota.
+- Atualizei dependências e ferramental do frontend: Mantine 7/8 para 9, Vite 5 para 8, Vitest 2 para 4, React Router 7, TypeScript/ESLint mais rigorosos, e migração de drag-and-drop para `@dnd-kit`.
 
 ### Frontend (`https://github.com/medespecialista/frontend`)
 
-I evolved the learner-facing product while preserving continuity:
+Evoluí o produto voltado ao estudante preservando a continuidade:
 
-- Migrated the app from CRA/JavaScript patterns to Vite + TypeScript, then upgraded toward React 19, Mantine 9, React Router 7, Vite 8, TanStack Query, and modern tooling.
-- Added PDF extraction support, Notice status, Notice guide tab, propagation banner, propagation acknowledgment, update alerts, richer bibliography/document cards, and better long-title handling.
-- Improved Flexible Cronogram with Hamilton-method allocation, granular ErrorBoundary usage, memoized chart data, ownership-related fixes, search in upcoming subjects, and regression tests.
-- Refactored Test Analysis into layered frontend structure, fixed loading/data issues, aligned UI with admin behavior, and added shared helpers.
-- Added auth modernization: forced password change, session expiration modal, reset-token pre-check, check-your-email confirmation, first-access stepper, password strength meter, route preservation, logout confirmation, and TTL indicator.
-- Added program-content import/export, shared wizard utilities, reusable table actions, accessible breadcrumbs, unified shell layout, and route constants.
-- Integrated Sentry and improved ErrorBoundary behavior to make runtime failures easier to detect and recover from.
+- Migrei a aplicação dos padrões CRA/JavaScript para Vite + TypeScript, e depois fiz upgrade em direção a React 19, Mantine 9, React Router 7, Vite 8, TanStack Query e ferramental moderno.
+- Adicionei suporte à extração de PDF, status de Notice, aba de guia de Notice, banner de propagação, confirmação de propagação, alertas de atualização, cards de bibliografia/documento mais ricos e melhor tratamento de títulos longos.
+- Melhorei o Cronograma Flexível com alocação pelo método Hamilton, uso mais granular de ErrorBoundary, dados de gráfico memoizados, correções relacionadas a propriedade, busca em próximas matérias e testes de regressão.
+- Refatorei a Análise de Provas em uma estrutura de frontend em camadas, corrigi problemas de carregamento/dados, alinhei a UI ao comportamento do admin e adicionei helpers compartilhados.
+- Adicionei modernização de autenticação: troca de senha forçada, modal de expiração de sessão, pré-checagem de token de reset, confirmação de "verifique seu e-mail", stepper de primeiro acesso, medidor de força de senha, preservação de rota, confirmação de logout e indicador de TTL.
+- Adicionei importação/exportação de conteúdo de programa, utilitários de wizard compartilhados, ações de tabela reutilizáveis, breadcrumbs acessíveis, layout de shell unificado e constantes de rota.
+- Integrei o Sentry e melhorei o comportamento do ErrorBoundary para tornar falhas em runtime mais fáceis de detectar e recuperar.
 
-## 7. Quality, Process, and Delivery Impact
+## 7. Qualidade, Processo e Impacto na Entrega
 
-Documented delivery evidence in the repositories shows a consistent modernization cadence from **July 2024 to April 2026**:
+As evidências de entrega documentadas nos repositórios mostram uma cadência de modernização consistente de **julho de 2024 a abril de 2026**:
 
-- **API commits since 2024-07-01**: 612
-- **Admin commits since 2024-07-01**: 503
-- **Frontend commits since 2024-07-01**: 440
-- **Backend commits since 2026-02-01**: 74
+- **Commits da API desde 2024-07-01**: 612
+- **Commits do Admin desde 2024-07-01**: 503
+- **Commits do Frontend desde 2024-07-01**: 440
+- **Commits do Backend desde 2026-02-01**: 74
 
-Total in the period: **1,629 commits** across the four core repositories.
+Total no período: **1.629 commits** nos quatro repositórios centrais.
 
-The project evolved in layers. The first phase stabilized delivery, created Follow-up and Flexible Cronogram foundations, and moved the admin/frontends toward more maintainable patterns. Later phases hardened CI/CD, expanded Notice/Edital and Program domains, added regression tests, and introduced architecture documentation. The February-April 2026 cycle added a heavier modernization push: PDF extraction, exam-file management, auth reform, frontend stack upgrades, Sentry, E2E reliability work, and a new NestJS/Prisma backend foundation.
+O projeto evoluiu em camadas. A primeira fase estabilizou a entrega, criou as fundações de Follow-up e do Cronograma Flexível, e moveu o admin/frontends em direção a padrões mais sustentáveis. Fases posteriores reforçaram o CI/CD, expandiram os domínios de Notice/Edital e Program, adicionaram testes de regressão e introduziram documentação de arquitetura. O ciclo de fevereiro-abril de 2026 trouxe um impulso de modernização mais forte: extração de PDF, gestão de arquivos de prova, reforma de autenticação, upgrades de stack de frontend, Sentry, trabalho de confiabilidade em E2E e uma nova fundação de backend em NestJS/Prisma.
 
-Across the full timeline, the work raised the platform's engineering baseline through:
+Ao longo de toda a linha do tempo, o trabalho elevou a base de engenharia da plataforma por meio de:
 
-- Staged releases, migration safety, and automated validation checks.
-- Contract validation and OpenAPI governance.
-- E2E testing infrastructure and database reset helpers.
-- CI/deploy documentation and safer environment handling.
-- Frontend dependency modernization across both web apps.
-- Sentry/error-boundary coverage for runtime observability.
-- A new backend migration foundation with Prisma, typed config, health checks, metrics, and Clean Architecture primitives.
-- AI-assisted development workflow with repository-specific skills, prompts, templates, and review/documentation guardrails.
+- Releases em etapas, segurança de migração e checagens de validação automatizadas.
+- Validação de contrato e governança OpenAPI.
+- Infraestrutura de testes E2E e helpers de reset de banco de dados.
+- Documentação de CI/deploy e tratamento de ambiente mais seguro.
+- Modernização de dependências de frontend nas duas aplicações web.
+- Cobertura de Sentry/error-boundary para observabilidade em runtime.
+- Uma nova fundação de migração de backend com Prisma, configuração tipada, health checks, métricas e primitivas de Clean Architecture.
+- Fluxo de desenvolvimento assistido por IA, com skills, prompts, templates e guardrails de revisão/documentação específicos por repositório.
 
-## 8. Month-by-Month Delivery Timeline (Jul 2024 - Apr 2026)
+## 8. Linha do Tempo de Entregas Mês a Mês (Jul 2024 - Abr 2026)
 
-Commit volume below is based on local git history. The first three repositories (`api | admin | frontend`) are counted from `2024-07-01`; the new `backend` repository appears in the timeline from February 2026 onward.
+O volume de commits abaixo é baseado no histórico local do git. Os três primeiros repositórios (`api | admin | frontend`) são contados a partir de `2024-07-01`; o novo repositório `backend` aparece na linha do tempo a partir de fevereiro de 2026.
 
-| Month       | Commits (`api \| admin \| frontend \| backend`) | Delivery highlights                                                                                                                                                                                                                                                                                                                                          |
+| Mês         | Commits (`api \| admin \| frontend \| backend`) | Destaques da entrega                                                                                                                                                                                                                                                                                                                                          |
 | ----------- | ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **2024-07** | `0 \| 0 \| 0 \| -`                              | Onboarding and context discovery phase before repository activity started.                                                                                                                                                                                                                                                                                   |
-| **2024-08** | `35 \| 14 \| 17 \| -`                           | Environment/deploy baseline, database/SSL adjustments, and first stabilization changes for Notice/User flows.                                                                                                                                                                                                                                                |
-| **2024-09** | `23 \| 11 \| 7 \| -`                            | **Follow-up module foundation**: create/list/edit/remove flows, item lifecycle, orientation handling, queue/email flow, and first operational UI support.                                                                                                                                                                                                    |
-| **2024-10** | `38 \| 18 \| 12 \| -`                           | Follow-up scale-up: adding users to follow-ups, orientation template management, reorder logic, and date/email consistency fixes.                                                                                                                                                                                                                            |
-| **2024-11** | `11 \| 3 \| 1 \| -`                             | Start of **Flexible Cronogram** implementation across API and frontend, plus follow-up correction work in production paths.                                                                                                                                                                                                                                  |
-| **2024-12** | `15 \| 1 \| 46 \| -`                            | Flexible Cronogram became functional: cycle lifecycle, next-step logic, subject progression, and study-session metrics. Frontend moved from static graph behavior to usable interactions, including detailed mode, sliders, loading states, and UX fixes.                                                                                                    |
-| **2025-01** | `17 \| 0 \| 17 \| -`                            | Create/edit/show flexible cronogram flows hardened with validations, 404 semantics, and route/model consistency.                                                                                                                                                                                                                                             |
-| **2025-02** | `1 \| 20 \| 0 \| -`                             | Admin modernization sprint: Mantine v7 migration work, React Query migrations, user/admin pages cleanup, and cronogram visibility improvements.                                                                                                                                                                                                              |
-| **2025-03** | `4 \| 33 \| 1 \| -`                             | Strong refactor wave in admin/program/notice modules, including notice form sections and flexible-cronogram integration.                                                                                                                                                                                                                                     |
-| **2025-04** | `0 \| 5 \| 0 \| -`                              | Routing architecture updates and TypeScript conversion work in flexible-cronogram admin code.                                                                                                                                                                                                                                                                |
-| **2025-05** | `0 \| 1 \| 0 \| -`                              | Study-metrics simplification and integration cleanup.                                                                                                                                                                                                                                                                                                        |
-| **2025-06** | `0 \| 0 \| 0 \| -`                              | No major repository activity recorded.                                                                                                                                                                                                                                                                                                                       |
-| **2025-07** | `0 \| 0 \| 0 \| -`                              | No major repository activity recorded.                                                                                                                                                                                                                                                                                                                       |
-| **2025-08** | `0 \| 6 \| 0 \| -`                              | Study-metrics maintenance, page consolidation, and codebase cleanup.                                                                                                                                                                                                                                                                                         |
-| **2025-09** | `5 \| 17 \| 1 \| -`                             | API expansion for tutor modules; admin TypeScript migration acceleration across follow-up, reports, expertise, user, and program structures.                                                                                                                                                                                                                 |
-| **2025-10** | `1 \| 36 \| 0 \| -`                             | **Major follow-up refactor in admin**: module reorganization, hooks/models cleanup, notification-flow improvements, and Redux removal in modernized areas.                                                                                                                                                                                                   |
-| **2025-11** | `55 \| 12 \| 11 \| -`                           | CI/CD hardening cycle: deploy workflow checks, secret validation, Redis availability checks, artifact-based deploy improvements, and operational release discipline.                                                                                                                                                                                         |
-| **2025-12** | `16 \| 21 \| 21 \| -`                           | Flexible-cronogram UX/typing improvements in admin, plus API user-management and architecture/documentation governance upgrades.                                                                                                                                                                                                                             |
-| **2026-01** | `67 \| 24 \| 50 \| -`                           | Notice redesign and migration momentum: legacy-to-clean path, new entities/use cases, PDF extraction/caching, study-room socket, and program/module evolution.                                                                                                                                                                                               |
-| **2026-02** | `103 \| 46 \| 43 \| 9`                          | Notice/Edital v2 consolidation, PDF extraction, expertise support, E2E setup, OpenAPI validation, Node 22 alignment in legacy apps, and first backend foundation commits.                                                                                                                                                                                    |
-| **2026-03** | `61 \| 47 \| 35 \| 0`                           | Notice templates, update verification, exam-file specs, program/use-case expansion, test sprints, extraction improvements, frontend/admin parity work, and S3/expertise-backed exam-file flows.                                                                                                                                                              |
-| **2026-04** | `160 \| 188 \| 178 \| 65`                       | Hamilton-method flexible cronogram allocation, test-analysis refactors, guide/propagation for notices, exam-file upload/download stabilization, Sentry/ErrorBoundary integration, auth reform, program-content import/export, unified shells, React Router 7 migrations, Mantine 9 upgrades, TypeScript migration, and the NestJS/Prisma backend foundation. |
+| **2024-07** | `0 \| 0 \| 0 \| -`                              | Fase de onboarding e descoberta de contexto antes do início da atividade nos repositórios.                                                                                                                                                                                                                                                                    |
+| **2024-08** | `35 \| 14 \| 17 \| -`                           | Baseline de ambiente/deploy, ajustes de banco de dados/SSL e primeiras mudanças de estabilização para os fluxos de Notice/User.                                                                                                                                                                                                                               |
+| **2024-09** | `23 \| 11 \| 7 \| -`                            | **Fundação do módulo de Follow-up**: fluxos de criar/listar/editar/remover, ciclo de vida de itens, tratamento de orientação, fluxo de fila/e-mail e primeiro suporte de UI operacional.                                                                                                                                                                     |
+| **2024-10** | `38 \| 18 \| 12 \| -`                           | Escalonamento do Follow-up: adição de usuários aos follow-ups, gestão de templates de orientação, lógica de reordenação e correções de consistência de data/e-mail.                                                                                                                                                                                          |
+| **2024-11** | `11 \| 3 \| 1 \| -`                             | Início da implementação do **Cronograma Flexível** na API e no frontend, além de correções de follow-up em caminhos de produção.                                                                                                                                                                                                                             |
+| **2024-12** | `15 \| 1 \| 46 \| -`                            | O Cronograma Flexível se tornou funcional: ciclo de vida do ciclo, lógica de próximo passo, progressão de matérias e métricas de sessão de estudo. O frontend saiu de um comportamento de gráfico estático para interações usáveis, incluindo modo detalhado, sliders, estados de carregamento e correções de UX.                                            |
+| **2025-01** | `17 \| 0 \| 17 \| -`                            | Fluxos de criar/editar/exibir cronograma flexível reforçados com validações, semântica de 404 e consistência de rota/model.                                                                                                                                                                                                                                  |
+| **2025-02** | `1 \| 20 \| 0 \| -`                             | Sprint de modernização do admin: trabalho de migração para Mantine v7, migrações de React Query, limpeza de páginas de usuário/admin e melhorias de visibilidade do cronograma.                                                                                                                                                                              |
+| **2025-03** | `4 \| 33 \| 1 \| -`                             | Forte onda de refatoração nos módulos de admin/program/notice, incluindo seções do formulário de notice e integração com o cronograma flexível.                                                                                                                                                                                                              |
+| **2025-04** | `0 \| 5 \| 0 \| -`                              | Atualizações na arquitetura de roteamento e trabalho de conversão para TypeScript no código de cronograma flexível do admin.                                                                                                                                                                                                                                 |
+| **2025-05** | `0 \| 1 \| 0 \| -`                              | Simplificação de métricas de estudo e limpeza de integração.                                                                                                                                                                                                                                                                                                  |
+| **2025-06** | `0 \| 0 \| 0 \| -`                              | Nenhuma atividade relevante registrada nos repositórios.                                                                                                                                                                                                                                                                                                      |
+| **2025-07** | `0 \| 0 \| 0 \| -`                              | Nenhuma atividade relevante registrada nos repositórios.                                                                                                                                                                                                                                                                                                      |
+| **2025-08** | `0 \| 6 \| 0 \| -`                              | Manutenção de métricas de estudo, consolidação de páginas e limpeza de código.                                                                                                                                                                                                                                                                                |
+| **2025-09** | `5 \| 17 \| 1 \| -`                             | Expansão da API para módulos de tutoria; aceleração da migração para TypeScript no admin, abrangendo follow-up, relatórios, especialidade, usuário e estruturas de programa.                                                                                                                                                                                 |
+| **2025-10** | `1 \| 36 \| 0 \| -`                             | **Grande refatoração do follow-up no admin**: reorganização de módulos, limpeza de hooks/models, melhorias no fluxo de notificação e remoção do Redux nas áreas modernizadas.                                                                                                                                                                                |
+| **2025-11** | `55 \| 12 \| 11 \| -`                           | Ciclo de reforço de CI/CD: checagens no workflow de deploy, validação de segredos, checagens de disponibilidade do Redis, melhorias no deploy baseado em artefato e disciplina operacional de release.                                                                                                                                                       |
+| **2025-12** | `16 \| 21 \| 21 \| -`                           | Melhorias de UX/tipagem do cronograma flexível no admin, além de gestão de usuários na API e upgrades de governança de arquitetura/documentação.                                                                                                                                                                                                             |
+| **2026-01** | `67 \| 24 \| 50 \| -`                           | Momento de redesenho e migração do Notice: caminho de legado para clean, novas entidades/casos de uso, extração/cache de PDF, socket da sala de estudos e evolução de program/module.                                                                                                                                                                        |
+| **2026-02** | `103 \| 46 \| 43 \| 9`                          | Consolidação do Notice/Edital v2, extração de PDF, suporte a especialidade, configuração de E2E, validação OpenAPI, alinhamento ao Node 22 nas aplicações legadas e primeiros commits da fundação de backend.                                                                                                                                                |
+| **2026-03** | `61 \| 47 \| 35 \| 0`                           | Templates de notice, verificação de atualização, specs de arquivo de prova, expansão de program/caso de uso, sprints de teste, melhorias de extração, trabalho de paridade frontend/admin e fluxos de arquivo de prova baseados em S3/especialidade.                                                                                                        |
+| **2026-04** | `160 \| 188 \| 178 \| 65`                       | Alocação de cronograma flexível pelo método Hamilton, refatorações de análise de provas, guia/propagação para notices, estabilização de upload/download de arquivo de prova, integração Sentry/ErrorBoundary, reforma de autenticação, importação/exportação de conteúdo de programa, shells unificados, migrações para React Router 7, upgrades para Mantine 9, migração para TypeScript, e a fundação de backend em NestJS/Prisma. |
 
-### Business Outcomes from This Timeline
+### Resultados de Negócio Desta Linha do Tempo
 
-- **Follow-up module**: replaced a manual monthly mentoring follow-up routine with an operational flow that reduced execution from **~1 month to ~2 hours**, according to internal operation practice.
-- **Deployment automation**: reduced release effort from **~2 hours to ~15 minutes** through automated CI/CD workflows and repeatable staging/production processes.
-- **PDF extraction and Notice operations**: converted edital processing from a heavily manual workflow into a reviewed, cached, validated extraction flow with admin screens and regression tests.
-- **Program import/export**: reduced repetitive content-program setup by adding spreadsheet-based import/export with validation and editable review.
-- **Frontend modernization**: brought admin and learner apps closer to the same modern baseline, reducing divergence in routing, UI shell, typed contracts, testing, and error handling.
+- **Módulo de Follow-up**: substituiu uma rotina manual mensal de acompanhamento de mentoria por um fluxo operacional que reduziu a execução de **~1 mês para ~2 horas**, segundo a prática operacional interna.
+- **Automação de deployment**: reduziu o esforço de release de **~2 horas para ~15 minutos** por meio de workflows de CI/CD automatizados e processos repetíveis de staging/produção.
+- **Extração de PDF e operações de Notice**: converteu o processamento de editais de um fluxo fortemente manual em um fluxo de extração revisado, com cache, validado, com telas de admin e testes de regressão.
+- **Importação/exportação de programa**: reduziu a configuração repetitiva de conteúdo de programa ao adicionar importação/exportação baseada em planilha, com validação e revisão editável.
+- **Modernização de frontend**: aproximou as aplicações de admin e de estudante da mesma base moderna, reduzindo a divergência em roteamento, shell de UI, contratos tipados, testes e tratamento de erro.
 
-## 9. Portfolio Relevance and Links
+## 9. Relevância para o Portfólio e Links
 
-This is my strongest platform case because it demonstrates:
+Este é o meu caso de plataforma mais forte porque demonstra:
 
-- Full-stack ownership in production
-- Backend architecture modernization under active delivery pressure
-- Cross-repository coordination (API + Backend + Admin + Frontend)
-- CI/CD, testing, observability, and operational maturity
-- Documentation-driven engineering and technical leadership
-- Practical AI-assisted software delivery with review, testing, and repo-specific guardrails
+- Propriedade full-stack em produção
+- Modernização de arquitetura de backend sob pressão ativa de entrega
+- Coordenação entre repositórios (API + Backend + Admin + Frontend)
+- CI/CD, testes, observabilidade e maturidade operacional
+- Engenharia orientada a documentação e liderança técnica
+- Entrega de software prática assistida por IA, com revisão, testes e guardrails específicos por repositório
 
 Links:
 
-- Production: <https://medespecialista.com.br/>
+- Produção: <https://medespecialista.com.br/>
 - Staging (web): <https://staging.medespecialista.com.br/>
-- API Production: <https://api.medespecialista.com.br/>
+- API Produção: <https://api.medespecialista.com.br/>
 - API Staging: <https://api.staging.medespecialista.com.br/>
 - GitHub API: <https://github.com/medespecialista/api>
 - GitHub Backend: <https://github.com/medespecialista/backend>
 - GitHub Admin: <https://github.com/medespecialista/admin>
 - GitHub Frontend: <https://github.com/medespecialista/frontend>
 
-## 10. Visual Evidence
+## 10. Evidência Visual
 
 ![MedEspecialista Frontend](/images/projects/prints/medespecialista-frontend-landing.png)
 ![MedEspecialista Admin - Follow-up](/images/projects/prints/medespecialista-admin-followup.png)

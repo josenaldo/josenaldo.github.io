@@ -1,10 +1,14 @@
 ---
 id: 9
 title: Personal Website (Next.js + Contentlayer)
-image: /images/projects/prints/josenaldo.github.io-github.png
+description: A zero-cost, developer-authored platform for tracking a software
+  career over the years — built with Next.js, Contentlayer2, and Markdown,
+  deployable to GitHub Pages or Vercel in minutes.
 projectUrl: https://josenaldo.com.br/
 pin: false
-description: 'A zero-cost, developer-authored platform for tracking a software career over the years — built with Next.js, Contentlayer2, and Markdown, deployable to GitHub Pages or Vercel in minutes.'
+image: /images/projects/prints/josenaldo.github.io-github.png
+translationKey: josenaldo-github-io
+translated: true
 ---
 
 ## 1. Elevator Pitch

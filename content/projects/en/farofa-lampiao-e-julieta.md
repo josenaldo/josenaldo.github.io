@@ -1,10 +1,14 @@
 ---
 id: 2
 title: Farofa Lampiao e Julieta
-image: /images/projects/farofa-lampiao-e-julieta.jpg
+description: "A signature recipe turned into a memorable portfolio artifact: a
+  repeatable culinary product with intentional humor and strong personal
+  branding."
 projectUrl: https://josenaldo.com.br/farofa-lampiao-e-julieta/
 pin: true
-description: 'A signature recipe turned into a memorable portfolio artifact: a repeatable culinary product with intentional humor and strong personal branding.'
+image: /images/projects/farofa-lampiao-e-julieta.jpg
+translationKey: farofa-lampiao-e-julieta
+translated: true
 ---
 
 ## 1. Elevator Pitch

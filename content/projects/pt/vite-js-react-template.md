@@ -1,53 +1,55 @@
 ---
-translated: false
 id: 4
 title: Vite JavaScript React Minimal Template
-image: /images/projects/vite-js-react-minimal.jpg
+description: A minimal React + Vite starter template with environment setup and
+  standard scripts for fast project bootstrapping.
 projectUrl: https://github.com/josenaldo/vite-js-react-minimal
 pin: false
-description: 'A minimal React + Vite starter template with environment setup and standard scripts for fast project bootstrapping.'
+image: /images/projects/vite-js-react-minimal.jpg
+translationKey: vite-js-react-template
+translated: true
 ---
 
-## 1. Elevator Pitch
+## 1. Pitch de Elevador
 
-A lean starter template for launching React applications with Vite in minutes, focused on speed and developer productivity.
+Um template enxuto para lançar aplicações React com Vite em minutos, focado em velocidade e produtividade do desenvolvedor.
 
-## 2. Problem and Context
+## 2. Problema e Contexto
 
-Teams often repeat the same frontend bootstrap steps across projects. This template reduces that repetitive setup work.
+Equipes costumam repetir as mesmas etapas de bootstrap de frontend entre projetos. Este template reduz esse trabalho repetitivo de configuração.
 
-## 3. Scope and Role
+## 3. Escopo e Atuação
 
-- Base project creation.
-- Standardized script organization for dev/build/lint.
-- Environment configuration pattern with `.env`.
+- Criação do projeto base.
+- Organização padronizada de scripts para dev/build/lint.
+- Padrão de configuração de ambiente com `.env`.
 
-## 4. Solution Implemented
+## 4. Solução Implementada
 
-A minimal, reusable bootstrap structure distributed via `degit` for quick project initialization.
+Uma estrutura de bootstrap mínima e reutilizável, distribuída via `degit`, para inicialização rápida de projetos.
 
-## 5. Stack and Architecture
+## 5. Stack e Arquitetura
 
 - JavaScript + React.
-- Vite as bundler/dev server.
-- ESLint and standardized project scripts.
+- Vite como bundler/dev server.
+- ESLint e scripts de projeto padronizados.
 
-## 6. Quality and Engineering Practices
+## 6. Qualidade e Práticas de Engenharia
 
-- Setup documentation in README.
-- Consistent project initialization flow.
-- MIT license.
+- Documentação de configuração no README.
+- Fluxo de inicialização de projeto consistente.
+- Licença MIT.
 
-## 7. Portfolio Relevance
+## 7. Relevância para o Portfólio
 
-Highlights engineering productivity, technical standardization, and reusable tooling mindset.
+Destaca produtividade de engenharia, padronização técnica e mentalidade de ferramentas reutilizáveis.
 
 ## 8. Links
 
 - GitHub: <https://github.com/josenaldo/vite-js-react-minimal>
-- Production: no public production URL (starter template project).
+- Produção: nenhuma URL de produção pública (projeto de template inicial).
 
-## 9. Visual Evidence
+## 9. Evidência Visual
 
 ![Vite React Template - Cover](/images/projects/vite-js-react-minimal.jpg)
 ![Vite React Template - GitHub](/images/projects/prints/vite-js-react-minimal-github.png)

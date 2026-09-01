@@ -1,52 +1,55 @@
 ---
-translated: false
 id: 3
 title: Learning Git and GitHub
-image: /images/projects/aprendendo-git-e-github.jpg
+description: A curated learning roadmap for Git and GitHub, combining Portuguese
+  and English resources to help developers build practical version-control
+  skills.
 projectUrl: https://josenaldo.com.br/aprendendo-git-e-github/
 pin: false
-description: 'A curated learning roadmap for Git and GitHub, combining Portuguese and English resources to help developers build practical version-control skills.'
+image: /images/projects/aprendendo-git-e-github.jpg
+translationKey: aprendendo-git-e-github
+translated: true
 ---
 
-## 1. Elevator Pitch
+## 1. Pitch de Elevador
 
-A curated and practical roadmap designed to accelerate Git and GitHub adoption in real-world software workflows.
+Um roteiro de aprendizado curado e prático, criado para acelerar a adoção de Git e GitHub em fluxos de trabalho reais de desenvolvimento de software.
 
-## 2. Problem and Context
+## 2. Problema e Contexto
 
-Many developers start using Git without strong fundamentals and struggle with branching, history management, and collaboration. This project organizes a clear learning path to reduce that friction.
+Muitos desenvolvedores começam a usar Git sem uma base sólida e sofrem com branching, gerenciamento de histórico e colaboração. Este projeto organiza um caminho de aprendizado claro para reduzir esse atrito.
 
-## 3. Scope and Role
+## 3. Escopo e Atuação
 
-- Full technical curation of the content.
-- Learning path design by progression level.
-- Ongoing maintenance in a public GitHub repository.
+- Curadoria técnica completa do conteúdo.
+- Design do caminho de aprendizado por nível de progressão.
+- Manutenção contínua em um repositório público no GitHub.
 
-## 4. Solution Implemented
+## 4. Solução Implementada
 
-A structured roadmap with quick-start guides, video courses, cheat sheets, troubleshooting resources, and deeper reference materials.
+Um roteiro estruturado com guias de início rápido, cursos em vídeo, cheat sheets, recursos de troubleshooting e materiais de referência mais aprofundados.
 
-## 5. Stack and Architecture
+## 5. Stack e Arquitetura
 
-- Markdown content.
-- GitHub for versioning and collaboration.
-- Static publishing through GitHub Pages.
+- Conteúdo em Markdown.
+- GitHub para versionamento e colaboração.
+- Publicação estática via GitHub Pages.
 
-## 6. Quality and Engineering Practices
+## 6. Qualidade e Práticas de Engenharia
 
-- Clear educational structure.
-- Focus on official and widely trusted resources.
-- Iterative updates over time.
+- Estrutura educacional clara.
+- Foco em recursos oficiais e amplamente confiáveis.
+- Atualizações iterativas ao longo do tempo.
 
-## 7. Portfolio Relevance
+## 7. Relevância para o Portfólio
 
-Demonstrates technical leadership, mentoring mindset, and strong technical communication for onboarding and developer productivity.
+Demonstra liderança técnica, mentalidade de mentoria e comunicação técnica forte para onboarding e produtividade de desenvolvedores.
 
 ## 8. Links
 
 - GitHub: <https://github.com/josenaldo/aprendendo-git-e-github>
-- Production: <https://josenaldo.com.br/aprendendo-git-e-github/>
+- Produção: <https://josenaldo.com.br/aprendendo-git-e-github/>
 
-## 9. Visual Evidence
+## 9. Evidência Visual
 
 ![Learning Git and GitHub - Cover](/images/projects/aprendendo-git-e-github.jpg)
