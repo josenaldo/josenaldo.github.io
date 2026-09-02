@@ -14,7 +14,7 @@ const GetInTouch = () => {
     if (pathname === '/') return null
 
     return (
-        <Section surface="paper" rhythm="section">
+        <Section surface="paper" padTop={64} padBottom={64}>
             <Box
                 color="text.secondary"
                 sx={{

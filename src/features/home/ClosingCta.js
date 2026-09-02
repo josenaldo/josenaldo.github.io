@@ -1,3 +1,11 @@
+// Corrige D-13: estava dentro de <Section>, somando o py de 76px ao gutter do
+// Container — duas margens. Aqui o wrapper tem padding 40px e o bloco roxo
+// ocupa o resto, com o brilho roxo que faltava.
+//
+// Este é o único bloco do site com fundo #8855DF em área grande. Título 40px,
+// corpo #EDE4FF, botão branco com texto #3B1E77 (não primary.main: sobre
+// branco, #8855DF fica em 3.6:1 e reprova AA).
+
 'use client'
 
 import { Box, Button, Typography } from '@mui/material'
@@ -21,53 +29,87 @@ const ClosingCta = () => {
         : { component: Link, href: '/contact' }
 
     return (
-        <Section surface="default" rhythm="hero">
+        <Section surface="default" padTop={40} padBottom={40} bleed>
             <Box
                 sx={{
-                    bgcolor: 'primary.main',
-                    borderRadius: '24px',
-                    p: { xs: 4, md: 7 },
-                    display: 'flex',
-                    flexDirection: { xs: 'column', md: 'row' },
-                    alignItems: { xs: 'flex-start', md: 'center' },
-                    justifyContent: 'space-between',
-                    gap: 4,
+                    maxWidth: '1280px',
+                    mx: 'auto',
+                    px: { xs: '24px', md: '40px' },
                 }}
             >
                 <Box
                     sx={{
+                        bgcolor: '#8855DF',
+                        borderRadius: '24px',
+                        p: { xs: '36px 28px', md: '64px 56px' },
                         display: 'flex',
-                        flexDirection: 'column',
-                        gap: 1.5,
+                        flexDirection: { xs: 'column', md: 'row' },
+                        alignItems: { xs: 'flex-start', md: 'center' },
+                        justifyContent: 'space-between',
+                        gap: { xs: '28px', md: '48px' },
+                        boxShadow: '0 30px 70px -40px rgba(136,85,223,1)',
                     }}
                 >
-                    <Typography
-                        variant="h2"
-                        sx={{ color: 'primary.contrastText' }}
+                    <Box
+                        sx={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: '12px',
+                            maxWidth: '60ch',
+                        }}
                     >
-                        {t('title')}
-                    </Typography>
-                    <Typography
-                        variant="body1"
-                        sx={{ color: 'primary.contrastText' }}
-                    >
-                        {t('body')}
-                    </Typography>
-                </Box>
+                        <Typography
+                            component="h2"
+                            sx={{
+                                m: 0,
+                                fontFamily:
+                                    "'Space Grotesk', system-ui, sans-serif",
+                                fontSize: { xs: '30px', md: '40px' },
+                                fontWeight: 700,
+                                letterSpacing: '-.02em',
+                                lineHeight: 1.1,
+                                color: '#FFFFFF',
+                            }}
+                        >
+                            {t('title')}
+                        </Typography>
+                        <Typography
+                            component="p"
+                            sx={{
+                                m: 0,
+                                fontSize: { xs: '16px', md: '18px' },
+                                lineHeight: 1.55,
+                                color: '#EDE4FF',
+                                textWrap: 'pretty',
+                            }}
+                        >
+                            {t('body')}
+                        </Typography>
+                    </Box>
 
-                <Button
-                    variant="contained"
-                    size="large"
-                    {...buttonProps}
-                    sx={{
-                        bgcolor: 'common.white',
-                        color: 'primary.main',
-                        flexShrink: 0,
-                        '&:hover': { bgcolor: 'common.white', opacity: 0.9 },
-                    }}
-                >
-                    {tCta('bookACall')}
-                </Button>
+                    <Button
+                        variant="contained"
+                        size="large"
+                        {...buttonProps}
+                        sx={{
+                            flexShrink: 0,
+                            bgcolor: '#FFFFFF',
+                            color: '#3B1E77',
+                            fontSize: '17px',
+                            fontWeight: 600,
+                            p: '18px 32px',
+                            borderRadius: '12px',
+                            boxShadow: 'none',
+                            whiteSpace: 'nowrap',
+                            '&:hover': {
+                                bgcolor: '#F3EDFF',
+                                boxShadow: 'none',
+                            },
+                        }}
+                    >
+                        {tCta('bookACall')}
+                    </Button>
+                </Box>
             </Box>
         </Section>
     )

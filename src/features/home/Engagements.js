@@ -1,20 +1,30 @@
+// Corrige D-08. Régua: handoff-site/preview/Home.dc.html, bloco `02`.
+//
+// Quatro mudanças estruturais:
+//  1. linha de topo com título+role à esquerda e período em PÍLULA à direita;
+//  2. ARRIVED / BUILT em grid 1fr 1fr (empilhavam na largura toda);
+//  3. o bloco Result passa a usar ResultBlock — número grande, não rótulo;
+//  4. nota de rodapé explicando o marcador ● (a legenda estava perdida).
+//
+// A curadoria RESULT_METRICS_BY_ENGAGEMENT é conteúdo aprovado: não mexer.
+// `Metrics.<id>.resultCaption` é uma chave NOVA (ver spec/05-i18n.md): é a
+// legenda do número dentro do bloco Result, mais explícita que o label
+// ("approved request to production (was 3–6 months)" em vez de "Release
+// cadence"). Sem ela, o componente cai no label — não quebra.
+
 'use client'
 
-import { Box, Card, CardContent, Divider, Typography } from '@mui/material'
+import { Box, Typography } from '@mui/material'
 import { useLocale, useTranslations } from 'next-intl'
 import PropTypes from 'prop-types'
 
-import MetricDelta from '@/components/MetricDelta'
+import Pill from '@/components/Pill'
+import ResultBlock from '@/components/ResultBlock'
 import Section from '@/components/Section'
+import SectionHeader from '@/components/SectionHeader'
 import metrics from '@/data/metrics.mjs'
 import { metricSideValue } from '@/lib/metricValue'
 
-// Curadoria de quais métricas de metrics.mjs aparecem no bloco Result de cada
-// engagement — decisão de conteúdo, não algoritmo. Cada engagement tem um
-// número diferente de métricas disponíveis (2 a 9); esta tabela escolhe as
-// 2-4 mais relevantes por engagement, já validadas com o dono do site.
-// `digidados` tem métricas em metrics.mjs mas não tem card na home (não
-// existe content/engagements/*/digidados.md) — não entra aqui.
 const RESULT_METRICS_BY_ENGAGEMENT = {
     medespecialista: [
         'deploymentFrequency',
@@ -26,6 +36,23 @@ const RESULT_METRICS_BY_ENGAGEMENT = {
     conddiz: ['conddizArchitecture', 'conddizTrafficPeak'],
 }
 
+const LABEL_SX = {
+    m: 0,
+    fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
+    fontSize: '11px',
+    fontWeight: 600,
+    letterSpacing: '.14em',
+    textTransform: 'uppercase',
+    color: '#7C8494',
+}
+
+const BODY_SX = {
+    m: 0,
+    fontSize: '15px',
+    lineHeight: 1.65,
+    color: '#B4BCCA',
+}
+
 const Engagements = ({ engagements }) => {
     const t = useTranslations('Home.engagements')
     const tMetrics = useTranslations('Metrics')
@@ -33,33 +60,22 @@ const Engagements = ({ engagements }) => {
     const visibleEngagements = Array.isArray(engagements) ? engagements : []
 
     return (
-        <Section surface="default" rhythm="hero">
+        <Section surface="default" padTop={76} padBottom={76} id="engagements">
             <Box
-                sx={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'space-evenly',
-                    alignItems: 'center',
-                    gap: 5,
-                }}
+                sx={{ display: 'flex', flexDirection: 'column', gap: '36px' }}
             >
-                <Typography variant="h2">{t('title')}</Typography>
+                <SectionHeader n="02" title={t('title')} />
 
                 {visibleEngagements.length === 0 ? (
-                    <Typography
-                        variant="body1"
-                        color="text.secondary"
-                        textAlign="center"
-                    >
+                    <Typography sx={{ color: '#98A0B0' }}>
                         {t('emptyState')}
                     </Typography>
                 ) : (
                     <Box
                         sx={{
-                            width: '100%',
                             display: 'flex',
                             flexDirection: 'column',
-                            gap: 4,
+                            gap: '24px',
                         }}
                     >
                         {visibleEngagements.map((engagement) => {
@@ -68,143 +84,169 @@ const Engagements = ({ engagements }) => {
                                     engagement.translationKey
                                 ] ?? []
 
+                            const resultItems = metricIds.map((id) => {
+                                const metric = metrics[id]
+
+                                return {
+                                    value: metricSideValue(
+                                        metric.after,
+                                        locale
+                                    ),
+                                    caption: tMetrics.has(`${id}.resultCaption`)
+                                        ? tMetrics(`${id}.resultCaption`)
+                                        : tMetrics(`${id}.label`),
+                                    confidence: metric.after.confidence,
+                                }
+                            })
+
                             return (
-                                <Card
+                                <Box
                                     key={engagement.title}
-                                    elevation={2}
                                     sx={{
-                                        bgcolor: 'background.paper',
-                                        borderRadius: '16px',
+                                        bgcolor: '#14181F',
+                                        borderRadius: '20px',
+                                        p: { xs: '24px', md: '32px' },
+                                        display: 'flex',
+                                        flexDirection: 'column',
+                                        gap: '26px',
+                                        boxShadow:
+                                            '0 1px 2px rgba(0,0,0,.4), 0 24px 50px -34px rgba(0,0,0,1)',
                                     }}
                                 >
-                                    <CardContent
+                                    <Box
                                         sx={{
                                             display: 'flex',
-                                            flexDirection: 'column',
-                                            gap: 2,
-                                            p: 4,
+                                            flexDirection: {
+                                                xs: 'column',
+                                                md: 'row',
+                                            },
+                                            alignItems: {
+                                                xs: 'flex-start',
+                                                md: 'flex-start',
+                                            },
+                                            justifyContent: 'space-between',
+                                            gap: { xs: '12px', md: '32px' },
                                         }}
                                     >
-                                        <Box>
+                                        <Box
+                                            sx={{
+                                                display: 'flex',
+                                                flexDirection: 'column',
+                                                gap: '6px',
+                                            }}
+                                        >
                                             <Typography
-                                                variant="h5"
                                                 component="h3"
+                                                sx={{
+                                                    m: 0,
+                                                    fontFamily:
+                                                        "'Space Grotesk', system-ui, sans-serif",
+                                                    fontSize: '24px',
+                                                    fontWeight: 600,
+                                                    letterSpacing: '-.01em',
+                                                    lineHeight: 1.25,
+                                                    color: '#FFFFFF',
+                                                }}
                                             >
                                                 {engagement.title}
                                             </Typography>
                                             <Typography
-                                                variant="body2"
-                                                color="text.secondary"
+                                                component="p"
+                                                sx={{
+                                                    m: 0,
+                                                    fontFamily:
+                                                        "'IBM Plex Mono', ui-monospace, monospace",
+                                                    fontSize: '12px',
+                                                    color: '#7C8494',
+                                                }}
                                             >
-                                                {engagement.role} ·{' '}
-                                                {engagement.period}
+                                                {engagement.role}
                                             </Typography>
                                         </Box>
 
-                                        <Divider />
+                                        {engagement.period ? (
+                                            <Pill tone="neutral">
+                                                {engagement.period}
+                                            </Pill>
+                                        ) : null}
+                                    </Box>
 
-                                        <Box>
+                                    <Box
+                                        sx={{
+                                            display: 'grid',
+                                            gridTemplateColumns: {
+                                                xs: '1fr',
+                                                md: '1fr 1fr',
+                                            },
+                                            gap: '28px',
+                                        }}
+                                    >
+                                        <Box
+                                            sx={{
+                                                display: 'flex',
+                                                flexDirection: 'column',
+                                                gap: '8px',
+                                            }}
+                                        >
                                             <Typography
-                                                variant="overline"
-                                                color="text.secondary"
+                                                component="p"
+                                                sx={LABEL_SX}
                                             >
                                                 {t('arrived')}
                                             </Typography>
-                                            <Typography variant="body1">
+                                            <Typography
+                                                component="p"
+                                                sx={BODY_SX}
+                                            >
                                                 {engagement.arrived}
                                             </Typography>
                                         </Box>
 
-                                        <Box>
+                                        <Box
+                                            sx={{
+                                                display: 'flex',
+                                                flexDirection: 'column',
+                                                gap: '8px',
+                                            }}
+                                        >
                                             <Typography
-                                                variant="overline"
-                                                color="text.secondary"
+                                                component="p"
+                                                sx={LABEL_SX}
                                             >
                                                 {t('built')}
                                             </Typography>
-                                            <Typography variant="body1">
+                                            <Typography
+                                                component="p"
+                                                sx={BODY_SX}
+                                            >
                                                 {engagement.built}
                                             </Typography>
                                         </Box>
+                                    </Box>
 
-                                        <Box
-                                            sx={(theme) => ({
-                                                bgcolor: theme.surface.result,
-                                                color: theme.ink.body,
-                                                borderRadius: 2,
-                                                p: 3,
-                                                mt: 1,
-                                            })}
-                                        >
-                                            <Typography
-                                                variant="overline"
-                                                sx={{
-                                                    color: 'inherit',
-                                                }}
-                                            >
-                                                {t('result')}
-                                            </Typography>
-
-                                            {metricIds.length > 0 && (
-                                                <Box
-                                                    sx={{
-                                                        display: 'flex',
-                                                        flexWrap: 'wrap',
-                                                        gap: 3,
-                                                        my: 2,
-                                                    }}
-                                                >
-                                                    {metricIds.map((id) => {
-                                                        const metric =
-                                                            metrics[id]
-
-                                                        return (
-                                                            <MetricDelta
-                                                                key={id}
-                                                                label={tMetrics(
-                                                                    `${id}.label`
-                                                                )}
-                                                                before={metricSideValue(
-                                                                    metric.before,
-                                                                    locale
-                                                                )}
-                                                                after={metricSideValue(
-                                                                    metric.after,
-                                                                    locale
-                                                                )}
-                                                                unit={tMetrics.has(
-                                                                    `${id}.unit`
-                                                                )
-                                                                    ? tMetrics(
-                                                                          `${id}.unit`
-                                                                      )
-                                                                    : undefined}
-                                                                confidence={
-                                                                    metric.after
-                                                                        .confidence
-                                                                }
-                                                            />
-                                                        )
-                                                    })}
-                                                </Box>
-                                            )}
-
-                                            <Typography
-                                                variant="body1"
-                                                sx={{
-                                                    fontWeight: 600,
-                                                    color: 'inherit',
-                                                }}
-                                            >
-                                                {engagement.result}
-                                            </Typography>
-                                        </Box>
-                                    </CardContent>
-                                </Card>
+                                    <ResultBlock
+                                        label={t('result')}
+                                        items={resultItems}
+                                        body={engagement.result}
+                                    />
+                                </Box>
                             )
                         })}
                     </Box>
                 )}
+
+                <Typography
+                    component="p"
+                    sx={{
+                        m: 0,
+                        fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
+                        fontSize: '12px',
+                        lineHeight: 1.7,
+                        color: '#7C8494',
+                    }}
+                >
+                    {t('footnote')}
+                </Typography>
             </Box>
         </Section>
     )

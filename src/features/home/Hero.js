@@ -1,3 +1,17 @@
+// Corrige D-04. Régua: handoff-site/preview/Home.dc.html, primeiro bloco.
+//
+// Grid 1fr 400px, gap 56px, padding 76/64. Sete coisas que não existiam:
+// kicker âmbar, h1 em 20ch, lead com margem, métricas como card, ação
+// secundária, foto retangular r18 e legenda mono sob a foto.
+//
+// Chaves novas em Home.hero: kicker, secondaryCta, caption. Ver spec/05-i18n.md.
+//
+// 'use client': a ação secundária passa `Link` como `component` de um
+// Typography — referência de função só pode atravessar a fronteira
+// server/client se este arquivo já for client (mesmo caso de ClosingCta.js).
+
+'use client'
+
 import { Box, Typography } from '@mui/material'
 import { useLocale, useTranslations } from 'next-intl'
 
@@ -5,12 +19,19 @@ import photo200 from '@/assets/images/josenaldo-200.webp'
 import photo300 from '@/assets/images/josenaldo-300.webp'
 import photo400 from '@/assets/images/josenaldo-400.webp'
 import BookACallButton from '@/components/BookACallButton'
-import MetricDelta from '@/components/MetricDelta'
+import MetricCard from '@/components/MetricCard'
 import Section from '@/components/Section'
 import metrics from '@/data/metrics.mjs'
+import { Link } from '@/i18n/navigation'
 import { metricSideValue } from '@/lib/metricValue'
 
 const { deploymentFrequency, clientReportedIssues, deployDuration } = metrics
+
+const HERO_METRICS = [
+    ['deploymentFrequency', deploymentFrequency],
+    ['clientReportedIssues', clientReportedIssues],
+    ['deployDuration', deployDuration],
+]
 
 const Hero = () => {
     const t = useTranslations('Home.hero')
@@ -18,100 +39,118 @@ const Hero = () => {
     const locale = useLocale()
 
     return (
-        <Section surface="band" rhythm="hero">
+        <Section surface="default" padTop={76} padBottom={64}>
             <Box
                 sx={{
-                    display: 'flex',
-                    flexDirection: { xs: 'column', md: 'row' },
-                    justifyContent: 'space-evenly',
-                    alignItems: 'center',
-                    gap: 5,
+                    display: 'grid',
+                    gridTemplateColumns: { xs: '1fr', lg: '1fr 400px' },
+                    gap: { xs: '40px', lg: '56px' },
+                    alignItems: 'start',
                 }}
             >
                 <Box
                     sx={{
                         display: 'flex',
                         flexDirection: 'column',
-                        textAlign: { xs: 'center', sm: 'center', md: 'left' },
-                        maxWidth: { sm: '100%', md: 'clamp(300px,50vw,50%)' },
+                        gap: '24px',
+                        minWidth: 0,
                     }}
                 >
-                    <Typography variant="h1">{t('headline')}</Typography>
-                    <Typography variant="lead">{t('subhead')}</Typography>
-                    <Box
+                    <Typography
+                        component="p"
                         sx={{
-                            mt: 2,
-                            display: 'flex',
-                            flexWrap: 'wrap',
-                            justifyContent: {
-                                xs: 'center',
-                                md: 'flex-start',
-                            },
-                            gap: 4,
+                            m: 0,
+                            fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
+                            fontSize: '12px',
+                            fontWeight: 600,
+                            letterSpacing: '.16em',
+                            textTransform: 'uppercase',
+                            color: '#FFAA00',
                         }}
                     >
-                        <MetricDelta
-                            label={tMetrics('deploymentFrequency.label')}
-                            before={metricSideValue(
-                                deploymentFrequency.before,
-                                locale
-                            )}
-                            after={metricSideValue(
-                                deploymentFrequency.after,
-                                locale
-                            )}
-                            confidence={deploymentFrequency.after.confidence}
-                        />
-                        <MetricDelta
-                            label={tMetrics('clientReportedIssues.label')}
-                            before={metricSideValue(
-                                clientReportedIssues.before,
-                                locale
-                            )}
-                            after={metricSideValue(
-                                clientReportedIssues.after,
-                                locale
-                            )}
-                            unit={tMetrics('clientReportedIssues.unit')}
-                            confidence={clientReportedIssues.after.confidence}
-                        />
-                        <MetricDelta
-                            label={tMetrics('deployDuration.label')}
-                            before={metricSideValue(
-                                deployDuration.before,
-                                locale
-                            )}
-                            after={metricSideValue(
-                                deployDuration.after,
-                                locale
-                            )}
-                            confidence={deployDuration.after.confidence}
-                        />
+                        {t('kicker')}
+                    </Typography>
+
+                    <Typography variant="h1" sx={{ m: 0, maxWidth: '20ch' }}>
+                        {t('headline')}
+                    </Typography>
+
+                    <Typography
+                        variant="lead"
+                        component="p"
+                        sx={{ m: 0, maxWidth: '58ch', textWrap: 'pretty' }}
+                    >
+                        {t('subhead')}
+                    </Typography>
+
+                    <Box
+                        sx={{
+                            display: 'grid',
+                            gridTemplateColumns: {
+                                xs: '1fr',
+                                sm: 'repeat(3, 1fr)',
+                            },
+                            gap: '16px',
+                            mt: '8px',
+                        }}
+                    >
+                        {HERO_METRICS.map(([id, metric]) => (
+                            <MetricCard
+                                key={id}
+                                label={tMetrics(`${id}.label`)}
+                                before={metricSideValue(metric.before, locale)}
+                                after={metricSideValue(metric.after, locale)}
+                                unit={
+                                    tMetrics.has(`${id}.unit`)
+                                        ? tMetrics(`${id}.unit`)
+                                        : undefined
+                                }
+                                confidence={metric.after.confidence}
+                            />
+                        ))}
                     </Box>
+
                     <Box
                         sx={{
                             display: 'flex',
-                            justifyContent: { xs: 'center', md: 'flex-start' },
-                            mt: 3,
+                            flexWrap: 'wrap',
+                            alignItems: 'center',
+                            gap: '24px',
+                            mt: '12px',
                         }}
                     >
                         <BookACallButton />
+                        <Typography
+                            component={Link}
+                            href="#engagements"
+                            sx={{
+                                fontSize: '15px',
+                                color: '#B69BF0',
+                                textDecoration: 'none',
+                                '&:hover': { color: '#CDBBF8' },
+                            }}
+                        >
+                            {t('secondaryCta')}
+                        </Typography>
                     </Box>
                 </Box>
+
                 <Box
                     sx={{
                         display: 'flex',
-                        aspectRatio: '1/1',
-                        width: 'clamp(200px,50vw,400px)',
-                        my: { xs: 4, sm: 4, md: 0 },
+                        flexDirection: 'column',
+                        gap: '14px',
+                        maxWidth: '400px',
+                        width: '100%',
                     }}
                 >
                     <picture>
                         <source
                             type="image/webp"
                             srcSet={`${photo200.src} 200w, ${photo300.src} 300w, ${photo400.src} 400w`}
-                            sizes="(max-width: 600px) 200px, (max-width: 960px) 300px, 400px"
+                            sizes="(max-width: 720px) 280px, 400px"
                         />
+                        {/* Retangular, raio 18. Sem círculo e sem anel âmbar. */}
                         <img
                             src={photo400.src}
                             alt={t('photoAlt')}
@@ -119,9 +158,26 @@ const Hero = () => {
                             height="400"
                             loading="eager"
                             fetchPriority="high"
-                            style={{ width: '100%', height: 'auto' }}
+                            style={{
+                                width: '100%',
+                                height: 'auto',
+                                display: 'block',
+                                borderRadius: '18px',
+                            }}
                         />
                     </picture>
+                    <Typography
+                        component="p"
+                        sx={{
+                            m: 0,
+                            fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
+                            fontSize: '12px',
+                            lineHeight: 1.7,
+                            color: '#7C8494',
+                        }}
+                    >
+                        {t('caption')}
+                    </Typography>
                 </Box>
             </Box>
         </Section>

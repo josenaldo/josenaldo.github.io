@@ -58,11 +58,11 @@ export default async function HiringPage({ params }) {
                 />
             </Container>
             <Evidence />
-            <Section surface="default" rhythm="section">
+            <Section surface="default" padTop={64} padBottom={64}>
                 <MDXContent content={terms.body.raw} />
             </Section>
             <ResumeDownloads />
-            <Section surface="default" rhythm="section">
+            <Section surface="default" padTop={64} padBottom={64}>
                 <Box
                     sx={{
                         display: 'flex',

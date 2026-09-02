@@ -1,53 +1,93 @@
+// Corrige D-06: era <ul> com bolinha e título centralizado; passa a ser
+// spine 360px + cinco cards numerados em âmbar.
+//
+// `Home.isThisYou.symptoms` continua sendo um array de strings em
+// messages/{en,pt}.json. A numeração é derivada do índice — não vai no texto.
+
 import { Box, Typography } from '@mui/material'
 import { useTranslations } from 'next-intl'
 
 import Section from '@/components/Section'
+import SectionHeader from '@/components/SectionHeader'
 
 const IsThisYou = () => {
     const t = useTranslations('Home.isThisYou')
     const symptoms = t.raw('symptoms')
 
     return (
-        <Section surface="default" rhythm="hero">
+        <Section surface="default" padTop={76} padBottom={76}>
             <Box
                 sx={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                    gap: 4,
-                    maxWidth: 'md',
-                    mx: 'auto',
-                    textAlign: 'center',
+                    display: 'grid',
+                    gridTemplateColumns: { xs: '1fr', lg: '360px 1fr' },
+                    gap: { xs: '32px', lg: '56px' },
+                    alignItems: 'start',
                 }}
             >
-                <Typography variant="h2">{t('title')}</Typography>
+                <SectionHeader title={t('title')} variant="spine" />
 
                 <Box
-                    component="ul"
                     sx={{
-                        textAlign: 'left',
-                        width: '100%',
-                        m: 0,
-                        pl: 3,
                         display: 'flex',
                         flexDirection: 'column',
-                        gap: 1.5,
+                        gap: '10px',
+                        minWidth: 0,
                     }}
                 >
-                    {symptoms.map((symptom) => (
-                        <Typography
+                    {symptoms.map((symptom, index) => (
+                        <Box
                             key={symptom}
-                            component="li"
-                            variant="body1"
+                            sx={{
+                                display: 'flex',
+                                gap: '18px',
+                                p: '18px 22px',
+                                borderRadius: '14px',
+                                bgcolor: '#14181F',
+                            }}
                         >
-                            {symptom}
-                        </Typography>
+                            <Box
+                                component="span"
+                                aria-hidden="true"
+                                sx={{
+                                    fontFamily:
+                                        "'IBM Plex Mono', ui-monospace, monospace",
+                                    fontSize: '12px',
+                                    fontWeight: 600,
+                                    color: '#FFAA00',
+                                    pt: '4px',
+                                    flex: 'none',
+                                }}
+                            >
+                                {String(index + 1).padStart(2, '0')}
+                            </Box>
+                            <Typography
+                                component="p"
+                                sx={{
+                                    m: 0,
+                                    fontSize: '17px',
+                                    lineHeight: 1.5,
+                                    color: '#D5DAE4',
+                                }}
+                            >
+                                {symptom}
+                            </Typography>
+                        </Box>
                     ))}
-                </Box>
 
-                <Typography variant="body1" sx={{ fontWeight: 600 }}>
-                    {t('closing')}
-                </Typography>
+                    <Typography
+                        component="p"
+                        sx={{
+                            m: '14px 0 0',
+                            fontFamily: "'Space Grotesk', system-ui, sans-serif",
+                            fontSize: '19px',
+                            fontWeight: 600,
+                            lineHeight: 1.4,
+                            color: '#FFFFFF',
+                        }}
+                    >
+                        {t('closing')}
+                    </Typography>
+                </Box>
             </Box>
         </Section>
     )

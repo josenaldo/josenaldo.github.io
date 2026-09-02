@@ -20,7 +20,7 @@ const ResumeDownloads = () => {
     }
 
     return (
-        <Section surface="default" rhythm="section">
+        <Section surface="default" padTop={64} padBottom={64}>
             <Box
                 sx={{
                     display: 'flex',

@@ -1,30 +1,71 @@
 'use client'
 
-import { Box, Container } from '@mui/material'
+import { Box } from '@mui/material'
 import PropTypes from 'prop-types'
 
-const RHYTHM = {
-    block: '40px',
-    section: { xs: '56px', md: '64px' },
-    hero: '76px',
+export const SURFACE = {
+    default: '#0B0E13',
+    band: '#0E1218',
+    strip: '#101419',
+    paper: '#14181F',
+    paperSoft: '#12161C',
+    result: '#191233',
 }
 
-const Section = ({ surface = 'default', rhythm = 'section', children }) => {
+// No mobile todo degrau de ritmo cai um nível: 76 -> 56, 64 -> 48, 60 -> 44.
+const mobilePad = (px) => Math.round(px * 0.74)
+
+const Section = ({
+    surface = 'default',
+    padTop = 76,
+    padBottom = 76,
+    bleed = false,
+    component = 'section',
+    id,
+    children,
+}) => {
+    const inner = bleed ? (
+        children
+    ) : (
+        <Box
+            sx={{
+                maxWidth: '1280px',
+                mx: 'auto',
+                px: { xs: '24px', md: '40px' },
+            }}
+        >
+            {children}
+        </Box>
+    )
+
     return (
         <Box
-            sx={(theme) => ({
-                bgcolor: theme.surface[surface],
-                py: RHYTHM[rhythm],
-            })}
+            component={component}
+            id={id}
+            sx={{
+                bgcolor: SURFACE[surface],
+                pt: {
+                    xs: `${mobilePad(padTop)}px`,
+                    md: `${padTop}px`,
+                },
+                pb: {
+                    xs: `${mobilePad(padBottom)}px`,
+                    md: `${padBottom}px`,
+                },
+            }}
         >
-            <Container>{children}</Container>
+            {inner}
         </Box>
     )
 }
 
 Section.propTypes = {
-    surface: PropTypes.oneOf(['default', 'band', 'paper']),
-    rhythm: PropTypes.oneOf(['block', 'section', 'hero']),
+    surface: PropTypes.oneOf(Object.keys(SURFACE)),
+    padTop: PropTypes.number,
+    padBottom: PropTypes.number,
+    bleed: PropTypes.bool,
+    component: PropTypes.string,
+    id: PropTypes.string,
     children: PropTypes.node.isRequired,
 }
 

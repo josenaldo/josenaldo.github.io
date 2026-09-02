@@ -8,7 +8,6 @@ import HeroSection from '@/features/home/Hero'
 import HowIOperateSection from '@/features/home/HowIOperate'
 import IsThisYouSection from '@/features/home/IsThisYou'
 import ProofStripSection from '@/features/home/ProofStrip'
-import PublicationsSection from '@/features/home/Publications'
 import TestimonialSection from '@/features/home/Testimonial'
 import WorkModesSection from '@/features/home/WorkModes'
 import { routing } from '@/i18n/routing'
@@ -58,20 +57,16 @@ export default async function HomePage({ params }) {
 
     const posts = contentService.getSortedPosts(locale).map((post) => ({
         title: post.title,
-        description: post.description,
-        author: post.author,
         date: post.date,
-        image: post.image,
         url: post.url,
         category: post.category,
-        language: post.locale,
     }))
 
     const workModes = contentService.getWorkModes(locale).map((mode) => ({
         name: mode.name,
+        kicker: mode.kicker ?? null,
         promise: mode.promise,
         bullets: mode.bullets,
-        icon: mode.icon,
     }))
 
     const engagements = contentService
@@ -96,7 +91,6 @@ export default async function HomePage({ params }) {
             <HowIOperateSection />
             <TestimonialSection testimonials={testimonials} />
             <BlogSection posts={posts} />
-            <PublicationsSection />
             <ClosingCtaSection />
         </>
     )

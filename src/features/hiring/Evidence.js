@@ -19,7 +19,7 @@ const Evidence = () => {
     const locale = useLocale()
 
     return (
-        <Section surface="band" rhythm="section">
+        <Section surface="band" padTop={64} padBottom={64}>
             <Box
                 sx={{
                     display: 'flex',
