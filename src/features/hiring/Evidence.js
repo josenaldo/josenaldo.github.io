@@ -1,8 +1,10 @@
 import { Box, Typography } from '@mui/material'
-import { useTranslations } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
 
+import MetricDelta from '@/components/MetricDelta'
 import Section from '@/components/Section'
 import metrics from '@/data/metrics.mjs'
+import { metricSideValue } from '@/lib/metricValue'
 
 const {
     codebasesOwned,
@@ -13,20 +15,8 @@ const {
 
 const Evidence = () => {
     const t = useTranslations('Hiring.evidence')
-
-    const markers = [
-        t('codebases', {
-            owned: codebasesOwned.after.count,
-            active: codebasesActive.after.count,
-        }),
-        t('issues', {
-            before: clientReportedIssues.before.count,
-            after: clientReportedIssues.after.count,
-        }),
-        t('deployFrequency', {
-            everyDays: deploymentFrequency.after.everyDays,
-        }),
-    ]
+    const tMetrics = useTranslations('Metrics')
+    const locale = useLocale()
 
     return (
         <Section surface="band" rhythm="section">
@@ -44,22 +34,57 @@ const Evidence = () => {
                 <Typography variant="h2">{t('title')}</Typography>
 
                 <Box
-                    component="ul"
                     sx={{
-                        textAlign: 'left',
+                        display: 'grid',
+                        gridTemplateColumns: {
+                            xs: 'repeat(2, 1fr)',
+                            sm: 'repeat(4, 1fr)',
+                        },
+                        gap: 4,
                         width: '100%',
-                        m: 0,
-                        pl: 3,
-                        display: 'flex',
-                        flexDirection: 'column',
-                        gap: 1.5,
+                        textAlign: 'left',
                     }}
                 >
-                    {markers.map((marker) => (
-                        <Typography key={marker} component="li" variant="body1">
-                            {marker}
-                        </Typography>
-                    ))}
+                    <MetricDelta
+                        label={tMetrics('codebasesOwned.label')}
+                        before={metricSideValue(codebasesOwned.before, locale)}
+                        after={metricSideValue(codebasesOwned.after, locale)}
+                        confidence={codebasesOwned.after.confidence}
+                    />
+                    <MetricDelta
+                        label={tMetrics('codebasesActive.label')}
+                        before={metricSideValue(
+                            codebasesActive.before,
+                            locale
+                        )}
+                        after={metricSideValue(codebasesActive.after, locale)}
+                        confidence={codebasesActive.after.confidence}
+                    />
+                    <MetricDelta
+                        label={tMetrics('clientReportedIssues.label')}
+                        before={metricSideValue(
+                            clientReportedIssues.before,
+                            locale
+                        )}
+                        after={metricSideValue(
+                            clientReportedIssues.after,
+                            locale
+                        )}
+                        unit={tMetrics('clientReportedIssues.unit')}
+                        confidence={clientReportedIssues.after.confidence}
+                    />
+                    <MetricDelta
+                        label={tMetrics('deploymentFrequency.label')}
+                        before={metricSideValue(
+                            deploymentFrequency.before,
+                            locale
+                        )}
+                        after={metricSideValue(
+                            deploymentFrequency.after,
+                            locale
+                        )}
+                        confidence={deploymentFrequency.after.confidence}
+                    />
                 </Box>
             </Box>
         </Section>
