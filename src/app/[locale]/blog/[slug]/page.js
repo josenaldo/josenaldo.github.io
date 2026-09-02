@@ -61,7 +61,6 @@ export default async function BlogPostPage({ params }) {
                 date={post.date}
                 author={post.author}
                 category={post.category}
-                language={post.locale}
                 url={post.url}
             />
         </Container>

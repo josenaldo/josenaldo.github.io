@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 
 import BlogDisclaimer from '@/components/content/BlogDisclaimer'
 import ContentCategory from '@/components/content/ContentCategory'
-import ContentLanguage from '@/components/content/ContentLanguage'
 import ContentMainImage from '@/components/content/ContentMainImage'
 import ContentMeta from '@/components/content/ContentMeta'
 import ContentTitle from '@/components/content/ContentTitle'
@@ -20,28 +19,15 @@ const ContentView = ({
     date,
     author,
     category,
-    language,
     showDisclaimer = true,
 }) => {
     const contentImage = image || AppConfig.DEFAULT_CARD_IMAGE
-    const badges =
-        category || language ? (
-            <Box
-                sx={{
-                    display: 'flex',
-                    flexWrap: 'wrap',
-                    gap: 1,
-                }}
-            >
-                {category && <ContentCategory category={category} />}
-                <ContentLanguage language={language} />
-            </Box>
-        ) : null
 
     return (
         <Card
             sx={{
                 my: 5,
+                borderRadius: 4,
             }}
         >
             {image && (
@@ -72,7 +58,7 @@ const ContentView = ({
                             alignSelf: 'center',
                         }}
                     >
-                        {badges}
+                        {category && <ContentCategory category={category} />}
                     </Box>
                     <Box
                         sx={{
@@ -101,11 +87,7 @@ const ContentView = ({
                     </Box>
                 </Box>
 
-                <ContentTitle
-                    title={title}
-                    subtitle={description}
-                    titleVariant="h2"
-                />
+                <ContentTitle title={title} subtitle={description} />
 
                 <Box
                     sx={{
@@ -134,7 +116,6 @@ ContentView.propTypes = {
     date: PropTypes.string,
     author: PropTypes.string,
     category: PropTypes.string,
-    language: PropTypes.string,
 }
 
 export default ContentView
