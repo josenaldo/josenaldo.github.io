@@ -24,18 +24,18 @@ const Header = () => {
                     sx={{
                         display: 'flex',
                         flexDirection: 'row',
-                        justifyContent: 'space-between',
+                        justifyContent: 'flex-start',
                         alignItems: 'center',
                         width: '100%',
-                        gap: 1,
+                        gap: { xs: 2, md: 8, lg: 12 },
                     }}
                 >
                     <Logo />
 
                     {/* Nav + EN/PT + botão viajam juntos como um bloco só,
-                    colado à direita do canvas — não cada um espalhado pelo
-                    `justify-content: space-between` do Toolbar (3 filhos
-                    soltos faziam o nav "flutuar" no meio). */}
+                    logo depois do logo (gap fixo, não `space-between`) — o
+                    bloco não estica até a borda direita do canvas, sobra
+                    espaço depois do botão, igual ao mock. */}
                     <Box sx={{ display: 'flex', alignItems: 'center', gap: 3 }}>
                         <DesktopMenu pages={pages} aboutSubNav={aboutSubNav} />
 
