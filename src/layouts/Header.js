@@ -1,34 +1,47 @@
 import React from 'react'
 
-import { AppBar, Container, NoSsr, Toolbar } from '@mui/material'
+import { AppBar, Box, Container, NoSsr, Toolbar } from '@mui/material'
 
+import BookACallButton from '@/components/BookACallButton'
 import Logo from '@/components/Logo'
-import pages from '@/data/pages'
+import ReadingProgressBar from '@/components/ReadingProgressBar'
+import pages, { aboutSubNav } from '@/data/pages'
 import DesktopMenu from '@/layouts/DesktopMenu'
 import MobileMenu from '@/layouts/MobileMenu'
 
 const Header = () => {
     return (
-        <AppBar position="static">
+        <AppBar position="sticky">
             <Container>
                 <Toolbar
                     disableGutters
                     sx={{
                         display: 'flex',
                         flexDirection: 'row',
-                        justifyContent: { xs: 'flex-end', md: 'space-between' },
+                        justifyContent: 'space-between',
+                        alignItems: 'center',
                         width: '100%',
+                        gap: 1,
                     }}
                 >
                     <Logo />
 
-                    <DesktopMenu pages={pages} />
+                    <DesktopMenu pages={pages} aboutSubNav={aboutSubNav} />
 
-                    <NoSsr>
-                        <MobileMenu pages={pages} />
-                    </NoSsr>
+                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                        <BookACallButton size="small" />
+
+                        <NoSsr>
+                            <MobileMenu
+                                pages={pages}
+                                aboutSubNav={aboutSubNav}
+                            />
+                        </NoSsr>
+                    </Box>
                 </Toolbar>
             </Container>
+
+            <ReadingProgressBar />
         </AppBar>
     )
 }
