@@ -15,10 +15,17 @@ const pages = [
     { name: 'blog', url: '/blog', icon: BookIcon },
     { name: 'about', url: '/about', icon: PersonIcon },
     { name: 'hiring', url: '/hiring', icon: BadgeIcon },
+    { name: 'contact', url: '/contact', icon: EmailIcon },
+]
+
+// Sub-navegação de "about" — experiences/projects/courses não têm rota
+// própria no menu principal, mas continuam existindo como páginas
+// independentes, sem mudança de URL. Ver spec da reformulação do DS,
+// decisão 1.
+export const aboutSubNav = [
     { name: 'experiences', url: '/experiences', icon: WorkIcon },
     { name: 'projects', url: '/projects', icon: CodeIcon },
     { name: 'courses', url: '/courses', icon: SchoolIcon },
-    { name: 'contact', url: '/contact', icon: EmailIcon },
 ]
 
 export default pages

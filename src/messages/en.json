@@ -8,7 +8,8 @@
         "projects": "Projects",
         "courses": "Courses",
         "contact": "Contact",
-        "siteMenuLabel": "site menu"
+        "siteMenuLabel": "site menu",
+        "aboutSubNavLabel": "About sections"
     },
     "Home": {
         "hero": {
@@ -156,6 +157,8 @@
     "Footer": {
         "getInTouchTitle": "Get in touch",
         "getInTouchSubtitle": "I'm always open to discussing new projects, creative ideas or opportunities to be part of your visions.",
+        "siteColumnTitle": "Site",
+        "elsewhereColumnTitle": "Elsewhere",
         "copyright": "© {startYear}–{currentYear} Josenaldo de Oliveira Matos Filho - All rights reserved."
     },
     "Common": {
