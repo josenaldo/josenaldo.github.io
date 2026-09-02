@@ -9,7 +9,6 @@ import seoConfigModule from '@/data/SeoConfig'
 import { routing } from '@/i18n/routing'
 import FontLoader from '@/layouts/FontLoader'
 import Footer from '@/layouts/Footer'
-import GetInTouch from '@/layouts/GetInTouch'
 import Header from '@/layouts/Header'
 
 import '@/styles/globals.css'
@@ -132,7 +131,6 @@ export default async function LocaleLayout({ children, params }) {
 
                             <Box component="main">{children}</Box>
 
-                            <GetInTouch />
                             <Footer />
                         </Box>
                     </Providers>

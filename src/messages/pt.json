@@ -296,8 +296,6 @@
         }
     },
     "Footer": {
-        "getInTouchTitle": "Entre em contato",
-        "getInTouchSubtitle": "Estou sempre aberto a discutir novos projetos, ideias criativas ou oportunidades de fazer parte das suas visões.",
         "siteColumnTitle": "Site",
         "elsewhereColumnTitle": "Outros lugares",
         "copyright": "© {startYear}–{currentYear} Josenaldo de Oliveira Matos Filho - Todos os direitos reservados."
