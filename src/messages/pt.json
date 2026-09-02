@@ -216,6 +216,11 @@
     "Portfolio": {
         "title": "Portfólio"
     },
+    "NotFound": {
+        "title": "Essa página saiu do mapa.",
+        "lead": "O link pode estar desatualizado, ou a página nunca existiu. Vamos te levar de volta.",
+        "homeCta": "Início"
+    },
     "Post": {
         "backToBlog": "← Blog",
         "readingTime": "{minutes} min de leitura",
@@ -251,7 +256,9 @@
         "title": "Projetos",
         "description": "Meus projetos são uma mistura de projetos pessoais e projetos em que trabalhei profissionalmente.",
         "scopeNote": "A maior parte aqui é projeto próprio e experimento; o trabalho para cliente aparece em destaque na página inicial e na página de contratação.",
-        "viewProjectCta": "Ver projeto"
+        "viewProjectCta": "Ver projeto",
+        "backToProjects": "← Projetos",
+        "keepExploring": "Continue explorando"
     },
     "Courses": {
         "title": "Cursos",

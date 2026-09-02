@@ -1,16 +1,16 @@
-import Masonry from '@mui/lab/Masonry'
-import {
-    Badge,
-    Box,
-    Card,
-    CardContent,
-    Chip,
-    Container,
-    Typography,
-} from '@mui/material'
+// Corrige spec/03-paginas-internas.md §11: era Masonry de cards por grupo com
+// borda colorida e Badge de "anos de experiência" por skill. A spec pede o
+// oposto — "nível de proficiência não vira barra nem estrela: se importa,
+// vira ordem" — então a borda colorida e o badge de anos saem; a ordem por
+// `firstContact` que `getAllSkillsByCategory` já produzia continua sendo o
+// único sinal de força dentro do grupo.
+
+import { Box, Typography } from '@mui/material'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 
-import ContentTitle from '@/components/content/ContentTitle'
+import PageHeader from '@/components/PageHeader'
+import Pill from '@/components/Pill'
+import Section from '@/components/Section'
 import { routing } from '@/i18n/routing'
 import contentService from '@/services/content'
 
@@ -35,87 +35,64 @@ export async function generateMetadata({ params }) {
     }
 }
 
-const getYearsOfExperience = (year, currentYear) => currentYear - year
-
-const SkillCard = ({ title, color, skill = [], currentYear }) => {
-    return (
-        <Card
-            sx={{
-                border: `1px solid ${color}`,
-                borderRadius: 2,
-            }}
-        >
-            <CardContent sx={{ pb: 1 }}>
-                <Typography variant="h5" component="h2" sx={{ color }}>
-                    {title}
-                </Typography>
-            </CardContent>
-
-            <CardContent
-                sx={{
-                    display: 'flex',
-                    flexDirection: 'row',
-                    flexWrap: 'wrap',
-                    gap: 2,
-                    pt: 0,
-                }}
-            >
-                {skill.map((s) => (
-                    <Badge
-                        key={s.name}
-                        badgeContent={`${getYearsOfExperience(s.firstContact, currentYear)}+`}
-                        sx={{
-                            '& .MuiBadge-badge': {
-                                backgroundColor: color,
-                                color: '#000',
-                            },
-                        }}
-                    >
-                        <Chip
-                            label={s.name}
-                            variant="outlined"
-                            sx={{ borderColor: color, color }}
-                        />
-                    </Badge>
-                ))}
-            </CardContent>
-        </Card>
-    )
-}
-
 export default async function SkillsPage({ params }) {
     const { locale } = await params
     setRequestLocale(locale)
     const t = await getTranslations({ locale, namespace: 'Skills' })
 
-    const skills = contentService
+    const groups = contentService
         .getAllSkillsByCategory()
-        .map(({ group, color, skills }) => ({
+        .map(({ group, skills }) => ({
             group,
-            color,
-            skills: skills.map(({ name, firstContact }) => ({
-                name,
-                firstContact,
-            })),
+            skills: skills.map(({ name }) => name),
         }))
-    const currentYear = new Date().getFullYear()
 
     return (
-        <Container>
-            <Box sx={{ my: 5 }}>
-                <ContentTitle title={t('title')} subtitle={t('description')} />
-                <Masonry columns={{ xs: 1, sm: 2, md: 3 }} spacing={2}>
-                    {skills.map(({ group, color, skills: groupSkills }) => (
-                        <SkillCard
-                            key={group}
-                            title={group}
-                            color={color}
-                            skill={groupSkills}
-                            currentYear={currentYear}
-                        />
-                    ))}
-                </Masonry>
+        <Section surface="default" padTop={56} padBottom={48}>
+            <PageHeader title={t('title')} lead={t('description')} />
+
+            <Box
+                sx={{
+                    mt: '32px',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: '16px',
+                }}
+            >
+                {groups.map(({ group, skills }) => (
+                    <Box
+                        key={group}
+                        sx={{
+                            bgcolor: '#14181F',
+                            borderRadius: '18px',
+                            p: '26px 28px',
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: '16px',
+                        }}
+                    >
+                        <Typography
+                            component="h2"
+                            sx={{
+                                m: 0,
+                                fontFamily: "'Space Grotesk', system-ui, sans-serif",
+                                fontSize: '21px',
+                                fontWeight: 600,
+                                color: '#FFFFFF',
+                            }}
+                        >
+                            {group}
+                        </Typography>
+                        <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
+                            {skills.map((name) => (
+                                <Pill key={name} tone="neutral">
+                                    {name}
+                                </Pill>
+                            ))}
+                        </Box>
+                    </Box>
+                ))}
             </Box>
-        </Container>
+        </Section>
     )
 }

@@ -216,6 +216,11 @@
     "Portfolio": {
         "title": "Portfolio"
     },
+    "NotFound": {
+        "title": "This page went off the map.",
+        "lead": "The link might be old, or the page never existed. Let's get you back on track.",
+        "homeCta": "Home"
+    },
     "Post": {
         "backToBlog": "← Blog",
         "readingTime": "{minutes} min read",
@@ -251,7 +256,9 @@
         "title": "Projects",
         "description": "My projects are a mix of personal projects and projects I've worked on professionally.",
         "scopeNote": "Most of these are personal projects and experiments; client work is featured on the home page and the hiring page.",
-        "viewProjectCta": "View project"
+        "viewProjectCta": "View project",
+        "backToProjects": "← Projects",
+        "keepExploring": "Keep exploring"
     },
     "Courses": {
         "title": "Courses",

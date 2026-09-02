@@ -1,7 +1,8 @@
-import { Box, Container } from '@mui/material'
+import { Box } from '@mui/material'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 
-import ContentTitle from '@/components/content/ContentTitle'
+import PageHeader from '@/components/PageHeader'
+import Section from '@/components/Section'
 import { allCourses } from '@/features/courses/api/courses'
 import { routing } from '@/i18n/routing'
 
@@ -41,15 +42,14 @@ export default async function CoursesPage({ params }) {
         workload: course.workload,
         courseLink: course.courseLink,
         certificateLink: course.certificateLink,
-        body: { raw: course.body.raw },
     }))
 
     return (
-        <Container>
-            <Box>
-                <ContentTitle title={t('title')} subtitle={t('description')} />
+        <Section surface="default" padTop={56} padBottom={48}>
+            <PageHeader title={t('title')} lead={t('description')} />
+            <Box sx={{ mt: '32px' }}>
                 <CoursesList courses={courses} />
             </Box>
-        </Container>
+        </Section>
     )
 }

@@ -1,97 +1,132 @@
+// Corrige spec/03-paginas-internas.md §10: era um Accordion por curso, com o
+// corpo em MDX expandido ("sem descrição longa: curso é registro, não
+// narrativa" — o corpo nunca aparece mais). Vira grade de cards (3 colunas:
+// 36 cursos, bem acima do limiar de 8 que a spec usa pra decidir entre
+// 1fr 1fr e repeat(3,1fr)).
+
 'use client'
 
-import { useState } from 'react'
-
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
-import {
-    Accordion,
-    AccordionDetails,
-    AccordionSummary,
-    Box,
-    Chip,
-    Typography,
-} from '@mui/material'
+import { Box, Typography } from '@mui/material'
 import { useTranslations } from 'next-intl'
 
-import MDXContent from '@/components/content/MDXContent'
-import Link from '@/components/ui/Link'
-import { formatDate } from '@/shared/utils/date-format-utils'
-
-function CourseItem({ course, expanded, onChange }) {
-    const t = useTranslations('Courses')
-    const id = `${course.slug}-id`
-    const contentId = `${course.slug}-content`
-    const headerId = `${course.slug}-header`
-
-    return (
-        <Accordion id={id} expanded={expanded === id} onChange={onChange(id)}>
-            <AccordionSummary
-                aria-controls={contentId}
-                id={headerId}
-                expandIcon={<ExpandMoreIcon />}
-            >
-                <Box display="flex" flexDirection="column" gap={0}>
-                    <Typography variant="h6">{course.name}</Typography>
-                    <Typography variant="caption">
-                        {formatDate(course.completionDate)} |{' '}
-                        {course.institution} |{' '}
-                        {t('workloadHours', { hours: course.workload })}
-                    </Typography>
-                </Box>
-            </AccordionSummary>
-
-            <AccordionDetails>
-                <Box display="flex" flexDirection="row" gap={2}>
-                    {course.courseLink && (
-                        <Link
-                            href={course.courseLink}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <Chip
-                                label={t('courseLink')}
-                                color="primary"
-                                clickable
-                            />
-                        </Link>
-                    )}
-                    {course.certificateLink && (
-                        <Link
-                            href={course.certificateLink}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <Chip
-                                label={t('certificate')}
-                                color="primary"
-                                clickable
-                            />
-                        </Link>
-                    )}
-                </Box>
-                <MDXContent content={course.body.raw} />
-            </AccordionDetails>
-        </Accordion>
-    )
-}
+import Pill from '@/components/Pill'
 
 const CoursesList = ({ courses }) => {
-    const [expanded, setExpanded] = useState(false)
-
-    const onChange = (panel) => (event, newExpanded) => {
-        setExpanded(newExpanded ? panel : false)
-    }
+    const t = useTranslations('Courses')
 
     return (
-        <Box my={2}>
-            {courses.map((course) => (
-                <CourseItem
-                    key={course.slug}
-                    course={course}
-                    expanded={expanded}
-                    onChange={onChange}
-                />
-            ))}
+        <Box
+            sx={{
+                display: 'grid',
+                gridTemplateColumns: {
+                    xs: '1fr',
+                    sm: '1fr 1fr',
+                    lg: 'repeat(3, 1fr)',
+                },
+                gap: '16px',
+            }}
+        >
+            {courses.map((course) => {
+                const year = course.completionDate?.slice(0, 4)
+
+                return (
+                    <Box
+                        key={course.slug}
+                        sx={{
+                            bgcolor: '#14181F',
+                            borderRadius: '18px',
+                            p: '22px 24px',
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: '10px',
+                        }}
+                    >
+                        {course.courseLink ? (
+                            <Box
+                                component="a"
+                                href={course.courseLink}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                sx={{
+                                    fontFamily:
+                                        "'Space Grotesk', system-ui, sans-serif",
+                                    fontSize: '21px',
+                                    fontWeight: 600,
+                                    lineHeight: 1.3,
+                                    color: '#FFFFFF',
+                                    textDecoration: 'none',
+                                    '&:hover': { color: '#E9ECF2' },
+                                }}
+                            >
+                                {course.name}
+                            </Box>
+                        ) : (
+                            <Typography
+                                component="h2"
+                                sx={{
+                                    m: 0,
+                                    fontFamily:
+                                        "'Space Grotesk', system-ui, sans-serif",
+                                    fontSize: '21px',
+                                    fontWeight: 600,
+                                    lineHeight: 1.3,
+                                    color: '#FFFFFF',
+                                }}
+                            >
+                                {course.name}
+                            </Typography>
+                        )}
+
+                        <Typography
+                            component="p"
+                            sx={{
+                                m: 0,
+                                fontFamily:
+                                    "'IBM Plex Mono', ui-monospace, monospace",
+                                fontSize: '12px',
+                                color: '#7C8494',
+                            }}
+                        >
+                            {course.institution}
+                        </Typography>
+
+                        <Box
+                            sx={{
+                                display: 'flex',
+                                flexWrap: 'wrap',
+                                gap: '8px',
+                                mt: '4px',
+                            }}
+                        >
+                            {year ? <Pill tone="amber">{year}</Pill> : null}
+                            {course.workload ? (
+                                <Pill tone="neutral">
+                                    {t('workloadHours', { hours: course.workload })}
+                                </Pill>
+                            ) : null}
+                        </Box>
+
+                        {course.certificateLink ? (
+                            <Box
+                                component="a"
+                                href={course.certificateLink}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                sx={{
+                                    mt: 'auto',
+                                    pt: '4px',
+                                    fontSize: '14px',
+                                    color: '#B69BF0',
+                                    textDecoration: 'none',
+                                    '&:hover': { color: '#CDBBF8' },
+                                }}
+                            >
+                                {t('certificate')} →
+                            </Box>
+                        ) : null}
+                    </Box>
+                )
+            })}
         </Box>
     )
 }
