@@ -1,19 +1,8 @@
-import CodeIcon from '@mui/icons-material/Code'
-import DeviceHubIcon from '@mui/icons-material/DeviceHub'
-import PsychologyIcon from '@mui/icons-material/Psychology'
-import SchoolIcon from '@mui/icons-material/School'
 import { Box, Card, CardContent, Typography } from '@mui/material'
 import { useTranslations } from 'next-intl'
 import PropTypes from 'prop-types'
 
 import Section from '@/components/Section'
-
-const iconMap = {
-    code: CodeIcon,
-    api: DeviceHubIcon,
-    architecture: PsychologyIcon,
-    mentoring: SchoolIcon,
-}
 
 const WorkModes = ({ workModes }) => {
     const t = useTranslations('Home.workModes')
@@ -51,7 +40,6 @@ const WorkModes = ({ workModes }) => {
                         }}
                     >
                         {visibleWorkModes.map((mode) => {
-                            const Icon = iconMap[mode.icon] ?? CodeIcon
                             const bullets = Array.isArray(mode.bullets)
                                 ? mode.bullets
                                 : []
@@ -76,27 +64,14 @@ const WorkModes = ({ workModes }) => {
                                             pt: 4,
                                         }}
                                     >
-                                        <Box
+                                        <Typography
+                                            variant="h4"
+                                            component="h3"
                                             sx={{
-                                                width: 120,
-                                                height: 120,
-                                                borderRadius: '50%',
-                                                display: 'flex',
-                                                alignItems: 'center',
-                                                justifyContent: 'center',
-                                                bgcolor: 'primary.main',
+                                                fontSize: '1.625rem',
+                                                fontWeight: 700,
                                             }}
                                         >
-                                            <Icon
-                                                aria-hidden
-                                                sx={{
-                                                    fontSize: 72,
-                                                    color: 'common.white',
-                                                }}
-                                            />
-                                        </Box>
-
-                                        <Typography variant="h5" component="h3">
                                             {mode.name}
                                         </Typography>
 
@@ -113,21 +88,42 @@ const WorkModes = ({ workModes }) => {
                                                 textAlign: 'left',
                                                 width: '100%',
                                                 m: 0,
-                                                pl: 3,
+                                                p: 0,
+                                                listStyle: 'none',
                                                 display: 'flex',
                                                 flexDirection: 'column',
                                                 gap: 1,
                                             }}
                                         >
                                             {bullets.map((bullet) => (
-                                                <Typography
+                                                <Box
                                                     key={bullet}
                                                     component="li"
-                                                    variant="body2"
-                                                    color="text.secondary"
+                                                    sx={{
+                                                        display: 'flex',
+                                                        gap: 1.5,
+                                                        alignItems:
+                                                            'flex-start',
+                                                    }}
                                                 >
-                                                    {bullet}
-                                                </Typography>
+                                                    <Box
+                                                        sx={{
+                                                            width: 6,
+                                                            height: 6,
+                                                            mt: '0.55em',
+                                                            flexShrink: 0,
+                                                            borderRadius: '50%',
+                                                            bgcolor:
+                                                                'primary.main',
+                                                        }}
+                                                    />
+                                                    <Typography
+                                                        variant="body2"
+                                                        color="text.secondary"
+                                                    >
+                                                        {bullet}
+                                                    </Typography>
+                                                </Box>
                                             ))}
                                         </Box>
                                     </CardContent>
