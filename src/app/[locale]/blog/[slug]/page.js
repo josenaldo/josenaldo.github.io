@@ -21,6 +21,7 @@ import ShareLink from '@/components/share/ShareLink'
 import KeepReading from '@/features/blog/KeepReading'
 import { Link } from '@/i18n/navigation'
 import { routing } from '@/i18n/routing'
+import { categoryLabel } from '@/lib/categoryLabel'
 import { readingTimeMinutes } from '@/lib/readingTime'
 import contentService from '@/services/content'
 
@@ -81,6 +82,7 @@ export default async function BlogPostPage({ params }) {
         }))
 
     const t = await getTranslations('Post')
+    const tBlog = await getTranslations('Blog')
     const format = await getFormatter()
     const minutes = readingTimeMinutes(post.body.raw)
     const formattedDate = format.dateTime(new Date(post.date), {
@@ -141,7 +143,7 @@ export default async function BlogPostPage({ params }) {
                                         letterSpacing: '.08em',
                                     }}
                                 >
-                                    {post.category}
+                                    {categoryLabel(tBlog, post.category)}
                                 </Typography>
                             </>
                         ) : null}

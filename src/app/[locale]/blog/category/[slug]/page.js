@@ -10,6 +10,7 @@ import PageHeader from '@/components/PageHeader'
 import Section from '@/components/Section'
 import CategoryFilters from '@/features/blog/CategoryFilters'
 import { routing } from '@/i18n/routing'
+import { categoryLabel } from '@/lib/categoryLabel'
 import contentService from '@/services/content'
 
 export function generateStaticParams() {
@@ -25,8 +26,9 @@ export async function generateMetadata({ params }) {
     const { locale, slug } = await params
     const categories = contentService.getAllCategories(locale)
     const category = categories.find((c) => c.slug === slug)
-    const categoryName = category?.name ?? slug
     const t = await getTranslations({ locale, namespace: 'Blog.category' })
+    const tBlog = await getTranslations({ locale, namespace: 'Blog' })
+    const categoryName = categoryLabel(tBlog, category?.name ?? slug)
 
     // Categoria não tem translationKey: o par entre locales só existe quando
     // o MESMO slug aparece nas categorias dos dois idiomas (hoje:
@@ -61,7 +63,7 @@ export default async function CategoryPage({ params }) {
 
     const categories = contentService.getAllCategories(locale)
     const category = categories.find((c) => c.slug === slug)
-    const categoryName = category?.name ?? slug
+    const categoryName = categoryLabel(tBlog, category?.name ?? slug)
     const postCount = category?.count ?? 0
 
     const posts = contentService
@@ -86,6 +88,10 @@ export default async function CategoryPage({ params }) {
                         categories={categories}
                         activeSlug={slug}
                         allLabel={tBlog('filterAll')}
+                        totalCount={categories.reduce(
+                            (total, category) => total + category.count,
+                            0
+                        )}
                     />
                 </PageHeader>
             </Section>

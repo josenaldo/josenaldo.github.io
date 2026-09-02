@@ -217,6 +217,16 @@
             "language": "<strong>Sobre o idioma:</strong> Inglês não é a minha língua nativa. Eu falo português brasileiro, baianês, mineirês e um monte de bobagem. Mesmo assim escrevo em inglês — em parte pelo alcance, em parte como prática. Se algo soar estranho, a culpa é SUA! Sua culpa! Você é o especialista em inglês, não eu. Eu sou o cara que perdeu o rim da sogra!",
             "ai": "<strong>Sobre IA:</strong> Sim, eu uso IA para me ajudar a escrever — da mesma forma que uso uma IDE para escrever código, uma calculadora para evitar aritmética constrangedora, e o Google para lembrar coisas que eu definitivamente aprendi e totalmente não esqueci na hora. IA é uma ferramenta. Eu sou quem escolhe o que dizer; a máquina só ajuda a dizer de um jeito menos incompreensível.",
             "opinions": "<strong>Sobre as opiniões:</strong> Eu sou programador, não escritor, jornalista, analista ou profeta. Estes são meus pensamentos pessoais — informais, falíveis e totalmente não científicos. Eles existem para minha própria clareza, para a leve diversão de quem passar por aqui, e para o futuro constrangimento dos meus descendentes. Se você discorda, provavelmente está certo. Se você concorda, agradeço seu duvidoso julgamento."
+        },
+        "categoryLabels": {
+            "architecture": "Arquitetura",
+            "cronica": "Crônica",
+            "engenharia-de-software": "Engenharia de software",
+            "job-market": "Mercado de trabalho",
+            "learning": "Aprendizado",
+            "opiniao": "Opinião",
+            "opinion": "Opinião",
+            "personal": "Pessoal"
         }
     },
     "Portfolio": {
@@ -303,15 +313,16 @@
         "description": "Sou um engenheiro de software com experiência em uma variedade de tecnologias. Aqui estão algumas das habilidades que desenvolvi."
     },
     "Contact": {
-        "title": "Entre em Contato",
+        "title": "Entre em contato",
         "description": "Colaboração em projeto, troca de ideias ou só uma conversa. O caminho mais rápido é uma chamada de 30 minutos — escolhe um horário e está marcado.",
         "channelsLabel": "Canais diretos",
-        "timezoneNote": "GMT-3 (horário de São Paulo). Respondo de forma assíncrona, geralmente em até um dia útil.",
+        "timezoneNote": "Remoto · GMT-3 (São Paulo) · async-first, então mensagem escrita ganha de chamada para tudo que não é decisão.",
         "githubCard": {
             "title": "Curtiu este projeto?",
             "body": "Explore o código-fonte no GitHub e faça dele o seu! Dê um fork, uma estrela, ou contribua para ajudá-lo a crescer.",
             "cta": "Fork no GitHub"
-        }
+        },
+        "whatsappHandle": "Mensagem direta"
     },
     "Footer": {
         "siteColumnTitle": "Site",

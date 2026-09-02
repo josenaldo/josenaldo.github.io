@@ -11,10 +11,12 @@ import PropTypes from 'prop-types'
 import ContentCardImage from '@/components/content/ContentCardImage'
 import Pill from '@/components/Pill'
 import { Link } from '@/i18n/navigation'
+import { categoryLabel } from '@/lib/categoryLabel'
 
 const PostListItem = ({ title, text, url, image, date, category }) => {
     const format = useFormatter()
     const t = useTranslations('Common')
+    const tBlog = useTranslations('Blog')
 
     return (
         <Box
@@ -42,7 +44,11 @@ const PostListItem = ({ title, text, url, image, date, category }) => {
                     bgcolor: '#0E1218',
                 }}
             >
-                <ContentCardImage image={image} alt={title} aspectRatio="16/10" />
+                <ContentCardImage
+                    image={image}
+                    alt={title}
+                    aspectRatio="16/10"
+                />
             </Box>
 
             <Box
@@ -93,7 +99,7 @@ const PostListItem = ({ title, text, url, image, date, category }) => {
             >
                 {category ? (
                     <Pill tone="amber" uppercase size="sm">
-                        {category}
+                        {categoryLabel(tBlog, category)}
                     </Pill>
                 ) : null}
                 <Typography

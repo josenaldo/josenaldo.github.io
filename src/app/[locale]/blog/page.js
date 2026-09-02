@@ -61,6 +61,10 @@ export default async function BlogPage({ params }) {
                     <CategoryFilters
                         categories={categories}
                         allLabel={t('filterAll')}
+                        totalCount={categories.reduce(
+                            (total, category) => total + category.count,
+                            0
+                        )}
                     />
                 </PageHeader>
             </Section>

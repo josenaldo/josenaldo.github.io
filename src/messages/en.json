@@ -217,6 +217,16 @@
             "language": "<strong>On the language:</strong> English is not my native language. I Speak Brazilian Portuguese, Baianese, Mineirese and a lot of bulshit. I write in it anyway — partly for reach, partly as practice. If something reads strangely, that's YOU! Your fault! You are the English Specialist, not me. I am the guy who lost the kidney of his mother-in-law!",
             "ai": "<strong>On AI:</strong> Yes, I use AI to help me write — the same way I use an IDE to write code, a calculator to avoid embarrassing arithmetic, and Google to remember things I definitely learned and totally didn't immediately forget. AI is a tool. I'm the one choosing what to say; the machine just helps me say it less incomprehensibly.",
             "opinions": "<strong>On the opinions:</strong> I'm a programmer, not a writer, journalist, analyst, or prophet. These are my personal thoughts — informal, fallible, and entirely unscientific. They exist for my own clarity, for the mild amusement of anyone who stumbles here, and for the future embarrassment of my descendants. If you disagree, you're probably right. If you agree, I appreciate your questionable judgment."
+        },
+        "categoryLabels": {
+            "architecture": "Architecture",
+            "cronica": "Chronicle",
+            "engenharia-de-software": "Software engineering",
+            "job-market": "Job market",
+            "learning": "Learning",
+            "opiniao": "Opinion",
+            "opinion": "Opinion",
+            "personal": "Personal"
         }
     },
     "Portfolio": {
@@ -303,15 +313,16 @@
         "description": "I'm a software engineer with experience in a variety of technologies. Here are some of the skills I've developed."
     },
     "Contact": {
-        "title": "Get in Touch",
+        "title": "Get in touch",
         "description": "Project collaborations, idea-sharing, or just a friendly conversation. The fastest path is a 30-minute call — pick a slot and it's booked.",
         "channelsLabel": "Direct channels",
-        "timezoneNote": "GMT-3 (São Paulo time). I answer async, usually within a business day.",
+        "timezoneNote": "Remote · GMT-3 (São Paulo) · async-first, so a written message beats a call for anything that isn't a decision.",
         "githubCard": {
             "title": "Like this project?",
             "body": "Explore the source code on GitHub and make it your own! Fork, star, or contribute to help it grow.",
             "cta": "Fork on GitHub"
-        }
+        },
+        "whatsappHandle": "Direct message"
     },
     "Footer": {
         "siteColumnTitle": "Site",

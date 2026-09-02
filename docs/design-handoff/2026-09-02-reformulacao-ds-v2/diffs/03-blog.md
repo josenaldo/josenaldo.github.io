@@ -10,8 +10,8 @@ Mock: `Páginas internas.dc.html` § `4b`. Site: `http://localhost:3500/en/blog`
 
 ## Filtros de categoria
 
-- [ ] **BG-04** — rótulo da pílula ativa. **Mock:** `All · 24` (com a contagem total). **Site:** `All`, sem contagem. · `src/features/blog/CategoryFilters.js`
-- [ ] **BG-05** — nome das categorias. **Mock:** nome legível com inicial maiúscula (`Architecture`, `Job market`, `Learning`, `Opinion`, `Personal`). **Site:** o **slug** cru (`architecture`, `job-market`, `learning`, `opinion`, `personal`) — o `job-market` com hífen fica evidente mesmo depois do `text-transform: uppercase`. · `src/features/blog/CategoryFilters.js`
+- [x] **BG-04** — rótulo da pílula ativa. **Mock:** `All · 24` (com a contagem total). **Site:** `All`, sem contagem. · `src/features/blog/CategoryFilters.js`
+- [x] **BG-05** — nome das categorias. **Mock:** nome legível com inicial maiúscula (`Architecture`, `Job market`, `Learning`, `Opinion`, `Personal`). **Site:** o **slug** cru (`architecture`, `job-market`, `learning`, `opinion`, `personal`) — o `job-market` com hífen fica evidente mesmo depois do `text-transform: uppercase`. · `src/features/blog/CategoryFilters.js`
 - [x] **BG-06** — `letter-spacing`. **Mock:** `.06em` (= 0,72px). **Site:** `1,2px` (= `.1em`). · `src/features/blog/CategoryFilters.js`
 - [x] **BG-07** — padding. **Mock:** `8px 14px`. **Site:** `7px 14px`. · `src/components/Pill.js`
 - [ ] **BG-08** — cores (`#0B0E13` sobre `#FFAA00` na ativa, `#C6CCD8` sobre `rgba(255,255,255,.05)` nas outras), raio 999 e gap 8. Batem. `MANTER`

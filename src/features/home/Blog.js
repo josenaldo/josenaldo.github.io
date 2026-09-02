@@ -23,6 +23,7 @@ import Section from '@/components/Section'
 import SectionHeader from '@/components/SectionHeader'
 import publications from '@/data/publications'
 import { Link } from '@/i18n/navigation'
+import { categoryLabel } from '@/lib/categoryLabel'
 
 const POSTS_ON_HOME = 3
 
@@ -31,6 +32,7 @@ const MONO = "'IBM Plex Mono', ui-monospace, monospace"
 const Blog = ({ posts }) => {
     const t = useTranslations('Home.blog')
     const tPublications = useTranslations('Home.publications')
+    const tBlog = useTranslations('Blog')
     const format = useFormatter()
     const visiblePosts = posts.slice(0, POSTS_ON_HOME)
 
@@ -153,7 +155,7 @@ const Blog = ({ posts }) => {
                                         textAlign: { xs: 'left', md: 'right' },
                                     }}
                                 >
-                                    {post.category}
+                                    {categoryLabel(tBlog, post.category)}
                                 </Box>
                             </Box>
                         ))}
