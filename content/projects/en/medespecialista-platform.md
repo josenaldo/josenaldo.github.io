@@ -14,7 +14,7 @@ translated: true
 
 ## 1. Elevator Pitch
 
-MedEspecialista is a production platform that helps doctors prepare for medical residency exams. Since **July 2024**, I have led end-to-end modernization and delivery across four core repositories: legacy/API modernization, a new NestJS backend foundation, the internal admin panel, and the student-facing frontend.
+MedEspecialista is a production platform that helps doctors prepare for medical board certification exams. Since **July 2024**, I have led end-to-end modernization and delivery across four core repositories: legacy/API modernization, a new NestJS backend foundation, the internal admin panel, and the student-facing frontend.
 
 The work combines product delivery with architectural renovation: keep the live platform moving, reduce manual operational work, introduce safer release practices, and gradually move critical domains toward clearer contracts, tests, and modular architecture.
 

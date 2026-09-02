@@ -145,7 +145,7 @@ const Engagements = ({ engagements }) => {
                                                     fontWeight: 600,
                                                     letterSpacing: '-.01em',
                                                     lineHeight: 1.25,
-                                                    color: '#FFFFFF',
+                                                    color: '#E9ECF2',
                                                 }}
                                             >
                                                 {engagement.title}
@@ -165,7 +165,7 @@ const Engagements = ({ engagements }) => {
                                         </Box>
 
                                         {engagement.period ? (
-                                            <Pill tone="neutral">
+                                            <Pill tone="quiet">
                                                 {engagement.period}
                                             </Pill>
                                         ) : null}

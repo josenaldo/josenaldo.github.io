@@ -61,9 +61,10 @@ const WorkModes = ({ workModes }) => {
                                     {mode.kicker ? (
                                         <Box sx={{ alignSelf: 'flex-start' }}>
                                             <Pill
-                                                tone="neutral"
+                                                tone="quiet"
                                                 size="sm"
                                                 uppercase
+                                                tracking=".14em"
                                             >
                                                 {mode.kicker}
                                             </Pill>
@@ -79,7 +80,7 @@ const WorkModes = ({ workModes }) => {
                                             fontSize: '26px',
                                             fontWeight: 700,
                                             letterSpacing: '-.02em',
-                                            color: '#FFFFFF',
+                                            color: '#E9ECF2',
                                         }}
                                     >
                                         {mode.name}

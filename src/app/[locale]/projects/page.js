@@ -1,7 +1,7 @@
 // Corrige spec/03-paginas-internas.md §6 (tela `4f`). Grid 1fr 1fr de
 // ProjectCard — sem imagem de capa, "a stack é a informação".
 
-import { Box, Typography } from '@mui/material'
+import { Box } from '@mui/material'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 
 import ProjectCard from '@/components/content/ProjectCard'
@@ -48,15 +48,7 @@ export default async function ProjectsPage({ params }) {
     return (
         <Section surface="default" padTop={56} padBottom={48}>
             <Box sx={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
-                <Box sx={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                    <PageHeader title={t('title')} lead={t('description')} />
-                    <Typography
-                        component="p"
-                        sx={{ m: 0, fontSize: '14px', color: '#7C8494' }}
-                    >
-                        {t('scopeNote')}
-                    </Typography>
-                </Box>
+                <PageHeader title={t('title')} lead={t('description')} />
 
                 <Box
                     sx={{

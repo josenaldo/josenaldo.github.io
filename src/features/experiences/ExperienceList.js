@@ -67,7 +67,15 @@ const ExperienceRow = ({ experience, expanded, onToggle }) => {
                 <Box>
                     <Typography
                         component="p"
-                        sx={{ m: 0, fontSize: '20px', fontWeight: 600, color: '#FFFFFF' }}
+                        sx={{
+                            m: 0,
+                            fontFamily:
+                                "'Space Grotesk', system-ui, sans-serif",
+                            fontSize: '20px',
+                            fontWeight: 600,
+                            letterSpacing: '-.01em',
+                            color: '#E9ECF2',
+                        }}
                     >
                         {experience.title}
                     </Typography>
@@ -88,11 +96,12 @@ const ExperienceRow = ({ experience, expanded, onToggle }) => {
                         justifySelf: { xs: 'flex-start', sm: 'flex-end' },
                         border: 'none',
                         cursor: 'pointer',
+                        fontFamily: "'IBM Plex Sans', system-ui, sans-serif",
                         fontSize: '13px',
                         fontWeight: 600,
                         borderRadius: '10px',
-                        px: '12px',
-                        py: '6px',
+                        px: '14px',
+                        py: '8px',
                         color: expanded ? '#C6CCD8' : '#B69BF0',
                         bgcolor: expanded
                             ? 'rgba(255,255,255,.05)'
@@ -182,7 +191,7 @@ const ExperienceList = ({ experiences }) => {
     const [openId, setOpenId] = useState(experiences[0]?.id ?? null)
 
     return (
-        <Box sx={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+        <Box sx={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
             {experiences.map((experience) => (
                 <ExperienceRow
                     key={experience.id}

@@ -26,6 +26,10 @@ const radius = { page: 20, card: 16, item: 14, control: 10, pill: 999 }
 const shadow = {
     card: '0 1px 2px rgba(0,0,0,.4), 0 18px 40px -28px rgba(0,0,0,1)',
     action: '0 10px 30px -12px rgba(136,85,223,.9)',
+    // O botão do header é menor que o do hero, e o mock dá a ele uma sombra
+    // proporcionalmente menor — a mesma sombra nos dois fazia o botão de 41px
+    // de altura flutuar mais do que o de 54px.
+    actionSmall: '0 6px 18px -8px rgba(136,85,223,.9)',
     header: '0 1px 0 rgba(255,255,255,.05)',
 }
 
@@ -173,8 +177,26 @@ const theme = createTheme({
         MuiButton: {
             defaultProps: { disableElevation: true },
             styleOverrides: {
+                // O mock desenha DUAS caixas de botão, não uma escalada pelo
+                // MUI: a de ação principal (hero, CTA final, /contact) e a do
+                // header. Sem fixar `fontSize` aqui, o MUI deriva do
+                // `typography.button` com um fator por tamanho e entrega
+                // 17,14px e 14,86px — números que não existem no mock.
                 root: { borderRadius: radius.control, padding: '12px 22px' },
+                sizeLarge: {
+                    fontSize: '16px',
+                    padding: '15px 28px',
+                    borderRadius: 12,
+                },
+                sizeSmall: {
+                    fontSize: '14px',
+                    padding: '11px 20px',
+                },
                 contained: { boxShadow: shadow.action, '&:hover': { boxShadow: shadow.action } },
+                containedSizeSmall: {
+                    boxShadow: shadow.actionSmall,
+                    '&:hover': { boxShadow: shadow.actionSmall },
+                },
                 text: { color: '#B69BF0' }, // nunca #8855DF como texto
                 outlined: { color: '#B69BF0', borderColor: 'rgba(182,155,240,.4)' },
             },
@@ -203,10 +225,27 @@ const theme = createTheme({
                     backgroundColor: 'rgba(11,14,19,.9)',
                     backdropFilter: 'blur(10px)',
                     boxShadow: shadow.header,
+                    // O AppBar é um Paper, e o override de MuiPaper acima dá
+                    // `radius.card` a todo Paper. Numa barra colada no topo da
+                    // janela isso arredonda os cantos superiores da página.
+                    // O raio de 20px do mock é do canvas inteiro, não da barra.
+                    borderRadius: 0,
                 },
             },
         },
-        MuiToolbar: { styleOverrides: { root: { minHeight: 68 } } },
+        // O `minHeight` da barra: o MUI declara 56 no root e 64 dentro de um
+        // `@media (min-width:600px)` na variante `regular`. Sobrescrever só o
+        // root deixava a media query do MUI ganhar acima de 600px — foi por
+        // isso que a barra ficou 64px em vez dos 68px do mock.
+        MuiToolbar: {
+            styleOverrides: {
+                root: { minHeight: 68 },
+                regular: {
+                    minHeight: 68,
+                    '@media (min-width:600px)': { minHeight: 68 },
+                },
+            },
+        },
         MuiDivider: { styleOverrides: { root: { borderColor: line } } },
         MuiLink: {
             styleOverrides: {

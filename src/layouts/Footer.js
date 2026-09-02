@@ -33,7 +33,10 @@ const Footer = () => {
         <Box
             component="footer"
             sx={(theme) => ({
-                bgcolor: theme.surface.band,
+                // O mock não faz do rodapé uma faixa: ele fica no mesmo fundo
+                // da página. Com `band` o rodapé virava um bloco mais claro
+                // logo abaixo do CTA, competindo com ele.
+                bgcolor: theme.surface.default,
                 padding: { xs: '24px', md: '24px 40px 44px' },
             })}
         >
@@ -44,14 +47,24 @@ const Footer = () => {
                     justifyContent="space-between"
                     spacing={{ xs: 4, md: 0 }}
                 >
-                    <Box>
+                    {/* gap no container, não `mt` no filho: o tema zera a
+                    margem de todo `p` gerado por Typography, então o `mt: 6px`
+                    que existia aqui nunca chegou a valer e as duas linhas
+                    ficavam coladas. */}
+                    <Box
+                        sx={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: '8px',
+                        }}
+                    >
                         <Typography
                             sx={{
                                 fontFamily:
                                     "'Space Grotesk', system-ui, sans-serif",
                                 fontSize: '15px',
                                 fontWeight: 700,
-                                color: '#FFFFFF',
+                                color: '#E9ECF2',
                             }}
                         >
                             Josenaldo Matos
@@ -59,7 +72,6 @@ const Footer = () => {
                         <Typography
                             component="p"
                             sx={{
-                                mt: '6px',
                                 fontFamily:
                                     "'IBM Plex Mono', ui-monospace, monospace",
                                 fontSize: '12px',

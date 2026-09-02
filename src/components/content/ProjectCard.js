@@ -46,13 +46,18 @@ const ProjectCard = ({ title, description, url, type, stack, sourceUrl }) => {
                         fontFamily: "'Space Grotesk', system-ui, sans-serif",
                         fontSize: '21px',
                         fontWeight: 600,
-                        lineHeight: 1.3,
-                        color: '#FFFFFF',
+                        lineHeight: 1.25,
+                        letterSpacing: '-.01em',
+                        color: '#E9ECF2',
                     }}
                 >
                     {title}
                 </Typography>
-                {type ? <Pill tone="amber">{type}</Pill> : null}
+                {type ? (
+                    <Pill tone="amber" size="xs" uppercase>
+                        {type}
+                    </Pill>
+                ) : null}
             </Box>
 
             <Typography
@@ -68,7 +73,7 @@ const ProjectCard = ({ title, description, url, type, stack, sourceUrl }) => {
                         display: 'flex',
                         flexWrap: 'wrap',
                         gap: '8px',
-                        mt: 'auto',
+                        pt: '6px',
                     }}
                 >
                     {stack.map((item) => (
@@ -79,7 +84,7 @@ const ProjectCard = ({ title, description, url, type, stack, sourceUrl }) => {
                 </Box>
             ) : null}
 
-            <Box sx={{ display: 'flex', gap: '16px' }}>
+            <Box sx={{ display: 'flex', gap: '16px', mt: 'auto', pt: '6px' }}>
                 {url ? (
                     <Box
                         component="a"

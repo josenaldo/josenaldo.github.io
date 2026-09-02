@@ -16,7 +16,7 @@ translated: true
 
 #### Situation
 
-MedEspecialista needed to keep a production medical education platform evolving while dealing with legacy frontend/backend patterns, manual operational routines, fragmented documentation, and risky delivery paths. The platform supported doctors preparing for residency exams, so product work could not stop while architecture, quality, and deployment practices were improved.
+MedEspecialista needed to keep a production medical education platform evolving while dealing with legacy frontend/backend patterns, manual operational routines, fragmented documentation, and risky delivery paths. The platform supported doctors preparing for board certification exams, so product work could not stop while architecture, quality, and deployment practices were improved.
 
 #### Task
 

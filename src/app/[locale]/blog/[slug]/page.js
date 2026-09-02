@@ -21,6 +21,7 @@ import ShareLink from '@/components/share/ShareLink'
 import KeepReading from '@/features/blog/KeepReading'
 import { Link } from '@/i18n/navigation'
 import { routing } from '@/i18n/routing'
+import { categoryLabel } from '@/lib/categoryLabel'
 import { readingTimeMinutes } from '@/lib/readingTime'
 import contentService from '@/services/content'
 
@@ -81,6 +82,7 @@ export default async function BlogPostPage({ params }) {
         }))
 
     const t = await getTranslations('Post')
+    const tBlog = await getTranslations('Blog')
     const format = await getFormatter()
     const minutes = readingTimeMinutes(post.body.raw)
     const formattedDate = format.dateTime(new Date(post.date), {
@@ -91,13 +93,13 @@ export default async function BlogPostPage({ params }) {
 
     return (
         <>
-            <Box sx={{ maxWidth: '760px', mx: 'auto', px: '24px', pt: '48px' }}>
+            <Box sx={{ maxWidth: '760px', mx: 'auto', px: '24px', boxSizing: 'content-box', pt: '48px' }}>
                 <Box sx={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
                     <Box
                         sx={{
                             display: 'flex',
                             alignItems: 'center',
-                            gap: '8px',
+                            gap: '12px',
                             fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
                             fontSize: '12px',
                         }}
@@ -123,19 +125,25 @@ export default async function BlogPostPage({ params }) {
                             <>
                                 <Typography
                                     component="span"
-                                    sx={{ color: '#7C8494' }}
+                                    sx={{
+                                        fontFamily: 'inherit',
+                                        fontSize: 'inherit',
+                                        color: '#7C8494',
+                                    }}
                                 >
                                     /
                                 </Typography>
                                 <Typography
                                     component="span"
                                     sx={{
+                                        fontFamily: 'inherit',
+                                        fontSize: 'inherit',
                                         color: '#FFAA00',
                                         textTransform: 'uppercase',
                                         letterSpacing: '.08em',
                                     }}
                                 >
-                                    {post.category}
+                                    {categoryLabel(tBlog, post.category)}
                                 </Typography>
                             </>
                         ) : null}
@@ -174,7 +182,7 @@ export default async function BlogPostPage({ params }) {
                         sx={{
                             display: 'flex',
                             alignItems: 'center',
-                            gap: '12px',
+                            gap: '14px',
                             py: '14px',
                             borderTop: '1px solid rgba(255,255,255,.07)',
                             borderBottom: '1px solid rgba(255,255,255,.07)',
@@ -251,6 +259,7 @@ export default async function BlogPostPage({ params }) {
                 <Box
                     sx={{
                         maxWidth: '900px',
+                        boxSizing: 'content-box',
                         mx: 'auto',
                         px: '24px',
                         mt: '32px',
@@ -272,6 +281,7 @@ export default async function BlogPostPage({ params }) {
             <Box
                 sx={{
                     maxWidth: '680px',
+                    boxSizing: 'content-box',
                     mx: 'auto',
                     px: '24px',
                     mt: '40px',
@@ -283,6 +293,8 @@ export default async function BlogPostPage({ params }) {
                         fontFamily: "'Space Grotesk', system-ui, sans-serif",
                         fontSize: '32px',
                         fontWeight: 700,
+                        lineHeight: 1.2,
+                        letterSpacing: '-.02em',
                         color: '#FFFFFF',
                         mt: '16px',
                     },
@@ -298,7 +310,7 @@ export default async function BlogPostPage({ params }) {
                     py: '40px',
                 }}
             >
-                <Box sx={{ maxWidth: '900px', mx: 'auto', px: '24px' }}>
+                <Box sx={{ maxWidth: '900px', mx: 'auto', px: '24px', boxSizing: 'content-box' }}>
                     <KeepReading posts={keepReadingPosts} />
                 </Box>
             </Box>

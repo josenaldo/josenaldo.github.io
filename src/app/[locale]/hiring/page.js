@@ -111,8 +111,12 @@ export default async function HiringPage({ params }) {
                                 gap: '10px',
                             }}
                         >
-                            <Pill tone="amber">{t('status')}</Pill>
-                            <Pill tone="neutral">{t('location')}</Pill>
+                            <Pill tone="amber" size="sm" uppercase tracking=".12em">
+                                {t('status')}
+                            </Pill>
+                            <Pill tone="quiet" size="sm" uppercase tracking=".12em">
+                                {t('location')}
+                            </Pill>
                         </Box>
 
                         <PageHeader
@@ -121,7 +125,12 @@ export default async function HiringPage({ params }) {
                             size="lg"
                         >
                             {stack.map((item) => (
-                                <Pill key={item} tone="neutral" as="mono">
+                                <Pill
+                                    key={item}
+                                    tone="neutral"
+                                    as="mono"
+                                    sx={{ p: '7px 13px' }}
+                                >
                                     {item}
                                 </Pill>
                             ))}
@@ -143,7 +152,12 @@ export default async function HiringPage({ params }) {
                         alignItems: 'start',
                     }}
                 >
-                    <SectionHeader n="02" title={t('ownTitle')} variant="spine" />
+                    <SectionHeader
+                        n="02"
+                        title={t('ownTitle')}
+                        variant="spine"
+                        size="md"
+                    />
 
                     <Box
                         sx={{
@@ -153,14 +167,25 @@ export default async function HiringPage({ params }) {
                             minWidth: 0,
                         }}
                     >
+                        {/* Dois níveis, como no mock: a afirmação abre em
+                        18px e o parágrafo de contexto recua para 16px. Com um
+                        tamanho só, o segundo parágrafo competia com o
+                        primeiro em vez de sustentá-lo. */}
                         <Box
                             sx={{
+                                display: 'flex',
+                                flexDirection: 'column',
+                                gap: '18px',
                                 '& p': {
                                     m: 0,
                                     fontSize: '18px',
                                     lineHeight: 1.7,
                                     color: '#D5DAE4',
                                     maxWidth: '72ch',
+                                },
+                                '& p ~ p': {
+                                    fontSize: '16px',
+                                    color: '#B4BCCA',
                                 },
                                 '& strong': {
                                     color: '#FFFFFF',

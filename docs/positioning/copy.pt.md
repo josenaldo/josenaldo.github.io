@@ -6,7 +6,7 @@ Versão em português. Cada número desta página existe em `src/data/metrics.mj
 
 **Headline:** Eu construo a máquina que entrega o seu software.
 
-**Subhead:** Engenheiro e arquiteto de software fractional. Assumo plataformas que erodiram até o ponto em que ninguém mais mexe com segurança, e transformo isso numa operação de entrega que consome uma reunião por mês do seu time.
+**Subhead:** Assumo plataformas que erodiram até o ponto em que ninguém mais mexe com segurança, e transformo isso numa operação de entrega que consome uma reunião por mês do seu time.
 
 **Números (ids de `metrics.mjs`):** `deploymentFrequency` — de uma release por trimestre para uma a cada oito dias · `clientReportedIssues` — problemas em produção reportados pelo cliente de ~100 para ~5 por mês · `deployDuration` — deploy em 15 minutos, não em 2 horas
 
@@ -61,7 +61,7 @@ Seção intocada. A copy existente permanece.
 
 **Blog:** Textos sobre entrega, arquitetura e o que acontece de verdade quando um engenheiro só toca uma plataforma inteira com agentes de IA.
 
-**Programação Orientada a Gambiarra (livropog.com.br):** Um livro técnico vivo sobre a distância entre a arquitetura que a gente apresenta e a gambiarra que a gente entrega. Publicação contínua.
+**Programação Orientada a Gambiarra:** Um livro técnico vivo sobre a distância entre a arquitetura que a gente apresenta e a gambiarra que a gente entrega. Publicação contínua.
 
 **Codex Technomanticus:** Meu grimório — as notas de trabalho que eu mantenho sobre desenvolvimento fullstack e mando pro colega quando a mesma dúvida aparece pela segunda vez.
 
@@ -81,7 +81,7 @@ Seção intocada. A copy existente permanece.
 
 **Promessa:** Eu reconstruo como o seu sistema realmente funciona e digo o que consertar, em que ordem.
 
-- Escopo e prazo fechados, terminando num mapa escrito: o que está quebrado, quanto isso custa e por onde começar.
+- Termina num mapa escrito: o que está quebrado, quanto isso custa e por onde começar.
 - Nenhuma proposta de rewrite. Rewrite foi o que colocou o time anterior nessa situação.
 - O mapa é seu, independente de me contratar pro que vem depois.
 
@@ -89,8 +89,8 @@ Seção intocada. A copy existente permanece.
 
 **Promessa:** Requisito entra, release confiável sai — e a carga técnica deixa de ser sua.
 
-- Contrato mensal recorrente. Pipelines, suíte de testes, promoção de staging pra produção, monitoramento e release notes a cada deploy.
-- Modernização em incrementos, junto com a entrega de funcionalidade. O negócio continua rodando; não existe freeze.
+- Pipelines, suíte de testes, promoção de staging pra produção, monitoramento e release notes a cada deploy.
+- Modernização em incrementos, junto com a entrega de funcionalidade. Sem freeze.
 - Uma reunião por mês. O resto é escrito e assíncrono.
 
 ### Build
@@ -105,7 +105,7 @@ Seção intocada. A copy existente permanece.
 
 ## Engagements
 
-### Plataforma de educação médica — preparação para prova de residência
+### Plataforma de educação médica — preparação para prova de título de especialista
 
 *Engenheiro fractional · responsável único por dez repositórios, três em desenvolvimento ativo · 2024 – hoje*
 
@@ -113,7 +113,7 @@ Seção intocada. A copy existente permanece.
 
 **Construí:** A máquina de entrega completa — testes automatizados, CI/CD com portões de staging, validação de contrato, monitoramento e release notes a cada deploy — mais um fluxo de desenvolvimento AI-native rodando sob arquitetura e revisão exclusivamente minhas, e a modernização da base feita em incrementos, junto com a entrega de funcionalidade.
 
-**Resultado:** Um pedido aprovado hoje chega em produção em cerca de uma semana, em vez de três a seis meses. São cerca de quatro releases por mês, uma a cada oito dias, com pouco retrabalho. Problemas em produção reportados pelo cliente caíram de cerca de cem por mês para cerca de cinco. Zero indisponibilidade. Deploy passou de duas horas para quinze minutos. A operação mensal de follow-up passou de um mês de trabalho manual para cerca de duas horas. Participação do cliente: uma reunião por mês.
+**Resultado:** Os deploys passaram de duas horas para quinze minutos. A operação mensal de acompanhamento passou de um mês de trabalho manual para cerca de duas horas. Envolvimento do cliente: uma reunião por mês.
 
 ### Modernização de plataforma de jornal — via Muvz
 
@@ -123,7 +123,7 @@ Seção intocada. A copy existente permanece.
 
 **Construí:** Cinco microserviços Spring Boot extraídos incrementalmente — sem rewrite e sem freeze — com integração orientada a eventos sobre Apache Kafka, um back-office centralizado para configuração compartilhada, e prática de engenharia (Arquitetura Hexagonal, SOLID, DDD) estabelecida no time.
 
-**Resultado:** Os três meses de atraso eliminados e a entrega de volta ao calendário. Performance do sistema 40% melhor. O time manteve a cadência restaurada de sprints de 15 dias depois que eu saí.
+**Resultado:** Os três meses de atraso eliminados e a entrega de volta ao calendário, com a prática deixada no time.
 
 ### Plataforma de campanha presidencial — via Conddiz
 
@@ -133,4 +133,4 @@ Seção intocada. A copy existente permanece.
 
 **Construí:** Um backend servindo três frontends — o site oficial e dois PWAs em produção — com integração com todas as principais redes sociais.
 
-**Resultado:** Entregue no calendário da campanha, sustentando picos de cerca de 200.000 usuários nos momentos mais críticos.
+**Resultado:** Sustentou os picos nos momentos mais críticos do calendário, sem negociar a data.

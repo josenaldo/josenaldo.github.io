@@ -68,7 +68,7 @@
     "Home": {
         "hero": {
             "headline": "I build the machine that ships your software.",
-            "subhead": "Fractional software engineer and architect. I take over platforms that have eroded past the point where anyone can safely change them, and turn them into a delivery operation that runs on one meeting a month.",
+            "subhead": "I take over platforms that have eroded past the point where anyone can safely change them, and turn them into a delivery operation that runs on one meeting a month.",
             "photoAlt": "Josenaldo Matos",
             "kicker": "Fractional software engineer & architect",
             "secondaryCta": "Read the three engagements →",
@@ -153,7 +153,7 @@
                 "short": "Essays on delivery, architecture, and one engineer running a platform with AI agents."
             },
             "pog": {
-                "name": "Workaround-Oriented Programming (livropog.com.br)",
+                "name": "Workaround-Oriented Programming",
                 "description": "A living technical book about the gap between the architecture we present and the workarounds we ship. Written in Portuguese, published continuously.",
                 "short": "A living technical book on the gap between the architecture we present and the workarounds we ship. In Portuguese."
             },
@@ -174,11 +174,24 @@
         "status": "Open to senior IC roles",
         "location": "Remote contractor · LATAM · GMT-3",
         "ownTitle": "What I own",
-        "stack": ["Java/Spring", "TypeScript", "Node.js", "React"],
+        "stack": [
+            "Java",
+            "Spring",
+            "TypeScript",
+            "Node.js",
+            "React",
+            "Next.js",
+            "Kafka",
+            "PostgreSQL",
+            "CI/CD",
+            "DDD"
+        ],
         "evidence": {
             "title": "The numbers",
             "cadenceValue": "{days} days",
-            "confidenceNote": "Marked ● = measured from git, CI and the test suite."
+            "confidenceNote": "Marked ● = measured from git, CI and the test suite.",
+            "ownedCaption": "repositories under my ownership, {active} in active development",
+            "testsCaption": "automated tests (was {before})"
         },
         "own": {
             "ownershipTag": "Ownership",
@@ -189,8 +202,8 @@
             "seniorEn": "Senior Engineer résumé (EN)",
             "seniorPt": "Senior Engineer résumé (PT)",
             "fractionalNote": "Not hiring for a single seat, but for someone to run the engineering side of your product end to end? That's the fractional engagement — same track record, part-time.",
-            "fractionalEn": "Fractional Engineer résumé (EN)",
-            "fractionalPt": "Fractional Engineer résumé (PT)"
+            "fractionalEn": "Fractional (EN)",
+            "fractionalPt": "Fractional (PT)"
         },
         "cta": {
             "title": "Let's talk about it."
@@ -198,7 +211,7 @@
     },
     "Blog": {
         "title": "Nephro Nerd Chronicles",
-        "description": "Explore Nephro Nerd Chronicles: Josenaldo's fusion of software development and kidney health insights. Be inspired, learn, and connect – one byte at a time!",
+        "description": "Software development and kidney health insights, in the same feed. Be inspired, learn, and connect — one byte at a time.",
         "filterAll": "All",
         "disclaimerTitle": "A few honest warnings before you leave",
         "category": {
@@ -212,9 +225,19 @@
         },
         "disclaimer": {
             "heading": "A few honest warnings before you leave:",
-            "language": "<strong>On the language:</strong> English is not my native language. I Speak Brazilian Portuguese, Baianese, Mineirese and a lot of bulshit. I write in it anyway — partly for reach, partly as practice. If something reads strangely, that's YOU! Your fault! You are the English Specialist, not me. I am the guy who lost the kidney of his mother-in-law!",
+            "language": "<strong>On the language:</strong> English is not my native language. I write in it anyway — partly for reach, partly as practice. If something reads strangely, that's on you: you're the English specialist, not me.",
             "ai": "<strong>On AI:</strong> Yes, I use AI to help me write — the same way I use an IDE to write code, a calculator to avoid embarrassing arithmetic, and Google to remember things I definitely learned and totally didn't immediately forget. AI is a tool. I'm the one choosing what to say; the machine just helps me say it less incomprehensibly.",
             "opinions": "<strong>On the opinions:</strong> I'm a programmer, not a writer, journalist, analyst, or prophet. These are my personal thoughts — informal, fallible, and entirely unscientific. They exist for my own clarity, for the mild amusement of anyone who stumbles here, and for the future embarrassment of my descendants. If you disagree, you're probably right. If you agree, I appreciate your questionable judgment."
+        },
+        "categoryLabels": {
+            "architecture": "Architecture",
+            "cronica": "Chronicle",
+            "engenharia-de-software": "Software engineering",
+            "job-market": "Job market",
+            "learning": "Learning",
+            "opiniao": "Opinion",
+            "opinion": "Opinion",
+            "personal": "Personal"
         }
     },
     "Portfolio": {
@@ -232,25 +255,42 @@
         "updateLabel": "Update · {date}"
     },
     "About": {
-        "kicker": "Letter to an unknown friend",
+        "kicker": "The long version",
         "role": "Software Developer & Kidney Waster",
         "machines": {
             "oneTag": "Machine one",
-            "oneText": "Computers — they let me work and stay connected to the world.",
+            "oneText": "Computers, enabling me to work and connect with the world.",
             "twoTag": "Machine two",
-            "twoText": "Hemodialysis machines — they keep me alive."
+            "twoText": "Hemodialysis machines, keeping me alive."
         },
         "timelineTitle": "The hard-mode timeline",
         "timeline": [
-            { "year": "1999", "text": "First software project." },
-            { "year": "2003", "text": "Went from hobbyist to professional developer." },
-            { "year": "2008", "text": "Diagnosed with Chronic Kidney Disease. Lost both kidneys, started hemodialysis." },
-            { "year": "2012", "text": "Family decided on a kidney transplant. My mother-in-law donated hers." },
-            { "year": "2013", "text": "Received the transplant — a new lease on life." },
-            { "year": "2015", "text": "Transplant rejection. Back to hemodialysis." },
-            { "year": "2016", "text": "Health forced a full stop from work to focus on treatment." }
+            {
+                "year": "1999",
+                "text": "First software project. Professional work starts in 2003."
+            },
+            {
+                "year": "2008",
+                "text": "Chronic Kidney Disease. Both kidneys gone; dialysis in the morning, work in the afternoon and evening."
+            },
+            {
+                "year": "2013",
+                "text": "Kidney transplant — my mother-in-law offered hers."
+            },
+            {
+                "year": "2015",
+                "text": "Transplant rejection. Back to hemodialysis. (You now know a man who lost his mother-in-law’s kidney.)"
+            },
+            {
+                "year": "2016",
+                "text": "Health forces a pause. Three kidneys lost, two legs broken."
+            },
+            {
+                "year": "2023",
+                "text": "Return to full-time engineering — and to writing."
+            }
         ],
-        "timelineClosing": "I stand strong, having only lost three kidneys and broken two legs.",
+        "timelineClosing": "If life were a game, I would say I was brought here to play on hard mode. And I am a very good player.",
         "cta": {
             "title": "Want to take your part in this story?",
             "ctaLabel": "Say hello"
@@ -258,8 +298,7 @@
     },
     "Projects": {
         "title": "Projects",
-        "description": "My projects are a mix of personal projects and projects I've worked on professionally.",
-        "scopeNote": "Most of these are personal projects and experiments; client work is featured on the home page and the hiring page.",
+        "description": "Mostly personal projects and experiments. Client work lives on the home page and on the Senior Engineer page.",
         "viewProjectCta": "View project",
         "backToProjects": "← Projects",
         "keepExploring": "Keep exploring"
@@ -272,8 +311,8 @@
         "workloadHours": "{hours, plural, one {# hour} other {# hours}}"
     },
     "Experiences": {
-        "title": "Professional Experiences",
-        "description": "{years}+ years of software engineering across education, media, telecom, and e-commerce. Each experience showcases the challenge faced, actions taken, and measurable results delivered.",
+        "title": "Professional experiences",
+        "description": "{years}+ years of software engineering across education, media, telecom, and e-commerce. Each experience shows the challenge faced, the actions taken, and the measurable results delivered.",
         "expand": "Expand ↓",
         "collapse": "Collapse ↑",
         "challenge": "Challenge",
@@ -285,19 +324,18 @@
         "description": "I'm a software engineer with experience in a variety of technologies. Here are some of the skills I've developed."
     },
     "Contact": {
-        "title": "Get in Touch",
-        "description": "Connect with Josenaldo by filling out the form. Get in touch for project collaborations, idea-sharing, or just a friendly conversation.",
+        "title": "Get in touch",
+        "description": "Project collaborations, idea-sharing, or just a friendly conversation. The fastest path is a 30-minute call — pick a slot and it's booked.",
         "channelsLabel": "Direct channels",
-        "timezoneNote": "GMT-3 (São Paulo time). I answer async, usually within a business day.",
+        "timezoneNote": "Remote · GMT-3 (São Paulo) · async-first, so a written message beats a call for anything that isn't a decision.",
         "githubCard": {
             "title": "Like this project?",
-            "body": "Explore the source code on GitHub and make it your own! Fork, star, or contribute to help it grow.",
+            "body": "This whole site is open source — Next.js, Contentlayer and Markdown, deployable to GitHub Pages in minutes. Fork it, star it, or make it your own.",
             "cta": "Fork on GitHub"
-        }
+        },
+        "whatsappHandle": "Direct message"
     },
     "Footer": {
-        "getInTouchTitle": "Get in touch",
-        "getInTouchSubtitle": "I'm always open to discussing new projects, creative ideas or opportunities to be part of your visions.",
         "siteColumnTitle": "Site",
         "elsewhereColumnTitle": "Elsewhere",
         "copyright": "© {startYear}–{currentYear} Josenaldo de Oliveira Matos Filho - All rights reserved."

@@ -28,7 +28,7 @@ const Testimonial = ({ testimonials }) => {
                 <SectionHeader
                     title={t('title')}
                     aside={t('aside')}
-                    size="sm"
+                    size="xs"
                 />
 
                 {visibleTestimonials.length === 0 ? (

@@ -52,12 +52,19 @@ export default async function ContactPage({ params }) {
                     alignItems: 'start',
                 }}
             >
-                <Box sx={{ display: 'flex', flexDirection: 'column', gap: '22px' }}>
+                <Box
+                    sx={{
+                        display: 'flex',
+                        flexDirection: 'column',
+                        gap: '22px',
+                    }}
+                >
                     <Typography
                         component="h1"
                         sx={{
                             m: 0,
-                            fontFamily: "'Space Grotesk', system-ui, sans-serif",
+                            fontFamily:
+                                "'Space Grotesk', system-ui, sans-serif",
                             fontSize: '48px',
                             fontWeight: 700,
                             lineHeight: 1.08,
@@ -146,7 +153,7 @@ export default async function ContactPage({ params }) {
                                             "'IBM Plex Mono', ui-monospace, monospace",
                                         fontSize: '11px',
                                         fontWeight: 600,
-                                        letterSpacing: '.1em',
+                                        letterSpacing: '.14em',
                                         textTransform: 'uppercase',
                                         color: '#FFAA00',
                                     }}
@@ -157,7 +164,9 @@ export default async function ContactPage({ params }) {
                                     component="span"
                                     sx={{ fontSize: '15px', color: '#C6CCD8' }}
                                 >
-                                    {social.value}
+                                    {social.valueKey
+                                        ? t(social.valueKey)
+                                        : social.value}
                                 </Typography>
                             </Box>
                         ))}
@@ -167,7 +176,8 @@ export default async function ContactPage({ params }) {
                         component="p"
                         sx={{
                             m: 0,
-                            fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
+                            fontFamily:
+                                "'IBM Plex Mono', ui-monospace, monospace",
                             fontSize: '12px',
                             color: '#7C8494',
                         }}
@@ -190,7 +200,8 @@ export default async function ContactPage({ params }) {
                         component="p"
                         sx={{
                             m: 0,
-                            fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
+                            fontFamily:
+                                "'IBM Plex Mono', ui-monospace, monospace",
                             fontSize: '11px',
                             fontWeight: 600,
                             letterSpacing: '.14em',
@@ -202,7 +213,12 @@ export default async function ContactPage({ params }) {
                     </Typography>
                     <Typography
                         component="p"
-                        sx={{ m: 0, fontSize: '15px', lineHeight: 1.6, color: '#98A0B0' }}
+                        sx={{
+                            m: 0,
+                            fontSize: '15px',
+                            lineHeight: 1.6,
+                            color: '#98A0B0',
+                        }}
                     >
                         {t('githubCard.body')}
                     </Typography>
@@ -214,12 +230,11 @@ export default async function ContactPage({ params }) {
                         sx={{
                             alignSelf: 'flex-start',
                             fontSize: '14px',
-                            fontWeight: 600,
                             color: '#C6CCD8',
-                            bgcolor: 'rgba(255,255,255,.05)',
+                            bgcolor: 'rgba(255,255,255,.06)',
                             borderRadius: '10px',
-                            px: '16px',
-                            py: '10px',
+                            px: '18px',
+                            py: '11px',
                             textDecoration: 'none',
                         }}
                     >

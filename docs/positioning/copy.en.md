@@ -6,7 +6,7 @@ Idioma padrão do site. Cada número desta página existe em `src/data/metrics.m
 
 **Headline:** I build the machine that ships your software.
 
-**Subhead:** Fractional software engineer and architect. I take over platforms that have eroded past the point where anyone can safely change them, and turn them into a delivery operation that runs on one meeting a month.
+**Subhead:** I take over platforms that have eroded past the point where anyone can safely change them, and turn them into a delivery operation that runs on one meeting a month.
 
 **Números (ids de `metrics.mjs`):** `deploymentFrequency` — from a release once a quarter to one every eight days · `clientReportedIssues` — client-reported production issues down from ~100 to ~5 a month · `deployDuration` — deploys in 15 minutes instead of 2 hours
 
@@ -61,7 +61,7 @@ Seção intocada. A copy existente permanece.
 
 **Blog:** Essays on delivery, architecture, and what actually happens when one engineer runs a platform with AI agents.
 
-**Workaround-Oriented Programming (livropog.com.br):** A living technical book about the gap between the architecture we present and the workarounds we ship. Written in Portuguese, published continuously.
+**Workaround-Oriented Programming:** A living technical book about the gap between the architecture we present and the workarounds we ship. Written in Portuguese, published continuously.
 
 **Codex Technomanticus:** My grimoire — the working notes I keep for full-stack engineering and share with colleagues when a question comes up twice. Written in Portuguese.
 
@@ -81,7 +81,7 @@ Seção intocada. A copy existente permanece.
 
 **Promessa:** I reconstruct how your system actually works, then tell you what to fix and in what order.
 
-- Fixed scope and fixed duration, ending in a written map: what's broken, what it costs you, what to do first.
+- Ends in a written map: what's broken, what it costs you, what to do first.
 - No rewrite proposal. A rewrite is what got the last team into this.
 - You keep the map whether or not you hire me for what comes after.
 
@@ -89,8 +89,8 @@ Seção intocada. A copy existente permanece.
 
 **Promessa:** Requirements go in, reliable releases come out — and the technical overhead stops being yours.
 
-- Monthly retainer. Pipelines, test suites, staging-to-production promotion, monitoring, and release notes on every deploy.
-- Modernization happens in increments, alongside feature delivery. The business keeps running; there is no freeze.
+- Pipelines, test suites, staging-to-production promotion, monitoring, release notes on every deploy.
+- Modernization in increments, alongside feature delivery. No freeze.
 - One meeting a month. Everything else is written and async.
 
 ### Build
@@ -105,7 +105,7 @@ Seção intocada. A copy existente permanece.
 
 ## Engagements
 
-### Medical education platform — medical-residency exam prep
+### Medical education platform — medical board certification exam prep
 
 *Fractional engineer · sole owner of ten repositories, three in active development · 2024 – present*
 
@@ -113,7 +113,7 @@ Seção intocada. A copy existente permanece.
 
 **Built:** The full delivery machine — automated tests, CI/CD with staging gates, contract validation, monitoring, and release notes pushed on every deploy — plus an AI-native development workflow running under my sole architecture and review, and a modernization of the codebase carried out in increments alongside feature delivery.
 
-**Result:** An approved request now reaches production in about a week instead of three to six months. Releases run about four a month, one every eight days, with little rework. Client-reported production issues fell from around a hundred a month to about five. Zero downtime. Deploys went from two hours to fifteen minutes. The monthly follow-up operation went from a month of manual work to about two hours. Client involvement: one meeting a month.
+**Result:** Deploys went from two hours to fifteen minutes. The monthly follow-up operation went from a month of manual work to about two hours. Client involvement: one meeting a month.
 
 ### Newspaper platform modernization — via Muvz
 
@@ -123,7 +123,7 @@ Seção intocada. A copy existente permanece.
 
 **Built:** Five Spring Boot microservices extracted incrementally — no rewrite, no freeze — with event-driven integration over Apache Kafka, a centralized back-office for shared configuration, and engineering practice (Hexagonal Architecture, SOLID, DDD) established across the team.
 
-**Result:** The three-month delay eliminated and delivery back on schedule. System performance up 40%. The team held a restored 15-day sprint cadence after I rolled off.
+**Result:** The three-month delay eliminated and delivery back on schedule, with the practice left behind in the team.
 
 ### Presidential campaign platform — via Conddiz
 
@@ -133,4 +133,4 @@ Seção intocada. A copy existente permanece.
 
 **Built:** One backend serving three frontends — the official website plus two production PWAs — with integrations across every major social network.
 
-**Result:** Shipped on the campaign calendar and sustained traffic peaks of around 200,000 users at its most critical moments.
+**Result:** Sustained the peaks at the most critical moments of the calendar, with no date negotiation.

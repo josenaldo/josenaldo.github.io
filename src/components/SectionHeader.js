@@ -13,11 +13,15 @@ const NUMERAL_SX = {
     lineHeight: 1,
 }
 
+const TITLE_SX = {
+    lg: { fontSize: { xs: '28px', md: '34px' }, fontWeight: 700 },
+    md: { fontSize: { xs: '26px', md: '32px' }, fontWeight: 700 },
+    sm: { fontSize: { xs: '22px', md: '26px' }, fontWeight: 700 },
+    xs: { fontSize: { xs: '20px', md: '23px' }, fontWeight: 600 },
+}
+
 const SectionHeader = ({ n, title, aside, variant = 'inline', size = 'lg' }) => {
-    const titleSx =
-        size === 'lg'
-            ? { fontSize: { xs: '28px', md: '34px' }, fontWeight: 700 }
-            : { fontSize: { xs: '22px', md: '26px' }, fontWeight: 700 }
+    const titleSx = TITLE_SX[size]
 
     if (variant === 'spine') {
         return (
@@ -72,7 +76,7 @@ SectionHeader.propTypes = {
     title: PropTypes.string.isRequired,
     aside: PropTypes.string,
     variant: PropTypes.oneOf(['inline', 'spine']),
-    size: PropTypes.oneOf(['lg', 'sm']),
+    size: PropTypes.oneOf(['lg', 'md', 'sm', 'xs']),
 }
 
 export default SectionHeader

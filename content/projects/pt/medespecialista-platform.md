@@ -14,7 +14,7 @@ translated: true
 
 ## 1. Pitch de Elevador
 
-MedEspecialista é uma plataforma em produção que ajuda médicos a se prepararem para exames de residência médica. Desde **julho de 2024**, lidero a modernização e a entrega de ponta a ponta em quatro repositórios centrais: modernização do legado/API, uma nova fundação de backend em NestJS, o painel administrativo interno e o frontend voltado ao estudante.
+MedEspecialista é uma plataforma em produção que ajuda médicos a se prepararem para a prova de título de especialista. Desde **julho de 2024**, lidero a modernização e a entrega de ponta a ponta em quatro repositórios centrais: modernização do legado/API, uma nova fundação de backend em NestJS, o painel administrativo interno e o frontend voltado ao estudante.
 
 O trabalho combina entrega de produto com renovação arquitetural: manter a plataforma em produção funcionando, reduzir trabalho operacional manual, introduzir práticas de release mais seguras e mover gradualmente domínios críticos rumo a contratos mais claros, testes e arquitetura modular.
 

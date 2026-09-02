@@ -53,10 +53,18 @@ export default async function BlogPage({ params }) {
     return (
         <>
             <Section surface="default" padTop={56} padBottom={32}>
-                <PageHeader title={t('title')} lead={t('description')}>
+                <PageHeader
+                    title={t('title')}
+                    lead={t('description')}
+                    leadWidth="70ch"
+                >
                     <CategoryFilters
                         categories={categories}
                         allLabel={t('filterAll')}
+                        totalCount={categories.reduce(
+                            (total, category) => total + category.count,
+                            0
+                        )}
                     />
                 </PageHeader>
             </Section>

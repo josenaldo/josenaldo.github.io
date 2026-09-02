@@ -3,16 +3,20 @@ import GitHubIcon from '@mui/icons-material/GitHub'
 import LinkedInIcon from '@mui/icons-material/LinkedIn'
 import WhatsAppIcon from '@mui/icons-material/WhatsApp'
 
+// `value` é o que aparece na tela; `url` é para onde o card leva. Eram a
+// mesma coisa, e a URL inteira dominava o card — o mock mostra o handle.
+// O WhatsApp não mostra mais o número: o link continua abrindo a conversa,
+// e o telefone deixa de estar em texto puro numa página pública.
 const socialLinks = [
     {
         name: 'LinkedIn',
-        value: 'https://www.linkedin.com/in/josenaldo/',
+        value: '/in/josenaldo',
         url: 'https://www.linkedin.com/in/josenaldo/',
         icon: LinkedInIcon,
     },
     {
         name: 'GitHub',
-        value: 'https://github.com/josenaldo',
+        value: '@josenaldo',
         url: 'https://github.com/josenaldo',
         icon: GitHubIcon,
     },
@@ -24,7 +28,7 @@ const socialLinks = [
     },
     {
         name: 'WhatsApp',
-        value: '+55 (34) 99183-0215',
+        valueKey: 'whatsappHandle',
         url: 'https://wa.me/5534991830215',
         icon: WhatsAppIcon,
     },

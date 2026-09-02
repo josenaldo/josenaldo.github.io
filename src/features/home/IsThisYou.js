@@ -77,7 +77,8 @@ const IsThisYou = () => {
                     <Typography
                         component="p"
                         sx={{
-                            m: '14px 0 0',
+                            m: 0,
+                            pt: '14px',
                             fontFamily: "'Space Grotesk', system-ui, sans-serif",
                             fontSize: '19px',
                             fontWeight: 600,

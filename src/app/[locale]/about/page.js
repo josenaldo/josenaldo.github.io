@@ -68,9 +68,22 @@ export default async function AboutPage({ params }) {
     const timeline = t.raw('timeline')
 
     const excluded = new Set(['Sincerely,', 'Josenaldo', t('role')])
-    const bodyParagraphs = splitParagraphs(page.body.raw).filter(
-        (p) => !p.startsWith('- ') && !excluded.has(p)
-    )
+    const allParagraphs = splitParagraphs(page.body.raw)
+
+    // Os cards Machine one/two entram exatamente onde a lista de máquinas
+    // estava no markdown — logo depois do parágrafo que os apresenta ("two
+    // types of machines:"). Eles ficavam no fim da carta, a 2.000px do
+    // parágrafo que os introduz, e ninguém ligava uma coisa à outra.
+    const listIndex = allParagraphs.findIndex((p) => p.startsWith('- '))
+    const keep = (p) => !p.startsWith('- ') && !excluded.has(p)
+    const bodyBefore = (listIndex === -1
+        ? allParagraphs
+        : allParagraphs.slice(0, listIndex)
+    ).filter(keep)
+    const bodyAfter = (listIndex === -1
+        ? []
+        : allParagraphs.slice(listIndex)
+    ).filter(keep)
 
     return (
         <>
@@ -78,6 +91,7 @@ export default async function AboutPage({ params }) {
                 <Box
                     sx={{
                         maxWidth: '760px',
+                        boxSizing: 'content-box',
                         mx: 'auto',
                         display: 'flex',
                         flexDirection: 'column',
@@ -85,7 +99,15 @@ export default async function AboutPage({ params }) {
                     }}
                 >
                     <Box sx={{ alignSelf: 'flex-start' }}>
-                        <Pill tone="amber">{t('kicker')}</Pill>
+                        <Pill
+                            tone="amber"
+                            size="sm"
+                            uppercase
+                            tracking=".14em"
+                            sx={{ p: '7px 13px' }}
+                        >
+                            {t('kicker')}
+                        </Pill>
                     </Box>
 
                     <Typography
@@ -107,7 +129,7 @@ export default async function AboutPage({ params }) {
                         sx={{
                             display: 'flex',
                             alignItems: 'center',
-                            gap: '12px',
+                            gap: '16px',
                         }}
                     >
                         <Box
@@ -127,7 +149,7 @@ export default async function AboutPage({ params }) {
                                 component="p"
                                 sx={{ m: 0, fontSize: '15px', color: '#E9ECF2' }}
                             >
-                                Josenaldo Matos
+                                Josenaldo de Oliveira Matos Filho
                             </Typography>
                             <Typography
                                 component="p"
@@ -150,6 +172,7 @@ export default async function AboutPage({ params }) {
                 <Box
                     sx={{
                         maxWidth: '680px',
+                        boxSizing: 'content-box',
                         mx: 'auto',
                         display: 'flex',
                         flexDirection: 'column',
@@ -160,7 +183,7 @@ export default async function AboutPage({ params }) {
                         '& > *': { m: 0 },
                     }}
                 >
-                    <MDXContent content={bodyParagraphs.join('\n\n')} />
+                    <MDXContent content={bodyBefore.join('\n\n')} />
 
                     <Box
                         sx={{
@@ -213,13 +236,18 @@ export default async function AboutPage({ params }) {
                             </Box>
                         ))}
                     </Box>
+
+                    {bodyAfter.length > 0 ? (
+                        <MDXContent content={bodyAfter.join('\n\n')} />
+                    ) : null}
                 </Box>
             </Section>
 
-            <Section surface="band" padTop={24} padBottom={48}>
+            <Section surface="default" padTop={24} padBottom={48}>
                 <Box
                     sx={{
                         maxWidth: '900px',
+                        boxSizing: 'content-box',
                         mx: 'auto',
                         bgcolor: '#0E1218',
                         borderRadius: '18px',

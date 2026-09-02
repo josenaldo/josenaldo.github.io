@@ -32,16 +32,16 @@ const MetricCard = ({ label, before, after, unit, confidence }) => (
                 lineHeight: 1.3,
             }}
         >
+            {label}
             {confidence === 'measured' ? (
                 <Box
                     component="span"
                     aria-hidden="true"
-                    sx={{ color: '#FFAA00', mr: '6px' }}
+                    sx={{ color: '#FFAA00', ml: '6px' }}
                 >
                     ●
                 </Box>
             ) : null}
-            {label}
         </Typography>
 
         <Box

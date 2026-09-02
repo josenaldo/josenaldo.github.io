@@ -45,10 +45,14 @@ const Header = () => {
                     header tem a mesma largura do resto da página,
                     `space-between` encosta esse bloco na mesma borda
                     direita onde termina o conteúdo (ex.: a foto do hero). */}
-                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 3 }}>
+                    {/* gap 1 (8px), não 3: no mock a nav, o EN/PT e o botão
+                    são uma fila só de gap 8, com mais 8 de margem antes do
+                    EN/PT e do botão. Os 24px de antes abriam um buraco entre
+                    a navegação e a ação que o desenho não tem. */}
+                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
                         <DesktopMenu pages={pages} aboutSubNav={aboutSubNav} />
 
-                        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, ml: 1 }}>
                             <BookACallButton size="small" short />
 
                             <NoSsr>

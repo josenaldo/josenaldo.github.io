@@ -16,8 +16,13 @@ import StatCard from '@/components/StatCard'
 import metrics from '@/data/metrics.mjs'
 import { metricSideValue } from '@/lib/metricValue'
 
-const { codebasesOwned, clientReportedIssues, deploymentFrequency, automatedTests } =
-    metrics
+const {
+    codebasesOwned,
+    codebasesActive,
+    clientReportedIssues,
+    deploymentFrequency,
+    automatedTests,
+} = metrics
 
 const Evidence = () => {
     const t = useTranslations('Hiring.evidence')
@@ -28,12 +33,14 @@ const Evidence = () => {
         {
             id: 'codebasesOwned',
             value: metricSideValue(codebasesOwned.after, locale),
-            caption: tMetrics('codebasesOwned.label'),
+            caption: t('ownedCaption', { active: codebasesActive.after.count }),
             confidence: codebasesOwned.after.confidence,
         },
         {
             id: 'clientReportedIssues',
-            value: metricSideValue(clientReportedIssues.after, locale),
+            // Sem a unidade dentro do valor: a legenda logo abaixo ja diz
+            // "a month", e o mock mostra so "~5".
+            value: `~${clientReportedIssues.after.count.toLocaleString(locale)}`,
             caption: tMetrics('clientReportedIssues.resultCaption'),
             confidence: clientReportedIssues.after.confidence,
         },
@@ -42,13 +49,15 @@ const Evidence = () => {
             value: t('cadenceValue', {
                 days: deploymentFrequency.after.everyDays,
             }),
-            caption: tMetrics('deploymentFrequency.label'),
+            caption: tMetrics('deploymentFrequency.heroUnit'),
             confidence: deploymentFrequency.after.confidence,
         },
         {
             id: 'automatedTests',
             value: metricSideValue(automatedTests.after, locale),
-            caption: tMetrics('automatedTests.label'),
+            caption: t('testsCaption', {
+                before: automatedTests.before.count.toLocaleString(locale),
+            }),
             confidence: automatedTests.after.confidence,
         },
     ]
@@ -58,7 +67,7 @@ const Evidence = () => {
             <Box
                 sx={{ display: 'flex', flexDirection: 'column', gap: '28px' }}
             >
-                <SectionHeader n="01" title={t('title')} />
+                <SectionHeader n="01" title={t('title')} size="md" />
 
                 <Box
                     sx={{

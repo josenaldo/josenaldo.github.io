@@ -445,4 +445,4 @@ O registry dos 27 itens TST-AUD está em `docs/specs/testing/test-suite-audit-re
 
 ---
 
-*Os projetos mencionados neste artigo são parte do MedEspecialista, plataforma de preparação para residência médica.*
+*Os projetos mencionados neste artigo são parte do MedEspecialista, plataforma de preparação para a prova de título de especialista.*

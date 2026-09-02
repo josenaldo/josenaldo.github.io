@@ -68,7 +68,7 @@
     "Home": {
         "hero": {
             "headline": "Eu construo a máquina que entrega o seu software.",
-            "subhead": "Engenheiro e arquiteto de software fractional. Assumo plataformas que erodiram até o ponto em que ninguém mais mexe com segurança, e transformo isso numa operação de entrega que consome uma reunião por mês do seu time.",
+            "subhead": "Eu assumo plataformas que erodiram além do ponto em que alguém consegue mudá-las com segurança e as transformo numa operação de entrega que roda com uma reunião por mês.",
             "photoAlt": "Josenaldo Matos",
             "kicker": "Engenheiro de software e arquiteto fracionário",
             "secondaryCta": "Leia os três engajamentos →",
@@ -153,7 +153,7 @@
                 "short": "Ensaios sobre entrega, arquitetura e um engenheiro operando uma plataforma com agentes de IA."
             },
             "pog": {
-                "name": "Programação Orientada a Gambiarra (livropog.com.br)",
+                "name": "Programação Orientada a Gambiarra",
                 "description": "Um livro técnico vivo sobre a distância entre a arquitetura que a gente apresenta e a gambiarra que a gente entrega. Publicação contínua.",
                 "short": "Um livro técnico vivo sobre a distância entre a arquitetura que apresentamos e os contornos que entregamos."
             },
@@ -174,11 +174,24 @@
         "status": "Aberto a vagas sênior de IC",
         "location": "Contratação remota · LATAM · GMT-3",
         "ownTitle": "O que eu assumo",
-        "stack": ["Java/Spring", "TypeScript", "Node.js", "React"],
+        "stack": [
+            "Java",
+            "Spring",
+            "TypeScript",
+            "Node.js",
+            "React",
+            "Next.js",
+            "Kafka",
+            "PostgreSQL",
+            "CI/CD",
+            "DDD"
+        ],
         "evidence": {
             "title": "Os números",
             "cadenceValue": "{days} dias",
-            "confidenceNote": "Marcado com ● = medido a partir do git, CI e da suíte de testes."
+            "confidenceNote": "Marcado com ● = medido a partir do git, CI e da suíte de testes.",
+            "ownedCaption": "repositórios sob minha propriedade, {active} em desenvolvimento ativo",
+            "testsCaption": "testes automatizados (eram {before})"
         },
         "own": {
             "ownershipTag": "Propriedade",
@@ -189,8 +202,8 @@
             "seniorEn": "Currículo Senior Engineer (EN)",
             "seniorPt": "Currículo Senior Engineer (PT)",
             "fractionalNote": "Não está contratando pra uma vaga, e sim procurando alguém pra tocar a engenharia do seu produto de ponta a ponta? É esse o encaixe fractional — o mesmo histórico, em regime parcial.",
-            "fractionalEn": "Currículo Fractional Engineer (EN)",
-            "fractionalPt": "Currículo Fractional Engineer (PT)"
+            "fractionalEn": "Fractional (EN)",
+            "fractionalPt": "Fractional (PT)"
         },
         "cta": {
             "title": "Vamos conversar sobre isso."
@@ -198,7 +211,7 @@
     },
     "Blog": {
         "title": "Nephro Nerd Chronicles",
-        "description": "Explore o Nephro Nerd Chronicles: a fusão de Josenaldo entre desenvolvimento de software e reflexões sobre saúde renal. Inspire-se, aprenda e conecte-se – um byte de cada vez!",
+        "description": "Desenvolvimento de software e saúde renal no mesmo feed. Inspire-se, aprenda e conecte-se — um byte por vez.",
         "filterAll": "Todos",
         "disclaimerTitle": "Alguns avisos honestos antes de você sair",
         "category": {
@@ -212,9 +225,19 @@
         },
         "disclaimer": {
             "heading": "Alguns avisos honestos antes de você sair:",
-            "language": "<strong>Sobre o idioma:</strong> Inglês não é a minha língua nativa. Eu falo português brasileiro, baianês, mineirês e um monte de bobagem. Mesmo assim escrevo em inglês — em parte pelo alcance, em parte como prática. Se algo soar estranho, a culpa é SUA! Sua culpa! Você é o especialista em inglês, não eu. Eu sou o cara que perdeu o rim da sogra!",
+            "language": "<strong>Sobre o idioma:</strong> Inglês não é a minha língua nativa. Mesmo assim escrevo em inglês — em parte pelo alcance, em parte como prática. Se algo soar estranho, a culpa é sua: o especialista em inglês é você, não eu.",
             "ai": "<strong>Sobre IA:</strong> Sim, eu uso IA para me ajudar a escrever — da mesma forma que uso uma IDE para escrever código, uma calculadora para evitar aritmética constrangedora, e o Google para lembrar coisas que eu definitivamente aprendi e totalmente não esqueci na hora. IA é uma ferramenta. Eu sou quem escolhe o que dizer; a máquina só ajuda a dizer de um jeito menos incompreensível.",
             "opinions": "<strong>Sobre as opiniões:</strong> Eu sou programador, não escritor, jornalista, analista ou profeta. Estes são meus pensamentos pessoais — informais, falíveis e totalmente não científicos. Eles existem para minha própria clareza, para a leve diversão de quem passar por aqui, e para o futuro constrangimento dos meus descendentes. Se você discorda, provavelmente está certo. Se você concorda, agradeço seu duvidoso julgamento."
+        },
+        "categoryLabels": {
+            "architecture": "Arquitetura",
+            "cronica": "Crônica",
+            "engenharia-de-software": "Engenharia de software",
+            "job-market": "Mercado de trabalho",
+            "learning": "Aprendizado",
+            "opiniao": "Opinião",
+            "opinion": "Opinião",
+            "personal": "Pessoal"
         }
     },
     "Portfolio": {
@@ -232,25 +255,42 @@
         "updateLabel": "Atualização · {date}"
     },
     "About": {
-        "kicker": "Carta a um amigo desconhecido",
+        "kicker": "A versão longa",
         "role": "Desenvolvedor de Software & Perdedor de Rim",
         "machines": {
             "oneTag": "Máquina um",
-            "oneText": "Computadores — me permitem trabalhar e me conectar com o mundo.",
+            "oneText": "Computadores, que me permitem trabalhar e me conectar com o mundo.",
             "twoTag": "Máquina dois",
-            "twoText": "Máquinas de hemodiálise — me mantêm vivo."
+            "twoText": "Máquinas de hemodiálise, que me mantêm vivo."
         },
         "timelineTitle": "A linha do tempo no modo difícil",
         "timeline": [
-            { "year": "1999", "text": "Primeiro projeto de software." },
-            { "year": "2003", "text": "Passou de hobby a desenvolvedor profissional." },
-            { "year": "2008", "text": "Diagnosticado com Doença Renal Crônica. Perdeu os dois rins, começou hemodiálise." },
-            { "year": "2012", "text": "A família decidiu pelo transplante renal. A sogra doou o dela." },
-            { "year": "2013", "text": "Recebeu o transplante — uma nova chance de vida." },
-            { "year": "2015", "text": "Rejeição do transplante. De volta à hemodiálise." },
-            { "year": "2016", "text": "A saúde forçou uma parada total no trabalho para focar no tratamento." }
+            {
+                "year": "1999",
+                "text": "Primeiro projeto de software. O trabalho profissional começa em 2003."
+            },
+            {
+                "year": "2008",
+                "text": "Doença Renal Crônica. Os dois rins se foram; diálise de manhã, trabalho à tarde e à noite."
+            },
+            {
+                "year": "2013",
+                "text": "Transplante renal — minha sogra ofereceu o dela."
+            },
+            {
+                "year": "2015",
+                "text": "Rejeição do transplante. De volta à hemodiálise. (Você agora conhece um homem que perdeu o rim da sogra.)"
+            },
+            {
+                "year": "2016",
+                "text": "A saúde força uma pausa. Três rins perdidos, duas pernas quebradas."
+            },
+            {
+                "year": "2023",
+                "text": "Volta à engenharia em tempo integral — e à escrita."
+            }
         ],
-        "timelineClosing": "Sigo firme, tendo perdido só três rins e quebrado duas pernas.",
+        "timelineClosing": "Se a vida fosse um jogo, eu diria que fui trazido para jogar no modo difícil. E sou um jogador muito bom.",
         "cta": {
             "title": "Quer fazer parte dessa história?",
             "ctaLabel": "Diga oi"
@@ -258,8 +298,7 @@
     },
     "Projects": {
         "title": "Projetos",
-        "description": "Meus projetos são uma mistura de projetos pessoais e projetos em que trabalhei profissionalmente.",
-        "scopeNote": "A maior parte aqui é projeto próprio e experimento; o trabalho para cliente aparece em destaque na página inicial e na página de contratação.",
+        "description": "Na maior parte, projetos pessoais e experimentos. O trabalho para cliente vive na página inicial e na página Senior Engineer.",
         "viewProjectCta": "Ver projeto",
         "backToProjects": "← Projetos",
         "keepExploring": "Continue explorando"
@@ -272,7 +311,7 @@
         "workloadHours": "{hours, plural, one {# hora} other {# horas}}"
     },
     "Experiences": {
-        "title": "Experiências Profissionais",
+        "title": "Experiências profissionais",
         "description": "{years}+ anos de engenharia de software em educação, mídia, telecom e e-commerce. Cada experiência mostra o desafio enfrentado, as ações tomadas e os resultados mensuráveis entregues.",
         "expand": "Expandir ↓",
         "collapse": "Recolher ↑",
@@ -285,19 +324,18 @@
         "description": "Sou um engenheiro de software com experiência em uma variedade de tecnologias. Aqui estão algumas das habilidades que desenvolvi."
     },
     "Contact": {
-        "title": "Entre em Contato",
-        "description": "Conecte-se com Josenaldo preenchendo o formulário. Entre em contato para colaborações em projetos, troca de ideias, ou apenas uma conversa amigável.",
+        "title": "Entre em contato",
+        "description": "Colaboração em projeto, troca de ideias ou só uma conversa. O caminho mais rápido é uma chamada de 30 minutos — escolhe um horário e está marcado.",
         "channelsLabel": "Canais diretos",
-        "timezoneNote": "GMT-3 (horário de São Paulo). Respondo de forma assíncrona, geralmente em até um dia útil.",
+        "timezoneNote": "Remoto · GMT-3 (São Paulo) · async-first, então mensagem escrita ganha de chamada para tudo que não é decisão.",
         "githubCard": {
             "title": "Curtiu este projeto?",
-            "body": "Explore o código-fonte no GitHub e faça dele o seu! Dê um fork, uma estrela, ou contribua para ajudá-lo a crescer.",
+            "body": "Este site inteiro é open source — Next.js, Contentlayer e Markdown, publicável no GitHub Pages em minutos. Dê um fork, uma estrela, ou faça dele o seu.",
             "cta": "Fork no GitHub"
-        }
+        },
+        "whatsappHandle": "Mensagem direta"
     },
     "Footer": {
-        "getInTouchTitle": "Entre em contato",
-        "getInTouchSubtitle": "Estou sempre aberto a discutir novos projetos, ideias criativas ou oportunidades de fazer parte das suas visões.",
         "siteColumnTitle": "Site",
         "elsewhereColumnTitle": "Outros lugares",
         "copyright": "© {startYear}–{currentYear} Josenaldo de Oliveira Matos Filho - Todos os direitos reservados."

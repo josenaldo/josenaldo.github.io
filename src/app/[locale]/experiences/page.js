@@ -60,7 +60,7 @@ export default async function ExperiencesPage({ params }) {
                 title={t('title')}
                 lead={t('description', { years: yearsOfExperience() })}
             />
-            <Box sx={{ mt: '32px' }}>
+            <Box sx={{ mt: '16px' }}>
                 <ExperienceList experiences={experiences} />
             </Box>
         </Section>

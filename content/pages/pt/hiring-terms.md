@@ -8,4 +8,4 @@ image: '/images/default.jpg'
 
 Eu assumo essa plataforma e projeto uma operação de entrega autônoma em volta dela — requisitos entram, releases confiáveis saem, e o overhead técnico e de gestão deixa de ser seu.
 
-Operação assíncrona. Requisitos, decisões de arquitetura e backlog vivem no repositório como fonte única de verdade, com atualizações proativas de alto sinal em vez de reuniões de status.
+Requisitos, decisões de arquitetura e backlog vivem no repositório como fonte única de verdade, com atualizações proativas de alto sinal em vez de reuniões de status.
