@@ -14,6 +14,14 @@ const Header = () => {
         <AppBar position="sticky">
             <Box
                 sx={{
+                    // `width: 100%` é obrigatório aqui: o AppBar do MUI é
+                    // `display: flex; flex-direction: column`, e um item
+                    // flex com `mx: 'auto'` mas sem largura explícita perde
+                    // o stretch (a margem automática no eixo cruzado do flex
+                    // sequestra o alinhamento) e encolhe pro conteúdo em vez
+                    // de esticar até o `maxWidth` — foi assim que o header
+                    // ficou mais estreito que o resto da página.
+                    width: '100%',
                     maxWidth: '1280px',
                     mx: 'auto',
                     px: { xs: '24px', md: '40px' },
