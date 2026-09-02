@@ -8,7 +8,7 @@ const GetInTouch = () => {
     const t = useTranslations('Footer')
 
     return (
-        <Section elevation={2} py={4}>
+        <Section surface="paper" rhythm="section">
             <Box
                 color="text.secondary"
                 sx={{

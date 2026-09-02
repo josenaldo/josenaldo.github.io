@@ -22,7 +22,7 @@ const Blog = ({ posts }) => {
     const paginatedPosts = posts.slice(startIndex, startIndex + POSTS_PER_PAGE)
 
     return (
-        <Section elevation={1}>
+        <Section surface="band" rhythm="hero">
             <Box
                 sx={{
                     display: 'flex',

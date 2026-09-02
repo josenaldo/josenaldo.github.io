@@ -8,7 +8,7 @@ const IsThisYou = () => {
     const symptoms = t.raw('symptoms')
 
     return (
-        <Section elevation={0}>
+        <Section surface="default" rhythm="hero">
             <Box
                 sx={{
                     display: 'flex',

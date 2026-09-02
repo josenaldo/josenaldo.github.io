@@ -9,7 +9,7 @@ const Engagements = ({ engagements }) => {
     const visibleEngagements = Array.isArray(engagements) ? engagements : []
 
     return (
-        <Section elevation={0}>
+        <Section surface="default" rhythm="hero">
             <Box
                 sx={{
                     display: 'flex',

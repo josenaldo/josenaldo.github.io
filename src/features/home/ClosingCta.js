@@ -8,7 +8,7 @@ const ClosingCta = () => {
     const t = useTranslations('Home.closingCta')
 
     return (
-        <Section elevation={0}>
+        <Section surface="default" rhythm="hero">
             <Box
                 sx={{
                     display: 'flex',

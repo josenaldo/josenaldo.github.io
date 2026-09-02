@@ -20,7 +20,7 @@ const ResumeDownloads = () => {
     }
 
     return (
-        <Section elevation={0}>
+        <Section surface="default" rhythm="section">
             <Box
                 sx={{
                     display: 'flex',

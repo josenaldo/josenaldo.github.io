@@ -29,7 +29,7 @@ const Evidence = () => {
     ]
 
     return (
-        <Section elevation={1}>
+        <Section surface="band" rhythm="section">
             <Box
                 sx={{
                     display: 'flex',

@@ -10,7 +10,7 @@ const Testimonial = ({ testimonials }) => {
     const visibleTestimonials = Array.isArray(testimonials) ? testimonials : []
 
     return (
-        <Section elevation={2}>
+        <Section surface="paper" rhythm="hero">
             <Box
                 sx={{
                     display: 'flex',

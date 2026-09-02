@@ -20,7 +20,7 @@ const WorkModes = ({ workModes }) => {
     const visibleWorkModes = Array.isArray(workModes) ? workModes : []
 
     return (
-        <Section elevation={1}>
+        <Section surface="band" rhythm="hero">
             <Box
                 sx={{
                     display: 'flex',

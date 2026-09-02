@@ -14,7 +14,7 @@ const Hero = () => {
     const t = useTranslations('Home.hero')
 
     return (
-        <Section elevation={1}>
+        <Section surface="band" rhythm="hero">
             <Box
                 sx={{
                     display: 'flex',

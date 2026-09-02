@@ -19,7 +19,7 @@ const Publications = () => {
     const tCommon = useTranslations('Common')
 
     return (
-        <Section elevation={0}>
+        <Section surface="default" rhythm="hero">
             <Box
                 sx={{
                     display: 'flex',
