@@ -7,6 +7,7 @@ bullets:
     - 'The delivery machine is installed from day one, before the erosion starts.'
     - 'No perfectly-written ticket required before work begins.'
 icon: code
+kicker: End to end
 translationKey: build
 show: true
 ---

@@ -13,17 +13,21 @@
     },
     "Metrics": {
         "deploymentFrequency": {
-            "label": "Cadência de release"
+            "label": "Cadência de release",
+            "resultCaption": "do pedido aprovado à produção (era 3–6 meses)"
         },
         "clientReportedIssues": {
             "label": "Problemas reportados pelo cliente",
-            "unit": "por mês"
+            "unit": "por mês",
+            "resultCaption": "chamados do cliente por mês (eram ~100)"
         },
         "deployDuration": {
-            "label": "Tempo de deploy"
+            "label": "Tempo de deploy",
+            "resultCaption": "do push à produção (eram 2h)"
         },
         "followUpOperation": {
-            "label": "Operação de acompanhamento mensal"
+            "label": "Operação de acompanhamento mensal",
+            "resultCaption": "operação de acompanhamento mensal (era um mês de trabalho manual)"
         },
         "codebasesOwned": {
             "label": "Repositórios sob propriedade"
@@ -33,28 +37,36 @@
         },
         "muvzDelay": {
             "label": "Atraso na entrega",
-            "unit": "meses"
+            "unit": "meses",
+            "resultCaption": "meses de atraso restantes"
         },
         "muvzPerformance": {
-            "label": "Performance do sistema"
+            "label": "Performance do sistema",
+            "resultCaption": "desempenho do sistema"
         },
         "muvzSprintCadence": {
             "label": "Cadência de sprint",
-            "unit": "dias"
+            "unit": "dias",
+            "resultCaption": "cadência de sprint mantida após minha saída"
         },
         "conddizArchitecture": {
-            "label": "Consolidação de codebase"
+            "label": "Consolidação de codebase",
+            "resultCaption": "frontends sobre um backend"
         },
         "conddizTrafficPeak": {
             "label": "Pico de tráfego",
-            "unit": "usuários"
+            "unit": "usuários",
+            "resultCaption": "usuários no pico de tráfego"
         }
     },
     "Home": {
         "hero": {
             "headline": "Eu construo a máquina que entrega o seu software.",
             "subhead": "Engenheiro e arquiteto de software fractional. Assumo plataformas que erodiram até o ponto em que ninguém mais mexe com segurança, e transformo isso numa operação de entrega que consome uma reunião por mês do seu time.",
-            "photoAlt": "Josenaldo Matos"
+            "photoAlt": "Josenaldo Matos",
+            "kicker": "Engenheiro de software e arquiteto fracionário",
+            "secondaryCta": "Leia os três engajamentos →",
+            "caption": "Remoto · GMT-3 · um único nome humano no log de commits de 10 repositórios desde 2024."
         },
         "proofStrip": {
             "label": "Onde a máquina rodou",
@@ -80,15 +92,16 @@
             "closing": "Se você concordou com dois, a gente precisa conversar. Se concordou com os cinco, a gente precisa conversar essa semana."
         },
         "workModes": {
-            "title": "Modos de trabalho",
+            "title": "Três formas de trabalhar comigo",
             "emptyState": "Os modos de trabalho estão sendo escritos. Agende uma conversa e eu explico pessoalmente."
         },
         "engagements": {
-            "title": "Engagements",
+            "title": "Como ficou em produção",
             "emptyState": "Os engagements estão sendo escritos. Agende uma conversa e eu explico pessoalmente.",
             "arrived": "Cheguei",
             "built": "Construí",
-            "result": "Resultado"
+            "result": "Resultado",
+            "footnote": "Os números marcados com ● são medidos a partir do git, do CI e da suíte de testes. Os demais são contados ou recuperados do estado anterior ao trabalho."
         },
         "howIOperate": {
             "title": "Sua participação é uma reunião por mês.",
@@ -96,7 +109,25 @@
             "marker1": "Async-first, remoto, GMT-3 — horário comercial sobreposto com as Américas e com metade da Europa.",
             "marker2": "Uma reunião marcada por mês. O que for urgente tem canal; nada urgente precisa de convite na agenda.",
             "marker3": "Decisão registrada onde o código está, pra que a próxima pessoa — inclusive você daqui a um ano — consiga reconstruir o porquê.",
-            "marker4": "Faz {years} anos que o log de commits dos {repos} repositórios mostra um nome humano só: o meu. O único outro autor que aparece nele é um agente de IA pra quem eu construí o arnês. É isso que a máquina compra pra você."
+            "marker4": "Faz {years} anos que o log de commits dos {repos} repositórios mostra um nome humano só: o meu. O único outro autor que aparece nele é um agente de IA pra quem eu construí o arnês. É isso que a máquina compra pra você.",
+            "markers": {
+                "timezone": {
+                    "tag": "Fuso",
+                    "text": "Assíncrono primeiro, remoto, GMT-3 — horário comercial sobreposto com as Américas e com metade da Europa."
+                },
+                "cadence": {
+                    "tag": "Cadência",
+                    "text": "Uma reunião agendada por mês. O que é urgente tem canal; nada urgente precisa de convite no calendário."
+                },
+                "decisions": {
+                    "tag": "Decisões",
+                    "text": "Escritas onde o código está, para que a próxima pessoa — inclusive você no futuro — consiga reconstruir o porquê."
+                },
+                "ownership": {
+                    "tag": "Propriedade",
+                    "text": "Por {years} anos, o log de commits dos {repos} repositórios mostra um único nome humano: o meu. O outro autor é um agente de IA cujo arnês eu construí."
+                }
+            }
         },
         "closingCta": {
             "title": "Vamos olhar o seu sistema.",
@@ -111,24 +142,31 @@
             "title": "Três lugares onde eu escrevo",
             "blog": {
                 "name": "Blog",
-                "description": "Textos sobre entrega, arquitetura e o que acontece de verdade quando um engenheiro só toca uma plataforma inteira com agentes de IA."
+                "description": "Textos sobre entrega, arquitetura e o que acontece de verdade quando um engenheiro só toca uma plataforma inteira com agentes de IA.",
+                "short": "Ensaios sobre entrega, arquitetura e um engenheiro operando uma plataforma com agentes de IA."
             },
             "pog": {
                 "name": "Programação Orientada a Gambiarra (livropog.com.br)",
-                "description": "Um livro técnico vivo sobre a distância entre a arquitetura que a gente apresenta e a gambiarra que a gente entrega. Publicação contínua."
+                "description": "Um livro técnico vivo sobre a distância entre a arquitetura que a gente apresenta e a gambiarra que a gente entrega. Publicação contínua.",
+                "short": "Um livro técnico vivo sobre a distância entre a arquitetura que apresentamos e os contornos que entregamos."
             },
             "codex": {
                 "name": "Codex Technomanticus",
-                "description": "Meu grimório — as notas de trabalho que eu mantenho sobre desenvolvimento fullstack e mando pro colega quando a mesma dúvida aparece pela segunda vez."
+                "description": "Meu grimório — as notas de trabalho que eu mantenho sobre desenvolvimento fullstack e mando pro colega quando a mesma dúvida aparece pela segunda vez.",
+                "short": "As anotações de trabalho que mantenho sobre engenharia full-stack."
             }
         },
         "testimonial": {
             "title": "Depoimentos",
+            "aside": "dos meus clientes mais exigentes — os que sentam no teclado",
             "emptyState": "No momento estou reunindo depoimentos. Se já trabalhamos juntos e você quiser compartilhar um feedback, eu adoraria ouvir.",
             "shareCta": "Compartilhar um depoimento"
         }
     },
     "Hiring": {
+        "status": "Aberto a vagas sênior de IC",
+        "location": "Contratação remota · LATAM · GMT-3",
+        "ownTitle": "O que eu assumo",
         "evidence": {
             "title": "Os números"
         },
@@ -147,6 +185,8 @@
     "Blog": {
         "title": "Nephro Nerd Chronicles",
         "description": "Explore o Nephro Nerd Chronicles: a fusão de Josenaldo entre desenvolvimento de software e reflexões sobre saúde renal. Inspire-se, aprenda e conecte-se – um byte de cada vez!",
+        "filterAll": "Todos",
+        "disclaimerTitle": "Alguns avisos honestos antes de você sair",
         "category": {
             "title": "Categorias",
             "description": "Navegue pelos posts por categoria",
@@ -165,6 +205,16 @@
     },
     "Portfolio": {
         "title": "Portfólio"
+    },
+    "Post": {
+        "backToBlog": "← Blog",
+        "readingTime": "{minutes} min de leitura",
+        "keepReading": "Continue lendo",
+        "updateLabel": "Atualização · {date}"
+    },
+    "About": {
+        "kicker": "Carta a um amigo desconhecido",
+        "timelineTitle": "A linha do tempo no modo difícil"
     },
     "Projects": {
         "title": "Projetos",
@@ -190,6 +240,7 @@
     "Contact": {
         "title": "Entre em Contato",
         "description": "Conecte-se com Josenaldo preenchendo o formulário. Entre em contato para colaborações em projetos, troca de ideias, ou apenas uma conversa amigável.",
+        "channelsLabel": "Canais diretos",
         "githubCard": {
             "title": "Curtiu este projeto?",
             "body": "Explore o código-fonte no GitHub e faça dele o seu! Dê um fork, uma estrela, ou contribua para ajudá-lo a crescer.",
@@ -210,6 +261,8 @@
         "close": "fechar",
         "details": "Detalhes",
         "openItem": "{label}: {title}",
+        "viewProject": "Ver projeto →",
+        "source": "Código",
         "previousPage": "Página anterior",
         "nextPage": "Próxima página",
         "firstPage": "Primeira página",

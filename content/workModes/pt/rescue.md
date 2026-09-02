@@ -7,6 +7,7 @@ bullets:
     - 'Nenhuma proposta de rewrite. Rewrite foi o que colocou o time anterior nessa situação.'
     - 'O mapa é seu, independente de me contratar pro que vem depois.'
 icon: architecture
+kicker: Escopo fixo · duração fixa
 translationKey: rescue
 show: true
 ---

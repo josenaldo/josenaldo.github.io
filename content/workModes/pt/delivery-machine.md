@@ -7,6 +7,7 @@ bullets:
     - 'Modernização em incrementos, junto com a entrega de funcionalidade. O negócio continua rodando; não existe freeze.'
     - 'Uma reunião por mês. O resto é escrito e assíncrono.'
 icon: api
+kicker: Retainer mensal
 translationKey: delivery-machine
 show: true
 ---

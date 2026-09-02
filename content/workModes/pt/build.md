@@ -7,6 +7,7 @@ bullets:
     - 'A máquina de entrega é instalada no primeiro dia, antes de a erosão começar.'
     - 'Não é preciso um chamado perfeitamente escrito pra o trabalho começar.'
 icon: code
+kicker: Ponta a ponta
 translationKey: build
 show: true
 ---

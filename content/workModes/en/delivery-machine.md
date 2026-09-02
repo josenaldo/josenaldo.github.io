@@ -7,6 +7,7 @@ bullets:
     - 'Modernization happens in increments, alongside feature delivery. The business keeps running; there is no freeze.'
     - 'One meeting a month. Everything else is written and async.'
 icon: api
+kicker: Monthly retainer
 translationKey: delivery-machine
 show: true
 ---

@@ -361,6 +361,12 @@ const WorkMode = defineDocumentType(() => ({
             description: 'Chave do mapa de ícones do componente',
             required: true,
         },
+        kicker: {
+            type: 'string',
+            description:
+                'Pílula de modalidade comercial exibida no topo do card (ex.: "Fixed scope · fixed duration")',
+            required: false,
+        },
         show: {
             type: 'boolean',
             description: 'Whether to show this work mode publicly',

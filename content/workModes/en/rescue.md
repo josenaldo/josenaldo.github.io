@@ -7,6 +7,7 @@ bullets:
     - 'No rewrite proposal. A rewrite is what got the last team into this.'
     - 'You keep the map whether or not you hire me for what comes after.'
 icon: architecture
+kicker: Fixed scope · fixed duration
 translationKey: rescue
 show: true
 ---

@@ -13,17 +13,21 @@
     },
     "Metrics": {
         "deploymentFrequency": {
-            "label": "Release cadence"
+            "label": "Release cadence",
+            "resultCaption": "approved request to production (was 3–6 months)"
         },
         "clientReportedIssues": {
             "label": "Client-reported issues",
-            "unit": "per month"
+            "unit": "per month",
+            "resultCaption": "client-reported issues a month (was ~100)"
         },
         "deployDuration": {
-            "label": "Deploy time"
+            "label": "Deploy time",
+            "resultCaption": "push to production (was 2h)"
         },
         "followUpOperation": {
-            "label": "Monthly follow-up"
+            "label": "Monthly follow-up",
+            "resultCaption": "monthly follow-up operation (was a month of manual work)"
         },
         "codebasesOwned": {
             "label": "Repositories owned"
@@ -33,28 +37,36 @@
         },
         "muvzDelay": {
             "label": "Delivery delay",
-            "unit": "months"
+            "unit": "months",
+            "resultCaption": "months of delay left"
         },
         "muvzPerformance": {
-            "label": "System performance"
+            "label": "System performance",
+            "resultCaption": "system performance"
         },
         "muvzSprintCadence": {
             "label": "Sprint cadence",
-            "unit": "days"
+            "unit": "days",
+            "resultCaption": "sprint cadence held after I rolled off"
         },
         "conddizArchitecture": {
-            "label": "Codebase consolidation"
+            "label": "Codebase consolidation",
+            "resultCaption": "frontends on one backend"
         },
         "conddizTrafficPeak": {
             "label": "Peak traffic",
-            "unit": "users"
+            "unit": "users",
+            "resultCaption": "users at peak traffic"
         }
     },
     "Home": {
         "hero": {
             "headline": "I build the machine that ships your software.",
             "subhead": "Fractional software engineer and architect. I take over platforms that have eroded past the point where anyone can safely change them, and turn them into a delivery operation that runs on one meeting a month.",
-            "photoAlt": "Josenaldo Matos"
+            "photoAlt": "Josenaldo Matos",
+            "kicker": "Fractional software engineer & architect",
+            "secondaryCta": "Read the three engagements →",
+            "caption": "Remote · GMT-3 · one human name in the commit log across 10 repositories since 2024."
         },
         "proofStrip": {
             "label": "Where the machine ran",
@@ -80,15 +92,16 @@
             "closing": "If you nodded twice, we should talk. If you nodded at all five, we should talk this week."
         },
         "workModes": {
-            "title": "Work modes",
+            "title": "Three ways to work with me",
             "emptyState": "Work modes are being written up. Book a call and I'll walk you through them."
         },
         "engagements": {
-            "title": "Engagements",
+            "title": "What it looked like in production",
             "emptyState": "Engagements are being written up. Book a call and I'll walk you through them.",
             "arrived": "Arrived",
             "built": "Built",
-            "result": "Result"
+            "result": "Result",
+            "footnote": "Numbers marked ● are measured from git, CI and the test suite. The rest are counted or recalled from the state before the work."
         },
         "howIOperate": {
             "title": "Your involvement is one meeting a month.",
@@ -96,7 +109,25 @@
             "marker1": "Async-first, remote, GMT-3 — overlapping business hours with the Americas and half of Europe.",
             "marker2": "One scheduled meeting a month. Anything urgent has a channel; nothing urgent needs a calendar invite.",
             "marker3": "Decisions written down where the code is, so the next person — including future you — can reconstruct why.",
-            "marker4": "For {years} years now, the commit log across all {repos} repositories shows one human name: mine. The only other author in it is an AI agent I built the harness for. That is what the machine buys you."
+            "marker4": "For {years} years now, the commit log across all {repos} repositories shows one human name: mine. The only other author in it is an AI agent I built the harness for. That is what the machine buys you.",
+            "markers": {
+                "timezone": {
+                    "tag": "Timezone",
+                    "text": "Async-first, remote, GMT-3 — overlapping business hours with the Americas and half of Europe."
+                },
+                "cadence": {
+                    "tag": "Cadence",
+                    "text": "One scheduled meeting a month. Anything urgent has a channel; nothing urgent needs a calendar invite."
+                },
+                "decisions": {
+                    "tag": "Decisions",
+                    "text": "Written down where the code is, so the next person — including future you — can reconstruct why."
+                },
+                "ownership": {
+                    "tag": "Ownership",
+                    "text": "For {years} years, the commit log across all {repos} repositories shows one human name: mine. The only other author is an AI agent I built the harness for."
+                }
+            }
         },
         "closingCta": {
             "title": "Let's look at your system.",
@@ -111,24 +142,31 @@
             "title": "Three places I write",
             "blog": {
                 "name": "Blog",
-                "description": "Essays on delivery, architecture, and what actually happens when one engineer runs a platform with AI agents."
+                "description": "Essays on delivery, architecture, and what actually happens when one engineer runs a platform with AI agents.",
+                "short": "Essays on delivery, architecture, and one engineer running a platform with AI agents."
             },
             "pog": {
                 "name": "Workaround-Oriented Programming (livropog.com.br)",
-                "description": "A living technical book about the gap between the architecture we present and the workarounds we ship. Written in Portuguese, published continuously."
+                "description": "A living technical book about the gap between the architecture we present and the workarounds we ship. Written in Portuguese, published continuously.",
+                "short": "A living technical book on the gap between the architecture we present and the workarounds we ship. In Portuguese."
             },
             "codex": {
                 "name": "Codex Technomanticus",
-                "description": "My grimoire — the working notes I keep for full-stack engineering and share with colleagues when a question comes up twice. Written in Portuguese."
+                "description": "My grimoire — the working notes I keep for full-stack engineering and share with colleagues when a question comes up twice. Written in Portuguese.",
+                "short": "The working notes I keep for full-stack engineering. In Portuguese."
             }
         },
         "testimonial": {
             "title": "Testimonials",
+            "aside": "from my most demanding clients — the ones who sit on the keyboard",
             "emptyState": "I’m currently collecting testimonials. If we’ve worked together and you’d like to share feedback, I’d love to hear it.",
             "shareCta": "Share a testimonial"
         }
     },
     "Hiring": {
+        "status": "Open to senior IC roles",
+        "location": "Remote contractor · LATAM · GMT-3",
+        "ownTitle": "What I own",
         "evidence": {
             "title": "The numbers"
         },
@@ -147,6 +185,8 @@
     "Blog": {
         "title": "Nephro Nerd Chronicles",
         "description": "Explore Nephro Nerd Chronicles: Josenaldo's fusion of software development and kidney health insights. Be inspired, learn, and connect – one byte at a time!",
+        "filterAll": "All",
+        "disclaimerTitle": "A few honest warnings before you leave",
         "category": {
             "title": "Categories",
             "description": "Browse posts by category",
@@ -165,6 +205,16 @@
     },
     "Portfolio": {
         "title": "Portfolio"
+    },
+    "Post": {
+        "backToBlog": "← Blog",
+        "readingTime": "{minutes} min read",
+        "keepReading": "Keep reading",
+        "updateLabel": "Update · {date}"
+    },
+    "About": {
+        "kicker": "Letter to an unknown friend",
+        "timelineTitle": "The hard-mode timeline"
     },
     "Projects": {
         "title": "Projects",
@@ -190,6 +240,7 @@
     "Contact": {
         "title": "Get in Touch",
         "description": "Connect with Josenaldo by filling out the form. Get in touch for project collaborations, idea-sharing, or just a friendly conversation.",
+        "channelsLabel": "Direct channels",
         "githubCard": {
             "title": "Like this project?",
             "body": "Explore the source code on GitHub and make it your own! Fork, star, or contribute to help it grow.",
@@ -210,6 +261,8 @@
         "close": "close",
         "details": "Details",
         "openItem": "{label}: {title}",
+        "viewProject": "View project →",
+        "source": "Source",
         "previousPage": "Previous page",
         "nextPage": "Next page",
         "firstPage": "First page",
