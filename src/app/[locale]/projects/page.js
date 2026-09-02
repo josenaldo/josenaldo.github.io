@@ -1,8 +1,12 @@
-import { Box, Container, Typography } from '@mui/material'
+// Corrige spec/03-paginas-internas.md §6 (tela `4f`). Grid 1fr 1fr de
+// ProjectCard — sem imagem de capa, "a stack é a informação".
+
+import { Box, Typography } from '@mui/material'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 
-import ContentCard from '@/components/content/ContentCard'
-import ContentTitle from '@/components/content/ContentTitle'
+import ProjectCard from '@/components/content/ProjectCard'
+import PageHeader from '@/components/PageHeader'
+import Section from '@/components/Section'
 import { routing } from '@/i18n/routing'
 import contentService from '@/services/content'
 
@@ -35,54 +39,37 @@ export default async function ProjectsPage({ params }) {
     const projects = contentService.getAllProjects(locale).map((project) => ({
         title: project.title,
         description: project.description,
-        url: project.url,
-        image: project.image,
-        author: project.author,
-        date: project.date,
+        url: project.projectUrl,
+        type: project.type ?? null,
+        stack: project.stack ?? null,
+        sourceUrl: project.sourceUrl ?? null,
     }))
 
     return (
-        <Container>
-            <Box
-                sx={{
-                    my: 5,
-                }}
-            >
-                <ContentTitle title={t('title')} subtitle={t('description')} />
-                <Typography
-                    variant="body1"
-                    color="text.secondary"
-                    sx={{ mt: 2 }}
-                >
-                    {t('scopeNote')}
-                </Typography>
+        <Section surface="default" padTop={56} padBottom={48}>
+            <Box sx={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
+                <Box sx={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                    <PageHeader title={t('title')} lead={t('description')} />
+                    <Typography
+                        component="p"
+                        sx={{ m: 0, fontSize: '14px', color: '#7C8494' }}
+                    >
+                        {t('scopeNote')}
+                    </Typography>
+                </Box>
+
                 <Box
                     sx={{
                         display: 'grid',
-                        gridTemplateColumns: {
-                            xs: '1fr',
-                            sm: '1fr 1fr',
-                            md: '1fr 1fr 1fr',
-                        },
-                        alignItems: 'stretch',
-                        gap: 3,
-                        my: 5,
+                        gridTemplateColumns: { xs: '1fr', md: '1fr 1fr' },
+                        gap: '16px',
                     }}
                 >
                     {projects.map((project) => (
-                        <ContentCard
-                            title={project.title}
-                            text={project.description}
-                            url={project.url}
-                            image={project.image}
-                            key={project.url}
-                            author={project.author}
-                            date={project.date}
-                            moreLinkText={t('viewProjectCta')}
-                        />
+                        <ProjectCard key={project.url} {...project} />
                     ))}
                 </Box>
             </Box>
-        </Container>
+        </Section>
     )
 }

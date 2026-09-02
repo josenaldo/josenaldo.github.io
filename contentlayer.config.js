@@ -156,6 +156,25 @@ const Project = defineDocumentType(() => ({
             description: 'The image of the project',
             required: true,
         },
+        type: {
+            type: 'string',
+            description:
+                'Pílula de tipo exibida no card (Client, Book, Product, Study ou Tool) — spec/03-paginas-internas.md §6. Opcional: sem valor, a pílula não renderiza.',
+            required: false,
+        },
+        stack: {
+            type: 'list',
+            of: { type: 'string' },
+            description:
+                'Pílulas de stack exibidas no card, coladas ao rodapé — spec/03-paginas-internas.md §6. Opcional.',
+            required: false,
+        },
+        sourceUrl: {
+            type: 'string',
+            description:
+                'Link "Source" do card (repositório público), separado de projectUrl ("View project", a URL ao vivo/demo) — spec/03-paginas-internas.md §6. Opcional: muitos projetos de cliente não têm repositório público.',
+            required: false,
+        },
         ...translationFields,
     },
     computedFields: localeComputedFields(),
