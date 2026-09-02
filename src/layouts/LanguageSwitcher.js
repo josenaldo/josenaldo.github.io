@@ -1,7 +1,6 @@
 'use client'
 
-import Button from '@mui/material/Button'
-import ButtonGroup from '@mui/material/ButtonGroup'
+import Box from '@mui/material/Box'
 import { useLocale, useTranslations } from 'next-intl'
 
 import { usePathname, useRouter } from '@/i18n/navigation'
@@ -69,36 +68,51 @@ export default function LanguageSwitcher() {
     }
 
     return (
-        <ButtonGroup
-            size="small"
-            variant="outlined"
+        <Box
+            role="group"
             aria-label={t('languageSwitcherLabel')}
             sx={{
-                borderRadius: 999,
-                overflow: 'hidden',
-                '& .MuiButtonGroup-grouped': {
-                    borderRadius: 0,
-                    borderColor: 'rgba(255,255,255,.12)',
-                },
+                display: 'flex',
+                alignItems: 'center',
+                gap: '6px',
+                bgcolor: 'rgba(255,255,255,.05)',
+                borderRadius: '999px',
+                padding: '7px 12px',
             }}
         >
-            {routing.locales.map((lang) => (
-                <Button
-                    key={lang}
-                    onClick={() => handleSwitch(lang)}
-                    disabled={lang === locale}
-                    aria-current={lang === locale ? 'true' : undefined}
-                    sx={(theme) => ({
-                        color: '#FFFFFF',
-                        fontFamily: theme.typography.caption.fontFamily,
-                        fontWeight: 600,
-                        letterSpacing: '0.08em',
-                        px: 1.5,
-                    })}
-                >
-                    {lang.toUpperCase()}
-                </Button>
-            ))}
-        </ButtonGroup>
+            {routing.locales.map((lang, index) => {
+                const active = lang === locale
+
+                return (
+                    <Box key={lang} sx={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                        {index > 0 ? (
+                            <Box component="span" sx={{ color: '#4E5666', fontSize: '12px' }}>
+                                /
+                            </Box>
+                        ) : null}
+                        <Box
+                            component="button"
+                            type="button"
+                            onClick={() => handleSwitch(lang)}
+                            disabled={active}
+                            aria-current={active ? 'true' : undefined}
+                            sx={{
+                                border: 'none',
+                                background: 'none',
+                                p: 0,
+                                cursor: active ? 'default' : 'pointer',
+                                fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
+                                fontSize: '12px',
+                                fontWeight: active ? 700 : 500,
+                                letterSpacing: '0.04em',
+                                color: active ? '#FFFFFF' : '#7C8494',
+                            }}
+                        >
+                            {lang.toUpperCase()}
+                        </Box>
+                    </Box>
+                )
+            })}
+        </Box>
     )
 }
