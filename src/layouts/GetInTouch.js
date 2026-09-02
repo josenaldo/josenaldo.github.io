@@ -1,11 +1,17 @@
+'use client'
+
 import { Box, Button, Typography } from '@mui/material'
 import { useTranslations } from 'next-intl'
 
 import Section from '@/components/Section'
 import socialLinks from '@/data/socialLinks'
+import { usePathname } from '@/i18n/navigation'
 
 const GetInTouch = () => {
     const t = useTranslations('Footer')
+    const pathname = usePathname()
+
+    if (pathname === '/') return null
 
     return (
         <Section surface="paper" rhythm="section">
