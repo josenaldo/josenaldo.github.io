@@ -7,6 +7,7 @@ import EngagementsSection from '@/features/home/Engagements'
 import HeroSection from '@/features/home/Hero'
 import HowIOperateSection from '@/features/home/HowIOperate'
 import IsThisYouSection from '@/features/home/IsThisYou'
+import ProofStripSection from '@/features/home/ProofStrip'
 import PublicationsSection from '@/features/home/Publications'
 import TestimonialSection from '@/features/home/Testimonial'
 import WorkModesSection from '@/features/home/WorkModes'
@@ -88,6 +89,7 @@ export default async function HomePage({ params }) {
     return (
         <>
             <HeroSection />
+            <ProofStripSection />
             <IsThisYouSection />
             <WorkModesSection workModes={workModes} />
             <EngagementsSection engagements={engagements} />

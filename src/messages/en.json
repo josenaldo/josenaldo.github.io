@@ -56,6 +56,15 @@
             "subhead": "Fractional software engineer and architect. I take over platforms that have eroded past the point where anyone can safely change them, and turn them into a delivery operation that runs on one meeting a month.",
             "photoAlt": "Josenaldo Matos"
         },
+        "proofStrip": {
+            "label": "Where the machine ran",
+            "clients": {
+                "muvz": "Muvz",
+                "conddiz": "Conddiz",
+                "medicalEducationPlatform": "Medical education platform"
+            },
+            "repoCount": "{count} repositories"
+        },
         "cta": {
             "bookACall": "Book a 30-minute call"
         },

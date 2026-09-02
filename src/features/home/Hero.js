@@ -37,7 +37,7 @@ const Hero = () => {
                     }}
                 >
                     <Typography variant="h1">{t('headline')}</Typography>
-                    <Typography variant="subtitle">{t('subhead')}</Typography>
+                    <Typography variant="lead">{t('subhead')}</Typography>
                     <Box
                         sx={{
                             mt: 2,

@@ -56,6 +56,15 @@
             "subhead": "Engenheiro e arquiteto de software fractional. Assumo plataformas que erodiram até o ponto em que ninguém mais mexe com segurança, e transformo isso numa operação de entrega que consome uma reunião por mês do seu time.",
             "photoAlt": "Josenaldo Matos"
         },
+        "proofStrip": {
+            "label": "Onde a máquina rodou",
+            "clients": {
+                "muvz": "Muvz",
+                "conddiz": "Conddiz",
+                "medicalEducationPlatform": "Plataforma de educação médica"
+            },
+            "repoCount": "{count} repositórios"
+        },
         "cta": {
             "bookACall": "Agendar uma conversa de 30 minutos"
         },
