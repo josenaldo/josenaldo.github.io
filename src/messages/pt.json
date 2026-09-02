@@ -174,7 +174,18 @@
         "status": "Aberto a vagas sênior de IC",
         "location": "Contratação remota · LATAM · GMT-3",
         "ownTitle": "O que eu assumo",
-        "stack": ["Java/Spring", "TypeScript", "Node.js", "React"],
+        "stack": [
+            "Java",
+            "Spring",
+            "TypeScript",
+            "Node.js",
+            "React",
+            "Next.js",
+            "Kafka",
+            "PostgreSQL",
+            "CI/CD",
+            "DDD"
+        ],
         "evidence": {
             "title": "Os números",
             "cadenceValue": "{days} dias",
@@ -191,8 +202,8 @@
             "seniorEn": "Currículo Senior Engineer (EN)",
             "seniorPt": "Currículo Senior Engineer (PT)",
             "fractionalNote": "Não está contratando pra uma vaga, e sim procurando alguém pra tocar a engenharia do seu produto de ponta a ponta? É esse o encaixe fractional — o mesmo histórico, em regime parcial.",
-            "fractionalEn": "Currículo Fractional Engineer (EN)",
-            "fractionalPt": "Currículo Fractional Engineer (PT)"
+            "fractionalEn": "Fractional (EN)",
+            "fractionalPt": "Fractional (PT)"
         },
         "cta": {
             "title": "Vamos conversar sobre isso."
@@ -214,7 +225,7 @@
         },
         "disclaimer": {
             "heading": "Alguns avisos honestos antes de você sair:",
-            "language": "<strong>Sobre o idioma:</strong> Inglês não é a minha língua nativa. Eu falo português brasileiro, baianês, mineirês e um monte de bobagem. Mesmo assim escrevo em inglês — em parte pelo alcance, em parte como prática. Se algo soar estranho, a culpa é SUA! Sua culpa! Você é o especialista em inglês, não eu. Eu sou o cara que perdeu o rim da sogra!",
+            "language": "<strong>Sobre o idioma:</strong> Inglês não é a minha língua nativa. Mesmo assim escrevo em inglês — em parte pelo alcance, em parte como prática. Se algo soar estranho, a culpa é sua: o especialista em inglês é você, não eu.",
             "ai": "<strong>Sobre IA:</strong> Sim, eu uso IA para me ajudar a escrever — da mesma forma que uso uma IDE para escrever código, uma calculadora para evitar aritmética constrangedora, e o Google para lembrar coisas que eu definitivamente aprendi e totalmente não esqueci na hora. IA é uma ferramenta. Eu sou quem escolhe o que dizer; a máquina só ajuda a dizer de um jeito menos incompreensível.",
             "opinions": "<strong>Sobre as opiniões:</strong> Eu sou programador, não escritor, jornalista, analista ou profeta. Estes são meus pensamentos pessoais — informais, falíveis e totalmente não científicos. Eles existem para minha própria clareza, para a leve diversão de quem passar por aqui, e para o futuro constrangimento dos meus descendentes. Se você discorda, provavelmente está certo. Se você concorda, agradeço seu duvidoso julgamento."
         },
@@ -248,9 +259,9 @@
         "role": "Desenvolvedor de Software & Perdedor de Rim",
         "machines": {
             "oneTag": "Máquina um",
-            "oneText": "Computadores — me permitem trabalhar e me conectar com o mundo.",
+            "oneText": "Computadores, que me permitem trabalhar e me conectar com o mundo.",
             "twoTag": "Máquina dois",
-            "twoText": "Máquinas de hemodiálise — me mantêm vivo."
+            "twoText": "Máquinas de hemodiálise, que me mantêm vivo."
         },
         "timelineTitle": "A linha do tempo no modo difícil",
         "timeline": [
@@ -319,7 +330,7 @@
         "timezoneNote": "Remoto · GMT-3 (São Paulo) · async-first, então mensagem escrita ganha de chamada para tudo que não é decisão.",
         "githubCard": {
             "title": "Curtiu este projeto?",
-            "body": "Explore o código-fonte no GitHub e faça dele o seu! Dê um fork, uma estrela, ou contribua para ajudá-lo a crescer.",
+            "body": "Este site inteiro é open source — Next.js, Contentlayer e Markdown, publicável no GitHub Pages em minutos. Dê um fork, uma estrela, ou faça dele o seu.",
             "cta": "Fork no GitHub"
         },
         "whatsappHandle": "Mensagem direta"

@@ -23,7 +23,7 @@ Mock: `Páginas internas.dc.html` § `4g`. Site: `http://localhost:3500/en/conta
 
 ## Card "Like this project?"
 
-- [ ] **CO-11** — texto. **Mock:** *This whole site is open source — Next.js, Contentlayer and Markdown, deployable to GitHub Pages in minutes. Fork it, star it, or make it your own.* **Site:** *Explore the source code on GitHub and make it your own! Fork, star, or contribute to help it grow.* — some a stack, que é a informação útil para quem forka. · `src/messages/en.json`
+- [x] **CO-11** — texto. **Mock:** *This whole site is open source — Next.js, Contentlayer and Markdown, deployable to GitHub Pages in minutes. Fork it, star it, or make it your own.* **Site:** *Explore the source code on GitHub and make it your own! Fork, star, or contribute to help it grow.* — some a stack, que é a informação útil para quem forka. · `src/messages/en.json`
 - [x] **CO-12** — botão `Fork on GitHub`. **Mock:** 14px sem peso declarado, `padding: 11px 18px`, `rgba(255,255,255,.06)`. **Site:** 14px/**600**, `padding: 10px 16px`, `rgba(255,255,255,.05)`. · `src/app/[locale]/contact/page.js`
 - [ ] **CO-13** — card `#0E1218` r18 padding 28 gap 14, rótulo mono 11px `#98A0B0`, corpo 15px/1.6 `#98A0B0`. Batem. `MANTER`
 

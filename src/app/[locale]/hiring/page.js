@@ -167,14 +167,25 @@ export default async function HiringPage({ params }) {
                             minWidth: 0,
                         }}
                     >
+                        {/* Dois níveis, como no mock: a afirmação abre em
+                        18px e o parágrafo de contexto recua para 16px. Com um
+                        tamanho só, o segundo parágrafo competia com o
+                        primeiro em vez de sustentá-lo. */}
                         <Box
                             sx={{
+                                display: 'flex',
+                                flexDirection: 'column',
+                                gap: '18px',
                                 '& p': {
                                     m: 0,
                                     fontSize: '18px',
                                     lineHeight: 1.7,
                                     color: '#D5DAE4',
                                     maxWidth: '72ch',
+                                },
+                                '& p ~ p': {
+                                    fontSize: '16px',
+                                    color: '#B4BCCA',
                                 },
                                 '& strong': {
                                     color: '#FFFFFF',

@@ -8,16 +8,16 @@ Esta é a página com a maior diferença de **volume de texto**: o mock desenha 
 
 - [x] **AB-01** — texto do `h1`. **Mock:** *I am a cyborg.* **Site:** *Letter to a unknown friend* — que é exatamente o texto da pílula âmbar logo acima (e com `a unknown` no lugar de `an unknown`). O mock usa a pílula como rótulo e o `h1` como afirmação. · `src/messages/en.json`
 - [x] **AB-02** — erro de gramática. **Site:** `Letter to a unknown friend`. Deve ser `an unknown`. Aparece no `h1`; a pílula acima já usa `an`. · `src/messages/en.json`
-- [ ] **AB-03** — nome sob o avatar. **Mock:** `Josenaldo de Oliveira Matos Filho` (nome completo). **Site:** `Josenaldo Matos`. · `src/app/[locale]/about/page.js`
+- [x] **AB-03** — nome sob o avatar. **Mock:** `Josenaldo de Oliveira Matos Filho` (nome completo). **Site:** `Josenaldo Matos`. · `src/app/[locale]/about/page.js`
 - [x] **AB-04** — gap da linha de assinatura. **Mock:** `gap: 16px` entre avatar e nome. **Site:** `12px`. · `src/app/[locale]/about/page.js`
 - [ ] **AB-05** — pílula, `h1` 52px/1.06, avatar 64px circular, padding `64/40/40`, coluna de 760px. Batem. `MANTER`
 
 ## Corpo da carta
 
-- [ ] **AB-06** — extensão. **Mock:** 5 parágrafos, editados e curtos, terminando em UAIJUG. **Site:** 18 parágrafos — a carta original completa, incluindo o histórico médico em prosa que o mock moveu para a linha do tempo. Isso faz a página passar de ~1.100px para 3.422px de altura. · `content/` (documento About)
-- [ ] **AB-07** — duplicação com a linha do tempo. **Site:** os eventos de 2008, 2012, 2013, 2015 e 2016 aparecem **duas vezes** — em prosa no corpo e em lista no bloco `The hard-mode timeline` logo abaixo. No mock a prosa para antes do diagnóstico e a linha do tempo assume dali em diante. · `content/`
-- [ ] **AB-08** — posição dos cartões `Machine one` / `Machine two`. **Mock:** logo depois do parágrafo *…two types of machines:*, antes de a carta continuar. **Site:** no **fim** de toda a carta, 2.000px abaixo do parágrafo que os introduz. · `src/app/[locale]/about/page.js`
-- [ ] **AB-09** — texto dos cartões. **Mock:** *Computers, enabling me to work and connect with the world.* / *Hemodialysis machines, keeping me alive.* **Site:** *Computers — they let me work and stay connected to the world.* / *Hemodialysis machines — they keep me alive.* Diferença estilística; o mock usa gerúndio, o site usa travessão. · `src/messages/en.json`
+- [x] **AB-06** — extensão. **Mock:** 5 parágrafos, editados e curtos, terminando em UAIJUG. **Site:** 18 parágrafos — a carta original completa, incluindo o histórico médico em prosa que o mock moveu para a linha do tempo. Isso faz a página passar de ~1.100px para 3.422px de altura. · `content/` (documento About)
+- [x] **AB-07** — duplicação com a linha do tempo. **Site:** os eventos de 2008, 2012, 2013, 2015 e 2016 aparecem **duas vezes** — em prosa no corpo e em lista no bloco `The hard-mode timeline` logo abaixo. No mock a prosa para antes do diagnóstico e a linha do tempo assume dali em diante. · `content/`
+- [x] **AB-08** — posição dos cartões `Machine one` / `Machine two`. **Mock:** logo depois do parágrafo *…two types of machines:*, antes de a carta continuar. **Site:** no **fim** de toda a carta, 2.000px abaixo do parágrafo que os introduz. · `src/app/[locale]/about/page.js`
+- [x] **AB-09** — texto dos cartões. **Mock:** *Computers, enabling me to work and connect with the world.* / *Hemodialysis machines, keeping me alive.* **Site:** *Computers — they let me work and stay connected to the world.* / *Hemodialysis machines — they keep me alive.* Diferença estilística; o mock usa gerúndio, o site usa travessão. · `src/messages/en.json`
 - [ ] **AB-10** — corpo 19px/1.75 `#D5DAE4` em coluna de 680px, cartões `#14181F` r16 padding `20px 22px` com tag roxa. Batem. `MANTER`
 
 ## Linha do tempo

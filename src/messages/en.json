@@ -174,7 +174,18 @@
         "status": "Open to senior IC roles",
         "location": "Remote contractor · LATAM · GMT-3",
         "ownTitle": "What I own",
-        "stack": ["Java/Spring", "TypeScript", "Node.js", "React"],
+        "stack": [
+            "Java",
+            "Spring",
+            "TypeScript",
+            "Node.js",
+            "React",
+            "Next.js",
+            "Kafka",
+            "PostgreSQL",
+            "CI/CD",
+            "DDD"
+        ],
         "evidence": {
             "title": "The numbers",
             "cadenceValue": "{days} days",
@@ -191,8 +202,8 @@
             "seniorEn": "Senior Engineer résumé (EN)",
             "seniorPt": "Senior Engineer résumé (PT)",
             "fractionalNote": "Not hiring for a single seat, but for someone to run the engineering side of your product end to end? That's the fractional engagement — same track record, part-time.",
-            "fractionalEn": "Fractional Engineer résumé (EN)",
-            "fractionalPt": "Fractional Engineer résumé (PT)"
+            "fractionalEn": "Fractional (EN)",
+            "fractionalPt": "Fractional (PT)"
         },
         "cta": {
             "title": "Let's talk about it."
@@ -214,7 +225,7 @@
         },
         "disclaimer": {
             "heading": "A few honest warnings before you leave:",
-            "language": "<strong>On the language:</strong> English is not my native language. I Speak Brazilian Portuguese, Baianese, Mineirese and a lot of bulshit. I write in it anyway — partly for reach, partly as practice. If something reads strangely, that's YOU! Your fault! You are the English Specialist, not me. I am the guy who lost the kidney of his mother-in-law!",
+            "language": "<strong>On the language:</strong> English is not my native language. I write in it anyway — partly for reach, partly as practice. If something reads strangely, that's on you: you're the English specialist, not me.",
             "ai": "<strong>On AI:</strong> Yes, I use AI to help me write — the same way I use an IDE to write code, a calculator to avoid embarrassing arithmetic, and Google to remember things I definitely learned and totally didn't immediately forget. AI is a tool. I'm the one choosing what to say; the machine just helps me say it less incomprehensibly.",
             "opinions": "<strong>On the opinions:</strong> I'm a programmer, not a writer, journalist, analyst, or prophet. These are my personal thoughts — informal, fallible, and entirely unscientific. They exist for my own clarity, for the mild amusement of anyone who stumbles here, and for the future embarrassment of my descendants. If you disagree, you're probably right. If you agree, I appreciate your questionable judgment."
         },
@@ -248,9 +259,9 @@
         "role": "Software Developer & Kidney Waster",
         "machines": {
             "oneTag": "Machine one",
-            "oneText": "Computers — they let me work and stay connected to the world.",
+            "oneText": "Computers, enabling me to work and connect with the world.",
             "twoTag": "Machine two",
-            "twoText": "Hemodialysis machines — they keep me alive."
+            "twoText": "Hemodialysis machines, keeping me alive."
         },
         "timelineTitle": "The hard-mode timeline",
         "timeline": [
@@ -319,7 +330,7 @@
         "timezoneNote": "Remote · GMT-3 (São Paulo) · async-first, so a written message beats a call for anything that isn't a decision.",
         "githubCard": {
             "title": "Like this project?",
-            "body": "Explore the source code on GitHub and make it your own! Fork, star, or contribute to help it grow.",
+            "body": "This whole site is open source — Next.js, Contentlayer and Markdown, deployable to GitHub Pages in minutes. Fork it, star it, or make it your own.",
             "cta": "Fork on GitHub"
         },
         "whatsappHandle": "Direct message"
