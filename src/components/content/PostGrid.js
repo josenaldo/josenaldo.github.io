@@ -2,10 +2,10 @@
 
 import { useRef, useState } from 'react'
 
-import { Box } from '@mui/material'
+import { Divider, Stack } from '@mui/material'
 import { useTranslations } from 'next-intl'
 
-import ContentCard from '@/components/content/ContentCard'
+import PostListItem from '@/components/content/PostListItem'
 import Pagination from '@/components/Pagination'
 
 const POSTS_PER_PAGE = 9
@@ -25,36 +25,21 @@ const PostGrid = ({ posts }) => {
 
     return (
         <>
-            <Box
-                ref={gridRef}
-                sx={{
-                    display: 'grid',
-                    gridTemplateColumns: {
-                        xs: '1fr',
-                        sm: '1fr 1fr',
-                        md: '1fr 1fr 1fr',
-                    },
-                    alignItems: 'stretch',
-                    gap: 3,
-                    my: 5,
-                }}
-            >
+            <Stack ref={gridRef} divider={<Divider />} sx={{ my: 5 }}>
                 {paginatedPosts.map((post) => (
-                    <ContentCard
+                    <PostListItem
                         title={post.title}
                         text={post.description}
-                        showText
                         url={post.url}
                         image={post.image}
                         key={post.url}
                         author={post.author}
                         date={post.date}
                         category={post.category}
-                        language={post.locale}
                         moreLinkText={t('readPost')}
                     />
                 ))}
-            </Box>
+            </Stack>
             <Pagination
                 currentPage={currentPage}
                 totalPages={totalPages}

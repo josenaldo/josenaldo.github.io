@@ -2,12 +2,12 @@
 
 import { useState } from 'react'
 
-import { Box, Typography } from '@mui/material'
+import { Box, Divider, Stack, Typography } from '@mui/material'
 import { useTranslations } from 'next-intl'
 import PropTypes from 'prop-types'
 
 import CallToAction from '@/components/CallToAction'
-import ContentCard from '@/components/content/ContentCard'
+import PostListItem from '@/components/content/PostListItem'
 import Pagination from '@/components/Pagination'
 import Section from '@/components/Section'
 
@@ -33,21 +33,9 @@ const Blog = ({ posts }) => {
                 }}
             >
                 <Typography variant="h2">{t('title')}</Typography>
-                <Box
-                    sx={{
-                        display: 'grid',
-                        gridTemplateColumns: {
-                            xs: '1fr',
-                            sm: '1fr 1fr',
-                            md: '1fr 1fr 1fr',
-                        },
-                        alignItems: 'stretch',
-                        gap: 2,
-                        width: '100%',
-                    }}
-                >
+                <Stack divider={<Divider />} sx={{ width: '100%' }}>
                     {paginatedPosts.map((post) => (
-                        <ContentCard
+                        <PostListItem
                             key={post.url}
                             title={post.title}
                             text={post.description}
@@ -56,12 +44,10 @@ const Blog = ({ posts }) => {
                             image={post.image}
                             url={post.url}
                             category={post.category}
-                            language={post.language}
                             moreLinkText={tCommon('readPost')}
-                            showText
                         />
                     ))}
-                </Box>
+                </Stack>
                 <Pagination
                     currentPage={currentPage}
                     totalPages={totalPages}
