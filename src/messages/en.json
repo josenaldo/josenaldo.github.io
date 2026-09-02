@@ -11,13 +11,49 @@
         "siteMenuLabel": "site menu",
         "aboutSubNavLabel": "About sections"
     },
+    "Metrics": {
+        "deploymentFrequency": {
+            "label": "Release cadence"
+        },
+        "clientReportedIssues": {
+            "label": "Client-reported issues",
+            "unit": "per month"
+        },
+        "deployDuration": {
+            "label": "Deploy time"
+        },
+        "followUpOperation": {
+            "label": "Monthly follow-up"
+        },
+        "codebasesOwned": {
+            "label": "Repositories owned"
+        },
+        "codebasesActive": {
+            "label": "Actively developed"
+        },
+        "muvzDelay": {
+            "label": "Delivery delay",
+            "unit": "months"
+        },
+        "muvzPerformance": {
+            "label": "System performance"
+        },
+        "muvzSprintCadence": {
+            "label": "Sprint cadence",
+            "unit": "days"
+        },
+        "conddizArchitecture": {
+            "label": "Codebase consolidation"
+        },
+        "conddizTrafficPeak": {
+            "label": "Peak traffic",
+            "unit": "users"
+        }
+    },
     "Home": {
         "hero": {
             "headline": "I build the machine that ships your software.",
             "subhead": "Fractional software engineer and architect. I take over platforms that have eroded past the point where anyone can safely change them, and turn them into a delivery operation that runs on one meeting a month.",
-            "metricDeploys": "From a release once a quarter to one every {everyDays} days",
-            "metricIssues": "Client-reported production issues down from ~{before} to ~{after} a month",
-            "metricDeployTime": "Deploys in {after} instead of {before}",
             "photoAlt": "Josenaldo Matos"
         },
         "cta": {
@@ -85,10 +121,7 @@
     },
     "Hiring": {
         "evidence": {
-            "title": "The numbers",
-            "codebases": "{owned} repositories under my ownership, {active} of them under active development at any given time.",
-            "issues": "Client-reported production issues down from ~{before} to ~{after} a month.",
-            "deployFrequency": "A release every {everyDays} days."
+            "title": "The numbers"
         },
         "resumes": {
             "title": "Download my résumé",

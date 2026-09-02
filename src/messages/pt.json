@@ -11,13 +11,49 @@
         "siteMenuLabel": "menu do site",
         "aboutSubNavLabel": "Seções de Sobre"
     },
+    "Metrics": {
+        "deploymentFrequency": {
+            "label": "Cadência de release"
+        },
+        "clientReportedIssues": {
+            "label": "Problemas reportados pelo cliente",
+            "unit": "por mês"
+        },
+        "deployDuration": {
+            "label": "Tempo de deploy"
+        },
+        "followUpOperation": {
+            "label": "Operação de acompanhamento mensal"
+        },
+        "codebasesOwned": {
+            "label": "Repositórios sob propriedade"
+        },
+        "codebasesActive": {
+            "label": "Em desenvolvimento ativo"
+        },
+        "muvzDelay": {
+            "label": "Atraso na entrega",
+            "unit": "meses"
+        },
+        "muvzPerformance": {
+            "label": "Performance do sistema"
+        },
+        "muvzSprintCadence": {
+            "label": "Cadência de sprint",
+            "unit": "dias"
+        },
+        "conddizArchitecture": {
+            "label": "Consolidação de codebase"
+        },
+        "conddizTrafficPeak": {
+            "label": "Pico de tráfego",
+            "unit": "usuários"
+        }
+    },
     "Home": {
         "hero": {
             "headline": "Eu construo a máquina que entrega o seu software.",
             "subhead": "Engenheiro e arquiteto de software fractional. Assumo plataformas que erodiram até o ponto em que ninguém mais mexe com segurança, e transformo isso numa operação de entrega que consome uma reunião por mês do seu time.",
-            "metricDeploys": "De uma release por trimestre para uma a cada {everyDays} dias",
-            "metricIssues": "Problemas em produção reportados pelo cliente de ~{before} para ~{after} por mês",
-            "metricDeployTime": "Deploy em {after}, não em {before}",
             "photoAlt": "Josenaldo Matos"
         },
         "cta": {
@@ -85,10 +121,7 @@
     },
     "Hiring": {
         "evidence": {
-            "title": "Os números",
-            "codebases": "{owned} repositórios sob minha propriedade, {active} deles em desenvolvimento ativo a qualquer momento.",
-            "issues": "Problemas em produção reportados pelo cliente de ~{before} para ~{after} por mês.",
-            "deployFrequency": "Uma release a cada {everyDays} dias."
+            "title": "Os números"
         },
         "resumes": {
             "title": "Baixe meu currículo",
