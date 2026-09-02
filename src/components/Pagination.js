@@ -1,9 +1,10 @@
-import {
-    ChevronLeft,
-    ChevronRight,
-    FirstPage,
-    LastPage,
-} from '@mui/icons-material'
+// Corrige spec/03-paginas-internas.md §2: era IconButton genérico do MUI
+// (First/Prev/números/Next/Last); vira quadrado 36×36 r12 âmbar na página
+// atual, `rgba(255,255,255,.05)` nas outras, e `Next →` em pílula retangular.
+// `justify-content: center` aqui é uma das três exceções da lei do
+// alinhamento (spec/01-fundacao.md §3).
+
+import { ChevronLeft } from '@mui/icons-material'
 import { Box, IconButton, Typography } from '@mui/material'
 import { useTranslations } from 'next-intl'
 import PropTypes from 'prop-types'
@@ -12,10 +13,8 @@ const Pagination = ({ currentPage, totalPages, onPageChange, compact }) => {
     const t = useTranslations('Common')
     if (totalPages <= 1) return null
 
-    const handleFirst = () => onPageChange(1)
     const handlePrev = () => onPageChange(currentPage - 1)
     const handleNext = () => onPageChange(currentPage + 1)
-    const handleLast = () => onPageChange(totalPages)
 
     if (compact) {
         return (
@@ -44,7 +43,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange, compact }) => {
                     aria-label={t('nextPage')}
                     size="small"
                 >
-                    <ChevronRight />
+                    <ChevronLeft sx={{ transform: 'rotate(180deg)' }} />
                 </IconButton>
             </Box>
         )
@@ -83,84 +82,81 @@ const Pagination = ({ currentPage, totalPages, onPageChange, compact }) => {
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                gap: { xs: 0.5, sm: 1 },
+                gap: '8px',
                 flexWrap: 'wrap',
+                mt: '32px',
             }}
         >
-            <IconButton
-                onClick={handleFirst}
-                disabled={currentPage === 1}
-                aria-label={t('firstPage')}
-                size="small"
-            >
-                <FirstPage />
-            </IconButton>
-            <IconButton
-                onClick={handlePrev}
-                disabled={currentPage === 1}
-                aria-label={t('previousPage')}
-                size="small"
-            >
-                <ChevronLeft />
-            </IconButton>
-
             {getPageNumbers().map((page, index) =>
                 page === '...' ? (
                     <Typography
                         key={`ellipsis-${index}`}
-                        variant="body2"
-                        sx={{ mx: 0.5, color: 'text.secondary' }}
+                        sx={{
+                            mx: '4px',
+                            fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
+                            fontSize: '13px',
+                            color: '#7C8494',
+                        }}
                     >
                         ...
                     </Typography>
                 ) : (
-                    <IconButton
+                    <Box
                         key={page}
+                        component="button"
+                        type="button"
                         onClick={() => onPageChange(page)}
                         aria-label={t('pageNumber', { page })}
                         aria-current={page === currentPage ? 'page' : undefined}
-                        size="small"
                         sx={{
-                            minWidth: 36,
-                            height: 36,
-                            borderRadius: 1,
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            width: '36px',
+                            height: '36px',
+                            borderRadius: '12px',
+                            border: 'none',
+                            cursor: 'pointer',
+                            fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
+                            fontSize: '13px',
+                            fontWeight: 600,
                             color:
-                                page === currentPage
-                                    ? 'primary.contrastText'
-                                    : 'text.primary',
+                                page === currentPage ? '#0B0E13' : '#C6CCD8',
                             bgcolor:
                                 page === currentPage
-                                    ? 'primary.main'
-                                    : 'transparent',
-                            '&:hover': {
-                                bgcolor:
-                                    page === currentPage
-                                        ? 'primary.dark'
-                                        : 'action.hover',
-                            },
+                                    ? '#FFAA00'
+                                    : 'rgba(255,255,255,.05)',
                         }}
                     >
-                        <Typography variant="body2">{page}</Typography>
-                    </IconButton>
+                        {page}
+                    </Box>
                 )
             )}
 
-            <IconButton
-                onClick={handleNext}
-                disabled={currentPage === totalPages}
-                aria-label={t('nextPage')}
-                size="small"
-            >
-                <ChevronRight />
-            </IconButton>
-            <IconButton
-                onClick={handleLast}
-                disabled={currentPage === totalPages}
-                aria-label={t('lastPage')}
-                size="small"
-            >
-                <LastPage />
-            </IconButton>
+            {currentPage < totalPages ? (
+                <Box
+                    component="button"
+                    type="button"
+                    onClick={handleNext}
+                    aria-label={t('nextPage')}
+                    sx={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        height: '36px',
+                        px: '14px',
+                        borderRadius: '999px',
+                        border: 'none',
+                        cursor: 'pointer',
+                        fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
+                        fontSize: '13px',
+                        fontWeight: 600,
+                        color: '#C6CCD8',
+                        bgcolor: 'rgba(255,255,255,.05)',
+                    }}
+                >
+                    {t('next')} →
+                </Box>
+            ) : null}
         </Box>
     )
 }

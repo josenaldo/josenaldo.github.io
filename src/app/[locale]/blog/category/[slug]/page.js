@@ -1,8 +1,14 @@
-import { Box, Container } from '@mui/material'
+// Corrige spec/03-paginas-internas.md §8: derivada de `4b`. Mesma tela do
+// /blog, três diferenças: h1 = nome da categoria, lead = contagem (ICU
+// plural via Blog.category.postCount), pílula ativa em `tone="active"`, e
+// sem disclaimer (ele fecha o índice geral, não um recorte).
+
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 
-import ContentTitle from '@/components/content/ContentTitle'
 import PostGrid from '@/components/content/PostGrid'
+import PageHeader from '@/components/PageHeader'
+import Section from '@/components/Section'
+import CategoryFilters from '@/features/blog/CategoryFilters'
 import { routing } from '@/i18n/routing'
 import contentService from '@/services/content'
 
@@ -51,13 +57,12 @@ export default async function CategoryPage({ params }) {
     const { locale, slug } = await params
     setRequestLocale(locale)
     const t = await getTranslations({ locale, namespace: 'Blog.category' })
+    const tBlog = await getTranslations({ locale, namespace: 'Blog' })
 
     const categories = contentService.getAllCategories(locale)
     const category = categories.find((c) => c.slug === slug)
     const categoryName = category?.name ?? slug
-
-    const title = t('detailTitle', { category: categoryName })
-    const description = t('detailDescription', { category: categoryName })
+    const postCount = category?.count ?? 0
 
     const posts = contentService
         .getPostsByCategory(locale, slug)
@@ -66,18 +71,28 @@ export default async function CategoryPage({ params }) {
             description: post.description,
             url: post.url,
             image: post.image,
-            author: post.author,
             date: post.date,
             category: post.category,
-            locale: post.locale,
         }))
 
     return (
-        <Container>
-            <Box sx={{ my: 5 }}>
-                <ContentTitle title={title} subtitle={description} />
+        <>
+            <Section surface="default" padTop={56} padBottom={32}>
+                <PageHeader
+                    title={categoryName}
+                    lead={t('postCount', { count: postCount })}
+                >
+                    <CategoryFilters
+                        categories={categories}
+                        activeSlug={slug}
+                        allLabel={tBlog('filterAll')}
+                    />
+                </PageHeader>
+            </Section>
+
+            <Section surface="default" padTop={0} padBottom={48}>
                 <PostGrid posts={posts} />
-            </Box>
-        </Container>
+            </Section>
+        </>
     )
 }

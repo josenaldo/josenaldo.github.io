@@ -1,87 +1,122 @@
-import { Box, Button, Stack, Typography } from '@mui/material'
-import { useTranslations } from 'next-intl'
+// Corrige spec/03-paginas-internas.md §2: linha de post era Box genérico
+// column/row com Divider entre itens; vira card `#14181F` r18, grid
+// `200px 1fr 150px`, sem divisor (o espaçamento é o gap da lista).
+
+'use client'
+
+import { Box, Typography } from '@mui/material'
+import { useFormatter, useTranslations } from 'next-intl'
 import PropTypes from 'prop-types'
 
 import ContentCardImage from '@/components/content/ContentCardImage'
-import ContentCategory from '@/components/content/ContentCategory'
-import ContentMeta from '@/components/content/ContentMeta'
+import Pill from '@/components/Pill'
+import { Link } from '@/i18n/navigation'
 
-const PostListItem = ({
-    title,
-    text,
-    url,
-    image,
-    moreLinkText,
-    date,
-    author,
-    category,
-}) => {
+const PostListItem = ({ title, text, url, image, date, category }) => {
+    const format = useFormatter()
     const t = useTranslations('Common')
-    const resolvedMoreLinkText = moreLinkText ?? t('details')
 
     return (
         <Box
+            component={Link}
+            href={url}
             sx={{
-                display: 'flex',
-                flexDirection: { xs: 'column', md: 'row' },
-                gap: 3,
-                py: 3,
+                display: 'grid',
+                gridTemplateColumns: { xs: '1fr', md: '200px 1fr 150px' },
+                gap: { xs: '12px', md: '24px' },
+                alignItems: 'center',
+                p: '16px',
+                borderRadius: '18px',
+                bgcolor: '#14181F',
+                textDecoration: 'none',
+                boxShadow:
+                    '0 1px 2px rgba(0,0,0,.4), 0 14px 30px -22px rgba(0,0,0,.9)',
+                transition: 'background-color 120ms ease',
+                '&:hover': { bgcolor: '#191E27' },
             }}
         >
-            <Box sx={{ width: { xs: '100%', md: 200 }, flexShrink: 0 }}>
-                <ContentCardImage image={image} alt={title} />
+            <Box
+                sx={{
+                    borderRadius: '12px',
+                    overflow: 'hidden',
+                    bgcolor: '#0E1218',
+                }}
+            >
+                <ContentCardImage image={image} alt={title} aspectRatio="16/10" />
             </Box>
 
             <Box
                 sx={{
-                    flexGrow: 1,
                     display: 'flex',
                     flexDirection: 'column',
-                    gap: 1,
+                    gap: '8px',
+                    minWidth: 0,
                 }}
             >
-                {category && (
-                    <Box>
-                        <ContentCategory category={category} />
-                    </Box>
-                )}
-                <Typography component="h3" variant="h6">
+                <Typography
+                    component="h2"
+                    sx={{
+                        m: 0,
+                        fontFamily: "'Space Grotesk', system-ui, sans-serif",
+                        fontSize: '23px',
+                        fontWeight: 600,
+                        lineHeight: 1.25,
+                        color: '#FFFFFF',
+                    }}
+                >
                     {title}
                 </Typography>
-                {text && (
-                    <Typography variant="body2" color="text.secondary">
+                {text ? (
+                    <Typography
+                        component="p"
+                        sx={{
+                            m: 0,
+                            fontSize: '15px',
+                            lineHeight: 1.55,
+                            color: '#98A0B0',
+                            maxWidth: '70ch',
+                        }}
+                    >
                         {text}
                     </Typography>
-                )}
+                ) : null}
             </Box>
 
-            <Stack
+            <Box
                 sx={{
-                    flexShrink: 0,
-                    alignItems: { xs: 'flex-start', md: 'flex-end' },
-                    justifyContent: 'space-between',
-                    minWidth: { md: 140 },
+                    display: 'flex',
+                    flexDirection: { xs: 'row', md: 'column' },
+                    alignItems: { xs: 'center', md: 'flex-end' },
+                    justifyContent: { xs: 'space-between', md: 'flex-start' },
+                    gap: '10px',
                 }}
             >
-                <ContentMeta date={date} author={author} />
-                {url && (
-                    <Button
-                        component="a"
-                        href={url}
-                        variant="text"
-                        aria-label={
-                            title
-                                ? t('openItem', {
-                                      label: resolvedMoreLinkText,
-                                      title,
-                                  })
-                                : resolvedMoreLinkText
-                        }
-                    >
-                        {resolvedMoreLinkText} →
-                    </Button>
-                )}
-            </Stack>
+                {category ? (
+                    <Pill tone="amber" uppercase size="sm">
+                        {category}
+                    </Pill>
+                ) : null}
+                <Typography
+                    component="span"
+                    sx={{
+                        fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
+                        fontSize: '12px',
+                        color: '#7C8494',
+                    }}
+                >
+                    {format.dateTime(new Date(date), {
+                        day: '2-digit',
+                        month: 'short',
+                        year: 'numeric',
+                    })}
+                </Typography>
+                <Typography
+                    component="span"
+                    sx={{ fontSize: '14px', color: '#B69BF0' }}
+                >
+                    {t('readShort')} →
+                </Typography>
+            </Box>
         </Box>
     )
 }
@@ -89,11 +124,9 @@ const PostListItem = ({
 PostListItem.propTypes = {
     title: PropTypes.string.isRequired,
     text: PropTypes.string,
-    url: PropTypes.string,
+    url: PropTypes.string.isRequired,
     image: PropTypes.string,
-    moreLinkText: PropTypes.string,
     date: PropTypes.string,
-    author: PropTypes.string,
     category: PropTypes.string,
 }
 

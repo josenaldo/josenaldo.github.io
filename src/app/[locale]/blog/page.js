@@ -1,8 +1,15 @@
-import { Box, Container } from '@mui/material'
+// Corrige spec/03-paginas-internas.md §2 (tela `4b`). PageHeader com a fila
+// de filtros como `children`, linhas de post (PostGrid/PostListItem já
+// reescritos) e o disclaimer como nota de rodapé numa faixa `band` — nunca
+// acima da lista.
+
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 
-import ContentTitle from '@/components/content/ContentTitle'
+import BlogDisclaimer from '@/components/content/BlogDisclaimer'
 import PostGrid from '@/components/content/PostGrid'
+import PageHeader from '@/components/PageHeader'
+import Section from '@/components/Section'
+import CategoryFilters from '@/features/blog/CategoryFilters'
 import { routing } from '@/i18n/routing'
 import contentService from '@/services/content'
 
@@ -37,22 +44,30 @@ export default async function BlogPage({ params }) {
         description: post.description,
         url: post.url,
         image: post.image,
-        author: post.author,
         date: post.date,
         category: post.category,
-        locale: post.locale,
     }))
 
+    const categories = contentService.getAllCategories(locale)
+
     return (
-        <Container>
-            <Box
-                sx={{
-                    my: 5,
-                }}
-            >
-                <ContentTitle title={t('title')} subtitle={t('description')} />
+        <>
+            <Section surface="default" padTop={56} padBottom={32}>
+                <PageHeader title={t('title')} lead={t('description')}>
+                    <CategoryFilters
+                        categories={categories}
+                        allLabel={t('filterAll')}
+                    />
+                </PageHeader>
+            </Section>
+
+            <Section surface="default" padTop={0} padBottom={48}>
                 <PostGrid posts={posts} />
-            </Box>
-        </Container>
+            </Section>
+
+            <Section surface="band" padTop={40} padBottom={40}>
+                <BlogDisclaimer />
+            </Section>
+        </>
     )
 }

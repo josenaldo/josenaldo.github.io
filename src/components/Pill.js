@@ -20,9 +20,11 @@ const Pill = ({
     size = 'md',
     component = 'span',
     children,
+    ...rest
 }) => (
     <Box
         component={component}
+        {...rest}
         sx={{
             ...TONE[tone],
             display: 'inline-flex',
@@ -48,7 +50,7 @@ Pill.propTypes = {
     as: PropTypes.oneOf(['mono', 'display']),
     uppercase: PropTypes.bool,
     size: PropTypes.oneOf(['sm', 'md']),
-    component: PropTypes.string,
+    component: PropTypes.elementType,
     children: PropTypes.node.isRequired,
 }
 

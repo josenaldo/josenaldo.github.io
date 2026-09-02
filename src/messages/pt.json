@@ -267,6 +267,7 @@
     "Common": {
         "languageSwitcherLabel": "seletor de idioma",
         "readPost": "Ler post",
+        "readShort": "Ler",
         "share": "Compartilhar",
         "close": "fechar",
         "details": "Detalhes",
@@ -275,6 +276,7 @@
         "source": "Código",
         "previousPage": "Página anterior",
         "nextPage": "Próxima página",
+        "next": "Próxima",
         "firstPage": "Primeira página",
         "lastPage": "Última página",
         "pageNumber": "Página {page}",
