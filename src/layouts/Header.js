@@ -32,18 +32,19 @@ const Header = () => {
                     sx={{
                         display: 'flex',
                         flexDirection: 'row',
-                        justifyContent: 'flex-start',
+                        justifyContent: 'space-between',
                         alignItems: 'center',
                         width: '100%',
-                        gap: { xs: 2, md: 8, lg: 12 },
+                        gap: 1,
                     }}
                 >
                     <Logo />
 
                     {/* Nav + EN/PT + botão viajam juntos como um bloco só,
-                    logo depois do logo (gap fixo, não `space-between`) — o
-                    bloco não estica até a borda direita do canvas, sobra
-                    espaço depois do botão, igual ao mock. */}
+                    colado à direita do canvas — agora que o canvas do
+                    header tem a mesma largura do resto da página,
+                    `space-between` encosta esse bloco na mesma borda
+                    direita onde termina o conteúdo (ex.: a foto do hero). */}
                     <Box sx={{ display: 'flex', alignItems: 'center', gap: 3 }}>
                         <DesktopMenu pages={pages} aboutSubNav={aboutSubNav} />
 
