@@ -5,7 +5,7 @@ Mock: `Páginas internas.dc.html` § `4e`. Site: `http://localhost:3500/en/exper
 ## Cabeçalho
 
 - [x] **EX-01** — texto do `h1`. **Mock:** *Professional experiences* (só a inicial maiúscula). **Site:** *Professional Experiences* (title case). · `src/messages/en.json`
-- [x] **EX-02** — número de anos no lead. **Mock:** *23+ years*. **Site:** *20+ years*. Divergência de dado, não de estilo — decidir qual é o número correto e usar o mesmo em todo lugar. · `src/messages/en.json`
+- [ ] **EX-02** — ~~número de anos no lead~~. **Correção:** não era divergência. `yearsOfExperience()` arredonda para baixo em múltiplos de 5 **de propósito** (2026 → 20), e o comentário no código diz isso. Chegou a ser trocado pelo número exato em 2026-09-02 e foi revertido no mesmo dia. `20+` é a apresentação escolhida; `23+` no mock é que está fora da regra. `MANTER` · `src/data/metrics.mjs`
 - [x] **EX-03** — resto do lead. **Mock:** *…Each experience shows the challenge faced, the actions taken, and the measurable results delivered.* **Site:** *…Each experience showcases the challenge faced, actions taken, and measurable results delivered.* Diferença menor de redação. · `src/messages/en.json`
 - [ ] **EX-04** — largura do lead. **Mock:** `max-width: 74ch`. **Site:** `799px` (≈ 74ch). Bate. `MANTER`
 - [ ] **EX-05** — `h1` 44px/1.08, padding `56/40/32`. Batem. `MANTER`

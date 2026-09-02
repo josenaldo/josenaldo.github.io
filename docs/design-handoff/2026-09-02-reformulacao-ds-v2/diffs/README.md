@@ -63,7 +63,7 @@ Critério: só entrou o que é **régua**. Ficou de fora tudo que muda palavra, 
 
 Quatro componentes ganharam degraus que o mock exigia e não existiam: `Pill` (quatro paddings, dois neutros, `tracking` por uso), `SectionHeader` (34/32/26/23), `PageHeader` (44/48/52, com o lead acompanhando) e o botão do tema (a caixa do hero e a do header, em vez de uma escala derivada pelo MUI).
 
-**Dois itens da primeira leitura estavam errados e foram corrigidos, não aplicados:** `HR-03` (o `h1` já usa `20ch`) e `BG-09` (erro de aritmética meu; mock e site dão a mesma coluna de 770px).
+**Três itens foram corrigidos em vez de aplicados**, porque o diagnóstico da primeira leitura estava errado: `HR-03` (o `h1` já usa `20ch`), `BG-09` (erro de aritmética meu; mock e site dão a mesma coluna de 770px) e `EX-02` (os `20+` anos são arredondamento proposital documentado em `metrics.mjs`, não um número defasado).
 
 ## Duas leituras que valem antes de decidir
 

@@ -157,13 +157,13 @@ export const CAREER_START_YEAR = 2003
 // (`new Date().getFullYear()`) e fica fora deste módulo, porque é data, não dado.
 export const SITE_LAUNCH_YEAR = 2023
 
-// Anos exatos desde CAREER_START_YEAR. Arredondava para baixo em múltiplos de
-// 5 (2026 → 20), o que em 2026 tirava três anos de carreira do currículo sem
-// ganhar nada em troca — decisão do dono do site em 2026-09-02: vale o número
-// exato. O "+" de apresentação ("23+") continua sendo sufixo de string de
-// tradução, não deste módulo.
+// Arredonda para baixo em múltiplos de 5: 2026 → 20, 2028 → 25, ... O "+" de
+// apresentação ("20+") é sufixo de string de tradução, não deste módulo.
+// O arredondamento é proposital e já foi revisitado: em 2026-09-02 chegou a
+// ser trocado pelo número exato e foi revertido no mesmo dia — "20+" é a
+// apresentação escolhida, e "23+" não é uma divergência a corrigir.
 export function yearsOfExperience(now = new Date()) {
-    return now.getFullYear() - CAREER_START_YEAR
+    return Math.floor((now.getFullYear() - CAREER_START_YEAR) / 5) * 5
 }
 
 // Anos completos desde que o log de commits passou a mostrar um nome humano
