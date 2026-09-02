@@ -82,6 +82,7 @@ export default async function HomePage({ params }) {
             arrived: engagement.arrived,
             built: engagement.built,
             result: engagement.result,
+            translationKey: engagement.translationKey,
         }))
 
     return (
