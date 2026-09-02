@@ -1,28 +1,46 @@
 'use client'
 
-import { Typography } from '@mui/material'
+import { Box, Typography } from '@mui/material'
 
 import { Link } from '@/i18n/navigation'
 
 const Logo = () => {
     return (
-        <Typography
-            noWrap
+        <Box
             component={Link}
             href="/"
-            sx={(theme) => ({
-                fontSize: theme.typography.h6.fontSize,
-                mr: 2,
-                fontWeight: 700,
-                color: 'inherit',
+            sx={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '10px',
+                flex: 'none',
                 textDecoration: 'none',
-            })}
+            }}
         >
-            Josenaldo Matos
-        </Typography>
+            <Box
+                aria-hidden="true"
+                sx={{
+                    width: '12px',
+                    height: '12px',
+                    borderRadius: '4px',
+                    bgcolor: 'primary.main',
+                    flex: 'none',
+                }}
+            />
+
+            <Typography
+                noWrap
+                sx={{
+                    fontFamily: "'Space Grotesk', system-ui, sans-serif",
+                    fontSize: '16px',
+                    fontWeight: 700,
+                    color: '#FFFFFF',
+                }}
+            >
+                Josenaldo Matos
+            </Typography>
+        </Box>
     )
 }
-
-Logo.propTypes = {}
 
 export default Logo

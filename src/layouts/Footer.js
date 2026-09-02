@@ -1,12 +1,26 @@
 'use client'
 
-import { Box, Container, Link as MuiLink, Stack, Typography } from '@mui/material'
+import { Box, Link as MuiLink, Stack, Typography } from '@mui/material'
 import { useTranslations } from 'next-intl'
 
 import { SITE_LAUNCH_YEAR } from '@/data/metrics.mjs'
 import pages, { aboutSubNav } from '@/data/pages'
 import socialLinks from '@/data/socialLinks'
 import { Link } from '@/i18n/navigation'
+
+const COLUMN_TITLE_SX = {
+    fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
+    fontSize: '11px',
+    fontWeight: 600,
+    letterSpacing: '.14em',
+    textTransform: 'uppercase',
+    color: '#4E5666',
+}
+
+const LINK_SX = {
+    fontSize: '14px',
+    color: '#98A0B0',
+}
 
 const Footer = () => {
     const t = useTranslations('Nav')
@@ -20,63 +34,85 @@ const Footer = () => {
             component="footer"
             sx={(theme) => ({
                 bgcolor: theme.surface.band,
-                py: '32px',
-                px: '44px',
+                padding: { xs: '24px', md: '24px 40px 44px' },
             })}
         >
-            <Container maxWidth="xl">
+            <Box sx={{ maxWidth: '1280px', mx: 'auto' }}>
                 <Stack
                     direction={{ xs: 'column', md: 'row' }}
-                    spacing={{ xs: 4, md: 8 }}
+                    alignItems="flex-start"
                     justifyContent="space-between"
+                    spacing={{ xs: 4, md: 0 }}
                 >
                     <Box>
-                        <Typography variant="overline" component="p">
-                            {tFooter('siteColumnTitle')}
+                        <Typography
+                            sx={{
+                                fontFamily:
+                                    "'Space Grotesk', system-ui, sans-serif",
+                                fontSize: '15px',
+                                fontWeight: 700,
+                                color: '#FFFFFF',
+                            }}
+                        >
+                            Josenaldo Matos
                         </Typography>
-                        <Stack spacing={1} sx={{ mt: 1 }}>
-                            {siteLinks.map((page) => (
-                                <MuiLink
-                                    key={page.name}
-                                    component={Link}
-                                    href={page.url}
-                                >
-                                    {t(page.name)}
-                                </MuiLink>
-                            ))}
-                        </Stack>
+                        <Typography
+                            component="p"
+                            sx={{
+                                mt: '6px',
+                                fontFamily:
+                                    "'IBM Plex Mono', ui-monospace, monospace",
+                                fontSize: '12px',
+                                color: '#7C8494',
+                            }}
+                        >
+                            {tFooter('copyright', {
+                                startYear: SITE_LAUNCH_YEAR,
+                                currentYear,
+                            })}
+                        </Typography>
                     </Box>
 
-                    <Box>
-                        <Typography variant="overline" component="p">
-                            {tFooter('elsewhereColumnTitle')}
-                        </Typography>
-                        <Stack spacing={1} sx={{ mt: 1 }}>
-                            {socialLinks.map((social) => (
-                                <MuiLink
-                                    key={social.name}
-                                    href={social.url}
-                                    target="_blank"
-                                    rel="noreferrer noopener"
-                                >
-                                    {social.name}
-                                </MuiLink>
-                            ))}
-                        </Stack>
-                    </Box>
+                    <Stack direction="row" spacing="56px">
+                        <Box>
+                            <Typography component="p" sx={COLUMN_TITLE_SX}>
+                                {tFooter('siteColumnTitle')}
+                            </Typography>
+                            <Stack spacing="8px" sx={{ mt: '12px' }}>
+                                {siteLinks.map((page) => (
+                                    <MuiLink
+                                        key={page.name}
+                                        component={Link}
+                                        href={page.url}
+                                        sx={LINK_SX}
+                                    >
+                                        {t(page.name)}
+                                    </MuiLink>
+                                ))}
+                            </Stack>
+                        </Box>
+
+                        <Box>
+                            <Typography component="p" sx={COLUMN_TITLE_SX}>
+                                {tFooter('elsewhereColumnTitle')}
+                            </Typography>
+                            <Stack spacing="8px" sx={{ mt: '12px' }}>
+                                {socialLinks.map((social) => (
+                                    <MuiLink
+                                        key={social.name}
+                                        href={social.url}
+                                        target="_blank"
+                                        rel="noreferrer noopener"
+                                        sx={LINK_SX}
+                                    >
+                                        {social.name}
+                                    </MuiLink>
+                                ))}
+                            </Stack>
+                        </Box>
+                    </Stack>
                 </Stack>
-
-                <Typography
-                    variant="caption"
-                    component="p"
-                    sx={{ mt: 4, textAlign: { xs: 'center', md: 'left' } }}
-                >
-                    {tFooter('copyright', {
-                        startYear: SITE_LAUNCH_YEAR,
-                        currentYear,
-                    })}
-                </Typography>
-            </Container>
+            </Box>
         </Box>
     )
 }

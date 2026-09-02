@@ -13,13 +13,15 @@ const isActivePage = (pathname, url) =>
     url === '/' ? pathname === '/' : pathname.startsWith(url)
 
 const pillSx = (active) => ({
-    color: '#FFFFFF',
-    borderRadius: 999,
-    px: 2,
+    color: active ? '#E9ECF2' : '#98A0B0',
+    fontSize: '14px',
+    borderRadius: '10px',
+    padding: '8px 14px',
     fontWeight: active ? 500 : 400,
     bgcolor: active ? 'rgba(255,255,255,.06)' : 'transparent',
     '&:hover': {
         bgcolor: 'rgba(255,255,255,.08)',
+        color: '#E9ECF2',
     },
 })
 

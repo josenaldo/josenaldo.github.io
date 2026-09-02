@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { AppBar, Box, Container, NoSsr, Toolbar } from '@mui/material'
+import { AppBar, Box, NoSsr, Toolbar } from '@mui/material'
 
 import BookACallButton from '@/components/BookACallButton'
 import Logo from '@/components/Logo'
@@ -12,7 +12,13 @@ import MobileMenu from '@/layouts/MobileMenu'
 const Header = () => {
     return (
         <AppBar position="sticky">
-            <Container>
+            <Box
+                sx={{
+                    maxWidth: '1280px',
+                    mx: 'auto',
+                    px: { xs: '24px', md: '40px' },
+                }}
+            >
                 <Toolbar
                     disableGutters
                     sx={{
@@ -39,7 +45,7 @@ const Header = () => {
                         </NoSsr>
                     </Box>
                 </Toolbar>
-            </Container>
+            </Box>
 
             <ReadingProgressBar />
         </AppBar>
