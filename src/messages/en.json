@@ -224,7 +224,28 @@
     },
     "About": {
         "kicker": "Letter to an unknown friend",
-        "timelineTitle": "The hard-mode timeline"
+        "role": "Software Developer & Kidney Waster",
+        "machines": {
+            "oneTag": "Machine one",
+            "oneText": "Computers — they let me work and stay connected to the world.",
+            "twoTag": "Machine two",
+            "twoText": "Hemodialysis machines — they keep me alive."
+        },
+        "timelineTitle": "The hard-mode timeline",
+        "timeline": [
+            { "year": "1999", "text": "First software project." },
+            { "year": "2003", "text": "Went from hobbyist to professional developer." },
+            { "year": "2008", "text": "Diagnosed with Chronic Kidney Disease. Lost both kidneys, started hemodialysis." },
+            { "year": "2012", "text": "Family decided on a kidney transplant. My mother-in-law donated hers." },
+            { "year": "2013", "text": "Received the transplant — a new lease on life." },
+            { "year": "2015", "text": "Transplant rejection. Back to hemodialysis." },
+            { "year": "2016", "text": "Health forced a full stop from work to focus on treatment." }
+        ],
+        "timelineClosing": "I stand strong, having only lost three kidneys and broken two legs.",
+        "cta": {
+            "title": "Want to take your part in this story?",
+            "ctaLabel": "Say hello"
+        }
     },
     "Projects": {
         "title": "Projects",

@@ -224,7 +224,28 @@
     },
     "About": {
         "kicker": "Carta a um amigo desconhecido",
-        "timelineTitle": "A linha do tempo no modo difícil"
+        "role": "Desenvolvedor de Software & Perdedor de Rim",
+        "machines": {
+            "oneTag": "Máquina um",
+            "oneText": "Computadores — me permitem trabalhar e me conectar com o mundo.",
+            "twoTag": "Máquina dois",
+            "twoText": "Máquinas de hemodiálise — me mantêm vivo."
+        },
+        "timelineTitle": "A linha do tempo no modo difícil",
+        "timeline": [
+            { "year": "1999", "text": "Primeiro projeto de software." },
+            { "year": "2003", "text": "Passou de hobby a desenvolvedor profissional." },
+            { "year": "2008", "text": "Diagnosticado com Doença Renal Crônica. Perdeu os dois rins, começou hemodiálise." },
+            { "year": "2012", "text": "A família decidiu pelo transplante renal. A sogra doou o dela." },
+            { "year": "2013", "text": "Recebeu o transplante — uma nova chance de vida." },
+            { "year": "2015", "text": "Rejeição do transplante. De volta à hemodiálise." },
+            { "year": "2016", "text": "A saúde forçou uma parada total no trabalho para focar no tratamento." }
+        ],
+        "timelineClosing": "Sigo firme, tendo perdido só três rins e quebrado duas pernas.",
+        "cta": {
+            "title": "Quer fazer parte dessa história?",
+            "ctaLabel": "Diga oi"
+        }
     },
     "Projects": {
         "title": "Projetos",
