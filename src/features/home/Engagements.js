@@ -1,3 +1,5 @@
+'use client'
+
 import { Box, Card, CardContent, Divider, Typography } from '@mui/material'
 import { useLocale, useTranslations } from 'next-intl'
 import PropTypes from 'prop-types'
@@ -126,13 +128,13 @@ const Engagements = ({ engagements }) => {
                                         </Box>
 
                                         <Box
-                                            sx={{
-                                                bgcolor: 'primary.main',
-                                                color: 'primary.contrastText',
+                                            sx={(theme) => ({
+                                                bgcolor: theme.surface.result,
+                                                color: theme.ink.body,
                                                 borderRadius: 2,
                                                 p: 3,
                                                 mt: 1,
-                                            }}
+                                            })}
                                         >
                                             <Typography
                                                 variant="overline"
