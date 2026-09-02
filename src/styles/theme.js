@@ -7,7 +7,9 @@ import { createTheme } from '@mui/material/styles'
 const surface = {
     default: '#0B0E13', // fundo da página
     band: '#0E1218', // faixa alternada de seção
+    strip: '#101419', // cartucho de prova, cabeçalho de bloco de código
     paper: '#14181F', // cartão, item de lista
+    paperSoft: '#12161C', // card de baixa ênfase (depoimento, sidebar)
     result: '#191233', // bloco de resultado / citação
 }
 
@@ -137,6 +139,14 @@ const theme = createTheme({
         MuiTypography: {
             defaultProps: {
                 variantMapping: { lead: 'p', pageTitle: 'h1' },
+            },
+            styleOverrides: {
+                // O tema define a variante `lead` mas não a margem; em um
+                // container com `gap` isso não aparece, em um sem `gap` o
+                // texto cola no elemento anterior. Com margin:0 em tudo e
+                // `gap` explícito nos containers, o respiro vira uma decisão
+                // de layout, não um resíduo do reset do navegador.
+                root: { '&:where(h1,h2,h3,h4,h5,h6,p)': { margin: 0 } },
             },
         },
         MuiPaper: {
