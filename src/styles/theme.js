@@ -66,6 +66,13 @@ const theme = createTheme({
             lineHeight: 1.06,
             letterSpacing: '-0.03em',
         },
+        pageTitle: {
+            fontFamily: headerFont,
+            fontWeight: 700,
+            fontSize: 'clamp(2.75rem, 2.5rem + 1.2vw, 3rem)', // piso 44px, teto 48px
+            lineHeight: 1.08,
+            letterSpacing: '-0.03em',
+        },
         h2: {
             fontFamily: headerFont,
             fontWeight: 700,
@@ -129,7 +136,7 @@ const theme = createTheme({
         },
         MuiTypography: {
             defaultProps: {
-                variantMapping: { lead: 'p' },
+                variantMapping: { lead: 'p', pageTitle: 'h1' },
             },
         },
         MuiPaper: {

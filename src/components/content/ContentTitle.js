@@ -4,20 +4,15 @@ import PropTypes from 'prop-types'
 const ContentTitle = ({
     title,
     subtitle = '',
-    titleVariant = 'h1',
-    subtitleVariant = 'subtitle',
+    titleVariant = 'pageTitle',
+    subtitleVariant = 'lead',
 }) => {
     return (
         <Stack alignItems="center">
             <Typography variant={titleVariant} textAlign="center">
                 {title}
             </Typography>
-            <Typography
-                variant={subtitleVariant}
-                textAlign="center"
-                color="secondary.light"
-                fontStyle="italic"
-            >
+            <Typography variant={subtitleVariant} textAlign="center">
                 {subtitle}
             </Typography>
         </Stack>
