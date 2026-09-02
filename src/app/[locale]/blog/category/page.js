@@ -1,7 +1,8 @@
-import { Box, Container } from '@mui/material'
+import { Box } from '@mui/material'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 
-import ContentTitle from '@/components/content/ContentTitle'
+import PageHeader from '@/components/PageHeader'
+import Section from '@/components/Section'
 import { routing } from '@/i18n/routing'
 import contentService from '@/services/content'
 
@@ -40,11 +41,11 @@ export default async function CategoriesPage({ params }) {
     }))
 
     return (
-        <Container>
-            <Box sx={{ my: 5 }}>
-                <ContentTitle title={t('title')} subtitle={t('description')} />
+        <Section surface="default" padTop={56} padBottom={48}>
+            <PageHeader title={t('title')} lead={t('description')} />
+            <Box sx={{ mt: '32px' }}>
                 <CategoryGrid categories={categories} />
             </Box>
-        </Container>
+        </Section>
     )
 }

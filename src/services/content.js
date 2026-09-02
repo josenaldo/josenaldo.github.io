@@ -203,10 +203,6 @@ const getAllSkills = () => {
 }
 
 const getAllSkillsByCategory = () => {
-    const colorMap = Object.fromEntries(
-        skillGroups.map(({ group, color }) => [group, color])
-    )
-
     const grouped = skills.reduce((acc, skill) => {
         if (!skill.group) return acc
         if (!acc[skill.group]) acc[skill.group] = []
@@ -218,7 +214,6 @@ const getAllSkillsByCategory = () => {
         .filter(({ group }) => grouped[group])
         .map(({ group }) => ({
             group,
-            color: colorMap[group],
             skills: grouped[group].sort(
                 (a, b) => a.firstContact - b.firstContact
             ),
