@@ -1,17 +1,21 @@
 import { Box, Typography } from '@mui/material'
-import { useTranslations } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
 
 import photo200 from '@/assets/images/josenaldo-200.webp'
 import photo300 from '@/assets/images/josenaldo-300.webp'
 import photo400 from '@/assets/images/josenaldo-400.webp'
 import BookACallButton from '@/components/BookACallButton'
+import MetricDelta from '@/components/MetricDelta'
 import Section from '@/components/Section'
 import metrics from '@/data/metrics.mjs'
+import { metricSideValue } from '@/lib/metricValue'
 
 const { deploymentFrequency, clientReportedIssues, deployDuration } = metrics
 
 const Hero = () => {
     const t = useTranslations('Home.hero')
+    const tMetrics = useTranslations('Metrics')
+    const locale = useLocale()
 
     return (
         <Section surface="band" rhythm="hero">
@@ -34,24 +38,55 @@ const Hero = () => {
                 >
                     <Typography variant="h1">{t('headline')}</Typography>
                     <Typography variant="subtitle">{t('subhead')}</Typography>
-                    <Box sx={{ mt: 2 }}>
-                        <Typography variant="body1">
-                            {t('metricDeploys', {
-                                everyDays: deploymentFrequency.after.everyDays,
-                            })}
-                        </Typography>
-                        <Typography variant="body1">
-                            {t('metricIssues', {
-                                before: clientReportedIssues.before.count,
-                                after: clientReportedIssues.after.count,
-                            })}
-                        </Typography>
-                        <Typography variant="body1">
-                            {t('metricDeployTime', {
-                                before: deployDuration.before.display,
-                                after: deployDuration.after.display,
-                            })}
-                        </Typography>
+                    <Box
+                        sx={{
+                            mt: 2,
+                            display: 'flex',
+                            flexWrap: 'wrap',
+                            justifyContent: {
+                                xs: 'center',
+                                md: 'flex-start',
+                            },
+                            gap: 4,
+                        }}
+                    >
+                        <MetricDelta
+                            label={tMetrics('deploymentFrequency.label')}
+                            before={metricSideValue(
+                                deploymentFrequency.before,
+                                locale
+                            )}
+                            after={metricSideValue(
+                                deploymentFrequency.after,
+                                locale
+                            )}
+                            confidence={deploymentFrequency.after.confidence}
+                        />
+                        <MetricDelta
+                            label={tMetrics('clientReportedIssues.label')}
+                            before={metricSideValue(
+                                clientReportedIssues.before,
+                                locale
+                            )}
+                            after={metricSideValue(
+                                clientReportedIssues.after,
+                                locale
+                            )}
+                            unit={tMetrics('clientReportedIssues.unit')}
+                            confidence={clientReportedIssues.after.confidence}
+                        />
+                        <MetricDelta
+                            label={tMetrics('deployDuration.label')}
+                            before={metricSideValue(
+                                deployDuration.before,
+                                locale
+                            )}
+                            after={metricSideValue(
+                                deployDuration.after,
+                                locale
+                            )}
+                            confidence={deployDuration.after.confidence}
+                        />
                     </Box>
                     <Box
                         sx={{
