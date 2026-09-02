@@ -8,7 +8,8 @@ const Code = ({ children }) => {
                 display: 'block',
                 overflowX: 'auto',
                 textWrap: 'none',
-                bgcolor: 'background.paper',
+                bgcolor: '#101419',
+                borderRadius: '12px',
                 padding: '10px',
                 my: 2,
             }}

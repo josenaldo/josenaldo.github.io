@@ -38,40 +38,34 @@ const Blockquote = ({ children }) => {
     return (
         <Box
             component="blockquote"
-            sx={(theme) => ({
+            sx={{
                 display: 'flex',
                 flexDirection: 'column',
-                bgcolor: theme.surface.result,
-                color: theme.ink.body,
-                py: 2,
-                px: { xs: 2, md: 4 },
-                my: 2,
-                mx: { xs: 0, md: 2 },
-                borderRadius: '0 8px 8px 0',
-                borderLeft: '5px solid',
-                borderColor: 'secondary.light',
-                fontStyle: 'italic',
+                bgcolor: '#191233',
+                color: '#E5DEF7',
+                p: '24px 28px',
+                m: 0,
+                borderRadius: '16px',
+                fontSize: '22px',
+                lineHeight: 1.5,
                 '& p': {
-                    my: 1,
+                    m: 0,
                 },
-            })}
+                '& strong': {
+                    color: '#FFFFFF',
+                },
+            }}
         >
             {quoteChildren}
             {citation && (
                 <Box
                     component="footer"
                     sx={{
-                        mt: 1,
-                        fontStyle: 'normal',
-                        fontSize: '0.9em',
-                        color: 'text.secondary',
-                        '& cite': {
-                            fontStyle: 'normal',
-                            fontWeight: 500,
-                        },
-                        '&::before': {
-                            content: '"— "',
-                        },
+                        mt: '12px',
+                        fontSize: '0.7em',
+                        color: '#B69BF0',
+                        '& cite': { fontStyle: 'normal', fontWeight: 500 },
+                        '&::before': { content: '"— "' },
                     }}
                 >
                     <cite>{citation}</cite>
