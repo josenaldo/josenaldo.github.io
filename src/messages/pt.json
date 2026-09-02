@@ -35,6 +35,9 @@
         "codebasesActive": {
             "label": "Em desenvolvimento ativo"
         },
+        "automatedTests": {
+            "label": "Testes automatizados"
+        },
         "muvzDelay": {
             "label": "Atraso na entrega",
             "unit": "meses",
@@ -167,8 +170,15 @@
         "status": "Aberto a vagas sênior de IC",
         "location": "Contratação remota · LATAM · GMT-3",
         "ownTitle": "O que eu assumo",
+        "stack": ["Java/Spring", "TypeScript", "Node.js", "React"],
         "evidence": {
-            "title": "Os números"
+            "title": "Os números",
+            "cadenceValue": "{days} dias",
+            "confidenceNote": "Marcado com ● = medido a partir do git, CI e da suíte de testes."
+        },
+        "own": {
+            "ownershipTag": "Propriedade",
+            "asyncTag": "Operação assíncrona"
         },
         "resumes": {
             "title": "Baixe meu currículo",

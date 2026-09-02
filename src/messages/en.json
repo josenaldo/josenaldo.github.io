@@ -35,6 +35,9 @@
         "codebasesActive": {
             "label": "Actively developed"
         },
+        "automatedTests": {
+            "label": "Automated tests"
+        },
         "muvzDelay": {
             "label": "Delivery delay",
             "unit": "months",
@@ -167,8 +170,15 @@
         "status": "Open to senior IC roles",
         "location": "Remote contractor · LATAM · GMT-3",
         "ownTitle": "What I own",
+        "stack": ["Java/Spring", "TypeScript", "Node.js", "React"],
         "evidence": {
-            "title": "The numbers"
+            "title": "The numbers",
+            "cadenceValue": "{days} days",
+            "confidenceNote": "Marked ● = measured from git, CI and the test suite."
+        },
+        "own": {
+            "ownershipTag": "Ownership",
+            "asyncTag": "Async operation"
         },
         "resumes": {
             "title": "Download my résumé",
