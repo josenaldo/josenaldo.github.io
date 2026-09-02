@@ -68,7 +68,7 @@
     "Home": {
         "hero": {
             "headline": "I build the machine that ships your software.",
-            "subhead": "Fractional software engineer and architect. I take over platforms that have eroded past the point where anyone can safely change them, and turn them into a delivery operation that runs on one meeting a month.",
+            "subhead": "I take over platforms that have eroded past the point where anyone can safely change them, and turn them into a delivery operation that runs on one meeting a month.",
             "photoAlt": "Josenaldo Matos",
             "kicker": "Fractional software engineer & architect",
             "secondaryCta": "Read the three engagements →",
@@ -153,7 +153,7 @@
                 "short": "Essays on delivery, architecture, and one engineer running a platform with AI agents."
             },
             "pog": {
-                "name": "Workaround-Oriented Programming (livropog.com.br)",
+                "name": "Workaround-Oriented Programming",
                 "description": "A living technical book about the gap between the architecture we present and the workarounds we ship. Written in Portuguese, published continuously.",
                 "short": "A living technical book on the gap between the architecture we present and the workarounds we ship. In Portuguese."
             },
@@ -178,7 +178,9 @@
         "evidence": {
             "title": "The numbers",
             "cadenceValue": "{days} days",
-            "confidenceNote": "Marked ● = measured from git, CI and the test suite."
+            "confidenceNote": "Marked ● = measured from git, CI and the test suite.",
+            "ownedCaption": "repositories under my ownership, {active} in active development",
+            "testsCaption": "automated tests (was {before})"
         },
         "own": {
             "ownershipTag": "Ownership",
@@ -198,7 +200,7 @@
     },
     "Blog": {
         "title": "Nephro Nerd Chronicles",
-        "description": "Explore Nephro Nerd Chronicles: Josenaldo's fusion of software development and kidney health insights. Be inspired, learn, and connect – one byte at a time!",
+        "description": "Software development and kidney health insights, in the same feed. Be inspired, learn, and connect — one byte at a time.",
         "filterAll": "All",
         "disclaimerTitle": "A few honest warnings before you leave",
         "category": {
@@ -232,7 +234,7 @@
         "updateLabel": "Update · {date}"
     },
     "About": {
-        "kicker": "Letter to an unknown friend",
+        "kicker": "The long version",
         "role": "Software Developer & Kidney Waster",
         "machines": {
             "oneTag": "Machine one",
@@ -242,15 +244,32 @@
         },
         "timelineTitle": "The hard-mode timeline",
         "timeline": [
-            { "year": "1999", "text": "First software project." },
-            { "year": "2003", "text": "Went from hobbyist to professional developer." },
-            { "year": "2008", "text": "Diagnosed with Chronic Kidney Disease. Lost both kidneys, started hemodialysis." },
-            { "year": "2012", "text": "Family decided on a kidney transplant. My mother-in-law donated hers." },
-            { "year": "2013", "text": "Received the transplant — a new lease on life." },
-            { "year": "2015", "text": "Transplant rejection. Back to hemodialysis." },
-            { "year": "2016", "text": "Health forced a full stop from work to focus on treatment." }
+            {
+                "year": "1999",
+                "text": "First software project. Professional work starts in 2003."
+            },
+            {
+                "year": "2008",
+                "text": "Chronic Kidney Disease. Both kidneys gone; dialysis in the morning, work in the afternoon and evening."
+            },
+            {
+                "year": "2013",
+                "text": "Kidney transplant — my mother-in-law offered hers."
+            },
+            {
+                "year": "2015",
+                "text": "Transplant rejection. Back to hemodialysis. (You now know a man who lost his mother-in-law’s kidney.)"
+            },
+            {
+                "year": "2016",
+                "text": "Health forces a pause. Three kidneys lost, two legs broken."
+            },
+            {
+                "year": "2023",
+                "text": "Return to full-time engineering — and to writing."
+            }
         ],
-        "timelineClosing": "I stand strong, having only lost three kidneys and broken two legs.",
+        "timelineClosing": "If life were a game, I would say I was brought here to play on hard mode. And I am a very good player.",
         "cta": {
             "title": "Want to take your part in this story?",
             "ctaLabel": "Say hello"
@@ -258,8 +277,7 @@
     },
     "Projects": {
         "title": "Projects",
-        "description": "My projects are a mix of personal projects and projects I've worked on professionally.",
-        "scopeNote": "Most of these are personal projects and experiments; client work is featured on the home page and the hiring page.",
+        "description": "Mostly personal projects and experiments. Client work lives on the home page and on the Senior Engineer page.",
         "viewProjectCta": "View project",
         "backToProjects": "← Projects",
         "keepExploring": "Keep exploring"
@@ -272,8 +290,8 @@
         "workloadHours": "{hours, plural, one {# hour} other {# hours}}"
     },
     "Experiences": {
-        "title": "Professional Experiences",
-        "description": "{years}+ years of software engineering across education, media, telecom, and e-commerce. Each experience showcases the challenge faced, actions taken, and measurable results delivered.",
+        "title": "Professional experiences",
+        "description": "{years}+ years of software engineering across education, media, telecom, and e-commerce. Each experience shows the challenge faced, the actions taken, and the measurable results delivered.",
         "expand": "Expand ↓",
         "collapse": "Collapse ↑",
         "challenge": "Challenge",
@@ -286,7 +304,7 @@
     },
     "Contact": {
         "title": "Get in Touch",
-        "description": "Connect with Josenaldo by filling out the form. Get in touch for project collaborations, idea-sharing, or just a friendly conversation.",
+        "description": "Project collaborations, idea-sharing, or just a friendly conversation. The fastest path is a 30-minute call — pick a slot and it's booked.",
         "channelsLabel": "Direct channels",
         "timezoneNote": "GMT-3 (São Paulo time). I answer async, usually within a business day.",
         "githubCard": {

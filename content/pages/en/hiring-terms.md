@@ -8,4 +8,4 @@ image: '/images/default.jpg'
 
 I take it over and engineer an autonomous delivery operation around it — requirements go in, reliable releases come out, and the technical and management overhead stops being yours.
 
-Async operation. Requirements, architecture decisions, and backlog live in the repository as a single source of truth, with proactive high-signal updates instead of status calls.
+Requirements, architecture decisions, and backlog live in the repository as a single source of truth, with proactive high-signal updates instead of status calls.

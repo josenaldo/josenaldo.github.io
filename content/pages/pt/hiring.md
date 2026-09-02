@@ -1,6 +1,6 @@
 ---
-title: Engenheiro de Software Sênior — Contratação Remota (LATAM, GMT-3)
-description: 'Engenheiro de Software Sênior com ownership ponta a ponta e entrega AI-native — contratação remota, LATAM (GMT-3).'
+title: Engenheiro de Software Sênior — ownership ponta a ponta e entrega AI-native
+description: 'Java/Spring · TypeScript · Node.js · React. Duas décadas de arquitetura por trás. Procuro uma área de produto para assumir de ponta a ponta como IC de alto impacto.'
 image: '/images/default.jpg'
 ---
 

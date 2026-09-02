@@ -4,8 +4,8 @@ Mock: `Páginas internas.dc.html` § `4f`. Site: `http://localhost:3500/en/proje
 
 ## Cabeçalho
 
-- [ ] **PJ-01** — texto do lead. **Mock:** *Mostly personal projects and experiments. Client work lives on the home page and on the Senior Engineer page.* (um parágrafo só, 18px). **Site:** **dois** parágrafos que dizem a mesma coisa — *My projects are a mix of personal projects and projects I've worked on professionally.* (18px `#C6CCD8`) seguido de *Most of these are personal projects and experiments; client work is featured on the home page and the hiring page.* (14px `#7C8494`). · `src/messages/en.json`
-- [ ] **PJ-02** — "hiring page" no texto visível. **Site:** o segundo parágrafo diz *the hiring page*, mas o nome da página na navegação e no rodapé é *Senior Engineer*. O mock usa *Senior Engineer page*. · `src/messages/en.json`
+- [x] **PJ-01** — texto do lead. **Mock:** *Mostly personal projects and experiments. Client work lives on the home page and on the Senior Engineer page.* (um parágrafo só, 18px). **Site:** **dois** parágrafos que dizem a mesma coisa — *My projects are a mix of personal projects and projects I've worked on professionally.* (18px `#C6CCD8`) seguido de *Most of these are personal projects and experiments; client work is featured on the home page and the hiring page.* (14px `#7C8494`). · `src/messages/en.json`
+- [x] **PJ-02** — "hiring page" no texto visível. **Site:** o segundo parágrafo diz *the hiring page*, mas o nome da página na navegação e no rodapé é *Senior Engineer*. O mock usa *Senior Engineer page*. · `src/messages/en.json`
 - [ ] **PJ-03** — `h1` 44px/1.08, padding `56/40/48`. Batem. `MANTER`
 
 ## Grade de cards

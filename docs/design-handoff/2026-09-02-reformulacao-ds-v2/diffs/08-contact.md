@@ -5,7 +5,7 @@ Mock: `Páginas internas.dc.html` § `4g`. Site: `http://localhost:3500/en/conta
 ## Coluna principal
 
 - [ ] **CO-01** — capitalização do `h1`. **Mock:** *Get in touch*. **Site:** *Get in Touch*. · `src/messages/en.json`
-- [ ] **CO-02** — texto do lead. **Mock:** *Project collaborations, idea-sharing, or just a friendly conversation. The fastest path is a 30-minute call — pick a slot and it's booked.* **Site:** *Connect with Josenaldo by filling out the form. Get in touch for project collaborations, idea-sharing, or just a friendly conversation.* — o site menciona um **formulário que não existe na página**, e não diz que a chamada é o caminho mais rápido. · `src/messages/en.json`
+- [x] **CO-02** — texto do lead. **Mock:** *Project collaborations, idea-sharing, or just a friendly conversation. The fastest path is a 30-minute call — pick a slot and it's booked.* **Site:** *Connect with Josenaldo by filling out the form. Get in touch for project collaborations, idea-sharing, or just a friendly conversation.* — o site menciona um **formulário que não existe na página**, e não diz que a chamada é o caminho mais rápido. · `src/messages/en.json`
 - [ ] **CO-03** — proporção do grid. **Mock:** `1fr 420px` gap 56 ⇒ coluna esquerda de 724px. **Site:** `724px / 420px`. Bate. `MANTER`
 - [x] **CO-04** — CTA primário, tamanho e caixa. **Mock:** 16px, `padding: 15px 28px`, r12. **Site:** 17,14px, `padding: 12px 22px`, r10. Mesmo `HR-08`/`HR-09`/`HR-10`. · `src/components/BookACallButton.js`
 

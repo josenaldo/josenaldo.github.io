@@ -4,7 +4,7 @@ Mock: `Páginas internas.dc.html` § `4b`. Site: `http://localhost:3500/en/blog`
 
 ## Header
 
-- [ ] **BG-01** — texto do lead. **Mock:** *Software development and kidney health insights, in the same feed. Be inspired, learn, and connect — one byte at a time.* **Site:** *Explore Nephro Nerd Chronicles: Josenaldo's fusion of software development and kidney health insights. Be inspired, learn, and connect – one byte at a time!* — o site repete o nome da página no lead, usa `–` no lugar de `—` e termina em exclamação. · `src/messages/en.json`
+- [x] **BG-01** — texto do lead. **Mock:** *Software development and kidney health insights, in the same feed. Be inspired, learn, and connect — one byte at a time.* **Site:** *Explore Nephro Nerd Chronicles: Josenaldo's fusion of software development and kidney health insights. Be inspired, learn, and connect – one byte at a time!* — o site repete o nome da página no lead, usa `–` no lugar de `—` e termina em exclamação. · `src/messages/en.json`
 - [x] **BG-02** — largura do lead. **Mock:** `max-width: 70ch`. **Site:** `799px` (≈ 74ch). · `src/components/PageHeader.js`
 - [ ] **BG-03** — `h1` 44px/1.08, padding `56/40/32`, gap 16. Batem. `MANTER`
 

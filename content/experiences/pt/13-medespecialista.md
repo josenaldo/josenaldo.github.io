@@ -16,7 +16,7 @@ translated: true
 
 #### Situação
 
-A MedEspecialista precisava manter uma plataforma de educação médica em produção evoluindo, ao mesmo tempo lidando com padrões legados de frontend/backend, rotinas operacionais manuais, documentação fragmentada e caminhos de entrega arriscados. A plataforma dava suporte a médicos se preparando para provas de residência, então o trabalho de produto não podia parar enquanto arquitetura, qualidade e práticas de deploy eram melhoradas.
+A MedEspecialista precisava manter uma plataforma de educação médica em produção evoluindo, ao mesmo tempo lidando com padrões legados de frontend/backend, rotinas operacionais manuais, documentação fragmentada e caminhos de entrega arriscados. A plataforma dava suporte a médicos se preparando para a prova de título de especialista, então o trabalho de produto não podia parar enquanto arquitetura, qualidade e práticas de deploy eram melhoradas.
 
 #### Tarefa
 

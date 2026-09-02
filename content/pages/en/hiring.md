@@ -1,6 +1,6 @@
 ---
-title: Senior Software Engineer — Remote Contractor (LATAM, GMT-3)
-description: 'Senior Software Engineer with end-to-end ownership and AI-native delivery — remote contractor based in LATAM (GMT-3).'
+title: Senior Software Engineer — end-to-end ownership & AI-native delivery
+description: 'Java/Spring · TypeScript · Node.js · React. Two decades of architecture behind it. I''m looking for a product area to own end-to-end as a high-impact individual contributor.'
 image: '/images/default.jpg'
 ---
 
