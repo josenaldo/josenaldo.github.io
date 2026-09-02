@@ -1,18 +1,20 @@
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
-import {
-    Accordion,
-    AccordionDetails,
-    AccordionSummary,
-    Box,
-    Container,
-    Typography,
-} from '@mui/material'
+// Corrige spec/03-paginas-internas.md §5 (tela `4e`). PageHeader +
+// ExperienceList (linhas recolhida/expandida, só uma aberta por vez — ver
+// ExperienceList.js). O corpo de cada experiência já vem em Markdown com
+// headings Challenge/Action/Result (ou Desafio/Ação/Resultado, ou o STAR
+// completo Situação/Tarefa/Ação/Resultado em pelo menos um arquivo pt) —
+// `parseExperienceSections` separa isso em três blocos sem exigir que o
+// conteúdo mude de formato.
+
+import { Box } from '@mui/material'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 
-import ContentTitle from '@/components/content/ContentTitle'
-import MDXContent from '@/components/content/MDXContent'
+import PageHeader from '@/components/PageHeader'
+import Section from '@/components/Section'
 import { yearsOfExperience } from '@/data/metrics.mjs'
+import ExperienceList from '@/features/experiences/ExperienceList'
 import { routing } from '@/i18n/routing'
+import { parseExperienceSections } from '@/lib/parseExperienceSections'
 import contentService from '@/services/content'
 
 export function generateStaticParams() {
@@ -49,44 +51,18 @@ export default async function ExperiencesPage({ params }) {
             company: experience.company,
             period: experience.period,
             location: experience.location,
-            body: { raw: experience.body.raw },
+            sections: parseExperienceSections(experience.body.raw),
         }))
 
     return (
-        <Container>
-            <Box>
-                <ContentTitle
-                    title={t('title')}
-                    subtitle={t('description', { years: yearsOfExperience() })}
-                />
-
-                <Box my={2}>
-                    {experiences.map((experience) => (
-                        <Accordion key={experience.id}>
-                            <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                                <Box
-                                    display="flex"
-                                    flexDirection="column"
-                                    gap={0}
-                                >
-                                    <Typography variant="h6">
-                                        {experience.title}
-                                    </Typography>
-                                    <Typography variant="subtitle1">
-                                        {experience.company} |{' '}
-                                        {experience.period} |{' '}
-                                        {experience.location}
-                                    </Typography>
-                                </Box>
-                            </AccordionSummary>
-
-                            <AccordionDetails>
-                                <MDXContent content={experience.body.raw} />
-                            </AccordionDetails>
-                        </Accordion>
-                    ))}
-                </Box>
+        <Section surface="default" padTop={56} padBottom={48}>
+            <PageHeader
+                title={t('title')}
+                lead={t('description', { years: yearsOfExperience() })}
+            />
+            <Box sx={{ mt: '32px' }}>
+                <ExperienceList experiences={experiences} />
             </Box>
-        </Container>
+        </Section>
     )
 }

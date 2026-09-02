@@ -262,7 +262,12 @@
     },
     "Experiences": {
         "title": "Experiências Profissionais",
-        "description": "{years}+ anos de engenharia de software em educação, mídia, telecom e e-commerce. Cada experiência mostra o desafio enfrentado, as ações tomadas e os resultados mensuráveis entregues."
+        "description": "{years}+ anos de engenharia de software em educação, mídia, telecom e e-commerce. Cada experiência mostra o desafio enfrentado, as ações tomadas e os resultados mensuráveis entregues.",
+        "expand": "Expandir ↓",
+        "collapse": "Recolher ↑",
+        "challenge": "Desafio",
+        "action": "Ação",
+        "result": "Resultado"
     },
     "Skills": {
         "title": "Habilidades",
