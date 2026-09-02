@@ -277,6 +277,7 @@
         "title": "Entre em Contato",
         "description": "Conecte-se com Josenaldo preenchendo o formulário. Entre em contato para colaborações em projetos, troca de ideias, ou apenas uma conversa amigável.",
         "channelsLabel": "Canais diretos",
+        "timezoneNote": "GMT-3 (horário de São Paulo). Respondo de forma assíncrona, geralmente em até um dia útil.",
         "githubCard": {
             "title": "Curtiu este projeto?",
             "body": "Explore o código-fonte no GitHub e faça dele o seu! Dê um fork, uma estrela, ou contribua para ajudá-lo a crescer.",

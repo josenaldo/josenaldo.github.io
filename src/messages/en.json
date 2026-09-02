@@ -277,6 +277,7 @@
         "title": "Get in Touch",
         "description": "Connect with Josenaldo by filling out the form. Get in touch for project collaborations, idea-sharing, or just a friendly conversation.",
         "channelsLabel": "Direct channels",
+        "timezoneNote": "GMT-3 (São Paulo time). I answer async, usually within a business day.",
         "githubCard": {
             "title": "Like this project?",
             "body": "Explore the source code on GitHub and make it your own! Fork, star, or contribute to help it grow.",
