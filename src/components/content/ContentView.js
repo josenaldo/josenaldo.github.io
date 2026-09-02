@@ -27,7 +27,7 @@ const ContentView = ({
         <Card
             sx={{
                 my: 5,
-                borderRadius: 4,
+                borderRadius: '16px',
             }}
         >
             {image && (

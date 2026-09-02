@@ -51,7 +51,7 @@ const WorkModes = ({ workModes }) => {
                                     sx={{
                                         bgcolor: 'background.paper',
                                         height: '100%',
-                                        borderRadius: 4,
+                                        borderRadius: '16px',
                                     }}
                                 >
                                     <CardContent

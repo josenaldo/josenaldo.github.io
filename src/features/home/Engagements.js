@@ -74,7 +74,7 @@ const Engagements = ({ engagements }) => {
                                     elevation={2}
                                     sx={{
                                         bgcolor: 'background.paper',
-                                        borderRadius: 4,
+                                        borderRadius: '16px',
                                     }}
                                 >
                                     <CardContent
