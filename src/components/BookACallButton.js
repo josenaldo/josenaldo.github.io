@@ -6,8 +6,9 @@ import { useTranslations } from 'next-intl'
 import { BOOKING_URL } from '@/data/booking'
 import { Link } from '@/i18n/navigation'
 
-export default function BookACallButton({ size = 'large' }) {
+export default function BookACallButton({ size = 'large', short = false }) {
     const t = useTranslations('Home.cta')
+    const label = t(short ? 'bookACallShort' : 'bookACall')
 
     if (BOOKING_URL) {
         return (
@@ -18,7 +19,7 @@ export default function BookACallButton({ size = 'large' }) {
                 target="_blank"
                 rel="noopener noreferrer"
             >
-                {t('bookACall')}
+                {label}
             </Button>
         )
     }
@@ -30,7 +31,7 @@ export default function BookACallButton({ size = 'large' }) {
             component={Link}
             href="/contact"
         >
-            {t('bookACall')}
+            {label}
         </Button>
     )
 }

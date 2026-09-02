@@ -99,11 +99,23 @@ const Hero = () => {
                                 key={id}
                                 label={tMetrics(`${id}.label`)}
                                 before={metricSideValue(metric.before, locale)}
-                                after={metricSideValue(metric.after, locale)}
+                                after={
+                                    // deploymentFrequency mostra o intervalo
+                                    // (8 days), não a taxa (4×/month) — bate
+                                    // com o mock Home.dc.html e com o exemplo
+                                    // de spec/01-fundacao.md §8.
+                                    metric.after.everyDays !== undefined
+                                        ? tMetrics('deploymentFrequency.heroValue', {
+                                              days: metric.after.everyDays,
+                                          })
+                                        : metricSideValue(metric.after, locale)
+                                }
                                 unit={
-                                    tMetrics.has(`${id}.unit`)
-                                        ? tMetrics(`${id}.unit`)
-                                        : undefined
+                                    tMetrics.has(`${id}.heroUnit`)
+                                        ? tMetrics(`${id}.heroUnit`)
+                                        : tMetrics.has(`${id}.unit`)
+                                          ? tMetrics(`${id}.unit`)
+                                          : undefined
                                 }
                                 confidence={metric.after.confidence}
                             />

@@ -35,7 +35,7 @@ const Header = () => {
                     <DesktopMenu pages={pages} aboutSubNav={aboutSubNav} />
 
                     <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-                        <BookACallButton size="small" />
+                        <BookACallButton size="small" short />
 
                         <NoSsr>
                             <MobileMenu

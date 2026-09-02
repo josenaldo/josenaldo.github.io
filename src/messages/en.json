@@ -14,6 +14,8 @@
     "Metrics": {
         "deploymentFrequency": {
             "label": "Release cadence",
+            "heroValue": "{days} days",
+            "heroUnit": "between production releases",
             "resultCaption": "approved request to production (was 3–6 months)"
         },
         "clientReportedIssues": {
@@ -23,6 +25,7 @@
         },
         "deployDuration": {
             "label": "Deploy time",
+            "heroUnit": "push to production",
             "resultCaption": "push to production (was 2h)"
         },
         "followUpOperation": {
@@ -78,10 +81,11 @@
                 "conddiz": "Conddiz",
                 "medicalEducationPlatform": "Medical education platform"
             },
-            "repoCount": "{count} repositories"
+            "repoCount": "{owned} repos · {active} active"
         },
         "cta": {
-            "bookACall": "Book a 30-minute call"
+            "bookACall": "Book a 30-minute call",
+            "bookACallShort": "Book a 30-min call"
         },
         "isThisYou": {
             "title": "You know the system is the bottleneck. You just can't prove it in a meeting.",

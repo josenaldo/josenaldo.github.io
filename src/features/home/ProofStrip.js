@@ -11,7 +11,7 @@ import Pill from '@/components/Pill'
 import Section from '@/components/Section'
 import metrics from '@/data/metrics.mjs'
 
-const { codebasesOwned } = metrics
+const { codebasesOwned, codebasesActive } = metrics
 
 // Ordem de leitura: o cliente mais recente e mais relevante primeiro.
 const CLIENT_KEYS = ['medicalEducationPlatform', 'muvz', 'conddiz']
@@ -72,7 +72,8 @@ const ProofStrip = () => {
                         ))}
                         <Pill tone="amber">
                             {t('repoCount', {
-                                count: codebasesOwned.after.count,
+                                owned: codebasesOwned.after.count,
+                                active: codebasesActive.after.count,
                             })}
                         </Pill>
                     </Box>

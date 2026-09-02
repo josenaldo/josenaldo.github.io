@@ -14,6 +14,8 @@
     "Metrics": {
         "deploymentFrequency": {
             "label": "Cadência de release",
+            "heroValue": "{days} dias",
+            "heroUnit": "entre releases em produção",
             "resultCaption": "do pedido aprovado à produção (era 3–6 meses)"
         },
         "clientReportedIssues": {
@@ -23,6 +25,7 @@
         },
         "deployDuration": {
             "label": "Tempo de deploy",
+            "heroUnit": "até a produção",
             "resultCaption": "do push à produção (eram 2h)"
         },
         "followUpOperation": {
@@ -78,10 +81,11 @@
                 "conddiz": "Conddiz",
                 "medicalEducationPlatform": "Plataforma de educação médica"
             },
-            "repoCount": "{count} repositórios"
+            "repoCount": "{owned} repos · {active} ativos"
         },
         "cta": {
-            "bookACall": "Agendar uma conversa de 30 minutos"
+            "bookACall": "Agendar uma conversa de 30 minutos",
+            "bookACallShort": "Agendar call de 30 min"
         },
         "isThisYou": {
             "title": "Você sabe que o sistema é o gargalo. Só não consegue provar isso numa reunião.",
