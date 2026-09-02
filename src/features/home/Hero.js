@@ -33,6 +33,16 @@ const HERO_METRICS = [
     ['deployDuration', deployDuration],
 ]
 
+// clientReportedIssues já tem uma legenda dedicada ("per month", via
+// Metrics.clientReportedIssues.unit) — repetir "×/month" dentro do próprio
+// valor ficaria redundante com ela. O mock (Home.dc.html) mostra só
+// "~100 → ~5", não "~100×/month → ~5×/month".
+const plainCount = (side, locale) => {
+    if (!side) return null
+    const approx = side.confidence === 'counted' ? '~' : ''
+    return `${approx}${side.count.toLocaleString(locale)}`
+}
+
 const Hero = () => {
     const t = useTranslations('Home.hero')
     const tMetrics = useTranslations('Metrics')
@@ -98,7 +108,11 @@ const Hero = () => {
                             <MetricCard
                                 key={id}
                                 label={tMetrics(`${id}.label`)}
-                                before={metricSideValue(metric.before, locale)}
+                                before={
+                                    id === 'clientReportedIssues'
+                                        ? plainCount(metric.before, locale)
+                                        : metricSideValue(metric.before, locale)
+                                }
                                 after={
                                     // deploymentFrequency mostra o intervalo
                                     // (8 days), não a taxa (4×/month) — bate
@@ -108,7 +122,9 @@ const Hero = () => {
                                         ? tMetrics('deploymentFrequency.heroValue', {
                                               days: metric.after.everyDays,
                                           })
-                                        : metricSideValue(metric.after, locale)
+                                        : id === 'clientReportedIssues'
+                                          ? plainCount(metric.after, locale)
+                                          : metricSideValue(metric.after, locale)
                                 }
                                 unit={
                                     tMetrics.has(`${id}.heroUnit`)

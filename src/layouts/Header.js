@@ -32,17 +32,23 @@ const Header = () => {
                 >
                     <Logo />
 
-                    <DesktopMenu pages={pages} aboutSubNav={aboutSubNav} />
+                    {/* Nav + EN/PT + botão viajam juntos como um bloco só,
+                    colado à direita do canvas — não cada um espalhado pelo
+                    `justify-content: space-between` do Toolbar (3 filhos
+                    soltos faziam o nav "flutuar" no meio). */}
+                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 3 }}>
+                        <DesktopMenu pages={pages} aboutSubNav={aboutSubNav} />
 
-                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-                        <BookACallButton size="small" short />
+                        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                            <BookACallButton size="small" short />
 
-                        <NoSsr>
-                            <MobileMenu
-                                pages={pages}
-                                aboutSubNav={aboutSubNav}
-                            />
-                        </NoSsr>
+                            <NoSsr>
+                                <MobileMenu
+                                    pages={pages}
+                                    aboutSubNav={aboutSubNav}
+                                />
+                            </NoSsr>
+                        </Box>
                     </Box>
                 </Toolbar>
             </Box>
