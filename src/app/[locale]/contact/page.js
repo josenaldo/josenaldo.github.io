@@ -70,9 +70,7 @@ export default async function ContactPage({ params }) {
                             alignItems: 'center',
                             p: 3,
                             boxShadow: 3,
-                            background:
-                                'linear-gradient(135deg, #232526 0%, #414345 100%)',
-                            color: '#fff',
+                            borderRadius: '16px',
                         }}
                     >
                         <CardContent sx={{ textAlign: 'center' }}>
