@@ -40,7 +40,7 @@ const ResultBlock = ({ label, items = [], body, size = 'lg' }) => (
                     display: 'flex',
                     flexWrap: 'wrap',
                     columnGap: '40px',
-                    rowGap: '20px',
+                    rowGap: '40px',
                 }}
             >
                 {items.map((item) => (

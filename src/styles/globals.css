@@ -3,3 +3,11 @@
     padding: 0;
     margin: 0;
 }
+
+/* Vários cards do site são um `<a>` que envolve o conteúdo (post, projeto,
+   canal de contato). Sem esta regra o `<a>` fica com o azul padrão do
+   navegador: invisível enquanto todo filho declara a própria cor, e visível
+   no instante em que alguém escrever texto solto dentro do card. */
+a {
+    color: inherit;
+}

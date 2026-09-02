@@ -14,6 +14,10 @@ const isActivePage = (pathname, url) =>
 
 const pillSx = (active) => ({
     color: active ? '#E9ECF2' : '#98A0B0',
+    // O mock deixa os itens de navegação na fonte de texto, não na de display:
+    // Space Grotesk aqui competia com o nome da marca ao lado, que é o único
+    // display do header.
+    fontFamily: "'IBM Plex Sans', system-ui, sans-serif",
     fontSize: '14px',
     borderRadius: '10px',
     padding: '8px 14px',

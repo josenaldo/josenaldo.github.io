@@ -77,7 +77,8 @@ export default function LanguageSwitcher() {
                 gap: '6px',
                 bgcolor: 'rgba(255,255,255,.05)',
                 borderRadius: '999px',
-                padding: '7px 12px',
+                padding: '6px 10px',
+                ml: 1,
             }}
         >
             {routing.locales.map((lang, index) => {

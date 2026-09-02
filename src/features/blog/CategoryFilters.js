@@ -17,6 +17,8 @@ const CategoryFilters = ({ categories, activeSlug, allLabel }) => (
             href="/blog"
             tone={activeSlug ? 'neutral' : 'active'}
             uppercase
+            size="lg"
+            tracking=".06em"
         >
             {allLabel}
         </Pill>
@@ -27,6 +29,8 @@ const CategoryFilters = ({ categories, activeSlug, allLabel }) => (
                 href={`/blog/category/${category.slug}`}
                 tone={activeSlug === category.slug ? 'active' : 'neutral'}
                 uppercase
+                size="lg"
+                tracking=".06em"
             >
                 {`${category.name} · ${category.count}`}
             </Pill>

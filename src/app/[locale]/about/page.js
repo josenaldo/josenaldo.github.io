@@ -78,6 +78,7 @@ export default async function AboutPage({ params }) {
                 <Box
                     sx={{
                         maxWidth: '760px',
+                        boxSizing: 'content-box',
                         mx: 'auto',
                         display: 'flex',
                         flexDirection: 'column',
@@ -85,7 +86,15 @@ export default async function AboutPage({ params }) {
                     }}
                 >
                     <Box sx={{ alignSelf: 'flex-start' }}>
-                        <Pill tone="amber">{t('kicker')}</Pill>
+                        <Pill
+                            tone="amber"
+                            size="sm"
+                            uppercase
+                            tracking=".14em"
+                            sx={{ p: '7px 13px' }}
+                        >
+                            {t('kicker')}
+                        </Pill>
                     </Box>
 
                     <Typography
@@ -107,7 +116,7 @@ export default async function AboutPage({ params }) {
                         sx={{
                             display: 'flex',
                             alignItems: 'center',
-                            gap: '12px',
+                            gap: '16px',
                         }}
                     >
                         <Box
@@ -150,6 +159,7 @@ export default async function AboutPage({ params }) {
                 <Box
                     sx={{
                         maxWidth: '680px',
+                        boxSizing: 'content-box',
                         mx: 'auto',
                         display: 'flex',
                         flexDirection: 'column',
@@ -216,10 +226,11 @@ export default async function AboutPage({ params }) {
                 </Box>
             </Section>
 
-            <Section surface="band" padTop={24} padBottom={48}>
+            <Section surface="default" padTop={24} padBottom={48}>
                 <Box
                     sx={{
                         maxWidth: '900px',
+                        boxSizing: 'content-box',
                         mx: 'auto',
                         bgcolor: '#0E1218',
                         borderRadius: '18px',

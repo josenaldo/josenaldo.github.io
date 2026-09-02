@@ -111,8 +111,12 @@ export default async function HiringPage({ params }) {
                                 gap: '10px',
                             }}
                         >
-                            <Pill tone="amber">{t('status')}</Pill>
-                            <Pill tone="neutral">{t('location')}</Pill>
+                            <Pill tone="amber" size="sm" uppercase tracking=".12em">
+                                {t('status')}
+                            </Pill>
+                            <Pill tone="quiet" size="sm" uppercase tracking=".12em">
+                                {t('location')}
+                            </Pill>
                         </Box>
 
                         <PageHeader
@@ -121,7 +125,12 @@ export default async function HiringPage({ params }) {
                             size="lg"
                         >
                             {stack.map((item) => (
-                                <Pill key={item} tone="neutral" as="mono">
+                                <Pill
+                                    key={item}
+                                    tone="neutral"
+                                    as="mono"
+                                    sx={{ p: '7px 13px' }}
+                                >
                                     {item}
                                 </Pill>
                             ))}
@@ -143,7 +152,12 @@ export default async function HiringPage({ params }) {
                         alignItems: 'start',
                     }}
                 >
-                    <SectionHeader n="02" title={t('ownTitle')} variant="spine" />
+                    <SectionHeader
+                        n="02"
+                        title={t('ownTitle')}
+                        variant="spine"
+                        size="md"
+                    />
 
                     <Box
                         sx={{

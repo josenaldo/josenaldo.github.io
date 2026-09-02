@@ -96,9 +96,13 @@ const Hero = () => {
                     <Box
                         sx={{
                             display: 'grid',
+                            // minmax(0,...) e não `1fr` puro: `1fr` é
+                            // minmax(auto,1fr), então o rótulo mais longo
+                            // ("Client-reported issues") impunha um mínimo e
+                            // os três cartões saíam com larguras diferentes.
                             gridTemplateColumns: {
                                 xs: '1fr',
-                                sm: 'repeat(3, 1fr)',
+                                sm: 'repeat(3, minmax(0, 1fr))',
                             },
                             gap: '16px',
                             mt: '8px',

@@ -74,6 +74,13 @@ const Blog = ({ posts }) => {
                             }}
                         >
                             {t('allPostsCta')}
+                            <Box
+                                component="span"
+                                aria-hidden="true"
+                                sx={{ ml: '6px' }}
+                            >
+                                →
+                            </Box>
                         </Typography>
                     </Box>
 

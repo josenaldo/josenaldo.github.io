@@ -34,7 +34,7 @@ const Logo = () => {
                     fontFamily: "'Space Grotesk', system-ui, sans-serif",
                     fontSize: '16px',
                     fontWeight: 700,
-                    color: '#FFFFFF',
+                    color: '#E9ECF2',
                 }}
             >
                 Josenaldo Matos

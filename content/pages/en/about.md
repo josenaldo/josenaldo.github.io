@@ -1,5 +1,5 @@
 ---
-title: Letter to a unknown friend
+title: Letter to an unknown friend
 description: "Dive into Josenaldo's story: a resilient software developer facing life's trials, who shares his journey of passion and determination in a heartfelt letter."
 image: '/images/default.jpg'
 ---

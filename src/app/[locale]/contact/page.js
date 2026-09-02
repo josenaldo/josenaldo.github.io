@@ -146,7 +146,7 @@ export default async function ContactPage({ params }) {
                                             "'IBM Plex Mono', ui-monospace, monospace",
                                         fontSize: '11px',
                                         fontWeight: 600,
-                                        letterSpacing: '.1em',
+                                        letterSpacing: '.14em',
                                         textTransform: 'uppercase',
                                         color: '#FFAA00',
                                     }}
@@ -214,12 +214,11 @@ export default async function ContactPage({ params }) {
                         sx={{
                             alignSelf: 'flex-start',
                             fontSize: '14px',
-                            fontWeight: 600,
                             color: '#C6CCD8',
-                            bgcolor: 'rgba(255,255,255,.05)',
+                            bgcolor: 'rgba(255,255,255,.06)',
                             borderRadius: '10px',
-                            px: '16px',
-                            py: '10px',
+                            px: '18px',
+                            py: '11px',
                             textDecoration: 'none',
                         }}
                     >

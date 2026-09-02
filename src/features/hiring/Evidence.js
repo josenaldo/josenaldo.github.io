@@ -58,7 +58,7 @@ const Evidence = () => {
             <Box
                 sx={{ display: 'flex', flexDirection: 'column', gap: '28px' }}
             >
-                <SectionHeader n="01" title={t('title')} />
+                <SectionHeader n="01" title={t('title')} size="md" />
 
                 <Box
                     sx={{

@@ -70,7 +70,7 @@ const ProofStrip = () => {
                                 {t(`clients.${key}`)}
                             </Pill>
                         ))}
-                        <Pill tone="amber">
+                        <Pill tone="amber" sx={{ fontSize: '13px' }}>
                             {t('repoCount', {
                                 owned: codebasesOwned.after.count,
                                 active: codebasesActive.after.count,

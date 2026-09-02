@@ -76,7 +76,7 @@ export default async function ProjectPage({ params }) {
 
     return (
         <>
-            <Box sx={{ maxWidth: '760px', mx: 'auto', px: '24px', pt: '48px' }}>
+            <Box sx={{ maxWidth: '760px', mx: 'auto', px: '24px', boxSizing: 'content-box', pt: '48px' }}>
                 <Box sx={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
                     <Box
                         sx={{
@@ -198,7 +198,7 @@ export default async function ProjectPage({ params }) {
             </Box>
 
             {project.image ? (
-                <Box sx={{ maxWidth: '900px', mx: 'auto', px: '24px', mt: '32px' }}>
+                <Box sx={{ maxWidth: '900px', mx: 'auto', px: '24px', boxSizing: 'content-box', mt: '32px' }}>
                     <Box
                         component="img"
                         src={project.image}
@@ -211,6 +211,7 @@ export default async function ProjectPage({ params }) {
             <Box
                 sx={{
                     maxWidth: '680px',
+                    boxSizing: 'content-box',
                     mx: 'auto',
                     px: '24px',
                     mt: '40px',
@@ -222,6 +223,8 @@ export default async function ProjectPage({ params }) {
                         fontFamily: "'Space Grotesk', system-ui, sans-serif",
                         fontSize: '32px',
                         fontWeight: 700,
+                        lineHeight: 1.2,
+                        letterSpacing: '-.02em',
                         color: '#FFFFFF',
                         mt: '16px',
                     },
@@ -235,6 +238,7 @@ export default async function ProjectPage({ params }) {
                     <Box
                         sx={{
                             maxWidth: '900px',
+                            boxSizing: 'content-box',
                             mx: 'auto',
                             px: '24px',
                             display: 'flex',
