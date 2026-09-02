@@ -73,6 +73,14 @@ export default function LanguageSwitcher() {
             size="small"
             variant="outlined"
             aria-label={t('languageSwitcherLabel')}
+            sx={{
+                borderRadius: 999,
+                overflow: 'hidden',
+                '& .MuiButtonGroup-grouped': {
+                    borderRadius: 0,
+                    borderColor: 'rgba(255,255,255,.12)',
+                },
+            }}
         >
             {routing.locales.map((lang) => (
                 <Button
@@ -80,7 +88,13 @@ export default function LanguageSwitcher() {
                     onClick={() => handleSwitch(lang)}
                     disabled={lang === locale}
                     aria-current={lang === locale ? 'true' : undefined}
-                    sx={{ color: 'white' }}
+                    sx={(theme) => ({
+                        color: '#FFFFFF',
+                        fontFamily: theme.typography.caption.fontFamily,
+                        fontWeight: 600,
+                        letterSpacing: '0.08em',
+                        px: 1.5,
+                    })}
                 >
                     {lang.toUpperCase()}
                 </Button>
