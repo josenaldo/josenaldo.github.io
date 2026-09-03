@@ -22,7 +22,8 @@ Practical rule: if a contract reduces surface area and protects a boundary, it's
 
 ---
 
-> **Update — March 3, 2026:** The following section was added after a [post by Luiz Carlos Faria](https://www.linkedin.com/posts/luizcarlosfaria_a-ia-que-est%C3%A1-mudando-o-mundo-%C3%A9-um-modelo-activity-7434393472440143874-cDZj/) sparked a reflection on how the reaction against over-engineering has swung too far in the other direction — and what that pendulum means in the age of AI-assisted development.
+> [!UPDATE] Update · 3 Mar 2026
+> The following section was added after a [post by Luiz Carlos Faria](https://www.linkedin.com/posts/luizcarlosfaria_a-ia-que-est%C3%A1-mudando-o-mundo-%C3%A9-um-modelo-activity-7434393472440143874-cDZj/) sparked a reflection on how the reaction against over-engineering has swung too far in the other direction — and what that pendulum means in the age of AI-assisted development.
 
 ## The pendulum swung past the right spot
 

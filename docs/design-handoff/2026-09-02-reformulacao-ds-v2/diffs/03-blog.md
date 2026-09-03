@@ -21,8 +21,8 @@ Mock: `Páginas internas.dc.html` § `4b`. Site: `http://localhost:3500/en/blog`
 - [ ] **BG-09** — ~~proporção do grid~~. **Correção:** erro de aritmética na primeira leitura (1168 − 200 − 150 − 48 = 770, não 794). Mock e site chegam à mesma coluna do meio de 770px. `MANTER`
 - [ ] **BG-10** — ordem da coluna direita. **Mock:** categoria (pílula âmbar) → data → `Read →`, com `align-items: flex-end` e gap 10. **Site:** mesma ordem e mesmo alinhamento. `MANTER`
 - [ ] **BG-11** — descrição, largura. **Mock:** `max-width: 70ch`. **Site:** `630px` (≈ 67ch a 15px). Praticamente igual. `MANTER`
-- [ ] **BG-12** — categoria na pílula. **Mock:** `Opinion`, `Architecture`, `Job market`. **Site:** slug cru (`opinion`, `architecture`, `job-market`). Mesmo `BG-05`. · `src/components/content/PostListItem.js`
-- [ ] **BG-13** — formato da data. **Mock:** `16 Mar 2026`. **Site:** `Mar 16, 2026`. Mesmo `BL-02`. · formatador de data
+- [x] **BG-12** — categoria na pílula. Resolvido junto com `BG-05` pelo `categoryLabel`. **Mock:** `Opinion`, `Architecture`, `Job market`. **Site:** slug cru (`opinion`, `architecture`, `job-market`). Mesmo `BG-05`. · `src/components/content/PostListItem.js`
+- [x] **BG-13** — formato da data. Resolvido junto com `BL-02` pelo `formatShortDate`. **Mock:** `16 Mar 2026`. **Site:** `Mar 16, 2026`. Mesmo `BL-02`. · formatador de data
 - [ ] **BG-14** — cartão (`#14181F` r18 padding 16, sombra pequena), miniatura (`16/10` r12 `object-fit: cover` sobre `#0E1218`), `h2` 23px/600, `Read →` 14px `#B69BF0`. Batem. `MANTER`
 
 ## Paginação

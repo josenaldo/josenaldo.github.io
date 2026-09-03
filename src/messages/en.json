@@ -222,7 +222,8 @@
             "fractionalPt": "Fractional (PT)"
         },
         "cta": {
-            "title": "Let's talk about it."
+            "title": "Let's talk about it.",
+            "body": "Thirty minutes, no slides. Tell me what you need owned; I'll tell you whether I'm the right person for it."
         }
     },
     "Blog": {
@@ -309,7 +310,8 @@
         "timelineClosing": "If life were a game, I would say I was brought here to play on hard mode. And I am a very good player.",
         "cta": {
             "title": "Want to take your part in this story?",
-            "ctaLabel": "Say hello"
+            "ctaLabel": "Say hello",
+            "body": "Email me, or find me on GitHub and LinkedIn. What happens next is a story yet to be written."
         }
     },
     "Projects": {
@@ -354,7 +356,7 @@
     "Footer": {
         "siteColumnTitle": "Site",
         "elsewhereColumnTitle": "Elsewhere",
-        "copyright": "© {startYear}–{currentYear} Josenaldo de Oliveira Matos Filho - All rights reserved."
+        "copyright": "© {startYear}–{currentYear} · All rights reserved"
     },
     "Common": {
         "languageSwitcherLabel": "language switcher",

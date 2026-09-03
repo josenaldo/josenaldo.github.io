@@ -3,7 +3,7 @@
 import React from 'react'
 
 import ShareIcon from '@mui/icons-material/Share'
-import { Box, IconButton } from '@mui/material'
+import { Box, Button } from '@mui/material'
 import { useTranslations } from 'next-intl'
 import PropTypes from 'prop-types'
 
@@ -63,14 +63,28 @@ const ShareLink = ({ title, description, url, image, color = 'secondary' }) => {
 
     return (
         <Box>
-            <IconButton
+            {/* Botão com rótulo, não ícone solto: o mock escreve "Share",
+            e um ícone sozinho depende de o leitor reconhecer o símbolo —
+            numa linha de autoria que já tem avatar, nome, data e tempo de
+            leitura, ele some. O ícone fica como reforço. */}
+            <Button
                 onClick={handleOnClick}
                 color={color}
-                variant="contained"
                 aria-label={t('share')}
+                startIcon={<ShareIcon sx={{ fontSize: '16px' }} />}
+                sx={{
+                    fontFamily: "'IBM Plex Sans', system-ui, sans-serif",
+                    fontSize: '13px',
+                    fontWeight: 400,
+                    color: '#C6CCD8',
+                    bgcolor: 'rgba(255,255,255,.05)',
+                    borderRadius: '10px',
+                    p: '8px 14px',
+                    '&:hover': { bgcolor: 'rgba(255,255,255,.09)' },
+                }}
             >
-                <ShareIcon />
-            </IconButton>
+                {t('share')}
+            </Button>
 
             {mounted && !isNativeShare && (
                 <ShareDialog

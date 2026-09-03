@@ -321,6 +321,7 @@ export default async function AboutPage({ params }) {
             <Section surface="default" padTop={40} padBottom={40} bleed>
                 <CtaBlock
                     title={t('cta.title')}
+                    body={t('cta.body')}
                     ctaLabel={t('cta.ctaLabel')}
                     href="/contact"
                 />

@@ -27,7 +27,14 @@ const Footer = () => {
     const tFooter = useTranslations('Footer')
     const currentYear = new Date().getFullYear()
 
-    const siteLinks = [...pages, ...aboutSubNav]
+    // `home` e `contact` saem: o header leva às duas em toda página, e o
+    // rodapé é onde se procura o que o menu não mostra. É a lista do mock.
+    const siteLinks = [
+        ...pages.filter(
+            (page) => page.name !== 'home' && page.name !== 'contact'
+        ),
+        ...aboutSubNav,
+    ]
 
     return (
         <Box
@@ -117,7 +124,9 @@ const Footer = () => {
                                         rel="noreferrer noopener"
                                         sx={LINK_SX}
                                     >
-                                        {social.name}
+                                        {social.name === 'Email'
+                                            ? social.value
+                                            : social.name}
                                     </MuiLink>
                                 ))}
                             </Stack>

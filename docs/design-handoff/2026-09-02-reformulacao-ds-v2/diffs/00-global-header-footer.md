@@ -22,20 +22,20 @@ Vale para **todas** as páginas. Fonte no mock: `Chrome.dc.html` (recriado dentr
 - [x] **G-13** — fundo do rodapé. **Mock:** `#0B0E13` (mesmo fundo da página, sem faixa). **Site:** `#0E1218` — o rodapé vira uma faixa mais clara. · `src/layouts/Footer.js`
 - [ ] **G-14** — padding superior. **Mock:** `32px 40px 44px` no `SiteFooter.dc.html`; `24px 40px 44px` na versão desenhada dentro de `Home.dc.html`. **Site:** `24px 40px 44px`. Os dois mocks divergem entre si — decidir qual vale. · `src/layouts/Footer.js`
 - [x] **G-15** — espaço entre o nome e a linha de copyright. **Mock:** `gap: 8px`. **Site:** `0` (as duas linhas ficam coladas). · `src/layouts/Footer.js`
-- [ ] **G-16** — texto do copyright. **Mock:** `© 2023–2026 · All rights reserved`. **Site:** `© 2023–2026 Josenaldo de Oliveira Matos Filho - All rights reserved.` (nome completo repetido logo abaixo do nome, hífen simples no lugar do `·`, ponto final). · `src/layouts/Footer.js`
+- [x] **G-16** — texto do copyright. **Mock:** `© 2023–2026 · All rights reserved`. **Site:** `© 2023–2026 Josenaldo de Oliveira Matos Filho - All rights reserved.` (nome completo repetido logo abaixo do nome, hífen simples no lugar do `·`, ponto final). · `src/layouts/Footer.js`
 - [x] **G-17** — cor do nome no rodapé. **Mock:** `#E9ECF2`. **Site:** `#FFFFFF`. · `src/layouts/Footer.js`
-- [ ] **G-18** — coluna `Site`, itens. **Mock:** Blog · About · Senior Engineer · Experiences · Projects · Courses (6 itens, sem `Home` e sem `Contact`). **Site:** Home · Blog · About · Senior Engineer · Contact · Experiences · Projects · Courses (8 itens). · `src/layouts/Footer.js`
-- [ ] **G-19** — coluna `Elsewhere`, itens e ordem. **Mock:** LinkedIn · GitHub · WhatsApp · `josenaldo@gmail.com` (o e-mail escrito por extenso, em quarto lugar). **Site:** LinkedIn · GitHub · Email · WhatsApp (rótulo genérico `Email`, em terceiro lugar). · `src/layouts/Footer.js`
+- [x] **G-18** — coluna `Site`, itens. **Mock:** Blog · About · Senior Engineer · Experiences · Projects · Courses (6 itens, sem `Home` e sem `Contact`). **Site:** Home · Blog · About · Senior Engineer · Contact · Experiences · Projects · Courses (8 itens). · `src/layouts/Footer.js`
+- [x] **G-19** — coluna `Elsewhere`, itens e ordem. **Mock:** LinkedIn · GitHub · WhatsApp · `josenaldo@gmail.com` (o e-mail escrito por extenso, em quarto lugar). **Site:** LinkedIn · GitHub · Email · WhatsApp (rótulo genérico `Email`, em terceiro lugar). · `src/layouts/Footer.js`
 - [ ] **G-20** — espaçamento entre links das colunas. **Mock:** `gap: 8px` num flex column (linhas de 22px ⇒ passo de 30px). **Site:** `margin-top: 8px` por item (mesmo passo de 30px). Equivalente na renderização. `MANTER`
 
 ## CtaBlock (páginas internas)
 
 O `CtaBlock.dc.html` é usado por `/hiring` e `/about`. Ele **não** é o mesmo bloco do CTA final da home — o mock desenha dois blocos com medidas diferentes.
 
-- [ ] **G-21** — padding do cartão. **Mock (CtaBlock):** `56px` em todos os lados. **Site:** `64px 56px` (a medida do CTA da home, reaproveitada). · `src/components/CtaBlock.js`
-- [ ] **G-22** — tamanho do `h2`. **Mock (CtaBlock):** `38px`, `line-height: 1.1`. **Site:** `40px`, `line-height: 1.1` (a medida do CTA da home). · `src/components/CtaBlock.js`
-- [ ] **G-23** — corpo do CTA em `/hiring`. **Mock:** *Thirty minutes, no slides. Tell me what you need owned; I'll tell you whether I'm the right person for it.* **Site:** o parágrafo **não é renderizado** — só o `h2` e o botão aparecem. · `src/app/[locale]/hiring/page.js`
-- [ ] **G-24** — corpo do CTA em `/about`. **Mock:** *Email me, or find me on GitHub and LinkedIn. What happens next is a story yet to be written.* **Site:** o parágrafo **não é renderizado**. · `src/app/[locale]/about/page.js`
+- [x] **G-21** — padding do cartão. **Mock (CtaBlock):** `56px` em todos os lados. **Site:** `64px 56px` (a medida do CTA da home, reaproveitada). · `src/components/CtaBlock.js`
+- [x] **G-22** — tamanho do `h2`. **Mock (CtaBlock):** `38px`, `line-height: 1.1`. **Site:** `40px`, `line-height: 1.1` (a medida do CTA da home). · `src/components/CtaBlock.js`
+- [x] **G-23** — corpo do CTA em `/hiring`. **Mock:** *Thirty minutes, no slides. Tell me what you need owned; I'll tell you whether I'm the right person for it.* **Site:** o parágrafo **não é renderizado** — só o `h2` e o botão aparecem. · `src/app/[locale]/hiring/page.js`
+- [x] **G-24** — corpo do CTA em `/about`. **Mock:** *Email me, or find me on GitHub and LinkedIn. What happens next is a story yet to be written.* **Site:** o parágrafo **não é renderizado**. · `src/app/[locale]/about/page.js`
 
 ## Canvas e página
 

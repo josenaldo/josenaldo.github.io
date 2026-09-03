@@ -27,7 +27,11 @@ const CtaBlock = ({ title, body, ctaLabel, href, external = false }) => {
                 sx={{
                     bgcolor: '#8855DF',
                     borderRadius: '24px',
-                    p: { xs: '36px 28px', md: '64px 56px' },
+                    // Um degrau abaixo do ClosingCta da home: 56px em vez de
+                    // 64/56. O CTA da home é o fecho do funil e deve pesar
+                    // mais que o de uma página interna — é o que o mock
+                    // desenha em CtaBlock.dc.html.
+                    p: { xs: '36px 28px', md: '56px' },
                     display: 'flex',
                     flexDirection: { xs: 'column', md: 'row' },
                     alignItems: { xs: 'flex-start', md: 'center' },
@@ -49,7 +53,7 @@ const CtaBlock = ({ title, body, ctaLabel, href, external = false }) => {
                         sx={{
                             m: 0,
                             fontFamily: "'Space Grotesk', system-ui, sans-serif",
-                            fontSize: { xs: '30px', md: '40px' },
+                            fontSize: { xs: '30px', md: '38px' },
                             fontWeight: 700,
                             letterSpacing: '-.02em',
                             lineHeight: 1.1,
