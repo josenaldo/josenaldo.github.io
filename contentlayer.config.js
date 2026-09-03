@@ -232,6 +232,14 @@ const Testimonial = defineDocumentType(() => ({
     name: 'Testimonial',
     filePathPattern: `testimonials/**/*.md`,
     fields: {
+        // Sem `order` a ordem era a do sistema de arquivos (alfabética por
+        // slug), que não é ordem nenhuma — só o acaso de como os arquivos
+        // foram nomeados. Mesmo campo que Engagement já usa.
+        order: {
+            type: 'number',
+            description: 'Ordem de exibição na home; menor primeiro.',
+            required: false,
+        },
         show: {
             type: 'boolean',
             description: 'Whether to show this testimonial publicly',
