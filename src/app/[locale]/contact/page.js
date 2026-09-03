@@ -40,8 +40,6 @@ export default async function ContactPage({ params }) {
     setRequestLocale(locale)
     const t = await getTranslations({ locale, namespace: 'Contact' })
 
-    const email = socialLinks.find((social) => social.name === 'Email')
-
     return (
         <Section surface="default" padTop={64} padBottom={48}>
             <Box
@@ -97,21 +95,12 @@ export default async function ContactPage({ params }) {
                             gap: '20px',
                         }}
                     >
+                        {/* Só a ação primária aqui. O e-mail ficava ao lado
+                        do botão E de novo no card EMAIL logo abaixo, na mesma
+                        dobra — duas vezes o mesmo endereço, competindo com a
+                        chamada de 30 minutos que a página nomeia como o
+                        caminho mais rápido. */}
                         <BookACallButton />
-                        {email ? (
-                            <Box
-                                component="a"
-                                href={email.url}
-                                sx={{
-                                    fontSize: '15px',
-                                    color: '#B69BF0',
-                                    textDecoration: 'none',
-                                    '&:hover': { color: '#CDBBF8' },
-                                }}
-                            >
-                                {email.value}
-                            </Box>
-                        ) : null}
                     </Box>
 
                     <Box

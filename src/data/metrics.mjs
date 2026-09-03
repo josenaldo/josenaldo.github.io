@@ -27,13 +27,13 @@ const metrics = {
         id: 'conddizArchitecture',
         engagement: 'conddiz',
         before: null,
-        after: { display: '1/3', confidence: 'remembered' },
+        after: { count: 3, confidence: 'remembered' },
     },
     conddizTrafficPeak: {
         id: 'conddizTrafficPeak',
         engagement: 'conddiz',
         before: null,
-        after: { count: 200000, confidence: 'remembered' },
+        after: { display: '200k', confidence: 'remembered' },
     },
     digidadosBilling: {
         id: 'digidadosBilling',

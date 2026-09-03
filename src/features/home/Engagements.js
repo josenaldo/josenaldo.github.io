@@ -23,17 +23,37 @@ import ResultBlock from '@/components/ResultBlock'
 import Section from '@/components/Section'
 import SectionHeader from '@/components/SectionHeader'
 import metrics from '@/data/metrics.mjs'
-import { metricSideValue } from '@/lib/metricValue'
+import { metricPlainCount, metricSideValue } from '@/lib/metricValue'
+
+// Curadoria revisada em 2026-09-02. Duas coisas mudaram:
+//
+// 1. `deploymentFrequency` saiu do primeiro cartão e entrou `productLeadTime`.
+//    O cartão mostrava a CADÊNCIA DE RELEASE (4×/month) sob a legenda do LEAD
+//    TIME ("approved request to production, was 3–6 months") — valor de uma
+//    métrica com a legenda de outra. `productLeadTime` já existia no canônico
+//    e não era usado em lugar nenhum.
+//
+// 2. `deployDuration` e `followUpOperation` saíram porque a prosa do Result,
+//    logo abaixo, já conta os dois. O critério é o do mock: o cartão leva o
+//    que a prosa não diz, e a prosa leva o que não vira número.
+// Métricas cuja legenda de Result já carrega o período: o valor entra sem a
+// unidade, senão "~5×/month" fica sob "issues a month" e diz duas vezes.
+const PLAIN_COUNT_IN_RESULT = new Set(['clientReportedIssues'])
 
 const RESULT_METRICS_BY_ENGAGEMENT = {
     medespecialista: [
-        'deploymentFrequency',
+        'productLeadTime',
+        'automatedTests',
         'clientReportedIssues',
-        'deployDuration',
-        'followUpOperation',
+        'downtime',
     ],
-    muvz: ['muvzDelay', 'muvzPerformance', 'muvzSprintCadence'],
-    conddiz: ['conddizArchitecture', 'conddizTrafficPeak'],
+    muvz: [
+        'muvzPerformance',
+        'muvzMicroservices',
+        'muvzDelay',
+        'muvzSprintCadence',
+    ],
+    conddiz: ['conddizTrafficPeak', 'conddizArchitecture'],
 }
 
 const LABEL_SX = {
@@ -61,9 +81,7 @@ const Engagements = ({ engagements }) => {
 
     return (
         <Section surface="default" padTop={76} padBottom={76} id="engagements">
-            <Box
-                sx={{ display: 'flex', flexDirection: 'column', gap: '36px' }}
-            >
+            <Box sx={{ display: 'flex', flexDirection: 'column', gap: '36px' }}>
                 <SectionHeader n="02" title={t('title')} />
 
                 {visibleEngagements.length === 0 ? (
@@ -87,11 +105,21 @@ const Engagements = ({ engagements }) => {
                             const resultItems = metricIds.map((id) => {
                                 const metric = metrics[id]
 
+                                // `resultValue` existe para a métrica cujo
+                                // valor precisa de unidade para se sustentar
+                                // sozinho no cartão: `15` não diz 15 o quê,
+                                // `1` não diz uma semana. Quem não tem a
+                                // chave cai no valor cru, como antes.
+                                const raw = PLAIN_COUNT_IN_RESULT.has(id)
+                                    ? metricPlainCount(metric.after, locale)
+                                    : metricSideValue(metric.after, locale)
+
                                 return {
-                                    value: metricSideValue(
-                                        metric.after,
-                                        locale
-                                    ),
+                                    value: tMetrics.has(`${id}.resultValue`)
+                                        ? tMetrics(`${id}.resultValue`, {
+                                              value: raw,
+                                          })
+                                        : raw,
                                     caption: tMetrics.has(`${id}.resultCaption`)
                                         ? tMetrics(`${id}.resultCaption`)
                                         : tMetrics(`${id}.label`),

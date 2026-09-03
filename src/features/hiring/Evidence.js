@@ -14,7 +14,7 @@ import Section from '@/components/Section'
 import SectionHeader from '@/components/SectionHeader'
 import StatCard from '@/components/StatCard'
 import metrics from '@/data/metrics.mjs'
-import { metricSideValue } from '@/lib/metricValue'
+import { metricPlainCount, metricSideValue } from '@/lib/metricValue'
 
 const {
     codebasesOwned,
@@ -38,9 +38,7 @@ const Evidence = () => {
         },
         {
             id: 'clientReportedIssues',
-            // Sem a unidade dentro do valor: a legenda logo abaixo ja diz
-            // "a month", e o mock mostra so "~5".
-            value: `~${clientReportedIssues.after.count.toLocaleString(locale)}`,
+            value: metricPlainCount(clientReportedIssues.after, locale),
             caption: tMetrics('clientReportedIssues.resultCaption'),
             confidence: clientReportedIssues.after.confidence,
         },
@@ -64,9 +62,7 @@ const Evidence = () => {
 
     return (
         <Section surface="band" padTop={56} padBottom={56}>
-            <Box
-                sx={{ display: 'flex', flexDirection: 'column', gap: '28px' }}
-            >
+            <Box sx={{ display: 'flex', flexDirection: 'column', gap: '28px' }}>
                 <SectionHeader n="01" title={t('title')} size="md" />
 
                 <Box

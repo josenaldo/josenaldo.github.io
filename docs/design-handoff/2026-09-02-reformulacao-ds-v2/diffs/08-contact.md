@@ -17,6 +17,8 @@ Mock: `Páginas internas.dc.html` § `4g`. Site: `http://localhost:3500/en/conta
 - [ ] **CO-08** — padding do card. **Mock:** `18px 20px`. **Site:** `18px 20px`. Bate. `MANTER`
 - [ ] **CO-09** — grid `1fr 1fr` gap 12, card r14 `#14181F`, rótulo âmbar mono 11px, handle 15px `#C6CCD8`. Batem. `MANTER`
 
+- [x] **CO-14** — **dois e-mails na mesma dobra.** `josenaldo@gmail.com` aparecia ao lado do botão de chamada **e** de novo no card `EMAIL` logo abaixo. O link ao lado do botão saiu: a página nomeia a chamada de 30 minutos como o caminho mais rápido, e um segundo destino ali competia com ela. · `src/app/[locale]/contact/page.js`
+
 ## Nota de fuso
 
 - [x] **CO-10** — texto. **Mock:** *Remote · GMT-3 (São Paulo) · async-first, so a written message beats a call for anything that isn't a decision.* **Site:** *GMT-3 (São Paulo time). I answer async, usually within a business day.* — o site promete um SLA de resposta; o mock explica a preferência por escrito. · `src/messages/en.json`

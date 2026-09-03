@@ -16,7 +16,8 @@
             "label": "Release cadence",
             "heroValue": "{days} days",
             "heroUnit": "between production releases",
-            "resultCaption": "approved request to production (was 3–6 months)"
+            "resultCaption": "between production releases",
+            "heroBefore": "{count}/quarter"
         },
         "clientReportedIssues": {
             "label": "Client-reported issues",
@@ -39,7 +40,8 @@
             "label": "Actively developed"
         },
         "automatedTests": {
-            "label": "Automated tests"
+            "label": "Automated tests",
+            "resultCaption": "automated tests (was 70)"
         },
         "muvzDelay": {
             "label": "Delivery delay",
@@ -53,16 +55,30 @@
         "muvzSprintCadence": {
             "label": "Sprint cadence",
             "unit": "days",
-            "resultCaption": "sprint cadence held after I rolled off"
+            "resultCaption": "sprint cadence held after I rolled off",
+            "resultValue": "{value} days"
         },
         "conddizArchitecture": {
-            "label": "Codebase consolidation",
+            "label": "Frontends on one backend",
             "resultCaption": "frontends on one backend"
         },
         "conddizTrafficPeak": {
             "label": "Peak traffic",
             "unit": "users",
             "resultCaption": "users at peak traffic"
+        },
+        "productLeadTime": {
+            "label": "Product lead time",
+            "resultValue": "~{value} week",
+            "resultCaption": "approved request to production (was 3–6 months)"
+        },
+        "downtime": {
+            "label": "Downtime",
+            "resultCaption": "downtime"
+        },
+        "muvzMicroservices": {
+            "label": "Microservices extracted",
+            "resultCaption": "microservices extracted"
         }
     },
     "Home": {

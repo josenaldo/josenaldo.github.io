@@ -16,7 +16,7 @@
 'use client'
 
 import { Box, Typography } from '@mui/material'
-import { useFormatter, useTranslations } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
 import PropTypes from 'prop-types'
 
 import Section from '@/components/Section'
@@ -24,6 +24,7 @@ import SectionHeader from '@/components/SectionHeader'
 import publications from '@/data/publications'
 import { Link } from '@/i18n/navigation'
 import { categoryLabel } from '@/lib/categoryLabel'
+import { formatShortDate } from '@/lib/formatDate'
 
 const POSTS_ON_HOME = 3
 
@@ -33,7 +34,7 @@ const Blog = ({ posts }) => {
     const t = useTranslations('Home.blog')
     const tPublications = useTranslations('Home.publications')
     const tBlog = useTranslations('Blog')
-    const format = useFormatter()
+    const locale = useLocale()
     const visiblePosts = posts.slice(0, POSTS_ON_HOME)
 
     return (
@@ -122,11 +123,7 @@ const Blog = ({ posts }) => {
                                         color: '#7C8494',
                                     }}
                                 >
-                                    {format.dateTime(new Date(post.date), {
-                                        day: '2-digit',
-                                        month: 'short',
-                                        year: 'numeric',
-                                    })}
+                                    {formatShortDate(new Date(post.date), locale)}
                                 </Box>
 
                                 <Box

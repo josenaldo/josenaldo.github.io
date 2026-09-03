@@ -44,6 +44,12 @@ const MetricCard = ({ label, before, after, unit, confidence }) => (
             ) : null}
         </Typography>
 
+        {/* Sem `flexWrap` de propósito. O grid do hero é `repeat(3, 1fr)`,
+        e `1fr` = `minmax(auto, 1fr)`: é o min-content DESTA linha que faz a
+        coluna crescer até caber o valor. Um `flex-wrap: wrap` aqui derruba
+        esse min-content, a coluna encolhe de volta para a fatia igual e o
+        valor quebra em duas linhas — foi o que aconteceu ao tentar consertar
+        o vazamento por aqui em vez de no grid. */}
         <Box
             sx={{
                 display: 'flex',

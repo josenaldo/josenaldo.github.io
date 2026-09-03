@@ -23,7 +23,7 @@ import MetricCard from '@/components/MetricCard'
 import Section from '@/components/Section'
 import metrics from '@/data/metrics.mjs'
 import { Link } from '@/i18n/navigation'
-import { metricSideValue } from '@/lib/metricValue'
+import { metricPlainCount, metricSideValue } from '@/lib/metricValue'
 
 const { deploymentFrequency, clientReportedIssues, deployDuration } = metrics
 
@@ -37,12 +37,6 @@ const HERO_METRICS = [
 // Metrics.clientReportedIssues.unit) — repetir "×/month" dentro do próprio
 // valor ficaria redundante com ela. O mock (Home.dc.html) mostra só
 // "~100 → ~5", não "~100×/month → ~5×/month".
-const plainCount = (side, locale) => {
-    if (!side) return null
-    const approx = side.confidence === 'counted' ? '~' : ''
-    return `${approx}${side.count.toLocaleString(locale)}`
-}
-
 const Hero = () => {
     const t = useTranslations('Home.hero')
     const tMetrics = useTranslations('Metrics')
@@ -70,7 +64,8 @@ const Hero = () => {
                         component="p"
                         sx={{
                             m: 0,
-                            fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
+                            fontFamily:
+                                "'IBM Plex Mono', ui-monospace, monospace",
                             fontSize: '12px',
                             fontWeight: 600,
                             letterSpacing: '.16em',
@@ -96,13 +91,17 @@ const Hero = () => {
                     <Box
                         sx={{
                             display: 'grid',
-                            // minmax(0,...) e não `1fr` puro: `1fr` é
-                            // minmax(auto,1fr), então o rótulo mais longo
-                            // ("Client-reported issues") impunha um mínimo e
-                            // os três cartões saíam com larguras diferentes.
+                            // `1fr` puro (= minmax(auto, 1fr)) de propósito:
+                            // a coluna nunca fica menor que o conteúdo. Chegou
+                            // a virar minmax(0, 1fr) em 2026-09-02 para igualar
+                            // as três larguras como no mock — e o valor passou
+                            // a vazar para fora do cartão, porque a linha
+                            // "1/quarter → 8 days" precisa de 264px e a coluna
+                            // igual dá 237px. O mock não fecha essa conta: é
+                            // HTML estático sem wrap, e vaza em silêncio.
                             gridTemplateColumns: {
                                 xs: '1fr',
-                                sm: 'repeat(3, minmax(0, 1fr))',
+                                sm: 'repeat(3, 1fr)',
                             },
                             gap: '16px',
                             mt: '8px',
@@ -112,10 +111,25 @@ const Hero = () => {
                             <MetricCard
                                 key={id}
                                 label={tMetrics(`${id}.label`)}
+                                // `heroBefore` existe para a métrica cujo
+                                // "antes" tem período: sem ela, o valor sai de
+                                // `metricSideValue` com a CHAVE do período
+                                // colada ("1×/quarter"), e a chave é inglês
+                                // cru — vazava para /pt.
                                 before={
-                                    id === 'clientReportedIssues'
-                                        ? plainCount(metric.before, locale)
-                                        : metricSideValue(metric.before, locale)
+                                    tMetrics.has(`${id}.heroBefore`)
+                                        ? tMetrics(`${id}.heroBefore`, {
+                                              count: metric.before.count,
+                                          })
+                                        : id === 'clientReportedIssues'
+                                          ? metricPlainCount(
+                                                metric.before,
+                                                locale
+                                            )
+                                          : metricSideValue(
+                                                metric.before,
+                                                locale
+                                            )
                                 }
                                 after={
                                     // deploymentFrequency mostra o intervalo
@@ -123,12 +137,21 @@ const Hero = () => {
                                     // com o mock Home.dc.html e com o exemplo
                                     // de spec/01-fundacao.md §8.
                                     metric.after.everyDays !== undefined
-                                        ? tMetrics('deploymentFrequency.heroValue', {
-                                              days: metric.after.everyDays,
-                                          })
+                                        ? tMetrics(
+                                              'deploymentFrequency.heroValue',
+                                              {
+                                                  days: metric.after.everyDays,
+                                              }
+                                          )
                                         : id === 'clientReportedIssues'
-                                          ? plainCount(metric.after, locale)
-                                          : metricSideValue(metric.after, locale)
+                                          ? metricPlainCount(
+                                                metric.after,
+                                                locale
+                                            )
+                                          : metricSideValue(
+                                                metric.after,
+                                                locale
+                                            )
                                 }
                                 unit={
                                     tMetrics.has(`${id}.heroUnit`)
@@ -202,7 +225,8 @@ const Hero = () => {
                         component="p"
                         sx={{
                             m: 0,
-                            fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
+                            fontFamily:
+                                "'IBM Plex Mono', ui-monospace, monospace",
                             fontSize: '12px',
                             lineHeight: 1.7,
                             color: '#7C8494',

@@ -5,16 +5,17 @@
 'use client'
 
 import { Box, Typography } from '@mui/material'
-import { useFormatter, useTranslations } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
 import PropTypes from 'prop-types'
 
 import ContentCardImage from '@/components/content/ContentCardImage'
 import Pill from '@/components/Pill'
 import { Link } from '@/i18n/navigation'
 import { categoryLabel } from '@/lib/categoryLabel'
+import { formatShortDate } from '@/lib/formatDate'
 
 const PostListItem = ({ title, text, url, image, date, category }) => {
-    const format = useFormatter()
+    const locale = useLocale()
     const t = useTranslations('Common')
     const tBlog = useTranslations('Blog')
 
@@ -110,11 +111,7 @@ const PostListItem = ({ title, text, url, image, date, category }) => {
                         color: '#7C8494',
                     }}
                 >
-                    {format.dateTime(new Date(date), {
-                        day: '2-digit',
-                        month: 'short',
-                        year: 'numeric',
-                    })}
+                    {formatShortDate(new Date(date), locale)}
                 </Typography>
                 <Typography
                     component="span"

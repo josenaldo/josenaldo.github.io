@@ -7,15 +7,16 @@
 'use client'
 
 import { Box, Typography } from '@mui/material'
-import { useFormatter, useTranslations } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
 import PropTypes from 'prop-types'
 
 import ContentCardImage from '@/components/content/ContentCardImage'
 import { Link } from '@/i18n/navigation'
+import { formatShortDate } from '@/lib/formatDate'
 
 const KeepReading = ({ posts }) => {
     const t = useTranslations('Post')
-    const format = useFormatter()
+    const locale = useLocale()
 
     if (posts.length === 0) return null
 
@@ -104,11 +105,7 @@ const KeepReading = ({ posts }) => {
                                     color: '#7C8494',
                                 }}
                             >
-                                {format.dateTime(new Date(post.date), {
-                                    day: '2-digit',
-                                    month: 'short',
-                                    year: 'numeric',
-                                })}
+                                {formatShortDate(new Date(post.date), locale)}
                                 {post.category ? ` · ${post.category}` : ''}
                             </Typography>
                         </Box>

@@ -16,7 +16,8 @@
             "label": "Cadência de release",
             "heroValue": "{days} dias",
             "heroUnit": "entre releases em produção",
-            "resultCaption": "do pedido aprovado à produção (era 3–6 meses)"
+            "resultCaption": "entre releases em produção",
+            "heroBefore": "{count}/trimestre"
         },
         "clientReportedIssues": {
             "label": "Problemas reportados pelo cliente",
@@ -39,7 +40,8 @@
             "label": "Em desenvolvimento ativo"
         },
         "automatedTests": {
-            "label": "Testes automatizados"
+            "label": "Testes automatizados",
+            "resultCaption": "testes automatizados (eram 70)"
         },
         "muvzDelay": {
             "label": "Atraso na entrega",
@@ -53,16 +55,30 @@
         "muvzSprintCadence": {
             "label": "Cadência de sprint",
             "unit": "dias",
-            "resultCaption": "cadência de sprint mantida após minha saída"
+            "resultCaption": "cadência de sprint mantida após minha saída",
+            "resultValue": "{value} dias"
         },
         "conddizArchitecture": {
-            "label": "Consolidação de codebase",
+            "label": "Frontends sobre um backend",
             "resultCaption": "frontends sobre um backend"
         },
         "conddizTrafficPeak": {
             "label": "Pico de tráfego",
             "unit": "usuários",
             "resultCaption": "usuários no pico de tráfego"
+        },
+        "productLeadTime": {
+            "label": "Lead time de produto",
+            "resultValue": "~{value} semana",
+            "resultCaption": "do pedido aprovado à produção (era 3–6 meses)"
+        },
+        "downtime": {
+            "label": "Indisponibilidade",
+            "resultCaption": "indisponibilidade"
+        },
+        "muvzMicroservices": {
+            "label": "Microsserviços extraídos",
+            "resultCaption": "microsserviços extraídos"
         }
     },
     "Home": {

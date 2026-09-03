@@ -11,7 +11,7 @@ As três larguras centradas do mock (cabeçalho 760px, imagem 900px, corpo 680px
 - [ ] **PO-03** — `h1`. **Mock:** `52px`, `lh 1.06`. **Site:** `52px`, `lh 1.06`. Bate. `MANTER`
 - [x] **PO-04** — linha de autoria, gap. **Mock:** `gap: 14px`. **Site:** `12px`. · `src/app/[locale]/blog/[slug]/page.js`
 - [ ] **PO-05** — botão `Share`. **Mock:** botão com **rótulo textual** `Share`, 13px `#C6CCD8`, `padding: 8px 14px`, r10, `rgba(255,255,255,.05)`. **Site:** ícone sozinho num quadrado 43×43 âmbar sobre `rgba(255,255,255,.05)`, sem texto. · `src/components/share/ShareLink.js`
-- [ ] **PO-06** — formato da data. **Mock:** `24 Dec 2025`. **Site:** `Dec 24, 2025`. Mesmo `BL-02`. · formatador de data
+- [x] **PO-06** — formato da data. **Mock:** `24 Dec 2025`. **Site:** `Dec 24, 2025`. Mesmo `BL-02`. · formatador de data
 - [ ] **PO-07** — tempo de leitura. **Mock:** `9 min read`. **Site:** `11 min read`. Cálculo do site provavelmente mais correto — o mock era ilustrativo. `MANTER`
 - [ ] **PO-08** — avatar 38px, réguas `border-top`/`border-bottom` `rgba(255,255,255,.07)` com `padding: 14px 0`, lead 20px/1.55 `#C6CCD8`, separadores `·` em `#333B4A`. Batem. `MANTER`
 

@@ -13,7 +13,7 @@
 import { notFound } from 'next/navigation'
 
 import { Box, Typography } from '@mui/material'
-import { getFormatter, getTranslations, setRequestLocale } from 'next-intl/server'
+import { getTranslations, setRequestLocale } from 'next-intl/server'
 
 import photo200 from '@/assets/images/josenaldo-200.webp'
 import MDXContent from '@/components/content/MDXContent'
@@ -22,6 +22,7 @@ import KeepReading from '@/features/blog/KeepReading'
 import { Link } from '@/i18n/navigation'
 import { routing } from '@/i18n/routing'
 import { categoryLabel } from '@/lib/categoryLabel'
+import { formatShortDate } from '@/lib/formatDate'
 import { readingTimeMinutes } from '@/lib/readingTime'
 import contentService from '@/services/content'
 
@@ -83,13 +84,9 @@ export default async function BlogPostPage({ params }) {
 
     const t = await getTranslations('Post')
     const tBlog = await getTranslations('Blog')
-    const format = await getFormatter()
+
     const minutes = readingTimeMinutes(post.body.raw)
-    const formattedDate = format.dateTime(new Date(post.date), {
-        day: '2-digit',
-        month: 'short',
-        year: 'numeric',
-    })
+    const formattedDate = formatShortDate(new Date(post.date), locale)
 
     return (
         <>
