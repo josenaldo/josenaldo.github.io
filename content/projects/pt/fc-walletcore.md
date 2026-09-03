@@ -6,6 +6,11 @@ description: An event-driven wallet and balance system built with Kafka,
 projectUrl: https://github.com/josenaldo/fc-walletcore
 pin: false
 image: /images/projects/prints/fc-walletcore-github.png
+kind: Study
+stack:
+  - Go
+  - Java
+  - Kafka
 translationKey: fc-walletcore
 translated: true
 ---

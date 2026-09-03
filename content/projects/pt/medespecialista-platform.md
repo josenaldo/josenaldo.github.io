@@ -8,6 +8,12 @@ description: A multi-repository medical education platform I lead since July
 projectUrl: https://medespecialista.com.br/
 pin: true
 image: /images/projects/prints/medespecialista-frontend-landing.png
+kind: Client
+stack:
+  - Java
+  - Spring
+  - Next.js
+  - CI/CD
 translationKey: medespecialista-platform
 translated: true
 ---

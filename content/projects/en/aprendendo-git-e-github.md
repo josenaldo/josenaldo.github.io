@@ -7,6 +7,10 @@ description: A curated learning roadmap for Git and GitHub, combining Portuguese
 projectUrl: https://josenaldo.com.br/aprendendo-git-e-github/
 pin: false
 image: /images/projects/aprendendo-git-e-github.jpg
+kind: Guide
+stack:
+  - Git
+  - GitHub
 translationKey: aprendendo-git-e-github
 translated: true
 ---

@@ -66,7 +66,7 @@ export default async function ProjectPage({ params }) {
             title: p.title,
             description: p.description,
             url: p.projectUrl,
-            type: p.type ?? null,
+            type: p.kind ?? null,
             stack: p.stack ?? null,
             sourceUrl: p.sourceUrl ?? null,
         }))

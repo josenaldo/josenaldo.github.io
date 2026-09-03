@@ -7,6 +7,11 @@ description: A full-stack planning application for electronic fuel injection
 projectUrl: https://github.com/josenaldo/injection-harness
 pin: true
 image: /images/projects/prints/injection-harness-github.png
+kind: Product
+stack:
+  - NestJS
+  - React
+  - TypeScript
 translationKey: injection-harness
 translated: true
 ---

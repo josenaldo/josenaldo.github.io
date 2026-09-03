@@ -7,6 +7,11 @@ description: A full editorial platform for a living technical book — built wit
 projectUrl: https://livropog.com.br
 pin: true
 image: /images/projects/livro-pog.jpg
+kind: Book
+stack:
+  - Next.js
+  - Contentlayer
+  - MDX
 translationKey: livro-pog
 translated: true
 ---

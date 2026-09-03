@@ -7,6 +7,12 @@ description: A zero-cost, developer-authored platform for tracking a software
 projectUrl: https://josenaldo.com.br/
 pin: false
 image: /images/projects/prints/josenaldo.github.io-github.png
+kind: Site
+stack:
+  - Next.js
+  - Contentlayer
+  - GitHub Pages
+sourceUrl: https://github.com/josenaldo/josenaldo.github.io
 translationKey: josenaldo-github-io
 translated: true
 ---

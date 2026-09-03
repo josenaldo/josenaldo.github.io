@@ -7,6 +7,11 @@ description: A Java backend for catalog administration, organized into
 projectUrl: https://github.com/josenaldo/codeflix-admin-catalog-backend
 pin: true
 image: /images/projects/prints/codeflix-admin-catalog-backend-github.png
+kind: Study
+stack:
+  - Java
+  - Spring
+  - Clean Architecture
 translationKey: codeflix-admin-catalog-backend
 translated: true
 ---

@@ -7,6 +7,10 @@ description: A reusable Event Storming template for Diagrams.net that
 projectUrl: https://app.diagrams.net/?splash=0&clibs=Uhttps%3A%2F%2Fraw.githubusercontent.com%2Fjosenaldo%2Fevent-storming-template%2Fmain%2FEvent%20Storming.xml
 pin: false
 image: /images/projects/prints/event-storming-template.png
+kind: Tool
+stack:
+  - Diagrams.net
+  - DDD
 translationKey: event-storming-template
 translated: true
 ---

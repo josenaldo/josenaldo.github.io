@@ -6,6 +6,11 @@ description: A minimal React + Vite starter template with environment setup and
 projectUrl: https://github.com/josenaldo/vite-js-react-minimal
 pin: false
 image: /images/projects/vite-js-react-minimal.jpg
+kind: Template
+stack:
+  - Vite
+  - React
+  - JavaScript
 translationKey: vite-js-react-template
 translated: true
 ---

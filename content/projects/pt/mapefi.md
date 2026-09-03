@@ -7,6 +7,12 @@ description: A full-stack platform with Java/Spring backend and Next.js 15
 projectUrl: https://github.com/josenaldo/mapefi
 pin: true
 image: /images/projects/prints/mapefi-github.png
+kind: Product
+stack:
+  - Java
+  - Spring
+  - Next.js
+  - ADR
 translationKey: mapefi
 translated: true
 ---

@@ -156,7 +156,11 @@ const Project = defineDocumentType(() => ({
             description: 'The image of the project',
             required: true,
         },
-        type: {
+        // `kind`, e não `type`: o Contentlayer usa `type` como discriminador
+        // do documento e injeta `type: 'Project'` em todos eles. Um campo de
+        // frontmatter com esse nome é sobrescrito em silêncio — foi por isso
+        // que as onze pílulas do card diziam "Project".
+        kind: {
             type: 'string',
             description:
                 'Pílula de tipo exibida no card (Client, Book, Product, Study ou Tool) — spec/03-paginas-internas.md §6. Opcional: sem valor, a pílula não renderiza.',

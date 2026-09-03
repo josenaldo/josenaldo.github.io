@@ -7,6 +7,7 @@ description: "A signature recipe turned into a memorable portfolio artifact: a
 projectUrl: https://josenaldo.com.br/farofa-lampiao-e-julieta/
 pin: true
 image: /images/projects/farofa-lampiao-e-julieta.jpg
+kind: Recipe
 translationKey: farofa-lampiao-e-julieta
 translated: true
 ---

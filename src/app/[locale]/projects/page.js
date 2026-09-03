@@ -40,7 +40,7 @@ export default async function ProjectsPage({ params }) {
         title: project.title,
         description: project.description,
         url: project.projectUrl,
-        type: project.type ?? null,
+        type: project.kind ?? null,
         stack: project.stack ?? null,
         sourceUrl: project.sourceUrl ?? null,
     }))

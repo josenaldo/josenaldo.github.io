@@ -55,7 +55,8 @@ export function validarDossie(engagement, frontmatter) {
 }
 
 export function montarCampos({ dossie }) {
-    const { titulo, projectUrl, imagem, resumo, pin, ordem } = dossie.frontmatter
+    const { titulo, projectUrl, imagem, resumo, pin, ordem, categoria, stack, sourceUrl } =
+        dossie.frontmatter
 
     return {
         id: ordem,
@@ -64,6 +65,14 @@ export function montarCampos({ dossie }) {
         projectUrl,
         pin,
         image: imagem,
+        // Os três são opcionais de propósito: `type` e `stack` alimentam a
+        // pílula e as pílulas de stack do card, e `sourceUrl` só existe quando
+        // o repositório é DIFERENTE de `projectUrl` — em 6 dos 11 projetos o
+        // destino já é o próprio GitHub, e ali um link "Source" apontaria
+        // para o mesmo lugar que "View project".
+        ...(categoria ? { kind: categoria } : {}),
+        ...(stack && stack.length > 0 ? { stack } : {}),
+        ...(sourceUrl ? { sourceUrl } : {}),
         translationKey: dossie.engagement,
         translated: true,
     }
