@@ -84,14 +84,17 @@ const CtaBlock = ({ title, body, ctaLabel, href, external = false }) => {
                     {...buttonProps}
                     sx={{
                         flexShrink: 0,
+                        // Ver ClosingCta: em 360px o rótulo com `nowrap`
+                        // mede mais que a área útil do cartão e vazava.
+                        width: { xs: '100%', md: 'auto' },
                         bgcolor: '#FFFFFF',
                         color: '#3B1E77',
-                        fontSize: '17px',
+                        fontSize: { xs: '16px', md: '17px' },
                         fontWeight: 600,
-                        p: '18px 32px',
+                        p: { xs: '16px 20px', md: '18px 32px' },
                         borderRadius: '12px',
                         boxShadow: 'none',
-                        whiteSpace: 'nowrap',
+                        whiteSpace: { xs: 'normal', md: 'nowrap' },
                         '&:hover': {
                             bgcolor: '#F3EDFF',
                             boxShadow: 'none',

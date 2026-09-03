@@ -93,14 +93,20 @@ const ClosingCta = () => {
                         {...buttonProps}
                         sx={{
                             flexShrink: 0,
+                            // No xs o bloco roxo deixa ~256px úteis, e o
+                            // rótulo em 17px com `nowrap` mede mais que isso:
+                            // o botão vazava para fora do cartão. No mobile
+                            // ele ocupa a largura toda e pode quebrar; a
+                            // partir de md volta a ser a pílula de uma linha.
+                            width: { xs: '100%', md: 'auto' },
                             bgcolor: '#FFFFFF',
                             color: '#3B1E77',
-                            fontSize: '17px',
+                            fontSize: { xs: '16px', md: '17px' },
                             fontWeight: 600,
-                            p: '18px 32px',
+                            p: { xs: '16px 20px', md: '18px 32px' },
                             borderRadius: '12px',
                             boxShadow: 'none',
-                            whiteSpace: 'nowrap',
+                            whiteSpace: { xs: 'normal', md: 'nowrap' },
                             '&:hover': {
                                 bgcolor: '#F3EDFF',
                                 boxShadow: 'none',

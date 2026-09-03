@@ -21,6 +21,7 @@ import {
 import { useTranslations } from 'next-intl'
 import PropTypes from 'prop-types'
 
+import BookACallButton from '@/components/BookACallButton'
 import { Link, usePathname } from '@/i18n/navigation'
 import LanguageSwitcher from '@/layouts/LanguageSwitcher'
 
@@ -163,7 +164,18 @@ const MobileMenu = ({ pages, aboutSubNav }) => {
 
                 <Divider />
 
-                <Box sx={{ display: 'flex', justifyContent: 'center', p: 2 }}>
+                {/* O CTA sai do header no mobile e chega aqui, onde tem os
+                ~256px do drawer inteiros para o rótulo completo. */}
+                <Box
+                    sx={{
+                        p: 2,
+                        display: 'flex',
+                        flexDirection: 'column',
+                        alignItems: 'center',
+                        gap: 2,
+                    }}
+                >
+                    <BookACallButton size="medium" short fullWidth />
                     <LanguageSwitcher />
                 </Box>
             </SwipeableDrawer>

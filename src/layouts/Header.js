@@ -53,7 +53,19 @@ const Header = () => {
                         <DesktopMenu pages={pages} aboutSubNav={aboutSubNav} />
 
                         <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, ml: 1 }}>
-                            <BookACallButton size="small" short />
+                            {/* Fora do xs: a fila logo + botão + hambúrguer
+                            não cabe em 360px, e o botão era o item que cedia
+                            — virava um bloco roxo alto com uma palavra por
+                            linha. No mobile o CTA vive dentro do drawer
+                            (MobileMenu), onde tem largura inteira. */}
+                            <Box
+                                sx={{
+                                    display: { xs: 'none', sm: 'flex' },
+                                    alignItems: 'center',
+                                }}
+                            >
+                                <BookACallButton size="small" short />
+                            </Box>
 
                             <NoSsr>
                                 <MobileMenu
