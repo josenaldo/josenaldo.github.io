@@ -380,6 +380,9 @@
         "footnoteBackLabel": "Voltar ao conteúdo",
         "successfullyShared": "Compartilhado com sucesso",
         "mdxProcessingError": "Erro ao processar o texto",
-        "shareMessage": "Encontrei isto no site do Josenaldo e achei que você ia gostar: "
+        "shareMessage": "Encontrei isto no site do Josenaldo e achei que você ia gostar: ",
+        "copy": "Copiar",
+        "copied": "Copiado",
+        "copyCode": "Copiar código"
     }
 }

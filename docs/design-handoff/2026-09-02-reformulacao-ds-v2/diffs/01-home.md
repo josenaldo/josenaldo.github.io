@@ -9,7 +9,7 @@ Diferenças de header e rodapé estão em [00-global-header-footer.md](00-global
 O grid (`1fr 400px`, gap 56, padding `76/40/64`), o kicker âmbar, a foto retangular r18 e a legenda mono batem com o mock.
 
 - [x] **HR-01** — texto do lead. **Mock:** *I take over platforms that have eroded past the point where anyone can safely change them, and turn them into a delivery operation that runs on one meeting a month.* **Site:** o mesmo texto **precedido de** *Fractional software engineer and architect.* — que é exatamente o que o kicker âmbar logo acima já diz. · `src/messages/en.json` › `Home.hero.subtitle`
-- [ ] **HR-02** — tamanho do `h1`. **Mock:** `60px`. **Site:** `58,88px` a 1280px. Ver `G-27`. · `src/styles/theme.js`
+- [ ] **HR-02** — `MANTER` (mesma decisão de `G-27`). ~~tamanho do `h1`~~. **Mock:** `60px`. **Site:** `58,88px` a 1280px. Ver `G-27`. · `src/styles/theme.js`
 - [ ] **HR-03** — ~~largura de linha do `h1`~~. **Correção:** item errado na primeira leitura. O site já usa `max-width: 20ch`; os 763px do dump *são* 20ch em Space Grotesk 58,88px. Mock e site batem. `MANTER`
 - [ ] **HR-04** — `REVERTIDO em 2026-09-02`. Aplicado como `minmax(0, 1fr)` para igualar as três colunas como no mock; o valor passou a **vazar para fora do cartão**. Medição: a linha `1/quarter → 8 days` precisa de 264px e a coluna igual dá 237px — **o mock não fecha a própria conta**, é HTML estático sem wrap e vaza em silêncio. Voltou a `repeat(3, 1fr)` (= `minmax(auto, 1fr)`), que deixa a primeira coluna crescer. `MANTER` desigual. ~~colunas dos cartões de métrica~~. **Mock:** `repeat(3, 1fr)` — três colunas iguais de 237px. **Site:** `260px / 226px / 226px` — a primeira coluna é maior, então os três cartões não têm a mesma largura. · `src/features/home/Hero.js`
 - [x] **HR-05** — posição do marcador `●`. **Mock:** ao **fim** do rótulo (`Release cadence ●`). **Site:** antes do rótulo, com `margin-right: 6px`. · `src/components/MetricCard.js`
@@ -77,7 +77,7 @@ Esta seção concentra a maior parte das diferenças da home, e quase todas são
 ## Depoimentos
 
 - [x] **TS-01** — tamanho do `h2`. **Mock:** `23px`, peso `600`. **Site:** `26px`, peso `700` (o `h2` da seção de blog, reaproveitado). O mock deliberadamente rebaixa este título — a seção é leve. · `src/features/home/Testimonial.js`
-- [ ] **TS-02** — ordem dos depoimentos. **Mock:** Lesada · Bugada · Leão Lascado. **Site:** Bugada · Leão Lascado · Lesada. · `src/features/home/Testimonial.js`
+- [x] **TS-02** — ordem dos depoimentos. **Mock:** Lesada · Bugada · Leão Lascado. **Site:** Bugada · Leão Lascado · Lesada. · `src/features/home/Testimonial.js`
 - [x] **TS-03** — depoimentos não traduzidos na página em inglês. **Mock (en):** *"I have no idea how I ended up here."* / `Leão Lascado · Taxidermied lion` / `Bugada · Cat` / `Lesada · Cat`. **Site (`/en`):** *"Não faço a mínima ideia de como vim parar aqui."* / `Leão Lascado · Leão empalhado` / `Bugada · Gata` / `Lesada · Gata` — o conteúdo em português vaza inteiro para a versão inglesa. · `src/messages/en.json` ou `content/`
 - [ ] **TS-04** — subtítulo, cartões (`#12161C` r16 padding `16px 18px` gap 14), avatar 46px e tipografia. Batem. `MANTER`
 

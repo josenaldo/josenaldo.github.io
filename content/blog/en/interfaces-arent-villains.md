@@ -90,7 +90,7 @@ Conflating these elements leads to reactive decisions: useful interfaces are eli
 
 ## Without an interface: the hidden problem
 
-```java
+```java title="CheckoutService.java" showLineNumbers
 class CheckoutService {
     private final ThirdPartySDK sdk;
 
@@ -120,7 +120,7 @@ The most insidious part is that this seems cheap at first: no extra file, no "co
 
 ## With an interface: the explicit contract
 
-```java
+```java title="PaymentGateway.java" showLineNumbers
 public interface PaymentGateway {
     PaymentResponse pay(PaymentRequest req);
 }

@@ -126,7 +126,24 @@ export default async function LocaleLayout({ children, params }) {
             <body>
                 <NextIntlClientProvider>
                     <Providers>
-                        <Box>
+                        {/* O canvas: 1280px centrado, cantos de 20px, sobre
+                        o fundo mais escuro do body. `overflow: clip` e não
+                        `hidden` de propósito — `hidden` cria um contêiner de
+                        rolagem e quebra o `position: sticky` do header;
+                        `clip` recorta sem criar esse contêiner. */}
+                        <Box
+                            sx={{
+                                maxWidth: '1280px',
+                                mx: 'auto',
+                                // Literal, não `(theme) => ...`: este arquivo é
+                                // Server Component e uma função não atravessa a
+                                // fronteira RSC — mesmo motivo documentado em
+                                // Hero.js e ClosingCta.js.
+                                bgcolor: 'background.default',
+                                borderRadius: { xs: 0, lg: '20px' },
+                                overflow: 'clip',
+                            }}
+                        >
                             <Header />
 
                             <Box component="main">{children}</Box>

@@ -11,7 +11,7 @@ Vale para **todas** as páginas. Fonte no mock: `Chrome.dc.html` (recriado dentr
 - [x] **G-05** — espaço entre o bloco de navegação e o bloco EN/PT + CTA. **Mock:** tudo numa fila só com `gap: 8px`, e `margin-left: 8px` no EN/PT e no botão (ou seja, 16px efetivos em cada junta). **Site:** dois grupos separados por `gap: 24px`. · `src/layouts/DesktopMenu.js`
 - [x] **G-06** — cor do nome da marca. **Mock:** herda `#E9ECF2`. **Site:** `#FFFFFF`. · `src/components/Logo.js`
 - [x] **G-07** — pílula EN/PT, padding. **Mock:** `6px 10px`. **Site:** `7px 12px`. · `src/layouts/LanguageSwitcher.js`
-- [ ] **G-08** — pílula EN/PT, tratamento do idioma ativo. **Mock:** os dois idiomas na mesma cor `#98A0B0`, sem destaque, texto literal `EN / PT`. **Site:** `EN` em branco peso 700, `/` em `#4E5666` (IBM Plex Sans 12px, não mono), `PT` em `#7C8494` peso 500. · `src/layouts/LanguageSwitcher.js`
+- [ ] **G-08** — `MANTER` (decidido em 2026-09-02): destacar o idioma ativo é informação útil que o mock omitiu. ~~pílula EN/PT, tratamento do idioma ativo~~. **Mock:** os dois idiomas na mesma cor `#98A0B0`, sem destaque, texto literal `EN / PT`. **Site:** `EN` em branco peso 700, `/` em `#4E5666` (IBM Plex Sans 12px, não mono), `PT` em `#7C8494` peso 500. · `src/layouts/LanguageSwitcher.js`
 - [x] **G-09** — CTA do header, tamanho de fonte. **Mock:** `14px`. **Site:** `14.86px` (herdado da escala do botão MUI, não fixado). · `src/components/BookACallButton.js`
 - [x] **G-10** — CTA do header, padding. **Mock:** `11px 20px`. **Site:** `12px 22px`. · `src/components/BookACallButton.js`
 - [x] **G-11** — CTA do header, sombra. **Mock:** `0 6px 18px -8px rgba(136,85,223,.9)` (sombra menor, porque o botão é menor). **Site:** `0 10px 30px -12px rgba(136,85,223,.9)` — a mesma sombra do CTA grande do hero. · `src/components/BookACallButton.js`
@@ -39,9 +39,9 @@ O `CtaBlock.dc.html` é usado por `/hiring` e `/about`. Ele **não** é o mesmo 
 
 ## Canvas e página
 
-- [ ] **G-25** — largura e cantos do canvas. **Mock:** conteúdo em `1280px` com `border-radius: 20px` sobre um fundo `#07080B`. **Site:** conteúdo em `max-width: 1280px` sem raio, sangrando até a borda da janela acima de 1280px. Provavelmente decisão consciente (o mock é uma prancheta, não uma página) — registrar e decidir. · `src/components/Section.js`
+- [x] **G-25** — largura e cantos do canvas. **Mock:** conteúdo em `1280px` com `border-radius: 20px` sobre um fundo `#07080B`. **Site:** conteúdo em `max-width: 1280px` sem raio, sangrando até a borda da janela acima de 1280px. Provavelmente decisão consciente (o mock é uma prancheta, não uma página) — registrar e decidir. · `src/components/Section.js`
 - [ ] **G-26** — gutter lateral. **Mock:** `40px`. **Site:** `40px`. Bate em todas as páginas conferidas. `MANTER`
-- [ ] **G-27** — `h1` no teto da escala. **Mock:** `60px` no canvas de 1280px. **Site:** `58,88px` a 1280px de viewport — o `clamp(2.5rem, 1.6rem + 2.6vw, 3.75rem)` só chega a 60px acima de ~1318px de largura. Mesma causa vale para todas as páginas com `h1` grande. · `src/styles/theme.js`
+- [ ] **G-27** — `MANTER` (decidido em 2026-09-02): 1,1px num título de 60px é invisível, e o `clamp` existe para o título respirar em telas menores. ~~`h1` no teto da escala~~. **Mock:** `60px` no canvas de 1280px. **Site:** `58,88px` a 1280px de viewport — o `clamp(2.5rem, 1.6rem + 2.6vw, 3.75rem)` só chega a 60px acima de ~1318px de largura. Mesma causa vale para todas as páginas com `h1` grande. · `src/styles/theme.js`
 - [ ] **G-28** — `h2` no teto da escala. **Mock:** `34px`. **Site:** `34px` a 1280px (o clamp já satura). `MANTER`
 - [x] **G-29** — cor de link herdada em cartões clicáveis. **Mock:** não existe (o mock não tem `<a>`). **Site:** vários cartões-link renderizam com `color: rgb(0,0,238)` no nó `<a>` (azul padrão do navegador) — invisível porque os filhos redefinem a cor, mas qualquer texto solto dentro deles sairia azul. Vale conferir em `PostListItem`, `ProjectCard`, `Blog` da home e nos cartões de canal do `/contact`. · vários
 

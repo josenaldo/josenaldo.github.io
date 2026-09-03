@@ -21,11 +21,32 @@ pre[class*='language-'] {
 }
 
 pre[class*='language-'] {
+    /* Superfície e raio do mock (spec/03-paginas-internas.md §3). Quando o
+       CodeBlock desenha a barra de cima, os cantos superiores são dela — daí
+       a variante [data-labelled]. */
     padding: 1.2em;
-    margin: 1.5rem 0;
+    margin: 0;
     overflow: auto;
-    border-radius: 8px;
-    background: #1e1e2e;
+    border-radius: 14px;
+    background: #0e1218;
+}
+
+pre[class*='language-'][data-labelled='true'] {
+    border-radius: 0 0 14px 14px;
+}
+
+/* Código INLINE. O MDXContent tinha um override que pintava todo `code` de
+   âmbar — inline e em bloco — e sobrescrevia as cores de token do Prism. Ele
+   saiu junto com o CodeBlock, e sem esta regra o inline passa a herdar a prosa
+   e some no meio do parágrafo: a regra abaixo só casa código COM classe de
+   linguagem, e o inline não tem nenhuma. */
+:not(pre) > code:not([class*='language-']) {
+    font-family: 'IBM Plex Mono', ui-monospace, monospace;
+    font-size: 0.85em;
+    padding: 0.15em 0.4em;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.06);
+    color: #c6ccd8;
 }
 
 :not(pre) > code[class*='language-'] {
@@ -132,12 +153,14 @@ pre[class*='language-'] {
     background-color: rgba(239, 68, 68, 0.14);
 }
 
+/* Linha destacada em âmbar, não no roxo do One Dark: no sistema deste site o
+   âmbar é o marcador (rótulo, número, estado ativo) e o roxo é ação. */
 .highlight-line {
     margin-left: -16px;
     margin-right: -16px;
     padding-left: 12px;
-    border-left: 4px solid #c678dd;
-    background-color: rgba(198, 120, 221, 0.1);
+    border-left: 2px solid #ffaa00;
+    background-color: rgba(255, 170, 0, 0.08);
 }
 
 /* Line numbers (rehype-prism-plus) */

@@ -380,6 +380,9 @@
         "footnoteBackLabel": "Back to content",
         "successfullyShared": "Successfully shared",
         "mdxProcessingError": "Error processing text",
-        "shareMessage": "I found this on Josenaldo's site and thought you'd like it: "
+        "shareMessage": "I found this on Josenaldo's site and thought you'd like it: ",
+        "copy": "Copy",
+        "copied": "Copied",
+        "copyCode": "Copy code"
     }
 }

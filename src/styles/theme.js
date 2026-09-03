@@ -5,6 +5,9 @@ import { createTheme } from '@mui/material/styles'
 // Âmbar #FFAA00 vem do anel da foto oficial: rótulo, número, estado ativo.
 
 const surface = {
+    // Fundo ATRÁS do canvas — o site é um cartão de 1280px sobre ele. Só
+    // aparece acima de 1280px de viewport; abaixo disso o canvas ocupa tudo.
+    canvas: '#07080B',
     default: '#0B0E13', // fundo da página
     band: '#0E1218', // faixa alternada de seção
     strip: '#101419', // cartucho de prova, cabeçalho de bloco de código
@@ -129,7 +132,7 @@ const theme = createTheme({
         MuiCssBaseline: {
             styleOverrides: {
                 body: {
-                    backgroundColor: surface.default,
+                    backgroundColor: surface.canvas,
                     color: ink.body,
                     textWrap: 'pretty',
                 },

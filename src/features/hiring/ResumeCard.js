@@ -50,14 +50,27 @@ const ResumeCard = () => {
                 {t('title')}
             </Typography>
 
+            {/* Um roxo cheio e três neutros: o card tem UMA ação primária.
+            Com os quatro em `outlined` roxo, nada dizia qual era. */}
             {senior.map((resume, index) => (
                 <Button
                     key={resume.id}
-                    variant={index === 0 ? 'contained' : 'outlined'}
+                    variant={index === 0 ? 'contained' : 'text'}
                     href={resume.url}
                     target="_blank"
                     rel="noopener noreferrer"
                     fullWidth
+                    sx={
+                        index === 0
+                            ? undefined
+                            : {
+                                  color: '#C6CCD8',
+                                  bgcolor: 'rgba(255,255,255,.05)',
+                                  '&:hover': {
+                                      bgcolor: 'rgba(255,255,255,.09)',
+                                  },
+                              }
+                    }
                 >
                     {labels[resume.id]}
                 </Button>
@@ -81,11 +94,18 @@ const ResumeCard = () => {
                 {fractional.map((resume) => (
                     <Button
                         key={resume.id}
-                        variant="outlined"
+                        variant="text"
                         href={resume.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        sx={{ flex: 1, fontSize: '13px' }}
+                        sx={{
+                            flex: 1,
+                            fontSize: '13px',
+                            p: '10px 12px',
+                            color: '#C6CCD8',
+                            bgcolor: 'rgba(255,255,255,.05)',
+                            '&:hover': { bgcolor: 'rgba(255,255,255,.09)' },
+                        }}
                     >
                         {labels[resume.id]}
                     </Button>

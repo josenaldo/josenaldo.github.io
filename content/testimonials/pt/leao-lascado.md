@@ -1,5 +1,6 @@
 ---
 translated: false
+order: 3
 show: true
 name: Leão Lascado
 image: /images/testimonials/leao-lascado.jpg

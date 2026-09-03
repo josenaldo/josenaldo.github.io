@@ -12,11 +12,11 @@ Mock: `Páginas internas.dc.html` § `4a`. Site: `http://localhost:3500/en/hirin
 - [x] **HI-06** — pílulas de stack, quantidade. **Mock:** 10 (`Java`, `Spring`, `TypeScript`, `Node.js`, `React`, `Next.js`, `Kafka`, `PostgreSQL`, `CI/CD`, `DDD`). **Site:** 4 (`Java/Spring`, `TypeScript`, `Node.js`, `React`). · `src/app/[locale]/hiring/page.js`
 - [x] **HI-07** — pílulas de stack, padding. **Mock:** `7px 13px`. **Site:** `7px 14px`. · `src/components/Pill.js`
 - [x] **HI-08** — pílula de estado neutra, cor. **Mock:** `#98A0B0`. **Site:** `#C6CCD8`. Mesmo `WM-02`. · `src/components/Pill.js`
-- [ ] **HI-09** — botão PT do currículo, estilo. **Mock:** botão neutro — texto `#C6CCD8` sobre `rgba(255,255,255,.05)`, **sem borda**. **Site:** botão *outlined* — texto `#B69BF0` com `border: 1px solid rgba(182,155,240,.4)` e fundo transparente. · `src/features/hiring/ResumeCard.js`
+- [x] **HI-09** — botão PT do currículo, estilo. **Mock:** botão neutro — texto `#C6CCD8` sobre `rgba(255,255,255,.05)`, **sem borda**. **Site:** botão *outlined* — texto `#B69BF0` com `border: 1px solid rgba(182,155,240,.4)` e fundo transparente. · `src/features/hiring/ResumeCard.js`
 - [x] **HI-10** — botões fracionários, rótulo. **Mock:** `Fractional (EN)` / `Fractional (PT)`. **Site:** `Fractional Engineer résumé (EN)` / `… (PT)` — o rótulo longo quebra em três linhas e infla o card de 117px de altura. · `src/messages/en.json`
-- [ ] **HI-11** — botões fracionários, tamanho e caixa. **Mock:** `13px`, `padding: 10px 12px`. **Site:** `13px`, `padding: 12px 22px`. · `src/features/hiring/ResumeCard.js`
-- [ ] **HI-12** — botões fracionários, estilo. **Mock:** neutros (`rgba(255,255,255,.05)`, sem borda). **Site:** *outlined* roxo com borda. · `src/features/hiring/ResumeCard.js`
-- [ ] **HI-13** — botão EN do currículo, tamanho. **Mock:** `14px`, `padding: 12px 16px`. **Site:** `16px`, `padding: 12px 22px`. · `src/features/hiring/ResumeCard.js`
+- [x] **HI-11** — botões fracionários, tamanho e caixa. **Mock:** `13px`, `padding: 10px 12px`. **Site:** `13px`, `padding: 12px 22px`. · `src/features/hiring/ResumeCard.js`
+- [x] **HI-12** — botões fracionários, estilo. **Mock:** neutros (`rgba(255,255,255,.05)`, sem borda). **Site:** *outlined* roxo com borda. · `src/features/hiring/ResumeCard.js`
+- [x] **HI-13** — botão EN do currículo, tamanho. **Mock:** `14px`, `padding: 12px 16px`. **Site:** `16px`, `padding: 12px 22px`. · `src/features/hiring/ResumeCard.js`
 - [ ] **HI-14** — card de currículo, superfície, raio, padding, régua e parágrafo. Batem (`#14181F`, r18, `24px`, régua `rgba(255,255,255,.07)`, 13px/1.6 `#98A0B0`). `MANTER`
 
 ## Bloco 2 — `01 The numbers`

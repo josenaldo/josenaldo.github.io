@@ -1,6 +1,6 @@
 'use client'
 
-import { Box, Divider, Typography } from '@mui/material'
+import { Box, Divider } from '@mui/material'
 import { MDXProvider } from '@mdx-js/react'
 import { useTranslations } from 'next-intl'
 import PropTypes from 'prop-types'
@@ -14,7 +14,7 @@ import remarkGfm from 'remark-gfm'
 import remarkParse from 'remark-parse'
 
 import Blockquote from '@/components/ui/Blockquote'
-import Code from '@/components/ui/Code'
+import CodeBlock from '@/components/ui/CodeBlock'
 import Link from '@/components/ui/Link'
 import {
     MarkdownListItem,
@@ -22,6 +22,7 @@ import {
     MarkdownUnorderedList,
 } from '@/components/ui/MarkdownList'
 import ResponsiveImage from '@/components/ui/ResponsiveImage'
+import remarkCodeMeta from '@/lib/remark-code-meta.mjs'
 
 import styles from './MDXContent.module.css'
 
@@ -31,6 +32,8 @@ const MDXContent = ({ content }) => {
     const remarkPlugins = [
         remarkParse,
         remarkGfm,
+        // Antes do rehype: é aqui que o meta da cerca ainda existe.
+        remarkCodeMeta,
         [
             externalLinks,
             {
@@ -45,15 +48,12 @@ const MDXContent = ({ content }) => {
     const components = {
         img: ResponsiveImage,
         a: Link,
-        pre: Code,
-        code: (props) => (
-            <Typography
-                component="code"
-                fontFamily="monospace"
-                color="secondary"
-                {...props}
-            />
-        ),
+        pre: CodeBlock,
+        // Sem override de `code`: o que existia aqui aplicava
+        // `color="secondary"` (âmbar) a TODO código — inline e em bloco —
+        // e sobrescrevia as cores de token do Prism. O inline passa a ser
+        // estilizado por prism-theme.css.
+
         hr: (props) => <Divider sx={{ my: 2 }} {...props} />,
         blockquote: Blockquote,
         ol: MarkdownOrderedList,
