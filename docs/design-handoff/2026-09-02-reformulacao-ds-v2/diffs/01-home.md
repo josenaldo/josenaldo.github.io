@@ -85,7 +85,7 @@ Esta seção concentra a maior parte das diferenças da home, e quase todas são
 
 - [x] **BL-01** — seta do link "All posts". **Mock:** `All posts →`. **Site:** `All posts` sem a seta. · `src/features/home/Blog.js`
 - [x] **BL-02** — formato da data. **Mock:** `16 Mar 2026` (dia-mês-ano, sem vírgula). **Site:** `Mar 16, 2026`. Vale para a home, `/blog` e o cabeçalho do post. · `src/shared/utils/` (formatador de data)
-- [ ] **BL-03** — peso da categoria. **Mock:** sem peso declarado (`400`). **Site:** `600`. · `src/features/home/Blog.js`
+- [ ] **BL-03** — `MANTER` (decidido em 2026-09-03). ~~peso da categoria~~. **Mock:** sem peso declarado (`400`). **Site:** `600`. · `src/features/home/Blog.js`
 - [x] **BL-04** — nome da publicação. **Mock:** `Workaround-Oriented Programming`. **Site:** `Workaround-Oriented Programming (livropog.com.br)` — o domínio entre parênteses faz o nome quebrar em duas linhas e desalinha os três blocos da coluna. · `src/messages/en.json`
 - [ ] **BL-05** — grid (`1fr 380px` gap 56), linhas de post (`96px 1fr 120px`, r14, `#14181F`), cartão lateral (`#12161C` r18 padding 26) e tipografia. Batem. `MANTER`
 

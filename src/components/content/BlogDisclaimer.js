@@ -17,6 +17,9 @@ const richTextComponents = {
             sx={{
                 display: 'block',
                 mb: '6px',
+                // Display, como todo título de bloco do site — herdava a fonte
+                // de texto por ser um `<strong>` dentro do parágrafo.
+                fontFamily: "'Space Grotesk', system-ui, sans-serif",
                 fontSize: '15px',
                 fontWeight: 600,
                 color: '#E9ECF2',

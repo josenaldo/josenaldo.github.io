@@ -5,12 +5,13 @@
 // `firstContact` que `getAllSkillsByCategory` já produzia continua sendo o
 // único sinal de força dentro do grupo.
 
-import { Box, Typography } from '@mui/material'
+import { Box } from '@mui/material'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 
 import PageHeader from '@/components/PageHeader'
 import Pill from '@/components/Pill'
 import Section from '@/components/Section'
+import SectionHeader from '@/components/SectionHeader'
 import { routing } from '@/i18n/routing'
 import contentService from '@/services/content'
 
@@ -59,7 +60,12 @@ export default async function SkillsPage({ params }) {
                     gap: '16px',
                 }}
             >
-                {groups.map(({ group, skills }) => (
+                {/* Cada grupo é uma SEÇÃO, não um card: o título usava 21px,
+                o mesmo degrau do título de um card de projeto, e lia como se
+                fosse um. `SectionHeader size="md"` é o degrau de seção das
+                páginas internas (32px), com o numeral que o resto do site já
+                usa para marcar ordem. */}
+                {groups.map(({ group, skills }, index) => (
                     <Box
                         key={group}
                         sx={{
@@ -71,18 +77,11 @@ export default async function SkillsPage({ params }) {
                             gap: '16px',
                         }}
                     >
-                        <Typography
-                            component="h2"
-                            sx={{
-                                m: 0,
-                                fontFamily: "'Space Grotesk', system-ui, sans-serif",
-                                fontSize: '21px',
-                                fontWeight: 600,
-                                color: '#FFFFFF',
-                            }}
-                        >
-                            {group}
-                        </Typography>
+                        <SectionHeader
+                            n={String(index + 1).padStart(2, '0')}
+                            title={group}
+                            size="md"
+                        />
                         <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
                             {skills.map((name) => (
                                 <Pill key={name} tone="neutral">

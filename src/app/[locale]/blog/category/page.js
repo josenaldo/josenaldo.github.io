@@ -4,6 +4,7 @@ import { getTranslations, setRequestLocale } from 'next-intl/server'
 import PageHeader from '@/components/PageHeader'
 import Section from '@/components/Section'
 import { routing } from '@/i18n/routing'
+import { categoryLabel } from '@/lib/categoryLabel'
 import contentService from '@/services/content'
 
 import CategoryGrid from './CategoryGrid'
@@ -33,9 +34,12 @@ export default async function CategoriesPage({ params }) {
     const { locale } = await params
     setRequestLocale(locale)
     const t = await getTranslations({ locale, namespace: 'Blog.category' })
+    const tBlog = await getTranslations({ locale, namespace: 'Blog' })
 
     const categories = contentService.getAllCategories(locale).map((cat) => ({
-        name: cat.name,
+        // Mesmo rótulo dos filtros, das linhas de post e da trilha: esta era a
+        // última tela que ainda mostrava o slug cru (`job-market`).
+        name: categoryLabel(tBlog, cat.name),
         slug: cat.slug,
         count: cat.count,
     }))

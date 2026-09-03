@@ -20,7 +20,7 @@ Vale para **todas** as páginas. Fonte no mock: `Chrome.dc.html` (recriado dentr
 ## Footer / SiteFooter
 
 - [x] **G-13** — fundo do rodapé. **Mock:** `#0B0E13` (mesmo fundo da página, sem faixa). **Site:** `#0E1218` — o rodapé vira uma faixa mais clara. · `src/layouts/Footer.js`
-- [ ] **G-14** — padding superior. **Mock:** `32px 40px 44px` no `SiteFooter.dc.html`; `24px 40px 44px` na versão desenhada dentro de `Home.dc.html`. **Site:** `24px 40px 44px`. Os dois mocks divergem entre si — decidir qual vale. · `src/layouts/Footer.js`
+- [ ] **G-14** — `MANTER` (decidido em 2026-09-03): os dois mocks discordam entre si (32px no `SiteFooter.dc.html`, 24px na versão dentro de `Home.dc.html`), então não há divergência a resolver. ~~padding superior~~. **Mock:** `32px 40px 44px` no `SiteFooter.dc.html`; `24px 40px 44px` na versão desenhada dentro de `Home.dc.html`. **Site:** `24px 40px 44px`. Os dois mocks divergem entre si — decidir qual vale. · `src/layouts/Footer.js`
 - [x] **G-15** — espaço entre o nome e a linha de copyright. **Mock:** `gap: 8px`. **Site:** `0` (as duas linhas ficam coladas). · `src/layouts/Footer.js`
 - [x] **G-16** — texto do copyright. **Mock:** `© 2023–2026 · All rights reserved`. **Site:** `© 2023–2026 Josenaldo de Oliveira Matos Filho - All rights reserved.` (nome completo repetido logo abaixo do nome, hífen simples no lugar do `·`, ponto final). · `src/layouts/Footer.js`
 - [x] **G-17** — cor do nome no rodapé. **Mock:** `#E9ECF2`. **Site:** `#FFFFFF`. · `src/layouts/Footer.js`
