@@ -49,7 +49,7 @@ Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>
 Claude-Session: https://claude.ai/code/session_01EydA6qUQ8DHjQvVnGpBAy2
 ```
 
-**Verificação obrigatória em toda tarefa que toca conteúdo ou mensagens.** Além da leitura em voz alta do texto reescrito, que é o teste próprio desta empreitada e tem passo dedicado em cada lote, `npm run build` precisa passar (roda `check-metrics`, `contentlayer2 build`, `generate-rss` e `next build`) e `npm run format:check` precisa passar. Durante a iteração, `npx contentlayer2 build` sozinho é o caminho rápido para validar frontmatter.
+**Verificação obrigatória em toda tarefa que toca conteúdo ou mensagens.** Além da leitura em voz alta do texto reescrito, que é o teste próprio desta empreitada e tem passo dedicado em cada lote, `npm run build` precisa passar (roda `check-metrics`, `contentlayer2 build`, `generate-rss` e `next build`), e o Prettier precisa aprovar **os arquivos que a tarefa tocou**, via `npx prettier --check <arquivos>`. Não usar o script `format:check` do repo: ele varre tudo e já falha no baseline em 244 arquivos de `src/`, por estilo pré-existente e alheio a este trabalho — normalizar esses arquivos não é escopo daqui. Durante a iteração, `npx contentlayer2 build` sozinho é o caminho rápido para validar frontmatter.
 
 ---
 
@@ -131,7 +131,7 @@ O arquivo inteiro obedece a regra de markdown das Global Constraints: um parágr
 - [ ] **Step 3: Verificar formatação**
 
 ```bash
-cd /home/josenaldo/repos/personal/josenaldo.github.io && npm run format:check
+cd /home/josenaldo/repos/personal/josenaldo.github.io && npx prettier --check docs/i18n/pt-style-guide.md
 ```
 
 Esperado: PASS. Se o Prettier reclamar do arquivo novo, roda `npx prettier --write docs/i18n/pt-style-guide.md` e confere que ele não quebrou nenhum parágrafo em várias linhas (`proseWrap` do Prettier é `preserve` por padrão, então não deve quebrar; se quebrou, há um override de `proseWrap` a investigar).
@@ -215,7 +215,8 @@ Percorrer o diff contra o checklist `## Invariantes` do guia. Rejeitar o própri
 - [ ] **Step 5: Verificar build e formatação**
 
 ```bash
-cd /home/josenaldo/repos/personal/josenaldo.github.io && npm run build && npm run format:check
+cd /home/josenaldo/repos/personal/josenaldo.github.io && npm run build
+npx prettier --check content/pages/pt/hiring.md content/pages/pt/hiring-terms.md docs/i18n/pt-style-guide.md
 ```
 
 Esperado: ambos PASS. `contentlayer2 build` falha se o frontmatter quebrou.
@@ -461,7 +462,8 @@ Acrescenta duas entradas ao bloco `scripts` e prende a checagem no `lint`, que �
 - [ ] **Step 7: Verificar o encaixe**
 
 ```bash
-cd /home/josenaldo/repos/personal/josenaldo.github.io && npm run check:messages && npm run messages:test && npm run lint && npm run format:check
+cd /home/josenaldo/repos/personal/josenaldo.github.io && npm run check:messages && npm run messages:test && npm run lint
+npx prettier --check scripts/check-messages.mjs scripts/test-check-messages.mjs package.json
 ```
 
 Esperado: todos PASS.
@@ -564,7 +566,8 @@ Cada string que cresceu precisa ser conferida visualmente na tela onde aparece, 
 - [ ] **Step 5: Verificar build e formatação**
 
 ```bash
-cd /home/josenaldo/repos/personal/josenaldo.github.io && npm run build && npm run lint && npm run format:check
+cd /home/josenaldo/repos/personal/josenaldo.github.io && npm run build && npm run lint
+npx prettier --check src/messages/pt.json docs/i18n/pt-style-guide.md
 ```
 
 Esperado: todos PASS.
@@ -632,7 +635,8 @@ Depoimento tem uma restrição a mais: é fala atribuída a outra pessoa. A rees
 ```bash
 cd /home/josenaldo/repos/personal/josenaldo.github.io
 git diff -U0 content/testimonials/pt content/workModes/pt content/engagements/pt
-npm run build && npm run format:check
+npm run build
+npx prettier --check content/testimonials/pt content/workModes/pt content/engagements/pt docs/i18n/pt-style-guide.md
 ```
 
 Percorrer o diff contra o checklist `## Invariantes` do guia. Esperado: build e format PASS.
@@ -698,7 +702,8 @@ Regime livre e registro autoral: aqui o PT pode reordenar, trocar metáfora, cor
 ```bash
 cd /home/josenaldo/repos/personal/josenaldo.github.io
 git diff -U0 content/blog/pt
-npm run build && npm run format:check
+npm run build
+npx prettier --check content/blog/pt
 ```
 
 Esperado: PASS, e o diff tocando só os dois arquivos do Step 3.
@@ -779,7 +784,7 @@ Fecha com uma recomendação de escopo para o próximo plano: quais superfícies
 - [ ] **Step 5: Verificar formatação**
 
 ```bash
-cd /home/josenaldo/repos/personal/josenaldo.github.io && npm run format:check
+cd /home/josenaldo/repos/personal/josenaldo.github.io && npx prettier --check docs/i18n/diagnostico-vault.md
 ```
 
 Esperado: PASS.
