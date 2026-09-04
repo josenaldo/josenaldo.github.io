@@ -47,3 +47,6 @@ next-env.d.ts
 
 # Configuracao local do Claude Code, especifica de maquina
 .claude/settings.local.json
+
+# Area de trabalho do subagent-driven-development (ledger, briefs, pacotes de review)
+.superpowers/
