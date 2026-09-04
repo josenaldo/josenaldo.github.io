@@ -36,6 +36,7 @@ Tabela de três colunas. `Tratamento` só aceita três valores: `manter em ingl�
 | retainer                    | manter em inglês | —                          |
 | async-first                 | manter em inglês | —                          |
 | IC (individual contributor) | manter em inglês | —                          |
+| engagement(s)               | traduzir         | engajamento(s)             |
 
 As entradas de `AI-native` até `IC` vieram da peneira do vocabulário em inglês do Step 1 (`node -e` sobre `content/pages/pt`, `content/testimonials/pt`, `content/workModes/pt`, `content/engagements/pt` e `src/messages/pt.json`): todas são jargão técnico ou de recrutamento que o texto PT já usa em inglês sem estranhamento, então a decisão foi ratificar o uso existente, não introduzi-lo. Nenhum decalque novo de tradução forjada apareceu na peneira além do já mandatado ("sob propriedade"); a mesma construção aparece de novo em `Metrics.codebasesOwned.ownedCaption` ("repositórios sob minha propriedade"), fora do escopo de correção desta tarefa mas sinalizada aqui para o lote que tocar esse arquivo.
 

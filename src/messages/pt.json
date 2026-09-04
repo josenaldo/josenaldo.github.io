@@ -120,7 +120,7 @@
         },
         "engagements": {
             "title": "Como ficou em produção",
-            "emptyState": "Os engagements estão sendo escritos. Agende uma conversa e eu explico pessoalmente.",
+            "emptyState": "Os engajamentos estão sendo escritos. Agende uma conversa e eu explico pessoalmente.",
             "arrived": "Cheguei",
             "built": "Construí",
             "result": "Resultado",
