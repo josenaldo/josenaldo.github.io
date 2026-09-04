@@ -1,7 +1,7 @@
 ---
 translationKey: ai-house-in-order
-title: "A IA não organizou minha vida. Ela me ajudou a arrumar a casa"
-description: "Não criei um workflow cyberpunk que lê meus e-mails por mim. Usei IA para destravar trabalho real: refatoração, testes, documentação e projetos que eu vinha adiando havia tempo demais."
+title: 'A IA não organizou minha vida. Ela me ajudou a arrumar a casa'
+description: 'Não criei um workflow cyberpunk que lê meus e-mails por mim. Usei IA para destravar trabalho real: refatoração, testes, documentação e projetos que eu vinha adiando havia tempo demais.'
 date: 2026-03-16 09:00:00 -0300
 author: Josenaldo Matos
 image: /images/blog/ia-nao-organizou-minha-vida-ela-me-ajudou-a-arrumar-a-casa.png
@@ -9,13 +9,13 @@ category: opinião
 status: published
 ---
 
-Eu concordo plenamente com [um post recente do Raphael Oliveira](https://www.linkedin.com/posts/rafaelcgo_geral-postando-criei-um-workflow-de-activity-7439377697845444608-S5Tj).
+Concordo plenamente com [um post recente do Raphael Oliveira](https://www.linkedin.com/posts/rafaelcgo_geral-postando-criei-um-workflow-de-activity-7439377697845444608-S5Tj).
 
 A provocação dele é boa porque acerta um alvo real: tem muita gente transformando setup em troféu. Workflow virou deliverable. Automação virou performance. O sujeito monta uma esteira futurista que lê e-mail, cruza agenda, classifica prioridades, acende LED, toca saxofone e faz café, mas continua sem fazer o que precisava fazer.
 
-Eu ri quando li aquilo porque doeu. Não pelo lado do "montei um workflow de agentes que opera Wall Street dentro do Notion", mas por outro motivo: eu sou exatamente do tipo que acumula projeto pela metade.
+Ri quando li aquilo porque doeu. Não pelo lado do "montei um workflow de agentes que opera Wall Street dentro do Notion", mas por outro motivo: sou exatamente do tipo que acumula projeto pela metade.
 
-Eu sempre tive essa doença do "quando eu tiver tempo eu termino".
+Sempre tive essa doença do "quando eu tiver tempo, eu termino".
 
 Só que a verdade é simples e humilhante: **a gente nunca tem tempo.**
 
@@ -27,7 +27,7 @@ E é aqui que a IA entrou, pelo menos pra mim. Não como brinquedo de produtivid
 
 Ela entrou como alavanca.
 
-Eu ainda não tenho o setup definitivo. Ainda estou aprendendo. Ainda tem improviso, atrito, retrabalho e muita coisa tosca no processo. Mas agora existe uma diferença objetiva entre "um dia eu faço" e "isso saiu do papel".
+Ainda não tenho o setup definitivo. Ainda estou aprendendo. Ainda tem improviso, atrito, retrabalho e muita coisa tosca no processo. Mas agora existe uma diferença objetiva entre "um dia eu faço" e "isso saiu do papel".
 
 Nos últimos três meses, saiu bastante coisa do papel.
 
@@ -75,11 +75,11 @@ Finalmente temos um Tomo que nos guiará a um futuro brilhante, onde a Gambiarra
 
 ### <https://pogometro.com.br>
 
-Se o livro sobre a POG já era interessante, agora temos uma aplicação para certificar a POG existente em seu projeto! O
+Se o livro sobre a POG já era interessante, agora tem um app pra certificar a POG do seu projeto: o Pogômetro.
 
-Pogômetro é um sistema de gamificação para medir o nível de POG de um projeto, baseado em princípios, técnicas e design patterns de gambi. Ele é uma aplicação web simples, onde você pode colocar o endereço do seu projeto no GitHub, e ele vai analisar o código, extrair métricas relevantes, comparar com um banco de dados de projetos e padrões de POG, e te dar um diagnóstico do nível de POG do seu projeto.
+O Pogômetro é um sistema de gamificação que mede o nível de POG de um projeto, baseado em princípios, técnicas e design patterns de gambi. É um app web simples: você cola o endereço do seu repositório no GitHub, ele analisa o código, extrai métricas relevantes, compara com um banco de dados de projetos e padrões de POG, e devolve um diagnóstico do nível de POG do seu projeto.
 
-Ele tamnbém tem um mural de projetos, um ranking de POG, níveis de POG, pontuação e validação baseada em princípios, técnicas e gambi design patterns. Ainda quero evoluir bastante, mas já não é mais só uma ideia engraçada anotada em algum lugar.
+Também tem mural de projetos, ranking de POG, níveis, pontuação e validação baseada em princípios, técnicas e gambi design patterns. Ainda quero evoluir bastante, mas já não é mais só uma ideia engraçada anotada em algum lugar.
 
 ### O site da minha esposa ou um framework misterioso?
 
@@ -91,7 +91,7 @@ Migramos o código para TypeScript.
 
 O site agora tem i18n.
 
-Separamos conteúdo, configurações, coleções, strings, tema e imagens numa estrutura única, para facilitar a instância para outros usuários.
+Separamos conteúdo, configurações, coleções, strings, tema e imagens numa estrutura única, pra ficar fácil replicar isso pra outros usuários.
 
 E agora estou integrando isso com o Sveltia CMS, para que exista um painel administrativo mesmo em cima de um site estático.
 
@@ -103,11 +103,11 @@ Isso já é bem mais interessante do que deixar mais um repositório mofando em 
 
 ## O ponto não é o workflow. É o que ele destrava
 
-Então sim: eu concordo com o Raphael.
+Então sim, concordo com o Raphael.
 
 Se a IA estiver servindo só para você montar um teatrinho de produtividade, ela virou hobby caro.
 
-Mas eu também acho que existe um outro lado dessa conversa.
+Mas acho que também tem um outro lado nessa conversa.
 
 Para quem, como eu, acumulava coisa inacabada e sempre se escondia atrás do "quando eu tiver tempo", a IA pode ser justamente a ferramenta que reduz atrito o bastante para você finalmente fazer as coisas.
 
@@ -123,7 +123,7 @@ E porra, mano, isso é do caralho!
 
 ## Não construí a Skynet. Arrumei a casa
 
-Eu não criei um SaaS revolucionário. Não inventei uma nova IA para elevar a humanidade a outro patamar. Não montei um centro de comando que controla minha agenda enquanto eu tomo café olhando para um dashboard neon.
+Não criei um SaaS revolucionário. Não inventei uma nova IA para elevar a humanidade a outro patamar. Não montei um centro de comando que controla minha agenda enquanto tomo café olhando pra um dashboard neon.
 
 O que eu fiz foi trabalho mundano.
 
