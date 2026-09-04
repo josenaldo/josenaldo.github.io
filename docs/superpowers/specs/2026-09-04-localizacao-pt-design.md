@@ -21,17 +21,17 @@ O objetivo é **localização**, não revisão de tradução: o texto PT deve le
 
 Dois eixos independentes governam cada superfície. **Paridade** define se o PT pode divergir estruturalmente do EN. **Registro** define a voz. Um texto pode ser reescrito com total liberdade e ainda assim ser sério — é o caso de `projects`.
 
-| Superfície | Origem | Paridade com EN | Registro |
-|---|---|---|---|
-| `content/pages/pt` (about, hiring, hiring-terms) | repo | espelho | site — sério |
-| `src/messages/pt.json` | repo | espelho + trava de chaves/placeholders | site — sério |
-| `content/testimonials/pt` | repo | espelho | site — sério |
-| `content/workModes/pt` | repo | espelho | site — sério |
-| `content/engagements/pt` | repo | espelho | site — sério |
-| `content/projects/pt` | vault | livre | site — sério |
-| `content/courses/pt` | vault | livre | didático (sério, 2ª pessoa) |
-| `content/experiences/pt` | vault | espelho | site — sério |
-| `content/blog/pt` | repo | livre | autoral |
+| Superfície                                       | Origem | Paridade com EN                        | Registro                    |
+| ------------------------------------------------ | ------ | -------------------------------------- | --------------------------- |
+| `content/pages/pt` (about, hiring, hiring-terms) | repo   | espelho                                | site — sério                |
+| `src/messages/pt.json`                           | repo   | espelho + trava de chaves/placeholders | site — sério                |
+| `content/testimonials/pt`                        | repo   | espelho                                | site — sério                |
+| `content/workModes/pt`                           | repo   | espelho                                | site — sério                |
+| `content/engagements/pt`                         | repo   | espelho                                | site — sério                |
+| `content/projects/pt`                            | vault  | livre                                  | site — sério                |
+| `content/courses/pt`                             | vault  | livre                                  | didático (sério, 2ª pessoa) |
+| `content/experiences/pt`                         | vault  | espelho                                | site — sério                |
+| `content/blog/pt`                                | repo   | livre                                  | autoral                     |
 
 **Espelho** significa manter a mesma estrutura de parágrafos e as mesmas afirmações do EN, corrigindo decalque, anglicismo forjado e sintaxe travada. **Livre** significa reescrever como original em português: reordenar, trocar metáfora, cortar ou acrescentar. Onde o PT livre ficar melhor que o EN, o EN é ajustado depois, como tarefa própria — não dentro deste trabalho.
 
