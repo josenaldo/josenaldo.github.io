@@ -446,7 +446,7 @@ Idioma padrão do site. Cada número desta página existe em `src/data/metrics.m
 
 **Headline:** I build the machine that ships your software.
 
-**Subhead:** Fractional software engineer and architect. I take over platforms that have eroded past the point where anyone can safely change them, and turn them into a delivery operation that runs on one meeting a month.
+**Subhead:** Fractional software engineer and architect. I take over platforms that have eroded to the point where no one can safely change them, and turn them into a delivery operation that runs on one meeting a month.
 
 **Números (ids de `metrics.mjs`):** `deploymentFrequency` — from a release once a quarter to one every eight days · `clientReportedIssues` — client-reported production issues down from ~100 to ~5 a month · `deployDuration` — deploys in 15 minutes instead of 2 hours
 
