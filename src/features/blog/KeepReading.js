@@ -46,9 +46,9 @@ const KeepReading = ({ posts }) => {
             >
                 {posts.map((post) => (
                     <Box
-                        key={post.url}
+                        key={post.path}
                         component={Link}
-                        href={post.url}
+                        href={post.path}
                         sx={{
                             display: 'flex',
                             gap: '16px',
@@ -119,7 +119,7 @@ const KeepReading = ({ posts }) => {
 KeepReading.propTypes = {
     posts: PropTypes.arrayOf(
         PropTypes.shape({
-            url: PropTypes.string.isRequired,
+            path: PropTypes.string.isRequired,
             title: PropTypes.string.isRequired,
             date: PropTypes.string,
             category: PropTypes.string,

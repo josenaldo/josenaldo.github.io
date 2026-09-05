@@ -42,7 +42,7 @@ export default async function BlogPage({ params }) {
     const posts = contentService.getSortedPosts(locale).map((post) => ({
         title: post.title,
         description: post.description,
-        url: post.url,
+        url: post.path,
         image: post.image,
         date: post.date,
         category: post.category,

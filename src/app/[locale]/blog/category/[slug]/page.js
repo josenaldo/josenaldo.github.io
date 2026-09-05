@@ -71,7 +71,7 @@ export default async function CategoryPage({ params }) {
         .map((post) => ({
             title: post.title,
             description: post.description,
-            url: post.url,
+            url: post.path,
             image: post.image,
             date: post.date,
             category: post.category,

@@ -43,6 +43,19 @@ function localeComputedFields() {
                     : `/${locale}/${collection}/${slug}`
             },
         },
+        // Igual a `url`, sem o segmento de locale. Usado como `href` do
+        // `Link` de `@/i18n/navigation`: esse `Link` já prefixa o locale
+        // atual sozinho, então passar `url` (que já vem com o locale) gerava
+        // `/pt/pt/blog/<slug>` e derrubava todo link interno para posts.
+        path: {
+            type: 'string',
+            resolve: (doc) => {
+                const parts = doc._raw.flattenedPath.split('/')
+                const [collection, , ...rest] = parts
+                const slug = rest.join('/')
+                return collection === 'pages' ? `/${slug}` : `/${collection}/${slug}`
+            },
+        },
     }
 }
 

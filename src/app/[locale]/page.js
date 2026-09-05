@@ -58,7 +58,7 @@ export default async function HomePage({ params }) {
     const posts = contentService.getSortedPosts(locale).map((post) => ({
         title: post.title,
         date: post.date,
-        url: post.url,
+        url: post.path,
         category: post.category,
     }))
 
