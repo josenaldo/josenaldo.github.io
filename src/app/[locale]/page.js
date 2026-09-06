@@ -13,7 +13,7 @@ import WorkModesSection from '@/features/home/WorkModes'
 import { routing } from '@/i18n/routing'
 import contentService from '@/services/content'
 
-const { APP_TITLE, APP_DESCRIPTION } = seoConfigModule
+const { APP_TITLE, APP_DESCRIPTION, APP_IMAGE_OBJECT } = seoConfigModule
 
 export function generateStaticParams() {
     return routing.locales.map((locale) => ({ locale }))
@@ -36,6 +36,9 @@ export async function generateMetadata({ params }) {
             title: APP_TITLE,
             description: APP_DESCRIPTION,
             url: `/${locale}`,
+            // `openGraph` de página substitui o do layout inteiro, não faz merge
+            // — sem esta linha a home saía sem `og:image`.
+            images: [APP_IMAGE_OBJECT],
         },
     }
 }

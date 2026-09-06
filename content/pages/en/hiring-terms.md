@@ -1,7 +1,7 @@
 ---
 title: How the engagement works
 description: 'The operating model behind the hiring page: async delivery, repository as source of truth.'
-image: '/images/default.jpg'
+image: '/images/og-default.png'
 ---
 
 ## How this works

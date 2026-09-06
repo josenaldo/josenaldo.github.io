@@ -1,7 +1,7 @@
 ---
 title: Engenheiro de Software Sênior — ownership ponta a ponta e entrega AI-native
 description: 'Java/Spring · TypeScript · Node.js · React. Duas décadas de arquitetura sustentam isso. Procuro uma área de produto para assumir de ponta a ponta como IC de alto impacto.'
-image: '/images/default.jpg'
+image: '/images/og-default.png'
 ---
 
 Engenheiro de Software Sênior | ownership ponta a ponta e entrega AI-native. Java/Spring · TypeScript · Node.js · React | Contratação remota (LATAM, GMT-3). Localização: Uberlândia, Minas Gerais, Brasil | Fuso: GMT-3 (Horário de São Paulo).

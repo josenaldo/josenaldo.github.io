@@ -56,11 +56,11 @@ export async function generateMetadata({ params }) {
             locale: ogLocale,
             images: [
                 {
-                    url: '/images/default.jpg',
+                    url: '/images/og-default.png',
                     width: 1200,
                     height: 630,
                     alt: APP_TITLE,
-                    type: 'image/jpeg',
+                    type: 'image/png',
                 },
             ],
         },

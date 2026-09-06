@@ -3,7 +3,7 @@ const APP_TITLE = 'Josenaldo Matos'
 const APP_DESCRIPTION = 'Software Developer & Kidney Waster'
 const APP_URL =
     process.env.NEXT_PUBLIC_SITE_URL || 'https://josenaldo.github.io'
-const APP_IMAGE = `${APP_URL}/images/default.jpg`
+const APP_IMAGE = `${APP_URL}/images/og-default.png`
 const APP_IMAGE_OBJECT = {
     url: APP_IMAGE,
     width: 1200,
@@ -24,11 +24,11 @@ const SeoConfig = {
         site_name: APP_TITLE,
         images: [
             {
-                url: `${APP_URL}/images/default.jpg`,
+                url: `${APP_URL}/images/og-default.png`,
                 width: 1200,
                 height: 630,
                 alt: APP_TITLE,
-                type: 'image/jpeg',
+                type: 'image/png',
             },
         ],
     },

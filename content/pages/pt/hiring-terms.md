@@ -1,7 +1,7 @@
 ---
 title: Como funciona a contratação
 description: 'O modelo de operação por trás da página de contratação: entrega assíncrona, repositório como fonte única.'
-image: '/images/default.jpg'
+image: '/images/og-default.png'
 ---
 
 ## Como isso funciona

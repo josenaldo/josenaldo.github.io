@@ -2,7 +2,7 @@
 translated: false
 title: Carta a um amigo desconhecido
 description: "Dive into Josenaldo's story: a resilient software developer facing life's trials, who shares his journey of passion and determination in a heartfelt letter."
-image: '/images/default.jpg'
+image: '/images/og-default.png'
 ---
 
 Dear Friend,
