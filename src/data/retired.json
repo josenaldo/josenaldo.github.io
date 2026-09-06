@@ -1,5 +1,5 @@
 {
-    "updated": "2026-08-30",
+    "updated": "2026-09-06",
     "entradas": [
         {
             "motivo": "Versão antiga; a atual é `~2h → ~15min`.",
@@ -84,6 +84,20 @@
             "motivo": "Nunca existiu — elaboração que entrou na geração do [[Q032 - How do you reframe the 2016-2020 health gap as operational advantage - EN|Q032]] e passou a circular como dado. Corrigido em 2026-08-07.",
             "variantes": [
                 "600% no cycle time"
+            ]
+        },
+        {
+            "motivo": "Nunca foram medidos nem afirmados — elaboração da narrativa gerada para a Digidados (`status: seedling`), que passou a circular como dado e chegou ao site e ao LinkedIn. Retirado em 2026-09-06.",
+            "variantes": [
+                "2 dias para 3 minutos",
+                "2 days to 3 minutes",
+                "two days of work to three minutes",
+                "from 2 days to 3 minutes",
+                "faturamento de 2 dias para 3 minutos",
+                "5 dias para 1 dia útil",
+                "5 days to 1 business day",
+                "five days to one business day",
+                "from 5 days to 1 business day"
             ]
         }
     ]

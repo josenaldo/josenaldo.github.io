@@ -5,8 +5,7 @@ company: Digidados
 location: Uberlândia, Brasil
 period: February 2015 - November 2016
 show: true
-description: Led architecture and automation of condo system, reducing incidents
-  and accelerating billing.
+description: Architect and technical lead of a condominium management system.
 translationKey: digidados
 translated: true
 ---
@@ -26,8 +25,6 @@ Architect and lead the development of a condominium management system to serve p
 
 #### Result
 
-- Reduced incident response time from 5 days to 1 business day through automated workflows.
-- Automated billing generation, reducing processing time from 2 days to 3 minutes.
 - Delivered scalable and efficient architecture enabling management of large condominium portfolios (400+ units).
 - Built a capable development team through effective mentorship and knowledge transfer.
 - Enabled property management companies to handle significantly larger client bases with improved service quality.

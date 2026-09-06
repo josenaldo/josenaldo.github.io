@@ -35,18 +35,6 @@ const metrics = {
         before: null,
         after: { display: '200k', confidence: 'remembered' },
     },
-    digidadosBilling: {
-        id: 'digidadosBilling',
-        engagement: 'digidados',
-        before: { display: '2d', confidence: 'remembered' },
-        after: { display: '3min', confidence: 'remembered' },
-    },
-    digidadosIncidentResponse: {
-        id: 'digidadosIncidentResponse',
-        engagement: 'digidados',
-        before: { count: 5, confidence: 'remembered' },
-        after: { count: 1, confidence: 'remembered' },
-    },
     deploymentFrequency: {
         id: 'deploymentFrequency',
         engagement: 'medespecialista',
