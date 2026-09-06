@@ -1,6 +1,9 @@
 const APP_NAME = 'josenaldo.github.io'
 const APP_TITLE = 'Josenaldo Matos'
-const APP_DESCRIPTION = 'Software Developer & Kidney Waster'
+// Fallback não localizado. Onde há locale na rota, a descrição vem do
+// subhead do hero em `messages/{en,pt}.json` — mesma promessa, idioma certo.
+const APP_DESCRIPTION =
+    'I take over platforms that have eroded to the point where no one can safely change them, and turn them into a delivery operation that runs on one meeting a month.'
 const APP_URL =
     process.env.NEXT_PUBLIC_SITE_URL || 'https://josenaldo.github.io'
 const APP_IMAGE = `${APP_URL}/images/og-default.png`

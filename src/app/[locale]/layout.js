@@ -2,7 +2,7 @@ import { notFound } from 'next/navigation'
 
 import { Box } from '@mui/material'
 import { hasLocale, NextIntlClientProvider } from 'next-intl'
-import { setRequestLocale } from 'next-intl/server'
+import { getTranslations, setRequestLocale } from 'next-intl/server'
 
 import Providers from '@/app/providers'
 import seoConfigModule from '@/data/SeoConfig'
@@ -14,7 +14,7 @@ import Header from '@/layouts/Header'
 import '@/styles/globals.css'
 import '@/styles/prism-theme.css'
 
-const { APP_NAME, APP_TITLE, APP_DESCRIPTION } = seoConfigModule
+const { APP_NAME, APP_TITLE } = seoConfigModule
 
 // Domínio canônico. A Task 7 é dona de `NEXT_PUBLIC_SITE_URL` e do workflow —
 // aqui só se consome a variável, com este literal como fallback de dev.
@@ -42,6 +42,8 @@ export function generateViewport() {
 export async function generateMetadata({ params }) {
     const { locale } = await params
     const ogLocale = OG_LOCALE_BY_LOCALE[locale] ?? OG_LOCALE_BY_LOCALE.en
+    const t = await getTranslations({ locale, namespace: 'Home.hero' })
+    const description = t('subhead')
 
     return {
         metadataBase: new URL(SITE_URL),
@@ -49,7 +51,7 @@ export async function generateMetadata({ params }) {
             template: '%s | Josenaldo Matos',
             default: APP_TITLE,
         },
-        description: APP_DESCRIPTION,
+        description,
         openGraph: {
             type: 'website',
             siteName: APP_TITLE,

@@ -1,4 +1,4 @@
-import { setRequestLocale } from 'next-intl/server'
+import { getTranslations, setRequestLocale } from 'next-intl/server'
 
 import seoConfigModule from '@/data/SeoConfig'
 import BlogSection from '@/features/home/Blog'
@@ -13,7 +13,7 @@ import WorkModesSection from '@/features/home/WorkModes'
 import { routing } from '@/i18n/routing'
 import contentService from '@/services/content'
 
-const { APP_TITLE, APP_DESCRIPTION, APP_IMAGE_OBJECT } = seoConfigModule
+const { APP_TITLE, APP_IMAGE_OBJECT } = seoConfigModule
 
 export function generateStaticParams() {
     return routing.locales.map((locale) => ({ locale }))
@@ -21,10 +21,12 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }) {
     const { locale } = await params
+    const t = await getTranslations({ locale, namespace: 'Home.hero' })
+    const description = t('subhead')
 
     return {
         title: APP_TITLE,
-        description: APP_DESCRIPTION,
+        description,
         alternates: {
             canonical: `/${locale}`,
             languages: {
@@ -34,7 +36,7 @@ export async function generateMetadata({ params }) {
         },
         openGraph: {
             title: APP_TITLE,
-            description: APP_DESCRIPTION,
+            description,
             url: `/${locale}`,
             // `openGraph` de página substitui o do layout inteiro, não faz merge
             // — sem esta linha a home saía sem `og:image`.
