@@ -2,8 +2,8 @@
 // (antes→depois) num grid centralizado; vira StatCard (valor único) num
 // grid de 4, alinhado à esquerda, com `SectionHeader n="01"`.
 //
-// Os quatro números são literais da spec (10 repositórios, ~5 chamados/mês,
-// 8 dias entre releases, 9.120 testes) — batem com
+// Os quatro números vêm de metrics.mjs, não de literais: a spec citava 9.120
+// testes, valor de uma medição anterior. Nenhum número é digitado aqui —
 // codebasesOwned/clientReportedIssues/deploymentFrequency.everyDays/
 // automatedTests em data/metrics.mjs.
 

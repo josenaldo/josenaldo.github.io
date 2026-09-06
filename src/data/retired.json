@@ -62,7 +62,7 @@
             ]
         },
         {
-            "motivo": "Três estimativas divergentes; o medido é **9.120**.",
+            "motivo": "Três estimativas divergentes. O valor correto é sempre o da última medição registrada em `automatedTests` — em 2026-09-06, **12.881**. Não recravar número aqui.",
             "variantes": [
                 "5.000+",
                 "5,000+",

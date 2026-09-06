@@ -81,7 +81,7 @@ const metrics = {
         id: 'automatedTests',
         engagement: 'medespecialista',
         before: { count: 70, confidence: 'measured' },
-        after: { count: 9120, confidence: 'measured' },
+        after: { count: 12881, confidence: 'measured' },
     },
     codebasesOwned: {
         id: 'codebasesOwned',
