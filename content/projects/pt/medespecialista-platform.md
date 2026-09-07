@@ -138,11 +138,8 @@ Links:
 
 - Produção: <https://medespecialista.com.br/>
 - Staging: <https://staging.medespecialista.com.br/>
-- API de produção: <https://api.medespecialista.com.br/>
-- API de staging: <https://api.staging.medespecialista.com.br/>
-- GitHub API: <https://github.com/medespecialista/api>
-- GitHub Admin: <https://github.com/medespecialista/admin>
-- GitHub Frontend: <https://github.com/medespecialista/frontend>
+
+Os repositórios e os endpoints de API são privados, do cliente, e não são divulgados.
 
 ## 10. Evidência Visual
 
