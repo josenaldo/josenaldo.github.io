@@ -1,5 +1,5 @@
 ---
-id: 6
+id: 7
 title: Codeflix Admin Catalog Backend
 description: A Java backend for catalog administration, organized into
   domain/application/infrastructure modules with focus on clean architecture and

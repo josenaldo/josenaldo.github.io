@@ -17,9 +17,13 @@ const CAMINHOS = {
     projetos: process.env.PROJETOS_ROOT ?? join(VAULT, 'Projetos'),
 }
 
+// Lista fechada de propósito: uma pasta nova no vault só entra no site depois
+// de ser declarada aqui, para que um rascunho não vaze para produção por
+// acidente. O preço é este: adicionar um projeto exige editar esta lista.
 const PASTAS_CONHECIDAS = [
     'medespecialista-platform',
     'livro-pog',
+    'codex-technomanticus',
     'farofa-lampiao-e-julieta',
     'aprendendo-git-e-github',
     'vite-js-react-template',

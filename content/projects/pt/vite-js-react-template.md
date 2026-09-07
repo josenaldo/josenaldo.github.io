@@ -1,5 +1,5 @@
 ---
-id: 4
+id: 5
 title: Vite JavaScript React Minimal Template
 description: A minimal React + Vite starter template with environment setup and
   standard scripts for fast project bootstrapping.

@@ -1,5 +1,5 @@
 ---
-id: 8
+id: 9
 title: WalletCore (EDA + Kafka)
 description: An event-driven wallet and balance system built with Kafka,
   integrating Go and Java services for asynchronous financial processing.
