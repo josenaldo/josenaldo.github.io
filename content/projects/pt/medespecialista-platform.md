@@ -143,5 +143,20 @@ Os repositórios e os endpoints de API são privados, do cliente, e não são di
 
 ## 10. Evidência Visual
 
-![MedEspecialista Frontend](/images/projects/prints/medespecialista-frontend-landing.png)
-![MedEspecialista Admin - Follow-up](/images/projects/prints/medespecialista-admin-followup.png)
+Capturas do ambiente de desenvolvimento. Nomes e dados pessoais de estudantes estão tarjados.
+
+![Cronograma Flexível — ciclo de matérias com progresso por matéria e próxima matéria a estudar](/images/projects/prints/medespecialista-cronograma-flexivel.webp)
+
+*Cronograma Flexível: o módulo que saiu de gráfico estático para ferramenta de planejamento — ciclo de matérias, progresso, e a decisão de concluir ou pular já embutida na tela.*
+
+![Dashboard do estudante — leitura da semana, indicadores de acerto, tempo de estudo e questões, e o dia no cronograma](/images/projects/prints/medespecialista-dashboard.webp)
+
+*Dashboard do aluno: a leitura da semana aponta a matéria que está puxando o resultado para baixo e liga direto no cronograma. Reformulado em agosto de 2026.*
+
+![Métricas de Estudo — tempo de questões, questões resolvidas, percentual de acerto, dias ativos e conquistas](/images/projects/prints/medespecialista-metricas-estudo.webp)
+
+*Métricas de Estudo v2: a reengenharia de 2026-05 que absorveu a Análise de Prova e trouxe triagem por coortes.*
+
+![Análise de Edital — guia do edital com informações gerais, datas e prazos críticos](/images/projects/prints/medespecialista-analise-edital.webp)
+
+*Análise de Edital: o processamento que era leitura e digitação manual virou extração de PDF com cache, score de confiança e revisão.*

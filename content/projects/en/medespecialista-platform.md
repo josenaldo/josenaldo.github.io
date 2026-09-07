@@ -143,5 +143,20 @@ The repositories and API endpoints are the client's and private; they are not pu
 
 ## 10. Visual Evidence
 
-![MedEspecialista Frontend](/images/projects/prints/medespecialista-frontend-landing.png)
-![MedEspecialista Admin - Follow-up](/images/projects/prints/medespecialista-admin-followup.png)
+Screens from the development environment. Student names and personal data are redacted.
+
+![Flexible study plan — subject cycle with per-subject progress and the next subject to study](/images/projects/prints/medespecialista-cronograma-flexivel.webp)
+
+*Flexible study plan: the module that went from a static chart to a planning tool — subject cycle, progress, and the decide-or-skip action built into the screen.*
+
+![Student dashboard — weekly read, accuracy, study time and question indicators, and the day's plan](/images/projects/prints/medespecialista-dashboard.webp)
+
+*Student dashboard: the weekly read names the subject dragging the result down and links straight into the study plan. Rebuilt in August 2026.*
+
+![Study metrics — question time, questions solved, accuracy, active days and achievements](/images/projects/prints/medespecialista-metricas-estudo.webp)
+
+*Study Metrics v2: the May 2026 re-engineering that absorbed Test Analysis and introduced cohort triage.*
+
+![Exam notice analysis — notice guide with general information, dates and critical deadlines](/images/projects/prints/medespecialista-analise-edital.webp)
+
+*Exam notice analysis: what used to be reading and retyping became PDF extraction with caching, a confidence score, and review.*
