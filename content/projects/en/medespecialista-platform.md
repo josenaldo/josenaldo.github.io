@@ -7,7 +7,7 @@ description: A multi-repository medical education platform I took over in August
   while production never stopped.
 projectUrl: https://medespecialista.com.br/
 pin: true
-image: /images/projects/prints/medespecialista-frontend-landing.png
+image: /images/projects/prints/medespecialista-login.webp
 kind: Client
 stack:
   - Node.js
