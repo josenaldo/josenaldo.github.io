@@ -91,7 +91,11 @@ const lastExperiences = (locale, numberOfExperiences) => {
 }
 
 const getAllProjects = (locale) => {
-    return allProjects.filter(byLocale(locale))
+    // `id` é o campo de ordem: vem de `ordem` no vault e é o que decide a
+    // sequência da vitrine (0 primeiro). Sem este sort a lista saía na ordem
+    // que o Contentlayer emite — alfabética por arquivo —, e o projeto
+    // principal caía em décimo.
+    return allProjects.filter(byLocale(locale)).sort((a, b) => a.id - b.id)
 }
 
 const getProjectData = (locale, slug) => {

@@ -39,6 +39,7 @@ export default async function ProjectsPage({ params }) {
     const projects = contentService.getAllProjects(locale).map((project) => ({
         title: project.title,
         description: project.description,
+        href: project.path,
         url: project.projectUrl,
         type: project.kind ?? null,
         stack: project.stack ?? null,
@@ -57,8 +58,21 @@ export default async function ProjectsPage({ params }) {
                         gap: '16px',
                     }}
                 >
-                    {projects.map((project) => (
-                        <ProjectCard key={project.url} {...project} />
+                    {projects.map((project, index) => (
+                        <Box
+                            key={project.href}
+                            // O primeiro da ordem ocupa a linha inteira. É o
+                            // caso mais forte do portfólio e a spec do DS não
+                            // prevê destaque — esta é a única divergência de
+                            // grade da tela, e ela é deliberada.
+                            sx={
+                                index === 0
+                                    ? { gridColumn: { md: '1 / -1' } }
+                                    : undefined
+                            }
+                        >
+                            <ProjectCard {...project} />
+                        </Box>
                     ))}
                 </Box>
             </Box>

@@ -3,9 +3,13 @@
 // "sem screenshot decorativo" — projeto pessoal não tem imagem de
 // marketing, a stack é a informação.
 //
-// `type`/`stack`/`sourceUrl` são campos novos e opcionais no schema
-// (contentlayer.config.js) — ainda não classificados em nenhum projeto, a
-// pílula/link só aparece quando o campo existir.
+// `type`/`stack`/`sourceUrl` são campos opcionais no schema
+// (contentlayer.config.js): a pílula/link só aparece quando o campo existir.
+//
+// `href` é a página de detalhe no próprio site; `url` é o site externo do
+// projeto. Até 2026-09, o card mandava o visitante direto para fora — as onze
+// páginas de detalhe existiam, estavam no sitemap, e não tinham um único link
+// apontando para elas. O título e a ação primária agora levam para o caso.
 
 'use client'
 
@@ -14,8 +18,17 @@ import { useTranslations } from 'next-intl'
 import PropTypes from 'prop-types'
 
 import Pill from '@/components/Pill'
+import { Link } from '@/i18n/navigation'
 
-const ProjectCard = ({ title, description, url, type, stack, sourceUrl }) => {
+const ProjectCard = ({
+    title,
+    description,
+    href,
+    url,
+    type,
+    stack,
+    sourceUrl,
+}) => {
     const t = useTranslations('Common')
 
     return (
@@ -40,7 +53,8 @@ const ProjectCard = ({ title, description, url, type, stack, sourceUrl }) => {
                 }}
             >
                 <Typography
-                    component="h2"
+                    component={href ? Link : 'h2'}
+                    href={href || undefined}
                     sx={{
                         m: 0,
                         fontFamily: "'Space Grotesk', system-ui, sans-serif",
@@ -49,6 +63,8 @@ const ProjectCard = ({ title, description, url, type, stack, sourceUrl }) => {
                         lineHeight: 1.25,
                         letterSpacing: '-.01em',
                         color: '#E9ECF2',
+                        textDecoration: 'none',
+                        '&:hover': { color: '#CDBBF8' },
                     }}
                 >
                     {title}
@@ -84,16 +100,40 @@ const ProjectCard = ({ title, description, url, type, stack, sourceUrl }) => {
                 </Box>
             ) : null}
 
-            <Box sx={{ display: 'flex', gap: '16px', mt: 'auto', pt: '6px' }}>
-                {url ? (
+            <Box
+                sx={{
+                    display: 'flex',
+                    flexWrap: 'wrap',
+                    gap: '16px',
+                    mt: 'auto',
+                    pt: '6px',
+                }}
+            >
+                {href ? (
                     <Box
-                        component="a"
-                        href={url}
+                        component={Link}
+                        href={href}
                         sx={{
                             fontSize: '14px',
                             color: '#B69BF0',
                             textDecoration: 'none',
                             '&:hover': { color: '#CDBBF8' },
+                        }}
+                    >
+                        {t('readCase')}
+                    </Box>
+                ) : null}
+                {url ? (
+                    <Box
+                        component="a"
+                        href={url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        sx={{
+                            fontSize: '14px',
+                            color: '#7C8494',
+                            textDecoration: 'none',
+                            '&:hover': { color: '#98A0B0' },
                         }}
                     >
                         {t('viewProject')}
@@ -123,6 +163,7 @@ const ProjectCard = ({ title, description, url, type, stack, sourceUrl }) => {
 ProjectCard.propTypes = {
     title: PropTypes.string.isRequired,
     description: PropTypes.string,
+    href: PropTypes.string,
     url: PropTypes.string,
     type: PropTypes.string,
     stack: PropTypes.arrayOf(PropTypes.string),
