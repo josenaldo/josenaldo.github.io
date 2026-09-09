@@ -5,12 +5,17 @@
 // Mesmo valor, sem a unidade colada nele. Serve para o cartão cuja LEGENDA
 // já carrega o período: "~5×/month" sob "client-reported issues a month" diz
 // "por mês" duas vezes. Estava duplicado dentro de Hero.js e de Evidence.js.
+// `atLeast: true` marca número publicado como PISO, não como contagem: sai
+// "10.000+". Serve para grandeza que cresce a cada release — cravar o valor
+// exato faz a copy envelhecer entre a escrita e a leitura. A contagem exata
+// fica no `note` da métrica canônica, como evidência.
 export function metricPlainCount(side, locale) {
     if (!side) return null
 
     const approx = side.confidence === 'counted' ? '~' : ''
+    const piso = side.atLeast ? '+' : ''
 
-    return `${approx}${side.count.toLocaleString(locale)}`
+    return `${approx}${side.count.toLocaleString(locale)}${piso}`
 }
 
 export function metricSideValue(side, locale) {
@@ -24,5 +29,8 @@ export function metricSideValue(side, locale) {
     // período agora precisa de uma string de tradução — ver `metricRateValue`
     // e as chaves `Metrics.<id>.heroBefore` / `.unit`.
     if (side.per) return `${approx}${side.count}×/${side.per}`
-    return `${approx}${side.count.toLocaleString(locale)}`
+
+    const piso = side.atLeast ? '+' : ''
+
+    return `${approx}${side.count.toLocaleString(locale)}${piso}`
 }

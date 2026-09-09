@@ -89,7 +89,7 @@ As datas são a primeira aparição do módulo em cada repositório. "Novo" sign
 
 ## 7. Qualidade, Processo e Impacto na Entrega
 
-A suíte automatizada tinha **70 casos** na API quando assumi. Em 6 de setembro de 2026, rodando todas as suítes, são **12.881 casos** distribuídos entre unidade, integração e ponta a ponta, executando em dezenove minutos. Os dois números não medem a mesma superfície — o primeiro é só da API, o segundo cobre quatro repositórios —, e a contagem mede tamanho de suíte, não suíte verde.
+A suíte automatizada tinha **70 casos** na API quando assumi. Hoje são **mais de 10.000 casos** distribuídos entre unidade, integração e ponta a ponta, nos quatro repositórios com suíte. O número é declarado como piso, e não como contagem exata, porque a suíte cresce a cada release. Os dois lados não medem a mesma superfície — o primeiro é só da API — e a contagem mede tamanho de suíte, não suíte verde.
 
 Outras medidas do sistema hoje: 441 rotas HTTP registradas na API, 124 migrations de banco em produção, 81 ADRs escritos.
 

@@ -34,6 +34,6 @@ My responsibility was to lead the modernization across the core repositories: th
 
 - Reduced deployment effort from **~2 hours to ~15 minutes** with automated CI/CD and repeatable staging/production workflows.
 - Reduced a manual monthly follow-up operation from **~1 month to ~2 hours** by turning it into an operational module.
-- Grew the automated suite from **70 cases in the `api`** to **12,881 cases** across the four suite targets, measured by running all of them on 2026-09-06.
+- Grew the automated suite from **70 cases in the `api`** to **10,000+ cases** across the four suite targets.
 - Converted edital/PDF processing from a mostly manual workflow into a validated extraction and review flow with admin screens, caching, error handling, filters, and automated tests.
 - Improved platform reliability and maintainability by adding stronger contracts, automated tests, E2E infrastructure, runtime monitoring, typed frontend/backend patterns, and a documented migration path from legacy modules to cleaner architecture.

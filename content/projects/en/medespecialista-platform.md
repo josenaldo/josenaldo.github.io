@@ -89,7 +89,7 @@ Dates are the first appearance of the module in each repository. "New" means it 
 
 ## 7. Quality, Process, and Delivery Impact
 
-The automated suite held **70 cases** in the API when I took over. On 6 September 2026, running every suite, it holds **12,881 cases** across unit, integration and end-to-end, finishing in nineteen minutes. The two numbers do not measure the same surface — the first covers only the API, the second covers four repositories — and the count measures suite size, not a green suite.
+The automated suite held **70 cases** in the API when I took over. Today it holds **10,000+ cases** across unit, integration and end-to-end, in the four repositories that have suites. The figure is stated as a floor rather than an exact count, because the suite grows with every release. The two sides do not measure the same surface — the first covers only the API — and the count measures suite size, not a green suite.
 
 Other measures of the system today: 441 HTTP routes registered in the API, 124 database migrations in production, 81 ADRs written.
 

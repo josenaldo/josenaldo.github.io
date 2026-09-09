@@ -2,10 +2,10 @@
 // (antes→depois) num grid centralizado; vira StatCard (valor único) num
 // grid de 4, alinhado à esquerda, com `SectionHeader n="01"`.
 //
-// Os quatro números vêm de metrics.mjs, não de literais: a spec citava 9.120
-// testes, valor de uma medição anterior. Nenhum número é digitado aqui —
-// codebasesOwned/clientReportedIssues/deploymentFrequency.everyDays/
-// automatedTests em data/metrics.mjs.
+// Os quatro números vêm de metrics.mjs, não de literais: a spec cravava uma
+// contagem de testes que já era de uma medição anterior. Nenhum número é
+// digitado aqui — codebasesOwned/clientReportedIssues/
+// deploymentFrequency.everyDays/automatedTests em data/metrics.mjs.
 
 import { Box, Typography } from '@mui/material'
 import { useLocale, useTranslations } from 'next-intl'

@@ -1,5 +1,5 @@
 {
-    "updated": "2026-09-06",
+    "updated": "2026-09-09",
     "entradas": [
         {
             "motivo": "Versão antiga; a atual é `~2h → ~15min`.",
@@ -62,14 +62,18 @@
             ]
         },
         {
-            "motivo": "Três estimativas divergentes. O valor correto é sempre o da última medição registrada em `automatedTests` — em 2026-09-06, **12.881**. Não recravar número aqui.",
+            "motivo": "Contagem exata de testes é número que envelhece: muda a cada release e a suíte já passou de 13 mil numa branch. A forma publicada é sempre o **piso** declarado em `automatedTests` — hoje **10.000+** (10,000+ em inglês). Contagem exata fica no `note` da métrica, como evidência, e não vai para superfície pública.",
             "variantes": [
                 "5.000+",
                 "5,000+",
                 "7.000+",
                 "7,000+",
                 "3.000+",
-                "3,000+"
+                "3,000+",
+                "9.120",
+                "9,120",
+                "12.881",
+                "12,881"
             ]
         },
         {

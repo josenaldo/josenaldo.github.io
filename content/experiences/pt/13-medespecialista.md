@@ -34,6 +34,6 @@ Minha responsabilidade era liderar a modernização nos repositórios centrais: 
 
 - Reduziu o esforço de deploy de **~2 horas para ~15 minutos** com CI/CD automatizado e fluxos repetíveis de staging/produção.
 - Reduziu uma operação manual mensal de follow-up de **~1 mês para ~2 horas** ao transformá-la em módulo operacional.
-- Levou a suíte automatizada de **70 casos no `api`** para **12.881 casos** nos quatro alvos de suíte, medidos rodando tudo em 2026-09-06.
+- Levou a suíte automatizada de **70 casos no `api`** para **10.000+ casos** nos quatro alvos de suíte.
 - Converteu o processamento de edital/PDF de um fluxo majoritariamente manual em um fluxo validado de extração e revisão, com telas de admin, cache, tratamento de erros, filtros e testes automatizados.
 - Melhorou a confiabilidade e a manutenibilidade da plataforma ao adicionar contratos mais fortes, testes automatizados, infraestrutura de E2E, monitoramento em tempo de execução, padrões tipados de frontend/backend, e um caminho de migração documentado dos módulos legados rumo a uma arquitetura mais limpa.
