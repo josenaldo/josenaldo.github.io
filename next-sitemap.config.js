@@ -7,6 +7,6 @@ module.exports = {
     // navegador e manda para `/en` ou `/pt` (ver `src/app/(root)/page.js`).
     // Quem indexa deve ir direto para a versão com locale — é o que as tags
     // `hreflang` apontam e o que `verify-alternates` confere.
-    exclude: ['/'],
+    exclude: ['/', '/en/google-privacy'],
     // ...other options
 }
